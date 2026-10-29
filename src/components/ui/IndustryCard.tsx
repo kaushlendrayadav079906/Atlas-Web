@@ -17,28 +17,26 @@ const iconMap: Record<string, React.ReactNode> = {
 
 export const IndustryCard: React.FC<IndustryCardProps> = ({ id, title, description, imageSrc }) => {
   return (
-    <div className="group flex flex-col justify-between rounded-2xl bg-white border border-slate-200/90 overflow-hidden shadow-sm hover:shadow-lg hover:border-slate-300 transition-all duration-300">
+    <div className="group flex flex-col justify-between rounded-xl bg-white border border-slate-200 overflow-hidden shadow-sm hover:shadow-lg hover:border-blue-300 transition-all duration-300 h-full">
       
-      {/* Photo Header */}
-      <div className="relative w-full h-44 sm:h-48 overflow-hidden bg-slate-100">
+      {/* Crystal Clear HD Photo Header */}
+      <div className="relative w-full h-48 sm:h-52 overflow-hidden bg-slate-100 border-b border-slate-200">
         <img
           src={imageSrc}
           alt={title}
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
           onError={(e) => {
-            // Fallback placeholder gradient if image cannot load
             e.currentTarget.style.display = 'none';
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
       </div>
 
-      {/* Card Content with 24-30px padding */}
+      {/* Card Body Box */}
       <div className="p-6 sm:p-7 flex-1 flex flex-col justify-between">
         <div>
-          {/* Header with Icon and Title (19-22px) */}
-          <div className="flex items-center gap-3 mb-2.5">
-            <div className="w-9 h-9 rounded-lg bg-blue-50 flex items-center justify-center shrink-0">
+          {/* Header with Icon Box and Title (19-22px) */}
+          <div className="flex items-center gap-3 mb-3">
+            <div className="w-10 h-10 rounded-lg bg-blue-50 border border-blue-100 flex items-center justify-center shrink-0">
               {iconMap[id] || <Factory className="w-5 h-5 text-blue-600" />}
             </div>
             <h3 className="text-[19px] sm:text-[21px] font-bold text-slate-900 group-hover:text-blue-600 transition-colors leading-snug">
@@ -52,12 +50,12 @@ export const IndustryCard: React.FC<IndustryCardProps> = ({ id, title, descripti
           </p>
         </div>
 
-        {/* Action Link */}
-        <div className="pt-2 flex items-center justify-between border-t border-slate-100">
-          <span className="text-[14px] font-semibold text-blue-600 group-hover:text-blue-700 flex items-center gap-1.5">
+        {/* Action Link Footer */}
+        <div className="pt-3 flex items-center justify-between border-t border-slate-100">
+          <span className="text-[15px] font-bold text-blue-600 group-hover:text-blue-700">
             Explore Sector
           </span>
-          <div className="w-8 h-8 rounded-full bg-slate-50 group-hover:bg-blue-600 group-hover:text-white text-slate-600 flex items-center justify-center transition-colors">
+          <div className="w-8 h-8 rounded-lg bg-blue-50 group-hover:bg-blue-600 group-hover:text-white text-blue-600 flex items-center justify-center transition-colors">
             <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
           </div>
         </div>

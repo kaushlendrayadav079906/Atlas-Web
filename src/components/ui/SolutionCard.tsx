@@ -18,19 +18,19 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({
   ctaTarget = "#contact"
 }) => {
   return (
-    <div className="group flex flex-col justify-between p-7 sm:p-8 rounded-2xl bg-white border border-slate-200/90 shadow-sm hover:shadow-xl hover:border-blue-200 transition-all duration-300">
+    <div className="group flex flex-col justify-between p-7 sm:p-8 rounded-xl bg-white border border-slate-200 shadow-sm hover:border-blue-400 hover:shadow-lg transition-all duration-300 h-full">
       <div>
-        {/* Top Partner Logo / Icon */}
-        <div className="h-10 flex items-center mb-6">
+        {/* Top Logo / Icon Box */}
+        <div className="h-12 flex items-center mb-6 pb-4 border-b border-slate-100">
           {id === 'sap-b1' && <SAPBusinessOneLogo className="h-7" />}
           {id === 'boyum' && <BoyumITLogo className="h-7" />}
           {id === 'uipath' && <UiPathLogo className="h-7" />}
           {id === 'atlas' && (
-            <div className="flex items-center gap-2">
-              <div className="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center">
-                <Settings className="w-6 h-6 animate-[spin_10s_linear_infinite]" />
+            <div className="flex items-center gap-2.5">
+              <div className="w-9 h-9 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center border border-blue-100">
+                <Settings className="w-5 h-5 animate-[spin_10s_linear_infinite]" />
               </div>
-              <span className="font-extrabold text-[15px] tracking-tight text-slate-800">ATLAS Add-ons</span>
+              <span className="font-extrabold text-[16px] tracking-tight text-slate-900">ATLAS Add-ons</span>
             </div>
           )}
         </div>
@@ -41,7 +41,7 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({
         </h3>
 
         {/* Bullets: 16–17px */}
-        <ul className="space-y-3 mb-8">
+        <ul className="space-y-3.5 mb-8">
           {bullets.map((bullet, idx) => (
             <li key={idx} className="flex items-start gap-3 text-[15px] sm:text-[16px] text-slate-600">
               <span className="w-2 h-2 rounded-full bg-blue-600 shrink-0 mt-2" />

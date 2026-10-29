@@ -9,7 +9,7 @@ import {
   ChevronRight,
   Send,
   ShieldCheck,
-  ExternalLink
+  Award
 } from 'lucide-react';
 import { Button } from '../components/ui/Button';
 import { SectionHeading } from '../components/ui/SectionHeading';
@@ -19,7 +19,7 @@ import { IndustryCard } from '../components/ui/IndustryCard';
 import { ProcessStep } from '../components/ui/ProcessStep';
 import { TestimonialCard } from '../components/ui/TestimonialCard';
 import { Modal } from '../components/ui/Modal';
-import { PartnerLogosStrip, SAPBusinessOneLogo, BoyumITLogo, UiPathLogo } from '../components/ui/PartnerLogos';
+import { SAPBusinessOneLogo, BoyumITLogo, UiPathLogo } from '../components/ui/PartnerLogos';
 import { BRAND_INFO, TRUST_METRICS } from '../data/websiteContent';
 import { ContactFormData } from '../types';
 
@@ -46,13 +46,13 @@ export const HomePage: React.FC = () => {
       id: 'test-1',
       quote: "ATLAS Technosoft helped us streamline our business processes with SAP Business One and automation solutions.",
       author: "— CEO, Leading Logistics Company (To be verified)",
-      imageSrc: "/images/reference_crops/testimonial_1.jpg"
+      imageSrc: "/images/hd/testimonial_1.jpg"
     },
     {
       id: 'test-2',
       quote: "Their expertise in warehouse solutions significantly improved our operational efficiency and reduced inventory errors.",
       author: "— CFO, Manufacturing Client (To be verified)",
-      imageSrc: "/images/reference_crops/testimonial_2.jpg"
+      imageSrc: "/images/hd/testimonial_2.jpg"
     }
   ];
 
@@ -183,21 +183,17 @@ export const HomePage: React.FC = () => {
               </div>
             </div>
 
-            {/* Right Column: Hero Visual with Real Team Photo & Partner Logos Strip */}
+            {/* Right Column: Hero Visual with Crystal Clear HD Team Photo & Partner Logos Strip */}
             <div className="lg:col-span-5 relative">
-              <div className="relative mx-auto w-full max-w-lg lg:max-w-none rounded-3xl overflow-hidden shadow-2xl border border-slate-200/80 bg-white">
+              <div className="relative mx-auto w-full max-w-lg lg:max-w-none rounded-2xl overflow-hidden shadow-xl border border-slate-200 bg-white">
                 <img
-                  src="/images/reference_crops/hero_team.jpg"
-                  alt="ATLAS Technosoft Enterprise Team collaborating on SAP Business One Dashboard"
+                  src="/images/hd/hero_team.jpg"
+                  alt="ATLAS Technosoft Enterprise Team collaborating on ERP"
                   className="w-full h-auto object-cover max-h-[380px]"
-                  onError={(e) => {
-                    // Fallback to executive command center dashboard if crop is unavailable
-                    e.currentTarget.src = "/images/dashboards/executive-command-center.jpg";
-                  }}
                 />
 
-                {/* Bottom Overlay Partner Logo Ribbon */}
-                <div className="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-md rounded-2xl py-3 px-5 shadow-lg border border-slate-200/80 flex items-center justify-around">
+                {/* Bottom Overlay Partner Logo Ribbon Box */}
+                <div className="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-md rounded-xl py-3 px-5 shadow-lg border border-slate-200/90 flex items-center justify-around">
                   <SAPBusinessOneLogo className="h-6 sm:h-7" />
                   <div className="h-5 w-px bg-slate-200" />
                   <BoyumITLogo className="h-6 sm:h-7" />
@@ -212,26 +208,22 @@ export const HomePage: React.FC = () => {
       </section>
 
       {/* ========================================================================= */}
-      {/* SECTION 4: COMPANY METRICS BAR                                            */}
+      {/* SECTION 4: COMPANY METRICS BAR (4 DISTINCT BOX-TYPE CARDS)                */}
       {/* ========================================================================= */}
-      <section id="metrics" className="py-8 bg-white border-b border-slate-100">
+      <section id="metrics" className="py-10 bg-slate-50/70 border-b border-slate-200/80">
         <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="rounded-3xl bg-white border border-slate-200/90 shadow-sm p-4 sm:p-6 lg:p-8">
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 divide-y sm:divide-y-0 sm:divide-x divide-slate-100">
-              {TRUST_METRICS.map((metric) => (
-                <div key={metric.id} className="pt-4 sm:pt-0 first:pt-0">
-                  <MetricCard metric={metric} />
-                </div>
-              ))}
-            </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {TRUST_METRICS.map((metric) => (
+              <MetricCard key={metric.id} metric={metric} />
+            ))}
           </div>
         </div>
       </section>
 
       {/* ========================================================================= */}
-      {/* SECTION 5: SERVICES OVERVIEW (4 SPACIOUS CARDS)                           */}
+      {/* SECTION 5: SERVICES OVERVIEW (4 BOX-TYPE CARDS)                           */}
       {/* ========================================================================= */}
-      <section id="services" className="py-16 sm:py-20 lg:py-24 bg-slate-50/60 border-b border-slate-100">
+      <section id="services" className="py-16 sm:py-20 lg:py-24 bg-white border-b border-slate-200/80">
         <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
           
           <SectionHeading
@@ -242,7 +234,6 @@ export const HomePage: React.FC = () => {
           />
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
-            {/* Card 1: SAP Business One */}
             <ServiceCard
               id="sap-b1"
               title="SAP Business One Implementation & Optimization"
@@ -255,7 +246,6 @@ export const HomePage: React.FC = () => {
               ctaTarget="#contact"
             />
 
-            {/* Card 2: Boyum IT Solutions */}
             <ServiceCard
               id="boyum"
               title="Boyum IT Solutions"
@@ -268,7 +258,6 @@ export const HomePage: React.FC = () => {
               ctaTarget="#contact"
             />
 
-            {/* Card 3: UiPath RPA & AI Automation */}
             <ServiceCard
               id="uipath"
               title="UiPath RPA & AI Automation"
@@ -281,7 +270,6 @@ export const HomePage: React.FC = () => {
               ctaTarget="#contact"
             />
 
-            {/* Card 4: ATLAS Proprietary Add-ons */}
             <ServiceCard
               id="atlas"
               title="ATLAS Proprietary Add-ons"
@@ -303,7 +291,7 @@ export const HomePage: React.FC = () => {
       {/* ========================================================================= */}
       {/* SECTION 6: OUR EXPERTISE (BRIDGING ERP AND AUTOMATION)                    */}
       {/* ========================================================================= */}
-      <section id="expertise" className="py-16 sm:py-20 lg:py-24 bg-white border-b border-slate-100">
+      <section id="expertise" className="py-16 sm:py-20 lg:py-24 bg-slate-50/60 border-b border-slate-200/80">
         <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
             
@@ -318,37 +306,39 @@ export const HomePage: React.FC = () => {
                 </h2>
               </div>
 
-              {/* Body Text: 17–18px Desktop, 16–18px Mobile */}
+              {/* Body Text: 17–18px Desktop */}
               <p className="text-[16px] sm:text-[17px] lg:text-[18px] text-slate-600 leading-relaxed">
                 We combine deep expertise in SAP Business One, business process optimization, manufacturing and warehouse solutions, and intelligent automation to deliver real business value.
               </p>
 
-              {/* Large, Readable Checklist: 16–18px */}
-              <ul className="space-y-4 pt-2">
+              {/* Boxed Checklist Rows */}
+              <div className="space-y-3 pt-2">
                 {[
                   "End-to-end ERP implementation and support",
                   "Industry-focused solutions for manufacturing, warehousing, and trading",
                   "Business process optimization",
                   "Intelligent automation with RPA and AI"
                 ].map((item, idx) => (
-                  <li key={idx} className="flex items-start gap-3.5 text-[16px] sm:text-[17px] text-slate-800 font-medium">
+                  <div
+                    key={idx}
+                    className="p-4 rounded-xl bg-white border border-slate-200 shadow-sm flex items-start gap-3.5 hover:border-blue-300 transition-colors"
+                  >
                     <CheckCircle2 className="w-5 h-5 text-blue-600 shrink-0 mt-0.5" />
-                    <span>{item}</span>
-                  </li>
+                    <span className="text-[16px] sm:text-[17px] text-slate-800 font-medium leading-snug">
+                      {item}
+                    </span>
+                  </div>
                 ))}
-              </ul>
+              </div>
             </div>
 
-            {/* Right Image: High-Tech ERP Laptop Visual */}
+            {/* Right Image: Crystal Clear HD Laptop & High-Tech Visual in Box Frame */}
             <div className="lg:col-span-6 relative">
-              <div className="relative rounded-3xl overflow-hidden shadow-xl border border-slate-200 bg-slate-900 max-h-[380px]">
+              <div className="relative rounded-2xl overflow-hidden shadow-xl border border-slate-200 bg-white max-h-[420px]">
                 <img
-                  src="/images/reference_crops/expertise_erp.jpg"
+                  src="/images/hd/expertise_erp.jpg"
                   alt="Bridging ERP, Manufacturing Robotics, Analytics and Cloud Automation"
                   className="w-full h-full object-cover"
-                  onError={(e) => {
-                    e.currentTarget.src = "/images/dashboards/multi-plant.jpg";
-                  }}
                 />
               </div>
             </div>
@@ -358,9 +348,9 @@ export const HomePage: React.FC = () => {
       </section>
 
       {/* ========================================================================= */}
-      {/* SECTION 7: INDUSTRIES WE SERVE (4 CARDS)                                  */}
+      {/* SECTION 7: INDUSTRIES WE SERVE (4 BOX-TYPE CARDS)                         */}
       {/* ========================================================================= */}
-      <section id="industries" className="py-16 sm:py-20 lg:py-24 bg-slate-50/60 border-b border-slate-100">
+      <section id="industries" className="py-16 sm:py-20 lg:py-24 bg-white border-b border-slate-200/80">
         <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
           
           <SectionHeading
@@ -375,25 +365,25 @@ export const HomePage: React.FC = () => {
               id="manufacturing"
               title="Manufacturing"
               description="Streamline production, inventory and operations."
-              imageSrc="/images/reference_crops/ind_manufacturing.jpg"
+              imageSrc="/images/hd/ind_manufacturing.jpg"
             />
             <IndustryCard
               id="warehouse"
               title="Warehouse & Logistics"
               description="Optimize warehousing, logistics and supply chain."
-              imageSrc="/images/reference_crops/ind_warehouse.jpg"
+              imageSrc="/images/hd/ind_warehouse.jpg"
             />
             <IndustryCard
               id="finance"
               title="Finance & Administration"
               description="Improve financial control and administrative efficiency."
-              imageSrc="/images/reference_crops/ind_finance.jpg"
+              imageSrc="/images/hd/ind_finance.jpg"
             />
             <IndustryCard
               id="trading"
               title="Trading & Shipping"
               description="Enhance trading operations and shipping processes."
-              imageSrc="/images/reference_crops/ind_shipping.jpg"
+              imageSrc="/images/hd/ind_shipping.jpg"
             />
           </div>
 
@@ -401,9 +391,9 @@ export const HomePage: React.FC = () => {
       </section>
 
       {/* ========================================================================= */}
-      {/* SECTION 8: OUR APPROACH (4 PROCESS STEPS)                                 */}
+      {/* SECTION 8: OUR APPROACH (4 BOX-TYPE PROCESS STEPS)                        */}
       {/* ========================================================================= */}
-      <section id="approach" className="py-16 sm:py-20 lg:py-24 bg-white border-b border-slate-100">
+      <section id="approach" className="py-16 sm:py-20 lg:py-24 bg-slate-50/60 border-b border-slate-200/80">
         <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
           
           <SectionHeading
@@ -441,9 +431,9 @@ export const HomePage: React.FC = () => {
       </section>
 
       {/* ========================================================================= */}
-      {/* SECTION 9: CUSTOMER SUCCESS (TESTIMONIALS)                                */}
+      {/* SECTION 9: CUSTOMER SUCCESS (BOX-TYPE TESTIMONIAL CAROUSEL)               */}
       {/* ========================================================================= */}
-      <section id="case-studies" className="py-16 sm:py-20 lg:py-24 bg-slate-50/60 border-b border-slate-100">
+      <section id="case-studies" className="py-16 sm:py-20 lg:py-24 bg-white border-b border-slate-200/80">
         <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
           
           <SectionHeading
@@ -453,7 +443,7 @@ export const HomePage: React.FC = () => {
             align="center"
           />
 
-          {/* Testimonials Carousel Container */}
+          {/* Testimonial Box Container */}
           <div className="relative max-w-4xl mx-auto">
             <TestimonialCard
               quote={testimonialsData[currentTestimonialIndex].quote}
@@ -466,13 +456,13 @@ export const HomePage: React.FC = () => {
               <button
                 type="button"
                 onClick={handlePrevTestimonial}
-                className="w-10 h-10 rounded-full bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 hover:text-blue-600 flex items-center justify-center shadow-sm transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
+                className="w-11 h-11 rounded-xl bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 hover:text-blue-600 flex items-center justify-center shadow-sm transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
                 aria-label="Previous Testimonial"
               >
                 <ChevronLeft className="w-5 h-5" />
               </button>
 
-              {/* Carousel Indicator Dots */}
+              {/* Indicator Dots */}
               <div className="flex items-center gap-2">
                 {testimonialsData.map((_, idx) => (
                   <button
@@ -490,7 +480,7 @@ export const HomePage: React.FC = () => {
               <button
                 type="button"
                 onClick={handleNextTestimonial}
-                className="w-10 h-10 rounded-full bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 hover:text-blue-600 flex items-center justify-center shadow-sm transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
+                className="w-11 h-11 rounded-xl bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 hover:text-blue-600 flex items-center justify-center shadow-sm transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
                 aria-label="Next Testimonial"
               >
                 <ChevronRight className="w-5 h-5" />
@@ -502,9 +492,9 @@ export const HomePage: React.FC = () => {
       </section>
 
       {/* ========================================================================= */}
-      {/* SECTION 10: OUR PARTNERS                                                  */}
+      {/* SECTION 10: OUR PARTNERS (3 BOX-TYPE PARTNER CARDS)                       */}
       {/* ========================================================================= */}
-      <section id="partners" className="py-16 sm:py-20 lg:py-22 bg-white border-b border-slate-100">
+      <section id="partners" className="py-16 sm:py-20 lg:py-22 bg-slate-50/60 border-b border-slate-200/80">
         <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
           
           <SectionHeading
@@ -514,21 +504,40 @@ export const HomePage: React.FC = () => {
             align="center"
           />
 
-          <div className="max-w-2xl mx-auto flex items-center justify-center">
-            <PartnerLogosStrip className="scale-110 sm:scale-125" />
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
+            {/* Box 1: SAP Business One */}
+            <div className="p-7 rounded-xl bg-white border border-slate-200 shadow-sm hover:border-blue-300 hover:shadow-md transition-all flex flex-col items-center text-center justify-between">
+              <SAPBusinessOneLogo className="h-8 mb-3" />
+              <div className="text-[14px] font-bold text-slate-800">Authorized Channel Partner</div>
+              <div className="text-[12px] text-slate-500 mt-1">Full-cycle ERP Implementation & HANA</div>
+            </div>
+
+            {/* Box 2: Boyum IT */}
+            <div className="p-7 rounded-xl bg-white border border-slate-200 shadow-sm hover:border-blue-300 hover:shadow-md transition-all flex flex-col items-center text-center justify-between">
+              <BoyumITLogo className="h-8 mb-3" />
+              <div className="text-[14px] font-bold text-slate-800">Silver Partner</div>
+              <div className="text-[12px] text-slate-500 mt-1">Beas Manufacturing & Produmex WMS</div>
+            </div>
+
+            {/* Box 3: UiPath */}
+            <div className="p-7 rounded-xl bg-white border border-slate-200 shadow-sm hover:border-blue-300 hover:shadow-md transition-all flex flex-col items-center text-center justify-between">
+              <UiPathLogo className="h-8 mb-3" />
+              <div className="text-[14px] font-bold text-slate-800">Silver Partner</div>
+              <div className="text-[12px] text-slate-500 mt-1">Hyperautomation & Document AI</div>
+            </div>
           </div>
 
         </div>
       </section>
 
       {/* ========================================================================= */}
-      {/* SECTION 11: LET'S DISCUSS YOUR BUSINESS NEEDS (CONTACT CTA & DETAILS)     */}
+      {/* SECTION 11: LET'S DISCUSS YOUR BUSINESS NEEDS (BOX-TYPE BANNER & CARDS)   */}
       {/* ========================================================================= */}
-      <section id="contact" className="py-16 sm:py-20 lg:py-24 bg-slate-50/60">
+      <section id="contact" className="py-16 sm:py-20 lg:py-24 bg-white">
         <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
           
-          {/* Large Rounded Consultation Card from Reference Design */}
-          <div className="rounded-3xl bg-gradient-to-br from-blue-50/80 via-sky-50/40 to-blue-50/80 border border-blue-100 p-8 sm:p-12 lg:p-14 shadow-sm">
+          {/* Defined Box Container */}
+          <div className="rounded-2xl bg-gradient-to-br from-blue-50/90 via-sky-50/50 to-blue-50/90 border border-blue-200 p-8 sm:p-12 lg:p-14 shadow-sm">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
               
               {/* Left Column: Heading, Subtext & CTA Button */}
@@ -554,12 +563,12 @@ export const HomePage: React.FC = () => {
                 </div>
               </div>
 
-              {/* Right Column: 3 Contact Info Cards */}
+              {/* Right Column: 3 White Boxed Contact Info Cards */}
               <div className="lg:col-span-6 space-y-4">
                 
-                {/* Email Card */}
-                <div className="flex items-center gap-4 p-4 sm:p-5 rounded-2xl bg-white border border-slate-200/90 shadow-sm">
-                  <div className="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
+                {/* Email Box Card */}
+                <div className="flex items-center gap-4 p-4 sm:p-5 rounded-xl bg-white border border-slate-200 shadow-sm hover:border-blue-300 transition-colors">
+                  <div className="w-12 h-12 rounded-lg bg-blue-50 border border-blue-100 text-blue-600 flex items-center justify-center shrink-0">
                     <Mail className="w-6 h-6" />
                   </div>
                   <div>
@@ -575,9 +584,9 @@ export const HomePage: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Phone Card */}
-                <div className="flex items-center gap-4 p-4 sm:p-5 rounded-2xl bg-white border border-slate-200/90 shadow-sm">
-                  <div className="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
+                {/* Phone Box Card */}
+                <div className="flex items-center gap-4 p-4 sm:p-5 rounded-xl bg-white border border-slate-200 shadow-sm hover:border-blue-300 transition-colors">
+                  <div className="w-12 h-12 rounded-lg bg-blue-50 border border-blue-100 text-blue-600 flex items-center justify-center shrink-0">
                     <Phone className="w-6 h-6" />
                   </div>
                   <div>
@@ -595,9 +604,9 @@ export const HomePage: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Locations Card */}
-                <div className="flex items-center gap-4 p-4 sm:p-5 rounded-2xl bg-white border border-slate-200/90 shadow-sm">
-                  <div className="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
+                {/* Locations Box Card */}
+                <div className="flex items-center gap-4 p-4 sm:p-5 rounded-xl bg-white border border-slate-200 shadow-sm hover:border-blue-300 transition-colors">
+                  <div className="w-12 h-12 rounded-lg bg-blue-50 border border-blue-100 text-blue-600 flex items-center justify-center shrink-0">
                     <MapPin className="w-6 h-6" />
                   </div>
                   <div>
@@ -619,7 +628,7 @@ export const HomePage: React.FC = () => {
       </section>
 
       {/* ========================================================================= */}
-      {/* INTERACTIVE CONSULTATION BOOKING MODAL (Zero Backend Pretending)          */}
+      {/* INTERACTIVE CONSULTATION BOOKING MODAL                                    */}
       {/* ========================================================================= */}
       <Modal
         isOpen={isModalOpen}

@@ -37,3 +37,4 @@ export const PartnerLogosStrip: React.FC<{ className?: string }> = ({ className 
     <UiPathLogo />
   </div>
 );
+
