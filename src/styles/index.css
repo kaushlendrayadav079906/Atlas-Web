@@ -1,6 +1,6 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
 
 @layer base {
   html {
@@ -36,4 +36,3 @@
   background-image: radial-gradient(rgba(148, 163, 184, 0.25) 1px, transparent 1px);
   background-size: 24px 24px;
 }
-
