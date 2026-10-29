@@ -1,74 +1,68 @@
 import React from 'react';
-import { Factory, Boxes, Landmark, Ship, CheckCircle, TrendingUp } from 'lucide-react';
-import { IndustryItem } from '../../types';
-
-const iconMap: Record<string, React.ReactNode> = {
-  Factory: <Factory className="w-6 h-6 text-brand-600" />,
-  Boxes: <Boxes className="w-6 h-6 text-indigo-600" />,
-  Finance: <Landmark className="w-6 h-6 text-emerald-600" />,
-  Ship: <Ship className="w-6 h-6 text-cyan-600" />,
-};
+import { Factory, Truck, Database, Ship, ArrowRight } from 'lucide-react';
 
 interface IndustryCardProps {
-  industry: IndustryItem;
+  id: string;
+  title: string;
+  description: string;
+  imageSrc: string;
 }
 
-export const IndustryCard: React.FC<IndustryCardProps> = ({ industry }) => {
+const iconMap: Record<string, React.ReactNode> = {
+  manufacturing: <Factory className="w-5 h-5 text-blue-600" />,
+  warehouse: <Truck className="w-5 h-5 text-blue-600" />,
+  finance: <Database className="w-5 h-5 text-blue-600" />,
+  trading: <Ship className="w-5 h-5 text-blue-600" />,
+};
+
+export const IndustryCard: React.FC<IndustryCardProps> = ({ id, title, description, imageSrc }) => {
   return (
-    <div className="flex flex-col justify-between p-6 sm:p-7 rounded-2xl bg-white border border-slate-200/90 shadow-sm hover:shadow-lg hover:border-slate-300 transition-all duration-300">
-      <div>
-        {/* Header */}
-        <div className="flex items-center gap-3.5 mb-4">
-          <div className="p-3 rounded-xl bg-slate-50 border border-slate-100 shrink-0">
-            {iconMap[industry.iconName] || <Factory className="w-6 h-6 text-brand-600" />}
-          </div>
-          <div>
-            <h3 className="text-lg font-bold text-slate-900 leading-snug">
-              {industry.title}
+    <div className="group flex flex-col justify-between rounded-2xl bg-white border border-slate-200/90 overflow-hidden shadow-sm hover:shadow-lg hover:border-slate-300 transition-all duration-300">
+      
+      {/* Photo Header */}
+      <div className="relative w-full h-44 sm:h-48 overflow-hidden bg-slate-100">
+        <img
+          src={imageSrc}
+          alt={title}
+          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          onError={(e) => {
+            // Fallback placeholder gradient if image cannot load
+            e.currentTarget.style.display = 'none';
+          }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+      </div>
+
+      {/* Card Content with 24-30px padding */}
+      <div className="p-6 sm:p-7 flex-1 flex flex-col justify-between">
+        <div>
+          {/* Header with Icon and Title (19-22px) */}
+          <div className="flex items-center gap-3 mb-2.5">
+            <div className="w-9 h-9 rounded-lg bg-blue-50 flex items-center justify-center shrink-0">
+              {iconMap[id] || <Factory className="w-5 h-5 text-blue-600" />}
+            </div>
+            <h3 className="text-[19px] sm:text-[21px] font-bold text-slate-900 group-hover:text-blue-600 transition-colors leading-snug">
+              {title}
             </h3>
-            <span className="text-xs font-semibold text-brand-600 uppercase tracking-wider">
-              {industry.subtitle}
-            </span>
+          </div>
+
+          {/* Description (16-17px) */}
+          <p className="text-[15px] sm:text-[16px] text-slate-600 leading-relaxed mb-4">
+            {description}
+          </p>
+        </div>
+
+        {/* Action Link */}
+        <div className="pt-2 flex items-center justify-between border-t border-slate-100">
+          <span className="text-[14px] font-semibold text-blue-600 group-hover:text-blue-700 flex items-center gap-1.5">
+            Explore Sector
+          </span>
+          <div className="w-8 h-8 rounded-full bg-slate-50 group-hover:bg-blue-600 group-hover:text-white text-slate-600 flex items-center justify-center transition-colors">
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
           </div>
         </div>
-
-        {/* Operational Challenge */}
-        <div className="mb-4 p-3 rounded-xl bg-rose-50/60 border border-rose-100/60">
-          <span className="text-[11px] font-bold uppercase tracking-wider text-rose-800 block mb-1">
-            Operational Challenge
-          </span>
-          <p className="text-xs text-rose-950 leading-relaxed">
-            {industry.painPoints}
-          </p>
-        </div>
-
-        {/* Delivered Solution */}
-        <div className="mb-5">
-          <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400 block mb-1">
-            Engineered Solution
-          </span>
-          <p className="text-xs sm:text-sm text-slate-700 font-medium leading-relaxed">
-            {industry.deliveredSolution}
-          </p>
-        </div>
       </div>
 
-      {/* Measurable Outcomes */}
-      <div className="pt-4 border-t border-slate-100">
-        <span className="text-[11px] font-bold uppercase tracking-wider text-slate-500 flex items-center gap-1.5 mb-2.5">
-          <TrendingUp className="w-3.5 h-3.5 text-brand-600" />
-          Documented Impact
-        </span>
-        <ul className="space-y-2">
-          {industry.keyOutcomes.map((kpi, idx) => (
-            <li key={idx} className="flex items-start gap-2 text-xs text-slate-800 font-medium">
-              <CheckCircle className="w-3.5 h-3.5 text-brand-600 shrink-0 mt-0.5" />
-              <span>{kpi}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
     </div>
   );
 };
-

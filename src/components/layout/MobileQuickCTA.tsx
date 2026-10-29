@@ -4,8 +4,8 @@ import { BRAND_INFO } from '../../data/websiteContent';
 
 export const MobileQuickCTA: React.FC = () => {
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-30 md:hidden bg-navy-950/95 backdrop-blur-md border-t border-navy-800 p-3 shadow-2xl">
-      <div className="flex items-center gap-2">
+    <div className="fixed bottom-0 left-0 right-0 z-30 md:hidden bg-[#070D1E]/95 backdrop-blur-md border-t border-slate-800 p-3 shadow-2xl">
+      <div className="flex items-center gap-2.5">
         <a
           href={BRAND_INFO.contact.whatsappLink}
           target="_blank"
@@ -18,7 +18,7 @@ export const MobileQuickCTA: React.FC = () => {
 
         <a
           href="#contact"
-          className="flex-1 flex items-center justify-center gap-1.5 py-3 px-4 rounded-lg bg-brand-600 hover:bg-brand-500 text-white text-xs font-bold uppercase tracking-wider shadow-md transition-colors text-center"
+          className="flex-1 flex items-center justify-center gap-2 py-3 px-4 rounded-lg bg-blue-600 hover:bg-blue-700 text-white text-[16px] font-semibold tracking-wide shadow-md transition-colors text-center"
         >
           <span>Book a Consultation</span>
           <ArrowRight className="w-4 h-4" />

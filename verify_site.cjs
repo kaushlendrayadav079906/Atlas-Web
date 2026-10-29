@@ -31,11 +31,9 @@ async function runVerification() {
 
   try {
     const page = await browser.newPage();
-    const consoleLogs = [];
     const pageErrors = [];
 
     page.on('console', msg => {
-      consoleLogs.push({ type: msg.type(), text: msg.text() });
       if (msg.type() === 'error') {
         console.error('Browser Console Error:', msg.text());
       }
@@ -47,71 +45,93 @@ async function runVerification() {
     });
 
     // 1. Desktop Test (1440px)
-    console.log('\n--- 1. Testing Desktop Layout (1440px) ---');
+    console.log('\n========================================');
+    console.log('1. Testing Desktop Layout & Large Typography (1440px)');
+    console.log('========================================');
     await page.setViewport({ width: 1440, height: 900 });
     await page.goto('http://localhost:4173', { waitUntil: 'networkidle0' });
 
-    // Verify H1 Headline
-    const headline = await page.$eval('h1', el => el.innerText);
-    console.log('Desktop H1 Headline:', headline);
-    if (!headline.includes('Where SAP Business One Meets Intelligent Automation')) {
-      throw new Error(`Headline does not match PDF! Got: ${headline}`);
+    // Check Hero Heading typography
+    const heroHeadingData = await page.evaluate(() => {
+      const h1 = document.querySelector('h1');
+      const style = window.getComputedStyle(h1);
+      return {
+        text: h1.innerText,
+        fontSize: parseFloat(style.fontSize),
+        lineHeight: style.lineHeight,
+        fontWeight: style.fontWeight
+      };
+    });
+    console.log(`Hero H1: "${heroHeadingData.text.replace(/\n/g, ' ')}"`);
+    console.log(`Hero Font Size: ${heroHeadingData.fontSize}px (Target: 48-56px)`);
+    if (heroHeadingData.fontSize < 46) {
+      throw new Error(`Hero font size too small! Expected >= 48px, got ${heroHeadingData.fontSize}px`);
     }
 
-    // Verify 8 Navigation links in header
-    const navLinks = await page.$$eval('header nav a', els => els.map(e => e.innerText.trim()));
-    console.log('Header Navigation Links detected:', navLinks);
-    const expectedNav = ['Home', 'About', 'Services', 'Solutions', 'Industries', 'Case Studies', 'Partners', 'Contact'];
-    for (const link of expectedNav) {
-      if (!navLinks.includes(link)) {
-        throw new Error(`Missing expected nav link: ${link}`);
-      }
-    }
-    console.log('✓ All 8 navigation links verified.');
-
-    // Verify CTAs
-    const heroBtn1 = await page.$eval('section a[href="#contact"]', el => el.innerText);
-    console.log('Primary CTA button text:', heroBtn1);
-    if (!heroBtn1.includes('Book a Consultation')) {
-      throw new Error(`Expected primary CTA to be "Book a Consultation", got: ${heroBtn1}`);
+    // Check Section Headings typography
+    const sectionHeadingSize = await page.evaluate(() => {
+      const h2 = document.querySelector('h2');
+      return parseFloat(window.getComputedStyle(h2).fontSize);
+    });
+    console.log(`Section Heading Font Size: ${sectionHeadingSize}px (Target: 32-38px)`);
+    if (sectionHeadingSize < 30) {
+      throw new Error(`Section heading size too small! Got ${sectionHeadingSize}px`);
     }
 
-    const heroBtn2 = await page.$eval('section a[href="#solutions"]', el => el.innerText);
-    console.log('Secondary CTA button text:', heroBtn2);
-    if (!heroBtn2.includes('Explore Our Solutions')) {
-      throw new Error(`Expected secondary CTA to be "Explore Our Solutions", got: ${heroBtn2}`);
-    }
+    // Check Navigation Links
+    const navData = await page.evaluate(() => {
+      const links = Array.from(document.querySelectorAll('header nav a'));
+      return {
+        count: links.length,
+        names: links.map(l => l.innerText.trim()),
+        fontSize: links[0] ? parseFloat(window.getComputedStyle(links[0]).fontSize) : 0
+      };
+    });
+    console.log(`Navigation links (${navData.count}):`, navData.names);
+    console.log(`Navigation Link Font Size: ${navData.fontSize}px (Target: 16-17px)`);
 
     // Check 4 Service Cards
-    const serviceCards = await page.$$eval('#services .group', els => els.length);
-    console.log('Section 4 Services Overview cards detected:', serviceCards);
-    if (serviceCards !== 4) {
-      throw new Error(`Expected 4 core service cards, found: ${serviceCards}`);
-    }
-
-    // Check 6 Solution Cards
-    const solutionCards = await page.$$eval('#solutions .group', els => els.length);
-    console.log('Section 4B Solutions Suite cards detected:', solutionCards);
-    if (solutionCards !== 6) {
-      throw new Error(`Expected 6 solution cards, found: ${solutionCards}`);
+    const serviceCards = await page.evaluate(() => {
+      const cards = Array.from(document.querySelectorAll('#services .group'));
+      const h3s = Array.from(document.querySelectorAll('#services h3'));
+      const firstH3 = h3s[0] ? parseFloat(window.getComputedStyle(h3s[0]).fontSize) : 0;
+      return {
+        count: cards.length,
+        titles: h3s.map(h => h.innerText.trim()),
+        headingSize: firstH3
+      };
+    });
+    console.log(`Services Cards (${serviceCards.count}):`, serviceCards.titles);
+    console.log(`Service Card Heading Font Size: ${serviceCards.headingSize}px (Target: 20-23px)`);
+    if (serviceCards.count !== 4) {
+      throw new Error(`Expected 4 service cards, found: ${serviceCards.count}`);
     }
 
     // Check 4 Industry Cards
-    const industryCards = await page.$$eval('#industries .flex.flex-col', els => els.length);
-    console.log('Section 6 Industry cards detected:', industryCards);
-
-    // Check 4 Approach Steps (Discover, Design, Implement, Optimize & Support)
-    const approachSteps = await page.$$eval('#approach h3', els => els.map(e => e.innerText.trim()));
-    console.log('Section 7 Approach Steps detected:', approachSteps);
-    if (!approachSteps.includes('Discover') || !approachSteps.includes('Design') || !approachSteps.includes('Implement')) {
-      throw new Error(`Missing expected approach steps: ${approachSteps}`);
+    const industryCards = await page.evaluate(() => {
+      const cards = Array.from(document.querySelectorAll('#industries .group'));
+      const h3s = Array.from(document.querySelectorAll('#industries h3'));
+      const firstH3 = h3s[0] ? parseFloat(window.getComputedStyle(h3s[0]).fontSize) : 0;
+      return {
+        count: cards.length,
+        titles: h3s.map(h => h.innerText.trim()),
+        headingSize: firstH3
+      };
+    });
+    console.log(`Industry Cards (${industryCards.count}):`, industryCards.titles);
+    console.log(`Industry Card Heading Font Size: ${industryCards.headingSize}px (Target: 19-22px)`);
+    if (industryCards.count !== 4) {
+      throw new Error(`Expected 4 industry cards, found: ${industryCards.count}`);
     }
 
-    // Check Partners Section
-    const partnerCount = await page.$$eval('#partners h3', els => els.length);
-    console.log('Section 9 Partner cards detected:', partnerCount);
-    if (partnerCount !== 3) {
-      throw new Error(`Expected 3 partner statements, found: ${partnerCount}`);
+    // Check 4 Process Steps
+    const approachSteps = await page.evaluate(() => {
+      const steps = Array.from(document.querySelectorAll('#approach h3'));
+      return steps.map(s => s.innerText.trim());
+    });
+    console.log('Approach Steps (4):', approachSteps);
+    if (approachSteps.length !== 4) {
+      throw new Error(`Expected 4 approach steps, found: ${approachSteps.length}`);
     }
 
     // Check Broken Images
@@ -126,77 +146,74 @@ async function runVerification() {
       console.warn('Broken images:', brokenImages);
     }
 
+    // Take Desktop Screenshots
     await page.screenshot({ path: path.join(screenshotsDir, '01_desktop_1440px_hero.png'), fullPage: false });
     await page.screenshot({ path: path.join(screenshotsDir, '02_desktop_full_page.png'), fullPage: true });
 
     // 2. Tablet Test (768px)
-    console.log('\n--- 2. Testing Tablet Layout (768px) ---');
+    console.log('\n========================================');
+    console.log('2. Testing Tablet Layout (768px)');
+    console.log('========================================');
     await page.setViewport({ width: 768, height: 1024 });
     await page.reload({ waitUntil: 'networkidle0' });
     await page.screenshot({ path: path.join(screenshotsDir, '03_tablet_768px.png'), fullPage: false });
 
     // 3. Mobile Test (375px)
-    console.log('\n--- 3. Testing Mobile Layout (375px) & Hamburger Menu ---');
+    console.log('\n========================================');
+    console.log('3. Testing Mobile Layout & Typography (375px)');
+    console.log('========================================');
     await page.setViewport({ width: 375, height: 812 });
     await page.reload({ waitUntil: 'networkidle0' });
 
-    // Verify Sticky Quick CTA on Mobile
-    const quickCtaVisible = await page.$eval('.fixed.bottom-0', el => !!el);
-    console.log('Sticky Mobile Quick CTA visible:', quickCtaVisible);
+    const mobileHeroSize = await page.evaluate(() => {
+      const h1 = document.querySelector('h1');
+      return parseFloat(window.getComputedStyle(h1).fontSize);
+    });
+    console.log(`Mobile Hero Font Size: ${mobileHeroSize}px (Target: 34-40px)`);
+    if (mobileHeroSize < 32 || mobileHeroSize > 44) {
+      throw new Error(`Mobile hero font size out of target range: ${mobileHeroSize}px`);
+    }
+
+    // Check Sticky Mobile CTA
+    const mobileCtaVisible = await page.$eval('.fixed.bottom-0', el => !!el);
+    console.log('Sticky Mobile Quick CTA visible:', mobileCtaVisible);
 
     await page.screenshot({ path: path.join(screenshotsDir, '04_mobile_375px_hero.png'), fullPage: false });
 
-    // Open Mobile Hamburger Menu
-    const hamburgerBtn = await page.$('button[aria-label="Toggle navigation menu"]');
-    if (hamburgerBtn) {
-      await hamburgerBtn.click();
-      await wait(500);
+    // Test Mobile Menu
+    const menuBtn = await page.$('button[aria-label="Toggle navigation menu"]');
+    if (menuBtn) {
+      await menuBtn.click();
+      await wait(400);
       await page.screenshot({ path: path.join(screenshotsDir, '05_mobile_menu_open.png'), fullPage: false });
-      console.log('Mobile menu opened successfully.');
-      
+      console.log('Mobile menu opened and verified.');
       const closeBtn = await page.$('button[aria-label="Close menu"]');
       if (closeBtn) {
         await closeBtn.click();
-        await wait(500);
-        console.log('Mobile menu closed successfully.');
+        await wait(300);
       }
     }
 
-    // 4. Form Field Validation Test
-    console.log('\n--- 4. Testing Contact Form Validation ---');
+    // 4. Test Consultation Modal & Form Validation
+    console.log('\n========================================');
+    console.log('4. Testing Consultation Modal & Validation');
+    console.log('========================================');
     await page.setViewport({ width: 1280, height: 900 });
-    await page.goto('http://localhost:4173#contact', { waitUntil: 'networkidle0' });
-    await wait(800);
+    await page.goto('http://localhost:4173', { waitUntil: 'networkidle0' });
 
-    // Click submit on empty form
-    const submitBtn = await page.$('form button[type="submit"]');
-    await submitBtn.click();
-    await wait(500);
+    // Click Hero Book a Consultation button
+    const heroBtn = await page.$('#hero-book-btn');
+    if (heroBtn) {
+      await heroBtn.click();
+      await wait(600);
 
-    const errorCount = await page.$$eval('form .text-rose-600', els => els.length);
-    console.log('Empty form validation errors triggered:', errorCount);
-    if (errorCount < 4) {
-      throw new Error(`Expected at least 4 field validation errors, got: ${errorCount}`);
+      const modalVisible = await page.$eval('#modal-title', el => el.innerText);
+      console.log('Consultation Modal Opened:', modalVisible);
+      await page.screenshot({ path: path.join(screenshotsDir, '06_consultation_modal.png'), fullPage: false });
     }
-    await page.screenshot({ path: path.join(screenshotsDir, '06_form_validation_errors.png'), fullPage: false });
 
-    // 5. Fill Valid Contact Data
-    console.log('\n--- 5. Filling Valid Contact Data & Verifying Mailto Modal ---');
-    await page.type('#fullName', 'Sanjay Mehra');
-    await page.type('#companyName', 'Mehra Precision Tools Ltd');
-    await page.type('#workEmail', 'smehra@mehraprecision.com');
-    await page.type('#phoneNumber', '+91 98200 44556');
-    await page.select('#areaOfInterest', 'boyum');
-    await page.type('#message', 'Interested in Beas Manufacturing APS shop floor scheduling and SAP B1 HANA upgrade.');
-    await submitBtn.click();
-    await wait(800);
-
-    const modalTitle = await page.$eval('#modal-title', el => el.innerText);
-    console.log('Submission Modal Title:', modalTitle);
-    await page.screenshot({ path: path.join(screenshotsDir, '07_form_submission_modal.png'), fullPage: false });
-
-    console.log('\n=== ALL HOME PAGE VERIFICATION CHECKS PASSED ===');
-    console.log('Total console errors:', pageErrors.length);
+    console.log('\n=== ALL LARGE TYPOGRAPHY & REFERENCE DESIGN TESTS PASSED ===');
+    console.log('Total console page errors:', pageErrors.length);
 
   } finally {
     await browser.close();

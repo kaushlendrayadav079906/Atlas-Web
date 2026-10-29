@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, ArrowRight, ShieldCheck, ChevronRight } from 'lucide-react';
+import { Menu, X, ArrowRight, ChevronRight } from 'lucide-react';
 import { Button } from '../ui/Button';
-import { BRAND_INFO, NAV_LINKS } from '../../data/websiteContent';
+import { NAV_LINKS } from '../../data/websiteContent';
 
 export const SiteHeader: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -10,7 +10,7 @@ export const SiteHeader: React.FC = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      setIsScrolled(window.scrollY > 15);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -19,104 +19,76 @@ export const SiteHeader: React.FC = () => {
   return (
     <>
       <header
-        className={`sticky top-0 z-40 w-full transition-all duration-300 ${
+        className={`sticky top-0 z-40 w-full transition-all duration-200 ${
           isScrolled
-            ? 'bg-navy-950/95 backdrop-blur-md border-b border-navy-800/80 shadow-lg'
-            : 'bg-navy-950 border-b border-navy-850'
+            ? 'bg-white/95 backdrop-blur-md border-b border-slate-200/90 shadow-sm'
+            : 'bg-white border-b border-slate-100'
         }`}
       >
-        {/* Top Mini Accreditation Ribbon */}
-        <div className="hidden xl:block bg-navy-900 border-b border-navy-800/60 py-1.5 px-4 sm:px-6 lg:px-8 text-xs text-slate-300">
-          <div className="max-w-7xl mx-auto flex items-center justify-between">
-            <div className="flex items-center gap-6">
-              <span className="flex items-center gap-1.5 text-slate-300 font-medium">
-                <ShieldCheck className="w-3.5 h-3.5 text-accent-cyan" />
-                <span>Authorized SAP Channel Partner</span>
-              </span>
-              <span className="text-navy-700">|</span>
-              <span className="text-slate-300">Boyum IT Silver Partner</span>
-              <span className="text-navy-700">|</span>
-              <span className="text-slate-300">UiPath Silver Partner</span>
-            </div>
-            <div className="flex items-center gap-4 text-[11px] text-slate-400">
-              <span>Mumbai (Borivali & Marine Lines)</span>
-              <span>•</span>
-              <a
-                href={`mailto:${BRAND_INFO.contact.email}`}
-                className="text-slate-300 hover:text-accent-cyan transition-colors"
-              >
-                {BRAND_INFO.contact.email}
-              </a>
-              <span>•</span>
-              <a
-                href={BRAND_INFO.contact.whatsappLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-accent-cyan hover:underline"
-              >
-                +91-9372329599
-              </a>
-            </div>
-          </div>
-        </div>
-
-        {/* Main Navigation Bar */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-20">
-            {/* Brand Identity */}
+        <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-[84px]">
+            
+            {/* Brand Logo & Name */}
             <a
               href="#"
-              className="flex items-center gap-3.5 group focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-cyan rounded-lg p-1"
+              className="flex items-center gap-3.5 group focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded-lg p-1"
             >
-              <div className="relative w-10 h-10 rounded-xl overflow-hidden bg-white shadow-md border border-slate-200/20 shrink-0 flex items-center justify-center">
+              <div className="relative w-11 h-11 rounded-xl overflow-hidden bg-white shrink-0 flex items-center justify-center">
                 <img
                   src="/images/logo.jpeg"
-                  alt="ATLAS Technosoft Brand Identity"
-                  className="w-full h-full object-contain p-1"
+                  alt="ATLAS Technosoft Logo"
+                  className="w-full h-full object-contain"
                   onError={(e) => {
                     e.currentTarget.style.display = 'none';
                     if (e.currentTarget.parentElement) {
                       e.currentTarget.parentElement.innerText = 'ATPL';
                       e.currentTarget.parentElement.className =
-                        'w-10 h-10 rounded-xl bg-brand-600 text-white font-black flex items-center justify-center text-xs';
+                        'w-11 h-11 rounded-xl bg-blue-600 text-white font-black flex items-center justify-center text-sm';
                     }
                   }}
                 />
               </div>
               <div className="flex flex-col">
-                <span className="text-lg font-extrabold tracking-tight text-white group-hover:text-accent-cyan transition-colors">
-                  ATLAS <span className="text-brand-400">Technosoft</span>
+                <span className="text-[20px] sm:text-[22px] font-extrabold tracking-tight text-slate-900 group-hover:text-blue-600 transition-colors">
+                  ATLAS <span className="text-slate-600 font-semibold">Technosoft</span>
                 </span>
-                <span className="text-[10px] text-slate-400 tracking-wider uppercase font-medium">
+                <span className="text-[11px] text-slate-400 tracking-wider uppercase font-medium">
                   SAP & Hyperautomation
                 </span>
               </div>
             </a>
 
-            {/* Desktop Navigation Links (8 Items) */}
-            <nav className="hidden lg:flex items-center gap-1 xl:gap-1.5" aria-label="Main Navigation">
-              {NAV_LINKS.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  onClick={() => setActiveSection(link.name)}
-                  className={`px-2.5 py-1.5 text-xs xl:text-sm font-medium rounded-lg transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-cyan ${
-                    activeSection === link.name
-                      ? 'text-white bg-navy-850 font-semibold'
-                      : 'text-slate-300 hover:text-white hover:bg-navy-850/60'
-                  }`}
-                >
-                  {link.name}
-                </a>
-              ))}
+            {/* Desktop Navigation Links (Large 16-17px typography) */}
+            <nav className="hidden xl:flex items-center gap-7 lg:gap-8" aria-label="Main Navigation">
+              {NAV_LINKS.map((link) => {
+                const isActive = activeSection === link.name;
+                return (
+                  <a
+                    key={link.name}
+                    href={link.href}
+                    onClick={() => setActiveSection(link.name)}
+                    className={`text-[16px] xl:text-[17px] font-medium transition-colors relative py-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded ${
+                      isActive
+                        ? 'text-blue-600 font-semibold'
+                        : 'text-slate-700 hover:text-blue-600'
+                    }`}
+                  >
+                    {link.name}
+                    {isActive && (
+                      <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-blue-600 rounded-full" />
+                    )}
+                  </a>
+                );
+              })}
             </nav>
 
-            {/* Primary Action Button */}
+            {/* Primary CTA: Prominent Book a Consultation Button */}
             <div className="hidden sm:flex items-center gap-3">
               <Button
                 href="#contact"
                 variant="primary"
-                size="sm"
+                size="md"
+                className="text-[16px] sm:text-[17px] font-semibold px-6 py-3 rounded-lg bg-blue-600 hover:bg-blue-700 text-white shadow-md shadow-blue-600/20"
                 icon={<ArrowRight className="w-4 h-4" />}
               >
                 Book a Consultation
@@ -124,43 +96,44 @@ export const SiteHeader: React.FC = () => {
             </div>
 
             {/* Mobile / Tablet Menu Button */}
-            <div className="flex items-center lg:hidden">
+            <div className="flex items-center xl:hidden">
               <button
                 type="button"
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="p-2.5 rounded-lg text-slate-300 hover:text-white hover:bg-navy-800 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-cyan"
+                className="p-2.5 rounded-lg text-slate-700 hover:text-slate-900 hover:bg-slate-100 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
                 aria-expanded={isMobileMenuOpen}
                 aria-label="Toggle navigation menu"
               >
-                {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+                {isMobileMenuOpen ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7" />}
               </button>
             </div>
+
           </div>
         </div>
       </header>
 
       {/* Mobile Navigation Drawer */}
       {isMobileMenuOpen && (
-        <div className="fixed inset-0 z-50 lg:hidden flex flex-col justify-between bg-navy-950/98 backdrop-blur-xl">
-          <div className="p-4 border-b border-navy-800 flex items-center justify-between">
+        <div className="fixed inset-0 z-50 xl:hidden flex flex-col justify-between bg-white/98 backdrop-blur-xl">
+          <div className="p-4 border-b border-slate-200 flex items-center justify-between">
             <a href="#" className="flex items-center gap-3" onClick={() => setIsMobileMenuOpen(false)}>
-              <div className="w-9 h-9 rounded-lg bg-white overflow-hidden p-1 flex items-center justify-center">
+              <div className="w-10 h-10 rounded-lg bg-white overflow-hidden p-1 flex items-center justify-center border border-slate-100">
                 <img src="/images/logo.jpeg" alt="ATLAS Logo" className="w-full h-full object-contain" />
               </div>
-              <span className="text-base font-bold text-white">ATLAS Technosoft</span>
+              <span className="text-[19px] font-extrabold text-slate-900">ATLAS Technosoft</span>
             </a>
             <button
               onClick={() => setIsMobileMenuOpen(false)}
-              className="p-2 rounded-lg text-slate-300 hover:text-white hover:bg-navy-800"
+              className="p-2 rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100"
               aria-label="Close menu"
             >
-              <X className="w-6 h-6" />
+              <X className="w-7 h-7" />
             </button>
           </div>
 
           <div className="px-6 py-6 overflow-y-auto flex-1">
-            <div className="mb-3 text-xs font-semibold uppercase tracking-wider text-slate-400">
-              Website Navigation
+            <div className="mb-3 text-[13px] font-bold uppercase tracking-wider text-slate-400">
+              Navigation Menu
             </div>
             <nav className="space-y-1">
               {NAV_LINKS.map((link) => (
@@ -171,19 +144,21 @@ export const SiteHeader: React.FC = () => {
                     setActiveSection(link.name);
                     setIsMobileMenuOpen(false);
                   }}
-                  className="flex items-center justify-between py-3 text-base font-medium text-slate-200 border-b border-navy-900 hover:text-accent-cyan transition-colors"
+                  className={`flex items-center justify-between py-3.5 text-[17px] font-medium border-b border-slate-100 transition-colors ${
+                    activeSection === link.name ? 'text-blue-600 font-semibold' : 'text-slate-800 hover:text-blue-600'
+                  }`}
                 >
                   <span>{link.name}</span>
-                  <ChevronRight className="w-4 h-4 text-slate-500" />
+                  <ChevronRight className="w-5 h-5 text-slate-400" />
                 </a>
               ))}
             </nav>
 
-            <div className="mt-8 pt-6 border-t border-navy-800 space-y-4">
-              <div className="text-xs text-slate-400 space-y-1">
-                <div>Authorized SAP Channel Partner</div>
+            <div className="mt-8 pt-6 border-t border-slate-200 space-y-4">
+              <div className="text-[14px] text-slate-600 space-y-1">
+                <div className="font-semibold text-slate-900">Authorized SAP Channel Partner</div>
                 <div>Boyum IT Silver | UiPath Silver Partner</div>
-                <div className="pt-2 text-slate-300 font-medium">
+                <div className="pt-2 text-blue-600 font-medium text-[15px]">
                   WhatsApp: +91-9372329599
                 </div>
               </div>
@@ -193,8 +168,9 @@ export const SiteHeader: React.FC = () => {
                 variant="primary"
                 fullWidth
                 size="lg"
+                className="text-[17px] font-semibold py-3.5"
                 onClick={() => setIsMobileMenuOpen(false)}
-                icon={<ArrowRight className="w-4 h-4" />}
+                icon={<ArrowRight className="w-5 h-5" />}
               >
                 Book a Consultation
               </Button>

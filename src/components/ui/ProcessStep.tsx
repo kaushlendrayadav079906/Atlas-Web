@@ -1,53 +1,42 @@
 import React from 'react';
-import { CheckCircle2, Clock } from 'lucide-react';
-import { ProcessStepItem } from '../../types';
+import { ArrowRight } from 'lucide-react';
 
 interface ProcessStepProps {
-  step: ProcessStepItem;
+  number: number;
+  title: string;
+  description: string;
   isLast?: boolean;
 }
 
-export const ProcessStep: React.FC<ProcessStepProps> = ({ step, isLast = false }) => {
+export const ProcessStep: React.FC<ProcessStepProps> = ({
+  number,
+  title,
+  description,
+  isLast = false,
+}) => {
   return (
-    <div className="relative flex flex-col justify-between p-6 sm:p-8 rounded-2xl bg-white border border-slate-200/90 shadow-sm hover:shadow-md transition-all duration-300">
-      <div>
-        {/* Step number and timeframe */}
-        <div className="flex items-center justify-between mb-4">
-          <span className="text-3xl sm:text-4xl font-extrabold text-brand-600/30">
-            {step.step}
-          </span>
-          <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-semibold bg-slate-100 text-slate-700">
-            <Clock className="w-3.5 h-3.5 text-brand-600" />
-            <span>{step.timeframe}</span>
-          </div>
+    <div className="relative flex-1 flex flex-col items-center text-center p-4">
+      {/* Numbered circle: prominent blue circle */}
+      <div className="w-13 h-13 sm:w-14 sm:h-14 rounded-full bg-blue-600 text-white font-extrabold text-[18px] sm:text-[20px] flex items-center justify-center shadow-md shadow-blue-600/25 mb-4 shrink-0">
+        {number}
+      </div>
+
+      {/* Step Heading: 18–20px */}
+      <h3 className="text-[18px] sm:text-[20px] font-bold text-slate-900 mb-2">
+        {title}
+      </h3>
+
+      {/* Description: 16–17px */}
+      <p className="text-[15px] sm:text-[16px] text-slate-600 leading-relaxed max-w-xs">
+        {description}
+      </p>
+
+      {/* Desktop connecting arrow */}
+      {!isLast && (
+        <div className="hidden lg:flex absolute top-10 -right-4 translate-x-1/2 text-slate-300">
+          <ArrowRight className="w-6 h-6" />
         </div>
-
-        {/* Title */}
-        <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-2.5">
-          {step.title}
-        </h3>
-
-        {/* Description */}
-        <p className="text-sm text-slate-600 leading-relaxed mb-6">
-          {step.description}
-        </p>
-      </div>
-
-      {/* Deliverables */}
-      <div className="pt-4 border-t border-slate-100">
-        <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400 block mb-2.5">
-          Key Milestones
-        </span>
-        <ul className="space-y-2">
-          {step.deliverables.map((item, idx) => (
-            <li key={idx} className="flex items-start gap-2 text-xs sm:text-sm text-slate-700">
-              <CheckCircle2 className="w-4 h-4 text-brand-600 shrink-0 mt-0.5" />
-              <span>{item}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
+      )}
     </div>
   );
 };
-

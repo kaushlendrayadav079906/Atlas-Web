@@ -21,26 +21,23 @@ export const SectionHeading: React.FC<SectionHeadingProps> = ({
   const isCenter = align === 'center';
 
   return (
-    <div className={`max-w-3xl ${isCenter ? 'mx-auto text-center' : 'text-left'} mb-12 md:mb-16 ${className}`}>
+    <div className={`max-w-3xl ${isCenter ? 'mx-auto text-center' : 'text-left'} mb-10 md:mb-14 ${className}`}>
       {badge && (
-        <div className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider mb-4 border ${
-          isDark
-            ? 'bg-brand-900/40 text-accent-cyan border-accent-cyan/30 shadow-[0_0_15px_rgba(34,211,238,0.15)]'
-            : 'bg-brand-50 text-brand-700 border-brand-200'
-        }`}>
-          <span className={`w-1.5 h-1.5 rounded-full ${isDark ? 'bg-accent-cyan animate-pulse' : 'bg-brand-600'}`} />
-          {badge}
+        <div className="mb-3">
+          <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-blue-600 select-none">
+            {badge}
+          </span>
         </div>
       )}
 
-      <h2 className={`text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight leading-tight ${
+      <h2 className={`text-[26px] sm:text-[30px] lg:text-[36px] font-bold tracking-tight leading-tight ${
         isDark ? 'text-white' : 'text-slate-900'
       }`}>
         {title}
       </h2>
 
       {subtitle && (
-        <p className={`mt-4 text-base sm:text-lg leading-relaxed ${
+        <p className={`mt-3.5 text-[16px] sm:text-[18px] leading-relaxed ${
           isDark ? 'text-slate-300' : 'text-slate-600'
         }`}>
           {subtitle}
@@ -49,4 +46,3 @@ export const SectionHeading: React.FC<SectionHeadingProps> = ({
     </div>
   );
 };
-

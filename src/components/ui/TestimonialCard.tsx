@@ -1,46 +1,53 @@
 import React from 'react';
-import { Quote, Star } from 'lucide-react';
-import { TestimonialItem } from '../../types';
+import { Quote } from 'lucide-react';
 import { VerificationBadge } from './VerificationBadge';
 
 interface TestimonialCardProps {
-  testimonial: TestimonialItem;
+  quote: string;
+  author: string;
+  imageSrc: string;
 }
 
-export const TestimonialCard: React.FC<TestimonialCardProps> = ({ testimonial }) => {
+export const TestimonialCard: React.FC<TestimonialCardProps> = ({ quote, author, imageSrc }) => {
   return (
-    <div className="relative flex flex-col justify-between p-6 sm:p-7 rounded-2xl bg-slate-900 border border-slate-800 text-white shadow-md hover:border-slate-700 transition-all duration-300">
-      <div>
-        {/* Top: Stars and Quote Icon */}
-        <div className="flex items-center justify-between mb-4">
-          <div className="flex items-center gap-1 text-amber-400">
-            {[...Array(testimonial.rating || 5)].map((_, i) => (
-              <Star key={i} className="w-4 h-4 fill-amber-400" />
-            ))}
-          </div>
-          <Quote className="w-7 h-7 text-slate-700" />
-        </div>
-
-        {/* Quote */}
-        <p className="text-sm sm:text-base italic text-slate-200 leading-relaxed mb-6 font-light">
-          "{testimonial.quote}"
-        </p>
+    <div className="flex flex-col sm:flex-row items-stretch rounded-2xl bg-white border border-slate-200/90 shadow-sm overflow-hidden hover:shadow-md transition-shadow">
+      {/* Left/Top Image (approx 35-40% width on desktop) */}
+      <div className="w-full sm:w-2/5 min-h-[220px] bg-slate-100 relative overflow-hidden">
+        <img
+          src={imageSrc}
+          alt="Client testimonial"
+          className="w-full h-full object-cover"
+          onError={(e) => {
+            e.currentTarget.style.display = 'none';
+          }}
+        />
       </div>
 
-      {/* Attribution & Verification Footer */}
-      <div className="pt-4 border-t border-slate-800/80 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+      {/* Right Content */}
+      <div className="w-full sm:w-3/5 p-6 sm:p-8 flex flex-col justify-between">
         <div>
-          <div className="text-xs sm:text-sm font-bold text-white">
-            {testimonial.authorRole}
+          {/* Blue quote mark */}
+          <div className="text-blue-600 mb-3">
+            <Quote className="w-8 h-8 fill-blue-50 text-blue-600" />
           </div>
-          <div className="text-xs text-slate-400">
-            {testimonial.companyContext}
-          </div>
+
+          {/* Quotation text (16-18px) */}
+          <p className="text-[16px] sm:text-[17px] italic text-slate-700 leading-relaxed mb-4">
+            "{quote}"
+          </p>
         </div>
 
-        <VerificationBadge note={testimonial.claimNote} variant="subtle" />
+        {/* Attribution & Verification */}
+        <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
+          <span className="text-[14px] sm:text-[15px] font-semibold text-slate-600">
+            {author}
+          </span>
+          <VerificationBadge
+            note="Customer testimonial from ATPL WEB Site_Content.pdf. Flagged for verification & client permission before production publication."
+            variant="subtle"
+          />
+        </div>
       </div>
     </div>
   );
 };
-

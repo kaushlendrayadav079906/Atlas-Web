@@ -1,0 +1,39 @@
+import React from 'react';
+
+export const SAPBusinessOneLogo: React.FC<{ className?: string }> = ({ className = "h-8" }) => (
+  <div className={`inline-flex items-center gap-1.5 select-none ${className}`}>
+    <div className="bg-[#005CAD] text-white font-black text-xs sm:text-sm px-2 py-1 rounded-sm tracking-wider flex items-center">
+      SAP
+    </div>
+    <div className="flex flex-col leading-none">
+      <span className="text-[#005CAD] font-bold text-[13px] tracking-tight">Business</span>
+      <span className="text-[#F0AB00] font-black text-[13px] tracking-tight">One</span>
+    </div>
+  </div>
+);
+
+export const BoyumITLogo: React.FC<{ className?: string }> = ({ className = "h-8" }) => (
+  <div className={`inline-flex items-center select-none ${className}`}>
+    <span className="text-slate-900 font-extrabold text-lg sm:text-xl tracking-tight">boyum</span>
+    <span className="text-amber-500 font-black text-xl sm:text-2xl leading-none ml-0.5">it</span>
+  </div>
+);
+
+export const UiPathLogo: React.FC<{ className?: string }> = ({ className = "h-8" }) => (
+  <div className={`inline-flex items-center gap-1.5 select-none ${className}`}>
+    <div className="bg-[#FA4616] text-white font-bold text-xs sm:text-sm px-1.5 py-0.5 rounded flex items-center justify-center">
+      Ui
+    </div>
+    <span className="text-slate-900 font-extrabold text-base sm:text-lg tracking-tight">Path</span>
+  </div>
+);
+
+export const PartnerLogosStrip: React.FC<{ className?: string }> = ({ className = "" }) => (
+  <div className={`flex flex-wrap items-center justify-center gap-6 sm:gap-10 py-3 px-6 bg-white/95 backdrop-blur-md rounded-2xl border border-slate-200/80 shadow-md ${className}`}>
+    <SAPBusinessOneLogo />
+    <div className="h-6 w-px bg-slate-200 hidden sm:block" />
+    <BoyumITLogo />
+    <div className="h-6 w-px bg-slate-200 hidden sm:block" />
+    <UiPathLogo />
+  </div>
+);
