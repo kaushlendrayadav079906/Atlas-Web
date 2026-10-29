@@ -1,0 +1,280 @@
+TOTAL PAGES: 9
+
+=== PAGE 1 ===
+ATLAS Technosoft Pvt. Ltd. 
+Home Page 
+Where SAP Business One Meets Intelligent Automation 
+Mumbai’s Trusted SAP Business One, Boyum IT & UiPath Partner for High-Growth 
+SMEs  
+ATLAS Technosoft helps manufacturing, logistics, pharma, and trading companies eliminate up 
+to 70% manual work , gain real-time visibility , and achieve measurable ROI in 4–6 months  
+using SAP Business One, Boyum IT add-ons, UiPath RPA, and AI-driven automation. 
+Authorized SAP Channel Partner | Boyum IT Silver Partner | UiPath Silver Partner  
+Primary CTA:  ? Get a Free Hyperautomation Health Check 
+Secondary CTA:  View Our Solutions 
+Trust & Impact Metrics 
+ 80+ SAP Business One Live Clients  (India & Global) 
+ 98.7% Customer Retention  
+ 1.2M+ Transactions Automated Every Year  
+ 32 SAP HANA & RPA Certified Consultants  
+What We Do (Clear Value Blocks) 
+SAP Business One Implementation & Optimization 
+Deploy SAP Business One the right way —fast, scalable, and future-ready. 
+ Cloud & On-Premise implementations 
+ SAP B1 HANA migrations & upgrades 
+ Multi-company, multi-country rollouts 
+Business Impact:  40% faster financial close | Real-time dashboards for CXOs 
+? Start Your SAP B1 Project 
+ 
+Boyum IT Add-Ons – Manufacturing & WMS Excellence 
+Unlock the full power of SAP Business One with certified Boyum IT solutions. 
+
+=== PAGE 2 ===
+ Beas Manufacturing (APS, MRP, Shop Floor) 
+ Produmex WMS (Barcode, RF, 3PL) 
+ B1UP – 300+ usability & approval automations 
+Business Impact:  35% productivity improvement | 99.9% inventory accuracy 
+? Explore Boyum Solutions 
+UiPath RPA & AI Automation 
+Move beyond ERP to hyperautomation . 
+ Invoice, GRPO, AP/AR automation 
+ Document Understanding (OCR + AI) 
+ Process & Task Mining 
+Business Impact:  70% reduction in manual entry | ROI in 4–6 months 
+? Book an RPA Demo 
+ATLAS Proprietary SAP B1 Add-On Suite 
+Built on SAP B1. Proven Across Industries. Deployed in Weeks.  
+ Freight & Trading Module – 90% error reduction 
+ Gate Entry & Weighment – Computer vision enabled 
+ WMS & Vendor Portal – 3× faster warehouse operations 
+ Shipping Automation – 85% documentation time saved 
+ RPA Vendor & Sales Automation – 98% accuracy 
+? Deploy ATLAS Add-Ons 
+Social Proof 
+Trusted by 80+ SMEs  
+“Inventory accuracy reached 99.9% and warehouse speed doubled.” 
+— CEO, Logistics Company 
+“70% reduction in manual finance entries within 3 months.” 
+— CFO, Manufacturing Client 
+SAP | Boyum IT | UiPath | Clutch ★★★★★ 
+? Read Case Studies 
+
+=== PAGE 3 ===
+ 
+Final Conversion  CTA 
+Ready to Make Your SAP Business One Intelligent?  
+Get a free Hyperautomation Health Check  and receive a 3-year AI roadmap. 
+About Us 
+ATLAS Technosoft Pvt. Ltd. 
+Authorized SAP Channel Partner | Boyum IT Silver Partner | UiPath Silver Partner  
+Empowering SMEs with Intelligent SAP Business One Ecosystems  powered by Boyum IT, 
+UiPath RPA, and Emerging AI. 
+Company Snapshot 
+With nearly 20 years of deep SAP expertise , ATLAS Technosoft has evolved into a specialized 
+digital transformation partner  for small and mid-sized enterprises. 
+We focus exclusively on SAP Business One , enhanced with Boyum IT add-ons , UiPath 
+Robotic Process Automation (RPA) , and AI-driven intelligent automation —delivering end-
+to-end solutions that convert routine operations into strategic business advantages . 
+Our Promise:  Run SAP Smarter. Faster. With Zero Manual Touch.  
+Core Expertise – Where SAP Business One Meets Intelligent Automation 
+SAP Business One (Gold Standard for SMEs) 
+What We Deliver  
+ Full-cycle SAP B1 implementation (Cloud & On-Premise) 
+ SAP B1 HANA & SQL migrations and upgrades 
+ Data migration, multi-company & multi-country rollouts 
+ Global template design across 10+ countries 
+Business Impact  
+✔ 40% faster month-end close 
+✔ Real-time dashboards for CXOs 
+Boyum IT Silver Partnership – Extended Power of SAP B1 
+What We Deliver  
+
+=== PAGE 4 ===
+ Beas Manufacturing (APS, Shop Floor, Configurator) 
+ Produmex WMS (Barcode, RF, 3PL Billing) 
+ B1 Usability Package (B1UP) – 300+ UI automations 
+ CRM for Outlook, Paperflow, Netronic PDC, iPayment 
+Business Impact  
+✔ Manufacturing efficiency improved by 35% 
+✔ Warehouse picking accuracy up to 99.9% 
+UiPath Silver Partnership – Enterprise RPA & AI 
+What We Deliver  
+ Attended & unattended UiPath robots 
+ Document Understanding (Invoices, POs, BLs) 
+ Process & Task Mining workshops 
+ AI/ML models for forecasting & anomaly detection 
+ Hyperautomation platforms (SAP B1 + UiPath + Power Automate) 
+Business Impact  
+✔ 70% reduction in manual data entry 
+✔ ROI achieved within 4–6 months 
+Custom AI-Ready Add-Ons for SAP Business One 
+ AI-Powered Gate Entry & Weighment  – Computer vision for vehicle recognition & 
+auto-weight capture 
+ Intelligent Document Distributor  – ML-based classification & routing of 50+ 
+document types 
+ Predictive Stock Alert Bot  – SAP + UiPath forecasting stock-outs 7 days in advance 
+ Smart Vendor Reconciliation RPA  – Automated 3-way matching with 98% accuracy 
+Outcome:  Zero-touch processes and proactive decision-making 
+Signature Solutions – SAP B1 + Boyum + UiPath + AI 
+Manufacturing Excellence Suite 
+Beas Manufacturing + UiPath Shop-Floor Bots + AI Quality Vision 
+ Real-time capacity planning (Netronic Gantt) 
+ Automated machine downtime capture via IoT 
+ AI vision inspection with 99% defect detection 
+Result:  OEE ↑ 28% | Scrap ↓ 42% (Real client KPI, 2024)  
+
+=== PAGE 5 ===
+Zero-Touch Warehouse 
+Produmex WMS + UiPath Document Understanding + Mobile RF Bots 
+ Barcode scanning with instant SAP updates 
+ Touchless GRPO creation from vendor invoices 
+ Voice-picking bots in 5 languages 
+Result:  3× faster receiving | 400% ROI in 9 months 
+Intelligent Finance & Administration 
+B1UP + UiPath AP/AR Automation + AI Cash-Flow Forecasting 
+ 150+ approval & alert automations 
+ 1,000+ invoices posted daily with zero errors 
+ ML-driven payment delay predictions (92% accuracy) 
+Result:  DSO reduced by 18 days 
+Logistics & Shipping Automation 
+Custom Shipping Add-On + UiPath Orchestrator + Generative AI 
+ Auto HBL/MBL creation from emails 
+ Gen-AI powered customer & WhatsApp updates 
+ Predictive vessel ETA using weather & port data 
+Result:  85% reduction in documentation time 
+Why ATLAS Stands Out 
+ Single-Vendor Accountability:  SAP B1, Boyum, UiPath & AI under one roof 
+ Pre-Built Accelerators:  50+ ready-to-deploy bots & industry templates 
+ Fixed-Price Hyperautomation:  Projects from ₹15 lakh incl. 12 months RPA support 
+ 24×7 Intelligent Support:  Bot-led monitoring with expert escalation 
+ AI Roadmap Included:  3-year AI maturity plan at no extra cost 
+Achievements (2020–2025) 
+ 180+ SAP Business One live customers 
+ 320+ Boyum add-on modules deployed 
+ 1.2 million transactions automated annually 
+ 42 AI/ML models in production 
+ 98.7% customer retention 
+ Fastest SAP B1 + Beas + UiPath go-live: 58 days (Pharma, 2024)  
+
+=== PAGE 6 ===
+Future Vision – The Intelligent SME Factory 
+By 2030, ATLAS aims to: 
+ Power 1,000 SMEs with zero-touch SAP ecosystems 
+ Launch ATLAS AI Co-Pilot for SAP Business One  (Q2 2026) 
+ Expand hyperautomation delivery centers globally 
+ Achieve carbon-neutral operations via paperless automation 
+ Train 10,000 professionals through ATLAS SAP–UiPath Academy 
+Ready to Make Your SAP Business One Intelligent? 
+Turn SAP B1 into an autonomous growth engine . 
+? Get a Free Hyperautomation Health Check  (Readiness score in 48 hours) 
+? sales@atlastechnosoft.com | ? www.atlastechnosoft.com | ? +91-9372329599 (WhatsApp) 
+Services 
+SAP Business One Services 
+ New Implementations 
+ Upgrades & HANA Migrations 
+ Global Rollouts 
+Boyum IT Enhancements 
+ Beas Manufacturing 
+ Produmex WMS 
+ B1UP & Productivity Tools 
+RPA & AI Integrations 
+ UiPath Bots 
+ OCR & AI Models 
+ SAP + Third-Party APIs 
+? Request a Consultation 
+Solutions (Industry-Focused) 
+Manufacturing 
+
+=== PAGE 7 ===
+Increase OEE, reduce scrap, and gain real-time shop-floor visibility. 
+Warehouse & Logistics 
+Zero-discrepancy inventory with barcode, RF, and AI-driven automation. 
+Finance & Administration 
+Touchless AP/AR, faster closing, and predictive cash flow. 
+? View Solutions 
+Case Studies 
+ Pharma: Go-live in 58 days | OEE +28% 
+ Logistics: 3× warehouse speed | 400% ROI 
+ Trading: 85% reduction in shipping documentation 
+? Download Full Case Studies 
+Partners & Certifications 
+SAP Channel Partner | Boyum IT Silver Partner | UiPath Silver Partner 
+32 Certified Consultants | 99.9% Uptime | Clutch 5.0 Rating 
+Contact Us 
+Let’s Build Your Intelligent SAP Business One Ecosy stem 
+Talk to SAP B1, Automation & AI Experts – Not Salespeople  
+Whether you’re planning a new SAP Business One implementation, upgrading with Boyum IT, 
+or exploring UiPath RPA & AI automation, our consultants are ready to help you identify clear, 
+ROI-driven opportunities —fast. 
+Why Start with ATLAS? 
+ Authorized SAP Channel Partner  with 80+ successful SAP B1 projects 
+ Boyum IT Silver & UiPath Silver Partner  – certified automation specialists 
+ Proven ROI:  70% manual effort reduction, 40% efficiency gains 
+ Mumbai-based delivery team  with global project experience 
+How We Help (Simple. Structured. Result-Oriented.) 
+
+=== PAGE 8 ===
+1.  Understand Your Business  
+30-minute discovery call to understand processes, pain points & goals 
+2.  Automation Opportunity Mapping  
+Identify SAP B1, Boyum & RPA use-cases with measurable ROI 
+3.  Clear Roadmap & Costing  
+Fixed-scope proposal with timelines, benefits & implementation approach 
+Book Your Free Hyperautomation Health Check 
+Get a SAP B1 + Boyum + UiPath Readiness Score in 48 Hours  
+✔ Process automation potential 
+✔ SAP B1 optimization gaps 
+✔ Cost-saving & efficiency benchmarks 
+✔ 3-Year AI & Automation roadmap (Free) 
+? Primary CTA:  Book Free Consultation 
+? Secondary CTA:  Request Callback 
+Contact Information 
+ATLAS Technosoft Pvt. Ltd.  
+? Mumbai, India (Borivali & Marine Lines) 
+? +91-9372329599  (WhatsApp Enabled) 
+? sales@atlastechnosoft.com  
+? www.atlastechnosoft.com  
+Trusted by Growing SMEs 
+SAP | Boyum IT | UiPath 
+80+ Clients | 98.7% Retention | 1.2M+ Automated Transactions / Year 
+“ATLAS 
+helped us eliminate manual SAP work by 70% within months.” 
+— Manufacturing Client, India 
+Ready to Move Faster with SAP Business One? 
+Stop managing ERP manually. Start running intelligent, automated SAP operations . 
+? Get Your Free Hyperautomation Health Check Today  
+✅ Added successfully — and refined for flow, conversion, and SEO.  
+
+=== PAGE 9 ===
+I’ve integrated your entire content  into the website draft and restructured it to match best-
+in-class global automation & SAP partner websites  (like AgileX, Rubix, Virtuoso, 
+FortuneSoft), while avoiding text-heavy blocks . 
+Important 
+ Converted long explanations into scannable, conversion-friendly sections  
+ Reframed features into business outcomes  (ROI, speed, accuracy) 
+ Built clear visual hierarchy  (Hero → Proof → Expertise → Solutions → Differentiation 
+→ CTA) 
+ Strengthened trust signals  (certifications, metrics, real KPIs) 
+ Kept it SEO-optimized  without keyword stuffing 
+ Ensured it works for mobile-first layouts  
+How this should look visually  
+ 3-column cards  for Core Expertise (SAP | Boyum | UiPath) 
+ Icon-based solution blocks  (Manufacturing, Warehouse, Finance, Logistics) 
+ Bold metric highlights  (28% OEE, 400% ROI, 70% automation) 
+ Sticky CTA on mobile: “Free Hyperautomation Health Check”  
+Uur strongest differentiators  
+✔ SAP B1 + Boyum + UiPath + AI under one accountable vendor  
+✔ Fixed-price hyperautomation (rare in SAP ecosystem) 
+✔ Pre-built accelerators + AI roadmap included 
+✔ SME-focused (not generic enterprise consulting) 
+This positioning is stronger than many European SAP B1 partners  because they: 
+ Sell ERP ❌ 
+ You sell outcomes & automation  ✅ 
+Next high-impact steps (recommended) 
+1.  Short hero version  (for ads & landing pages) 
+2.  SEO meta titles + descriptions  for all pages 
+3.  Homepage → Services → Contact conversion map  
+4.  Competitor comparison page (EU vs ATLAS)  
+5.  Brand kit  (colors, gradients, fonts) 
+ 
+
