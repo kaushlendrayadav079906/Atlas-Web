@@ -17,10 +17,10 @@ const iconMap: Record<string, React.ReactNode> = {
 
 export const IndustryCard: React.FC<IndustryCardProps> = ({ id, title, description, imageSrc }) => {
   return (
-    <div className="group flex flex-col justify-between rounded-xl bg-white border border-slate-200 overflow-hidden shadow-sm hover:shadow-md hover:border-blue-300 transition-all duration-200 h-full">
+    <div className="group flex flex-col justify-between rounded-xl bg-white border border-slate-200/90 overflow-hidden shadow-sm hover:shadow-md hover:border-blue-300 transition-all duration-200 h-full">
       
-      {/* Sleek Landscape Image Container (32-36 on desktop, perfect proportion) */}
-      <div className="relative w-full h-32 sm:h-36 overflow-hidden bg-slate-100 border-b border-slate-200">
+      {/* Sleek Landscape Image Container (Panoramic ~2.8:1 ratio, matching reference UI) */}
+      <div className="relative w-full h-28 sm:h-32 overflow-hidden bg-slate-100 border-b border-slate-200/90">
         <img
           src={imageSrc}
           alt={title}
@@ -32,13 +32,13 @@ export const IndustryCard: React.FC<IndustryCardProps> = ({ id, title, descripti
       </div>
 
       {/* Card Content Bar: Title, Description, and Action Arrow */}
-      <div className="p-4 sm:p-5 flex-1 flex items-center justify-between gap-3">
+      <div className="p-3.5 sm:p-4 flex-1 flex items-center justify-between gap-3">
         <div className="space-y-1">
           <div className="flex items-center gap-2">
             <div className="text-blue-600 shrink-0">
               {iconMap[id] || <Factory className="w-4 h-4 text-blue-600" />}
             </div>
-            <h3 className="text-[17px] sm:text-[19px] font-bold text-slate-900 group-hover:text-blue-600 transition-colors leading-snug">
+            <h3 className="text-[17px] sm:text-[18px] font-bold text-slate-900 group-hover:text-blue-600 transition-colors leading-snug">
               {title}
             </h3>
           </div>

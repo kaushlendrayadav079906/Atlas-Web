@@ -155,14 +155,23 @@ export const HomePage: React.FC = () => {
               </div>
             </div>
 
-            {/* Right Column: EXACT Hero Image with Floating Partner Ribbon Card */}
+            {/* Right Column: Hero Visual with Crystal-Clear Team Image & Floating Partner Ribbon */}
             <div className="lg:col-span-5 relative">
-              <div className="relative mx-auto w-full max-w-lg lg:max-w-none rounded-2xl overflow-hidden shadow-xl border border-slate-200/90 bg-white">
+              <div className="relative mx-auto w-full max-w-lg lg:max-w-none rounded-2xl overflow-hidden shadow-lg border border-slate-200/90 bg-white">
                 <img
-                  src="/images/reference_exact/hero_team.png"
+                  src="/images/crystal_hd/hero_team.jpg"
                   alt="ATLAS Technosoft Enterprise Team collaborating on SAP Business One Dashboard"
-                  className="w-full h-auto object-cover max-h-[360px]"
+                  className="w-full h-auto object-cover max-h-[380px]"
                 />
+
+                {/* Floating Partner Logo Ribbon Box at Bottom Right */}
+                <div className="absolute bottom-3 right-3 bg-white/95 backdrop-blur-md rounded-xl py-2 px-3.5 shadow-md border border-slate-200/90 flex items-center gap-3">
+                  <SAPBusinessOneLogo className="h-5 sm:h-6" />
+                  <div className="h-3.5 w-px bg-slate-200" />
+                  <BoyumITLogo className="h-5 sm:h-6" />
+                  <div className="h-3.5 w-px bg-slate-200" />
+                  <UiPathLogo className="h-5 sm:h-6" />
+                </div>
               </div>
             </div>
 
@@ -173,10 +182,10 @@ export const HomePage: React.FC = () => {
       {/* ========================================================================= */}
       {/* SECTION 3: COMPANY METRICS BAR (COMPACT "SMALL SIZE" SINGLE BOX CARD)     */}
       {/* ========================================================================= */}
-      <section id="metrics" className="py-6 sm:py-8 bg-white border-b border-slate-100">
+      <section id="metrics" className="py-6 sm:py-7 bg-white border-b border-slate-100">
         <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
           {/* Sleek, Single White Box-Type Container Bar matching Reference Image */}
-          <div className="rounded-2xl bg-white border border-slate-200 shadow-sm p-3 sm:p-5 lg:p-6">
+          <div className="rounded-xl sm:rounded-2xl bg-white border border-slate-200/90 shadow-sm py-4 px-3 sm:px-6">
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 divide-y sm:divide-y-0 sm:divide-x divide-slate-100">
               {TRUST_METRICS.map((metric) => (
                 <div key={metric.id} className="pt-3 sm:pt-0 first:pt-0">
@@ -189,9 +198,9 @@ export const HomePage: React.FC = () => {
       </section>
 
       {/* ========================================================================= */}
-      {/* SECTION 4: SERVICES OVERVIEW (4 BOX-TYPE CARDS)                           */}
+      {/* SECTION 4: SERVICES OVERVIEW (4 COMPACT BOX-TYPE CARDS)                   */}
       {/* ========================================================================= */}
-      <section id="services" className="py-14 sm:py-18 lg:py-20 bg-slate-50/50 border-b border-slate-100">
+      <section id="services" className="py-10 sm:py-12 lg:py-14 bg-slate-50/50 border-b border-slate-100">
         <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
           
           <SectionHeading
@@ -201,7 +210,7 @@ export const HomePage: React.FC = () => {
             align="center"
           />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6">
             {/* Card 1: SAP Business One */}
             <ServiceCard
               id="sap-b1"
@@ -263,12 +272,12 @@ export const HomePage: React.FC = () => {
       {/* ========================================================================= */}
       {/* SECTION 5: OUR EXPERTISE (BRIDGING ERP AND AUTOMATION)                    */}
       {/* ========================================================================= */}
-      <section id="expertise" className="py-14 sm:py-18 lg:py-20 bg-white border-b border-slate-100">
+      <section id="expertise" className="py-10 sm:py-12 lg:py-14 bg-white border-b border-slate-100">
         <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             
             {/* Left Content (approx 55% width) */}
-            <div className="lg:col-span-6 space-y-5">
+            <div className="lg:col-span-6 space-y-4">
               <div>
                 <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-blue-600 block mb-2">
                   OUR EXPERTISE
@@ -284,7 +293,7 @@ export const HomePage: React.FC = () => {
               </p>
 
               {/* Checklist items with blue checkmarks */}
-              <div className="space-y-3 pt-1">
+              <div className="space-y-2.5 pt-1">
                 {[
                   "End-to-end ERP implementation and support",
                   "Industry-focused solutions for manufacturing, warehousing, and trading",
@@ -303,11 +312,11 @@ export const HomePage: React.FC = () => {
               </div>
             </div>
 
-            {/* Right Image: EXACT Expertise Visual from Reference Image */}
+            {/* Right Image: Crystal-Clear Expertise Visual from Reference Image */}
             <div className="lg:col-span-6 relative">
-              <div className="relative rounded-2xl overflow-hidden shadow-lg border border-slate-200/90 bg-slate-900 max-h-[320px]">
+              <div className="relative rounded-2xl overflow-hidden shadow-lg border border-slate-200/90 bg-slate-950 max-h-[320px]">
                 <img
-                  src="/images/reference_exact/expertise_erp.png"
+                  src="/images/crystal_hd/expertise_erp.jpg"
                   alt="Bridging ERP, Manufacturing Robotics, Analytics and Cloud Automation"
                   className="w-full h-full object-cover"
                 />
@@ -321,7 +330,7 @@ export const HomePage: React.FC = () => {
       {/* ========================================================================= */}
       {/* SECTION 6: INDUSTRIES WE SERVE (4 COMPACT BOX-TYPE CARDS)                 */}
       {/* ========================================================================= */}
-      <section id="industries" className="py-14 sm:py-18 lg:py-20 bg-slate-50/50 border-b border-slate-100">
+      <section id="industries" className="py-10 sm:py-12 lg:py-14 bg-slate-50/50 border-b border-slate-100">
         <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
           
           <SectionHeading
@@ -331,30 +340,30 @@ export const HomePage: React.FC = () => {
             align="center"
           />
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6">
             <IndustryCard
               id="manufacturing"
               title="Manufacturing"
               description="Streamline production, inventory and operations."
-              imageSrc="/images/reference_exact/ind_manufacturing.png"
+              imageSrc="/images/crystal_hd/ind_manufacturing.jpg"
             />
             <IndustryCard
               id="warehouse"
               title="Warehouse & Logistics"
               description="Optimize warehousing, logistics and supply chain."
-              imageSrc="/images/reference_exact/ind_warehouse.png"
+              imageSrc="/images/crystal_hd/ind_warehouse.jpg"
             />
             <IndustryCard
               id="finance"
               title="Finance & Administration"
               description="Improve financial control and administrative efficiency."
-              imageSrc="/images/reference_exact/ind_finance.png"
+              imageSrc="/images/crystal_hd/ind_finance.jpg"
             />
             <IndustryCard
               id="trading"
               title="Trading & Shipping"
               description="Enhance trading operations and shipping processes."
-              imageSrc="/images/reference_exact/ind_shipping.png"
+              imageSrc="/images/crystal_hd/ind_shipping.jpg"
             />
           </div>
 
@@ -364,7 +373,7 @@ export const HomePage: React.FC = () => {
       {/* ========================================================================= */}
       {/* SECTION 7: OUR APPROACH (INLINE PROCESS FLOW FROM REFERENCE IMAGE)        */}
       {/* ========================================================================= */}
-      <section id="approach" className="py-14 sm:py-18 lg:py-20 bg-white border-b border-slate-100">
+      <section id="approach" className="py-10 sm:py-12 lg:py-14 bg-white border-b border-slate-100">
         <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
           
           <SectionHeading
@@ -404,7 +413,7 @@ export const HomePage: React.FC = () => {
       {/* ========================================================================= */}
       {/* SECTION 8: CUSTOMER SUCCESS (TWO COMPACT SIDE-BY-SIDE CARDS)              */}
       {/* ========================================================================= */}
-      <section id="case-studies" className="py-14 sm:py-18 lg:py-20 bg-slate-50/50 border-b border-slate-100">
+      <section id="case-studies" className="py-10 sm:py-12 lg:py-14 bg-slate-50/50 border-b border-slate-100">
         <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
           
           <SectionHeading
@@ -429,12 +438,12 @@ export const HomePage: React.FC = () => {
               <TestimonialCard
                 quote="ATLAS Technosoft helped us streamline our business processes with SAP Business One and automation solutions."
                 author="— Customer Name (To be verified)"
-                imageSrc="/images/reference_exact/testimonial_1.png"
+                imageSrc="/images/crystal_hd/testimonial_1.jpg"
               />
               <TestimonialCard
                 quote="Their expertise in warehouse solutions significantly improved our operational efficiency."
                 author="— Customer Name (To be verified)"
-                imageSrc="/images/reference_exact/testimonial_2.png"
+                imageSrc="/images/crystal_hd/testimonial_2.jpg"
               />
             </div>
 
@@ -449,7 +458,7 @@ export const HomePage: React.FC = () => {
           </div>
 
           {/* Carousel Indicator Dots */}
-          <div className="flex items-center justify-center gap-2 pt-6">
+          <div className="flex items-center justify-center gap-2 pt-5">
             <span className="w-6 h-2 rounded-full bg-blue-600 transition-all" />
             <span className="w-2 h-2 rounded-full bg-slate-300" />
             <span className="w-2 h-2 rounded-full bg-slate-300" />
@@ -462,9 +471,9 @@ export const HomePage: React.FC = () => {
       {/* ========================================================================= */}
       {/* SECTION 9: OUR PARTNERS (SIDE-BY-SIDE AS IN REFERENCE IMAGE)             */}
       {/* ========================================================================= */}
-      <section id="partners" className="py-14 sm:py-16 bg-white border-b border-slate-100">
+      <section id="partners" className="py-8 sm:py-10 bg-white border-b border-slate-100">
         <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
             
             {/* Left Side: Title & Subtitle */}
             <div className="lg:col-span-6 space-y-2 text-left">
@@ -481,7 +490,7 @@ export const HomePage: React.FC = () => {
 
             {/* Right Side: Partner Logos White Box */}
             <div className="lg:col-span-6 flex items-center justify-end">
-              <div className="w-full max-w-lg bg-white rounded-2xl border border-slate-200/90 shadow-sm py-4 px-6 flex items-center justify-around">
+              <div className="w-full max-w-lg bg-white rounded-xl sm:rounded-2xl border border-slate-200/90 shadow-sm py-4 px-6 flex items-center justify-around">
                 <SAPBusinessOneLogo className="h-7 sm:h-8" />
                 <div className="h-6 w-px bg-slate-200" />
                 <BoyumITLogo className="h-7 sm:h-8" />
@@ -497,11 +506,11 @@ export const HomePage: React.FC = () => {
       {/* ========================================================================= */}
       {/* SECTION 10: LET'S DISCUSS YOUR BUSINESS NEEDS (BOX-TYPE BANNER)           */}
       {/* ========================================================================= */}
-      <section id="contact" className="py-14 sm:py-18 lg:py-20 bg-slate-50/50">
+      <section id="contact" className="py-10 sm:py-12 lg:py-14 bg-slate-50/50">
         <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
           
           {/* Defined Box Container */}
-          <div className="rounded-2xl bg-gradient-to-br from-blue-50/80 via-sky-50/40 to-blue-50/80 border border-blue-200/90 p-8 sm:p-10 lg:p-12 shadow-sm">
+          <div className="rounded-2xl bg-gradient-to-br from-blue-50/80 via-sky-50/40 to-blue-50/80 border border-blue-200/90 p-6 sm:p-8 lg:p-10 shadow-sm">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
               
               {/* Left Column: Heading, Subtext & CTA Button */}
