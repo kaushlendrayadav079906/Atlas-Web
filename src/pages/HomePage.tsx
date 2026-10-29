@@ -17,7 +17,7 @@ import { IndustryCard } from '../components/ui/IndustryCard';
 import { ProcessStep } from '../components/ui/ProcessStep';
 import { TestimonialCard } from '../components/ui/TestimonialCard';
 import { Modal } from '../components/ui/Modal';
-import { PartnerLogosStrip, SAPBusinessOneLogo, BoyumITLogo, UiPathLogo } from '../components/ui/PartnerLogos';
+import { SAPBusinessOneLogo, BoyumITLogo, UiPathLogo } from '../components/ui/PartnerLogos';
 import { BRAND_INFO, TRUST_METRICS } from '../data/websiteContent';
 import { ContactFormData } from '../types';
 
@@ -107,9 +107,9 @@ export const HomePage: React.FC = () => {
       {/* ========================================================================= */}
       {/* SECTION 2: HERO SECTION                                                   */}
       {/* ========================================================================= */}
-      <section className="relative overflow-hidden bg-gradient-to-r from-blue-50/40 via-white to-slate-50/50 pt-10 pb-14 lg:pt-14 lg:pb-20 border-b border-slate-100">
+      <section className="relative overflow-hidden bg-gradient-to-r from-blue-50/40 via-white to-slate-50/50 pt-10 pb-12 lg:pt-14 lg:pb-16 border-b border-slate-100">
         <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             
             {/* Left Column (Approx 58% on Desktop) */}
             <div className="lg:col-span-7 space-y-5 text-left">
@@ -126,12 +126,12 @@ export const HomePage: React.FC = () => {
                 <span className="text-blue-600">Intelligent Automation</span>
               </h1>
 
-              {/* Supporting Text: 18–19px Desktop, 16–18px Mobile */}
+              {/* Supporting Text: 18–19px Desktop */}
               <p className="text-[16px] sm:text-[18px] lg:text-[19px] text-slate-600 leading-relaxed max-w-2xl font-normal">
                 ATLAS Technosoft helps manufacturing, logistics, pharma, and trading companies streamline operations with SAP Business One, Boyum IT solutions, UiPath RPA, and AI-driven automation.
               </p>
 
-              {/* Dual Action CTAs: 16–18px Primary Buttons */}
+              {/* Dual Action CTAs */}
               <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
                 <Button
                   id="hero-book-btn"
@@ -155,23 +155,14 @@ export const HomePage: React.FC = () => {
               </div>
             </div>
 
-            {/* Right Column: Hero Visual with SAME Image in Perfect Proportion */}
+            {/* Right Column: EXACT Hero Image with Floating Partner Ribbon Card */}
             <div className="lg:col-span-5 relative">
               <div className="relative mx-auto w-full max-w-lg lg:max-w-none rounded-2xl overflow-hidden shadow-xl border border-slate-200/90 bg-white">
                 <img
-                  src="/images/same_crops_clean/hero_team.png"
+                  src="/images/reference_exact/hero_team.png"
                   alt="ATLAS Technosoft Enterprise Team collaborating on SAP Business One Dashboard"
                   className="w-full h-auto object-cover max-h-[360px]"
                 />
-
-                {/* Bottom Overlay Partner Logo Ribbon Box */}
-                <div className="absolute bottom-3 left-3 right-3 bg-white/95 backdrop-blur-md rounded-xl py-2.5 px-4 shadow-lg border border-slate-200/90 flex items-center justify-around">
-                  <SAPBusinessOneLogo className="h-6 sm:h-7" />
-                  <div className="h-4 w-px bg-slate-200" />
-                  <BoyumITLogo className="h-6 sm:h-7" />
-                  <div className="h-4 w-px bg-slate-200" />
-                  <UiPathLogo className="h-6 sm:h-7" />
-                </div>
               </div>
             </div>
 
@@ -180,12 +171,12 @@ export const HomePage: React.FC = () => {
       </section>
 
       {/* ========================================================================= */}
-      {/* SECTION 4: COMPANY METRICS BAR (COMPACT "SMALL SIZE" BOX CARD)            */}
+      {/* SECTION 3: COMPANY METRICS BAR (COMPACT "SMALL SIZE" SINGLE BOX CARD)     */}
       {/* ========================================================================= */}
       <section id="metrics" className="py-6 sm:py-8 bg-white border-b border-slate-100">
         <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Sleek, Single White Box-Type Container Bar */}
-          <div className="rounded-2xl bg-white border border-slate-200/90 shadow-sm p-3 sm:p-5 lg:p-6">
+          {/* Sleek, Single White Box-Type Container Bar matching Reference Image */}
+          <div className="rounded-2xl bg-white border border-slate-200 shadow-sm p-3 sm:p-5 lg:p-6">
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 divide-y sm:divide-y-0 sm:divide-x divide-slate-100">
               {TRUST_METRICS.map((metric) => (
                 <div key={metric.id} className="pt-3 sm:pt-0 first:pt-0">
@@ -198,7 +189,7 @@ export const HomePage: React.FC = () => {
       </section>
 
       {/* ========================================================================= */}
-      {/* SECTION 5: SERVICES OVERVIEW (4 BOX-TYPE CARDS)                           */}
+      {/* SECTION 4: SERVICES OVERVIEW (4 BOX-TYPE CARDS)                           */}
       {/* ========================================================================= */}
       <section id="services" className="py-14 sm:py-18 lg:py-20 bg-slate-50/50 border-b border-slate-100">
         <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
@@ -270,7 +261,7 @@ export const HomePage: React.FC = () => {
       </section>
 
       {/* ========================================================================= */}
-      {/* SECTION 6: OUR EXPERTISE (BRIDGING ERP AND AUTOMATION)                    */}
+      {/* SECTION 5: OUR EXPERTISE (BRIDGING ERP AND AUTOMATION)                    */}
       {/* ========================================================================= */}
       <section id="expertise" className="py-14 sm:py-18 lg:py-20 bg-white border-b border-slate-100">
         <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
@@ -292,19 +283,18 @@ export const HomePage: React.FC = () => {
                 We combine deep expertise in SAP Business One, business process optimization, manufacturing and warehouse solutions, and intelligent automation to deliver real business value.
               </p>
 
-              {/* Boxed Checklist Tiles */}
-              <div className="space-y-2.5 pt-1">
+              {/* Checklist items with blue checkmarks */}
+              <div className="space-y-3 pt-1">
                 {[
                   "End-to-end ERP implementation and support",
                   "Industry-focused solutions for manufacturing, warehousing, and trading",
                   "Business process optimization",
                   "Intelligent automation with RPA and AI"
                 ].map((item, idx) => (
-                  <div
-                    key={idx}
-                    className="p-3.5 sm:p-4 rounded-xl bg-slate-50 border border-slate-200/80 shadow-xs flex items-center gap-3 hover:border-blue-300 transition-colors"
-                  >
-                    <CheckCircle2 className="w-5 h-5 text-blue-600 shrink-0" />
+                  <div key={idx} className="flex items-center gap-3">
+                    <div className="w-5 h-5 rounded-full bg-blue-600 text-white flex items-center justify-center shrink-0">
+                      <CheckCircle2 className="w-4 h-4 text-white" />
+                    </div>
                     <span className="text-[15px] sm:text-[16px] text-slate-800 font-medium">
                       {item}
                     </span>
@@ -313,11 +303,11 @@ export const HomePage: React.FC = () => {
               </div>
             </div>
 
-            {/* Right Image: SAME Image in Perfect Proportion Box Frame */}
+            {/* Right Image: EXACT Expertise Visual from Reference Image */}
             <div className="lg:col-span-6 relative">
               <div className="relative rounded-2xl overflow-hidden shadow-lg border border-slate-200/90 bg-slate-900 max-h-[320px]">
                 <img
-                  src="/images/same_crops_clean/expertise_erp.png"
+                  src="/images/reference_exact/expertise_erp.png"
                   alt="Bridging ERP, Manufacturing Robotics, Analytics and Cloud Automation"
                   className="w-full h-full object-cover"
                 />
@@ -329,7 +319,7 @@ export const HomePage: React.FC = () => {
       </section>
 
       {/* ========================================================================= */}
-      {/* SECTION 7: INDUSTRIES WE SERVE (4 COMPACT BOX-TYPE CARDS)                 */}
+      {/* SECTION 6: INDUSTRIES WE SERVE (4 COMPACT BOX-TYPE CARDS)                 */}
       {/* ========================================================================= */}
       <section id="industries" className="py-14 sm:py-18 lg:py-20 bg-slate-50/50 border-b border-slate-100">
         <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
@@ -346,25 +336,25 @@ export const HomePage: React.FC = () => {
               id="manufacturing"
               title="Manufacturing"
               description="Streamline production, inventory and operations."
-              imageSrc="/images/same_crops_clean/ind_manufacturing.png"
+              imageSrc="/images/reference_exact/ind_manufacturing.png"
             />
             <IndustryCard
               id="warehouse"
               title="Warehouse & Logistics"
               description="Optimize warehousing, logistics and supply chain."
-              imageSrc="/images/same_crops_clean/ind_warehouse.png"
+              imageSrc="/images/reference_exact/ind_warehouse.png"
             />
             <IndustryCard
               id="finance"
               title="Finance & Administration"
               description="Improve financial control and administrative efficiency."
-              imageSrc="/images/same_crops_clean/ind_finance.png"
+              imageSrc="/images/reference_exact/ind_finance.png"
             />
             <IndustryCard
               id="trading"
               title="Trading & Shipping"
               description="Enhance trading operations and shipping processes."
-              imageSrc="/images/same_crops_clean/ind_shipping.png"
+              imageSrc="/images/reference_exact/ind_shipping.png"
             />
           </div>
 
@@ -372,7 +362,7 @@ export const HomePage: React.FC = () => {
       </section>
 
       {/* ========================================================================= */}
-      {/* SECTION 8: OUR APPROACH (4 INLINE STEP PROCESS)                           */}
+      {/* SECTION 7: OUR APPROACH (INLINE PROCESS FLOW FROM REFERENCE IMAGE)        */}
       {/* ========================================================================= */}
       <section id="approach" className="py-14 sm:py-18 lg:py-20 bg-white border-b border-slate-100">
         <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
@@ -412,7 +402,7 @@ export const HomePage: React.FC = () => {
       </section>
 
       {/* ========================================================================= */}
-      {/* SECTION 9: CUSTOMER SUCCESS (TWO COMPACT SIDE-BY-SIDE CARDS)              */}
+      {/* SECTION 8: CUSTOMER SUCCESS (TWO COMPACT SIDE-BY-SIDE CARDS)              */}
       {/* ========================================================================= */}
       <section id="case-studies" className="py-14 sm:py-18 lg:py-20 bg-slate-50/50 border-b border-slate-100">
         <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
@@ -425,22 +415,43 @@ export const HomePage: React.FC = () => {
           />
 
           {/* Two Side-by-Side Testimonial Box Cards as in Reference Image */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-5xl mx-auto mb-6">
-            <TestimonialCard
-              quote="ATLAS Technosoft helped us streamline our business processes with SAP Business One and automation solutions."
-              author="— Customer Name (To be verified)"
-              imageSrc="/images/same_crops_clean/testimonial_1.png"
-            />
-            <TestimonialCard
-              quote="Their expertise in warehouse solutions significantly improved our operational efficiency."
-              author="— Customer Name (To be verified)"
-              imageSrc="/images/same_crops_clean/testimonial_2.png"
-            />
+          <div className="relative max-w-5xl mx-auto">
+            {/* Left navigation arrow */}
+            <button
+              type="button"
+              className="hidden md:flex absolute -left-6 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-white border border-slate-200 text-slate-700 hover:text-blue-600 items-center justify-center shadow-sm z-10"
+              aria-label="Previous"
+            >
+              <ChevronLeft className="w-5 h-5" />
+            </button>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <TestimonialCard
+                quote="ATLAS Technosoft helped us streamline our business processes with SAP Business One and automation solutions."
+                author="— Customer Name (To be verified)"
+                imageSrc="/images/reference_exact/testimonial_1.png"
+              />
+              <TestimonialCard
+                quote="Their expertise in warehouse solutions significantly improved our operational efficiency."
+                author="— Customer Name (To be verified)"
+                imageSrc="/images/reference_exact/testimonial_2.png"
+              />
+            </div>
+
+            {/* Right navigation arrow */}
+            <button
+              type="button"
+              className="hidden md:flex absolute -right-6 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-white border border-slate-200 text-slate-700 hover:text-blue-600 items-center justify-center shadow-sm z-10"
+              aria-label="Next"
+            >
+              <ChevronRight className="w-5 h-5" />
+            </button>
           </div>
 
           {/* Carousel Indicator Dots */}
-          <div className="flex items-center justify-center gap-2 pt-2">
-            <span className="w-8 h-2 rounded-full bg-blue-600 transition-all" />
+          <div className="flex items-center justify-center gap-2 pt-6">
+            <span className="w-6 h-2 rounded-full bg-blue-600 transition-all" />
+            <span className="w-2 h-2 rounded-full bg-slate-300" />
             <span className="w-2 h-2 rounded-full bg-slate-300" />
             <span className="w-2 h-2 rounded-full bg-slate-300" />
           </div>
@@ -449,27 +460,42 @@ export const HomePage: React.FC = () => {
       </section>
 
       {/* ========================================================================= */}
-      {/* SECTION 10: OUR PARTNERS (CENTERED LOGO BAR)                              */}
+      {/* SECTION 9: OUR PARTNERS (SIDE-BY-SIDE AS IN REFERENCE IMAGE)             */}
       {/* ========================================================================= */}
-      <section id="partners" className="py-14 sm:py-18 bg-white border-b border-slate-100">
+      <section id="partners" className="py-14 sm:py-16 bg-white border-b border-slate-100">
         <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
-          
-          <SectionHeading
-            badge="OUR PARTNERS"
-            title="Working with Global Technology Leaders"
-            subtitle="We collaborate with industry-leading technology partners to deliver the best solutions."
-            align="center"
-          />
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            
+            {/* Left Side: Title & Subtitle */}
+            <div className="lg:col-span-6 space-y-2 text-left">
+              <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-blue-600 block">
+                OUR PARTNERS
+              </span>
+              <h2 className="text-[26px] sm:text-[32px] font-bold text-slate-900 tracking-tight leading-tight">
+                Working with Global Technology Leaders
+              </h2>
+              <p className="text-[15px] sm:text-[16px] text-slate-600">
+                We collaborate with industry-leading technology partners to deliver the best solutions.
+              </p>
+            </div>
 
-          <div className="max-w-2xl mx-auto flex items-center justify-center">
-            <PartnerLogosStrip className="scale-105 sm:scale-115" />
+            {/* Right Side: Partner Logos White Box */}
+            <div className="lg:col-span-6 flex items-center justify-end">
+              <div className="w-full max-w-lg bg-white rounded-2xl border border-slate-200/90 shadow-sm py-4 px-6 flex items-center justify-around">
+                <SAPBusinessOneLogo className="h-7 sm:h-8" />
+                <div className="h-6 w-px bg-slate-200" />
+                <BoyumITLogo className="h-7 sm:h-8" />
+                <div className="h-6 w-px bg-slate-200" />
+                <UiPathLogo className="h-7 sm:h-8" />
+              </div>
+            </div>
+
           </div>
-
         </div>
       </section>
 
       {/* ========================================================================= */}
-      {/* SECTION 11: LET'S DISCUSS YOUR BUSINESS NEEDS (BOX-TYPE BANNER)           */}
+      {/* SECTION 10: LET'S DISCUSS YOUR BUSINESS NEEDS (BOX-TYPE BANNER)           */}
       {/* ========================================================================= */}
       <section id="contact" className="py-14 sm:py-18 lg:py-20 bg-slate-50/50">
         <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
