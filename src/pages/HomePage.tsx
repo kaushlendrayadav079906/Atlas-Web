@@ -8,8 +8,6 @@ import {
   ChevronLeft, 
   ChevronRight,
   Send,
-  ShieldCheck,
-  Award
 } from 'lucide-react';
 import { Button } from '../components/ui/Button';
 import { SectionHeading } from '../components/ui/SectionHeading';
@@ -19,14 +17,11 @@ import { IndustryCard } from '../components/ui/IndustryCard';
 import { ProcessStep } from '../components/ui/ProcessStep';
 import { TestimonialCard } from '../components/ui/TestimonialCard';
 import { Modal } from '../components/ui/Modal';
-import { SAPBusinessOneLogo, BoyumITLogo, UiPathLogo } from '../components/ui/PartnerLogos';
+import { PartnerLogosStrip, SAPBusinessOneLogo, BoyumITLogo, UiPathLogo } from '../components/ui/PartnerLogos';
 import { BRAND_INFO, TRUST_METRICS } from '../data/websiteContent';
 import { ContactFormData } from '../types';
 
 export const HomePage: React.FC = () => {
-  // Testimonial Carousel State
-  const [currentTestimonialIndex, setCurrentTestimonialIndex] = useState(0);
-
   // Contact Form & Modal State
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [formData, setFormData] = useState<ContactFormData>({
@@ -40,29 +35,6 @@ export const HomePage: React.FC = () => {
   const [formErrors, setFormErrors] = useState<Partial<Record<keyof ContactFormData, string>>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccessSubmitted, setIsSuccessSubmitted] = useState(false);
-
-  const testimonialsData = [
-    {
-      id: 'test-1',
-      quote: "ATLAS Technosoft helped us streamline our business processes with SAP Business One and automation solutions.",
-      author: "— CEO, Leading Logistics Company (To be verified)",
-      imageSrc: "/images/hd/testimonial_1.jpg"
-    },
-    {
-      id: 'test-2',
-      quote: "Their expertise in warehouse solutions significantly improved our operational efficiency and reduced inventory errors.",
-      author: "— CFO, Manufacturing Client (To be verified)",
-      imageSrc: "/images/hd/testimonial_2.jpg"
-    }
-  ];
-
-  const handlePrevTestimonial = () => {
-    setCurrentTestimonialIndex((prev) => (prev === 0 ? testimonialsData.length - 1 : prev - 1));
-  };
-
-  const handleNextTestimonial = () => {
-    setCurrentTestimonialIndex((prev) => (prev === testimonialsData.length - 1 ? 0 : prev + 1));
-  };
 
   // Form Field Validation
   const validateForm = (): boolean => {
@@ -135,12 +107,12 @@ export const HomePage: React.FC = () => {
       {/* ========================================================================= */}
       {/* SECTION 2: HERO SECTION                                                   */}
       {/* ========================================================================= */}
-      <section className="relative overflow-hidden bg-gradient-to-r from-blue-50/50 via-white to-slate-50/60 pt-10 pb-16 lg:pt-16 lg:pb-24 border-b border-slate-100">
+      <section className="relative overflow-hidden bg-gradient-to-r from-blue-50/40 via-white to-slate-50/50 pt-10 pb-14 lg:pt-14 lg:pb-20 border-b border-slate-100">
         <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
             
             {/* Left Column (Approx 58% on Desktop) */}
-            <div className="lg:col-span-7 space-y-6 text-left">
+            <div className="lg:col-span-7 space-y-5 text-left">
               {/* Eyebrow Label: 13–14px */}
               <div className="inline-block">
                 <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-blue-600 select-none">
@@ -149,7 +121,7 @@ export const HomePage: React.FC = () => {
               </div>
 
               {/* Main Hero Heading: Desktop 48–56px, Mobile 34–40px */}
-              <h1 className="text-[34px] sm:text-[42px] lg:text-[50px] xl:text-[54px] font-extrabold tracking-tight leading-[1.14] text-slate-900">
+              <h1 className="text-[34px] sm:text-[42px] lg:text-[48px] xl:text-[52px] font-extrabold tracking-tight leading-[1.14] text-slate-900">
                 Where SAP Business One Meets{' '}
                 <span className="text-blue-600">Intelligent Automation</span>
               </h1>
@@ -183,21 +155,21 @@ export const HomePage: React.FC = () => {
               </div>
             </div>
 
-            {/* Right Column: Hero Visual with Crystal Clear HD Team Photo & Partner Logos Strip */}
+            {/* Right Column: Hero Visual with SAME Image in Perfect Proportion */}
             <div className="lg:col-span-5 relative">
-              <div className="relative mx-auto w-full max-w-lg lg:max-w-none rounded-2xl overflow-hidden shadow-xl border border-slate-200 bg-white">
+              <div className="relative mx-auto w-full max-w-lg lg:max-w-none rounded-2xl overflow-hidden shadow-xl border border-slate-200/90 bg-white">
                 <img
-                  src="/images/hd/hero_team.jpg"
-                  alt="ATLAS Technosoft Enterprise Team collaborating on ERP"
-                  className="w-full h-auto object-cover max-h-[380px]"
+                  src="/images/same_crops_clean/hero_team.png"
+                  alt="ATLAS Technosoft Enterprise Team collaborating on SAP Business One Dashboard"
+                  className="w-full h-auto object-cover max-h-[360px]"
                 />
 
                 {/* Bottom Overlay Partner Logo Ribbon Box */}
-                <div className="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-md rounded-xl py-3 px-5 shadow-lg border border-slate-200/90 flex items-center justify-around">
+                <div className="absolute bottom-3 left-3 right-3 bg-white/95 backdrop-blur-md rounded-xl py-2.5 px-4 shadow-lg border border-slate-200/90 flex items-center justify-around">
                   <SAPBusinessOneLogo className="h-6 sm:h-7" />
-                  <div className="h-5 w-px bg-slate-200" />
+                  <div className="h-4 w-px bg-slate-200" />
                   <BoyumITLogo className="h-6 sm:h-7" />
-                  <div className="h-5 w-px bg-slate-200" />
+                  <div className="h-4 w-px bg-slate-200" />
                   <UiPathLogo className="h-6 sm:h-7" />
                 </div>
               </div>
@@ -208,14 +180,19 @@ export const HomePage: React.FC = () => {
       </section>
 
       {/* ========================================================================= */}
-      {/* SECTION 4: COMPANY METRICS BAR (4 DISTINCT BOX-TYPE CARDS)                */}
+      {/* SECTION 4: COMPANY METRICS BAR (COMPACT "SMALL SIZE" BOX CARD)            */}
       {/* ========================================================================= */}
-      <section id="metrics" className="py-10 bg-slate-50/70 border-b border-slate-200/80">
+      <section id="metrics" className="py-6 sm:py-8 bg-white border-b border-slate-100">
         <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {TRUST_METRICS.map((metric) => (
-              <MetricCard key={metric.id} metric={metric} />
-            ))}
+          {/* Sleek, Single White Box-Type Container Bar */}
+          <div className="rounded-2xl bg-white border border-slate-200/90 shadow-sm p-3 sm:p-5 lg:p-6">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 divide-y sm:divide-y-0 sm:divide-x divide-slate-100">
+              {TRUST_METRICS.map((metric) => (
+                <div key={metric.id} className="pt-3 sm:pt-0 first:pt-0">
+                  <MetricCard metric={metric} />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -223,7 +200,7 @@ export const HomePage: React.FC = () => {
       {/* ========================================================================= */}
       {/* SECTION 5: SERVICES OVERVIEW (4 BOX-TYPE CARDS)                           */}
       {/* ========================================================================= */}
-      <section id="services" className="py-16 sm:py-20 lg:py-24 bg-white border-b border-slate-200/80">
+      <section id="services" className="py-14 sm:py-18 lg:py-20 bg-slate-50/50 border-b border-slate-100">
         <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
           
           <SectionHeading
@@ -233,7 +210,8 @@ export const HomePage: React.FC = () => {
             align="center"
           />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {/* Card 1: SAP Business One */}
             <ServiceCard
               id="sap-b1"
               title="SAP Business One Implementation & Optimization"
@@ -246,6 +224,7 @@ export const HomePage: React.FC = () => {
               ctaTarget="#contact"
             />
 
+            {/* Card 2: Boyum IT Solutions */}
             <ServiceCard
               id="boyum"
               title="Boyum IT Solutions"
@@ -258,6 +237,7 @@ export const HomePage: React.FC = () => {
               ctaTarget="#contact"
             />
 
+            {/* Card 3: UiPath RPA & AI Automation */}
             <ServiceCard
               id="uipath"
               title="UiPath RPA & AI Automation"
@@ -270,6 +250,7 @@ export const HomePage: React.FC = () => {
               ctaTarget="#contact"
             />
 
+            {/* Card 4: ATLAS Proprietary Add-ons */}
             <ServiceCard
               id="atlas"
               title="ATLAS Proprietary Add-ons"
@@ -291,28 +272,28 @@ export const HomePage: React.FC = () => {
       {/* ========================================================================= */}
       {/* SECTION 6: OUR EXPERTISE (BRIDGING ERP AND AUTOMATION)                    */}
       {/* ========================================================================= */}
-      <section id="expertise" className="py-16 sm:py-20 lg:py-24 bg-slate-50/60 border-b border-slate-200/80">
+      <section id="expertise" className="py-14 sm:py-18 lg:py-20 bg-white border-b border-slate-100">
         <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
             
             {/* Left Content (approx 55% width) */}
-            <div className="lg:col-span-6 space-y-6">
+            <div className="lg:col-span-6 space-y-5">
               <div>
                 <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-blue-600 block mb-2">
                   OUR EXPERTISE
                 </span>
-                <h2 className="text-[28px] sm:text-[34px] lg:text-[38px] font-bold text-slate-900 tracking-tight leading-tight">
+                <h2 className="text-[28px] sm:text-[34px] lg:text-[36px] font-bold text-slate-900 tracking-tight leading-tight">
                   Bridging ERP and Intelligent Automation
                 </h2>
               </div>
 
-              {/* Body Text: 17–18px Desktop */}
+              {/* Body Text */}
               <p className="text-[16px] sm:text-[17px] lg:text-[18px] text-slate-600 leading-relaxed">
                 We combine deep expertise in SAP Business One, business process optimization, manufacturing and warehouse solutions, and intelligent automation to deliver real business value.
               </p>
 
-              {/* Boxed Checklist Rows */}
-              <div className="space-y-3 pt-2">
+              {/* Boxed Checklist Tiles */}
+              <div className="space-y-2.5 pt-1">
                 {[
                   "End-to-end ERP implementation and support",
                   "Industry-focused solutions for manufacturing, warehousing, and trading",
@@ -321,10 +302,10 @@ export const HomePage: React.FC = () => {
                 ].map((item, idx) => (
                   <div
                     key={idx}
-                    className="p-4 rounded-xl bg-white border border-slate-200 shadow-sm flex items-start gap-3.5 hover:border-blue-300 transition-colors"
+                    className="p-3.5 sm:p-4 rounded-xl bg-slate-50 border border-slate-200/80 shadow-xs flex items-center gap-3 hover:border-blue-300 transition-colors"
                   >
-                    <CheckCircle2 className="w-5 h-5 text-blue-600 shrink-0 mt-0.5" />
-                    <span className="text-[16px] sm:text-[17px] text-slate-800 font-medium leading-snug">
+                    <CheckCircle2 className="w-5 h-5 text-blue-600 shrink-0" />
+                    <span className="text-[15px] sm:text-[16px] text-slate-800 font-medium">
                       {item}
                     </span>
                   </div>
@@ -332,11 +313,11 @@ export const HomePage: React.FC = () => {
               </div>
             </div>
 
-            {/* Right Image: Crystal Clear HD Laptop & High-Tech Visual in Box Frame */}
+            {/* Right Image: SAME Image in Perfect Proportion Box Frame */}
             <div className="lg:col-span-6 relative">
-              <div className="relative rounded-2xl overflow-hidden shadow-xl border border-slate-200 bg-white max-h-[420px]">
+              <div className="relative rounded-2xl overflow-hidden shadow-lg border border-slate-200/90 bg-slate-900 max-h-[320px]">
                 <img
-                  src="/images/hd/expertise_erp.jpg"
+                  src="/images/same_crops_clean/expertise_erp.png"
                   alt="Bridging ERP, Manufacturing Robotics, Analytics and Cloud Automation"
                   className="w-full h-full object-cover"
                 />
@@ -348,9 +329,9 @@ export const HomePage: React.FC = () => {
       </section>
 
       {/* ========================================================================= */}
-      {/* SECTION 7: INDUSTRIES WE SERVE (4 BOX-TYPE CARDS)                         */}
+      {/* SECTION 7: INDUSTRIES WE SERVE (4 COMPACT BOX-TYPE CARDS)                 */}
       {/* ========================================================================= */}
-      <section id="industries" className="py-16 sm:py-20 lg:py-24 bg-white border-b border-slate-200/80">
+      <section id="industries" className="py-14 sm:py-18 lg:py-20 bg-slate-50/50 border-b border-slate-100">
         <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
           
           <SectionHeading
@@ -360,30 +341,30 @@ export const HomePage: React.FC = () => {
             align="center"
           />
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             <IndustryCard
               id="manufacturing"
               title="Manufacturing"
               description="Streamline production, inventory and operations."
-              imageSrc="/images/hd/ind_manufacturing.jpg"
+              imageSrc="/images/same_crops_clean/ind_manufacturing.png"
             />
             <IndustryCard
               id="warehouse"
               title="Warehouse & Logistics"
               description="Optimize warehousing, logistics and supply chain."
-              imageSrc="/images/hd/ind_warehouse.jpg"
+              imageSrc="/images/same_crops_clean/ind_warehouse.png"
             />
             <IndustryCard
               id="finance"
               title="Finance & Administration"
               description="Improve financial control and administrative efficiency."
-              imageSrc="/images/hd/ind_finance.jpg"
+              imageSrc="/images/same_crops_clean/ind_finance.png"
             />
             <IndustryCard
               id="trading"
               title="Trading & Shipping"
               description="Enhance trading operations and shipping processes."
-              imageSrc="/images/hd/ind_shipping.jpg"
+              imageSrc="/images/same_crops_clean/ind_shipping.png"
             />
           </div>
 
@@ -391,9 +372,9 @@ export const HomePage: React.FC = () => {
       </section>
 
       {/* ========================================================================= */}
-      {/* SECTION 8: OUR APPROACH (4 BOX-TYPE PROCESS STEPS)                        */}
+      {/* SECTION 8: OUR APPROACH (4 INLINE STEP PROCESS)                           */}
       {/* ========================================================================= */}
-      <section id="approach" className="py-16 sm:py-20 lg:py-24 bg-slate-50/60 border-b border-slate-200/80">
+      <section id="approach" className="py-14 sm:py-18 lg:py-20 bg-white border-b border-slate-100">
         <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
           
           <SectionHeading
@@ -403,7 +384,7 @@ export const HomePage: React.FC = () => {
             align="center"
           />
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-4 relative pt-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-4 relative pt-2">
             <ProcessStep
               number={1}
               title="Discover"
@@ -431,9 +412,9 @@ export const HomePage: React.FC = () => {
       </section>
 
       {/* ========================================================================= */}
-      {/* SECTION 9: CUSTOMER SUCCESS (BOX-TYPE TESTIMONIAL CAROUSEL)               */}
+      {/* SECTION 9: CUSTOMER SUCCESS (TWO COMPACT SIDE-BY-SIDE CARDS)              */}
       {/* ========================================================================= */}
-      <section id="case-studies" className="py-16 sm:py-20 lg:py-24 bg-white border-b border-slate-200/80">
+      <section id="case-studies" className="py-14 sm:py-18 lg:py-20 bg-slate-50/50 border-b border-slate-100">
         <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
           
           <SectionHeading
@@ -443,58 +424,34 @@ export const HomePage: React.FC = () => {
             align="center"
           />
 
-          {/* Testimonial Box Container */}
-          <div className="relative max-w-4xl mx-auto">
+          {/* Two Side-by-Side Testimonial Box Cards as in Reference Image */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-5xl mx-auto mb-6">
             <TestimonialCard
-              quote={testimonialsData[currentTestimonialIndex].quote}
-              author={testimonialsData[currentTestimonialIndex].author}
-              imageSrc={testimonialsData[currentTestimonialIndex].imageSrc}
+              quote="ATLAS Technosoft helped us streamline our business processes with SAP Business One and automation solutions."
+              author="— Customer Name (To be verified)"
+              imageSrc="/images/same_crops_clean/testimonial_1.png"
             />
+            <TestimonialCard
+              quote="Their expertise in warehouse solutions significantly improved our operational efficiency."
+              author="— Customer Name (To be verified)"
+              imageSrc="/images/same_crops_clean/testimonial_2.png"
+            />
+          </div>
 
-            {/* Left / Right Carousel Controls */}
-            <div className="flex items-center justify-between mt-6 px-4">
-              <button
-                type="button"
-                onClick={handlePrevTestimonial}
-                className="w-11 h-11 rounded-xl bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 hover:text-blue-600 flex items-center justify-center shadow-sm transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
-                aria-label="Previous Testimonial"
-              >
-                <ChevronLeft className="w-5 h-5" />
-              </button>
-
-              {/* Indicator Dots */}
-              <div className="flex items-center gap-2">
-                {testimonialsData.map((_, idx) => (
-                  <button
-                    key={idx}
-                    type="button"
-                    onClick={() => setCurrentTestimonialIndex(idx)}
-                    className={`h-2.5 rounded-full transition-all ${
-                      currentTestimonialIndex === idx ? 'w-8 bg-blue-600' : 'w-2.5 bg-slate-300'
-                    }`}
-                    aria-label={`Go to slide ${idx + 1}`}
-                  />
-                ))}
-              </div>
-
-              <button
-                type="button"
-                onClick={handleNextTestimonial}
-                className="w-11 h-11 rounded-xl bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 hover:text-blue-600 flex items-center justify-center shadow-sm transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
-                aria-label="Next Testimonial"
-              >
-                <ChevronRight className="w-5 h-5" />
-              </button>
-            </div>
+          {/* Carousel Indicator Dots */}
+          <div className="flex items-center justify-center gap-2 pt-2">
+            <span className="w-8 h-2 rounded-full bg-blue-600 transition-all" />
+            <span className="w-2 h-2 rounded-full bg-slate-300" />
+            <span className="w-2 h-2 rounded-full bg-slate-300" />
           </div>
 
         </div>
       </section>
 
       {/* ========================================================================= */}
-      {/* SECTION 10: OUR PARTNERS (3 BOX-TYPE PARTNER CARDS)                       */}
+      {/* SECTION 10: OUR PARTNERS (CENTERED LOGO BAR)                              */}
       {/* ========================================================================= */}
-      <section id="partners" className="py-16 sm:py-20 lg:py-22 bg-slate-50/60 border-b border-slate-200/80">
+      <section id="partners" className="py-14 sm:py-18 bg-white border-b border-slate-100">
         <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
           
           <SectionHeading
@@ -504,49 +461,30 @@ export const HomePage: React.FC = () => {
             align="center"
           />
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
-            {/* Box 1: SAP Business One */}
-            <div className="p-7 rounded-xl bg-white border border-slate-200 shadow-sm hover:border-blue-300 hover:shadow-md transition-all flex flex-col items-center text-center justify-between">
-              <SAPBusinessOneLogo className="h-8 mb-3" />
-              <div className="text-[14px] font-bold text-slate-800">Authorized Channel Partner</div>
-              <div className="text-[12px] text-slate-500 mt-1">Full-cycle ERP Implementation & HANA</div>
-            </div>
-
-            {/* Box 2: Boyum IT */}
-            <div className="p-7 rounded-xl bg-white border border-slate-200 shadow-sm hover:border-blue-300 hover:shadow-md transition-all flex flex-col items-center text-center justify-between">
-              <BoyumITLogo className="h-8 mb-3" />
-              <div className="text-[14px] font-bold text-slate-800">Silver Partner</div>
-              <div className="text-[12px] text-slate-500 mt-1">Beas Manufacturing & Produmex WMS</div>
-            </div>
-
-            {/* Box 3: UiPath */}
-            <div className="p-7 rounded-xl bg-white border border-slate-200 shadow-sm hover:border-blue-300 hover:shadow-md transition-all flex flex-col items-center text-center justify-between">
-              <UiPathLogo className="h-8 mb-3" />
-              <div className="text-[14px] font-bold text-slate-800">Silver Partner</div>
-              <div className="text-[12px] text-slate-500 mt-1">Hyperautomation & Document AI</div>
-            </div>
+          <div className="max-w-2xl mx-auto flex items-center justify-center">
+            <PartnerLogosStrip className="scale-105 sm:scale-115" />
           </div>
 
         </div>
       </section>
 
       {/* ========================================================================= */}
-      {/* SECTION 11: LET'S DISCUSS YOUR BUSINESS NEEDS (BOX-TYPE BANNER & CARDS)   */}
+      {/* SECTION 11: LET'S DISCUSS YOUR BUSINESS NEEDS (BOX-TYPE BANNER)           */}
       {/* ========================================================================= */}
-      <section id="contact" className="py-16 sm:py-20 lg:py-24 bg-white">
+      <section id="contact" className="py-14 sm:py-18 lg:py-20 bg-slate-50/50">
         <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
           
           {/* Defined Box Container */}
-          <div className="rounded-2xl bg-gradient-to-br from-blue-50/90 via-sky-50/50 to-blue-50/90 border border-blue-200 p-8 sm:p-12 lg:p-14 shadow-sm">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+          <div className="rounded-2xl bg-gradient-to-br from-blue-50/80 via-sky-50/40 to-blue-50/80 border border-blue-200/90 p-8 sm:p-10 lg:p-12 shadow-sm">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
               
               {/* Left Column: Heading, Subtext & CTA Button */}
-              <div className="lg:col-span-6 space-y-5">
-                <h2 className="text-[28px] sm:text-[34px] lg:text-[38px] font-bold text-slate-900 tracking-tight leading-tight">
+              <div className="lg:col-span-6 space-y-4">
+                <h2 className="text-[26px] sm:text-[32px] lg:text-[36px] font-bold text-slate-900 tracking-tight leading-tight">
                   Let's Discuss Your Business Needs
                 </h2>
                 
-                <p className="text-[16px] sm:text-[18px] text-slate-600 leading-relaxed max-w-lg">
+                <p className="text-[15px] sm:text-[17px] text-slate-600 leading-relaxed max-w-lg">
                   Book a consultation with our experts and explore how we can help you streamline your operations and drive growth.
                 </p>
 
@@ -564,20 +502,20 @@ export const HomePage: React.FC = () => {
               </div>
 
               {/* Right Column: 3 White Boxed Contact Info Cards */}
-              <div className="lg:col-span-6 space-y-4">
+              <div className="lg:col-span-6 space-y-3.5">
                 
                 {/* Email Box Card */}
-                <div className="flex items-center gap-4 p-4 sm:p-5 rounded-xl bg-white border border-slate-200 shadow-sm hover:border-blue-300 transition-colors">
-                  <div className="w-12 h-12 rounded-lg bg-blue-50 border border-blue-100 text-blue-600 flex items-center justify-center shrink-0">
-                    <Mail className="w-6 h-6" />
+                <div className="flex items-center gap-4 p-4 rounded-xl bg-white border border-slate-200 shadow-sm hover:border-blue-300 transition-colors">
+                  <div className="w-11 h-11 rounded-lg bg-blue-50 border border-blue-100 text-blue-600 flex items-center justify-center shrink-0">
+                    <Mail className="w-5 h-5" />
                   </div>
                   <div>
-                    <span className="text-[12px] sm:text-[13px] font-bold uppercase tracking-wider text-slate-400 block">
+                    <span className="text-[12px] font-bold uppercase tracking-wider text-slate-400 block">
                       Email
                     </span>
                     <a
                       href={`mailto:${BRAND_INFO.contact.email}`}
-                      className="text-[16px] sm:text-[17px] font-bold text-slate-900 hover:text-blue-600 transition-colors"
+                      className="text-[15px] sm:text-[16px] font-bold text-slate-900 hover:text-blue-600 transition-colors"
                     >
                       {BRAND_INFO.contact.email}
                     </a>
@@ -585,19 +523,19 @@ export const HomePage: React.FC = () => {
                 </div>
 
                 {/* Phone Box Card */}
-                <div className="flex items-center gap-4 p-4 sm:p-5 rounded-xl bg-white border border-slate-200 shadow-sm hover:border-blue-300 transition-colors">
-                  <div className="w-12 h-12 rounded-lg bg-blue-50 border border-blue-100 text-blue-600 flex items-center justify-center shrink-0">
-                    <Phone className="w-6 h-6" />
+                <div className="flex items-center gap-4 p-4 rounded-xl bg-white border border-slate-200 shadow-sm hover:border-blue-300 transition-colors">
+                  <div className="w-11 h-11 rounded-lg bg-blue-50 border border-blue-100 text-blue-600 flex items-center justify-center shrink-0">
+                    <Phone className="w-5 h-5" />
                   </div>
                   <div>
-                    <span className="text-[12px] sm:text-[13px] font-bold uppercase tracking-wider text-slate-400 block">
+                    <span className="text-[12px] font-bold uppercase tracking-wider text-slate-400 block">
                       Phone
                     </span>
                     <a
                       href={BRAND_INFO.contact.whatsappLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-[16px] sm:text-[17px] font-bold text-slate-900 hover:text-blue-600 transition-colors"
+                      className="text-[15px] sm:text-[16px] font-bold text-slate-900 hover:text-blue-600 transition-colors"
                     >
                       {BRAND_INFO.contact.phone}
                     </a>
@@ -605,15 +543,15 @@ export const HomePage: React.FC = () => {
                 </div>
 
                 {/* Locations Box Card */}
-                <div className="flex items-center gap-4 p-4 sm:p-5 rounded-xl bg-white border border-slate-200 shadow-sm hover:border-blue-300 transition-colors">
-                  <div className="w-12 h-12 rounded-lg bg-blue-50 border border-blue-100 text-blue-600 flex items-center justify-center shrink-0">
-                    <MapPin className="w-6 h-6" />
+                <div className="flex items-center gap-4 p-4 rounded-xl bg-white border border-slate-200 shadow-sm hover:border-blue-300 transition-colors">
+                  <div className="w-11 h-11 rounded-lg bg-blue-50 border border-blue-100 text-blue-600 flex items-center justify-center shrink-0">
+                    <MapPin className="w-5 h-5" />
                   </div>
                   <div>
-                    <span className="text-[12px] sm:text-[13px] font-bold uppercase tracking-wider text-slate-400 block">
+                    <span className="text-[12px] font-bold uppercase tracking-wider text-slate-400 block">
                       Locations
                     </span>
-                    <span className="text-[16px] sm:text-[17px] font-bold text-slate-900 block leading-snug">
+                    <span className="text-[15px] sm:text-[16px] font-bold text-slate-900 block leading-snug">
                       Borivali, Mumbai &bull; Marine Lines, Mumbai
                     </span>
                   </div>

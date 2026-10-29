@@ -15,28 +15,26 @@ export const ProcessStep: React.FC<ProcessStepProps> = ({
   isLast = false,
 }) => {
   return (
-    <div className="relative flex-1 flex flex-col items-center text-center p-6 sm:p-7 rounded-xl bg-white border border-slate-200 shadow-sm hover:border-blue-300 hover:shadow-md transition-all h-full justify-between">
-      <div className="flex flex-col items-center">
-        {/* Prominent numbered circle */}
-        <div className="w-14 h-14 rounded-full bg-blue-600 text-white font-extrabold text-[20px] flex items-center justify-center shadow-md shadow-blue-600/25 mb-4 shrink-0">
-          {number}
-        </div>
-
-        {/* Step Heading: 18–20px */}
-        <h3 className="text-[18px] sm:text-[20px] font-bold text-slate-900 mb-2.5">
-          {title}
-        </h3>
-
-        {/* Description: 16–17px */}
-        <p className="text-[15px] sm:text-[16px] text-slate-600 leading-relaxed">
-          {description}
-        </p>
+    <div className="relative flex-1 flex flex-col items-center text-center p-3 sm:p-4">
+      {/* Prominent Blue Circle Badge */}
+      <div className="w-12 h-12 rounded-full bg-blue-600 text-white font-extrabold text-[18px] flex items-center justify-center shadow-md shadow-blue-600/25 mb-3 shrink-0">
+        {number}
       </div>
 
-      {/* Desktop connector arrow */}
+      {/* Step Heading */}
+      <h3 className="text-[17px] sm:text-[19px] font-bold text-slate-900 mb-1.5">
+        {title}
+      </h3>
+
+      {/* Description */}
+      <p className="text-[13px] sm:text-[14px] text-slate-600 leading-snug max-w-[220px]">
+        {description}
+      </p>
+
+      {/* Desktop Connecting Arrow between steps */}
       {!isLast && (
-        <div className="hidden lg:flex absolute top-1/2 -right-3 -translate-y-1/2 z-10 w-6 h-6 rounded-full bg-white border border-slate-200 text-slate-400 items-center justify-center shadow-sm">
-          <ArrowRight className="w-3.5 h-3.5" />
+        <div className="hidden lg:flex absolute top-9 -right-3 translate-x-1/2 text-slate-300">
+          <ArrowRight className="w-5 h-5" />
         </div>
       )}
     </div>
