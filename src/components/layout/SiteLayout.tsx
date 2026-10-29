@@ -19,3 +19,4 @@ export const SiteLayout: React.FC<SiteLayoutProps> = ({ children }) => {
     </div>
   );
 };
+

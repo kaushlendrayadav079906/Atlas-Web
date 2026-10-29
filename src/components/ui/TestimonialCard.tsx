@@ -43,3 +43,4 @@ export const TestimonialCard: React.FC<TestimonialCardProps> = ({ testimonial })
     </div>
   );
 };
+

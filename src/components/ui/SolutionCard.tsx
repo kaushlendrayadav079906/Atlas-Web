@@ -105,3 +105,4 @@ export const SolutionCard: React.FC<SolutionCardProps> = ({ solution }) => {
     </div>
   );
 };
+

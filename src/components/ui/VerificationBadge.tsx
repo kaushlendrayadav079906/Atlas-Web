@@ -49,3 +49,4 @@ export const VerificationBadge: React.FC<VerificationBadgeProps> = ({
     </div>
   );
 };
+

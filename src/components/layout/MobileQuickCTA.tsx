@@ -20,7 +20,7 @@ export const MobileQuickCTA: React.FC = () => {
           href="#contact"
           className="flex-1 flex items-center justify-center gap-1.5 py-3 px-4 rounded-lg bg-brand-600 hover:bg-brand-500 text-white text-xs font-bold uppercase tracking-wider shadow-md transition-colors text-center"
         >
-          <span>Free Health Check</span>
+          <span>Book a Consultation</span>
           <ArrowRight className="w-4 h-4" />
         </a>
       </div>

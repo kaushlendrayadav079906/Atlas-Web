@@ -17,7 +17,6 @@ async function runVerification() {
   server.stdout.on('data', (d) => console.log(`[Vite]: ${d}`));
   server.stderr.on('data', (d) => console.error(`[Vite Err]: ${d}`));
 
-  // Wait for server to be up
   await wait(3000);
 
   const screenshotsDir = path.join(__dirname, 'verification_artifacts');
@@ -52,21 +51,70 @@ async function runVerification() {
     await page.setViewport({ width: 1440, height: 900 });
     await page.goto('http://localhost:4173', { waitUntil: 'networkidle0' });
 
+    // Verify H1 Headline
     const headline = await page.$eval('h1', el => el.innerText);
     console.log('Desktop H1 Headline:', headline);
     if (!headline.includes('Where SAP Business One Meets Intelligent Automation')) {
       throw new Error(`Headline does not match PDF! Got: ${headline}`);
     }
 
-    // Check solution cards count
+    // Verify 8 Navigation links in header
+    const navLinks = await page.$$eval('header nav a', els => els.map(e => e.innerText.trim()));
+    console.log('Header Navigation Links detected:', navLinks);
+    const expectedNav = ['Home', 'About', 'Services', 'Solutions', 'Industries', 'Case Studies', 'Partners', 'Contact'];
+    for (const link of expectedNav) {
+      if (!navLinks.includes(link)) {
+        throw new Error(`Missing expected nav link: ${link}`);
+      }
+    }
+    console.log('✓ All 8 navigation links verified.');
+
+    // Verify CTAs
+    const heroBtn1 = await page.$eval('section a[href="#contact"]', el => el.innerText);
+    console.log('Primary CTA button text:', heroBtn1);
+    if (!heroBtn1.includes('Book a Consultation')) {
+      throw new Error(`Expected primary CTA to be "Book a Consultation", got: ${heroBtn1}`);
+    }
+
+    const heroBtn2 = await page.$eval('section a[href="#solutions"]', el => el.innerText);
+    console.log('Secondary CTA button text:', heroBtn2);
+    if (!heroBtn2.includes('Explore Our Solutions')) {
+      throw new Error(`Expected secondary CTA to be "Explore Our Solutions", got: ${heroBtn2}`);
+    }
+
+    // Check 4 Service Cards
+    const serviceCards = await page.$$eval('#services .group', els => els.length);
+    console.log('Section 4 Services Overview cards detected:', serviceCards);
+    if (serviceCards !== 4) {
+      throw new Error(`Expected 4 core service cards, found: ${serviceCards}`);
+    }
+
+    // Check 6 Solution Cards
     const solutionCards = await page.$$eval('#solutions .group', els => els.length);
-    console.log('Solution cards detected:', solutionCards);
+    console.log('Section 4B Solutions Suite cards detected:', solutionCards);
+    if (solutionCards !== 6) {
+      throw new Error(`Expected 6 solution cards, found: ${solutionCards}`);
+    }
 
-    // Check metric cards count
-    const metricCards = await page.$$eval('[role="tooltip"], .relative .border', els => els.length);
-    console.log('Metric/card elements count:', metricCards);
+    // Check 4 Industry Cards
+    const industryCards = await page.$$eval('#industries .flex.flex-col', els => els.length);
+    console.log('Section 6 Industry cards detected:', industryCards);
 
-    // Check broken images
+    // Check 4 Approach Steps (Discover, Design, Implement, Optimize & Support)
+    const approachSteps = await page.$$eval('#approach h3', els => els.map(e => e.innerText.trim()));
+    console.log('Section 7 Approach Steps detected:', approachSteps);
+    if (!approachSteps.includes('Discover') || !approachSteps.includes('Design') || !approachSteps.includes('Implement')) {
+      throw new Error(`Missing expected approach steps: ${approachSteps}`);
+    }
+
+    // Check Partners Section
+    const partnerCount = await page.$$eval('#partners h3', els => els.length);
+    console.log('Section 9 Partner cards detected:', partnerCount);
+    if (partnerCount !== 3) {
+      throw new Error(`Expected 3 partner statements, found: ${partnerCount}`);
+    }
+
+    // Check Broken Images
     const brokenImages = await page.evaluate(() => {
       const images = Array.from(document.querySelectorAll('img'));
       return images
@@ -106,7 +154,6 @@ async function runVerification() {
       await page.screenshot({ path: path.join(screenshotsDir, '05_mobile_menu_open.png'), fullPage: false });
       console.log('Mobile menu opened successfully.');
       
-      // Close menu
       const closeBtn = await page.$('button[aria-label="Close menu"]');
       if (closeBtn) {
         await closeBtn.click();
@@ -133,23 +180,22 @@ async function runVerification() {
     }
     await page.screenshot({ path: path.join(screenshotsDir, '06_form_validation_errors.png'), fullPage: false });
 
-    // Fill valid data
-    console.log('\n--- 5. Filling Valid Contact Data & Verifying Mailto Placeholder ---');
-    await page.type('#fullName', 'Amitabh Verma');
-    await page.type('#companyName', 'Verma Precision Forgings Ltd');
-    await page.type('#workEmail', 'averma@vermaprecision.in');
-    await page.type('#phoneNumber', '+91 98201 55678');
+    // 5. Fill Valid Contact Data
+    console.log('\n--- 5. Filling Valid Contact Data & Verifying Mailto Modal ---');
+    await page.type('#fullName', 'Sanjay Mehra');
+    await page.type('#companyName', 'Mehra Precision Tools Ltd');
+    await page.type('#workEmail', 'smehra@mehraprecision.com');
+    await page.type('#phoneNumber', '+91 98200 44556');
     await page.select('#areaOfInterest', 'boyum');
-    await page.type('#message', 'We need Beas APS shop floor scheduling and SAP B1 HANA upgrade for our Pune plant.');
+    await page.type('#message', 'Interested in Beas Manufacturing APS shop floor scheduling and SAP B1 HANA upgrade.');
     await submitBtn.click();
     await wait(800);
 
-    // Check modal appeared
     const modalTitle = await page.$eval('#modal-title', el => el.innerText);
     console.log('Submission Modal Title:', modalTitle);
     await page.screenshot({ path: path.join(screenshotsDir, '07_form_submission_modal.png'), fullPage: false });
 
-    console.log('\n=== ALL VERIFICATION CHECKS PASSED ===');
+    console.log('\n=== ALL HOME PAGE VERIFICATION CHECKS PASSED ===');
     console.log('Total console errors:', pageErrors.length);
 
   } finally {

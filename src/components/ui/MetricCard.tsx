@@ -39,3 +39,4 @@ export const MetricCard: React.FC<MetricCardProps> = ({ metric, theme = 'dark' }
     </div>
   );
 };
+

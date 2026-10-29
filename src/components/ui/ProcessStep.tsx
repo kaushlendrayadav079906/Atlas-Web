@@ -50,3 +50,4 @@ export const ProcessStep: React.FC<ProcessStepProps> = ({ step, isLast = false }
     </div>
   );
 };
+

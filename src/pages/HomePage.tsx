@@ -10,18 +10,17 @@ import {
   Mail, 
   Phone, 
   MapPin, 
-  FileText, 
   Sparkles, 
-  Workflow, 
   Bot, 
   BrainCircuit, 
   Clock, 
   Award,
   ChevronRight,
   Send,
-  AlertTriangle,
-  Building2,
-  ExternalLink
+  ExternalLink,
+  Handshake,
+  CheckCircle,
+  HelpCircle
 } from 'lucide-react';
 import { Button } from '../components/ui/Button';
 import { SectionHeading } from '../components/ui/SectionHeading';
@@ -36,10 +35,11 @@ import {
   BRAND_INFO, 
   PARTNER_STATEMENTS, 
   TRUST_METRICS, 
+  CORE_SERVICES,
   SOLUTIONS_DATA, 
   EXPERTISE_PILLARS, 
   INDUSTRY_SOLUTIONS, 
-  IMPLEMENTATION_STEPS, 
+  ENGAGEMENT_APPROACH_STEPS, 
   TESTIMONIALS, 
   CASE_STUDY_HIGHLIGHTS,
   CONSULTATION_BENEFITS
@@ -111,7 +111,7 @@ export const HomePage: React.FC = () => {
     setIsSubmitting(true);
 
     // Phase 1 frontend demonstration behavior:
-    // Strictly does not mock a backend submission; validates inputs and presents email draft / WhatsApp action.
+    // Client-side validation only; prepares mailto draft and direct WhatsApp action without faking a backend.
     setTimeout(() => {
       setIsSubmitting(false);
       setValidatedData({ ...formData });
@@ -121,10 +121,10 @@ export const HomePage: React.FC = () => {
 
   // Generate Mailto draft link from validated inputs
   const generateMailtoLink = (data: ContactFormData) => {
-    const subject = encodeURIComponent(`Consultation Request: ${data.companyName} - ${data.areaOfInterest.toUpperCase()}`);
+    const subject = encodeURIComponent(`Consultation Booking: ${data.companyName} - ${data.areaOfInterest.toUpperCase()}`);
     const body = encodeURIComponent(
       `Dear ATLAS Technosoft Team,\n\n` +
-      `I would like to request a Free Hyperautomation Health Check / Consultation.\n\n` +
+      `I would like to book a consultation regarding your SAP & Intelligent Automation solutions.\n\n` +
       `Contact Details:\n` +
       `• Name: ${data.fullName}\n` +
       `• Company: ${data.companyName}\n` +
@@ -137,17 +137,23 @@ export const HomePage: React.FC = () => {
     return `mailto:${BRAND_INFO.contact.email}?subject=${subject}&body=${body}`;
   };
 
+  const serviceIconMap: Record<string, React.ReactNode> = {
+    Database: <Database className="w-6 h-6 text-brand-600" />,
+    Layers: <Layers className="w-6 h-6 text-indigo-600" />,
+    Cpu: <Cpu className="w-6 h-6 text-sky-600" />,
+    BrainCircuit: <BrainCircuit className="w-6 h-6 text-purple-600" />,
+  };
+
   return (
-    <div className="relative">
+    <div className="relative bg-white text-slate-900">
+      
       {/* ========================================================================= */}
-      {/* SECTION A & B: HERO SECTION                                               */}
+      {/* SECTION 2: HERO SECTION                                                   */}
       {/* ========================================================================= */}
       <section className="relative bg-navy-950 text-white overflow-hidden pt-12 pb-20 md:pt-20 md:pb-28">
-        {/* Background Visual Effects */}
         <div className="absolute inset-0 bg-grid-pattern opacity-30 pointer-events-none" />
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-96 bg-radial-glow pointer-events-none" />
         <div className="absolute -top-24 right-10 w-96 h-96 bg-brand-600/10 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-0 left-10 w-80 h-80 bg-accent-cyan/5 rounded-full blur-2xl pointer-events-none" />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
@@ -167,7 +173,7 @@ export const HomePage: React.FC = () => {
                 <span className="px-2 py-1 text-slate-300 font-medium">UiPath Silver Partner</span>
               </div>
 
-              {/* Main Headline from PDF */}
+              {/* Exact PDF Headline */}
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-extrabold tracking-tight leading-[1.12]">
                 Where <span className="text-white">SAP Business One</span> Meets{' '}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent-cyan via-sky-300 to-brand-400">
@@ -180,7 +186,7 @@ export const HomePage: React.FC = () => {
                 {BRAND_INFO.subTagline}
               </p>
 
-              {/* Supporting Value Proposition from PDF */}
+              {/* Supporting Value Message from PDF */}
               <p className="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
                 ATLAS Technosoft helps manufacturing, logistics, pharma, and trading companies{' '}
                 <strong className="text-white font-semibold">eliminate up to 70% manual work</strong>,{' '}
@@ -189,15 +195,15 @@ export const HomePage: React.FC = () => {
                 using SAP Business One, Boyum IT add-ons, UiPath RPA, and AI-driven automation.
               </p>
 
-              {/* Dual Action CTAs */}
+              {/* Dual Action CTAs: Book a Consultation & Explore Our Solutions */}
               <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
                 <Button
                   href="#contact"
-                  variant="cyan"
+                  variant="primary"
                   size="lg"
                   icon={<ArrowRight className="w-5 h-5" />}
                 >
-                  Get a Free Hyperautomation Health Check
+                  Book a Consultation
                 </Button>
 
                 <Button
@@ -206,47 +212,43 @@ export const HomePage: React.FC = () => {
                   size="lg"
                   icon={<ChevronRight className="w-5 h-5" />}
                 >
-                  View Our Solutions
+                  Explore Our Solutions
                 </Button>
               </div>
 
-              {/* Partner Statements & Trust Proof */}
+              {/* Trust Indicators */}
               <div className="pt-6 border-t border-navy-800/80 flex flex-wrap items-center gap-y-2 gap-x-6 text-xs text-slate-400">
-                <div className="flex items-center gap-1.5">
-                  <CheckCircle2 className="w-4 h-4 text-accent-cyan shrink-0" />
-                  <span>3-Year AI Maturity Roadmap Included</span>
-                </div>
                 <div className="flex items-center gap-1.5">
                   <CheckCircle2 className="w-4 h-4 text-accent-cyan shrink-0" />
                   <span>Readiness Score in 48 Hours</span>
                 </div>
                 <div className="flex items-center gap-1.5">
                   <CheckCircle2 className="w-4 h-4 text-accent-cyan shrink-0" />
-                  <span>Zero Sales Fluff</span>
+                  <span>3-Year AI Roadmap Included</span>
+                </div>
+                <div className="flex items-center gap-1.5">
+                  <CheckCircle2 className="w-4 h-4 text-accent-cyan shrink-0" />
+                  <span>Single-Vendor Accountability</span>
                 </div>
               </div>
             </div>
 
-            {/* Right Column: Connected Systems Enterprise Visual */}
+            {/* Right Column: Connected Systems Visual */}
             <div className="lg:col-span-5 relative">
               <div className="relative mx-auto w-full max-w-md lg:max-w-none rounded-2xl bg-gradient-to-b from-navy-900 to-navy-950 p-6 sm:p-7 border border-navy-800 shadow-2xl overflow-hidden">
-                
-                {/* Visual Header */}
                 <div className="flex items-center justify-between pb-4 border-b border-navy-800/80 mb-5">
                   <div className="flex items-center gap-2">
                     <span className="w-3 h-3 rounded-full bg-rose-500/80" />
                     <span className="w-3 h-3 rounded-full bg-amber-500/80" />
                     <span className="w-3 h-3 rounded-full bg-emerald-500/80" />
-                    <span className="ml-2 text-xs font-mono text-slate-400">ATLAS Intelligent Ecosystem</span>
+                    <span className="ml-2 text-xs font-mono text-slate-400">ATLAS Integrated Topology</span>
                   </div>
                   <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-accent-cyan/10 text-accent-cyan border border-accent-cyan/30">
-                    Live Telemetry
+                    Active Architecture
                   </span>
                 </div>
 
-                {/* Architecture Convergence Diagram */}
                 <div className="space-y-3.5">
-                  {/* Central Node: SAP Business One */}
                   <div className="p-4 rounded-xl bg-navy-950/90 border border-brand-500/40 shadow-inner flex items-center justify-between">
                     <div className="flex items-center gap-3">
                       <div className="p-2 rounded-lg bg-brand-600/30 text-accent-cyan">
@@ -254,7 +256,7 @@ export const HomePage: React.FC = () => {
                       </div>
                       <div>
                         <div className="text-sm font-bold text-white">SAP Business One (HANA / SQL)</div>
-                        <div className="text-xs text-slate-400">Single Source of Enterprise Truth</div>
+                        <div className="text-xs text-slate-400">Central Digital Core & Ledgers</div>
                       </div>
                     </div>
                     <span className="text-[11px] font-semibold text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">
@@ -262,8 +264,7 @@ export const HomePage: React.FC = () => {
                     </span>
                   </div>
 
-                  {/* Connected Child 1: Boyum IT */}
-                  <div className="p-3.5 rounded-xl bg-navy-900/70 border border-navy-800 flex items-center justify-between hover:border-slate-700 transition-colors">
+                  <div className="p-3.5 rounded-xl bg-navy-900/70 border border-navy-800 flex items-center justify-between">
                     <div className="flex items-center gap-3">
                       <div className="p-2 rounded-lg bg-indigo-500/20 text-indigo-400">
                         <Layers className="w-4 h-4" />
@@ -276,8 +277,7 @@ export const HomePage: React.FC = () => {
                     <span className="text-[10px] text-slate-400 font-mono">99.9% Pick</span>
                   </div>
 
-                  {/* Connected Child 2: UiPath RPA */}
-                  <div className="p-3.5 rounded-xl bg-navy-900/70 border border-navy-800 flex items-center justify-between hover:border-slate-700 transition-colors">
+                  <div className="p-3.5 rounded-xl bg-navy-900/70 border border-navy-800 flex items-center justify-between">
                     <div className="flex items-center gap-3">
                       <div className="p-2 rounded-lg bg-accent-cyan/20 text-accent-cyan">
                         <Bot className="w-4 h-4" />
@@ -290,26 +290,24 @@ export const HomePage: React.FC = () => {
                     <span className="text-[10px] text-accent-cyan font-mono">-70% Manual</span>
                   </div>
 
-                  {/* Connected Child 3: ATLAS AI Add-ons */}
-                  <div className="p-3.5 rounded-xl bg-navy-900/70 border border-navy-800 flex items-center justify-between hover:border-slate-700 transition-colors">
+                  <div className="p-3.5 rounded-xl bg-navy-900/70 border border-navy-800 flex items-center justify-between">
                     <div className="flex items-center gap-3">
                       <div className="p-2 rounded-lg bg-purple-500/20 text-purple-400">
                         <BrainCircuit className="w-4 h-4" />
                       </div>
                       <div>
                         <div className="text-xs font-bold text-slate-200">ATLAS AI-Ready Suite</div>
-                        <div className="text-[11px] text-slate-400">Computer Vision Weighbridge & Stock Predictor</div>
+                        <div className="text-[11px] text-slate-400">Computer Vision Gate & Stock Predictor</div>
                       </div>
                     </div>
                     <span className="text-[10px] text-purple-300 font-mono">Real-time</span>
                   </div>
                 </div>
 
-                {/* Real Executive Dashboard Preview Teaser */}
                 <div className="mt-5 pt-4 border-t border-navy-800/80 flex items-center justify-between text-xs text-slate-400">
                   <div className="flex items-center gap-2">
                     <TrendingUp className="w-4 h-4 text-accent-cyan" />
-                    <span>Real-time CXO Command Center</span>
+                    <span>Executive Command Center</span>
                   </div>
                   <span className="text-[11px] text-slate-400">40% Faster Close</span>
                 </div>
@@ -321,21 +319,21 @@ export const HomePage: React.FC = () => {
       </section>
 
       {/* ========================================================================= */}
-      {/* SECTION C: TRUST AND IMPACT METRICS                                       */}
+      {/* SECTION 3: COMPANY METRICS                                                */}
       {/* ========================================================================= */}
-      <section className="relative bg-navy-900 py-12 border-y border-navy-800">
+      <section id="metrics" className="relative bg-slate-900 py-12 border-y border-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div>
               <span className="text-xs font-bold uppercase tracking-wider text-accent-cyan block">
-                Quantified Track Record
+                Supplied Performance Claims
               </span>
               <h2 className="text-lg sm:text-xl font-bold text-white">
-                Proven Enterprise Results across India & Global SMEs
+                Enterprise Track Record across India & Global SMEs
               </h2>
             </div>
             <VerificationBadge
-              note="All figures are extracted directly from ATPL WEB Site_Content.pdf and flagged for legal verification before commercial production release."
+              note="Figures supplied by ATPL WEB Site_Content.pdf. Flagged for legal and client audit verification before production publication."
               variant="subtle"
             />
           </div>
@@ -349,14 +347,93 @@ export const HomePage: React.FC = () => {
       </section>
 
       {/* ========================================================================= */}
-      {/* SECTION D: WHAT WE DO (SOLUTIONS SECTION - 6 CARDS)                       */}
+      {/* SECTION 4: SERVICES OVERVIEW (4 PROFESSIONAL SERVICE CARDS)               */}
       {/* ========================================================================= */}
-      <section id="solutions" className="py-20 md:py-28 bg-slate-50">
+      <section id="services" className="py-20 md:py-28 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionHeading
+            badge="Services Overview"
+            title="Core Enterprise Services & Capability Blocks"
+            subtitle="Engineered exclusively to deploy, extend, and hyperautomate SAP Business One for high-growth discrete and process industries."
+            align="center"
+            theme="light"
+          />
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {CORE_SERVICES.map((service) => (
+              <div
+                key={service.id}
+                className="group flex flex-col justify-between p-7 sm:p-8 rounded-2xl bg-slate-50 border border-slate-200 hover:border-brand-300 hover:shadow-xl transition-all duration-300"
+              >
+                <div>
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-white border border-slate-200/80 shadow-sm group-hover:bg-brand-50 transition-colors">
+                      {serviceIconMap[service.iconName] || <Database className="w-6 h-6 text-brand-600" />}
+                    </div>
+                    <div>
+                      <span className="text-xs font-bold text-brand-600 uppercase tracking-wider block">
+                        {service.category}
+                      </span>
+                      <h3 className="text-lg sm:text-xl font-bold text-slate-900 group-hover:text-brand-600 transition-colors">
+                        {service.title}
+                      </h3>
+                    </div>
+                  </div>
+
+                  <p className="text-sm text-slate-600 leading-relaxed mb-6">
+                    {service.summary}
+                  </p>
+
+                  <div className="mb-6">
+                    <span className="text-xs font-bold uppercase tracking-wider text-slate-400 block mb-3">
+                      Core Deliverables
+                    </span>
+                    <ul className="space-y-2.5">
+                      {service.keyDeliverables.map((item, idx) => (
+                        <li key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700">
+                          <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
+                          <span className="leading-snug">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+
+                <div className="pt-5 border-t border-slate-200/80">
+                  <div className="mb-4 p-3 rounded-lg bg-white border border-slate-200 text-xs">
+                    <span className="font-bold uppercase text-slate-400 text-[10px] block mb-0.5">
+                      Documented Business Outcome
+                    </span>
+                    <span className="font-semibold text-slate-900">
+                      {service.businessImpact}
+                    </span>
+                  </div>
+
+                  <Button
+                    href={service.ctaTarget}
+                    variant="primary"
+                    size="sm"
+                    fullWidth
+                    icon={<ArrowRight className="w-4 h-4" />}
+                  >
+                    {service.ctaText}
+                  </Button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ========================================================================= */}
+      {/* SECTION 4B: SOLUTIONS SUITE (6 DETAILED SOLUTION MODULES)                  */}
+      {/* ========================================================================= */}
+      <section id="solutions" className="py-20 md:py-28 bg-slate-50 border-t border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             badge="Solutions Portfolio"
-            title="Enterprise ERP & Hyperautomation Architecture"
-            subtitle="Built on SAP Business One. Powered by certified Boyum IT modules and UiPath AI robots to convert routine tasks into autonomous operations."
+            title="Integrated Modules Built for Rapid SME Value"
+            subtitle="From native SAP Business One HANA migrations to specialized freight and weighment automation add-ons deployed in weeks."
             align="center"
             theme="light"
           />
@@ -370,45 +447,42 @@ export const HomePage: React.FC = () => {
       </section>
 
       {/* ========================================================================= */}
-      {/* SECTION E: EXPERTISE AND BUSINESS OUTCOMES                                */}
+      {/* SECTION 5: EXPERTISE (ENTERPRISE SOFTWARE & CONVERGENCE)                  */}
       {/* ========================================================================= */}
-      <section id="expertise" className="py-20 md:py-28 bg-navy-950 text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-dot-pattern opacity-20 pointer-events-none" />
-        
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="expertise" className="py-20 md:py-28 bg-white border-t border-slate-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
-            badge="Ecosystem Convergence"
-            title="How SAP B1, Boyum IT, UiPath & AI Work Together"
-            subtitle="Most providers deliver isolated software tools. ATLAS integrates the four critical layers into a unified autonomous business engine."
+            badge="Technical Expertise"
+            title="Enterprise Software, Process Optimization & Automation"
+            subtitle="How ATLAS combines deep SAP architecture with shop floor manufacturing execution, touchless warehousing, and autonomous RPA."
             align="center"
-            theme="dark"
+            theme="light"
           />
 
-          {/* 4 Architectural Convergence Pillars */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
             {EXPERTISE_PILLARS.map((pillar, idx) => (
               <div
                 key={pillar.id}
-                className="p-7 sm:p-8 rounded-2xl bg-navy-900/80 border border-navy-800 hover:border-brand-500/40 transition-all duration-300"
+                className="p-7 sm:p-8 rounded-2xl bg-slate-50 border border-slate-200 hover:border-brand-300 hover:shadow-md transition-all duration-300"
               >
                 <div className="flex items-center gap-3.5 mb-3">
-                  <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-brand-600/30 text-accent-cyan font-mono text-xs font-bold">
+                  <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-brand-100 text-brand-700 font-mono text-xs font-bold">
                     0{idx + 1}
                   </span>
                   <div>
-                    <h3 className="text-lg font-bold text-white">{pillar.title}</h3>
-                    <span className="text-xs text-accent-cyan font-medium">{pillar.subtitle}</span>
+                    <h3 className="text-lg font-bold text-slate-900">{pillar.title}</h3>
+                    <span className="text-xs text-brand-600 font-semibold">{pillar.subtitle}</span>
                   </div>
                 </div>
 
-                <p className="text-sm text-slate-300 leading-relaxed mb-5">
+                <p className="text-sm text-slate-600 leading-relaxed mb-5">
                   {pillar.description}
                 </p>
 
-                <ul className="space-y-2 border-t border-navy-850 pt-4">
+                <ul className="space-y-2 border-t border-slate-200 pt-4">
                   {pillar.bulletPoints.map((point, bIdx) => (
-                    <li key={bIdx} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-300">
-                      <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                    <li key={bIdx} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700">
+                      <CheckCircle2 className="w-4 h-4 text-brand-600 shrink-0 mt-0.5" />
                       <span>{point}</span>
                     </li>
                   ))}
@@ -417,38 +491,38 @@ export const HomePage: React.FC = () => {
             ))}
           </div>
 
-          {/* Business Impact Banner */}
-          <div className="p-8 rounded-2xl bg-gradient-to-r from-navy-900 via-navy-850 to-navy-900 border border-navy-800 flex flex-col lg:flex-row items-center justify-between gap-6">
+          {/* Differentiator Callout Box */}
+          <div className="p-8 rounded-2xl bg-navy-950 text-white flex flex-col lg:flex-row items-center justify-between gap-6 shadow-xl">
             <div>
               <span className="text-xs font-bold uppercase tracking-wider text-accent-cyan block mb-1">
-                The ATLAS Value Guarantee
+                Single-Vendor Accountability
               </span>
               <h3 className="text-xl font-bold text-white">
-                Single-Vendor Accountability Across Your Digital Stack
+                SAP B1, Boyum IT, UiPath & AI Under One Roof
               </h3>
-              <p className="text-sm text-slate-400 mt-1 max-w-2xl">
-                No finger-pointing between your ERP vendor, RPA consultant, and add-on developers. ATLAS owns the complete discovery, integration, and 24×7 operational SLA.
+              <p className="text-sm text-slate-300 mt-1 max-w-2xl">
+                Eliminate coordination friction between disparate software vendors. ATLAS manages your complete digital architecture from scoping to 24×7 ongoing SLA support.
               </p>
             </div>
             <Button
-              href="#approach"
+              href="#contact"
               variant="cyan"
               size="md"
               icon={<ArrowRight className="w-4 h-4" />}
             >
-              See Our Approach
+              Book Consultation
             </Button>
           </div>
         </div>
       </section>
 
       {/* ========================================================================= */}
-      {/* SECTION F: INDUSTRY SOLUTIONS                                             */}
+      {/* SECTION 6: INDUSTRIES (4 SECTOR CARDS)                                    */}
       {/* ========================================================================= */}
-      <section id="industries" className="py-20 md:py-28 bg-slate-100/60">
+      <section id="industries" className="py-20 md:py-28 bg-slate-50 border-t border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
-            badge="Sector Focus"
+            badge="Industry Specialization"
             title="Tailored Solutions for SME Industry Verticals"
             subtitle="Pre-configured industry templates that solve specific shop-floor, yard, trading, and finance bottlenecks."
             align="center"
@@ -464,24 +538,36 @@ export const HomePage: React.FC = () => {
       </section>
 
       {/* ========================================================================= */}
-      {/* SECTION G: IMPLEMENTATION APPROACH (3 STEPS)                              */}
+      {/* SECTION 7: OUR APPROACH (4-STEP PROPOSED ENGAGEMENT PROCESS)             */}
       {/* ========================================================================= */}
-      <section id="approach" className="py-20 md:py-28 bg-white">
+      <section id="approach" className="py-20 md:py-28 bg-white border-t border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading
-            badge="Discovery to Delivery"
-            title="Simple. Structured. Result-Oriented."
-            subtitle="How we evaluate your operations, identify high-ROI automation targets, and deliver on a fixed-scope commitment."
-            align="center"
-            theme="light"
-          />
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+            <div>
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider mb-4 bg-brand-50 text-brand-700 border border-brand-200">
+                <Clock className="w-3.5 h-3.5" />
+                Proposed Engagement Process
+              </div>
+              <h2 className="text-2xl sm:text-4xl font-bold text-slate-900 tracking-tight">
+                Our 4-Step Implementation Approach
+              </h2>
+              <p className="mt-3 text-slate-600 text-base max-w-xl">
+                A structured discovery-to-delivery framework designed to identify high-ROI opportunities and ensure transparent delivery.
+              </p>
+            </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {IMPLEMENTATION_STEPS.map((step, idx) => (
+            <VerificationBadge
+              note="Proposed delivery framework. Milestones and scope are customized per client engagement and do not represent a guaranteed or independently verified company methodology."
+              variant="floating"
+            />
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {ENGAGEMENT_APPROACH_STEPS.map((step, idx) => (
               <ProcessStep
                 key={step.step}
                 step={step}
-                isLast={idx === IMPLEMENTATION_STEPS.length - 1}
+                isLast={idx === ENGAGEMENT_APPROACH_STEPS.length - 1}
               />
             ))}
           </div>
@@ -489,43 +575,43 @@ export const HomePage: React.FC = () => {
       </section>
 
       {/* ========================================================================= */}
-      {/* SECTION H: CUSTOMER OUTCOMES & SOCIAL PROOF                               */}
+      {/* SECTION 8: CUSTOMER SUCCESS (CASE STUDIES & TESTIMONIALS)                 */}
       {/* ========================================================================= */}
-      <section id="outcomes" className="py-20 md:py-28 bg-navy-950 text-white">
+      <section id="case-studies" className="py-20 md:py-28 bg-navy-950 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
             <div>
               <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider mb-4 bg-brand-900/40 text-accent-cyan border border-accent-cyan/30">
                 <Award className="w-3.5 h-3.5" />
-                Proven Client Outcomes
+                Customer Success
               </div>
               <h2 className="text-2xl sm:text-4xl font-bold text-white tracking-tight">
-                Trusted by 80+ Growing Enterprises
+                Proven Client Outcomes from Source Records
               </h2>
               <p className="mt-3 text-slate-300 text-base max-w-xl">
-                Real KPI gains achieved across manufacturing, pharmaceutical, logistics, and trading operations.
+                Verbatim feedback and documented KPI improvements across manufacturing, logistics, and trading clients.
               </p>
             </div>
 
             <VerificationBadge
-              note="Client quotations and case study statistics represent data from ATPL WEB Site_Content.pdf. All case evidence is being collated for final audit verification before public publication."
+              note="All client quotes and case statistics are extracted from ATPL WEB Site_Content.pdf. Mark for client permission and evidence verification before public production release."
               variant="subtle"
             />
           </div>
 
           {/* Testimonial Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-14">
             {TESTIMONIALS.map((test) => (
               <TestimonialCard key={test.id} testimonial={test} />
             ))}
           </div>
 
-          {/* Case Study Benchmark Strip */}
+          {/* Documented Case Study Highlights */}
           <div className="p-8 rounded-2xl bg-navy-900 border border-navy-800">
             <div className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-6 flex items-center justify-between">
-              <span>Verified Implementation Highlights</span>
-              <span className="text-accent-cyan font-mono">2020 – 2025 Milestones</span>
+              <span>Documented Implementation Highlights (2020–2025)</span>
+              <span className="text-accent-cyan font-mono">Real Client Records</span>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 divide-y md:divide-y-0 md:divide-x divide-navy-800">
@@ -552,50 +638,51 @@ export const HomePage: React.FC = () => {
       </section>
 
       {/* ========================================================================= */}
-      {/* SECTION I: CONVERSION CTA                                                 */}
+      {/* SECTION 9: PARTNERS (SAP, BOYUM IT, UIPATH ACCREDITATION)                 */}
       {/* ========================================================================= */}
-      <section className="relative py-20 bg-gradient-to-br from-brand-700 via-brand-800 to-navy-950 text-white overflow-hidden">
-        <div className="absolute inset-0 bg-grid-pattern opacity-15 pointer-events-none" />
-        
-        <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold bg-white/10 backdrop-blur-md text-accent-cyan border border-white/20 mb-6">
-            <Sparkles className="w-4 h-4 text-accent-cyan" />
-            Complimentary Executive Assessment
-          </div>
+      <section id="partners" className="py-20 md:py-28 bg-white border-t border-slate-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionHeading
+            badge="Strategic Alliances"
+            title="Certified Partner Ecosystem"
+            subtitle="Text-based and accredited representation for our enterprise technology partners. Subject to continuous audit and tier renewal."
+            align="center"
+            theme="light"
+          />
 
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight leading-tight mb-6">
-            Ready to Make Your SAP Business One Intelligent?
-          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+            {PARTNER_STATEMENTS.map((partner, idx) => (
+              <div
+                key={idx}
+                className="p-7 rounded-2xl bg-slate-50 border border-slate-200 hover:border-slate-300 transition-all shadow-sm flex flex-col justify-between"
+              >
+                <div>
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="px-2.5 py-1 rounded text-xs font-bold uppercase tracking-wider bg-white border border-slate-200 text-brand-600">
+                      {partner.badge}
+                    </span>
+                    <Handshake className="w-5 h-5 text-slate-400" />
+                  </div>
 
-          <p className="text-base sm:text-lg text-slate-200 max-w-2xl mx-auto leading-relaxed mb-8">
-            Turn SAP B1 into an autonomous growth engine. Schedule your Hyperautomation Health Check and receive your tailored readiness score in 48 hours along with a 3-Year AI Roadmap.
-          </p>
+                  <h3 className="text-lg font-bold text-slate-900 mb-1">
+                    {partner.name}
+                  </h3>
+                  <div className="text-xs font-semibold text-slate-500 mb-3">
+                    Level: {partner.level}
+                  </div>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
-            <Button
-              href="#contact"
-              variant="cyan"
-              size="lg"
-              icon={<ArrowRight className="w-5 h-5" />}
-            >
-              Get a Free Hyperautomation Health Check
-            </Button>
-            <Button
-              href={BRAND_INFO.contact.whatsappLink}
-              variant="secondary"
-              size="lg"
-              icon={<ExternalLink className="w-5 h-5" />}
-            >
-              Direct WhatsApp (+91-9372329599)
-            </Button>
-          </div>
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                    {partner.description}
+                  </p>
+                </div>
 
-          {/* Included Features Pill Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 text-xs text-left max-w-4xl mx-auto">
-            {CONSULTATION_BENEFITS.slice(0, 4).map((benefit, idx) => (
-              <div key={idx} className="p-3.5 rounded-xl bg-white/10 backdrop-blur-sm border border-white/15 text-slate-100 flex items-start gap-2">
-                <CheckCircle2 className="w-4 h-4 text-accent-cyan shrink-0 mt-0.5" />
-                <span className="leading-snug">{benefit}</span>
+                <div className="pt-4 mt-4 border-t border-slate-200 flex items-center justify-between">
+                  <span className="text-[11px] text-slate-500">Tier Status Verified</span>
+                  <VerificationBadge
+                    note="Official partner statement as supplied in ATPL WEB Site_Content.pdf. Partner tier status subject to periodic verification."
+                    variant="floating"
+                  />
+                </div>
               </div>
             ))}
           </div>
@@ -603,9 +690,31 @@ export const HomePage: React.FC = () => {
       </section>
 
       {/* ========================================================================= */}
-      {/* SECTION J: CONTACT & CONSULTATION SECTION                                 */}
+      {/* SECTION 11B: ABOUT SNAPSHOT SUMMARY                                       */}
       {/* ========================================================================= */}
-      <section id="contact" className="py-20 md:py-28 bg-slate-50">
+      <section id="about" className="py-16 bg-slate-50 border-t border-slate-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mx-auto text-center space-y-4">
+            <span className="text-xs font-bold uppercase tracking-wider text-brand-600">
+              About ATLAS Technosoft Pvt. Ltd.
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-bold text-slate-900">
+              Nearly 20 Years of Specialized SAP Excellence
+            </h2>
+            <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
+              With nearly two decades of deep SAP expertise, ATLAS Technosoft has evolved into Mumbai's premier digital transformation partner for high-growth SMEs. We focus exclusively on SAP Business One, enhanced with Boyum IT add-ons, UiPath Robotic Process Automation, and AI-driven automation — delivering end-to-end solutions that convert routine operations into strategic business advantages.
+            </p>
+            <div className="pt-2 text-xs font-semibold text-slate-500">
+              Company Promise: <span className="text-brand-600 font-bold">{BRAND_INFO.promise}</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ========================================================================= */}
+      {/* SECTION 10: CONTACT CTA & CONSULTATION SECTION                            */}
+      {/* ========================================================================= */}
+      <section id="contact" className="py-20 md:py-28 bg-white border-t border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             badge="Consultation & Enquiry"
@@ -619,7 +728,7 @@ export const HomePage: React.FC = () => {
             
             {/* Left Column: Direct Contact Info & Value Badges */}
             <div className="lg:col-span-5 space-y-8">
-              <div className="p-8 rounded-2xl bg-white border border-slate-200/90 shadow-sm space-y-6">
+              <div className="p-8 rounded-2xl bg-slate-50 border border-slate-200/90 shadow-sm space-y-6">
                 <h3 className="text-xl font-bold text-slate-900">
                   Why Start with ATLAS?
                 </h3>
@@ -656,10 +765,10 @@ export const HomePage: React.FC = () => {
                 </ul>
 
                 {/* Direct Reach Channels */}
-                <div className="pt-6 border-t border-slate-100 space-y-3.5">
+                <div className="pt-6 border-t border-slate-200 space-y-3.5">
                   <a
                     href={`mailto:${BRAND_INFO.contact.email}`}
-                    className="flex items-center gap-3 p-3 rounded-xl bg-slate-50 hover:bg-slate-100 text-slate-800 transition-colors"
+                    className="flex items-center gap-3 p-3 rounded-xl bg-white hover:bg-slate-100 text-slate-800 transition-colors border border-slate-200"
                   >
                     <Mail className="w-5 h-5 text-brand-600 shrink-0" />
                     <div className="text-xs">
@@ -672,7 +781,7 @@ export const HomePage: React.FC = () => {
                     href={BRAND_INFO.contact.whatsappLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-3 p-3 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-900 transition-colors"
+                    className="flex items-center gap-3 p-3 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-900 transition-colors border border-emerald-200"
                   >
                     <Phone className="w-5 h-5 text-emerald-600 shrink-0" />
                     <div className="text-xs">
@@ -681,7 +790,7 @@ export const HomePage: React.FC = () => {
                     </div>
                   </a>
 
-                  <div className="flex items-start gap-3 p-3 rounded-xl bg-slate-50 text-slate-800">
+                  <div className="flex items-start gap-3 p-3 rounded-xl bg-white text-slate-800 border border-slate-200">
                     <MapPin className="w-5 h-5 text-brand-600 shrink-0 mt-0.5" />
                     <div className="text-xs">
                       <span className="text-slate-500 block">Office Locations</span>
@@ -694,10 +803,10 @@ export const HomePage: React.FC = () => {
 
             {/* Right Column: Complete Interactive Consultation Form */}
             <div className="lg:col-span-7">
-              <div className="p-8 sm:p-10 rounded-2xl bg-white border border-slate-200/90 shadow-lg">
+              <div className="p-8 sm:p-10 rounded-2xl bg-white border border-slate-200 shadow-lg">
                 <div className="mb-6">
                   <h3 className="text-xl font-bold text-slate-900">
-                    Book Your Free Hyperautomation Health Check
+                    Book a Free Consultation
                   </h3>
                   <p className="text-xs sm:text-sm text-slate-600 mt-1">
                     Receive your SAP B1 + Boyum + UiPath Readiness Score within 48 hours.
@@ -705,7 +814,6 @@ export const HomePage: React.FC = () => {
                 </div>
 
                 <form onSubmit={handleFormSubmit} noValidate className="space-y-4">
-                  {/* Row 1: Name and Company */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label htmlFor="fullName" className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
@@ -752,7 +860,6 @@ export const HomePage: React.FC = () => {
                     </div>
                   </div>
 
-                  {/* Row 2: Work Email and Phone */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label htmlFor="workEmail" className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
@@ -799,7 +906,6 @@ export const HomePage: React.FC = () => {
                     </div>
                   </div>
 
-                  {/* Row 3: Area of Interest */}
                   <div>
                     <label htmlFor="areaOfInterest" className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
                       Primary Area of Interest
@@ -811,17 +917,16 @@ export const HomePage: React.FC = () => {
                       onChange={handleInputChange}
                       className="w-full px-4 py-2.5 rounded-lg border border-slate-300 bg-white text-sm focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500"
                     >
-                      <option value="sap-b1">SAP Business One Implementation & HANA Migration</option>
-                      <option value="boyum">Boyum IT Add-Ons (Beas Manufacturing & Produmex WMS)</option>
-                      <option value="uipath-rpa">UiPath RPA & Document Understanding (OCR + AI)</option>
-                      <option value="freight">Freight, Shipping & Trading Modules</option>
+                      <option value="sap-b1">SAP Business One Implementation & Optimization</option>
+                      <option value="boyum">Boyum IT Solutions (Beas Manufacturing & Produmex WMS)</option>
+                      <option value="uipath-rpa">UiPath RPA & AI Automation (OCR & Bots)</option>
+                      <option value="atlas-addons">ATLAS Proprietary Add-on Suite</option>
+                      <option value="freight">Freight & Trading Modules</option>
                       <option value="gate-entry">Gate Entry & Computer Vision Weighment</option>
-                      <option value="ai-suite">ATLAS AI-Ready Proprietary Suite</option>
-                      <option value="full-healthcheck">Comprehensive Hyperautomation Health Check</option>
+                      <option value="full-healthcheck">Full Hyperautomation Assessment</option>
                     </select>
                   </div>
 
-                  {/* Row 4: Requirements / Message */}
                   <div>
                     <label htmlFor="message" className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
                       Operational Process or Requirements <span className="text-rose-500">*</span>
@@ -844,15 +949,13 @@ export const HomePage: React.FC = () => {
                     )}
                   </div>
 
-                  {/* Phase 1 Client-Side Notice */}
                   <div className="p-3 rounded-lg bg-slate-50 border border-slate-200 text-xs text-slate-500 flex items-start gap-2">
                     <ShieldCheck className="w-4 h-4 text-brand-600 shrink-0 mt-0.5" />
                     <span>
-                      <strong>Phase 1 Frontend Sandbox:</strong> Submitting will validate your inputs and prepare a direct email draft or WhatsApp notification to ATLAS Technosoft consultants. Backend database persistence will be integrated in Phase 3.
+                      <strong>Client-Side Validation Only:</strong> Submitting formats your enquiry and prepares an email draft or WhatsApp dispatch to ATLAS Technosoft consultants. Backend database persistence will be integrated in Phase 3.
                     </span>
                   </div>
 
-                  {/* Submit Button */}
                   <Button
                     type="submit"
                     variant="primary"
@@ -861,34 +964,12 @@ export const HomePage: React.FC = () => {
                     disabled={isSubmitting}
                     icon={isSubmitting ? undefined : <Send className="w-4 h-4" />}
                   >
-                    {isSubmitting ? 'Validating Information...' : 'Book Free Consultation'}
+                    {isSubmitting ? 'Validating Information...' : 'Book a Consultation'}
                   </Button>
                 </form>
               </div>
             </div>
 
-          </div>
-        </div>
-      </section>
-
-      {/* ========================================================================= */}
-      {/* SECTION K: ABOUT SNAPSHOT SUMMARY (ANCHOR TARGET)                         */}
-      {/* ========================================================================= */}
-      <section id="about" className="py-16 bg-white border-t border-slate-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto text-center space-y-4">
-            <span className="text-xs font-bold uppercase tracking-wider text-brand-600">
-              About ATLAS Technosoft Pvt. Ltd.
-            </span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-slate-900">
-              Nearly 20 Years of Specialized SAP Excellence
-            </h2>
-            <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-              With nearly two decades of deep SAP expertise, ATLAS Technosoft has evolved into Mumbai's premier digital transformation partner for high-growth SMEs. We focus exclusively on SAP Business One, enhanced with Boyum IT add-ons, UiPath Robotic Process Automation, and AI-driven automation — delivering end-to-end solutions that convert routine operations into strategic business advantages.
-            </p>
-            <div className="pt-2 text-xs font-semibold text-slate-500">
-              Promise: <span className="text-brand-600">Run SAP Smarter. Faster. With Zero Manual Touch.</span>
-            </div>
           </div>
         </div>
       </section>
@@ -906,8 +987,8 @@ export const HomePage: React.FC = () => {
             <div className="p-3.5 rounded-xl bg-emerald-50 border border-emerald-200 text-xs text-emerald-900 flex items-start gap-2.5">
               <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
               <div>
-                <strong className="font-bold block">Frontend Form Validated Successfully!</strong>
-                As part of Phase 1 Frontend Foundation, your inquiry data is formatted and ready for dispatch.
+                <strong className="font-bold block">Consultation Details Validated!</strong>
+                Your consultation request has passed frontend validation and is formatted for dispatch.
               </div>
             </div>
 
@@ -917,7 +998,7 @@ export const HomePage: React.FC = () => {
               <div><strong>Work Email:</strong> {validatedData.workEmail}</div>
               <div><strong>Phone:</strong> {validatedData.phoneNumber}</div>
               <div><strong>Interest:</strong> {validatedData.areaOfInterest}</div>
-              <div><strong>Message:</strong> {validatedData.message}</div>
+              <div><strong>Requirements:</strong> {validatedData.message}</div>
             </div>
 
             <p className="text-xs text-slate-500 leading-relaxed">
@@ -936,7 +1017,7 @@ export const HomePage: React.FC = () => {
 
               <a
                 href={`https://wa.me/919372329599?text=${encodeURIComponent(
-                  `Hello ATLAS Technosoft, I submitted a consultation request on your website for ${validatedData.companyName} regarding ${validatedData.areaOfInterest}. Name: ${validatedData.fullName}.`
+                  `Hello ATLAS Technosoft, I would like to book a consultation for ${validatedData.companyName} regarding ${validatedData.areaOfInterest}. Name: ${validatedData.fullName}. Phone: ${validatedData.phoneNumber}.`
                 )}`}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -959,6 +1040,7 @@ export const HomePage: React.FC = () => {
           </div>
         )}
       </Modal>
+
     </div>
   );
 };

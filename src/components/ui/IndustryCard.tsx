@@ -71,3 +71,4 @@ export const IndustryCard: React.FC<IndustryCardProps> = ({ industry }) => {
     </div>
   );
 };
+
