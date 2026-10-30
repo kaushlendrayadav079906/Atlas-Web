@@ -14,13 +14,18 @@ export const SiteFooter: React.FC = () => {
           
           {/* Column 1: Brand & Description (4 cols on lg) */}
           <div className="lg:col-span-4 space-y-5">
-            <div className="flex items-center gap-3.5">
-              <div className="w-11 h-11 rounded-xl bg-white overflow-hidden p-1 flex items-center justify-center shrink-0 shadow-md">
+            <div className="flex items-center gap-3">
+              <div className="w-14 h-12 flex items-center justify-center shrink-0">
                 <img src="/images/logo.png" alt="ATLAS Technosoft Logo" className="w-full h-full object-contain" />
               </div>
-              <span className="text-[22px] font-extrabold text-white tracking-tight">
-                ATLAS <span className="text-slate-300 font-medium">Technosoft</span>
-              </span>
+              <div className="flex flex-col leading-none select-none">
+                <span className="text-[24px] font-black tracking-tight text-white">
+                  ATLAS
+                </span>
+                <span className="text-[15px] font-medium text-slate-200 tracking-normal mt-0.5">
+                  Technosoft
+                </span>
+              </div>
             </div>
 
             <p className="text-[15px] sm:text-[16px] text-slate-300 leading-relaxed max-w-sm">

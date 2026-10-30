@@ -57,21 +57,21 @@ export const SiteHeader: React.FC = () => {
             {/* Brand Logo & Name */}
             <Link
               to="/"
-              className="flex items-center gap-3.5 group focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded-lg p-1"
+              className="flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 rounded-lg p-1"
             >
-              <div className="relative w-11 h-11 rounded-xl overflow-hidden bg-white shrink-0 flex items-center justify-center">
+              <div className="relative h-12 w-14 shrink-0 flex items-center justify-center">
                 <img
                   src="/images/logo.png"
                   alt="ATLAS Technosoft Logo"
                   className="w-full h-full object-contain"
                 />
               </div>
-              <div className="flex flex-col">
-                <span className="text-[20px] sm:text-[22px] font-extrabold tracking-tight text-slate-900 group-hover:text-blue-600 transition-colors">
-                  ATLAS <span className="text-slate-600 font-semibold">Technosoft</span>
+              <div className="flex flex-col leading-none">
+                <span className="text-[22px] sm:text-[24px] font-black tracking-tight text-[#10264b] group-hover:text-[#d99120] transition-colors">
+                  ATLAS
                 </span>
-                <span className="text-[11px] text-slate-400 tracking-wider uppercase font-medium">
-                  SAP & Hyperautomation
+                <span className="text-[13px] sm:text-[14px] font-bold text-[#10264b] tracking-normal mt-0.5">
+                  Technosoft
                 </span>
               </div>
             </Link>
@@ -141,10 +141,13 @@ export const SiteHeader: React.FC = () => {
         <div className="fixed inset-0 z-50 xl:hidden flex flex-col justify-between bg-white/98 backdrop-blur-xl">
           <div className="p-4 border-b border-slate-200 flex items-center justify-between">
             <Link to="/" className="flex items-center gap-3" onClick={() => setIsMobileMenuOpen(false)}>
-              <div className="w-10 h-10 rounded-lg bg-white overflow-hidden p-1 flex items-center justify-center border border-slate-100">
+              <div className="w-12 h-10 shrink-0 flex items-center justify-center">
                 <img src="/images/logo.png" alt="ATLAS Logo" className="w-full h-full object-contain" />
               </div>
-              <span className="text-[19px] font-extrabold text-slate-900">ATLAS Technosoft</span>
+              <div className="flex flex-col leading-none">
+                <span className="text-[20px] font-black text-slate-900">ATLAS</span>
+                <span className="text-[12px] font-bold text-slate-800">Technosoft</span>
+              </div>
             </Link>
             <button
               onClick={() => setIsMobileMenuOpen(false)}

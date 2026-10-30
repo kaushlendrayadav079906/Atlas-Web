@@ -216,9 +216,23 @@ export const ContactPage: React.FC = () => {
 
   return (
     <div className="relative bg-[#fffdfa] text-[#354765] selection:bg-[#d99120] selection:text-white">
-      {/* Subtle organic decorative background gradients */}
-      <div className="absolute top-0 right-0 w-[550px] h-[550px] bg-gradient-to-bl from-amber-100/40 via-amber-50/20 to-transparent rounded-full blur-3xl pointer-events-none -z-10" />
-      <div className="absolute top-[600px] left-0 w-[500px] h-[500px] bg-gradient-to-tr from-emerald-100/30 via-teal-50/10 to-transparent rounded-full blur-3xl pointer-events-none -z-10" />
+      {/* Organic Topographic Contour Curves matching reference mockup */}
+      <div className="absolute top-0 left-0 w-[420px] h-[900px] pointer-events-none select-none overflow-hidden -z-10 opacity-70 hidden sm:block">
+        <svg viewBox="0 0 420 900" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+          <path d="M-120 40C-40 120 30 180 80 290C130 400 110 520 60 640C10 760 -40 820 -120 890" stroke="#d99120" strokeWidth="1.2" strokeOpacity="0.22" />
+          <path d="M-90 10C-10 90 60 150 110 260C160 370 140 490 90 610C40 730 -10 790 -90 860" stroke="#d99120" strokeWidth="1.2" strokeOpacity="0.16" />
+          <path d="M-60 -20C20 60 90 120 140 230C190 340 170 460 120 580C70 700 20 760 -60 830" stroke="#d99120" strokeWidth="1.2" strokeOpacity="0.11" />
+          <path d="M-30 -50C50 30 120 90 170 200C220 310 200 430 150 550C100 670 50 730 -30 800" stroke="#d99120" strokeWidth="1.2" strokeOpacity="0.07" />
+        </svg>
+      </div>
+
+      <div className="absolute top-[350px] right-0 w-[420px] h-[900px] pointer-events-none select-none overflow-hidden -z-10 opacity-70 hidden sm:block">
+        <svg viewBox="0 0 420 900" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+          <path d="M540 40C460 120 390 180 340 290C290 400 310 520 360 640C410 760 460 820 540 890" stroke="#d99120" strokeWidth="1.2" strokeOpacity="0.22" />
+          <path d="M510 10C430 90 360 150 310 260C260 370 280 490 330 610C380 730 430 790 510 860" stroke="#d99120" strokeWidth="1.2" strokeOpacity="0.16" />
+          <path d="M480 -20C400 60 330 120 280 230C230 340 250 460 300 580C350 700 400 760 480 830" stroke="#d99120" strokeWidth="1.2" strokeOpacity="0.11" />
+        </svg>
+      </div>
 
       {/* ========================================================================= */}
       {/* SECTION 1: HERO SECTION                                                   */}
@@ -266,35 +280,14 @@ export const ContactPage: React.FC = () => {
               </div>
             </div>
 
-            {/* Right Column: Reception Visual with 3 Floating Badge Cards */}
+            {/* Right Column: Reception Visual with Logo on the Wall */}
             <div className="lg:col-span-5 relative">
               <div className="relative rounded-2xl overflow-hidden shadow-xl border border-slate-200/90 bg-white group">
                 <img
                   src={CONTACT_HERO_DATA.heroImage}
                   alt="ATLAS Technosoft Office Reception and Headquarters"
-                  className="w-full h-[360px] sm:h-[420px] lg:h-[450px] object-cover object-center group-hover:scale-105 transition-transform duration-700"
+                  className="w-full h-auto object-cover object-center group-hover:scale-105 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/30 via-transparent to-transparent pointer-events-none" />
-
-                {/* 3 Floating Badges Stacked on the Top Right */}
-                <div className="absolute top-4 right-4 sm:top-5 sm:right-5 space-y-2.5 pointer-events-none">
-                  {CONTACT_HERO_DATA.floatingBadges.map((badge, idx) => (
-                    <div
-                      key={idx}
-                      className="bg-white/95 backdrop-blur-md rounded-xl px-3.5 py-2.5 shadow-md border border-slate-200/90 flex items-center gap-2.5 max-w-[220px]"
-                    >
-                      <div
-                        className="w-7 h-7 rounded-lg flex items-center justify-center shrink-0 shadow-sm"
-                        style={{ backgroundColor: badge.color }}
-                      >
-                        {renderBadgeIcon(badge.iconName)}
-                      </div>
-                      <span className="text-[12px] sm:text-[13px] font-bold text-[#10264b] whitespace-nowrap">
-                        {badge.title}
-                      </span>
-                    </div>
-                  ))}
-                </div>
               </div>
             </div>
 
@@ -366,7 +359,7 @@ export const ContactPage: React.FC = () => {
       {/* ========================================================================= */}
       {/* SECTION 3: MAIN TWO COLUMNS (SEND MESSAGE & OUR LOCATIONS)                 */}
       {/* ========================================================================= */}
-      <section id="contact-form" className="py-16 lg:py-24 bg-[#fffdfa] border-b border-slate-100">
+      <section id="contact-form" className="py-16 lg:py-24 bg-slate-50/50 border-b border-slate-100">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
             
