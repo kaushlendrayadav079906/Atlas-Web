@@ -15,7 +15,8 @@ import {
   ChevronUp,
   ExternalLink,
   Send,
-  AlertCircle
+  AlertCircle,
+  Cog
 } from 'lucide-react';
 import { Modal } from '../components/ui/Modal';
 import { BRAND_INFO } from '../data/websiteContent';
@@ -137,7 +138,6 @@ export const ContactPage: React.FC = () => {
     }
 
     setIsSubmitting(true);
-    // Simulate brief network submission, then transition to verified state
     setTimeout(() => {
       setIsSubmitting(false);
       setIsSubmittedSuccess(true);
@@ -173,25 +173,12 @@ export const ContactPage: React.FC = () => {
     return `mailto:sales@atlastechnosoft.com?subject=${subjectLine}&body=${bodyText}`;
   };
 
-  const renderBadgeIcon = (iconName: string) => {
-    switch (iconName) {
-      case 'MessageSquare':
-        return <MessageSquare className="w-5 h-5 text-white" />;
-      case 'Users':
-        return <Users className="w-5 h-5 text-white" />;
-      case 'BarChart3':
-        return <BarChart3 className="w-5 h-5 text-white" />;
-      default:
-        return <CheckCircle2 className="w-5 h-5 text-white" />;
-    }
-  };
-
   const renderTouchIcon = (iconName: string) => {
     switch (iconName) {
       case 'Mail':
         return <Mail className="w-6 h-6 text-[#d99120]" />;
       case 'Phone':
-        return <Phone className="w-6 h-6 text-[#16a879]" />;
+        return <Phone className="w-6 h-6 text-[#10b981]" />;
       case 'MapPin':
         return <MapPin className="w-6 h-6 text-[#9333ea]" />;
       default:
@@ -201,16 +188,16 @@ export const ContactPage: React.FC = () => {
 
   const renderWhyIcon = (iconName: string) => {
     switch (iconName) {
-      case 'UserCheck':
-        return <UserCheck className="w-6 h-6 text-white" />;
-      case 'Sliders':
-        return <Sliders className="w-6 h-6 text-white" />;
+      case 'Users':
+        return <Users className="w-6 h-6 text-white" />;
+      case 'Cog':
+        return <Cog className="w-6 h-6 text-white" />;
       case 'Clock':
         return <Clock className="w-6 h-6 text-white" />;
       case 'Handshake':
         return <Handshake className="w-6 h-6 text-white" />;
       default:
-        return <UserCheck className="w-6 h-6 text-white" />;
+        return <Users className="w-6 h-6 text-white" />;
     }
   };
 
@@ -250,8 +237,8 @@ export const ContactPage: React.FC = () => {
                 </span>
               </div>
 
-              {/* Main Headline */}
-              <h1 className="text-[36px] sm:text-[44px] lg:text-[50px] xl:text-[54px] font-extrabold tracking-tight leading-[1.14] text-[#10264b]">
+              {/* Main Headline (Elegant Serif) */}
+              <h1 className="font-serif text-[38px] sm:text-[46px] lg:text-[52px] xl:text-[56px] font-bold tracking-tight leading-[1.14] text-[#10264b]">
                 {CONTACT_HERO_DATA.titleStart}{' '}
                 <span className="text-[#d99120]">{CONTACT_HERO_DATA.titleHighlight}</span>
               </h1>
@@ -298,59 +285,53 @@ export const ContactPage: React.FC = () => {
       {/* ========================================================================= */}
       {/* SECTION 2: GET IN TOUCH (3 CARDS IN A ROW)                                */}
       {/* ========================================================================= */}
-      <section className="py-14 lg:py-18 bg-white border-b border-slate-100">
+      <section className="py-14 lg:py-18 border-b border-slate-100">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           
-          {/* Section Heading */}
-          <div className="text-center max-w-3xl mx-auto mb-12 space-y-3">
-            <h2 className="text-[32px] sm:text-[38px] lg:text-[42px] font-extrabold text-[#10264b] tracking-tight">
+          {/* Section Heading: Left Aligned */}
+          <div className="text-left mb-10 space-y-2">
+            <h2 className="font-serif text-[32px] sm:text-[38px] lg:text-[42px] font-bold text-[#10264b] tracking-tight">
               Get in <span className="text-[#d99120]">Touch</span>
             </h2>
-            <p className="text-[16px] sm:text-[17px] text-slate-600 leading-relaxed font-normal">
+            <p className="text-[15px] sm:text-[16px] text-slate-600 leading-relaxed font-normal">
               Reach out to us through any of the following channels. Our team will be happy to assist you.
             </p>
           </div>
 
-          {/* 3 Cards Grid */}
+          {/* 3 Horizontal Cards Grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
-            {GET_IN_TOUCH_CARDS.map((card) => {
-              const ContentWrapper = card.actionHref?.startsWith('http') ? 'a' : card.actionHref?.startsWith('mailto') || card.actionHref?.startsWith('tel') ? 'a' : 'div';
-              return (
-                <div
-                  key={card.id}
-                  className={`bg-white rounded-2xl p-7 border-2 transition-all duration-300 hover:shadow-lg flex flex-col justify-between ${card.borderColor}`}
-                >
-                  <div className="space-y-4">
-                    {/* Icon container */}
-                    <div className={`w-14 h-14 rounded-2xl flex items-center justify-center shadow-sm ${card.iconBgColor}`}>
-                      {renderTouchIcon(card.iconName)}
-                    </div>
-
-                    <div>
-                      <h3 className="text-[20px] font-bold text-[#10264b] mb-1">
-                        {card.title}
-                      </h3>
-                      {card.actionHref ? (
-                        <a
-                          href={card.actionHref}
-                          className="text-[17px] font-bold text-[#10264b] hover:text-[#d99120] transition-colors break-words block mt-1"
-                        >
-                          {card.primaryValue}
-                        </a>
-                      ) : (
-                        <p className="text-[17px] font-bold text-[#10264b] mt-1">
-                          {card.primaryValue}
-                        </p>
-                      )}
-                    </div>
-
-                    <p className="text-[14px] sm:text-[15px] text-slate-600 leading-relaxed">
-                      {card.description}
-                    </p>
-                  </div>
+            {GET_IN_TOUCH_CARDS.map((card) => (
+              <div
+                key={card.id}
+                className={`bg-white rounded-2xl p-6 sm:p-7 border transition-all duration-300 hover:shadow-lg flex items-start gap-4 sm:gap-5 ${card.borderColor}`}
+              >
+                {/* Circular Icon */}
+                <div className={`w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center shrink-0 shadow-sm ${card.iconBgColor}`}>
+                  {renderTouchIcon(card.iconName)}
                 </div>
-              );
-            })}
+
+                <div className="space-y-1 min-w-0">
+                  <h3 className="font-serif text-[19px] sm:text-[20px] font-bold text-[#10264b]">
+                    {card.title}
+                  </h3>
+                  {card.actionHref ? (
+                    <a
+                      href={card.actionHref}
+                      className="text-[15px] sm:text-[16px] font-bold text-[#10264b] hover:text-[#d99120] transition-colors break-words block"
+                    >
+                      {card.primaryValue}
+                    </a>
+                  ) : (
+                    <p className="text-[15px] sm:text-[16px] font-bold text-[#10264b]">
+                      {card.primaryValue}
+                    </p>
+                  )}
+                  <p className="text-[13px] sm:text-[14px] text-slate-500 leading-relaxed pt-1">
+                    {card.description}
+                  </p>
+                </div>
+              </div>
+            ))}
           </div>
 
         </div>
@@ -359,16 +340,16 @@ export const ContactPage: React.FC = () => {
       {/* ========================================================================= */}
       {/* SECTION 3: MAIN TWO COLUMNS (SEND MESSAGE & OUR LOCATIONS)                 */}
       {/* ========================================================================= */}
-      <section id="contact-form" className="py-16 lg:py-24 bg-slate-50/50 border-b border-slate-100">
+      <section id="contact-form" className="py-16 lg:py-24 border-b border-slate-100">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
             
             {/* ------------------------------------------------------------------- */}
             {/* LEFT COLUMN: SEND US A MESSAGE FORM                                */}
             {/* ------------------------------------------------------------------- */}
-            <div className="lg:col-span-6 bg-white rounded-2xl border border-slate-200/90 shadow-md p-6 sm:p-8 lg:p-10">
-              <div className="mb-8 space-y-2">
-                <h2 className="text-[28px] sm:text-[34px] font-extrabold text-[#10264b] tracking-tight">
+            <div className="lg:col-span-6 space-y-6">
+              <div className="space-y-2">
+                <h2 className="font-serif text-[28px] sm:text-[34px] font-bold text-[#10264b] tracking-tight">
                   Send Us a <span className="text-[#d99120]">Message</span>
                 </h2>
                 <p className="text-[15px] sm:text-[16px] text-slate-600">
@@ -376,202 +357,204 @@ export const ContactPage: React.FC = () => {
                 </p>
               </div>
 
-              {isSubmittedSuccess ? (
-                <div className="bg-emerald-50 border border-emerald-200 rounded-xl p-6 sm:p-8 text-center space-y-4">
-                  <div className="w-14 h-14 bg-emerald-500 text-white rounded-full flex items-center justify-center mx-auto shadow-md">
-                    <CheckCircle2 className="w-8 h-8" />
-                  </div>
-                  <h3 className="text-[20px] font-bold text-emerald-950">
-                    Thank You, {formData.fullName}!
-                  </h3>
-                  <p className="text-[15px] text-emerald-800 leading-relaxed max-w-md mx-auto">
-                    Your inquiry regarding <strong className="text-emerald-950">{formData.subject}</strong> has been logged. Our enterprise consultants will review your requirements and respond within 24 business hours.
-                  </p>
-                  <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
-                    <a
-                      href={createMailtoLink(formData)}
-                      className="inline-flex items-center gap-2 text-[14px] font-semibold text-emerald-700 bg-white hover:bg-emerald-100 px-5 py-2.5 rounded-lg border border-emerald-300 transition-colors"
-                    >
-                      <Mail className="w-4 h-4" />
-                      <span>Open in Email Client</span>
-                    </a>
-                    <button
-                      onClick={() => {
-                        setIsSubmittedSuccess(false);
-                        setFormData({
-                          fullName: '',
-                          email: '',
-                          phone: '',
-                          subject: '',
-                          message: ''
-                        });
-                      }}
-                      className="text-[14px] font-medium text-slate-600 hover:text-slate-900 underline underline-offset-2 py-2"
-                    >
-                      Send Another Message
-                    </button>
-                  </div>
-                </div>
-              ) : (
-                <form onSubmit={handleMainFormSubmit} className="space-y-5" noValidate>
-                  {/* Row 1: Name and Email */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                    <div>
-                      <label htmlFor="fullName" className="block text-[14px] font-semibold text-slate-700 mb-1.5">
-                        Your Name <span className="text-rose-500">*</span>
-                      </label>
-                      <input
-                        type="text"
-                        id="fullName"
-                        name="fullName"
-                        value={formData.fullName}
-                        onChange={handleInputChange}
-                        placeholder="Enter your full name"
-                        className={`w-full px-4 py-3 rounded-xl border text-[15px] text-slate-800 placeholder-slate-400 bg-slate-50/50 focus:bg-white focus:outline-none transition-all ${
-                          formErrors.fullName
-                            ? 'border-rose-400 focus:ring-2 focus:ring-rose-200'
-                            : 'border-slate-200 focus:border-[#d99120] focus:ring-2 focus:ring-amber-200/50'
-                        }`}
-                      />
-                      {formErrors.fullName && (
-                        <p className="mt-1 text-[13px] text-rose-600 flex items-center gap-1">
-                          <AlertCircle className="w-3.5 h-3.5 shrink-0" />
-                          <span>{formErrors.fullName}</span>
-                        </p>
-                      )}
+              <div className="bg-white rounded-2xl border border-slate-200/90 shadow-md p-6 sm:p-8 lg:p-10">
+                {isSubmittedSuccess ? (
+                  <div className="bg-emerald-50 border border-emerald-200 rounded-xl p-6 sm:p-8 text-center space-y-4">
+                    <div className="w-14 h-14 bg-emerald-500 text-white rounded-full flex items-center justify-center mx-auto shadow-md">
+                      <CheckCircle2 className="w-8 h-8" />
                     </div>
-
-                    <div>
-                      <label htmlFor="email" className="block text-[14px] font-semibold text-slate-700 mb-1.5">
-                        Your Email <span className="text-rose-500">*</span>
-                      </label>
-                      <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleInputChange}
-                        placeholder="Enter your email address"
-                        className={`w-full px-4 py-3 rounded-xl border text-[15px] text-slate-800 placeholder-slate-400 bg-slate-50/50 focus:bg-white focus:outline-none transition-all ${
-                          formErrors.email
-                            ? 'border-rose-400 focus:ring-2 focus:ring-rose-200'
-                            : 'border-slate-200 focus:border-[#d99120] focus:ring-2 focus:ring-amber-200/50'
-                        }`}
-                      />
-                      {formErrors.email && (
-                        <p className="mt-1 text-[13px] text-rose-600 flex items-center gap-1">
-                          <AlertCircle className="w-3.5 h-3.5 shrink-0" />
-                          <span>{formErrors.email}</span>
-                        </p>
-                      )}
-                    </div>
-                  </div>
-
-                  {/* Row 2: Phone and Subject */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                    <div>
-                      <label htmlFor="phone" className="block text-[14px] font-semibold text-slate-700 mb-1.5">
-                        Phone Number <span className="text-rose-500">*</span>
-                      </label>
-                      <input
-                        type="tel"
-                        id="phone"
-                        name="phone"
-                        value={formData.phone}
-                        onChange={handleInputChange}
-                        placeholder="Enter your phone number"
-                        className={`w-full px-4 py-3 rounded-xl border text-[15px] text-slate-800 placeholder-slate-400 bg-slate-50/50 focus:bg-white focus:outline-none transition-all ${
-                          formErrors.phone
-                            ? 'border-rose-400 focus:ring-2 focus:ring-rose-200'
-                            : 'border-slate-200 focus:border-[#d99120] focus:ring-2 focus:ring-amber-200/50'
-                        }`}
-                      />
-                      {formErrors.phone && (
-                        <p className="mt-1 text-[13px] text-rose-600 flex items-center gap-1">
-                          <AlertCircle className="w-3.5 h-3.5 shrink-0" />
-                          <span>{formErrors.phone}</span>
-                        </p>
-                      )}
-                    </div>
-
-                    <div>
-                      <label htmlFor="subject" className="block text-[14px] font-semibold text-slate-700 mb-1.5">
-                        Subject <span className="text-rose-500">*</span>
-                      </label>
-                      <select
-                        id="subject"
-                        name="subject"
-                        value={formData.subject}
-                        onChange={handleInputChange}
-                        className={`w-full px-4 py-3 rounded-xl border text-[15px] text-slate-800 bg-slate-50/50 focus:bg-white focus:outline-none transition-all cursor-pointer ${
-                          formErrors.subject
-                            ? 'border-rose-400 focus:ring-2 focus:ring-rose-200'
-                            : 'border-slate-200 focus:border-[#d99120] focus:ring-2 focus:ring-amber-200/50'
-                        }`}
+                    <h3 className="text-[20px] font-bold text-emerald-950 font-serif">
+                      Thank You, {formData.fullName}!
+                    </h3>
+                    <p className="text-[15px] text-emerald-800 leading-relaxed max-w-md mx-auto">
+                      Your inquiry regarding <strong className="text-emerald-950">{formData.subject}</strong> has been logged. Our enterprise consultants will review your requirements and respond within 24 business hours.
+                    </p>
+                    <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
+                      <a
+                        href={createMailtoLink(formData)}
+                        className="inline-flex items-center gap-2 text-[14px] font-semibold text-emerald-700 bg-white hover:bg-emerald-100 px-5 py-2.5 rounded-lg border border-emerald-300 transition-colors"
                       >
-                        {SUBJECT_OPTIONS.map((opt) => (
-                          <option key={opt.value} value={opt.value}>
-                            {opt.label}
-                          </option>
-                        ))}
-                      </select>
-                      {formErrors.subject && (
+                        <Mail className="w-4 h-4" />
+                        <span>Open in Email Client</span>
+                      </a>
+                      <button
+                        onClick={() => {
+                          setIsSubmittedSuccess(false);
+                          setFormData({
+                            fullName: '',
+                            email: '',
+                            phone: '',
+                            subject: '',
+                            message: ''
+                          });
+                        }}
+                        className="text-[14px] font-medium text-slate-600 hover:text-slate-900 underline underline-offset-2 py-2"
+                      >
+                        Send Another Message
+                      </button>
+                    </div>
+                  </div>
+                ) : (
+                  <form onSubmit={handleMainFormSubmit} className="space-y-5" noValidate>
+                    {/* Row 1: Name and Email */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                      <div>
+                        <label htmlFor="fullName" className="block text-[14px] font-semibold text-slate-700 mb-1.5">
+                          Your Name <span className="text-rose-500">*</span>
+                        </label>
+                        <input
+                          type="text"
+                          id="fullName"
+                          name="fullName"
+                          value={formData.fullName}
+                          onChange={handleInputChange}
+                          placeholder="Enter your full name"
+                          className={`w-full px-4 py-3 rounded-xl border text-[15px] text-slate-800 placeholder-slate-400 bg-slate-50/50 focus:bg-white focus:outline-none transition-all ${
+                            formErrors.fullName
+                              ? 'border-rose-400 focus:ring-2 focus:ring-rose-200'
+                              : 'border-slate-200 focus:border-[#d99120] focus:ring-2 focus:ring-amber-200/50'
+                          }`}
+                        />
+                        {formErrors.fullName && (
+                          <p className="mt-1 text-[13px] text-rose-600 flex items-center gap-1">
+                            <AlertCircle className="w-3.5 h-3.5 shrink-0" />
+                            <span>{formErrors.fullName}</span>
+                          </p>
+                        )}
+                      </div>
+
+                      <div>
+                        <label htmlFor="email" className="block text-[14px] font-semibold text-slate-700 mb-1.5">
+                          Your Email <span className="text-rose-500">*</span>
+                        </label>
+                        <input
+                          type="email"
+                          id="email"
+                          name="email"
+                          value={formData.email}
+                          onChange={handleInputChange}
+                          placeholder="Enter your email address"
+                          className={`w-full px-4 py-3 rounded-xl border text-[15px] text-slate-800 placeholder-slate-400 bg-slate-50/50 focus:bg-white focus:outline-none transition-all ${
+                            formErrors.email
+                              ? 'border-rose-400 focus:ring-2 focus:ring-rose-200'
+                              : 'border-slate-200 focus:border-[#d99120] focus:ring-2 focus:ring-amber-200/50'
+                          }`}
+                        />
+                        {formErrors.email && (
+                          <p className="mt-1 text-[13px] text-rose-600 flex items-center gap-1">
+                            <AlertCircle className="w-3.5 h-3.5 shrink-0" />
+                            <span>{formErrors.email}</span>
+                          </p>
+                        )}
+                      </div>
+                    </div>
+
+                    {/* Row 2: Phone and Subject */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                      <div>
+                        <label htmlFor="phone" className="block text-[14px] font-semibold text-slate-700 mb-1.5">
+                          Phone Number <span className="text-rose-500">*</span>
+                        </label>
+                        <input
+                          type="tel"
+                          id="phone"
+                          name="phone"
+                          value={formData.phone}
+                          onChange={handleInputChange}
+                          placeholder="Enter your phone number"
+                          className={`w-full px-4 py-3 rounded-xl border text-[15px] text-slate-800 placeholder-slate-400 bg-slate-50/50 focus:bg-white focus:outline-none transition-all ${
+                            formErrors.phone
+                              ? 'border-rose-400 focus:ring-2 focus:ring-rose-200'
+                              : 'border-slate-200 focus:border-[#d99120] focus:ring-2 focus:ring-amber-200/50'
+                          }`}
+                        />
+                        {formErrors.phone && (
+                          <p className="mt-1 text-[13px] text-rose-600 flex items-center gap-1">
+                            <AlertCircle className="w-3.5 h-3.5 shrink-0" />
+                            <span>{formErrors.phone}</span>
+                          </p>
+                        )}
+                      </div>
+
+                      <div>
+                        <label htmlFor="subject" className="block text-[14px] font-semibold text-slate-700 mb-1.5">
+                          Subject <span className="text-rose-500">*</span>
+                        </label>
+                        <select
+                          id="subject"
+                          name="subject"
+                          value={formData.subject}
+                          onChange={handleInputChange}
+                          className={`w-full px-4 py-3 rounded-xl border text-[15px] text-slate-800 bg-slate-50/50 focus:bg-white focus:outline-none transition-all cursor-pointer ${
+                            formErrors.subject
+                              ? 'border-rose-400 focus:ring-2 focus:ring-rose-200'
+                              : 'border-slate-200 focus:border-[#d99120] focus:ring-2 focus:ring-amber-200/50'
+                          }`}
+                        >
+                          {SUBJECT_OPTIONS.map((opt) => (
+                            <option key={opt.value} value={opt.value}>
+                              {opt.label}
+                            </option>
+                          ))}
+                        </select>
+                        {formErrors.subject && (
+                          <p className="mt-1 text-[13px] text-rose-600 flex items-center gap-1">
+                            <AlertCircle className="w-3.5 h-3.5 shrink-0" />
+                            <span>{formErrors.subject}</span>
+                          </p>
+                        )}
+                      </div>
+                    </div>
+
+                    {/* Row 3: Message Textarea */}
+                    <div>
+                      <label htmlFor="message" className="block text-[14px] font-semibold text-slate-700 mb-1.5">
+                        Your Message <span className="text-rose-500">*</span>
+                      </label>
+                      <textarea
+                        id="message"
+                        name="message"
+                        rows={5}
+                        value={formData.message}
+                        onChange={handleInputChange}
+                        placeholder="Tell us about your requirements..."
+                        className={`w-full px-4 py-3 rounded-xl border text-[15px] text-slate-800 placeholder-slate-400 bg-slate-50/50 focus:bg-white focus:outline-none transition-all resize-y ${
+                          formErrors.message
+                            ? 'border-rose-400 focus:ring-2 focus:ring-rose-200'
+                            : 'border-slate-200 focus:border-[#d99120] focus:ring-2 focus:ring-amber-200/50'
+                        }`}
+                      />
+                      {formErrors.message && (
                         <p className="mt-1 text-[13px] text-rose-600 flex items-center gap-1">
                           <AlertCircle className="w-3.5 h-3.5 shrink-0" />
-                          <span>{formErrors.subject}</span>
+                          <span>{formErrors.message}</span>
                         </p>
                       )}
                     </div>
-                  </div>
 
-                  {/* Row 3: Message Textarea */}
-                  <div>
-                    <label htmlFor="message" className="block text-[14px] font-semibold text-slate-700 mb-1.5">
-                      Your Message <span className="text-rose-500">*</span>
-                    </label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      rows={5}
-                      value={formData.message}
-                      onChange={handleInputChange}
-                      placeholder="Tell us about your requirements..."
-                      className={`w-full px-4 py-3 rounded-xl border text-[15px] text-slate-800 placeholder-slate-400 bg-slate-50/50 focus:bg-white focus:outline-none transition-all resize-y ${
-                        formErrors.message
-                          ? 'border-rose-400 focus:ring-2 focus:ring-rose-200'
-                          : 'border-slate-200 focus:border-[#d99120] focus:ring-2 focus:ring-amber-200/50'
-                      }`}
-                    />
-                    {formErrors.message && (
-                      <p className="mt-1 text-[13px] text-rose-600 flex items-center gap-1">
-                        <AlertCircle className="w-3.5 h-3.5 shrink-0" />
-                        <span>{formErrors.message}</span>
-                      </p>
-                    )}
-                  </div>
-
-                  {/* Submit Button */}
-                  <div className="pt-2">
-                    <button
-                      type="submit"
-                      disabled={isSubmitting}
-                      className="w-full py-4 rounded-xl bg-[#d99120] hover:bg-[#bd7810] text-white font-bold text-[16px] shadow-md shadow-amber-600/20 transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-75 disabled:cursor-not-allowed"
-                    >
-                      {isSubmitting ? (
-                        <>
-                          <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                          <span>Sending Message...</span>
-                        </>
-                      ) : (
-                        <>
-                          <span>Send Message</span>
-                          <ArrowRight className="w-5 h-5" />
-                        </>
-                      )}
-                    </button>
-                  </div>
-                </form>
-              )}
+                    {/* Submit Button */}
+                    <div className="pt-2">
+                      <button
+                        type="submit"
+                        disabled={isSubmitting}
+                        className="w-full py-4 rounded-xl bg-[#d99120] hover:bg-[#bd7810] text-white font-bold text-[16px] shadow-md shadow-amber-600/20 transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-75 disabled:cursor-not-allowed"
+                      >
+                        {isSubmitting ? (
+                          <>
+                            <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                            <span>Sending Message...</span>
+                          </>
+                        ) : (
+                          <>
+                            <span>Send Message</span>
+                            <ArrowRight className="w-5 h-5" />
+                          </>
+                        )}
+                      </button>
+                    </div>
+                  </form>
+                )}
+              </div>
             </div>
 
             {/* ------------------------------------------------------------------- */}
@@ -579,7 +562,7 @@ export const ContactPage: React.FC = () => {
             {/* ------------------------------------------------------------------- */}
             <div id="locations" className="lg:col-span-6 space-y-6">
               <div className="space-y-2">
-                <h2 className="text-[28px] sm:text-[34px] font-extrabold text-[#10264b] tracking-tight">
+                <h2 className="font-serif text-[28px] sm:text-[34px] font-bold text-[#10264b] tracking-tight">
                   Our <span className="text-[#d99120]">Locations</span>
                 </h2>
                 <p className="text-[15px] sm:text-[16px] text-slate-600">
@@ -609,7 +592,7 @@ export const ContactPage: React.FC = () => {
                       <div className="p-5 space-y-3">
                         <div className="flex items-center gap-2 text-[#d99120]">
                           <MapPin className="w-5 h-5 shrink-0" />
-                          <h3 className="text-[18px] font-bold text-[#10264b]">
+                          <h3 className="font-serif text-[18px] sm:text-[19px] font-bold text-[#10264b]">
                             {office.title}
                           </h3>
                         </div>
@@ -623,7 +606,7 @@ export const ContactPage: React.FC = () => {
                             href={office.googleMapsUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center gap-1.5 text-[13px] font-bold text-[#d99120] hover:text-[#bd7810] transition-colors"
+                            className="inline-flex items-center gap-1.5 text-[13px] font-bold text-[#d99120] hover:text-[#bd7810] transition-colors py-1 px-3 rounded-lg border border-[#d99120]/40 hover:border-[#d99120] bg-amber-50/30"
                           >
                             <span>View on Google Maps</span>
                             <ArrowRight className="w-3.5 h-3.5" />
@@ -660,37 +643,37 @@ export const ContactPage: React.FC = () => {
       {/* ========================================================================= */}
       {/* SECTION 4: WHY GET IN TOUCH WITH US? (4 CARDS IN A ROW)                   */}
       {/* ========================================================================= */}
-      <section className="py-16 lg:py-20 bg-white border-b border-slate-100">
+      <section className="py-16 lg:py-20 border-b border-slate-100">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           
-          {/* Section Heading */}
-          <div className="text-center max-w-3xl mx-auto mb-12 space-y-3">
-            <h2 className="text-[32px] sm:text-[38px] lg:text-[42px] font-extrabold text-[#10264b] tracking-tight">
+          {/* Section Heading: Left Aligned */}
+          <div className="text-left mb-10 space-y-2">
+            <h2 className="font-serif text-[30px] sm:text-[36px] lg:text-[40px] font-bold text-[#10264b] tracking-tight">
               Why Get in <span className="text-[#d99120]">Touch with Us?</span>
             </h2>
-            <p className="text-[16px] sm:text-[17px] text-slate-600 leading-relaxed font-normal">
+            <p className="text-[15px] sm:text-[16px] text-slate-600 leading-relaxed font-normal">
               We are committed to understanding your business needs and providing the right technology solutions.
             </p>
           </div>
 
-          {/* 4 Cards Grid */}
+          {/* 4 Horizontal Cards Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {WHY_GET_IN_TOUCH_CARDS.map((card) => (
               <div
                 key={card.id}
-                className="bg-white rounded-2xl p-6 border border-slate-200/90 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col items-center text-center space-y-4"
+                className="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200/90 shadow-sm hover:shadow-md transition-all duration-300 flex items-center gap-4 text-left"
               >
                 <div
-                  className={`w-14 h-14 rounded-full flex items-center justify-center text-white shadow-md ${card.bgColor}`}
+                  className={`w-13 h-13 sm:w-14 sm:h-14 rounded-full flex items-center justify-center text-white shrink-0 shadow-sm ${card.bgColor}`}
                 >
                   {renderWhyIcon(card.iconName)}
                 </div>
 
-                <div className="space-y-2">
-                  <h3 className="text-[18px] font-bold text-[#10264b]">
+                <div className="space-y-1 min-w-0">
+                  <h3 className="font-bold text-[16px] sm:text-[17px] text-[#10264b] leading-snug">
                     {card.title}
                   </h3>
-                  <p className="text-[14px] text-slate-600 leading-relaxed">
+                  <p className="text-[12px] sm:text-[13px] text-slate-500 leading-relaxed">
                     {card.description}
                   </p>
                 </div>
@@ -731,7 +714,7 @@ export const ContactPage: React.FC = () => {
               <div className="w-14 h-14 bg-emerald-500 text-white rounded-full flex items-center justify-center mx-auto shadow-md">
                 <CheckCircle2 className="w-8 h-8" />
               </div>
-              <h3 className="text-[20px] font-bold text-slate-900">
+              <h3 className="text-[20px] font-bold text-slate-900 font-serif">
                 Consultation Request Received!
               </h3>
               <p className="text-[15px] text-slate-600 leading-relaxed max-w-sm mx-auto">
@@ -866,4 +849,3 @@ export const ContactPage: React.FC = () => {
   );
 };
 export default ContactPage;
-

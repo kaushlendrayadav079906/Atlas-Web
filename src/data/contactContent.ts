@@ -83,7 +83,7 @@ export const GET_IN_TOUCH_CARDS: GetInTouchCard[] = [
     description: "Drop us an email for any queries or consultation requests.",
     iconName: "Mail",
     iconColor: "text-[#d99120]",
-    iconBgColor: "bg-amber-50",
+    iconBgColor: "bg-[#fef3c7]",
     borderColor: "border-[#d99120]/40 hover:border-[#d99120]",
     actionHref: "mailto:sales@atlastechnosoft.com"
   },
@@ -93,9 +93,9 @@ export const GET_IN_TOUCH_CARDS: GetInTouchCard[] = [
     primaryValue: "+91-9372329599",
     description: "Speak to our experts for immediate assistance.",
     iconName: "Phone",
-    iconColor: "text-[#16a879]",
-    iconBgColor: "bg-emerald-50",
-    borderColor: "border-[#16a879]/40 hover:border-[#16a879]",
+    iconColor: "text-[#10b981]",
+    iconBgColor: "bg-[#d1fae5]",
+    borderColor: "border-[#10b981]/40 hover:border-[#10b981]",
     actionHref: "tel:+919372329599"
   },
   {
@@ -105,7 +105,7 @@ export const GET_IN_TOUCH_CARDS: GetInTouchCard[] = [
     description: "Visit our offices to discuss your business needs.",
     iconName: "MapPin",
     iconColor: "text-[#9333ea]",
-    iconBgColor: "bg-purple-50",
+    iconBgColor: "bg-[#f3e8ff]",
     borderColor: "border-[#9333ea]/40 hover:border-[#9333ea]",
     actionHref: "#locations"
   }
@@ -135,17 +135,17 @@ export const WHY_GET_IN_TOUCH_CARDS: WhyGetInTouchCard[] = [
     id: "expert-guidance",
     title: "Expert Guidance",
     description: "Get advice from experienced technology consultants.",
-    iconName: "UserCheck",
+    iconName: "Users" as any,
     color: "#ea580c",
-    bgColor: "bg-orange-500"
+    bgColor: "bg-[#ea580c]"
   },
   {
     id: "tailored-solutions",
     title: "Tailored Solutions",
     description: "Solutions designed for your business requirements.",
-    iconName: "Sliders",
-    color: "#16a879",
-    bgColor: "bg-emerald-500"
+    iconName: "Cog" as any,
+    color: "#10b981",
+    bgColor: "bg-[#10b981]"
   },
   {
     id: "quick-response",
@@ -153,15 +153,15 @@ export const WHY_GET_IN_TOUCH_CARDS: WhyGetInTouchCard[] = [
     description: "We value your time and ensure prompt communication.",
     iconName: "Clock",
     color: "#9333ea",
-    bgColor: "bg-purple-500"
+    bgColor: "bg-[#9333ea]"
   },
   {
     id: "long-term-partnership",
     title: "Long-Term Partnership",
     description: "We aim to build lasting relationships with our clients.",
     iconName: "Handshake",
-    color: "#2563eb",
-    bgColor: "bg-blue-600"
+    color: "#0284c7",
+    bgColor: "bg-[#0284c7]"
   }
 ];
 
