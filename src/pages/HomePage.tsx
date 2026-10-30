@@ -150,11 +150,17 @@ export const HomePage: React.FC = () => {
       {/* ========================================================================= */}
       {/* SECTION 2: HERO SECTION                                                   */}
       {/* ========================================================================= */}
-      <section className="relative overflow-hidden bg-gradient-to-r from-blue-50/40 via-white to-slate-50/50 pt-10 pb-12 lg:pt-14 lg:pb-16 border-b border-slate-100">
-        <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+      <section className="relative overflow-hidden bg-gradient-to-r from-sky-50/60 via-white to-blue-50/30 pt-10 pb-12 lg:pt-14 lg:pb-16 border-b border-slate-100">
+        
+        {/* Subtle ambient office plant botanical glow on far left as in reference */}
+        <div className="absolute -left-12 top-1/2 -translate-y-1/2 w-48 h-80 opacity-25 pointer-events-none select-none hidden lg:block">
+          <div className="w-full h-full bg-gradient-to-tr from-emerald-600/30 via-teal-500/10 to-transparent rounded-full blur-3xl" />
+        </div>
+
+        <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8 relative">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 xl:gap-14 items-center">
             
-            {/* Left Column (Approx 58% on Desktop) */}
+            {/* Left Column (Approx 58% on Desktop, well-proportioned covering left side) */}
             <div className="lg:col-span-7 space-y-5 text-left">
               {/* Eyebrow Label: 13–14px */}
               <div className="inline-block">
@@ -198,13 +204,13 @@ export const HomePage: React.FC = () => {
               </div>
             </div>
 
-            {/* Right Column: Hero Visual with Crystal-Clear Team Image & Floating Partner Ribbon */}
+            {/* Right Column: Hero Visual seamlessly filling right side proportion */}
             <div className="lg:col-span-5 relative">
-              <div className="relative mx-auto w-full max-w-lg lg:max-w-none rounded-2xl overflow-hidden shadow-lg border border-slate-200/90 bg-white">
+              <div className="relative w-full rounded-2xl overflow-hidden shadow-md border border-slate-100 bg-white">
                 <img
                   src="/images/crystal_hd/hero_team.jpg"
                   alt="ATLAS Technosoft Enterprise Team collaborating on SAP Business One Dashboard"
-                  className="w-full h-auto object-cover max-h-[380px]"
+                  className="w-full h-auto object-cover max-h-[390px]"
                 />
 
                 {/* Floating Partner Logo Ribbon Box at Bottom Right */}
@@ -226,7 +232,7 @@ export const HomePage: React.FC = () => {
       {/* SECTION 3: COMPANY METRICS BAR (COMPACT "SMALL SIZE" SINGLE BOX CARD)     */}
       {/* ========================================================================= */}
       <section id="metrics" className="py-6 sm:py-7 bg-white border-b border-slate-100">
-        <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           {/* Sleek, Single White Box-Type Container Bar matching Reference Image */}
           <div className="rounded-xl sm:rounded-2xl bg-white border border-slate-200/90 shadow-sm py-4 px-3 sm:px-6">
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 divide-y sm:divide-y-0 sm:divide-x divide-slate-100">
@@ -244,7 +250,7 @@ export const HomePage: React.FC = () => {
       {/* SECTION 4: SERVICES OVERVIEW (4 COMPACT BOX-TYPE CARDS)                   */}
       {/* ========================================================================= */}
       <section id="services" className="py-10 sm:py-12 lg:py-14 bg-slate-50/50 border-b border-slate-100">
-        <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           
           <SectionHeading
             badge="OUR SERVICES"
@@ -316,7 +322,7 @@ export const HomePage: React.FC = () => {
       {/* SECTION 5: OUR EXPERTISE (BRIDGING ERP AND AUTOMATION)                    */}
       {/* ========================================================================= */}
       <section id="expertise" className="py-10 sm:py-12 lg:py-14 bg-white border-b border-slate-100">
-        <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             
             {/* Left Content (approx 55% width) */}
@@ -374,7 +380,7 @@ export const HomePage: React.FC = () => {
       {/* SECTION 6: INDUSTRIES WE SERVE (4 COMPACT BOX-TYPE CARDS)                 */}
       {/* ========================================================================= */}
       <section id="industries" className="py-10 sm:py-12 lg:py-14 bg-slate-50/50 border-b border-slate-100">
-        <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           
           <SectionHeading
             badge="INDUSTRIES WE SERVE"
@@ -417,7 +423,7 @@ export const HomePage: React.FC = () => {
       {/* SECTION 7: OUR APPROACH (INLINE PROCESS FLOW FROM REFERENCE IMAGE)        */}
       {/* ========================================================================= */}
       <section id="approach" className="py-10 sm:py-12 lg:py-14 bg-white border-b border-slate-100">
-        <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           
           <SectionHeading
             badge="OUR APPROACH"
@@ -457,7 +463,7 @@ export const HomePage: React.FC = () => {
       {/* SECTION 8: CUSTOMER SUCCESS (TWO COMPACT SIDE-BY-SIDE CARDS)              */}
       {/* ========================================================================= */}
       <section id="case-studies" className="py-10 sm:py-12 lg:py-14 bg-slate-50/50 border-b border-slate-100">
-        <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           
           <SectionHeading
             badge="CUSTOMER SUCCESS"
@@ -521,10 +527,10 @@ export const HomePage: React.FC = () => {
       </section>
 
       {/* ========================================================================= */}
-      {/* SECTION 9: OUR PARTNERS (SIDE-BY-SIDE AS IN REFERENCE IMAGE)             */}
+      {/* SECTION 9: OUR PARTNERS (SIDE-BY-SIDE AS IN REFERENCE IMAGE im2)          */}
       {/* ========================================================================= */}
       <section id="partners" className="py-8 sm:py-10 bg-white border-b border-slate-100">
-        <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
             
             {/* Left Side: Title & Subtitle */}
@@ -540,14 +546,14 @@ export const HomePage: React.FC = () => {
               </p>
             </div>
 
-            {/* Right Side: Partner Logos White Box */}
-            <div className="lg:col-span-6 flex items-center justify-end">
-              <div className="w-full max-w-lg bg-white rounded-xl sm:rounded-2xl border border-slate-200/90 shadow-sm py-4 px-6 flex items-center justify-around">
-                <SAPBusinessOneLogo className="h-7 sm:h-8" />
-                <div className="h-6 w-px bg-slate-200" />
-                <BoyumITLogo className="h-7 sm:h-8" />
-                <div className="h-6 w-px bg-slate-200" />
-                <UiPathLogo className="h-7 sm:h-8" />
+            {/* Right Side: Clean Partner Logos inline with dividers matching im2 */}
+            <div className="lg:col-span-6 flex items-center justify-start lg:justify-end">
+              <div className="flex items-center gap-6 sm:gap-8 py-2">
+                <SAPBusinessOneLogo className="h-8 sm:h-9" />
+                <div className="h-7 w-px bg-slate-300" />
+                <BoyumITLogo className="h-8 sm:h-9" />
+                <div className="h-7 w-px bg-slate-300" />
+                <UiPathLogo className="h-8 sm:h-9" />
               </div>
             </div>
 
@@ -556,13 +562,13 @@ export const HomePage: React.FC = () => {
       </section>
 
       {/* ========================================================================= */}
-      {/* SECTION 10: LET'S DISCUSS YOUR BUSINESS NEEDS (BOX-TYPE BANNER)           */}
+      {/* SECTION 10: LET'S DISCUSS YOUR BUSINESS NEEDS (BOX-TYPE BANNER im2)       */}
       {/* ========================================================================= */}
       <section id="contact" className="py-10 sm:py-12 lg:py-14 bg-slate-50/50">
-        <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           
-          {/* Defined Box Container */}
-          <div className="rounded-2xl bg-gradient-to-br from-blue-50/80 via-sky-50/40 to-blue-50/80 border border-blue-200/90 p-6 sm:p-8 lg:p-10 shadow-sm">
+          {/* Defined Light Cyan/Blue Box Container matching im2 */}
+          <div className="rounded-2xl bg-[#eaf4ff] border border-blue-200/90 p-6 sm:p-8 lg:p-10 shadow-sm">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
               
               {/* Left Column: Heading, Subtext & CTA Button */}
@@ -580,7 +586,7 @@ export const HomePage: React.FC = () => {
                     onClick={() => setIsModalOpen(true)}
                     variant="primary"
                     size="lg"
-                    className="text-[16px] sm:text-[17px] font-semibold px-8 py-3.5 shadow-md shadow-blue-600/25"
+                    className="text-[16px] sm:text-[17px] font-semibold px-8 py-3.5 shadow-md shadow-blue-600/25 bg-[#0878f9] hover:bg-blue-700"
                     icon={<ArrowRight className="w-5 h-5" />}
                   >
                     Book a Consultation
@@ -588,11 +594,11 @@ export const HomePage: React.FC = () => {
                 </div>
               </div>
 
-              {/* Right Column: 3 White Boxed Contact Info Cards in a Sleek Row */}
-              <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-3">
+              {/* Right Column: 3 Contact Info Cards with distinct colored borders matching im2 */}
+              <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-3.5">
                 
-                {/* Email Box Card */}
-                <div className="flex items-center gap-3 p-3.5 rounded-xl bg-white border-2 border-[#2992ff]/40 hover:border-[#2992ff] shadow-sm hover:shadow-md transition-all">
+                {/* Email Box Card: GREEN border */}
+                <div className="flex items-center gap-3 p-3.5 rounded-xl bg-white border-2 border-[#16b978] shadow-sm hover:shadow-md transition-all">
                   <div className="w-10 h-10 rounded-lg bg-blue-50 border border-blue-100 text-[#0878f9] flex items-center justify-center shrink-0">
                     <Mail className="w-5 h-5" />
                   </div>
@@ -602,15 +608,15 @@ export const HomePage: React.FC = () => {
                     </span>
                     <a
                       href={`mailto:${BRAND_INFO.contact.email}`}
-                      className="text-[13.5px] sm:text-[14px] font-bold text-slate-900 hover:text-blue-600 transition-colors truncate block leading-snug"
+                      className="text-[13px] sm:text-[13.5px] font-bold text-slate-900 hover:text-blue-600 transition-colors truncate block leading-snug"
                     >
                       {BRAND_INFO.contact.email}
                     </a>
                   </div>
                 </div>
 
-                {/* Phone Box Card */}
-                <div className="flex items-center gap-3 p-3.5 rounded-xl bg-white border-2 border-[#2992ff]/40 hover:border-[#2992ff] shadow-sm hover:shadow-md transition-all">
+                {/* Phone Box Card: BLUE border */}
+                <div className="flex items-center gap-3 p-3.5 rounded-xl bg-white border-2 border-[#2992ff] shadow-sm hover:shadow-md transition-all">
                   <div className="w-10 h-10 rounded-lg bg-blue-50 border border-blue-100 text-[#0878f9] flex items-center justify-center shrink-0">
                     <Phone className="w-5 h-5" />
                   </div>
@@ -622,15 +628,15 @@ export const HomePage: React.FC = () => {
                       href={BRAND_INFO.contact.whatsappLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-[13.5px] sm:text-[14px] font-bold text-slate-900 hover:text-blue-600 transition-colors truncate block leading-snug"
+                      className="text-[13px] sm:text-[13.5px] font-bold text-slate-900 hover:text-blue-600 transition-colors truncate block leading-snug"
                     >
                       {BRAND_INFO.contact.phone}
                     </a>
                   </div>
                 </div>
 
-                {/* Locations Box Card */}
-                <div className="flex items-center gap-3 p-3.5 rounded-xl bg-white border-2 border-[#2992ff]/40 hover:border-[#2992ff] shadow-sm hover:shadow-md transition-all">
+                {/* Locations Box Card: PURPLE border */}
+                <div className="flex items-center gap-3 p-3.5 rounded-xl bg-white border-2 border-[#a34dff] shadow-sm hover:shadow-md transition-all">
                   <div className="w-10 h-10 rounded-lg bg-blue-50 border border-blue-100 text-[#0878f9] flex items-center justify-center shrink-0">
                     <MapPin className="w-5 h-5" />
                   </div>
@@ -638,7 +644,7 @@ export const HomePage: React.FC = () => {
                     <span className="text-[12px] font-bold uppercase tracking-wider text-slate-400 block leading-tight">
                       Locations
                     </span>
-                    <span className="text-[13px] sm:text-[13.5px] font-bold text-slate-900 block leading-tight">
+                    <span className="text-[12.5px] sm:text-[13px] font-bold text-slate-900 block leading-tight">
                       Borivali, Mumbai<br className="hidden sm:inline" /> Marine Lines, Mumbai
                     </span>
                   </div>
