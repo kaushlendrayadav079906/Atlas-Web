@@ -2,6 +2,7 @@ const puppeteer = require('puppeteer');
 const { spawn } = require('child_process');
 const path = require('path');
 const fs = require('fs');
+const os = require('os');
 
 async function wait(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
@@ -21,9 +22,13 @@ async function run() {
 
   await wait(3000);
 
+  const tempProfileDir = path.join(os.tmpdir(), `puppeteer_cs_${Date.now()}_${Math.random().toString(36).slice(2, 7)}`);
+  fs.mkdirSync(tempProfileDir, { recursive: true });
+
   const browser = await puppeteer.launch({
     headless: 'new',
-    args: ['--no-sandbox', '--disable-setuid-sandbox']
+    userDataDir: tempProfileDir,
+    args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage']
   });
 
   const page = await browser.newPage();
@@ -125,10 +130,19 @@ async function run() {
   } catch (err) {
     console.error('Verification failed:', err);
   } finally {
-    await browser.close();
-    viteProcess.kill();
+    if (browser) {
+      try {
+        await browser.close();
+      } catch (e) {}
+    }
+    if (viteProcess) {
+      try {
+        viteProcess.kill();
+      } catch (e) {}
+    }
     process.exit(0);
   }
 }
 
 run();
+

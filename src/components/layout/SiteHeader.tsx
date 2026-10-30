@@ -83,11 +83,6 @@ export const SiteHeader: React.FC = () => {
             <nav className="hidden xl:flex items-center gap-7 lg:gap-8" aria-label="Main Navigation">
               {NAV_LINKS.map((link) => {
                 const isActive = activeSection === link.name;
-                const isCaseStudies = location.pathname === '/case-studies';
-                const activeTextColor = isCaseStudies ? 'text-[#d99120]' : 'text-blue-600';
-                const activeUnderlineColor = isCaseStudies ? 'bg-[#d99120]' : 'bg-blue-600';
-                const hoverTextColor = isCaseStudies ? 'hover:text-[#d99120]' : 'hover:text-blue-600';
-
                 return (
                   <Link
                     key={link.name}
@@ -95,13 +90,13 @@ export const SiteHeader: React.FC = () => {
                     onClick={() => setActiveSection(link.name)}
                     className={`text-[16px] xl:text-[17px] font-medium transition-colors relative py-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded ${
                       isActive
-                        ? `${activeTextColor} font-semibold`
-                        : `text-slate-700 ${hoverTextColor}`
+                        ? 'text-blue-600 font-semibold'
+                        : 'text-slate-700 hover:text-blue-600'
                     }`}
                   >
                     {link.name}
                     {isActive && (
-                      <span className={`absolute bottom-0 left-0 right-0 h-0.5 ${activeUnderlineColor} rounded-full`} />
+                      <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-blue-600 rounded-full" />
                     )}
                   </Link>
                 );
@@ -112,9 +107,9 @@ export const SiteHeader: React.FC = () => {
             <div className="hidden sm:flex items-center gap-3">
               <Button
                 href="/#contact"
-                variant={location.pathname === '/case-studies' ? 'gold' : 'primary'}
+                variant="primary"
                 size="md"
-                className="text-[16px] sm:text-[17px] font-semibold px-6 py-3 rounded-lg"
+                className="text-[16px] sm:text-[17px] font-semibold px-6 py-3 rounded-lg bg-blue-600 hover:bg-blue-700 text-white shadow-md shadow-blue-600/20"
                 icon={<ArrowRight className="w-4 h-4" />}
               >
                 Book a Consultation

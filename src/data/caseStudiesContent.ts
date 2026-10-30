@@ -283,3 +283,4 @@ export const CASE_STUDIES_CTA_DATA = {
   phone: '+91-9372329599',
   locations: ['Borivali, Mumbai', 'Marine Lines, Mumbai']
 };
+
