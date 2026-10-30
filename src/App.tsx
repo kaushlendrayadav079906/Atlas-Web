@@ -6,6 +6,7 @@ import { AboutPage } from './pages/AboutPage';
 import { SolutionsPage } from './pages/SolutionsPage';
 import { IndustriesPage } from './pages/IndustriesPage';
 import { CaseStudiesPage } from './pages/CaseStudiesPage';
+import { PartnersPage } from './pages/PartnersPage';
 
 // Scroll to top helper or smooth scroll to hash element
 const ScrollHandler: React.FC = () => {
@@ -40,7 +41,7 @@ export const App: React.FC = () => {
           <Route path="/contact" element={<HomePage />} />
           <Route path="/services" element={<HomePage />} />
           <Route path="/case-studies" element={<CaseStudiesPage />} />
-          <Route path="/partners" element={<HomePage />} />
+          <Route path="/partners" element={<PartnersPage />} />
           <Route path="*" element={<HomePage />} />
         </Routes>
       </SiteLayout>

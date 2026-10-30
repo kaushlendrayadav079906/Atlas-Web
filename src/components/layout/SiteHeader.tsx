@@ -27,6 +27,8 @@ export const SiteHeader: React.FC = () => {
       setActiveSection('Industries');
     } else if (location.pathname === '/case-studies') {
       setActiveSection('Case Studies');
+    } else if (location.pathname === '/partners') {
+      setActiveSection('Partners');
     } else if (location.pathname === '/' && !location.hash) {
       setActiveSection('Home');
     } else if (location.hash) {
