@@ -33,6 +33,7 @@ import { Button } from '../components/ui/Button';
 import { SectionHeading } from '../components/ui/SectionHeading';
 import { Modal } from '../components/ui/Modal';
 import { VerificationBadge } from '../components/ui/VerificationBadge';
+import { JourneyTimeline } from '../components/about/JourneyTimeline';
 import { BRAND_INFO } from '../data/websiteContent';
 import { ContactFormData } from '../types';
 import {
@@ -641,67 +642,9 @@ export const AboutPage: React.FC = () => {
       </section>
 
       {/* ========================================================================= */}
-      {/* SECTION 8: OUR JOURNEY TIMELINE                                           */}
+      {/* SECTION 8: OUR JOURNEY — MILESTONES THAT DEFINE US                         */}
       {/* ========================================================================= */}
-      <section id="timeline" className="py-12 sm:py-16 lg:py-20 bg-white border-b border-slate-100">
-        <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
-          
-          <SectionHeading
-            badge={JOURNEY_TIMELINE_DATA.eyebrow}
-            title={JOURNEY_TIMELINE_DATA.title}
-            subtitle="A proven track record of helping SMEs turn ERP into an intelligent growth engine."
-            align="center"
-          />
-
-          {/* Desktop Connected Horizontal Timeline Flow */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 lg:gap-3 relative pt-4">
-            {JOURNEY_TIMELINE_DATA.milestones.map((ms, idx) => (
-              <div
-                key={idx}
-                className="relative p-5 rounded-xl bg-white border border-slate-200 shadow-sm hover:shadow-md transition-all flex flex-col justify-between"
-              >
-                <div>
-                  {/* Year Tag & Icon */}
-                  <div className="flex items-center justify-between mb-3 pb-2.5 border-b border-slate-100">
-                    <span className="text-[18px] sm:text-[20px] font-extrabold text-[#10264b]">
-                      {ms.year}
-                    </span>
-                    <div className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 ${
-                      ms.color === 'blue' ? 'bg-blue-50 text-[#0878f9]' :
-                      ms.color === 'sky' ? 'bg-sky-50 text-[#0891b2]' :
-                      ms.color === 'rose' ? 'bg-rose-50 text-[#ff4356]' :
-                      ms.color === 'emerald' ? 'bg-emerald-50 text-[#10b981]' :
-                      'bg-purple-50 text-[#7139e8]'
-                    }`}>
-                      {ms.iconName === 'Building2' && <Building2 className="w-4 h-4" />}
-                      {ms.iconName === 'Layers' && <Layers className="w-4 h-4" />}
-                      {ms.iconName === 'Handshake' && <Handshake className="w-4 h-4" />}
-                      {ms.iconName === 'Trophy' && <Trophy className="w-4 h-4" />}
-                      {ms.iconName === 'Sparkles' && <Sparkles className="w-4 h-4" />}
-                    </div>
-                  </div>
-
-                  {/* Title & Description */}
-                  <h4 className="text-[16px] sm:text-[17px] font-bold text-[#10264b] mb-1.5 leading-snug">
-                    {ms.title}
-                  </h4>
-                  <p className="text-[13px] sm:text-[14px] text-slate-600 leading-snug">
-                    {ms.description}
-                  </p>
-                </div>
-
-                {/* Connecting arrow for desktop between cards */}
-                {idx < JOURNEY_TIMELINE_DATA.milestones.length - 1 && (
-                  <div className="hidden lg:flex absolute -right-2 top-1/2 -translate-y-1/2 z-10 text-slate-300">
-                    <ArrowRight className="w-4 h-4" />
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-
-        </div>
-      </section>
+      <JourneyTimeline />
 
       {/* ========================================================================= */}
       {/* SECTION 9: CONTACT CTA ("LET'S WORK TOGETHER")                             */}

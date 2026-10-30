@@ -7,6 +7,25 @@ async function wait(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
+async function autoScroll(page) {
+  await page.evaluate(async () => {
+    await new Promise((resolve) => {
+      let totalDistance = 0;
+      const distance = 400;
+      const timer = setInterval(() => {
+        const scrollHeight = document.body.scrollHeight;
+        window.scrollBy(0, distance);
+        totalDistance += distance;
+
+        if (totalDistance >= scrollHeight) {
+          clearInterval(timer);
+          resolve();
+        }
+      }, 60);
+    });
+  });
+}
+
 async function runAboutVerification() {
   console.log('--- Starting Vite Preview Server ---');
   const server = spawn('npx', ['vite', 'preview', '--port', '4173', '--host'], {
@@ -91,7 +110,12 @@ async function runAboutVerification() {
     });
     console.log('Saved: about_01_desktop_hero.png');
 
-    // Capture Full Page Desktop Screenshot
+    // Scroll through the entire page so all intersection observers trigger cleanly
+    console.log('Auto-scrolling page to trigger animations...');
+    await autoScroll(page);
+    await wait(600);
+
+    // Capture Full Page Desktop Screenshot with all animations completed
     await page.screenshot({
       path: path.join(screenshotsDir, 'about_02_desktop_full.png'),
       fullPage: true
@@ -137,12 +161,43 @@ async function runAboutVerification() {
     });
     console.log(`Why Choose Cards (${whyChooseCards.length}):`, whyChooseCards);
 
-    // Check 5 Milestone Cards
+    // Check 5 Milestone Cards in Journey Timeline
     const milestones = await page.evaluate(() => {
-      const cards = Array.from(document.querySelectorAll('#timeline h4'));
-      return cards.map(h => h.innerText.trim());
+      const cards = Array.from(document.querySelectorAll('#journey-timeline article'));
+      return cards.map(c => {
+        const year = c.querySelector('time')?.innerText.trim() || '';
+        const title = c.querySelector('h3')?.innerText.trim() || '';
+        return `${year} — ${title}`;
+      });
     });
-    console.log(`Milestones (${milestones.length}):`, milestones);
+    console.log(`Journey Milestones (${milestones.length}):`, milestones);
+
+    // Scroll into view of the Journey Timeline and capture dedicated screenshot
+    await page.evaluate(() => {
+      const el = document.getElementById('journey-timeline');
+      if (el) el.scrollIntoView();
+    });
+    await wait(1000);
+
+    const timelineBoundingBox = await page.evaluate(() => {
+      const el = document.getElementById('journey-timeline');
+      if (!el) return null;
+      const rect = el.getBoundingClientRect();
+      return {
+        x: rect.x + window.scrollX,
+        y: rect.y + window.scrollY,
+        width: rect.width,
+        height: rect.height
+      };
+    });
+
+    if (timelineBoundingBox) {
+      await page.screenshot({
+        path: path.join(screenshotsDir, 'about_06_journey_timeline.png'),
+        clip: timelineBoundingBox
+      });
+      console.log('Saved: about_06_journey_timeline.png');
+    }
 
     // 2. Tablet Test (768px)
     console.log('\n========================================');
@@ -163,12 +218,42 @@ async function runAboutVerification() {
     console.log('========================================');
     await page.setViewport({ width: 375, height: 812 });
     await page.goto('http://localhost:4173/about', { waitUntil: 'networkidle0' });
+    await autoScroll(page);
+    await wait(400);
+
     await page.screenshot({
       path: path.join(screenshotsDir, 'about_04_mobile_375px.png'),
       fullPage: false,
       clip: { x: 0, y: 0, width: 375, height: 812 }
     });
     console.log('Saved: about_04_mobile_375px.png');
+
+    // Scroll to timeline on mobile and capture
+    await page.evaluate(() => {
+      const el = document.getElementById('journey-timeline');
+      if (el) el.scrollIntoView();
+    });
+    await wait(500);
+
+    const mobileTimelineBox = await page.evaluate(() => {
+      const el = document.getElementById('journey-timeline');
+      if (!el) return null;
+      const rect = el.getBoundingClientRect();
+      return {
+        x: rect.x + window.scrollX,
+        y: rect.y + window.scrollY,
+        width: rect.width,
+        height: Math.min(rect.height, 1400) // capture first few mobile cards
+      };
+    });
+
+    if (mobileTimelineBox) {
+      await page.screenshot({
+        path: path.join(screenshotsDir, 'about_07_journey_timeline_mobile.png'),
+        clip: mobileTimelineBox
+      });
+      console.log('Saved: about_07_journey_timeline_mobile.png');
+    }
 
     // 4. Test Consultation Modal
     console.log('\n========================================');
