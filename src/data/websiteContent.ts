@@ -40,7 +40,7 @@ export const NAV_LINKS = [
   { name: 'About', href: '/about' },
   { name: 'Services', href: '/#services' },
   { name: 'Solutions', href: '/solutions' },
-  { name: 'Industries', href: '/#industries' },
+  { name: 'Industries', href: '/industries' },
   { name: 'Case Studies', href: '/#case-studies' },
   { name: 'Partners', href: '/#partners' },
   { name: 'Contact', href: '/#contact' },
