@@ -168,24 +168,23 @@ export const IndustriesPage: React.FC = () => {
   };
 
   return (
-    <div className="relative bg-[#fffdfa] text-[#40506a] selection:bg-[#d99120] selection:text-white">
-      {/* Background Decorative Soft Warm Blobs */}
-      <div className="absolute top-0 left-0 right-0 h-[600px] overflow-hidden pointer-events-none select-none -z-10">
-        <div className="absolute -top-40 -left-40 w-96 h-96 bg-amber-100/50 rounded-full blur-3xl" />
-        <div className="absolute top-20 right-0 w-80 h-80 bg-orange-50/60 rounded-full blur-3xl" />
+    <div className="relative bg-white text-[#354765] selection:bg-blue-600 selection:text-white">
+      {/* Background Decorative Ambient Glow matching About Page */}
+      <div className="absolute -left-12 top-1/2 -translate-y-1/2 w-48 h-80 opacity-25 pointer-events-none select-none hidden lg:block">
+        <div className="w-full h-full bg-gradient-to-tr from-emerald-600/30 via-teal-500/10 to-transparent rounded-full blur-3xl" />
       </div>
 
       {/* ========================================================================= */}
       {/* SECTION 1: HERO SECTION                                                   */}
       {/* ========================================================================= */}
-      <section className="relative overflow-hidden pt-10 pb-16 lg:pt-14 lg:pb-20 border-b border-[#eadfce]/60">
-        <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative overflow-hidden bg-gradient-to-r from-sky-50/60 via-white to-blue-50/30 pt-10 pb-14 lg:pt-14 lg:pb-18 border-b border-slate-100">
+        <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
             {/* Left Content Column */}
             <div className="lg:col-span-7 space-y-6 text-left">
               {/* Eyebrow */}
               <div className="inline-block">
-                <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-[#d99120] select-none">
+                <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-blue-600 select-none">
                   {INDUSTRIES_HERO_DATA.eyebrow}
                 </span>
               </div>
@@ -193,11 +192,11 @@ export const IndustriesPage: React.FC = () => {
               {/* Main Headline */}
               <h1 className="text-[36px] sm:text-[44px] lg:text-[50px] xl:text-[54px] font-extrabold tracking-tight leading-[1.14] text-[#10264b]">
                 {INDUSTRIES_HERO_DATA.titleStart}{' '}
-                <span className="text-[#d99120]">{INDUSTRIES_HERO_DATA.titleHighlight}</span>
+                <span className="text-[#7139e8]">{INDUSTRIES_HERO_DATA.titleHighlight}</span>
               </h1>
 
               {/* Subheading / Description */}
-              <p className="text-[16px] sm:text-[17px] lg:text-[18px] text-[#40506a] leading-relaxed max-w-2xl font-normal">
+              <p className="text-[16px] sm:text-[17px] lg:text-[18px] text-[#354765] leading-relaxed max-w-2xl font-normal">
                 {INDUSTRIES_HERO_DATA.description}
               </p>
 
@@ -205,7 +204,7 @@ export const IndustriesPage: React.FC = () => {
               <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
                 <button
                   onClick={() => setIsConsultationModalOpen(true)}
-                  className="inline-flex items-center justify-center gap-2 text-[16px] font-semibold px-8 py-4 rounded-xl bg-[#d99120] hover:bg-[#bd7810] text-white shadow-lg shadow-amber-500/25 transition-all duration-200 cursor-pointer"
+                  className="inline-flex items-center justify-center gap-2 text-[16px] font-semibold px-8 py-3.5 rounded-xl bg-[#0878f9] hover:bg-blue-700 text-white shadow-md shadow-blue-600/25 transition-all duration-200 cursor-pointer"
                 >
                   <span>{INDUSTRIES_HERO_DATA.primaryCtaText}</span>
                   <ArrowRight className="w-5 h-5" />
@@ -213,7 +212,7 @@ export const IndustriesPage: React.FC = () => {
 
                 <button
                   onClick={() => setIsConsultationModalOpen(true)}
-                  className="inline-flex items-center justify-center gap-2 text-[16px] font-semibold px-8 py-4 rounded-xl bg-white hover:bg-slate-50 text-[#10264b] border border-[#eadfce] shadow-sm transition-all duration-200 cursor-pointer"
+                  className="inline-flex items-center justify-center gap-2 text-[16px] font-semibold px-8 py-3.5 rounded-xl bg-white hover:bg-slate-50 text-slate-800 border border-slate-200/90 shadow-sm transition-all duration-200 cursor-pointer"
                 >
                   <span>{INDUSTRIES_HERO_DATA.secondaryCtaText}</span>
                 </button>
@@ -222,7 +221,7 @@ export const IndustriesPage: React.FC = () => {
 
             {/* Right Visual Column: Industrial Engineer with Floating Badges */}
             <div className="lg:col-span-5 relative">
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl border-2 border-white/80 bg-slate-900 group">
+              <div className="relative rounded-2xl overflow-hidden shadow-xl border border-slate-200/90 bg-white group">
                 <img
                   src={INDUSTRIES_HERO_DATA.heroImage}
                   alt="Industrial Operations Engineer with Digital Tablet"
@@ -234,7 +233,7 @@ export const IndustriesPage: React.FC = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent pointer-events-none" />
 
                 {/* Floating Top Right Card: Technology Solutions for Every Industry */}
-                <div className="absolute top-5 right-5 bg-white/95 backdrop-blur-md rounded-2xl p-4 shadow-xl border border-slate-100/90 max-w-[270px]">
+                <div className="absolute top-5 right-5 bg-white/95 backdrop-blur-md rounded-2xl p-4 shadow-xl border border-slate-200/90 max-w-[270px]">
                   <p className="text-[13px] font-bold text-[#10264b] mb-3 leading-snug">
                     {INDUSTRIES_HERO_DATA.floatingTitle}
                   </p>
@@ -264,18 +263,18 @@ export const IndustriesPage: React.FC = () => {
       {/* ========================================================================= */}
       {/* SECTION 2: SOLUTIONS DESIGNED AROUND YOUR INDUSTRY (8 CARDS)              */}
       {/* ========================================================================= */}
-      <section id="industries-grid" className="py-16 lg:py-24 relative">
+      <section id="industries-grid" className="py-16 lg:py-24 bg-white border-b border-slate-100 relative">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section Header */}
           <div className="text-center max-w-5xl mx-auto mb-14 space-y-3">
-            <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-[#d99120]">
+            <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-blue-600">
               {INDUSTRIES_SECTION_HEADER.eyebrow}
             </span>
             <h2 className="text-[32px] sm:text-[38px] lg:text-[42px] font-extrabold text-[#10264b] tracking-tight">
               {INDUSTRIES_SECTION_HEADER.titleStart}{' '}
-              <span className="text-[#d99120]">{INDUSTRIES_SECTION_HEADER.titleHighlight}</span>
+              <span className="text-[#7139e8]">{INDUSTRIES_SECTION_HEADER.titleHighlight}</span>
             </h2>
-            <p className="text-[16px] sm:text-[17px] text-[#40506a] leading-relaxed max-w-3xl mx-auto">
+            <p className="text-[16px] sm:text-[17px] text-[#354765] leading-relaxed max-w-3xl mx-auto">
               {INDUSTRIES_SECTION_HEADER.description}
             </p>
           </div>
@@ -288,7 +287,7 @@ export const IndustriesPage: React.FC = () => {
                   key={card.id}
                   className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between"
                   style={{
-                    border: `1.5px solid ${card.accentColor}`
+                    border: `2px solid ${card.accentColor}`
                   }}
                 >
                   <div>
@@ -317,17 +316,17 @@ export const IndustriesPage: React.FC = () => {
 
                     {/* Card Content */}
                     <div className="p-5 sm:p-6 space-y-3">
-                      <h3 className="text-[20px] font-bold text-[#10264b] leading-snug group-hover:text-slate-900">
+                      <h3 className="text-[20px] font-bold text-[#10264b] leading-snug group-hover:text-blue-600 transition-colors">
                         {card.title}
                       </h3>
-                      <p className="text-[14px] text-[#40506a] leading-relaxed line-clamp-3">
+                      <p className="text-[14px] text-[#354765] leading-relaxed line-clamp-3">
                         {card.description}
                       </p>
                     </div>
                   </div>
 
                   {/* Card Footer: Learn More Link + Circular Arrow */}
-                  <div className="px-5 pb-5 pt-2 border-t border-slate-100/80 flex items-center justify-between">
+                  <div className="px-5 pb-5 pt-2 border-t border-slate-100 flex items-center justify-between">
                     <button
                       onClick={() => setSelectedIndustry(card)}
                       className="text-[14px] font-bold flex items-center gap-1.5 transition-colors cursor-pointer"
@@ -359,15 +358,15 @@ export const IndustriesPage: React.FC = () => {
       {/* ========================================================================= */}
       {/* SECTION 3: INDUSTRY VALUE WE DELIVER (4 CARDS)                            */}
       {/* ========================================================================= */}
-      <section className="py-16 lg:py-20 bg-[#fff9ef]/70 border-y border-[#eadfce]/70">
+      <section className="py-16 lg:py-20 bg-slate-50/60 border-b border-slate-100">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section Header */}
           <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
             <h2 className="text-[32px] sm:text-[38px] lg:text-[42px] font-extrabold text-[#10264b] tracking-tight">
               {INDUSTRY_VALUE_DATA.titleStart}{' '}
-              <span className="text-[#d99120]">{INDUSTRY_VALUE_DATA.titleHighlight}</span>
+              <span className="text-[#7139e8]">{INDUSTRY_VALUE_DATA.titleHighlight}</span>
             </h2>
-            <p className="text-[16px] sm:text-[17px] text-[#40506a] leading-relaxed">
+            <p className="text-[16px] sm:text-[17px] text-[#354765] leading-relaxed">
               {INDUSTRY_VALUE_DATA.description}
             </p>
           </div>
@@ -377,7 +376,7 @@ export const IndustriesPage: React.FC = () => {
             {INDUSTRY_VALUE_DATA.items.map((val) => (
               <div
                 key={val.id}
-                className="bg-white rounded-2xl p-6 border border-[#eadfce] shadow-sm hover:shadow-md transition-shadow flex items-start gap-4"
+                className="bg-white rounded-2xl p-6 border border-slate-200/90 shadow-sm hover:shadow-md transition-shadow flex items-start gap-4"
               >
                 {/* Circular Icon */}
                 <div
@@ -392,7 +391,7 @@ export const IndustriesPage: React.FC = () => {
                   <h3 className="text-[17px] font-bold text-[#10264b] leading-snug">
                     {val.title}
                   </h3>
-                  <p className="text-[13px] text-[#40506a] leading-relaxed">
+                  <p className="text-[13px] text-[#354765] leading-relaxed">
                     {val.description}
                   </p>
                 </div>
@@ -405,15 +404,15 @@ export const IndustriesPage: React.FC = () => {
       {/* ========================================================================= */}
       {/* SECTION 4: OUR INDUSTRY ENGAGEMENT MODEL (6 CONNECTED STEPS)               */}
       {/* ========================================================================= */}
-      <section className="py-16 lg:py-24 relative overflow-hidden">
+      <section className="py-16 lg:py-24 bg-white border-b border-slate-100 relative overflow-hidden">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section Header */}
           <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
             <h2 className="text-[32px] sm:text-[38px] lg:text-[42px] font-extrabold text-[#10264b] tracking-tight">
               {INDUSTRY_ENGAGEMENT_DATA.titleStart}{' '}
-              <span className="text-[#d99120]">{INDUSTRY_ENGAGEMENT_DATA.titleHighlight}</span>
+              <span className="text-[#7139e8]">{INDUSTRY_ENGAGEMENT_DATA.titleHighlight}</span>
             </h2>
-            <p className="text-[16px] sm:text-[17px] text-[#40506a] leading-relaxed">
+            <p className="text-[16px] sm:text-[17px] text-[#354765] leading-relaxed">
               {INDUSTRY_ENGAGEMENT_DATA.description}
             </p>
           </div>
@@ -435,20 +434,20 @@ export const IndustriesPage: React.FC = () => {
                     </div>
 
                     {/* Step Title */}
-                    <h3 className="mt-4 text-[15px] font-bold text-[#10264b] leading-tight group-hover:text-[#d99120] transition-colors">
+                    <h3 className="mt-4 text-[15px] font-bold text-[#10264b] leading-tight group-hover:text-blue-600 transition-colors">
                       {step.title}
                     </h3>
                   </div>
 
                   {/* Connecting Arrow between steps (Desktop: horizontal, Mobile/Tablet: vertical arrow) */}
                   {!isLast && (
-                    <div className="hidden lg:flex items-center justify-center text-[#d99120]/70 px-1">
+                    <div className="hidden lg:flex items-center justify-center text-blue-600/50 px-1">
                       <ArrowRight className="w-6 h-6 stroke-[2.5]" />
                     </div>
                   )}
                   {!isLast && (
-                    <div className="flex lg:hidden items-center justify-center text-[#d99120]/70 py-2">
-                      <div className="w-0.5 h-6 bg-[#d99120]/40" />
+                    <div className="flex lg:hidden items-center justify-center text-blue-600/50 py-2">
+                      <div className="w-0.5 h-6 bg-blue-600/30" />
                     </div>
                   )}
                 </React.Fragment>
@@ -461,31 +460,31 @@ export const IndustriesPage: React.FC = () => {
       {/* ========================================================================= */}
       {/* SECTION 5: SIMPLE CONTACT CTA (RULE 9 - NO COMPLICATED FORMS)             */}
       {/* ========================================================================= */}
-      <section className="py-12 lg:py-16">
+      <section className="py-12 lg:py-16 bg-slate-50/50">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-gradient-to-br from-amber-50/80 via-[#fff9ef] to-amber-100/40 rounded-3xl p-8 sm:p-10 lg:p-14 border border-[#eadfce] shadow-md">
+          <div className="rounded-2xl bg-[#eaf4ff] border border-blue-200/90 p-8 sm:p-10 lg:p-12 shadow-sm">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
               {/* Left Column: Heading, Subheading & Consultation Button */}
               <div className="lg:col-span-6 space-y-4 text-left">
-                <span className="text-[12px] sm:text-[13px] font-bold uppercase tracking-wider text-[#d99120]">
+                <span className="text-[12px] sm:text-[13px] font-bold uppercase tracking-wider text-blue-600">
                   {INDUSTRIES_CONTACT_CTA_DATA.eyebrow}
                 </span>
 
                 <h2 className="text-[28px] sm:text-[34px] lg:text-[38px] font-extrabold text-[#10264b] tracking-tight leading-tight">
                   {INDUSTRIES_CONTACT_CTA_DATA.titleStart}{' '}
-                  <span className="text-[#d99120]">
+                  <span className="text-[#7139e8]">
                     {INDUSTRIES_CONTACT_CTA_DATA.titleHighlight}
                   </span>
                 </h2>
 
-                <p className="text-[15px] sm:text-[16px] text-[#40506a] leading-relaxed max-w-xl">
+                <p className="text-[15px] sm:text-[16px] text-[#354765] leading-relaxed max-w-xl">
                   {INDUSTRIES_CONTACT_CTA_DATA.description}
                 </p>
 
                 <div className="pt-2">
                   <button
                     onClick={() => setIsConsultationModalOpen(true)}
-                    className="inline-flex items-center justify-center gap-2 text-[15px] sm:text-[16px] font-semibold px-8 py-3.5 rounded-xl bg-[#d99120] hover:bg-[#bd7810] text-white shadow-md shadow-amber-500/20 transition-all cursor-pointer"
+                    className="inline-flex items-center justify-center gap-2 text-[15px] sm:text-[16px] font-semibold px-8 py-3.5 rounded-xl bg-[#0878f9] hover:bg-blue-700 text-white shadow-md shadow-blue-600/25 transition-all cursor-pointer"
                   >
                     <span>{INDUSTRIES_CONTACT_CTA_DATA.primaryCtaText}</span>
                     <ArrowRight className="w-5 h-5" />
@@ -493,57 +492,57 @@ export const IndustriesPage: React.FC = () => {
                 </div>
               </div>
 
-              {/* Right Column: 3 Clean Box-Type Contact Cards */}
+              {/* Right Column: 3 Clean Box-Type Contact Cards matching About Page */}
               <div className="lg:col-span-6 space-y-3.5">
-                {/* Email Card */}
+                {/* Email Card (Green border matching About page) */}
                 <a
                   href={`mailto:${INDUSTRIES_CONTACT_CTA_DATA.email}?subject=Industry%20Consultation%20Enquiry`}
-                  className="bg-white rounded-2xl p-4 sm:p-5 border border-[#eadfce] shadow-sm hover:shadow-md hover:border-[#d99120] transition-all flex items-center gap-4 group"
+                  className="bg-white rounded-xl p-4 sm:p-4.5 border-2 border-[#16b978] shadow-sm hover:shadow-md transition-all flex items-center gap-4 group"
                 >
-                  <div className="w-12 h-12 rounded-xl bg-amber-50 text-[#d99120] flex items-center justify-center shrink-0 group-hover:bg-[#d99120] group-hover:text-white transition-colors">
-                    <Mail className="w-6 h-6" />
+                  <div className="w-11 h-11 rounded-lg bg-blue-50 border border-blue-100 text-[#0878f9] flex items-center justify-center shrink-0 group-hover:bg-[#0878f9] group-hover:text-white transition-colors">
+                    <Mail className="w-5 h-5" />
                   </div>
                   <div>
                     <p className="text-[11px] font-bold uppercase tracking-wider text-slate-400">
                       Email
                     </p>
-                    <p className="text-[15px] font-bold text-[#10264b] group-hover:text-[#d99120] transition-colors">
+                    <p className="text-[15px] font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
                       {INDUSTRIES_CONTACT_CTA_DATA.email}
                     </p>
                   </div>
                 </a>
 
-                {/* Phone Card */}
+                {/* Phone Card (Blue border matching About page) */}
                 <a
                   href={`tel:${INDUSTRIES_CONTACT_CTA_DATA.phone}`}
-                  className="bg-white rounded-2xl p-4 sm:p-5 border border-[#eadfce] shadow-sm hover:shadow-md hover:border-[#d99120] transition-all flex items-center gap-4 group"
+                  className="bg-white rounded-xl p-4 sm:p-4.5 border-2 border-[#2992ff] shadow-sm hover:shadow-md transition-all flex items-center gap-4 group"
                 >
-                  <div className="w-12 h-12 rounded-xl bg-amber-50 text-[#d99120] flex items-center justify-center shrink-0 group-hover:bg-[#d99120] group-hover:text-white transition-colors">
-                    <Phone className="w-6 h-6" />
+                  <div className="w-11 h-11 rounded-lg bg-blue-50 border border-blue-100 text-[#0878f9] flex items-center justify-center shrink-0 group-hover:bg-[#0878f9] group-hover:text-white transition-colors">
+                    <Phone className="w-5 h-5" />
                   </div>
                   <div>
                     <p className="text-[11px] font-bold uppercase tracking-wider text-slate-400">
                       Phone
                     </p>
-                    <p className="text-[15px] font-bold text-[#10264b] group-hover:text-[#d99120] transition-colors">
+                    <p className="text-[15px] font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
                       {INDUSTRIES_CONTACT_CTA_DATA.phone}
                     </p>
                   </div>
                 </a>
 
-                {/* Locations Card */}
-                <div className="bg-white rounded-2xl p-4 sm:p-5 border border-[#eadfce] shadow-sm flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-amber-50 text-[#d99120] flex items-center justify-center shrink-0">
-                    <MapPin className="w-6 h-6" />
+                {/* Locations Card (Violet/Purple border matching About page) */}
+                <div className="bg-white rounded-xl p-4 sm:p-4.5 border-2 border-[#a34dff] shadow-sm flex items-center gap-4">
+                  <div className="w-11 h-11 rounded-lg bg-blue-50 border border-blue-100 text-[#0878f9] flex items-center justify-center shrink-0">
+                    <MapPin className="w-5 h-5" />
                   </div>
                   <div>
                     <p className="text-[11px] font-bold uppercase tracking-wider text-slate-400">
                       Locations
                     </p>
-                    <p className="text-[14px] font-bold text-[#10264b]">
+                    <p className="text-[14px] font-bold text-slate-900">
                       Borivali, Mumbai
                     </p>
-                    <p className="text-[14px] font-bold text-[#10264b]">
+                    <p className="text-[14px] font-bold text-slate-900">
                       Marine Lines, Mumbai
                     </p>
                   </div>
@@ -621,7 +620,7 @@ export const IndustriesPage: React.FC = () => {
                   setSelectedIndustry(null);
                   setIsConsultationModalOpen(true);
                 }}
-                className="w-full sm:w-auto px-6 py-3 rounded-xl bg-[#d99120] hover:bg-[#bd7810] text-white font-semibold text-sm shadow-md transition-all cursor-pointer"
+                className="w-full sm:w-auto px-6 py-3 rounded-xl bg-[#0878f9] hover:bg-blue-700 text-white font-semibold text-sm shadow-md transition-all cursor-pointer"
               >
                 Book Industry Consultation
               </button>
@@ -661,7 +660,7 @@ export const IndustriesPage: React.FC = () => {
                   setIsConsultationModalOpen(false);
                   setIsSuccessSubmitted(false);
                 }}
-                className="px-6 py-2.5 rounded-lg bg-[#d99120] text-white font-semibold hover:bg-[#bd7810] transition-colors"
+                className="px-6 py-2.5 rounded-lg bg-[#0878f9] text-white font-semibold hover:bg-blue-700 transition-colors"
               >
                 Close
               </button>
@@ -685,7 +684,7 @@ export const IndustriesPage: React.FC = () => {
                   value={formData.fullName}
                   onChange={handleInputChange}
                   placeholder="e.g. Rahul Sharma"
-                  className={`w-full px-4 py-2.5 rounded-lg border text-sm focus:outline-none focus:ring-2 focus:ring-[#d99120] ${
+                  className={`w-full px-4 py-2.5 rounded-lg border text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 ${
                     formErrors.fullName ? 'border-red-400 bg-red-50/20' : 'border-slate-300'
                   }`}
                 />
@@ -704,7 +703,7 @@ export const IndustriesPage: React.FC = () => {
                   value={formData.companyName}
                   onChange={handleInputChange}
                   placeholder="e.g. Acme Industries Ltd."
-                  className={`w-full px-4 py-2.5 rounded-lg border text-sm focus:outline-none focus:ring-2 focus:ring-[#d99120] ${
+                  className={`w-full px-4 py-2.5 rounded-lg border text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 ${
                     formErrors.companyName ? 'border-red-400 bg-red-50/20' : 'border-slate-300'
                   }`}
                 />
@@ -725,7 +724,7 @@ export const IndustriesPage: React.FC = () => {
                   value={formData.workEmail}
                   onChange={handleInputChange}
                   placeholder="rahul@company.com"
-                  className={`w-full px-4 py-2.5 rounded-lg border text-sm focus:outline-none focus:ring-2 focus:ring-[#d99120] ${
+                  className={`w-full px-4 py-2.5 rounded-lg border text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 ${
                     formErrors.workEmail ? 'border-red-400 bg-red-50/20' : 'border-slate-300'
                   }`}
                 />
@@ -744,7 +743,7 @@ export const IndustriesPage: React.FC = () => {
                   value={formData.phoneNumber}
                   onChange={handleInputChange}
                   placeholder="+91-9876543210"
-                  className={`w-full px-4 py-2.5 rounded-lg border text-sm focus:outline-none focus:ring-2 focus:ring-[#d99120] ${
+                  className={`w-full px-4 py-2.5 rounded-lg border text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 ${
                     formErrors.phoneNumber ? 'border-red-400 bg-red-50/20' : 'border-slate-300'
                   }`}
                 />
@@ -762,7 +761,7 @@ export const IndustriesPage: React.FC = () => {
                 name="areaOfInterest"
                 value={formData.areaOfInterest}
                 onChange={handleInputChange}
-                className="w-full px-4 py-2.5 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#d99120] bg-white"
+                className="w-full px-4 py-2.5 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 bg-white"
               >
                 <option value="manufacturing">Manufacturing (Discrete / Process)</option>
                 <option value="trading-distribution">Trading & Distribution</option>
@@ -786,7 +785,7 @@ export const IndustriesPage: React.FC = () => {
                 value={formData.message}
                 onChange={handleInputChange}
                 placeholder="Briefly describe your process bottlenecks or ERP timeline..."
-                className={`w-full px-4 py-2.5 rounded-lg border text-sm focus:outline-none focus:ring-2 focus:ring-[#d99120] ${
+                className={`w-full px-4 py-2.5 rounded-lg border text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 ${
                   formErrors.message ? 'border-red-400 bg-red-50/20' : 'border-slate-300'
                 }`}
               />
@@ -806,7 +805,7 @@ export const IndustriesPage: React.FC = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full sm:w-auto px-7 py-3 rounded-xl bg-[#d99120] hover:bg-[#bd7810] text-white font-semibold text-sm shadow-md transition-all flex items-center justify-center gap-2 disabled:opacity-70 cursor-pointer"
+                className="w-full sm:w-auto px-7 py-3 rounded-xl bg-[#0878f9] hover:bg-blue-700 text-white font-semibold text-sm shadow-md transition-all flex items-center justify-center gap-2 disabled:opacity-70 cursor-pointer"
               >
                 {isSubmitting ? (
                   <span>Submitting...</span>
@@ -827,7 +826,7 @@ export const IndustriesPage: React.FC = () => {
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           aria-label="Scroll to top"
-          className="fixed bottom-6 right-6 z-30 p-3 rounded-full bg-[#10264b] hover:bg-[#d99120] text-white shadow-xl transition-all duration-300 hover:scale-110 cursor-pointer"
+          className="fixed bottom-6 right-6 z-30 p-3 rounded-full bg-[#10264b] hover:bg-blue-600 text-white shadow-xl transition-all duration-300 hover:scale-110 cursor-pointer"
         >
           <ChevronUp className="w-5 h-5" />
         </button>
