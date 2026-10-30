@@ -41,7 +41,7 @@ export const NAV_LINKS = [
   { name: 'Services', href: '/#services' },
   { name: 'Solutions', href: '/solutions' },
   { name: 'Industries', href: '/industries' },
-  { name: 'Case Studies', href: '/#case-studies' },
+  { name: 'Case Studies', href: '/case-studies' },
   { name: 'Partners', href: '/#partners' },
   { name: 'Contact', href: '/#contact' },
 ];

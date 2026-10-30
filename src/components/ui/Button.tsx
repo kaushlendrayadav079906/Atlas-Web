@@ -1,7 +1,7 @@
 import React from 'react';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'primary' | 'secondary' | 'outline' | 'ghost' | 'cyan';
+  variant?: 'primary' | 'secondary' | 'outline' | 'ghost' | 'cyan' | 'gold';
   size?: 'sm' | 'md' | 'lg';
   href?: string;
   icon?: React.ReactNode;
@@ -35,6 +35,7 @@ export const Button: React.FC<ButtonProps> = ({
     outline: "bg-transparent text-blue-600 hover:bg-blue-50 border border-blue-600 focus-visible:ring-blue-500 focus-visible:ring-offset-white",
     ghost: "bg-transparent text-slate-700 hover:bg-slate-100 border border-transparent focus-visible:ring-blue-500",
     cyan: "bg-cyan-500 text-slate-950 hover:bg-cyan-400 font-bold shadow-md focus-visible:ring-cyan-400",
+    gold: "bg-[#d99120] text-white hover:bg-[#bd7810] font-semibold shadow-md focus-visible:ring-amber-500 shadow-amber-500/20",
   };
 
   const combinedClasses = `${baseStyles} ${sizeStyles[size]} ${variantStyles[variant]} ${fullWidth ? 'w-full' : ''} ${className}`;
