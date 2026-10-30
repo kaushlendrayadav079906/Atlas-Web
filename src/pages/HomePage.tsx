@@ -249,7 +249,7 @@ export const HomePage: React.FC = () => {
       {/* ========================================================================= */}
       {/* SECTION 4: SERVICES OVERVIEW (4 COMPACT BOX-TYPE CARDS)                   */}
       {/* ========================================================================= */}
-      <section id="services" className="py-10 sm:py-12 lg:py-14 bg-slate-50/50 border-b border-slate-100">
+      <section id="services" className="py-10 sm:py-12 lg:py-14 bg-[#f4f9ff]/60 border-b border-slate-100">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           
           <SectionHeading
@@ -379,7 +379,7 @@ export const HomePage: React.FC = () => {
       {/* ========================================================================= */}
       {/* SECTION 6: INDUSTRIES WE SERVE (4 COMPACT BOX-TYPE CARDS)                 */}
       {/* ========================================================================= */}
-      <section id="industries" className="py-10 sm:py-12 lg:py-14 bg-slate-50/50 border-b border-slate-100">
+      <section id="industries" className="py-10 sm:py-12 lg:py-14 bg-[#f4f9ff]/60 border-b border-slate-100">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           
           <SectionHeading
@@ -462,7 +462,7 @@ export const HomePage: React.FC = () => {
       {/* ========================================================================= */}
       {/* SECTION 8: CUSTOMER SUCCESS (TWO COMPACT SIDE-BY-SIDE CARDS)              */}
       {/* ========================================================================= */}
-      <section id="case-studies" className="py-10 sm:py-12 lg:py-14 bg-slate-50/50 border-b border-slate-100">
+      <section id="case-studies" className="py-10 sm:py-12 lg:py-14 bg-[#f4f9ff]/60 border-b border-slate-100">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           
           <SectionHeading
@@ -562,23 +562,26 @@ export const HomePage: React.FC = () => {
       </section>
 
       {/* ========================================================================= */}
-      {/* SECTION 10: LET'S DISCUSS YOUR BUSINESS NEEDS (BOX-TYPE BANNER im2)       */}
+      {/* SECTION 10: READY TO TRANSFORM YOUR BUSINESS (BOX-TYPE BANNER im2)         */}
       {/* ========================================================================= */}
-      <section id="contact" className="py-10 sm:py-12 lg:py-14 bg-slate-50/50">
+      <section id="contact" className="py-10 sm:py-12 lg:py-14 bg-[#f4f9ff]/60">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           
-          {/* Defined Light Cyan/Blue Box Container matching im2 */}
+          {/* Defined Light Cyan/Blue Box Container matching About Page reference */}
           <div className="rounded-2xl bg-[#eaf4ff] border border-blue-200/90 p-6 sm:p-8 lg:p-10 shadow-sm">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
               
               {/* Left Column: Heading, Subtext & CTA Button */}
-              <div className="lg:col-span-5 space-y-4">
-                <h2 className="text-[26px] sm:text-[32px] lg:text-[36px] font-bold text-slate-900 tracking-tight leading-tight">
-                  Let's Discuss Your Business Needs
+              <div className="lg:col-span-5 space-y-4 text-left">
+                <span className="text-[12px] font-bold uppercase tracking-wider text-blue-600 block">
+                  LET'S WORK TOGETHER
+                </span>
+                <h2 className="text-[26px] sm:text-[32px] lg:text-[36px] font-bold text-[#10264b] tracking-tight leading-tight">
+                  Ready to Transform <span className="text-[#7139e8]">Your Business?</span>
                 </h2>
                 
-                <p className="text-[15px] sm:text-[17px] text-slate-600 leading-relaxed max-w-lg">
-                  Book a consultation with our experts and explore how we can help you streamline your operations and drive growth.
+                <p className="text-[15px] sm:text-[17px] text-[#354765] leading-relaxed max-w-lg">
+                  Book a consultation with our experts and explore how we can help you streamline operations and drive growth.
                 </p>
 
                 <div className="pt-2">

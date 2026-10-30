@@ -292,7 +292,11 @@ export const ContactPage: React.FC = () => {
             {GET_IN_TOUCH_CARDS.map((card) => (
               <div
                 key={card.id}
-                className={`bg-white rounded-2xl p-6 sm:p-7 border transition-all duration-300 hover:shadow-lg flex items-start gap-4 sm:gap-5 ${card.borderColor}`}
+                className={`rounded-2xl p-6 sm:p-7 border transition-all duration-300 hover:shadow-lg flex items-start gap-4 sm:gap-5 ${
+                  card.id === 'email' ? 'bg-[#fffdf7] border-[#f6d396]' :
+                  card.id === 'phone' ? 'bg-[#f2fbf7] border-[#a7f3d0]' :
+                  'bg-[#fbf7ff] border-[#ddd6fe]'
+                }`}
               >
                 {/* Circular Icon */}
                 <div className={`w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center shrink-0 shadow-sm ${card.iconBgColor}`}>
@@ -329,7 +333,7 @@ export const ContactPage: React.FC = () => {
       {/* ========================================================================= */}
       {/* SECTION 3: MAIN TWO COLUMNS (SEND MESSAGE & OUR LOCATIONS)                 */}
       {/* ========================================================================= */}
-      <section id="contact-form" className="py-16 lg:py-24 bg-slate-50/50 border-b border-slate-100">
+      <section id="contact-form" className="py-16 lg:py-24 bg-[#f4f9ff]/70 border-b border-blue-100/60">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
             
