@@ -135,15 +135,15 @@ export const PartnersPage: React.FC = () => {
   const renderCapabilityIcon = (iconName: string) => {
     switch (iconName) {
       case 'Building2':
-        return <Building2 className="w-5 h-5 text-[#d99120]" />;
+        return <Building2 className="w-5 h-5 text-[#0878f9]" />;
       case 'ShoppingCart':
-        return <ShoppingCart className="w-5 h-5 text-[#d99120]" />;
+        return <ShoppingCart className="w-5 h-5 text-[#0878f9]" />;
       case 'Boxes':
-        return <Boxes className="w-5 h-5 text-[#d99120]" />;
+        return <Boxes className="w-5 h-5 text-[#0878f9]" />;
       case 'TrendingUp':
-        return <TrendingUp className="w-5 h-5 text-[#d99120]" />;
+        return <TrendingUp className="w-5 h-5 text-[#0878f9]" />;
       default:
-        return <CheckCircle2 className="w-5 h-5 text-[#d99120]" />;
+        return <CheckCircle2 className="w-5 h-5 text-[#0878f9]" />;
     }
   };
 
@@ -178,15 +178,16 @@ export const PartnersPage: React.FC = () => {
   };
 
   return (
-    <div className="relative bg-[#fffdfa] text-[#354765] selection:bg-[#d99120] selection:text-white">
-      {/* Subtle organic margin gradients matching reference */}
-      <div className="absolute top-0 left-0 w-96 h-[800px] bg-gradient-to-br from-amber-100/30 via-orange-50/15 to-transparent rounded-full blur-3xl pointer-events-none select-none -translate-x-1/2" />
-      <div className="absolute top-[600px] right-0 w-96 h-[900px] bg-gradient-to-bl from-amber-100/25 via-emerald-50/15 to-transparent rounded-full blur-3xl pointer-events-none select-none translate-x-1/3" />
+    <div className="relative bg-white text-[#354765] selection:bg-blue-600 selection:text-white">
+      {/* Background Decorative Ambient Glow matching About Page */}
+      <div className="absolute -left-12 top-1/2 -translate-y-1/2 w-48 h-80 opacity-25 pointer-events-none select-none hidden lg:block">
+        <div className="w-full h-full bg-gradient-to-tr from-emerald-600/30 via-teal-500/10 to-transparent rounded-full blur-3xl" />
+      </div>
 
       {/* ========================================================================= */}
       {/* SECTION 1: HERO SECTION                                                   */}
       {/* ========================================================================= */}
-      <section className="relative overflow-hidden pt-8 pb-14 lg:pt-12 lg:pb-18 border-b border-amber-100/60">
+      <section className="relative overflow-hidden bg-gradient-to-r from-sky-50/60 via-white to-blue-50/30 pt-10 pb-14 lg:pt-14 lg:pb-18 border-b border-slate-100">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
             
@@ -194,7 +195,7 @@ export const PartnersPage: React.FC = () => {
             <div className="lg:col-span-7 space-y-6 text-left">
               {/* Eyebrow */}
               <div className="inline-block">
-                <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-[#d99120] select-none">
+                <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-blue-600 select-none">
                   {PARTNERS_HERO_DATA.eyebrow}
                 </span>
               </div>
@@ -202,7 +203,7 @@ export const PartnersPage: React.FC = () => {
               {/* Main Headline */}
               <h1 className="text-[36px] sm:text-[44px] lg:text-[50px] xl:text-[54px] font-extrabold tracking-tight leading-[1.14] text-[#10264b]">
                 {PARTNERS_HERO_DATA.titleStart}{' '}
-                <span className="text-[#d99120]">{PARTNERS_HERO_DATA.titleHighlight}</span>
+                <span className="text-[#7139e8]">{PARTNERS_HERO_DATA.titleHighlight}</span>
               </h1>
 
               {/* Description */}
@@ -214,7 +215,7 @@ export const PartnersPage: React.FC = () => {
               <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
                 <a
                   href="#overview"
-                  className="inline-flex items-center justify-center gap-2 text-[16px] font-semibold px-8 py-3.5 rounded-xl bg-[#d99120] hover:bg-[#bd7810] text-white shadow-md shadow-amber-600/20 transition-all duration-200 cursor-pointer"
+                  className="inline-flex items-center justify-center gap-2 text-[16px] font-semibold px-8 py-3.5 rounded-xl bg-[#0878f9] hover:bg-blue-700 text-white shadow-md shadow-blue-600/25 transition-all duration-200 cursor-pointer"
                 >
                   <span>{PARTNERS_HERO_DATA.primaryCtaText}</span>
                   <ArrowRight className="w-5 h-5" />
@@ -281,14 +282,14 @@ export const PartnersPage: React.FC = () => {
       {/* ========================================================================= */}
       {/* SECTION 2: TECHNOLOGY PARTNERS OVERVIEW (3 CARDS)                         */}
       {/* ========================================================================= */}
-      <section id="overview" className="py-16 lg:py-24 bg-white border-b border-amber-100/60">
+      <section id="overview" className="py-16 lg:py-24 bg-white border-b border-slate-100">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           
           {/* Section Header */}
           <div className="text-left mb-12 space-y-2">
             <h2 className="text-[32px] sm:text-[38px] lg:text-[42px] font-extrabold text-[#10264b] tracking-tight">
               {TECHNOLOGY_PARTNERS_OVERVIEW_DATA.titleStart}{' '}
-              <span className="text-[#d99120]">{TECHNOLOGY_PARTNERS_OVERVIEW_DATA.titleHighlight}</span>
+              <span className="text-[#7139e8]">{TECHNOLOGY_PARTNERS_OVERVIEW_DATA.titleHighlight}</span>
             </h2>
             <p className="text-[16px] sm:text-[17px] text-[#354765] leading-relaxed max-w-3xl">
               {TECHNOLOGY_PARTNERS_OVERVIEW_DATA.description}
@@ -366,14 +367,14 @@ export const PartnersPage: React.FC = () => {
       {/* ========================================================================= */}
       {/* SECTION 3: SAP BUSINESS ONE PARTNERSHIP                                   */}
       {/* ========================================================================= */}
-      <section id="sap-partnership" className="py-16 lg:py-24 bg-[#fffdf9] border-b border-amber-100/60">
+      <section id="sap-partnership" className="py-16 lg:py-24 bg-slate-50/60 border-b border-slate-100">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           
           {/* Section Header */}
           <div className="text-left mb-10 space-y-2">
             <h2 className="text-[30px] sm:text-[36px] lg:text-[40px] font-extrabold text-[#10264b] tracking-tight max-w-4xl leading-tight">
               {SAP_PARTNERSHIP_DATA.titleStart}{' '}
-              <span className="text-[#d99120]">{SAP_PARTNERSHIP_DATA.titleHighlight}</span>
+              <span className="text-[#7139e8]">{SAP_PARTNERSHIP_DATA.titleHighlight}</span>
             </h2>
             <p className="text-[16px] sm:text-[17px] text-[#354765] leading-relaxed max-w-3xl">
               {SAP_PARTNERSHIP_DATA.description}
@@ -381,7 +382,7 @@ export const PartnersPage: React.FC = () => {
             <div className="pt-2">
               <button
                 onClick={() => setIsSapModalOpen(true)}
-                className="inline-flex items-center justify-center gap-2 text-[15px] sm:text-[16px] font-semibold px-7 py-3 rounded-xl bg-[#d99120] hover:bg-[#bd7810] text-white shadow-md shadow-amber-600/20 transition-all cursor-pointer"
+                className="inline-flex items-center justify-center gap-2 text-[15px] sm:text-[16px] font-semibold px-7 py-3 rounded-xl bg-[#0878f9] hover:bg-blue-700 text-white shadow-md shadow-blue-600/20 transition-all cursor-pointer"
               >
                 <span>{SAP_PARTNERSHIP_DATA.ctaText}</span>
                 <ArrowRight className="w-4 h-4" />
@@ -422,11 +423,11 @@ export const PartnersPage: React.FC = () => {
                 <div className="space-y-4">
                   {SAP_PARTNERSHIP_DATA.capabilities.map((cap, idx) => (
                     <div key={idx} className="flex items-start gap-3.5 group">
-                      <div className="w-9 h-9 rounded-xl bg-amber-50 border border-amber-200 flex items-center justify-center shrink-0 group-hover:bg-[#d99120] group-hover:text-white transition-colors">
+                      <div className="w-9 h-9 rounded-xl bg-blue-50 border border-blue-200 text-[#0878f9] flex items-center justify-center shrink-0 group-hover:bg-[#0878f9] group-hover:text-white transition-colors">
                         {renderCapabilityIcon(cap.iconName)}
                       </div>
                       <div className="min-w-0">
-                        <h4 className="text-[15px] font-bold text-[#10264b] leading-tight group-hover:text-[#d99120] transition-colors">
+                        <h4 className="text-[15px] font-bold text-[#10264b] leading-tight group-hover:text-blue-600 transition-colors">
                           {cap.title}
                         </h4>
                         <p className="text-[13px] text-slate-500 leading-snug mt-0.5">
@@ -447,14 +448,14 @@ export const PartnersPage: React.FC = () => {
       {/* ========================================================================= */}
       {/* SECTION 4: BOYUM IT PARTNERSHIP (3 CARDS)                                 */}
       {/* ========================================================================= */}
-      <section id="boyum-partnership" className="py-16 lg:py-24 bg-white border-b border-amber-100/60">
+      <section id="boyum-partnership" className="py-16 lg:py-24 bg-white border-b border-slate-100">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           
           {/* Section Header */}
           <div className="text-left mb-12 space-y-2">
             <h2 className="text-[32px] sm:text-[38px] lg:text-[42px] font-extrabold text-[#10264b] tracking-tight">
               {BOYUM_PARTNERSHIP_DATA.titleStart}{' '}
-              <span className="text-[#d99120]">{BOYUM_PARTNERSHIP_DATA.titleHighlight}</span>
+              <span className="text-[#7139e8]">{BOYUM_PARTNERSHIP_DATA.titleHighlight}</span>
             </h2>
             <p className="text-[16px] sm:text-[17px] text-[#354765] leading-relaxed max-w-3xl">
               {BOYUM_PARTNERSHIP_DATA.description}
@@ -493,7 +494,7 @@ export const PartnersPage: React.FC = () => {
 
                   {/* Details */}
                   <div className="p-5 sm:p-6 space-y-2.5 text-left">
-                    <h3 className="text-[20px] font-bold text-[#10264b] leading-snug group-hover:text-amber-600 transition-colors">
+                    <h3 className="text-[20px] font-bold text-[#10264b] leading-snug group-hover:text-blue-600 transition-colors">
                       {prod.title}
                     </h3>
                     <p className="text-[14px] text-[#354765] leading-relaxed">
@@ -535,14 +536,14 @@ export const PartnersPage: React.FC = () => {
       {/* ========================================================================= */}
       {/* SECTION 5: UIPATH PARTNERSHIP                                             */}
       {/* ========================================================================= */}
-      <section id="uipath-partnership" className="py-16 lg:py-24 bg-[#fffdf9] border-b border-amber-100/60">
+      <section id="uipath-partnership" className="py-16 lg:py-24 bg-slate-50/60 border-b border-slate-100">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           
           {/* Section Header */}
           <div className="text-left mb-10 space-y-2">
             <h2 className="text-[30px] sm:text-[36px] lg:text-[40px] font-extrabold text-[#10264b] tracking-tight max-w-4xl leading-tight">
               {UIPATH_PARTNERSHIP_DATA.titleStart}{' '}
-              <span className="text-[#d99120]">{UIPATH_PARTNERSHIP_DATA.titleHighlight}</span>
+              <span className="text-[#7139e8]">{UIPATH_PARTNERSHIP_DATA.titleHighlight}</span>
             </h2>
             <p className="text-[16px] sm:text-[17px] text-[#354765] leading-relaxed max-w-3xl">
               {UIPATH_PARTNERSHIP_DATA.description}
@@ -570,7 +571,7 @@ export const PartnersPage: React.FC = () => {
                 <div className="absolute bottom-5 left-5 right-5">
                   <button
                     onClick={() => setIsUiPathModalOpen(true)}
-                    className="w-full inline-flex items-center justify-center gap-2 text-[15px] font-semibold px-6 py-3 rounded-xl bg-[#d99120] hover:bg-[#bd7810] text-white shadow-lg transition-all cursor-pointer"
+                    className="w-full inline-flex items-center justify-center gap-2 text-[15px] font-semibold px-6 py-3 rounded-xl bg-[#0878f9] hover:bg-blue-700 text-white shadow-lg transition-all cursor-pointer"
                   >
                     <span>{UIPATH_PARTNERSHIP_DATA.ctaText}</span>
                     <ArrowRight className="w-4 h-4" />
@@ -584,7 +585,7 @@ export const PartnersPage: React.FC = () => {
               {UIPATH_PARTNERSHIP_DATA.benefits.map((benefit, idx) => (
                 <div
                   key={idx}
-                  className="p-5 sm:p-6 rounded-2xl bg-white border border-slate-200/90 shadow-sm hover:shadow-md hover:border-amber-300 transition-all flex items-start gap-4 text-left"
+                  className="p-5 sm:p-6 rounded-2xl bg-white border border-slate-200/90 shadow-sm hover:shadow-md hover:border-blue-300 transition-all flex items-start gap-4 text-left"
                 >
                   <div
                     className="w-12 h-12 rounded-xl flex items-center justify-center shrink-0 shadow-sm"
@@ -612,14 +613,14 @@ export const PartnersPage: React.FC = () => {
       {/* ========================================================================= */}
       {/* SECTION 6: ONE CONNECTED TECHNOLOGY ECOSYSTEM                             */}
       {/* ========================================================================= */}
-      <section className="py-16 lg:py-24 bg-white border-b border-amber-100/60 relative overflow-hidden">
+      <section className="py-16 lg:py-24 bg-white border-b border-slate-100 relative overflow-hidden">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           
           {/* Section Header */}
           <div className="text-left max-w-3xl mb-14 space-y-2">
             <h2 className="text-[32px] sm:text-[38px] lg:text-[42px] font-extrabold text-[#10264b] tracking-tight">
               {TECHNOLOGY_ECOSYSTEM_DATA.titleStart}{' '}
-              <span className="text-[#d99120]">{TECHNOLOGY_ECOSYSTEM_DATA.titleHighlight}</span>
+              <span className="text-[#7139e8]">{TECHNOLOGY_ECOSYSTEM_DATA.titleHighlight}</span>
             </h2>
             <p className="text-[16px] sm:text-[17px] text-[#354765] leading-relaxed">
               {TECHNOLOGY_ECOSYSTEM_DATA.description}
@@ -632,7 +633,7 @@ export const PartnersPage: React.FC = () => {
               const isLast = idx === TECHNOLOGY_ECOSYSTEM_DATA.steps.length - 1;
               return (
                 <React.Fragment key={step.id}>
-                  <div className="bg-white rounded-2xl p-5 border border-slate-200/90 shadow-sm hover:shadow-md hover:border-amber-300 transition-all flex flex-col items-center text-center justify-between min-h-[160px] group">
+                  <div className="bg-white rounded-2xl p-5 border border-slate-200/90 shadow-sm hover:shadow-md hover:border-blue-300 transition-all flex flex-col items-center text-center justify-between min-h-[160px] group">
                     <div className="h-10 flex items-center justify-center">
                       {step.badgeType === 'sap' && <SAPBusinessOneLogo className="scale-95" />}
                       {step.badgeType === 'boyum' && <BoyumITLogo className="scale-95" />}
@@ -653,7 +654,7 @@ export const PartnersPage: React.FC = () => {
                     </div>
 
                     <div className="space-y-1 pt-2">
-                      <h3 className="text-[14px] font-bold text-[#10264b] leading-tight group-hover:text-[#d99120] transition-colors">
+                      <h3 className="text-[14px] font-bold text-[#10264b] leading-tight group-hover:text-blue-600 transition-colors">
                         {step.title}
                       </h3>
                       <p className="text-[11px] text-slate-500 leading-snug">
@@ -663,7 +664,7 @@ export const PartnersPage: React.FC = () => {
                   </div>
 
                   {!isLast && (
-                    <div className="hidden lg:flex items-center justify-center text-amber-500/70 -mx-1">
+                    <div className="hidden lg:flex items-center justify-center text-blue-600/50 -mx-1">
                       <ArrowRight className="w-5 h-5 stroke-[2.5]" />
                     </div>
                   )}
@@ -682,14 +683,14 @@ export const PartnersPage: React.FC = () => {
       {/* ========================================================================= */}
       {/* SECTION 7: WHY CHOOSE ATLAS TECHNOSOFT                                    */}
       {/* ========================================================================= */}
-      <section className="py-16 lg:py-24 bg-[#fffdf9] border-b border-amber-100/60">
+      <section className="py-16 lg:py-24 bg-slate-50/60 border-b border-slate-100">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           
           {/* Section Header */}
           <div className="text-left max-w-3xl mb-12 space-y-2">
             <h2 className="text-[32px] sm:text-[38px] lg:text-[42px] font-extrabold text-[#10264b] tracking-tight">
               {WHY_CHOOSE_PARTNERSHIP_DATA.titleStart}{' '}
-              <span className="text-[#d99120]">{WHY_CHOOSE_PARTNERSHIP_DATA.titleHighlight}</span>
+              <span className="text-[#7139e8]">{WHY_CHOOSE_PARTNERSHIP_DATA.titleHighlight}</span>
             </h2>
             <p className="text-[16px] sm:text-[17px] text-[#354765] leading-relaxed">
               {WHY_CHOOSE_PARTNERSHIP_DATA.description}
@@ -701,7 +702,7 @@ export const PartnersPage: React.FC = () => {
             {WHY_CHOOSE_PARTNERSHIP_DATA.pillars.map((pillar, idx) => (
               <div
                 key={idx}
-                className="bg-white rounded-2xl p-6 border border-slate-200/90 shadow-sm hover:shadow-md hover:border-amber-300 transition-all flex flex-col justify-between text-left group"
+                className="bg-white rounded-2xl p-6 border border-slate-200/90 shadow-sm hover:shadow-md hover:border-blue-300 transition-all flex flex-col justify-between text-left group"
               >
                 <div>
                   <div
@@ -710,7 +711,7 @@ export const PartnersPage: React.FC = () => {
                   >
                     {renderWhyChooseIcon(pillar.iconName, pillar.color)}
                   </div>
-                  <h3 className="text-[18px] font-bold text-[#10264b] mb-2 leading-snug group-hover:text-[#d99120] transition-colors">
+                  <h3 className="text-[18px] font-bold text-[#10264b] mb-2 leading-snug group-hover:text-blue-600 transition-colors">
                     {pillar.title}
                   </h3>
                   <p className="text-[14px] text-[#354765] leading-relaxed">
@@ -729,14 +730,18 @@ export const PartnersPage: React.FC = () => {
       {/* ========================================================================= */}
       <section className="py-12 lg:py-16 bg-slate-50/50">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="rounded-2xl bg-white border border-slate-200/90 p-8 sm:p-10 lg:p-12 shadow-sm">
+          <div className="rounded-2xl bg-[#eaf4ff] border border-blue-200/90 p-8 sm:p-10 lg:p-12 shadow-sm">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
               
               {/* Left Column: Heading, Subtext & Button */}
               <div className="lg:col-span-6 space-y-4 text-left">
+                <span className="text-[12px] sm:text-[13px] font-bold uppercase tracking-wider text-blue-600">
+                  LET'S WORK TOGETHER
+                </span>
+
                 <h2 className="text-[28px] sm:text-[34px] lg:text-[38px] font-extrabold text-[#10264b] tracking-tight leading-tight">
                   {PARTNERS_CTA_DATA.titleStart}{' '}
-                  <span className="text-[#d99120]">{PARTNERS_CTA_DATA.titleHighlight}</span>
+                  <span className="text-[#7139e8]">{PARTNERS_CTA_DATA.titleHighlight}</span>
                 </h2>
 
                 <p className="text-[15px] sm:text-[16px] text-[#354765] leading-relaxed max-w-xl">
@@ -746,7 +751,7 @@ export const PartnersPage: React.FC = () => {
                 <div className="pt-2">
                   <button
                     onClick={() => setIsConsultationModalOpen(true)}
-                    className="inline-flex items-center justify-center gap-2 text-[15px] sm:text-[16px] font-semibold px-8 py-3.5 rounded-xl bg-[#d99120] hover:bg-[#bd7810] text-white shadow-md shadow-amber-600/20 transition-all cursor-pointer"
+                    className="inline-flex items-center justify-center gap-2 text-[15px] sm:text-[16px] font-semibold px-8 py-3.5 rounded-xl bg-[#0878f9] hover:bg-blue-700 text-white shadow-md shadow-blue-600/25 transition-all cursor-pointer"
                   >
                     <span>{PARTNERS_CTA_DATA.buttonText}</span>
                     <ArrowRight className="w-5 h-5" />
@@ -754,47 +759,47 @@ export const PartnersPage: React.FC = () => {
                 </div>
               </div>
 
-              {/* Right Column: 3 Clean Box Cards with Orange/Gold Icons matching reference */}
+              {/* Right Column: 3 Clean Box Cards with Colored Borders matching About Page */}
               <div className="lg:col-span-6 space-y-3.5">
-                {/* Email Box Card */}
+                {/* Email Box Card (Green border) */}
                 <a
                   href={`mailto:${PARTNERS_CTA_DATA.email}?subject=Technology%20Partnership%20Inquiry`}
-                  className="bg-white rounded-xl p-4 sm:p-4.5 border border-slate-200/90 shadow-sm hover:shadow-md hover:border-amber-300 transition-all flex items-center gap-4 group"
+                  className="bg-white rounded-xl p-4 sm:p-4.5 border-2 border-[#16b978] shadow-sm hover:shadow-md transition-all flex items-center gap-4 group"
                 >
-                  <div className="w-11 h-11 rounded-lg bg-amber-50 border border-amber-200 text-[#d99120] flex items-center justify-center shrink-0 group-hover:bg-[#d99120] group-hover:text-white transition-colors">
+                  <div className="w-11 h-11 rounded-lg bg-blue-50 border border-blue-100 text-[#0878f9] flex items-center justify-center shrink-0 group-hover:bg-[#0878f9] group-hover:text-white transition-colors">
                     <Mail className="w-5 h-5" />
                   </div>
                   <div>
                     <p className="text-[11px] font-bold uppercase tracking-wider text-slate-400">
                       Email
                     </p>
-                    <p className="text-[15px] font-bold text-slate-900 group-hover:text-[#d99120] transition-colors">
+                    <p className="text-[15px] font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
                       {PARTNERS_CTA_DATA.email}
                     </p>
                   </div>
                 </a>
 
-                {/* Phone Box Card */}
+                {/* Phone Box Card (Blue border) */}
                 <a
                   href={`tel:${PARTNERS_CTA_DATA.phone}`}
-                  className="bg-white rounded-xl p-4 sm:p-4.5 border border-slate-200/90 shadow-sm hover:shadow-md hover:border-amber-300 transition-all flex items-center gap-4 group"
+                  className="bg-white rounded-xl p-4 sm:p-4.5 border-2 border-[#2992ff] shadow-sm hover:shadow-md transition-all flex items-center gap-4 group"
                 >
-                  <div className="w-11 h-11 rounded-lg bg-amber-50 border border-amber-200 text-[#d99120] flex items-center justify-center shrink-0 group-hover:bg-[#d99120] group-hover:text-white transition-colors">
+                  <div className="w-11 h-11 rounded-lg bg-blue-50 border border-blue-100 text-[#0878f9] flex items-center justify-center shrink-0 group-hover:bg-[#0878f9] group-hover:text-white transition-colors">
                     <Phone className="w-5 h-5" />
                   </div>
                   <div>
                     <p className="text-[11px] font-bold uppercase tracking-wider text-slate-400">
                       Phone
                     </p>
-                    <p className="text-[15px] font-bold text-slate-900 group-hover:text-[#d99120] transition-colors">
+                    <p className="text-[15px] font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
                       {PARTNERS_CTA_DATA.phone}
                     </p>
                   </div>
                 </a>
 
-                {/* Locations Box Card */}
-                <div className="bg-white rounded-xl p-4 sm:p-4.5 border border-slate-200/90 shadow-sm flex items-center gap-4">
-                  <div className="w-11 h-11 rounded-lg bg-amber-50 border border-amber-200 text-[#d99120] flex items-center justify-center shrink-0">
+                {/* Locations Box Card (Purple border) */}
+                <div className="bg-white rounded-xl p-4 sm:p-4.5 border-2 border-[#a34dff] shadow-sm flex items-center gap-4">
+                  <div className="w-11 h-11 rounded-lg bg-blue-50 border border-blue-100 text-[#0878f9] flex items-center justify-center shrink-0">
                     <MapPin className="w-5 h-5" />
                   </div>
                   <div>
@@ -886,7 +891,7 @@ export const PartnersPage: React.FC = () => {
                   setSelectedBoyumProduct(null);
                   setIsConsultationModalOpen(true);
                 }}
-                className="w-full sm:w-auto px-6 py-2.5 rounded-xl bg-[#d99120] hover:bg-[#bd7810] text-white font-semibold text-sm shadow-md transition-all cursor-pointer"
+                className="w-full sm:w-auto px-6 py-2.5 rounded-xl bg-[#0878f9] hover:bg-blue-700 text-white font-semibold text-sm shadow-md transition-all cursor-pointer"
               >
                 Request Product Demo
               </button>
@@ -956,7 +961,7 @@ export const PartnersPage: React.FC = () => {
                 setIsSapModalOpen(false);
                 setIsConsultationModalOpen(true);
               }}
-              className="w-full sm:w-auto px-6 py-2.5 rounded-xl bg-[#d99120] hover:bg-[#bd7810] text-white font-semibold text-sm shadow-md transition-all cursor-pointer"
+              className="w-full sm:w-auto px-6 py-2.5 rounded-xl bg-[#0878f9] hover:bg-blue-700 text-white font-semibold text-sm shadow-md transition-all cursor-pointer"
             >
               Discuss Your SAP Project
             </button>
@@ -1025,7 +1030,7 @@ export const PartnersPage: React.FC = () => {
                 setIsUiPathModalOpen(false);
                 setIsConsultationModalOpen(true);
               }}
-              className="w-full sm:w-auto px-6 py-2.5 rounded-xl bg-[#d99120] hover:bg-[#bd7810] text-white font-semibold text-sm shadow-md transition-all cursor-pointer"
+              className="w-full sm:w-auto px-6 py-2.5 rounded-xl bg-[#0878f9] hover:bg-blue-700 text-white font-semibold text-sm shadow-md transition-all cursor-pointer"
             >
               Book an RPA Demo
             </button>
@@ -1064,7 +1069,7 @@ export const PartnersPage: React.FC = () => {
                   setIsConsultationModalOpen(false);
                   setIsSuccessSubmitted(false);
                 }}
-                className="px-6 py-2.5 rounded-lg bg-[#d99120] text-white font-semibold hover:bg-[#bd7810] transition-colors cursor-pointer"
+                className="px-6 py-2.5 rounded-lg bg-[#0878f9] text-white font-semibold hover:bg-blue-700 transition-colors cursor-pointer"
               >
                 Close
               </button>
@@ -1087,7 +1092,7 @@ export const PartnersPage: React.FC = () => {
                   value={formData.fullName}
                   onChange={handleInputChange}
                   placeholder="e.g. Sanjay Verma"
-                  className={`w-full px-4 py-2.5 rounded-lg border text-sm focus:outline-none focus:ring-2 focus:ring-[#d99120] ${
+                  className={`w-full px-4 py-2.5 rounded-lg border text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 ${
                     formErrors.fullName ? 'border-red-400 bg-red-50/20' : 'border-slate-300'
                   }`}
                 />
@@ -1106,7 +1111,7 @@ export const PartnersPage: React.FC = () => {
                   value={formData.companyName}
                   onChange={handleInputChange}
                   placeholder="e.g. Apex Industrial Systems"
-                  className={`w-full px-4 py-2.5 rounded-lg border text-sm focus:outline-none focus:ring-2 focus:ring-[#d99120] ${
+                  className={`w-full px-4 py-2.5 rounded-lg border text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 ${
                     formErrors.companyName ? 'border-red-400 bg-red-50/20' : 'border-slate-300'
                   }`}
                 />
@@ -1127,7 +1132,7 @@ export const PartnersPage: React.FC = () => {
                   value={formData.workEmail}
                   onChange={handleInputChange}
                   placeholder="sanjay@apexsystems.com"
-                  className={`w-full px-4 py-2.5 rounded-lg border text-sm focus:outline-none focus:ring-2 focus:ring-[#d99120] ${
+                  className={`w-full px-4 py-2.5 rounded-lg border text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 ${
                     formErrors.workEmail ? 'border-red-400 bg-red-50/20' : 'border-slate-300'
                   }`}
                 />
@@ -1146,7 +1151,7 @@ export const PartnersPage: React.FC = () => {
                   value={formData.phoneNumber}
                   onChange={handleInputChange}
                   placeholder="+91-9876543210"
-                  className={`w-full px-4 py-2.5 rounded-lg border text-sm focus:outline-none focus:ring-2 focus:ring-[#d99120] ${
+                  className={`w-full px-4 py-2.5 rounded-lg border text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 ${
                     formErrors.phoneNumber ? 'border-red-400 bg-red-50/20' : 'border-slate-300'
                   }`}
                 />
@@ -1164,7 +1169,7 @@ export const PartnersPage: React.FC = () => {
                 name="areaOfInterest"
                 value={formData.areaOfInterest}
                 onChange={handleInputChange}
-                className="w-full px-4 py-2.5 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#d99120] bg-white"
+                className="w-full px-4 py-2.5 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 bg-white"
               >
                 <option value="sap-b1">SAP Business One Implementation / Migration</option>
                 <option value="boyum-beas">Boyum IT — Beas Manufacturing</option>
@@ -1185,7 +1190,7 @@ export const PartnersPage: React.FC = () => {
                 value={formData.message}
                 onChange={handleInputChange}
                 placeholder="Tell us about your current ERP version, key bottlenecks, or anticipated timeline..."
-                className={`w-full px-4 py-2.5 rounded-lg border text-sm focus:outline-none focus:ring-2 focus:ring-[#d99120] ${
+                className={`w-full px-4 py-2.5 rounded-lg border text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 ${
                   formErrors.message ? 'border-red-400 bg-red-50/20' : 'border-slate-300'
                 }`}
               />
@@ -1205,7 +1210,7 @@ export const PartnersPage: React.FC = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full sm:w-auto px-7 py-3 rounded-xl bg-[#d99120] hover:bg-[#bd7810] text-white font-semibold text-sm shadow-md transition-all flex items-center justify-center gap-2 disabled:opacity-70 cursor-pointer"
+                className="w-full sm:w-auto px-7 py-3 rounded-xl bg-[#0878f9] hover:bg-blue-700 text-white font-semibold text-sm shadow-md transition-all flex items-center justify-center gap-2 disabled:opacity-70 cursor-pointer"
               >
                 {isSubmitting ? (
                   <span>Submitting...</span>
@@ -1226,7 +1231,7 @@ export const PartnersPage: React.FC = () => {
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           aria-label="Scroll to top"
-          className="fixed bottom-6 right-6 z-30 p-3 rounded-full bg-[#10264b] hover:bg-[#d99120] text-white shadow-xl transition-all duration-300 hover:scale-110 cursor-pointer"
+          className="fixed bottom-6 right-6 z-30 p-3 rounded-full bg-[#10264b] hover:bg-[#0878f9] text-white shadow-xl transition-all duration-300 hover:scale-110 cursor-pointer"
         >
           <ChevronUp className="w-5 h-5" />
         </button>
@@ -1237,3 +1242,4 @@ export const PartnersPage: React.FC = () => {
 };
 
 export default PartnersPage;
+
