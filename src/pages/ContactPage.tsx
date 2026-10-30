@@ -202,29 +202,18 @@ export const ContactPage: React.FC = () => {
   };
 
   return (
-    <div className="relative bg-[#fffdfa] text-[#354765] selection:bg-[#d99120] selection:text-white">
-      {/* Organic Topographic Contour Curves matching reference mockup */}
-      <div className="absolute top-0 left-0 w-[420px] h-[900px] pointer-events-none select-none overflow-hidden -z-10 opacity-70 hidden sm:block">
-        <svg viewBox="0 0 420 900" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-          <path d="M-120 40C-40 120 30 180 80 290C130 400 110 520 60 640C10 760 -40 820 -120 890" stroke="#d99120" strokeWidth="1.2" strokeOpacity="0.22" />
-          <path d="M-90 10C-10 90 60 150 110 260C160 370 140 490 90 610C40 730 -10 790 -90 860" stroke="#d99120" strokeWidth="1.2" strokeOpacity="0.16" />
-          <path d="M-60 -20C20 60 90 120 140 230C190 340 170 460 120 580C70 700 20 760 -60 830" stroke="#d99120" strokeWidth="1.2" strokeOpacity="0.11" />
-          <path d="M-30 -50C50 30 120 90 170 200C220 310 200 430 150 550C100 670 50 730 -30 800" stroke="#d99120" strokeWidth="1.2" strokeOpacity="0.07" />
-        </svg>
-      </div>
-
-      <div className="absolute top-[350px] right-0 w-[420px] h-[900px] pointer-events-none select-none overflow-hidden -z-10 opacity-70 hidden sm:block">
-        <svg viewBox="0 0 420 900" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-          <path d="M540 40C460 120 390 180 340 290C290 400 310 520 360 640C410 760 460 820 540 890" stroke="#d99120" strokeWidth="1.2" strokeOpacity="0.22" />
-          <path d="M510 10C430 90 360 150 310 260C260 370 280 490 330 610C380 730 430 790 510 860" stroke="#d99120" strokeWidth="1.2" strokeOpacity="0.16" />
-          <path d="M480 -20C400 60 330 120 280 230C230 340 250 460 300 580C350 700 400 760 480 830" stroke="#d99120" strokeWidth="1.2" strokeOpacity="0.11" />
-        </svg>
-      </div>
+    <div className="relative bg-white text-[#354765] selection:bg-blue-600 selection:text-white">
 
       {/* ========================================================================= */}
       {/* SECTION 1: HERO SECTION                                                   */}
       {/* ========================================================================= */}
-      <section className="relative overflow-hidden pt-10 pb-14 lg:pt-14 lg:pb-18 border-b border-slate-100">
+      <section className="relative overflow-hidden bg-gradient-to-r from-sky-50/60 via-white to-blue-50/30 pt-10 pb-14 lg:pt-14 lg:pb-18 border-b border-slate-100">
+        
+        {/* Soft subtle botanical ambient glow on far left matching About page */}
+        <div className="absolute -left-12 top-1/2 -translate-y-1/2 w-48 h-80 opacity-25 pointer-events-none select-none hidden lg:block">
+          <div className="w-full h-full bg-gradient-to-tr from-emerald-600/30 via-teal-500/10 to-transparent rounded-full blur-3xl" />
+        </div>
+
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
             
@@ -285,7 +274,7 @@ export const ContactPage: React.FC = () => {
       {/* ========================================================================= */}
       {/* SECTION 2: GET IN TOUCH (3 CARDS IN A ROW)                                */}
       {/* ========================================================================= */}
-      <section className="py-14 lg:py-18 border-b border-slate-100">
+      <section className="py-14 lg:py-18 bg-white border-b border-slate-100">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           
           {/* Section Heading: Left Aligned */}
@@ -340,7 +329,7 @@ export const ContactPage: React.FC = () => {
       {/* ========================================================================= */}
       {/* SECTION 3: MAIN TWO COLUMNS (SEND MESSAGE & OUR LOCATIONS)                 */}
       {/* ========================================================================= */}
-      <section id="contact-form" className="py-16 lg:py-24 border-b border-slate-100">
+      <section id="contact-form" className="py-16 lg:py-24 bg-slate-50/50 border-b border-slate-100">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
             
@@ -643,7 +632,7 @@ export const ContactPage: React.FC = () => {
       {/* ========================================================================= */}
       {/* SECTION 4: WHY GET IN TOUCH WITH US? (4 CARDS IN A ROW)                   */}
       {/* ========================================================================= */}
-      <section className="py-16 lg:py-20 border-b border-slate-100">
+      <section className="py-16 lg:py-20 bg-white border-b border-slate-100">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           
           {/* Section Heading: Left Aligned */}

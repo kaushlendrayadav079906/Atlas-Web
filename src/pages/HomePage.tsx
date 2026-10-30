@@ -145,7 +145,7 @@ export const HomePage: React.FC = () => {
   };
 
   return (
-    <div className="relative bg-white text-slate-900 selection:bg-blue-600 selection:text-white">
+    <div className="relative bg-white text-[#354765] selection:bg-blue-600 selection:text-white">
 
       {/* ========================================================================= */}
       {/* SECTION 2: HERO SECTION                                                   */}
