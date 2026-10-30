@@ -78,22 +78,22 @@ export const SiteFooter: React.FC = () => {
             </h4>
             <ul className="space-y-3 text-[15px] sm:text-[16px]">
               <li>
-                <a href="#services" className="text-slate-300 hover:text-blue-400 transition-colors">
+                <a href="/#services" className="text-slate-300 hover:text-blue-400 transition-colors">
                   SAP Business One
                 </a>
               </li>
               <li>
-                <a href="#services" className="text-slate-300 hover:text-blue-400 transition-colors">
+                <a href="/#services" className="text-slate-300 hover:text-blue-400 transition-colors">
                   Boyum IT Solutions
                 </a>
               </li>
               <li>
-                <a href="#services" className="text-slate-300 hover:text-blue-400 transition-colors">
+                <a href="/#services" className="text-slate-300 hover:text-blue-400 transition-colors">
                   UiPath Automation
                 </a>
               </li>
               <li>
-                <a href="#services" className="text-slate-300 hover:text-blue-400 transition-colors">
+                <a href="/#services" className="text-slate-300 hover:text-blue-400 transition-colors">
                   ATLAS Add-ons
                 </a>
               </li>

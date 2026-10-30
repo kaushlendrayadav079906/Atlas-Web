@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, ArrowRight, ChevronRight } from 'lucide-react';
 import { Button } from '../ui/Button';
 import { NAV_LINKS } from '../../data/websiteContent';
@@ -6,6 +7,7 @@ import { NAV_LINKS } from '../../data/websiteContent';
 export const SiteHeader: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
   const [activeSection, setActiveSection] = useState('Home');
 
   useEffect(() => {
@@ -15,6 +17,19 @@ export const SiteHeader: React.FC = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  useEffect(() => {
+    if (location.pathname === '/about') {
+      setActiveSection('About');
+    } else if (location.pathname === '/' && !location.hash) {
+      setActiveSection('Home');
+    } else if (location.hash) {
+      const matched = NAV_LINKS.find(link => link.href.includes(location.hash));
+      if (matched) {
+        setActiveSection(matched.name);
+      }
+    }
+  }, [location.pathname, location.hash]);
 
   return (
     <>
@@ -29,8 +44,8 @@ export const SiteHeader: React.FC = () => {
           <div className="flex items-center justify-between h-[84px]">
             
             {/* Brand Logo & Name */}
-            <a
-              href="#"
+            <Link
+              to="/"
               className="flex items-center gap-3.5 group focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded-lg p-1"
             >
               <div className="relative w-11 h-11 rounded-xl overflow-hidden bg-white shrink-0 flex items-center justify-center">
@@ -56,16 +71,16 @@ export const SiteHeader: React.FC = () => {
                   SAP & Hyperautomation
                 </span>
               </div>
-            </a>
+            </Link>
 
             {/* Desktop Navigation Links (Large 16-17px typography) */}
             <nav className="hidden xl:flex items-center gap-7 lg:gap-8" aria-label="Main Navigation">
               {NAV_LINKS.map((link) => {
                 const isActive = activeSection === link.name;
                 return (
-                  <a
+                  <Link
                     key={link.name}
-                    href={link.href}
+                    to={link.href}
                     onClick={() => setActiveSection(link.name)}
                     className={`text-[16px] xl:text-[17px] font-medium transition-colors relative py-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded ${
                       isActive
@@ -77,7 +92,7 @@ export const SiteHeader: React.FC = () => {
                     {isActive && (
                       <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-blue-600 rounded-full" />
                     )}
-                  </a>
+                  </Link>
                 );
               })}
             </nav>
@@ -85,7 +100,7 @@ export const SiteHeader: React.FC = () => {
             {/* Primary CTA: Prominent Book a Consultation Button */}
             <div className="hidden sm:flex items-center gap-3">
               <Button
-                href="#contact"
+                href="/#contact"
                 variant="primary"
                 size="md"
                 className="text-[16px] sm:text-[17px] font-semibold px-6 py-3 rounded-lg bg-blue-600 hover:bg-blue-700 text-white shadow-md shadow-blue-600/20"
@@ -116,12 +131,12 @@ export const SiteHeader: React.FC = () => {
       {isMobileMenuOpen && (
         <div className="fixed inset-0 z-50 xl:hidden flex flex-col justify-between bg-white/98 backdrop-blur-xl">
           <div className="p-4 border-b border-slate-200 flex items-center justify-between">
-            <a href="#" className="flex items-center gap-3" onClick={() => setIsMobileMenuOpen(false)}>
+            <Link to="/" className="flex items-center gap-3" onClick={() => setIsMobileMenuOpen(false)}>
               <div className="w-10 h-10 rounded-lg bg-white overflow-hidden p-1 flex items-center justify-center border border-slate-100">
                 <img src="/images/logo.jpeg" alt="ATLAS Logo" className="w-full h-full object-contain" />
               </div>
               <span className="text-[19px] font-extrabold text-slate-900">ATLAS Technosoft</span>
-            </a>
+            </Link>
             <button
               onClick={() => setIsMobileMenuOpen(false)}
               className="p-2 rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100"
@@ -137,9 +152,9 @@ export const SiteHeader: React.FC = () => {
             </div>
             <nav className="space-y-1">
               {NAV_LINKS.map((link) => (
-                <a
+                <Link
                   key={link.name}
-                  href={link.href}
+                  to={link.href}
                   onClick={() => {
                     setActiveSection(link.name);
                     setIsMobileMenuOpen(false);
@@ -150,7 +165,7 @@ export const SiteHeader: React.FC = () => {
                 >
                   <span>{link.name}</span>
                   <ChevronRight className="w-5 h-5 text-slate-400" />
-                </a>
+                </Link>
               ))}
             </nav>
 

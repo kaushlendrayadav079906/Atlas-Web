@@ -36,14 +36,14 @@ export const BRAND_INFO = {
 };
 
 export const NAV_LINKS = [
-  { name: 'Home', href: '#' },
-  { name: 'About', href: '#about' },
-  { name: 'Services', href: '#services' },
-  { name: 'Solutions', href: '#solutions' },
-  { name: 'Industries', href: '#industries' },
-  { name: 'Case Studies', href: '#case-studies' },
-  { name: 'Partners', href: '#partners' },
-  { name: 'Contact', href: '#contact' },
+  { name: 'Home', href: '/' },
+  { name: 'About', href: '/about' },
+  { name: 'Services', href: '/#services' },
+  { name: 'Solutions', href: '/#solutions' },
+  { name: 'Industries', href: '/#industries' },
+  { name: 'Case Studies', href: '/#case-studies' },
+  { name: 'Partners', href: '/#partners' },
+  { name: 'Contact', href: '/#contact' },
 ];
 
 export const PARTNER_STATEMENTS: PartnerStatement[] = [
