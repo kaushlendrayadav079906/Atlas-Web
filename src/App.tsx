@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { SiteLayout } from './components/layout/SiteLayout';
 import { HomePage } from './pages/HomePage';
 import { AboutPage } from './pages/AboutPage';
+import { SolutionsPage } from './pages/SolutionsPage';
 
 // Scroll to top helper or smooth scroll to hash element
 const ScrollHandler: React.FC = () => {
@@ -30,7 +31,7 @@ export const App: React.FC = () => {
         <Routes>
           <Route path="/" element={<HomePage />} />
           {/* Phase 1 route aliases: smoothly map to homepage sections until Phase 2 dedicated pages */}
-          <Route path="/solutions" element={<HomePage />} />
+          <Route path="/solutions" element={<SolutionsPage />} />
           <Route path="/expertise" element={<HomePage />} />
           <Route path="/industries" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />

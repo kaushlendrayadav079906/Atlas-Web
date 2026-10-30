@@ -21,6 +21,8 @@ export const SiteHeader: React.FC = () => {
   useEffect(() => {
     if (location.pathname === '/about') {
       setActiveSection('About');
+    } else if (location.pathname === '/solutions') {
+      setActiveSection('Solutions');
     } else if (location.pathname === '/' && !location.hash) {
       setActiveSection('Home');
     } else if (location.hash) {
