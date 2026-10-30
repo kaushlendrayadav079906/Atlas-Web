@@ -15,9 +15,48 @@ const iconMap: Record<string, React.ReactNode> = {
   trading: <Ship className="w-5 h-5 text-blue-600" />,
 };
 
+const industryStyleMap: Record<string, {
+  borderColor: string;
+  hoverBorder: string;
+  arrowBorder: string;
+  arrowText: string;
+  arrowHover: string;
+}> = {
+  manufacturing: {
+    borderColor: 'border-[#2992ff]',
+    hoverBorder: 'hover:border-blue-600',
+    arrowBorder: 'border-blue-200',
+    arrowText: 'text-blue-600',
+    arrowHover: 'group-hover:bg-blue-600 group-hover:text-white group-hover:border-blue-600',
+  },
+  warehouse: {
+    borderColor: 'border-[#ff9b27]',
+    hoverBorder: 'hover:border-orange-500',
+    arrowBorder: 'border-orange-200',
+    arrowText: 'text-orange-500',
+    arrowHover: 'group-hover:bg-[#ff9b27] group-hover:text-white group-hover:border-[#ff9b27]',
+  },
+  finance: {
+    borderColor: 'border-[#2992ff]',
+    hoverBorder: 'hover:border-blue-600',
+    arrowBorder: 'border-blue-200',
+    arrowText: 'text-blue-600',
+    arrowHover: 'group-hover:bg-blue-600 group-hover:text-white group-hover:border-blue-600',
+  },
+  trading: {
+    borderColor: 'border-[#ff4356]',
+    hoverBorder: 'hover:border-red-500',
+    arrowBorder: 'border-red-200',
+    arrowText: 'text-red-500',
+    arrowHover: 'group-hover:bg-[#ff4356] group-hover:text-white group-hover:border-[#ff4356]',
+  },
+};
+
 export const IndustryCard: React.FC<IndustryCardProps> = ({ id, title, description, imageSrc }) => {
+  const style = industryStyleMap[id] || industryStyleMap.manufacturing;
+
   return (
-    <div className="group flex flex-col justify-between rounded-xl bg-white border border-slate-200/90 overflow-hidden shadow-sm hover:shadow-md hover:border-blue-300 transition-all duration-200 h-full">
+    <div className={`group flex flex-col justify-between rounded-xl bg-white border-2 ${style.borderColor} ${style.hoverBorder} overflow-hidden shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-200 h-full`}>
       
       {/* Sleek Landscape Image Container (Panoramic ~2.8:1 ratio, matching reference UI) */}
       <div className="relative w-full h-28 sm:h-32 overflow-hidden bg-slate-100 border-b border-slate-200/90">
@@ -48,8 +87,8 @@ export const IndustryCard: React.FC<IndustryCardProps> = ({ id, title, descripti
           </p>
         </div>
 
-        {/* Small Blue Arrow Icon on Right */}
-        <div className="w-7 h-7 rounded-full bg-slate-50 group-hover:bg-blue-600 group-hover:text-white text-slate-400 flex items-center justify-center shrink-0 transition-colors">
+        {/* Circular Arrow Icon on Right matching card accent */}
+        <div className={`w-7 h-7 rounded-full border ${style.arrowBorder} ${style.arrowText} ${style.arrowHover} flex items-center justify-center shrink-0 transition-all duration-200 shadow-sm`}>
           <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
         </div>
       </div>

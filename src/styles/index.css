@@ -2,11 +2,35 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
+:root {
+  --primary-blue: #0878f9;
+  --dark-navy: #08234b;
+  --heading-color: #10264b;
+  --body-color: #344563;
+  --background: #ffffff;
+  --soft-background: #f4f9ff;
+  --border-blue: #2992ff;
+  --border-orange: #ff9b27;
+  --border-red: #ff4356;
+  --border-violet: #a34dff;
+  --border-green: #16b978;
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    color: var(--body-color);
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--body-color);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--heading-color);
   }
 
   /* Accessibility: Respect user motion preferences */
@@ -27,9 +51,6 @@
     linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
 }
-
-
-
 
 .bg-dot-pattern {
   background-image: radial-gradient(rgba(148, 163, 184, 0.25) 1px, transparent 1px);

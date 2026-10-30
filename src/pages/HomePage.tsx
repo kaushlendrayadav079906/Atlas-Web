@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   ArrowRight, 
   CheckCircle2, 
@@ -7,6 +7,7 @@ import {
   MapPin, 
   ChevronLeft, 
   ChevronRight,
+  ChevronUp,
   Send,
 } from 'lucide-react';
 import { Button } from '../components/ui/Button';
@@ -21,9 +22,38 @@ import { SAPBusinessOneLogo, BoyumITLogo, UiPathLogo } from '../components/ui/Pa
 import { BRAND_INFO, TRUST_METRICS } from '../data/websiteContent';
 import { ContactFormData } from '../types';
 
+const TESTIMONIAL_SLIDES = [
+  [
+    {
+      quote: "ATLAS Technosoft helped us streamline our business processes with SAP Business One and automation solutions.",
+      author: "— Operations Director (To be verified)",
+      imageSrc: "/images/crystal_hd/testimonial_1.jpg",
+    },
+    {
+      quote: "Their expertise in warehouse solutions significantly improved our operational efficiency.",
+      author: "— Managing Director (To be verified)",
+      imageSrc: "/images/crystal_hd/testimonial_2.jpg",
+    },
+  ],
+  [
+    {
+      quote: "Inventory accuracy reached 99.9% and warehouse speed doubled within four months of deploying Produmex WMS with ATLAS.",
+      author: "— Chief Executive Officer (To be verified)",
+      imageSrc: "/images/crystal_hd/testimonial_1.jpg",
+    },
+    {
+      quote: "We achieved a 70% reduction in manual finance entries within 3 months. Our accounts team now manages triple the transaction volume.",
+      author: "— Chief Financial Officer (To be verified)",
+      imageSrc: "/images/crystal_hd/testimonial_2.jpg",
+    },
+  ],
+];
+
 export const HomePage: React.FC = () => {
   // Contact Form & Modal State
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [activeTestimonialIdx, setActiveTestimonialIdx] = useState(0);
+  const [showScrollTop, setShowScrollTop] = useState(false);
   const [formData, setFormData] = useState<ContactFormData>({
     fullName: '',
     companyName: '',
@@ -35,6 +65,19 @@ export const HomePage: React.FC = () => {
   const [formErrors, setFormErrors] = useState<Partial<Record<keyof ContactFormData, string>>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccessSubmitted, setIsSuccessSubmitted] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowScrollTop(window.scrollY > 400);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const openConsultationFor = (area: string) => {
+    setFormData(prev => ({ ...prev, areaOfInterest: area }));
+    setIsModalOpen(true);
+  };
 
   // Form Field Validation
   const validateForm = (): boolean => {
@@ -428,30 +471,30 @@ export const HomePage: React.FC = () => {
             {/* Left navigation arrow */}
             <button
               type="button"
-              className="hidden md:flex absolute -left-6 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-white border border-slate-200 text-slate-700 hover:text-blue-600 items-center justify-center shadow-sm z-10"
-              aria-label="Previous"
+              onClick={() => setActiveTestimonialIdx(prev => (prev === 0 ? TESTIMONIAL_SLIDES.length - 1 : prev - 1))}
+              className="hidden md:flex absolute -left-6 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-white border border-slate-200 text-slate-700 hover:text-blue-600 hover:border-blue-400 items-center justify-center shadow-sm z-10 transition-colors"
+              aria-label="Previous testimonials"
             >
               <ChevronLeft className="w-5 h-5" />
             </button>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-              <TestimonialCard
-                quote="ATLAS Technosoft helped us streamline our business processes with SAP Business One and automation solutions."
-                author="— Customer Name (To be verified)"
-                imageSrc="/images/crystal_hd/testimonial_1.jpg"
-              />
-              <TestimonialCard
-                quote="Their expertise in warehouse solutions significantly improved our operational efficiency."
-                author="— Customer Name (To be verified)"
-                imageSrc="/images/crystal_hd/testimonial_2.jpg"
-              />
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 transition-all duration-300">
+              {TESTIMONIAL_SLIDES[activeTestimonialIdx].map((item, idx) => (
+                <TestimonialCard
+                  key={idx}
+                  quote={item.quote}
+                  author={item.author}
+                  imageSrc={item.imageSrc}
+                />
+              ))}
             </div>
 
             {/* Right navigation arrow */}
             <button
               type="button"
-              className="hidden md:flex absolute -right-6 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-white border border-slate-200 text-slate-700 hover:text-blue-600 items-center justify-center shadow-sm z-10"
-              aria-label="Next"
+              onClick={() => setActiveTestimonialIdx(prev => (prev === TESTIMONIAL_SLIDES.length - 1 ? 0 : prev + 1))}
+              className="hidden md:flex absolute -right-6 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-white border border-slate-200 text-slate-700 hover:text-blue-600 hover:border-blue-400 items-center justify-center shadow-sm z-10 transition-colors"
+              aria-label="Next testimonials"
             >
               <ChevronRight className="w-5 h-5" />
             </button>
@@ -459,10 +502,19 @@ export const HomePage: React.FC = () => {
 
           {/* Carousel Indicator Dots */}
           <div className="flex items-center justify-center gap-2 pt-5">
-            <span className="w-6 h-2 rounded-full bg-blue-600 transition-all" />
-            <span className="w-2 h-2 rounded-full bg-slate-300" />
-            <span className="w-2 h-2 rounded-full bg-slate-300" />
-            <span className="w-2 h-2 rounded-full bg-slate-300" />
+            {TESTIMONIAL_SLIDES.map((_, dotIdx) => (
+              <button
+                key={dotIdx}
+                type="button"
+                onClick={() => setActiveTestimonialIdx(dotIdx)}
+                aria-label={`Go to slide ${dotIdx + 1}`}
+                className={`transition-all rounded-full ${
+                  activeTestimonialIdx === dotIdx
+                    ? 'w-6 h-2 bg-blue-600'
+                    : 'w-2 h-2 bg-slate-300 hover:bg-slate-400'
+                }`}
+              />
+            ))}
           </div>
 
         </div>
@@ -514,7 +566,7 @@ export const HomePage: React.FC = () => {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
               
               {/* Left Column: Heading, Subtext & CTA Button */}
-              <div className="lg:col-span-6 space-y-4">
+              <div className="lg:col-span-5 space-y-4">
                 <h2 className="text-[26px] sm:text-[32px] lg:text-[36px] font-bold text-slate-900 tracking-tight leading-tight">
                   Let's Discuss Your Business Needs
                 </h2>
@@ -536,21 +588,21 @@ export const HomePage: React.FC = () => {
                 </div>
               </div>
 
-              {/* Right Column: 3 White Boxed Contact Info Cards */}
-              <div className="lg:col-span-6 space-y-3.5">
+              {/* Right Column: 3 White Boxed Contact Info Cards in a Sleek Row */}
+              <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-3">
                 
                 {/* Email Box Card */}
-                <div className="flex items-center gap-4 p-4 rounded-xl bg-white border border-slate-200 shadow-sm hover:border-blue-300 transition-colors">
-                  <div className="w-11 h-11 rounded-lg bg-blue-50 border border-blue-100 text-blue-600 flex items-center justify-center shrink-0">
+                <div className="flex items-center gap-3 p-3.5 rounded-xl bg-white border-2 border-[#2992ff]/40 hover:border-[#2992ff] shadow-sm hover:shadow-md transition-all">
+                  <div className="w-10 h-10 rounded-lg bg-blue-50 border border-blue-100 text-[#0878f9] flex items-center justify-center shrink-0">
                     <Mail className="w-5 h-5" />
                   </div>
-                  <div>
-                    <span className="text-[12px] font-bold uppercase tracking-wider text-slate-400 block">
+                  <div className="min-w-0">
+                    <span className="text-[12px] font-bold uppercase tracking-wider text-slate-400 block leading-tight">
                       Email
                     </span>
                     <a
                       href={`mailto:${BRAND_INFO.contact.email}`}
-                      className="text-[15px] sm:text-[16px] font-bold text-slate-900 hover:text-blue-600 transition-colors"
+                      className="text-[13.5px] sm:text-[14px] font-bold text-slate-900 hover:text-blue-600 transition-colors truncate block leading-snug"
                     >
                       {BRAND_INFO.contact.email}
                     </a>
@@ -558,19 +610,19 @@ export const HomePage: React.FC = () => {
                 </div>
 
                 {/* Phone Box Card */}
-                <div className="flex items-center gap-4 p-4 rounded-xl bg-white border border-slate-200 shadow-sm hover:border-blue-300 transition-colors">
-                  <div className="w-11 h-11 rounded-lg bg-blue-50 border border-blue-100 text-blue-600 flex items-center justify-center shrink-0">
+                <div className="flex items-center gap-3 p-3.5 rounded-xl bg-white border-2 border-[#2992ff]/40 hover:border-[#2992ff] shadow-sm hover:shadow-md transition-all">
+                  <div className="w-10 h-10 rounded-lg bg-blue-50 border border-blue-100 text-[#0878f9] flex items-center justify-center shrink-0">
                     <Phone className="w-5 h-5" />
                   </div>
-                  <div>
-                    <span className="text-[12px] font-bold uppercase tracking-wider text-slate-400 block">
+                  <div className="min-w-0">
+                    <span className="text-[12px] font-bold uppercase tracking-wider text-slate-400 block leading-tight">
                       Phone
                     </span>
                     <a
                       href={BRAND_INFO.contact.whatsappLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-[15px] sm:text-[16px] font-bold text-slate-900 hover:text-blue-600 transition-colors"
+                      className="text-[13.5px] sm:text-[14px] font-bold text-slate-900 hover:text-blue-600 transition-colors truncate block leading-snug"
                     >
                       {BRAND_INFO.contact.phone}
                     </a>
@@ -578,16 +630,16 @@ export const HomePage: React.FC = () => {
                 </div>
 
                 {/* Locations Box Card */}
-                <div className="flex items-center gap-4 p-4 rounded-xl bg-white border border-slate-200 shadow-sm hover:border-blue-300 transition-colors">
-                  <div className="w-11 h-11 rounded-lg bg-blue-50 border border-blue-100 text-blue-600 flex items-center justify-center shrink-0">
+                <div className="flex items-center gap-3 p-3.5 rounded-xl bg-white border-2 border-[#2992ff]/40 hover:border-[#2992ff] shadow-sm hover:shadow-md transition-all">
+                  <div className="w-10 h-10 rounded-lg bg-blue-50 border border-blue-100 text-[#0878f9] flex items-center justify-center shrink-0">
                     <MapPin className="w-5 h-5" />
                   </div>
-                  <div>
-                    <span className="text-[12px] font-bold uppercase tracking-wider text-slate-400 block">
+                  <div className="min-w-0">
+                    <span className="text-[12px] font-bold uppercase tracking-wider text-slate-400 block leading-tight">
                       Locations
                     </span>
-                    <span className="text-[15px] sm:text-[16px] font-bold text-slate-900 block leading-snug">
-                      Borivali, Mumbai &bull; Marine Lines, Mumbai
+                    <span className="text-[13px] sm:text-[13.5px] font-bold text-slate-900 block leading-tight">
+                      Borivali, Mumbai<br className="hidden sm:inline" /> Marine Lines, Mumbai
                     </span>
                   </div>
                 </div>
@@ -782,6 +834,18 @@ export const HomePage: React.FC = () => {
           </div>
         )}
       </Modal>
+
+      {/* Floating Scroll-to-Top Button */}
+      {showScrollTop && (
+        <button
+          type="button"
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          className="fixed bottom-6 right-6 z-30 w-11 h-11 rounded-full bg-blue-600 hover:bg-blue-700 text-white shadow-xl flex items-center justify-center transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-400"
+          aria-label="Scroll to top"
+        >
+          <ChevronUp className="w-5 h-5" />
+        </button>
+      )}
 
     </div>
   );
