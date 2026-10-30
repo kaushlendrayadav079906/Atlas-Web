@@ -285,12 +285,6 @@ export const AboutPage: React.FC = () => {
                   <div className="text-[12px] sm:text-[13px] text-slate-500 leading-snug mt-0.5">
                     {metric.sublabel}
                   </div>
-
-                  {metric.requiresVerification && (
-                    <div className="mt-1.5">
-                      <VerificationBadge note={metric.sourceNote} variant="subtle" />
-                    </div>
-                  )}
                 </div>
               ))}
             </div>
@@ -315,16 +309,14 @@ export const AboutPage: React.FC = () => {
                 />
 
                 {/* Floating Overlay Card in Bottom Left matching reference screenshot */}
-                <div className="absolute bottom-4 left-4 bg-white/95 backdrop-blur-md rounded-xl p-3 sm:p-4 shadow-lg border border-slate-200/90 max-w-[200px]">
-                  <div className="space-y-2">
+                <div className="absolute bottom-4 left-4 bg-white/95 backdrop-blur-md rounded-xl p-3 sm:p-4 shadow-lg border border-slate-200/90 flex items-center gap-3.5 max-w-[210px]">
+                  <div className="w-10 h-10 rounded-lg bg-blue-50 border border-blue-200 text-blue-600 flex items-center justify-center shrink-0">
+                    <Cpu className="w-5 h-5" />
+                  </div>
+                  <div className="space-y-0.5 text-left">
                     {OUR_STORY_DATA.overlayCardItems.map((item, idx) => (
-                      <div key={idx} className="flex items-center gap-2">
-                        <div className="w-5 h-5 rounded-md bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
-                          <Check className="w-3.5 h-3.5" />
-                        </div>
-                        <span className="text-[13px] sm:text-[14px] font-bold text-[#10264b]">
-                          {item}
-                        </span>
+                      <div key={idx} className="text-[12px] sm:text-[13px] font-bold text-[#10264b] leading-tight">
+                        {item}
                       </div>
                     ))}
                   </div>
@@ -352,7 +344,7 @@ export const AboutPage: React.FC = () => {
 
               <div className="pt-2">
                 <Button
-                  href="#timeline"
+                  href="#journey-timeline"
                   variant="primary"
                   size="lg"
                   className="text-[16px] sm:text-[17px] font-semibold px-7 py-3.5 shadow-md shadow-blue-600/20 bg-[#0878f9] hover:bg-blue-700"
@@ -391,13 +383,13 @@ export const AboutPage: React.FC = () => {
               </p>
             </div>
 
-            {/* Right 3 Cards Column */}
+            {/* Right 3 Cards Column with authentic soft pastel colors */}
             <div className="lg:col-span-9 grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6">
               
               {/* Card 1: Our Mission */}
-              <div className="p-6 rounded-2xl bg-blue-50/30 border-2 border-blue-200/80 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+              <div className="p-6 rounded-2xl bg-[#eff6ff] border border-blue-200/90 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
                 <div>
-                  <div className="w-12 h-12 rounded-xl bg-blue-100/70 text-[#0878f9] flex items-center justify-center mb-4">
+                  <div className="w-12 h-12 rounded-xl bg-blue-100/80 text-[#0878f9] flex items-center justify-center mb-4">
                     <Target className="w-6 h-6" />
                   </div>
                   <h3 className="text-[20px] sm:text-[22px] font-bold text-[#10264b] mb-2.5">
@@ -410,9 +402,9 @@ export const AboutPage: React.FC = () => {
               </div>
 
               {/* Card 2: Our Vision */}
-              <div className="p-6 rounded-2xl bg-purple-50/30 border-2 border-purple-200/80 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+              <div className="p-6 rounded-2xl bg-[#fbf7ff] border border-purple-200/90 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
                 <div>
-                  <div className="w-12 h-12 rounded-xl bg-purple-100/70 text-[#7139e8] flex items-center justify-center mb-4">
+                  <div className="w-12 h-12 rounded-xl bg-purple-100/80 text-[#7139e8] flex items-center justify-center mb-4">
                     <Eye className="w-6 h-6" />
                   </div>
                   <h3 className="text-[20px] sm:text-[22px] font-bold text-[#10264b] mb-2.5">
@@ -425,9 +417,9 @@ export const AboutPage: React.FC = () => {
               </div>
 
               {/* Card 3: Our Values */}
-              <div className="p-6 rounded-2xl bg-emerald-50/30 border-2 border-emerald-200/80 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+              <div className="p-6 rounded-2xl bg-[#f0fdf4] border border-emerald-200/90 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
                 <div>
-                  <div className="w-12 h-12 rounded-xl bg-emerald-100/70 text-[#10b981] flex items-center justify-center mb-4">
+                  <div className="w-12 h-12 rounded-xl bg-emerald-100/80 text-[#10b981] flex items-center justify-center mb-4">
                     <Gem className="w-6 h-6" />
                   </div>
                   <h3 className="text-[20px] sm:text-[22px] font-bold text-[#10264b] mb-3">

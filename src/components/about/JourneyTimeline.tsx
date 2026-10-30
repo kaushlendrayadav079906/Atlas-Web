@@ -10,14 +10,80 @@ import {
   Calendar,
   ArrowRight
 } from 'lucide-react';
-import { COMPANY_JOURNEY_DATA, MilestoneItem } from '../../data/timelineData';
+import { COMPANY_JOURNEY_DATA, MilestoneItem, MilestoneColor } from '../../data/timelineData';
 
-const iconMap = {
-  Building2: <Building2 className="w-5 h-5 text-[#d97706]" />,
-  Award: <Award className="w-5 h-5 text-[#d97706]" />,
-  Layers: <Layers className="w-5 h-5 text-[#d97706]" />,
-  Trophy: <Trophy className="w-5 h-5 text-[#d97706]" />,
-  Sparkles: <Sparkles className="w-5 h-5 text-[#d97706]" />
+const iconColorMap: Record<MilestoneColor, {
+  yearText: string;
+  iconBg: string;
+  iconBorder: string;
+  iconText: string;
+  tagBg: string;
+  tagText: string;
+  tagBorder: string;
+  dotBorder: string;
+  dotCore: string;
+  connector: string;
+}> = {
+  blue: {
+    yearText: 'text-[#0878f9]',
+    iconBg: 'bg-blue-50',
+    iconBorder: 'border-blue-200',
+    iconText: 'text-[#0878f9]',
+    tagBg: 'bg-blue-50',
+    tagText: 'text-blue-700',
+    tagBorder: 'border-blue-200',
+    dotBorder: 'border-[#0878f9]',
+    dotCore: 'bg-[#0878f9]',
+    connector: 'from-[#0878f9] to-blue-200'
+  },
+  sky: {
+    yearText: 'text-[#0284c7]',
+    iconBg: 'bg-sky-50',
+    iconBorder: 'border-sky-200',
+    iconText: 'text-[#0284c7]',
+    tagBg: 'bg-sky-50',
+    tagText: 'text-sky-700',
+    tagBorder: 'border-sky-200',
+    dotBorder: 'border-[#0284c7]',
+    dotCore: 'bg-[#0284c7]',
+    connector: 'from-[#0284c7] to-sky-200'
+  },
+  rose: {
+    yearText: 'text-[#f43f5e]',
+    iconBg: 'bg-rose-50',
+    iconBorder: 'border-rose-200',
+    iconText: 'text-[#f43f5e]',
+    tagBg: 'bg-rose-50',
+    tagText: 'text-rose-700',
+    tagBorder: 'border-rose-200',
+    dotBorder: 'border-[#f43f5e]',
+    dotCore: 'bg-[#f43f5e]',
+    connector: 'from-[#f43f5e] to-rose-200'
+  },
+  emerald: {
+    yearText: 'text-[#10b981]',
+    iconBg: 'bg-emerald-50',
+    iconBorder: 'border-emerald-200',
+    iconText: 'text-[#10b981]',
+    tagBg: 'bg-emerald-50',
+    tagText: 'text-emerald-700',
+    tagBorder: 'border-emerald-200',
+    dotBorder: 'border-[#10b981]',
+    dotCore: 'bg-[#10b981]',
+    connector: 'from-[#10b981] to-emerald-200'
+  },
+  purple: {
+    yearText: 'text-[#7139e8]',
+    iconBg: 'bg-purple-50',
+    iconBorder: 'border-purple-200',
+    iconText: 'text-[#7139e8]',
+    tagBg: 'bg-purple-50',
+    tagText: 'text-purple-700',
+    tagBorder: 'border-purple-200',
+    dotBorder: 'border-[#7139e8]',
+    dotCore: 'bg-[#7139e8]',
+    connector: 'from-[#7139e8] to-purple-200'
+  }
 };
 
 interface TimelineItemProps {
@@ -29,6 +95,7 @@ interface TimelineItemProps {
 const TimelineItemCard: React.FC<TimelineItemProps> = ({ item, index, isReducedMotion }) => {
   const [isVisible, setIsVisible] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
+  const colors = iconColorMap[item.color];
 
   useEffect(() => {
     if (isReducedMotion) {
@@ -53,7 +120,6 @@ const TimelineItemCard: React.FC<TimelineItemProps> = ({ item, index, isReducedM
       observer.observe(cardRef.current);
     }
 
-    // Safety fallback: reveal all cards automatically after 1s so no content remains hidden
     const timer = setTimeout(() => {
       setIsVisible(true);
     }, 1200);
@@ -66,7 +132,6 @@ const TimelineItemCard: React.FC<TimelineItemProps> = ({ item, index, isReducedM
 
   const isRight = item.side === 'right';
 
-  // Responsive motion classes
   const motionTransform = isReducedMotion
     ? 'opacity-100 translate-x-0'
     : isVisible
@@ -91,20 +156,20 @@ const TimelineItemCard: React.FC<TimelineItemProps> = ({ item, index, isReducedM
         } left-6 sm:left-8 -translate-x-1/2 lg:left-1/2 lg:-translate-x-1/2`}
         aria-hidden="true"
       >
-        <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#fbf9f5] border-[3px] border-[#d97706] shadow-md flex items-center justify-center">
-          <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#d97706] animate-pulse" />
+        <div className={`w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white border-[3px] ${colors.dotBorder} shadow-md flex items-center justify-center`}>
+          <div className={`w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full ${colors.dotCore} animate-pulse`} />
         </div>
       </div>
 
       {/* Horizontal Connector Line for Desktop */}
       {isRight ? (
         <div
-          className="hidden lg:block absolute left-1/2 top-1/2 -translate-y-1/2 w-10 h-0.5 bg-gradient-to-r from-amber-400 to-amber-200 pointer-events-none"
+          className={`hidden lg:block absolute left-1/2 top-1/2 -translate-y-1/2 w-10 h-0.5 bg-gradient-to-r ${colors.connector} pointer-events-none`}
           aria-hidden="true"
         />
       ) : (
         <div
-          className="hidden lg:block absolute right-1/2 top-1/2 -translate-y-1/2 w-10 h-0.5 bg-gradient-to-l from-amber-400 to-amber-200 pointer-events-none"
+          className={`hidden lg:block absolute right-1/2 top-1/2 -translate-y-1/2 w-10 h-0.5 bg-gradient-to-l ${colors.connector} pointer-events-none`}
           aria-hidden="true"
         />
       )}
@@ -117,32 +182,33 @@ const TimelineItemCard: React.FC<TimelineItemProps> = ({ item, index, isReducedM
           isRight ? 'lg:ml-auto' : 'lg:mr-auto'
         } ${motionTransform}`}
       >
-        <article className="group relative bg-white rounded-2xl p-6 sm:p-7 border border-amber-200/80 shadow-sm hover:shadow-xl hover:border-amber-400 hover:-translate-y-1 transition-all duration-300">
+        <article className="group relative bg-white rounded-2xl p-6 sm:p-7 border border-slate-200/90 shadow-sm hover:shadow-xl hover:border-blue-400 hover:-translate-y-1 transition-all duration-300">
           
-          {/* Subtle warm corner glow */}
-          <div className="absolute top-0 right-0 w-28 h-28 bg-gradient-to-bl from-amber-100/40 via-transparent to-transparent rounded-tr-2xl pointer-events-none" />
-
           {/* Top Header: Tag Pill + Milestone Icon */}
           <div className="flex items-center justify-between gap-3 mb-3">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-amber-50 text-[#b45309] border border-amber-200/70">
-              <Calendar className="w-3.5 h-3.5 text-[#d97706]" />
+            <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider ${colors.tagBg} ${colors.tagText} border ${colors.tagBorder}`}>
+              <Calendar className="w-3.5 h-3.5" />
               <span>{item.tag}</span>
             </span>
 
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-50 to-orange-50 border border-amber-200/80 flex items-center justify-center shadow-xs shrink-0 group-hover:scale-105 transition-transform">
-              {iconMap[item.iconName]}
+            <div className={`w-10 h-10 rounded-xl ${colors.iconBg} border ${colors.iconBorder} flex items-center justify-center shadow-xs shrink-0 group-hover:scale-105 transition-transform`}>
+              {item.iconName === 'Building2' && <Building2 className={`w-5 h-5 ${colors.iconText}`} />}
+              {item.iconName === 'Award' && <Award className={`w-5 h-5 ${colors.iconText}`} />}
+              {item.iconName === 'Layers' && <Layers className={`w-5 h-5 ${colors.iconText}`} />}
+              {item.iconName === 'Trophy' && <Trophy className={`w-5 h-5 ${colors.iconText}`} />}
+              {item.iconName === 'Sparkles' && <Sparkles className={`w-5 h-5 ${colors.iconText}`} />}
             </div>
           </div>
 
-          {/* Year Display in Bold Gold/Orange (24–28px) */}
+          {/* Year Display in Bold Accent Color (24–28px) */}
           <div className="mb-1.5">
-            <time className="text-[24px] sm:text-[28px] font-black tracking-tight text-[#d97706] font-mono block leading-none">
+            <time className={`text-[24px] sm:text-[28px] font-black tracking-tight ${colors.yearText} font-mono block leading-none`}>
               {item.displayYear}
             </time>
           </div>
 
           {/* Milestone Title (19–22px) */}
-          <h3 className="text-[19px] sm:text-[21px] font-bold text-[#10264b] leading-snug tracking-tight mb-1 group-hover:text-[#0878f9] transition-colors">
+          <h3 className="text-[19px] sm:text-[21px] font-bold text-[#10264b] leading-snug tracking-tight mb-1 group-hover:text-blue-600 transition-colors">
             {item.title}
           </h3>
 
@@ -158,13 +224,13 @@ const TimelineItemCard: React.FC<TimelineItemProps> = ({ item, index, isReducedM
             {item.description}
           </p>
 
-          {/* Key Stat Pills (if available) */}
+          {/* Key Stat Pills */}
           {item.keyStats && item.keyStats.length > 0 && (
             <div className="flex flex-wrap gap-2 pt-1 pb-3">
               {item.keyStats.map((stat, sIdx) => (
                 <span
                   key={sIdx}
-                  className="inline-flex items-center gap-1 text-[12px] font-semibold px-2.5 py-0.5 rounded-md bg-slate-100 text-slate-700 border border-slate-200"
+                  className="inline-flex items-center gap-1 text-[12px] font-semibold px-2.5 py-0.5 rounded-md bg-slate-50 text-slate-700 border border-slate-200"
                 >
                   <CheckCircle2 className="w-3 h-3 text-emerald-600 shrink-0" />
                   <span>{stat}</span>
@@ -174,15 +240,15 @@ const TimelineItemCard: React.FC<TimelineItemProps> = ({ item, index, isReducedM
           )}
 
           {/* Verification / Source Status Tag */}
-          <div className="pt-3 border-t border-amber-100/80 flex items-center justify-between text-xs">
+          <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
             {item.isVerifiedFact ? (
               <span className="inline-flex items-center gap-1.5 text-emerald-700 font-semibold bg-emerald-50 px-2.5 py-1 rounded-md border border-emerald-200">
                 <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
                 <span>Verified ATPL Achievement</span>
               </span>
             ) : (
-              <span className="inline-flex items-center gap-1.5 text-amber-800 font-semibold bg-amber-50/90 px-2.5 py-1 rounded-md border border-amber-200">
-                <AlertCircle className="w-3.5 h-3.5 text-amber-600" />
+              <span className="inline-flex items-center gap-1.5 text-slate-600 font-medium bg-slate-100 px-2.5 py-1 rounded-md border border-slate-200">
+                <AlertCircle className="w-3.5 h-3.5 text-slate-500" />
                 <span>Date Subject to Formal Confirmation</span>
               </span>
             )}
@@ -237,18 +303,9 @@ export const JourneyTimeline: React.FC = () => {
   return (
     <section
       id="journey-timeline"
-      className="relative py-16 sm:py-20 lg:py-24 bg-[#fbf9f5] border-y border-amber-100/80 overflow-hidden"
+      className="relative py-16 sm:py-20 lg:py-24 bg-slate-50/70 border-y border-slate-200/80 overflow-hidden"
     >
       <div id="timeline" className="absolute -top-20" />
-
-      {/* Background warm aesthetic pattern */}
-      <div 
-        className="absolute inset-0 opacity-[0.03] pointer-events-none"
-        style={{
-          backgroundImage: `radial-gradient(#d97706 1px, transparent 1px)`,
-          backgroundSize: '24px 24px'
-        }}
-      />
 
       <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8 relative">
         
@@ -257,16 +314,16 @@ export const JourneyTimeline: React.FC = () => {
         {/* =================================================================== */}
         <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-18 lg:mb-20 space-y-3.5">
           
-          {/* Eyebrow in Gold/Amber (13–14px) */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-amber-100/70 text-[#b45309] border border-amber-200 text-xs sm:text-sm font-bold uppercase tracking-widest">
-            <Sparkles className="w-3.5 h-3.5 text-[#d97706]" />
+          {/* Eyebrow in Sapphire Blue (13–14px) */}
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-50 text-blue-600 border border-blue-200 text-xs sm:text-sm font-bold uppercase tracking-widest">
+            <Sparkles className="w-3.5 h-3.5 text-blue-600" />
             <span>{COMPANY_JOURNEY_DATA.eyebrow}</span>
           </div>
 
-          {/* Large Main Heading with Serif Accent (34–48px) */}
+          {/* Large Main Heading with Signature Purple Accent (34–48px) */}
           <h2 className="text-[32px] sm:text-[40px] lg:text-[46px] font-extrabold tracking-tight leading-[1.18] text-[#10264b]">
             {COMPANY_JOURNEY_DATA.headingMain}{' '}
-            <span className="font-serif italic text-[#d97706] font-normal underline decoration-amber-300 decoration-wavy decoration-1 underline-offset-8">
+            <span className="text-[#7139e8]">
               {COMPANY_JOURNEY_DATA.headingAccent}
             </span>
           </h2>
@@ -278,7 +335,7 @@ export const JourneyTimeline: React.FC = () => {
 
           {/* Company Confirmation Note */}
           <div className="pt-1 flex items-center justify-center gap-2 text-xs text-slate-500">
-            <span className="w-2 h-2 rounded-full bg-amber-500" />
+            <span className="w-2 h-2 rounded-full bg-blue-500" />
             <span>* Asterisked milestone dates are structured placeholders awaiting formal company registry confirmation.</span>
           </div>
         </div>
@@ -290,13 +347,13 @@ export const JourneyTimeline: React.FC = () => {
           
           {/* Background Static Line */}
           <div
-            className="absolute top-0 bottom-0 w-1 bg-amber-200/60 rounded-full left-6 sm:left-8 -translate-x-1/2 lg:left-1/2 lg:-translate-x-1/2"
+            className="absolute top-0 bottom-0 w-1 bg-slate-200 rounded-full left-6 sm:left-8 -translate-x-1/2 lg:left-1/2 lg:-translate-x-1/2"
             aria-hidden="true"
           />
 
-          {/* Dynamic Scroll Progress Fill Line */}
+          {/* Multi-Stop Vibrant Gradient Progress Fill Line */}
           <div
-            className="absolute top-0 w-1 bg-gradient-to-b from-[#d97706] via-[#f59e0b] to-[#fbbf24] rounded-full left-6 sm:left-8 -translate-x-1/2 lg:left-1/2 lg:-translate-x-1/2 transition-all duration-150 ease-out shadow-sm"
+            className="absolute top-0 w-1 bg-gradient-to-b from-[#0878f9] via-[#0284c7] via-[#f43f5e] via-[#10b981] to-[#7139e8] rounded-full left-6 sm:left-8 -translate-x-1/2 lg:left-1/2 lg:-translate-x-1/2 transition-all duration-150 ease-out shadow-sm"
             style={{
               height: `${scrollProgress * 100}%`,
               maxHeight: '100%'
@@ -326,7 +383,7 @@ export const JourneyTimeline: React.FC = () => {
           </p>
           <a
             href="#contact-cta"
-            className="inline-flex items-center gap-2 text-[15px] font-bold text-[#d97706] hover:text-[#b45309] transition-colors group"
+            className="inline-flex items-center gap-2 text-[15px] font-bold text-blue-600 hover:text-blue-700 transition-colors group"
           >
             <span>Speak with our senior SAP consultants</span>
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

@@ -1,3 +1,5 @@
+export type MilestoneColor = 'blue' | 'sky' | 'rose' | 'emerald' | 'purple';
+
 export interface MilestoneItem {
   id: string;
   year: string;
@@ -7,6 +9,7 @@ export interface MilestoneItem {
   description: string;
   side: 'right' | 'left'; // Right → Left → Right → Left → Right
   iconName: 'Building2' | 'Award' | 'Layers' | 'Trophy' | 'Sparkles';
+  color: MilestoneColor;
   tag: string;
   keyStats?: string[];
   isVerifiedFact: boolean;
@@ -28,6 +31,7 @@ export const COMPANY_JOURNEY_DATA = {
       description: "ATLAS Technosoft began its journey building deep consulting expertise in SAP architecture, data integration, and business process engineering, laying the foundation for SME digital transformation.",
       side: "right" as const,
       iconName: "Building2" as const,
+      color: "blue" as const,
       tag: "Foundation Era",
       keyStats: ["Deep SAP SME Focus", "Mumbai Consulting HQ"],
       isVerifiedFact: false,
@@ -42,6 +46,7 @@ export const COMPANY_JOURNEY_DATA = {
       description: "Formally recognized as an Authorized SAP Channel Partner, delivering end-to-end SAP Business One implementations, HANA migrations, and global template rollouts across India and international markets.",
       side: "left" as const,
       iconName: "Award" as const,
+      color: "sky" as const,
       tag: "SAP Ecosystem",
       keyStats: ["Cloud & On-Premise", "SAP HANA Upgrades"],
       isVerifiedFact: false,
@@ -56,6 +61,7 @@ export const COMPANY_JOURNEY_DATA = {
       description: "Expanded our technological ecosystem by becoming certified Boyum IT Silver and UiPath Silver Partners, deploying Beas Manufacturing, Produmex WMS, B1UP, and enterprise Robotic Process Automation.",
       side: "right" as const,
       iconName: "Layers" as const,
+      color: "rose" as const,
       tag: "Hyperautomation",
       keyStats: ["Beas Manufacturing", "Produmex WMS", "UiPath RPA"],
       isVerifiedFact: false,
@@ -70,6 +76,7 @@ export const COMPANY_JOURNEY_DATA = {
       description: "Accelerated to 80+ live SAP B1 clients (expanding toward 180+), 320+ Boyum modules, 1.2 million transactions automated annually, and a record 58-day go-live for SAP B1 + Beas + UiPath in pharma.",
       side: "left" as const,
       iconName: "Trophy" as const,
+      color: "emerald" as const,
       tag: "Scale & Impact",
       keyStats: ["98.7% Retention", "1.2M+ Automated Yearly", "58-Day Go-Live"],
       isVerifiedFact: true,
@@ -84,6 +91,7 @@ export const COMPANY_JOURNEY_DATA = {
       description: "Scaling to power 1,000 SMEs with zero-touch SAP ecosystems. Launching the proprietary ATLAS AI Co-Pilot for SAP B1 in Q2 2026, establishing global hyperautomation centers, and training 10,000 professionals.",
       side: "right" as const,
       iconName: "Sparkles" as const,
+      color: "purple" as const,
       tag: "Future Roadmap",
       keyStats: ["Target: 1,000 SMEs", "AI Co-Pilot (Q2 2026)", "ATLAS Academy"],
       isVerifiedFact: true,
@@ -91,4 +99,3 @@ export const COMPANY_JOURNEY_DATA = {
     }
   ]
 };
-
