@@ -61,17 +61,9 @@ export const SiteHeader: React.FC = () => {
             >
               <div className="relative w-11 h-11 rounded-xl overflow-hidden bg-white shrink-0 flex items-center justify-center">
                 <img
-                  src="/images/logo.jpeg"
+                  src="/images/logo.png"
                   alt="ATLAS Technosoft Logo"
                   className="w-full h-full object-contain"
-                  onError={(e) => {
-                    e.currentTarget.style.display = 'none';
-                    if (e.currentTarget.parentElement) {
-                      e.currentTarget.parentElement.innerText = 'ATPL';
-                      e.currentTarget.parentElement.className =
-                        'w-11 h-11 rounded-xl bg-blue-600 text-white font-black flex items-center justify-center text-sm';
-                    }
-                  }}
                 />
               </div>
               <div className="flex flex-col">
@@ -150,7 +142,7 @@ export const SiteHeader: React.FC = () => {
           <div className="p-4 border-b border-slate-200 flex items-center justify-between">
             <Link to="/" className="flex items-center gap-3" onClick={() => setIsMobileMenuOpen(false)}>
               <div className="w-10 h-10 rounded-lg bg-white overflow-hidden p-1 flex items-center justify-center border border-slate-100">
-                <img src="/images/logo.jpeg" alt="ATLAS Logo" className="w-full h-full object-contain" />
+                <img src="/images/logo.png" alt="ATLAS Logo" className="w-full h-full object-contain" />
               </div>
               <span className="text-[19px] font-extrabold text-slate-900">ATLAS Technosoft</span>
             </Link>

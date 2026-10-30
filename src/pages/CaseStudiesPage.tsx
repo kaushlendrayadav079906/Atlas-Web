@@ -533,9 +533,9 @@ export const CaseStudiesPage: React.FC = () => {
                     {tech.type === 'boyum' && <BoyumITLogo className="scale-105" />}
                     {tech.type === 'uipath' && <UiPathLogo className="scale-105" />}
                     {tech.type === 'atlas' && (
-                      <div className="flex items-center gap-2">
-                        <div className="w-8 h-8 rounded-lg bg-blue-600 text-white font-black flex items-center justify-center text-xs">
-                          ATLAS
+                      <div className="flex items-center gap-2.5">
+                        <div className="w-10 h-10 rounded-lg overflow-hidden flex items-center justify-center shrink-0">
+                          <img src="/images/logo.png" alt="ATLAS Logo" className="w-full h-full object-contain" />
                         </div>
                         <span className="font-extrabold text-[17px] text-slate-900 tracking-tight">
                           ATLAS <span className="text-slate-500 font-semibold text-xs block">Technosoft</span>

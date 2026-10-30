@@ -639,9 +639,9 @@ export const PartnersPage: React.FC = () => {
                       {step.badgeType === 'boyum' && <BoyumITLogo className="scale-95" />}
                       {step.badgeType === 'uipath' && <UiPathLogo className="scale-95" />}
                       {step.badgeType === 'atlas' && (
-                        <div className="flex items-center gap-1.5">
-                          <div className="w-7 h-7 rounded-lg bg-blue-600 text-white font-black flex items-center justify-center text-[10px]">
-                            ATLAS
+                        <div className="flex items-center gap-2">
+                          <div className="w-8 h-8 rounded-lg overflow-hidden flex items-center justify-center shrink-0">
+                            <img src="/images/logo.png" alt="ATLAS Logo" className="w-full h-full object-contain" />
                           </div>
                           <span className="font-extrabold text-sm text-[#10264b]">Technosoft</span>
                         </div>

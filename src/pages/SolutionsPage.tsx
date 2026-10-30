@@ -232,8 +232,8 @@ export const SolutionsPage: React.FC = () => {
 
                 {/* 4. ATLAS Add-ons (Bottom Right) */}
                 <div className="absolute bottom-4 right-4 bg-white/95 backdrop-blur-md rounded-xl p-2 sm:p-2.5 shadow-md border border-slate-200/90 flex items-center gap-2">
-                  <div className="w-6 h-6 rounded-md bg-cyan-50 border border-cyan-200 text-cyan-600 flex items-center justify-center shrink-0">
-                    <Boxes className="w-3.5 h-3.5" />
+                  <div className="w-6 h-6 rounded-md overflow-hidden flex items-center justify-center shrink-0">
+                    <img src="/images/logo.png" alt="ATLAS Logo" className="w-full h-full object-contain" />
                   </div>
                   <div className="text-[11px] font-bold text-slate-900 leading-tight">
                     ATLAS <span className="text-cyan-600">Add-ons</span>

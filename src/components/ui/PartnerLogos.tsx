@@ -59,6 +59,20 @@ export const B1UPLogo: React.FC<{ className?: string }> = ({ className = "h-7" }
   </div>
 );
 
+export const AtlasLogo: React.FC<{ className?: string; showText?: boolean }> = ({ className = "h-8", showText = true }) => (
+  <div className={`inline-flex items-center gap-2 select-none ${className}`}>
+    <div className="h-full aspect-square flex items-center justify-center shrink-0">
+      <img src="/images/logo.png" alt="ATLAS Logo" className="h-full w-full object-contain" />
+    </div>
+    {showText && (
+      <div className="flex flex-col leading-tight">
+        <span className="text-[#10264b] font-black text-sm tracking-tight">ATLAS</span>
+        <span className="text-slate-500 font-bold text-[10px] tracking-wider uppercase">Technosoft</span>
+      </div>
+    )}
+  </div>
+);
+
 export const PartnerLogosStrip: React.FC<{ className?: string }> = ({ className = "" }) => (
   <div className={`flex flex-wrap items-center justify-center gap-6 sm:gap-10 py-3 px-6 bg-white/95 backdrop-blur-md rounded-2xl border border-slate-200/80 shadow-md ${className}`}>
     <SAPBusinessOneLogo />

@@ -174,3 +174,4 @@ export const SUBJECT_OPTIONS = [
   { value: "partnership", label: "Partnership & Collaboration" },
   { value: "general", label: "General Inquiry / Other" }
 ];
+

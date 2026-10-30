@@ -6,20 +6,20 @@ export const SiteFooter: React.FC = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-[#070D1E] text-slate-300 pt-16 pb-12 border-t border-slate-800">
+    <footer className="bg-[#071d35] text-slate-300 pt-16 pb-12 border-t border-[#0e2a4d]">
       <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Main 4-Column Footer Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-12 pb-14 border-b border-slate-800/80">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-12 pb-14 border-b border-[#0e2a4d]">
           
           {/* Column 1: Brand & Description (4 cols on lg) */}
           <div className="lg:col-span-4 space-y-5">
             <div className="flex items-center gap-3.5">
-              <div className="w-10 h-10 rounded-xl bg-white overflow-hidden p-1 flex items-center justify-center shrink-0">
-                <img src="/images/logo.jpeg" alt="ATLAS Logo" className="w-full h-full object-contain" />
+              <div className="w-11 h-11 rounded-xl bg-white overflow-hidden p-1 flex items-center justify-center shrink-0 shadow-md">
+                <img src="/images/logo.png" alt="ATLAS Technosoft Logo" className="w-full h-full object-contain" />
               </div>
               <span className="text-[22px] font-extrabold text-white tracking-tight">
-                ATLAS <span className="text-slate-400 font-medium">Technosoft</span>
+                ATLAS <span className="text-slate-300 font-medium">Technosoft</span>
               </span>
             </div>
 
