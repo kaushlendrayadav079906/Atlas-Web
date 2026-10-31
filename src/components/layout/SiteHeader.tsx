@@ -9,7 +9,6 @@ export const SiteHeader: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
   const [activeSection, setActiveSection] = useState('Home');
-  const isGoldTheme = ['/contact', '/solutions', '/industries', '/case-studies', '/partners'].includes(location.pathname);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -22,15 +21,17 @@ export const SiteHeader: React.FC = () => {
   useEffect(() => {
     if (location.pathname === '/about') {
       setActiveSection('About');
-    } else if (location.pathname === '/solutions') {
+    } else if (location.pathname.startsWith('/services')) {
+      setActiveSection('Services');
+    } else if (location.pathname.startsWith('/solutions')) {
       setActiveSection('Solutions');
-    } else if (location.pathname === '/industries') {
+    } else if (location.pathname.startsWith('/industries')) {
       setActiveSection('Industries');
-    } else if (location.pathname === '/case-studies') {
+    } else if (location.pathname.startsWith('/case-studies')) {
       setActiveSection('Case Studies');
-    } else if (location.pathname === '/partners') {
+    } else if (location.pathname.startsWith('/partners')) {
       setActiveSection('Partners');
-    } else if (location.pathname === '/contact') {
+    } else if (location.pathname.startsWith('/contact')) {
       setActiveSection('Contact');
     } else if (location.pathname === '/' && !location.hash) {
       setActiveSection('Home');
@@ -57,7 +58,7 @@ export const SiteHeader: React.FC = () => {
             {/* Brand Logo & Name */}
             <Link
               to="/"
-              className="flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 rounded-lg p-1"
+              className="flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded-lg p-1"
             >
               <div className="relative h-12 w-14 shrink-0 flex items-center justify-center">
                 <img
@@ -67,7 +68,7 @@ export const SiteHeader: React.FC = () => {
                 />
               </div>
               <div className="flex flex-col leading-none">
-                <span className="text-[22px] sm:text-[24px] font-black tracking-tight text-[#10264b] group-hover:text-[#d99120] transition-colors">
+                <span className="text-[22px] sm:text-[24px] font-black tracking-tight text-[#10264b] group-hover:text-[#1B72E8] transition-colors">
                   ATLAS
                 </span>
                 <span className="text-[13px] sm:text-[14px] font-bold text-[#10264b] tracking-normal mt-0.5">
@@ -85,21 +86,15 @@ export const SiteHeader: React.FC = () => {
                     key={link.name}
                     to={link.href}
                     onClick={() => setActiveSection(link.name)}
-                    className={`text-[16px] xl:text-[17px] font-medium transition-colors relative py-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 rounded ${
+                    className={`text-[16px] xl:text-[17px] transition-colors relative py-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded ${
                       isActive
-                        ? isGoldTheme
-                          ? 'text-[#d99120] font-semibold'
-                          : 'text-blue-600 font-semibold'
-                        : isGoldTheme
-                        ? 'text-slate-700 hover:text-[#d99120]'
-                        : 'text-slate-700 hover:text-blue-600'
+                        ? 'text-[#0066CC] font-semibold'
+                        : 'text-[#142B59] font-medium hover:text-[#0066CC]'
                     }`}
                   >
                     {link.name}
                     {isActive && (
-                      <span className={`absolute bottom-0 left-0 right-0 h-0.5 rounded-full ${
-                        isGoldTheme ? 'bg-[#d99120]' : 'bg-blue-600'
-                      }`} />
+                      <span className="absolute bottom-0 left-0 right-0 h-0.5 rounded-full bg-gradient-to-r from-[#0052CC] to-[#0A66C2]" />
                     )}
                   </Link>
                 );
@@ -110,9 +105,9 @@ export const SiteHeader: React.FC = () => {
             <div className="hidden sm:flex items-center gap-3">
               <Button
                 href={location.pathname === '/contact' ? '#contact-form' : '/contact'}
-                variant={isGoldTheme ? 'gold' : 'primary'}
+                variant="gold"
                 size="md"
-                className="text-[16px] sm:text-[17px] font-semibold px-6 py-3 rounded-lg text-white"
+                className="text-[16px] sm:text-[17px] font-semibold px-6 py-3 rounded-lg text-white bg-gradient-to-r from-[#0052CC] to-[#0A66C2] hover:from-[#0040A8] hover:to-[#08529C]"
                 icon={<ArrowRight className="w-4 h-4" />}
               >
                 Book a Consultation
@@ -171,14 +166,10 @@ export const SiteHeader: React.FC = () => {
                     setActiveSection(link.name);
                     setIsMobileMenuOpen(false);
                   }}
-                  className={`flex items-center justify-between py-3.5 text-[17px] font-medium border-b border-slate-100 transition-colors ${
+                  className={`flex items-center justify-between py-3.5 text-[17px] border-b border-slate-100 transition-colors ${
                     activeSection === link.name
-                      ? isGoldTheme
-                        ? 'text-[#d99120] font-semibold'
-                        : 'text-blue-600 font-semibold'
-                      : isGoldTheme
-                      ? 'text-slate-800 hover:text-[#d99120]'
-                      : 'text-slate-800 hover:text-blue-600'
+                      ? 'text-[#1B72E8] font-semibold'
+                      : 'text-[#142B59] font-medium hover:text-[#1B72E8]'
                   }`}
                 >
                   <span>{link.name}</span>
@@ -191,19 +182,22 @@ export const SiteHeader: React.FC = () => {
               <div className="text-[14px] text-slate-600 space-y-1">
                 <div className="font-semibold text-slate-900">Authorized SAP Channel Partner</div>
                 <div>Boyum IT Silver | UiPath Silver Partner</div>
-                <div className={`pt-2 font-medium text-[15px] ${isGoldTheme ? 'text-[#d99120]' : 'text-blue-600'}`}>
+                <a
+                  href="https://wa.me/919372329599?text=Hello%20ATLAS%20Technosoft%2C%20I%20would%20like%20to%20book%20a%20consultation."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="pt-2 font-medium text-[15px] text-[#1B72E8] hover:underline block"
+                >
                   WhatsApp: +91-9372329599
-                </div>
+                </a>
               </div>
 
               <Button
                 href={location.pathname === '/contact' ? '#contact-form' : '/contact'}
-                variant={isGoldTheme ? 'gold' : 'primary'}
+                variant="gold"
                 fullWidth
                 size="lg"
-                className={`text-[17px] font-semibold py-3.5 text-white ${
-                  isGoldTheme ? 'bg-[#d99120] hover:bg-[#bd7810]' : ''
-                }`}
+                className="text-[17px] font-semibold py-3.5 text-white bg-gradient-to-r from-[#0052CC] to-[#0A66C2] hover:from-[#0040A8] hover:to-[#08529C]"
                 onClick={() => setIsMobileMenuOpen(false)}
                 icon={<ArrowRight className="w-5 h-5" />}
               >

@@ -11,10 +11,11 @@ export interface TechnologyPartnerOverviewItem {
   description: string;
   linkText: string;
   linkTarget: string;
+  route: string;
   image: string;
   borderColor: string;
   arrowColor: string;
-  badgeType: 'sap' | 'boyum' | 'uipath';
+  badgeType: 'sap' | 'boyum' | 'uipath' | 'atlas';
 }
 
 export interface CapabilityItem {
@@ -31,6 +32,7 @@ export interface BoyumProductCardItem {
   image: string;
   borderColor: string;
   linkText: string;
+  route: string;
   fullDetails: {
     kpis: string[];
     features: string[];
@@ -68,9 +70,9 @@ export const PARTNERS_HERO_DATA = {
   secondaryCtaText: 'Talk to Our Experts',
   heroImage: '/images/partners/partners_hero.jpg',
   floatingBadges: [
-    { label: 'Stronger Solutions', color: '#ed861d', iconName: 'Settings' as const },
+    { label: 'Stronger Solutions', color: '#0066CC', iconName: 'Settings' as const },
     { label: 'Greater Efficiency', color: '#16a879', iconName: 'TrendingUp' as const },
-    { label: 'Long-Term Partnership', color: '#963ee8', iconName: 'Users' as const },
+    { label: 'Long-Term Partnership', color: '#0066CC', iconName: 'Users' as const },
     { label: 'Mutual Growth', color: '#0ea5e9', iconName: 'Handshake' as const }
   ]
 };
@@ -87,39 +89,56 @@ export const TECHNOLOGY_PARTNERS_OVERVIEW_DATA = {
       name: 'SAP Business One',
       title: 'SAP Business One',
       description:
-        'A complete ERP solution to manage finance, sales, purchasing, inventory and operations.',
+        'A complete ERP solution to manage finance, sales, purchasing, inventory and operations with live in-memory analytics.',
       linkText: 'Explore SAP Solutions',
-      linkTarget: '#sap-partnership',
+      linkTarget: '/partners/sap-business-one',
+      route: '/partners/sap-business-one',
       image: '/images/partners/partners_sap_laptop.jpg',
-      borderColor: '#d99120',
-      arrowColor: '#d99120',
+      borderColor: '#0066CC',
+      arrowColor: '#0066CC',
       badgeType: 'sap' as const
     },
     {
-      id: 'boyum-it-solutions',
-      name: 'Boyum IT Solutions',
+      id: 'boyum-it',
+      name: 'Boyum IT',
       title: 'Boyum IT Solutions',
       description:
-        'Innovative add-ons for manufacturing, warehouse, and usability to extend SAP Business One capabilities.',
+        'Certified extensions for manufacturing execution, paperless warehousing, and interface usability on SAP Business One.',
       linkText: 'Explore Boyum Solutions',
-      linkTarget: '#boyum-partnership',
+      linkTarget: '/partners/boyum-it',
+      route: '/partners/boyum-it',
       image: '/images/partners/partners_boyum_warehouse.jpg',
       borderColor: '#16a879',
       arrowColor: '#16a879',
       badgeType: 'boyum' as const
     },
     {
-      id: 'uipath-automation',
+      id: 'uipath',
       name: 'UiPath',
-      title: 'UiPath',
+      title: 'UiPath Hyperautomation',
       description:
-        'Robotic Process Automation and AI solutions to automate repetitive tasks and improve business efficiency.',
+        'Robotic Process Automation and Document AI solutions to eliminate repetitive manual data entry and streamline reconciliations.',
       linkText: 'Explore Automation',
-      linkTarget: '#uipath-partnership',
+      linkTarget: '/partners/uipath',
+      route: '/partners/uipath',
       image: '/images/partners/partners_uipath_ai.jpg',
-      borderColor: '#963ee8',
-      arrowColor: '#963ee8',
+      borderColor: '#0066CC',
+      arrowColor: '#0066CC',
       badgeType: 'uipath' as const
+    },
+    {
+      id: 'atlas-solutions',
+      name: 'ATLAS Technology & Add-ons',
+      title: 'ATLAS Technology & Add-ons',
+      description:
+        'Proprietary SAP Business One add-on modules engineered for freight trading, weighbridge gate entry, and statutory compliance.',
+      linkText: 'Explore ATLAS Add-ons',
+      linkTarget: '/partners/atlas-solutions',
+      route: '/partners/atlas-solutions',
+      image: '/images/solutions/solutions_integrated_ecosystem.jpg',
+      borderColor: '#1B72E8',
+      arrowColor: '#1B72E8',
+      badgeType: 'atlas' as const
     }
   ]
 };
@@ -171,8 +190,9 @@ export const BOYUM_PARTNERSHIP_DATA = {
       description:
         'Complete manufacturing solution for SAP Business One with production planning, shop floor control and more.',
       image: '/images/partners/partners_beas.jpg',
-      borderColor: '#ed861d',
+      borderColor: '#0066CC',
       linkText: 'Learn More',
+      route: '/partners/boyum-it',
       fullDetails: {
         kpis: [
           '28% improvement in Overall Equipment Effectiveness (OEE)',
@@ -196,6 +216,7 @@ export const BOYUM_PARTNERSHIP_DATA = {
       image: '/images/partners/partners_produmex.jpg',
       borderColor: '#16a879',
       linkText: 'Learn More',
+      route: '/partners/boyum-it',
       fullDetails: {
         kpis: [
           '99.9% inventory picking accuracy',
@@ -217,8 +238,9 @@ export const BOYUM_PARTNERSHIP_DATA = {
       description:
         'Productivity tools and user-friendly enhancements to simplify and accelerate daily operations.',
       image: '/images/partners/partners_b1up.jpg',
-      borderColor: '#963ee8',
+      borderColor: '#0066CC',
       linkText: 'Learn More',
+      route: '/partners/boyum-it',
       fullDetails: {
         kpis: [
           '300+ out-of-the-box UI workflows & automations',
@@ -248,13 +270,13 @@ export const UIPATH_PARTNERSHIP_DATA = {
     {
       title: 'RPA and Process Automation',
       iconName: 'Cog' as const,
-      color: '#ef4444',
+      color: '#0066CC',
       description: 'Automate repetitive data entry, AP/AR posting, and reconciliation.'
     },
     {
       title: 'AI-Powered Workflows',
       iconName: 'Cpu' as const,
-      color: '#963ee8',
+      color: '#0066CC',
       description: 'Machine learning document understanding for invoices and shipping documents.'
     },
     {
@@ -322,7 +344,7 @@ export const WHY_CHOOSE_PARTNERSHIP_DATA = {
     {
       title: 'Technology Expertise',
       description: 'Deep knowledge of SAP, Boyum IT, UiPath and industry solutions.',
-      color: '#ed861d',
+      color: '#1B72E8',
       iconName: 'ShieldCheck' as const
     },
     {
@@ -334,7 +356,7 @@ export const WHY_CHOOSE_PARTNERSHIP_DATA = {
     {
       title: 'Integrated Solutions',
       description: 'End-to-end business solutions tailored to your requirements.',
-      color: '#963ee8',
+      color: '#0066CC',
       iconName: 'Settings' as const
     },
     {

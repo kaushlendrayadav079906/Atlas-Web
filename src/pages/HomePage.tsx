@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo, useCallback } from 'react';
+import { Link } from 'react-router-dom';
 import { 
   ArrowRight, 
   CheckCircle2, 
@@ -18,41 +19,148 @@ import { IndustryCard } from '../components/ui/IndustryCard';
 import { ProcessStep } from '../components/ui/ProcessStep';
 import { TestimonialCard } from '../components/ui/TestimonialCard';
 import { Modal } from '../components/ui/Modal';
+import { CtaContactCards } from '../components/ui/CtaContactCards';
 import { SAPBusinessOneLogo, BoyumITLogo, UiPathLogo } from '../components/ui/PartnerLogos';
 import { BRAND_INFO, TRUST_METRICS } from '../data/websiteContent';
 import { ContactFormData } from '../types';
 
-const TESTIMONIAL_SLIDES = [
-  [
-    {
-      quote: "ATLAS Technosoft helped us streamline our business processes with SAP Business One and automation solutions.",
-      author: "— Operations Director (To be verified)",
-      imageSrc: "/images/crystal_hd/testimonial_1.jpg",
-    },
-    {
-      quote: "Their expertise in warehouse solutions significantly improved our operational efficiency.",
-      author: "— Managing Director (To be verified)",
-      imageSrc: "/images/crystal_hd/testimonial_2.jpg",
-    },
-  ],
-  [
-    {
-      quote: "Inventory accuracy reached 99.9% and warehouse speed doubled within four months of deploying Produmex WMS with ATLAS.",
-      author: "— Chief Executive Officer (To be verified)",
-      imageSrc: "/images/crystal_hd/testimonial_1.jpg",
-    },
-    {
-      quote: "We achieved a 70% reduction in manual finance entries within 3 months. Our accounts team now manages triple the transaction volume.",
-      author: "— Chief Financial Officer (To be verified)",
-      imageSrc: "/images/crystal_hd/testimonial_2.jpg",
-    },
-  ],
+export interface CustomerStoryItem {
+  id: string;
+  category: string;
+  quote: string;
+  designation: string;
+  companyCategory: string;
+  imageSrc: string;
+  objectPosition?: string;
+  caseStudyUrl: string;
+  verificationNote: string;
+}
+
+export const CUSTOMER_STORIES: CustomerStoryItem[] = [
+  {
+    id: 'warehouse-management',
+    category: 'Warehouse Management',
+    quote: 'Deploying Produmex WMS with SAP Business One transformed our fulfillment. Dispatch errors dropped significantly, and warehouse throughput increased by over 40%.',
+    designation: 'Supply Chain & Logistics Director',
+    companyCategory: 'Industrial Distribution Sector',
+    imageSrc: '/images/case_studies/cs_warehouse.jpg',
+    objectPosition: '50% 40%',
+    caseStudyUrl: '/case-studies/warehouse-management',
+    verificationNote: 'Sample Enterprise Story · Logistics'
+  },
+  {
+    id: 'trading-distribution',
+    category: 'Trading & Distribution',
+    quote: 'The multi-currency reconciliation and automated landed-cost tracking unified our import-export operations across four distribution centers with live visibility.',
+    designation: 'Head of International Trade',
+    companyCategory: 'Global Commodity & Trading Group',
+    imageSrc: '/images/crystal_hd/ind_shipping.jpg',
+    objectPosition: 'center 45%',
+    caseStudyUrl: '/case-studies/trading-operations',
+    verificationNote: 'Sample Enterprise Story · Trading'
+  },
+  {
+    id: 'retail-wholesale',
+    category: 'Retail & Wholesale',
+    quote: 'Our omnichannel inventory synchronization between retail storefronts and central warehousing eliminated stockouts and gave our management instant cash-flow control.',
+    designation: 'Retail Operations Director',
+    companyCategory: 'Multi-Store Retail Chain',
+    imageSrc: '/images/solutions/solutions_sales_handshake.jpg',
+    objectPosition: 'center 35%',
+    caseStudyUrl: '/case-studies/inventory-visibility',
+    verificationNote: 'Sample Enterprise Story · Retail'
+  },
+  {
+    id: 'manufacturing',
+    category: 'Manufacturing',
+    quote: 'Beas Manufacturing integration with SAP Business One gave our production floor live shop-floor data capture, job costing precision, and flawless BOM scheduling.',
+    designation: 'Plant & Production Manager',
+    companyCategory: 'Precision Component Manufacturing',
+    imageSrc: '/images/case_studies/cs_featured_manufacturing.jpg',
+    objectPosition: 'center 40%',
+    caseStudyUrl: '/case-studies/warehouse-management',
+    verificationNote: 'Sample Enterprise Story · Manufacturing'
+  },
+  {
+    id: 'finance-administration',
+    category: 'Finance & Administration',
+    quote: 'Automated invoice approvals and instant bank reconciliations cut our month-end financial closing time from ten days to under 48 hours without increasing headcount.',
+    designation: 'Chief Financial Officer',
+    companyCategory: 'Commercial Services Group',
+    imageSrc: '/images/crystal_hd/ind_finance.jpg',
+    objectPosition: 'center 35%',
+    caseStudyUrl: '/case-studies/business-process-automation',
+    verificationNote: 'Sample Enterprise Story · Finance'
+  },
+  {
+    id: 'business-process-automation',
+    category: 'Business Process Automation',
+    quote: 'UiPath software robots implemented by ATLAS now process our routine vendor validations and transactional entries 24/7 with zero processing errors.',
+    designation: 'Head of Digital Transformation',
+    companyCategory: 'Enterprise Logistics & Supply',
+    imageSrc: '/images/solutions/solutions_uipath_robot.jpg',
+    objectPosition: 'center 40%',
+    caseStudyUrl: '/case-studies/business-process-automation',
+    verificationNote: 'Sample Enterprise Story · RPA & AI'
+  }
 ];
 
 export const HomePage: React.FC = () => {
   // Contact Form & Modal State
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [activeTestimonialIdx, setActiveTestimonialIdx] = useState(0);
+  const [activeSlide, setActiveSlide] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+  const [touchStartX, setTouchStartX] = useState<number | null>(null);
+
+  useEffect(() => {
+    const handleResize = () => {
+      const mobile = window.innerWidth < 768;
+      setIsMobile(mobile);
+      setActiveSlide(prev => {
+        const max = mobile ? CUSTOMER_STORIES.length - 1 : Math.ceil(CUSTOMER_STORIES.length / 2) - 1;
+        return Math.min(prev, Math.max(0, max));
+      });
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const slides = useMemo(() => {
+    if (isMobile) {
+      return CUSTOMER_STORIES.map(story => [story]);
+    }
+    const pairs: CustomerStoryItem[][] = [];
+    for (let i = 0; i < CUSTOMER_STORIES.length; i += 2) {
+      pairs.push(CUSTOMER_STORIES.slice(i, i + 2));
+    }
+    return pairs;
+  }, [isMobile]);
+
+  const totalSlides = slides.length;
+
+  const nextSlide = useCallback(() => {
+    setActiveSlide(prev => (prev + 1) % totalSlides);
+  }, [totalSlides]);
+
+  const prevSlide = useCallback(() => {
+    setActiveSlide(prev => (prev - 1 + totalSlides) % totalSlides);
+  }, [totalSlides]);
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchStartX(e.touches[0].clientX);
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX === null) return;
+    const diff = touchStartX - e.changedTouches[0].clientX;
+    if (diff > 45) {
+      nextSlide();
+    } else if (diff < -45) {
+      prevSlide();
+    }
+    setTouchStartX(null);
+  };
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [formData, setFormData] = useState<ContactFormData>({
     fullName: '',
@@ -164,19 +272,19 @@ export const HomePage: React.FC = () => {
             <div className="lg:col-span-7 space-y-5 text-left">
               {/* Eyebrow Label: 13–14px */}
               <div className="inline-block">
-                <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-blue-600 select-none">
-                  Your Partner for a Smarter Tomorrow
+                <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-[#1B72E8] select-none">
+                  Your Partner for a Smarter Tomorrow —
                 </span>
               </div>
 
               {/* Main Hero Heading: Desktop 48–56px, Mobile 34–40px */}
-              <h1 className="text-[34px] sm:text-[42px] lg:text-[48px] xl:text-[52px] font-extrabold tracking-tight leading-[1.14] text-slate-900">
+              <h1 className="font-serif text-[34px] sm:text-[42px] lg:text-[48px] xl:text-[52px] font-bold tracking-tight leading-[1.14] text-[#142B59]">
                 Where SAP Business One Meets{' '}
-                <span className="text-blue-600">Intelligent Automation</span>
+                <span className="bg-gradient-to-r from-[#0052CC] via-[#0066CC] to-[#0A66C2] bg-clip-text text-transparent">Intelligent Automation</span>
               </h1>
 
               {/* Supporting Text: 18–19px Desktop */}
-              <p className="text-[16px] sm:text-[18px] lg:text-[19px] text-slate-600 leading-relaxed max-w-2xl font-normal">
+              <p className="text-[16px] sm:text-[18px] lg:text-[19px] text-[#45546B] leading-relaxed max-w-2xl font-normal">
                 ATLAS Technosoft helps manufacturing, logistics, pharma, and trading companies streamline operations with SAP Business One, Boyum IT solutions, UiPath RPA, and AI-driven automation.
               </p>
 
@@ -185,21 +293,22 @@ export const HomePage: React.FC = () => {
                 <Button
                   id="hero-book-btn"
                   onClick={() => setIsModalOpen(true)}
-                  variant="primary"
+                  variant="gold"
                   size="lg"
-                  className="text-[16px] sm:text-[17px] font-semibold px-7 py-3.5 shadow-md shadow-blue-600/20"
+                  className="text-[16px] sm:text-[17px] font-semibold px-7 py-3.5 shadow-md shadow-blue-500/25 bg-gradient-to-r from-[#0052CC] to-[#0A66C2] hover:from-[#0040A8] hover:to-[#08529C] text-white"
                   icon={<ArrowRight className="w-5 h-5" />}
                 >
                   Book a Consultation
                 </Button>
 
                 <Button
-                  href="#solutions"
+                  href="/about"
                   variant="secondary"
                   size="lg"
-                  className="text-[16px] sm:text-[17px] font-semibold px-7 py-3.5"
+                  className="text-[16px] sm:text-[17px] font-semibold px-7 py-3.5 text-[#142B59]"
+                  icon={<ArrowRight className="w-4 h-4 text-[#1B72E8]" />}
                 >
-                  Explore Our Solutions
+                  Our Story & Team
                 </Button>
               </div>
             </div>
@@ -254,7 +363,8 @@ export const HomePage: React.FC = () => {
           
           <SectionHeading
             badge="OUR SERVICES"
-            title="Comprehensive Solutions for Your Business"
+            title="Comprehensive Solutions for"
+            titleHighlight="Your Business"
             subtitle="From ERP implementation to intelligent automation, we deliver end-to-end solutions to help your business grow."
             align="center"
           />
@@ -270,7 +380,7 @@ export const HomePage: React.FC = () => {
                 "Streamline business operations"
               ]}
               ctaText="Learn More"
-              ctaTarget="#contact"
+              ctaTarget="/services/sap-business-one"
             />
 
             {/* Card 2: Boyum IT Solutions */}
@@ -283,7 +393,7 @@ export const HomePage: React.FC = () => {
                 "B1 Usability Package (B1UP)"
               ]}
               ctaText="Learn More"
-              ctaTarget="#contact"
+              ctaTarget="/services/boyum-it"
             />
 
             {/* Card 3: UiPath RPA & AI Automation */}
@@ -296,7 +406,7 @@ export const HomePage: React.FC = () => {
                 "Improve efficiency and reduce costs"
               ]}
               ctaText="Learn More"
-              ctaTarget="#contact"
+              ctaTarget="/services/uipath-automation"
             />
 
             {/* Card 4: ATLAS Proprietary Add-ons */}
@@ -311,7 +421,7 @@ export const HomePage: React.FC = () => {
                 "RPA Vendor & Sales Automation"
               ]}
               ctaText="Learn More"
-              ctaTarget="#contact"
+              ctaTarget="/services/atlas-addons"
             />
           </div>
 
@@ -328,16 +438,16 @@ export const HomePage: React.FC = () => {
             {/* Left Content (approx 55% width) */}
             <div className="lg:col-span-6 space-y-4">
               <div>
-                <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-blue-600 block mb-2">
+                <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-[#1B72E8] block mb-2">
                   OUR EXPERTISE
                 </span>
-                <h2 className="text-[28px] sm:text-[34px] lg:text-[36px] font-bold text-slate-900 tracking-tight leading-tight">
-                  Bridging ERP and Intelligent Automation
+                <h2 className="font-serif text-[28px] sm:text-[34px] lg:text-[38px] font-bold text-[#142B59] tracking-tight leading-tight">
+                  Bridging ERP and <span className="bg-gradient-to-r from-[#0052CC] via-[#0066CC] to-[#0A66C2] bg-clip-text text-transparent">Intelligent Automation</span>
                 </h2>
               </div>
 
               {/* Body Text */}
-              <p className="text-[16px] sm:text-[17px] lg:text-[18px] text-slate-600 leading-relaxed">
+              <p className="text-[16px] sm:text-[17px] lg:text-[18px] text-[#45546B] leading-relaxed">
                 We combine deep expertise in SAP Business One, business process optimization, manufacturing and warehouse solutions, and intelligent automation to deliver real business value.
               </p>
 
@@ -350,14 +460,26 @@ export const HomePage: React.FC = () => {
                   "Intelligent automation with RPA and AI"
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-center gap-3">
-                    <div className="w-5 h-5 rounded-full bg-blue-600 text-white flex items-center justify-center shrink-0">
+                    <div className="w-5 h-5 rounded-full bg-[#142B59] text-white flex items-center justify-center shrink-0">
                       <CheckCircle2 className="w-4 h-4 text-white" />
                     </div>
-                    <span className="text-[15px] sm:text-[16px] text-slate-800 font-medium">
+                    <span className="text-[15px] sm:text-[16px] text-[#172B50] font-medium">
                       {item}
                     </span>
                   </div>
                 ))}
+              </div>
+
+              {/* Link to dedicated Services & Expertise page */}
+              <div className="pt-2">
+                <Button
+                  href="/services"
+                  variant="primary"
+                  size="md"
+                  icon={<ArrowRight className="w-4 h-4" />}
+                >
+                  Explore Our Services & Expertise
+                </Button>
               </div>
             </div>
 
@@ -384,7 +506,8 @@ export const HomePage: React.FC = () => {
           
           <SectionHeading
             badge="INDUSTRIES WE SERVE"
-            title="Industry-Focused Solutions"
+            title="Industry-Focused"
+            titleHighlight="Solutions"
             subtitle="We understand your industry challenges and deliver tailored solutions."
             align="center"
           />
@@ -395,24 +518,28 @@ export const HomePage: React.FC = () => {
               title="Manufacturing"
               description="Streamline production, inventory and operations."
               imageSrc="/images/crystal_hd/ind_manufacturing.jpg"
+              targetRoute="/industries/manufacturing"
             />
             <IndustryCard
               id="warehouse"
               title="Warehouse & Logistics"
               description="Optimize warehousing, logistics and supply chain."
               imageSrc="/images/crystal_hd/ind_warehouse.jpg"
+              targetRoute="/industries/warehouse-logistics"
             />
             <IndustryCard
               id="finance"
               title="Finance & Administration"
               description="Improve financial control and administrative efficiency."
               imageSrc="/images/crystal_hd/ind_finance.jpg"
+              targetRoute="/industries/finance-administration"
             />
             <IndustryCard
               id="trading"
               title="Trading & Shipping"
               description="Enhance trading operations and shipping processes."
               imageSrc="/images/crystal_hd/ind_shipping.jpg"
+              targetRoute="/industries/trading-shipping"
             />
           </div>
 
@@ -427,7 +554,8 @@ export const HomePage: React.FC = () => {
           
           <SectionHeading
             badge="OUR APPROACH"
-            title="A Structured Approach for Lasting Success"
+            title="A Structured Approach for"
+            titleHighlight="Lasting Success"
             subtitle="We follow a proven approach to understand, implement and optimize solutions for your business."
             align="center"
           />
@@ -460,67 +588,141 @@ export const HomePage: React.FC = () => {
       </section>
 
       {/* ========================================================================= */}
-      {/* SECTION 8: CUSTOMER SUCCESS (TWO COMPACT SIDE-BY-SIDE CARDS)              */}
+      {/* SECTION 8: CUSTOMER SUCCESS (RESPONSIVE CAROUSEL)                      */}
       {/* ========================================================================= */}
-      <section id="case-studies" className="py-10 sm:py-12 lg:py-14 bg-[#f4f9ff]/60 border-b border-slate-100">
+      <section id="case-studies" className="py-12 sm:py-14 lg:py-16 bg-[#f4f9ff]/60 border-b border-slate-100">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           
           <SectionHeading
             badge="CUSTOMER SUCCESS"
-            title="Trusted by Growing Businesses"
-            subtitle="We help businesses across industries streamline operations and achieve their goals."
+            title="Trusted by"
+            titleHighlight="Growing Businesses"
+            subtitle="We help businesses across industries streamline operations and achieve their goals with proven enterprise solutions."
             align="center"
           />
 
-          {/* Two Side-by-Side Testimonial Box Cards as in Reference Image */}
-          <div className="relative max-w-5xl mx-auto">
-            {/* Left navigation arrow */}
+          {/* Testimonials Carousel Container with outer clearance for arrows */}
+          <div className="relative max-w-[1320px] mx-auto px-3 sm:px-4 md:px-14 lg:px-16">
+            {/* Desktop Left navigation arrow */}
             <button
               type="button"
-              onClick={() => setActiveTestimonialIdx(prev => (prev === 0 ? TESTIMONIAL_SLIDES.length - 1 : prev - 1))}
-              className="hidden md:flex absolute -left-6 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-white border border-slate-200 text-slate-700 hover:text-blue-600 hover:border-blue-400 items-center justify-center shadow-sm z-10 transition-colors"
-              aria-label="Previous testimonials"
+              onClick={prevSlide}
+              className="hidden md:flex absolute left-0 lg:left-1 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white border border-slate-200 text-[#142B59] hover:text-[#1B72E8] hover:border-[#1B72E8] items-center justify-center shadow-md hover:shadow-xl z-20 transition-all duration-200 hover:scale-105 active:scale-95 cursor-pointer"
+              aria-label="Previous customer testimonials"
             >
               <ChevronLeft className="w-5 h-5" />
             </button>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 transition-all duration-300">
-              {TESTIMONIAL_SLIDES[activeTestimonialIdx].map((item, idx) => (
-                <TestimonialCard
-                  key={idx}
-                  quote={item.quote}
-                  author={item.author}
-                  imageSrc={item.imageSrc}
-                />
-              ))}
+            {/* Testimonials Carousel Track Viewport */}
+            <div
+              className="overflow-hidden rounded-2xl focus:outline-none"
+              tabIndex={0}
+              role="region"
+              aria-label="Customer Testimonial Carousel"
+              onKeyDown={(e) => {
+                if (e.key === 'ArrowLeft') {
+                  e.preventDefault();
+                  prevSlide();
+                } else if (e.key === 'ArrowRight') {
+                  e.preventDefault();
+                  nextSlide();
+                }
+              }}
+              onTouchStart={handleTouchStart}
+              onTouchEnd={handleTouchEnd}
+            >
+              <div
+                className="flex transition-transform duration-500 ease-out items-stretch"
+                style={{ transform: `translateX(-${activeSlide * 100}%)` }}
+              >
+                {slides.map((slideStories, slideIdx) => (
+                  <div
+                    key={slideIdx}
+                    className="w-full shrink-0 flex-none px-1"
+                  >
+                    <div className={`grid grid-cols-1 ${isMobile ? '' : 'md:grid-cols-2'} gap-6 items-stretch h-full`}>
+                      {slideStories.map((story) => (
+                        <TestimonialCard
+                          key={story.id}
+                          id={story.id}
+                          category={story.category}
+                          quote={story.quote}
+                          author={story.designation}
+                          companyCategory={story.companyCategory}
+                          imageSrc={story.imageSrc}
+                          objectPosition={story.objectPosition}
+                          to={story.caseStudyUrl}
+                          verificationNote={story.verificationNote}
+                        />
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
 
-            {/* Right navigation arrow */}
+            {/* Desktop Right navigation arrow */}
             <button
               type="button"
-              onClick={() => setActiveTestimonialIdx(prev => (prev === TESTIMONIAL_SLIDES.length - 1 ? 0 : prev + 1))}
-              className="hidden md:flex absolute -right-6 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-white border border-slate-200 text-slate-700 hover:text-blue-600 hover:border-blue-400 items-center justify-center shadow-sm z-10 transition-colors"
-              aria-label="Next testimonials"
+              onClick={nextSlide}
+              className="hidden md:flex absolute right-0 lg:right-1 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white border border-slate-200 text-[#142B59] hover:text-[#1B72E8] hover:border-[#1B72E8] items-center justify-center shadow-md hover:shadow-xl z-20 transition-all duration-200 hover:scale-105 active:scale-95 cursor-pointer"
+              aria-label="Next customer testimonials"
             >
               <ChevronRight className="w-5 h-5" />
             </button>
           </div>
 
-          {/* Carousel Indicator Dots */}
-          <div className="flex items-center justify-center gap-2 pt-5">
-            {TESTIMONIAL_SLIDES.map((_, dotIdx) => (
-              <button
-                key={dotIdx}
-                type="button"
-                onClick={() => setActiveTestimonialIdx(dotIdx)}
-                aria-label={`Go to slide ${dotIdx + 1}`}
-                className={`transition-all rounded-full ${
-                  activeTestimonialIdx === dotIdx
-                    ? 'w-6 h-2 bg-blue-600'
-                    : 'w-2 h-2 bg-slate-300 hover:bg-slate-400'
-                }`}
-              />
-            ))}
+          {/* Carousel Controls Bar (Pagination Dots + Mobile Arrows) */}
+          <div className="flex items-center justify-center gap-3 pt-6">
+            {/* Mobile Left Arrow */}
+            <button
+              type="button"
+              onClick={prevSlide}
+              className="flex md:hidden w-8 h-8 rounded-full bg-white border border-slate-200 text-slate-700 items-center justify-center shadow-xs active:scale-95"
+              aria-label="Previous slide"
+            >
+              <ChevronLeft className="w-4 h-4" />
+            </button>
+
+            {/* Indicator Dots */}
+            <div className="flex items-center gap-2">
+              {Array.from({ length: totalSlides }).map((_, dotIdx) => (
+                <button
+                  key={dotIdx}
+                  type="button"
+                  onClick={() => setActiveSlide(dotIdx)}
+                  aria-label={`Go to slide ${dotIdx + 1}`}
+                  role="tab"
+                  aria-selected={activeSlide === dotIdx}
+                  className={`transition-all duration-300 rounded-full cursor-pointer ${
+                    activeSlide === dotIdx
+                      ? 'w-7 h-2.5 bg-gradient-to-r from-[#0052CC] to-[#0A66C2] shadow-xs'
+                      : 'w-2.5 h-2.5 bg-slate-300 hover:bg-slate-400'
+                  }`}
+                />
+              ))}
+            </div>
+
+            {/* Mobile Right Arrow */}
+            <button
+              type="button"
+              onClick={nextSlide}
+              className="flex md:hidden w-8 h-8 rounded-full bg-white border border-slate-200 text-slate-700 items-center justify-center shadow-xs active:scale-95"
+              aria-label="Next slide"
+            >
+              <ChevronRight className="w-4 h-4" />
+            </button>
+          </div>
+
+          {/* Explore Case Studies Link */}
+          <div className="text-center pt-6">
+            <Link
+              to="/case-studies"
+              className="inline-flex items-center gap-2 text-sm sm:text-base font-bold text-[#142B59] hover:text-[#1B72E8] group transition-colors"
+            >
+              <span>Explore All Verified Customer Case Studies</span>
+              <ArrowRight className="w-4 h-4 text-[#1B72E8] group-hover:translate-x-1 transition-transform" />
+            </Link>
           </div>
 
         </div>
@@ -535,26 +737,33 @@ export const HomePage: React.FC = () => {
             
             {/* Left Side: Title & Subtitle */}
             <div className="lg:col-span-6 space-y-2 text-left">
-              <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-blue-600 block">
+              <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-[#1B72E8] block">
                 OUR PARTNERS
               </span>
-              <h2 className="text-[26px] sm:text-[32px] font-bold text-slate-900 tracking-tight leading-tight">
-                Working with Global Technology Leaders
+              <h2 className="font-serif text-[26px] sm:text-[32px] font-bold text-[#142B59] tracking-tight leading-tight">
+                Working with <span className="bg-gradient-to-r from-[#0052CC] via-[#0066CC] to-[#0A66C2] bg-clip-text text-transparent">Global Technology Leaders</span>
               </h2>
-              <p className="text-[15px] sm:text-[16px] text-slate-600">
+              <p className="text-[15px] sm:text-[16px] text-[#45546B]">
                 We collaborate with industry-leading technology partners to deliver the best solutions.
               </p>
             </div>
 
             {/* Right Side: Clean Partner Logos inline with dividers matching im2 */}
-            <div className="lg:col-span-6 flex items-center justify-start lg:justify-end">
-              <div className="flex items-center gap-6 sm:gap-8 py-2">
+            <div className="lg:col-span-6 flex flex-col items-start lg:items-end justify-center gap-2">
+              <Link to="/partners" className="group flex items-center gap-6 sm:gap-8 py-2 px-3 rounded-xl hover:bg-slate-50 transition-colors">
                 <SAPBusinessOneLogo className="h-8 sm:h-9" />
                 <div className="h-7 w-px bg-slate-300" />
                 <BoyumITLogo className="h-8 sm:h-9" />
                 <div className="h-7 w-px bg-slate-300" />
                 <UiPathLogo className="h-8 sm:h-9" />
-              </div>
+              </Link>
+              <Link
+                to="/partners"
+                className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-[#1B72E8] hover:underline"
+              >
+                <span>Explore Certified Partner Ecosystem</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
             </div>
 
           </div>
@@ -567,92 +776,45 @@ export const HomePage: React.FC = () => {
       <section id="contact" className="py-10 sm:py-12 lg:py-14 bg-[#f4f9ff]/60">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           
-          {/* Defined Light Cyan/Blue Box Container matching About Page reference */}
-          <div className="rounded-2xl bg-[#eaf4ff] border border-blue-200/90 p-6 sm:p-8 lg:p-10 shadow-sm">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+          {/* Defined Light Cyan/Blue Box Container matching Reference UI */}
+          <div className="rounded-2xl sm:rounded-3xl bg-[#eaf4ff] border border-blue-200/90 p-8 sm:p-10 lg:p-12 shadow-sm">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
               
-              {/* Left Column: Heading, Subtext & CTA Button */}
-              <div className="lg:col-span-5 space-y-4 text-left">
-                <span className="text-[12px] font-bold uppercase tracking-wider text-blue-600 block">
+              {/* Left Column: Heading, Subtext & Both Action Buttons */}
+              <div className="lg:col-span-6 space-y-4 text-left">
+                <span className="text-[12px] sm:text-[13px] font-bold uppercase tracking-wider text-[#1B72E8] block">
                   LET'S WORK TOGETHER
                 </span>
-                <h2 className="text-[26px] sm:text-[32px] lg:text-[36px] font-bold text-[#10264b] tracking-tight leading-tight">
-                  Ready to Transform <span className="text-[#7139e8]">Your Business?</span>
+                <h2 className="font-serif text-[28px] sm:text-[34px] lg:text-[40px] font-bold text-[#142B59] tracking-tight leading-[1.18]">
+                  Ready to Transform <span className="bg-gradient-to-r from-[#0052CC] via-[#0066CC] to-[#0A66C2] bg-clip-text text-transparent">Your Business?</span>
                 </h2>
                 
-                <p className="text-[15px] sm:text-[17px] text-[#354765] leading-relaxed max-w-lg">
+                <p className="text-[15px] sm:text-[16px] text-[#45546B] leading-relaxed max-w-lg">
                   Book a consultation with our experts and explore how we can help you streamline operations and drive growth.
                 </p>
 
-                <div className="pt-2">
+                <div className="pt-2 flex flex-wrap items-center gap-4">
                   <Button
                     onClick={() => setIsModalOpen(true)}
                     variant="primary"
                     size="lg"
-                    className="text-[16px] sm:text-[17px] font-semibold px-8 py-3.5 shadow-md shadow-blue-600/25 bg-[#0878f9] hover:bg-blue-700"
-                    icon={<ArrowRight className="w-5 h-5" />}
+                    className="text-[15px] sm:text-[16px] font-semibold px-7 py-3.5 bg-gradient-to-r from-[#0052CC] to-[#0A66C2] hover:from-[#0040A8] hover:to-[#08529C] text-white shadow-md shadow-blue-500/25 rounded-xl"
+                    icon={<ArrowRight className="w-4 h-4" />}
                   >
                     Book a Consultation
                   </Button>
+                  <Link
+                    to="/contact"
+                    className="inline-flex items-center justify-center font-semibold rounded-xl px-6 py-3.5 text-[15px] sm:text-[16px] bg-white text-[#142B59] hover:bg-slate-50 border border-slate-300 shadow-sm transition-colors"
+                  >
+                    Contact Us
+                  </Link>
                 </div>
               </div>
 
-              {/* Right Column: 3 Contact Info Cards with distinct colored borders matching im2 */}
-              <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-3.5">
-                
-                {/* Email Box Card: GREEN border */}
-                <div className="flex items-center gap-3 p-3.5 rounded-xl bg-white border-2 border-[#16b978] shadow-sm hover:shadow-md transition-all">
-                  <div className="w-10 h-10 rounded-lg bg-blue-50 border border-blue-100 text-[#0878f9] flex items-center justify-center shrink-0">
-                    <Mail className="w-5 h-5" />
-                  </div>
-                  <div className="min-w-0">
-                    <span className="text-[12px] font-bold uppercase tracking-wider text-slate-400 block leading-tight">
-                      Email
-                    </span>
-                    <a
-                      href={`mailto:${BRAND_INFO.contact.email}`}
-                      className="text-[13px] sm:text-[13.5px] font-bold text-slate-900 hover:text-blue-600 transition-colors truncate block leading-snug"
-                    >
-                      {BRAND_INFO.contact.email}
-                    </a>
-                  </div>
-                </div>
-
-                {/* Phone Box Card: BLUE border */}
-                <div className="flex items-center gap-3 p-3.5 rounded-xl bg-white border-2 border-[#2992ff] shadow-sm hover:shadow-md transition-all">
-                  <div className="w-10 h-10 rounded-lg bg-blue-50 border border-blue-100 text-[#0878f9] flex items-center justify-center shrink-0">
-                    <Phone className="w-5 h-5" />
-                  </div>
-                  <div className="min-w-0">
-                    <span className="text-[12px] font-bold uppercase tracking-wider text-slate-400 block leading-tight">
-                      Phone
-                    </span>
-                    <a
-                      href={BRAND_INFO.contact.whatsappLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-[13px] sm:text-[13.5px] font-bold text-slate-900 hover:text-blue-600 transition-colors truncate block leading-snug"
-                    >
-                      {BRAND_INFO.contact.phone}
-                    </a>
-                  </div>
-                </div>
-
-                {/* Locations Box Card: PURPLE border */}
-                <div className="flex items-center gap-3 p-3.5 rounded-xl bg-white border-2 border-[#a34dff] shadow-sm hover:shadow-md transition-all">
-                  <div className="w-10 h-10 rounded-lg bg-blue-50 border border-blue-100 text-[#0878f9] flex items-center justify-center shrink-0">
-                    <MapPin className="w-5 h-5" />
-                  </div>
-                  <div className="min-w-0">
-                    <span className="text-[12px] font-bold uppercase tracking-wider text-slate-400 block leading-tight">
-                      Locations
-                    </span>
-                    <span className="text-[12.5px] sm:text-[13px] font-bold text-slate-900 block leading-tight">
-                      Borivali, Mumbai<br className="hidden sm:inline" /> Marine Lines, Mumbai
-                    </span>
-                  </div>
-                </div>
-
+              {/* Right Column: 3 Clean Contact Info Cards matching reference */}
+              <div className="lg:col-span-6">
+                <CtaContactCards />
               </div>
 
             </div>
@@ -845,16 +1007,7 @@ export const HomePage: React.FC = () => {
       </Modal>
 
       {/* Floating Scroll-to-Top Button */}
-      {showScrollTop && (
-        <button
-          type="button"
-          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          className="fixed bottom-6 right-6 z-30 w-11 h-11 rounded-full bg-blue-600 hover:bg-blue-700 text-white shadow-xl flex items-center justify-center transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-400"
-          aria-label="Scroll to top"
-        >
-          <ChevronUp className="w-5 h-5" />
-        </button>
-      )}
+      /* Global scroll-to-top handled by SiteLayout */
 
     </div>
   );

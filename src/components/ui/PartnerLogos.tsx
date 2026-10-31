@@ -15,7 +15,7 @@ export const SAPBusinessOneLogo: React.FC<{ className?: string }> = ({ className
 export const BoyumITLogo: React.FC<{ className?: string }> = ({ className = "h-8" }) => (
   <div className={`inline-flex items-center select-none ${className}`}>
     <span className="text-slate-900 font-extrabold text-lg sm:text-xl tracking-tight">boyum</span>
-    <span className="text-amber-500 font-black text-xl sm:text-2xl leading-none ml-0.5">it</span>
+    <span className="text-[#0066CC] font-black text-xl sm:text-2xl leading-none ml-0.5">it</span>
   </div>
 );
 
@@ -49,7 +49,7 @@ export const ProdumexWMSLogo: React.FC<{ className?: string }> = ({ className = 
 
 export const B1UPLogo: React.FC<{ className?: string }> = ({ className = "h-7" }) => (
   <div className={`inline-flex items-center gap-1.5 select-none ${className}`}>
-    <div className="w-5 h-5 bg-[#ea580c] rounded flex items-center justify-center text-white text-[10px] font-black">
+    <div className="w-5 h-5 bg-[#0066CC] rounded flex items-center justify-center text-white text-[10px] font-black">
       B1
     </div>
     <div className="flex flex-col leading-none">

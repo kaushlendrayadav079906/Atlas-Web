@@ -1,4 +1,6 @@
+import { CtaContactCards } from '../components/ui/CtaContactCards';
 import React, { useState, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import {
   ArrowRight,
   Factory,
@@ -39,10 +41,8 @@ import {
 } from '../data/caseStudiesContent';
 
 export const CaseStudiesPage: React.FC = () => {
-  // Modal States
+  const navigate = useNavigate();
   const [isConsultationModalOpen, setIsConsultationModalOpen] = useState(false);
-  const [selectedCaseStudy, setSelectedCaseStudy] = useState<CaseStudyItem | null>(null);
-  const [isFeaturedModalOpen, setIsFeaturedModalOpen] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
 
   // Form State
@@ -143,7 +143,7 @@ export const CaseStudiesPage: React.FC = () => {
   };
 
   return (
-    <div className="relative bg-white text-[#354765] selection:bg-blue-600 selection:text-white">
+    <div className="relative bg-white text-[#45546B] selection:bg-blue-600 selection:text-white">
       {/* Background Decorative Ambient Glow matching About Page */}
       <div className="absolute -left-12 top-1/2 -translate-y-1/2 w-48 h-80 opacity-25 pointer-events-none select-none hidden lg:block">
         <div className="w-full h-full bg-gradient-to-tr from-emerald-600/30 via-teal-500/10 to-transparent rounded-full blur-3xl" />
@@ -159,19 +159,19 @@ export const CaseStudiesPage: React.FC = () => {
             <div className="lg:col-span-7 space-y-6 text-left">
               {/* Eyebrow */}
               <div className="inline-block">
-                <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-blue-600 select-none">
+                <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-[#1B72E8] select-none">
                   {CASE_STUDIES_HERO_DATA.eyebrow}
                 </span>
               </div>
 
               {/* Main Headline */}
-              <h1 className="text-[36px] sm:text-[44px] lg:text-[50px] xl:text-[54px] font-extrabold tracking-tight leading-[1.14] text-[#10264b]">
+              <h1 className="font-serif text-[38px] sm:text-[46px] lg:text-[52px] xl:text-[56px] font-bold tracking-tight leading-[1.14] text-[#142B59]">
                 {CASE_STUDIES_HERO_DATA.titleStart}{' '}
-                <span className="text-[#7139e8]">{CASE_STUDIES_HERO_DATA.titleHighlight}</span>
+                <span className="bg-gradient-to-r from-[#0052CC] via-[#0066CC] to-[#0A66C2] bg-clip-text text-transparent">{CASE_STUDIES_HERO_DATA.titleHighlight}</span>
               </h1>
 
               {/* Subheading / Description */}
-              <p className="text-[16px] sm:text-[17px] lg:text-[18px] text-[#354765] leading-relaxed max-w-2xl font-normal">
+              <p className="text-[16px] sm:text-[17px] lg:text-[18px] text-[#45546B] leading-relaxed max-w-2xl font-normal">
                 {CASE_STUDIES_HERO_DATA.description}
               </p>
 
@@ -179,7 +179,7 @@ export const CaseStudiesPage: React.FC = () => {
               <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
                 <a
                   href="#featured-case-study"
-                  className="inline-flex items-center justify-center gap-2 text-[16px] font-semibold px-8 py-3.5 rounded-xl bg-[#0878f9] hover:bg-blue-700 text-white shadow-md shadow-blue-600/25 transition-all duration-200 cursor-pointer"
+                  className="inline-flex items-center justify-center gap-2 text-[16px] font-semibold px-8 py-3.5 rounded-xl bg-gradient-to-r from-[#0052CC] to-[#0A66C2] hover:from-[#0040A8] hover:to-[#08529C] text-white shadow-md shadow-blue-500/25 transition-all duration-200 cursor-pointer"
                 >
                   <span>{CASE_STUDIES_HERO_DATA.primaryCtaText}</span>
                   <ArrowRight className="w-5 h-5" />
@@ -187,7 +187,7 @@ export const CaseStudiesPage: React.FC = () => {
 
                 <button
                   onClick={() => setIsConsultationModalOpen(true)}
-                  className="inline-flex items-center justify-center gap-2 text-[16px] font-semibold px-8 py-3.5 rounded-xl bg-white hover:bg-slate-50 text-slate-800 border border-slate-200/90 shadow-sm transition-all duration-200 cursor-pointer"
+                  className="inline-flex items-center justify-center gap-2 text-[16px] font-semibold px-8 py-3.5 rounded-xl bg-white hover:bg-slate-50 text-[#142B59] border border-slate-200/90 shadow-sm transition-all duration-200 cursor-pointer"
                 >
                   <span>{CASE_STUDIES_HERO_DATA.secondaryCtaText}</span>
                 </button>
@@ -217,7 +217,7 @@ export const CaseStudiesPage: React.FC = () => {
                       >
                         ✓
                       </span>
-                      <span className="text-[12px] sm:text-[13px] font-bold text-[#10264b]">
+                      <span className="text-[12px] sm:text-[13px] font-bold text-[#142B59]">
                         {badge.label}
                       </span>
                     </div>
@@ -236,12 +236,12 @@ export const CaseStudiesPage: React.FC = () => {
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           {/* Eyebrow & Main Heading */}
           <div className="mb-10 text-left space-y-2">
-            <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-blue-600">
+            <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-[#1B72E8]">
               {FEATURED_CASE_STUDY_DATA.eyebrow}
             </span>
-            <h2 className="text-[30px] sm:text-[36px] lg:text-[40px] font-extrabold text-[#10264b] tracking-tight max-w-4xl leading-tight">
+            <h2 className="font-serif text-[30px] sm:text-[36px] lg:text-[40px] font-bold text-[#142B59] tracking-tight max-w-4xl leading-tight">
               Manufacturing Company Streamlines Operations with{' '}
-              <span className="text-[#7139e8]">SAP Business One</span>
+              <span className="bg-gradient-to-r from-[#0052CC] via-[#0066CC] to-[#0A66C2] bg-clip-text text-transparent">SAP Business One</span>
             </h2>
           </div>
 
@@ -263,11 +263,11 @@ export const CaseStudiesPage: React.FC = () => {
             <div className="lg:col-span-6 space-y-6 text-left">
               {/* Category Pill + Subtitle */}
               <div className="space-y-2">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-orange-50 border border-orange-200 text-[#ed861d] font-bold text-xs uppercase tracking-wider">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-blue-50 border border-blue-200 text-[#1B72E8] font-bold text-xs uppercase tracking-wider">
                   <Factory className="w-4 h-4" />
                   <span>{FEATURED_CASE_STUDY_DATA.industryLabel}</span>
                 </div>
-                <h3 className="text-[22px] sm:text-[25px] font-bold text-[#10264b] leading-snug">
+                <h3 className="font-serif text-[22px] sm:text-[25px] font-bold text-[#142B59] leading-snug">
                   {FEATURED_CASE_STUDY_DATA.title}
                 </h3>
               </div>
@@ -277,14 +277,14 @@ export const CaseStudiesPage: React.FC = () => {
                 {/* 1. Business Challenge */}
                 <div className="p-4 rounded-xl bg-slate-50/70 border border-slate-200/80 space-y-1.5 hover:shadow-sm transition-shadow">
                   <div className="flex items-center gap-2">
-                    <div className="w-8 h-8 rounded-lg bg-red-50 text-[#ef4444] flex items-center justify-center shrink-0">
+                    <div className="w-8 h-8 rounded-lg bg-blue-50 text-[#0066CC] border border-blue-200/80 flex items-center justify-center shrink-0">
                       <Building2 className="w-4 h-4" />
                     </div>
-                    <h4 className="text-[14px] font-bold text-[#10264b]">
+                    <h4 className="text-[14px] font-bold text-[#142B59]">
                       {FEATURED_CASE_STUDY_DATA.challenge.title}
                     </h4>
                   </div>
-                  <p className="text-[13px] text-[#354765] leading-relaxed">
+                  <p className="text-[13px] text-[#45546B] leading-relaxed">
                     {FEATURED_CASE_STUDY_DATA.challenge.description}
                   </p>
                 </div>
@@ -295,11 +295,11 @@ export const CaseStudiesPage: React.FC = () => {
                     <div className="w-8 h-8 rounded-lg bg-emerald-50 text-[#16a879] flex items-center justify-center shrink-0">
                       <Lightbulb className="w-4 h-4" />
                     </div>
-                    <h4 className="text-[14px] font-bold text-[#10264b]">
+                    <h4 className="text-[14px] font-bold text-[#142B59]">
                       {FEATURED_CASE_STUDY_DATA.solution.title}
                     </h4>
                   </div>
-                  <p className="text-[13px] text-[#354765] leading-relaxed">
+                  <p className="text-[13px] text-[#45546B] leading-relaxed">
                     {FEATURED_CASE_STUDY_DATA.solution.description}
                   </p>
                 </div>
@@ -307,14 +307,14 @@ export const CaseStudiesPage: React.FC = () => {
                 {/* 3. Technology Used */}
                 <div className="p-4 rounded-xl bg-slate-50/70 border border-slate-200/80 space-y-1.5 hover:shadow-sm transition-shadow">
                   <div className="flex items-center gap-2">
-                    <div className="w-8 h-8 rounded-lg bg-purple-50 text-[#963ee8] flex items-center justify-center shrink-0">
+                    <div className="w-8 h-8 rounded-lg bg-blue-50 text-[#0066CC] flex items-center justify-center shrink-0">
                       <Settings className="w-4 h-4" />
                     </div>
-                    <h4 className="text-[14px] font-bold text-[#10264b]">
+                    <h4 className="text-[14px] font-bold text-[#142B59]">
                       {FEATURED_CASE_STUDY_DATA.technology.title}
                     </h4>
                   </div>
-                  <p className="text-[13px] text-[#354765] leading-relaxed">
+                  <p className="text-[13px] text-[#45546B] leading-relaxed">
                     {FEATURED_CASE_STUDY_DATA.technology.description}
                   </p>
                 </div>
@@ -325,11 +325,11 @@ export const CaseStudiesPage: React.FC = () => {
                     <div className="w-8 h-8 rounded-lg bg-blue-50 text-[#0878f9] flex items-center justify-center shrink-0">
                       <TrendingUp className="w-4 h-4" />
                     </div>
-                    <h4 className="text-[14px] font-bold text-[#10264b]">
+                    <h4 className="text-[14px] font-bold text-[#142B59]">
                       {FEATURED_CASE_STUDY_DATA.outcomes.title}
                     </h4>
                   </div>
-                  <p className="text-[13px] text-[#354765] leading-relaxed">
+                  <p className="text-[13px] text-[#45546B] leading-relaxed">
                     {FEATURED_CASE_STUDY_DATA.outcomes.description}
                   </p>
                 </div>
@@ -337,13 +337,13 @@ export const CaseStudiesPage: React.FC = () => {
 
               {/* Action Button */}
               <div className="pt-2">
-                <button
-                  onClick={() => setIsFeaturedModalOpen(true)}
-                  className="inline-flex items-center justify-center gap-2 text-[15px] sm:text-[16px] font-semibold px-8 py-3.5 rounded-xl bg-[#0878f9] hover:bg-blue-700 text-white shadow-md shadow-blue-600/20 transition-all cursor-pointer"
+                <Link
+                  to="/industries/manufacturing"
+                  className="inline-flex items-center justify-center gap-2 text-[15px] sm:text-[16px] font-semibold px-8 py-3.5 rounded-xl bg-gradient-to-r from-[#0052CC] to-[#0A66C2] hover:from-[#0040A8] hover:to-[#08529C] text-white shadow-md shadow-blue-500/25 transition-all cursor-pointer"
                 >
                   <span>{FEATURED_CASE_STUDY_DATA.ctaText}</span>
                   <ArrowRight className="w-5 h-5" />
-                </button>
+                </Link>
               </div>
             </div>
           </div>
@@ -357,10 +357,10 @@ export const CaseStudiesPage: React.FC = () => {
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section Header */}
           <div className="text-left mb-12 space-y-2">
-            <h2 className="text-[32px] sm:text-[38px] lg:text-[42px] font-extrabold text-[#10264b] tracking-tight">
-              More Case <span className="text-[#7139e8]">Studies</span>
+            <h2 className="font-serif text-[32px] sm:text-[38px] lg:text-[42px] font-bold text-[#142B59] tracking-tight">
+              More Case <span className="bg-gradient-to-r from-[#0052CC] via-[#0066CC] to-[#0A66C2] bg-clip-text text-transparent">Studies</span>
             </h2>
-            <p className="text-[16px] sm:text-[17px] text-[#354765] leading-relaxed max-w-3xl">
+            <p className="text-[16px] sm:text-[17px] text-[#45546B] leading-relaxed max-w-3xl">
               Explore how businesses across different industries have improved their operations with our solutions.
             </p>
           </div>
@@ -370,7 +370,11 @@ export const CaseStudiesPage: React.FC = () => {
             {MORE_CASE_STUDIES_DATA.map((study) => (
               <div
                 key={study.id}
-                className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between"
+                onClick={(e) => {
+                  if ((e.target as HTMLElement).closest('a')) return;
+                  navigate(study.route);
+                }}
+                className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between cursor-pointer"
                 style={{
                   border: `2px solid ${study.accentColor}`
                 }}
@@ -407,10 +411,12 @@ export const CaseStudiesPage: React.FC = () => {
                     >
                       {study.category}
                     </span>
-                    <h3 className="text-[19px] font-bold text-[#10264b] leading-snug group-hover:text-blue-600 transition-colors">
-                      {study.title}
+                    <h3 className="text-[19px] font-bold text-[#172B50] leading-snug group-hover:text-[#1B72E8] transition-colors">
+                      <Link to={study.route}>
+                        {study.title}
+                      </Link>
                     </h3>
-                    <p className="text-[14px] text-[#354765] leading-relaxed line-clamp-3">
+                    <p className="text-[14px] text-[#53647A] leading-relaxed line-clamp-3">
                       {study.description}
                     </p>
                   </div>
@@ -418,16 +424,16 @@ export const CaseStudiesPage: React.FC = () => {
 
                 {/* Card Footer: Read More Link + Circular Arrow */}
                 <div className="px-5 pb-5 pt-2 border-t border-slate-100 flex items-center justify-between">
-                  <button
-                    onClick={() => setSelectedCaseStudy(study)}
-                    className="text-[14px] font-bold text-blue-600 hover:text-blue-700 flex items-center gap-1.5 transition-colors cursor-pointer"
+                  <Link
+                    to={study.route}
+                    className="text-[14px] font-bold text-[#142B59] hover:text-[#1B72E8] flex items-center gap-1.5 transition-colors cursor-pointer"
                   >
                     <span>Read More</span>
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </button>
+                  </Link>
 
-                  <button
-                    onClick={() => setSelectedCaseStudy(study)}
+                  <Link
+                    to={study.route}
                     aria-label={`Read ${study.title}`}
                     className="w-8 h-8 rounded-full flex items-center justify-center border transition-all cursor-pointer"
                     style={{
@@ -436,7 +442,7 @@ export const CaseStudiesPage: React.FC = () => {
                     }}
                   >
                     <ArrowRight className="w-4 h-4" />
-                  </button>
+                  </Link>
                 </div>
               </div>
             ))}
@@ -451,11 +457,11 @@ export const CaseStudiesPage: React.FC = () => {
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section Header */}
           <div className="text-left max-w-3xl mb-16 space-y-2">
-            <h2 className="text-[32px] sm:text-[38px] lg:text-[42px] font-extrabold text-[#10264b] tracking-tight">
+            <h2 className="font-serif text-[32px] sm:text-[38px] lg:text-[42px] font-bold text-[#142B59] tracking-tight">
               {OUR_APPROACH_DATA.titleStart}{' '}
-              <span className="text-[#7139e8]">{OUR_APPROACH_DATA.titleHighlight}</span>
+              <span className="bg-gradient-to-r from-[#0052CC] via-[#0066CC] to-[#0A66C2] bg-clip-text text-transparent">{OUR_APPROACH_DATA.titleHighlight}</span>
             </h2>
-            <p className="text-[16px] sm:text-[17px] text-[#354765] leading-relaxed">
+            <p className="text-[16px] sm:text-[17px] text-[#45546B] leading-relaxed">
               {OUR_APPROACH_DATA.description}
             </p>
           </div>
@@ -477,7 +483,7 @@ export const CaseStudiesPage: React.FC = () => {
                     </div>
 
                     {/* Step Title & Number */}
-                    <h3 className="mt-4 text-[15px] font-bold text-[#10264b] leading-tight group-hover:text-blue-600 transition-colors">
+                    <h3 className="mt-4 text-[15px] font-bold text-[#172B50] leading-tight group-hover:text-[#1B72E8] transition-colors">
                       <span className="font-extrabold block text-xs opacity-70 mb-0.5">
                         {step.stepNumber}
                       </span>
@@ -510,11 +516,11 @@ export const CaseStudiesPage: React.FC = () => {
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section Header */}
           <div className="text-left max-w-3xl mb-12 space-y-2">
-            <h2 className="text-[32px] sm:text-[38px] lg:text-[42px] font-extrabold text-[#10264b] tracking-tight">
+            <h2 className="font-serif text-[32px] sm:text-[38px] lg:text-[42px] font-bold text-[#142B59] tracking-tight">
               {TECHNOLOGY_SHOWCASE_DATA.titleStart}{' '}
-              <span className="text-[#7139e8]">{TECHNOLOGY_SHOWCASE_DATA.titleHighlight}</span>
+              <span className="bg-gradient-to-r from-[#0052CC] via-[#0066CC] to-[#0A66C2] bg-clip-text text-transparent">{TECHNOLOGY_SHOWCASE_DATA.titleHighlight}</span>
             </h2>
-            <p className="text-[16px] sm:text-[17px] text-[#354765] leading-relaxed">
+            <p className="text-[16px] sm:text-[17px] text-[#45546B] leading-relaxed">
               {TECHNOLOGY_SHOWCASE_DATA.description}
             </p>
           </div>
@@ -546,13 +552,13 @@ export const CaseStudiesPage: React.FC = () => {
 
                   {/* Text Details */}
                   <div className="space-y-1 pt-1">
-                    <h3 className="text-[17px] font-bold text-[#10264b]">
+                    <h3 className="text-[17px] font-bold text-[#172B50]">
                       {tech.name}
                     </h3>
                     <p className="text-[13px] font-semibold text-blue-600">
                       {tech.role}
                     </p>
-                    <p className="text-[13px] text-[#354765] leading-relaxed pt-1">
+                    <p className="text-[13px] text-[#53647A] leading-relaxed pt-1">
                       {tech.description}
                     </p>
                   </div>
@@ -568,263 +574,52 @@ export const CaseStudiesPage: React.FC = () => {
       {/* ========================================================================= */}
       <section className="py-12 lg:py-16 bg-slate-50/50">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="rounded-2xl bg-[#eaf4ff] border border-blue-200/90 p-8 sm:p-10 lg:p-12 shadow-sm">
+          <div className="rounded-2xl sm:rounded-3xl bg-[#eaf4ff] border border-blue-200/90 p-8 sm:p-10 lg:p-12 shadow-sm">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-              {/* Left Column: Heading, Subheading & Consultation Button */}
+              
+              {/* Left Column: Heading, Subtext & Both Action Buttons */}
               <div className="lg:col-span-6 space-y-4 text-left">
-                <span className="text-[12px] sm:text-[13px] font-bold uppercase tracking-wider text-blue-600">
+                <span className="text-[12px] sm:text-[13px] font-bold uppercase tracking-wider text-[#1B72E8] block">
                   LET'S WORK TOGETHER
                 </span>
-
-                <h2 className="text-[28px] sm:text-[34px] lg:text-[38px] font-extrabold text-[#10264b] tracking-tight leading-tight">
+                <h2 className="font-serif text-[28px] sm:text-[34px] lg:text-[40px] font-bold text-[#142B59] tracking-tight leading-[1.18]">
                   {CASE_STUDIES_CTA_DATA.titleStart}{' '}
-                  <span className="text-[#7139e8]">
-                    {CASE_STUDIES_CTA_DATA.titleHighlight}
-                  </span>
+                  <span className="bg-gradient-to-r from-[#0052CC] via-[#0066CC] to-[#0A66C2] bg-clip-text text-transparent">{CASE_STUDIES_CTA_DATA.titleHighlight}</span>
                 </h2>
-
-                <p className="text-[15px] sm:text-[16px] text-[#354765] leading-relaxed max-w-xl">
+                
+                <p className="text-[15px] sm:text-[16px] text-[#45546B] leading-relaxed max-w-lg">
                   {CASE_STUDIES_CTA_DATA.description}
                 </p>
 
-                <div className="pt-2">
+                <div className="pt-2 flex flex-wrap items-center gap-4">
                   <button
                     onClick={() => setIsConsultationModalOpen(true)}
-                    className="inline-flex items-center justify-center gap-2 text-[15px] sm:text-[16px] font-semibold px-8 py-3.5 rounded-xl bg-[#0878f9] hover:bg-blue-700 text-white shadow-md shadow-blue-600/25 transition-all cursor-pointer"
+                    className="inline-flex items-center justify-center gap-2 text-[15px] sm:text-[16px] font-semibold px-7 py-3.5 rounded-xl bg-gradient-to-r from-[#0052CC] to-[#0A66C2] hover:from-[#0040A8] hover:to-[#08529C] text-white shadow-md shadow-blue-500/25 transition-all cursor-pointer"
                   >
                     <span>{CASE_STUDIES_CTA_DATA.primaryCtaText}</span>
-                    <ArrowRight className="w-5 h-5" />
+                    <ArrowRight className="w-4 h-4" />
                   </button>
+                  <Link
+                    to="/contact"
+                    className="inline-flex items-center justify-center font-semibold rounded-xl px-6 py-3.5 text-[15px] sm:text-[16px] bg-white text-[#142B59] hover:bg-slate-50 border border-slate-300 shadow-sm transition-colors"
+                  >
+                    Contact Us
+                  </Link>
                 </div>
               </div>
 
-              {/* Right Column: 3 Clean Box-Type Contact Cards matching About Page */}
-              <div className="lg:col-span-6 space-y-3.5">
-                {/* Email Card (Green border) */}
-                <a
-                  href={`mailto:${CASE_STUDIES_CTA_DATA.email}?subject=Case%20Studies%20Inquiry`}
-                  className="bg-white rounded-xl p-4 sm:p-4.5 border-2 border-[#16b978] shadow-sm hover:shadow-md transition-all flex items-center gap-4 group"
-                >
-                  <div className="w-11 h-11 rounded-lg bg-blue-50 border border-blue-100 text-[#0878f9] flex items-center justify-center shrink-0 group-hover:bg-[#0878f9] group-hover:text-white transition-colors">
-                    <Mail className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <p className="text-[11px] font-bold uppercase tracking-wider text-slate-400">
-                      Email
-                    </p>
-                    <p className="text-[15px] font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
-                      {CASE_STUDIES_CTA_DATA.email}
-                    </p>
-                  </div>
-                </a>
-
-                {/* Phone Card (Blue border) */}
-                <a
-                  href={`tel:${CASE_STUDIES_CTA_DATA.phone}`}
-                  className="bg-white rounded-xl p-4 sm:p-4.5 border-2 border-[#2992ff] shadow-sm hover:shadow-md transition-all flex items-center gap-4 group"
-                >
-                  <div className="w-11 h-11 rounded-lg bg-blue-50 border border-blue-100 text-[#0878f9] flex items-center justify-center shrink-0 group-hover:bg-[#0878f9] group-hover:text-white transition-colors">
-                    <Phone className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <p className="text-[11px] font-bold uppercase tracking-wider text-slate-400">
-                      Phone
-                    </p>
-                    <p className="text-[15px] font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
-                      {CASE_STUDIES_CTA_DATA.phone}
-                    </p>
-                  </div>
-                </a>
-
-                {/* Locations Card (Violet border) */}
-                <div className="bg-white rounded-xl p-4 sm:p-4.5 border-2 border-[#a34dff] shadow-sm flex items-center gap-4">
-                  <div className="w-11 h-11 rounded-lg bg-blue-50 border border-blue-100 text-[#0878f9] flex items-center justify-center shrink-0">
-                    <MapPin className="w-6 h-6" />
-                  </div>
-                  <div>
-                    <p className="text-[11px] font-bold uppercase tracking-wider text-slate-400">
-                      Locations
-                    </p>
-                    <p className="text-[14px] font-bold text-slate-900">
-                      Borivali, Mumbai
-                    </p>
-                    <p className="text-[14px] font-bold text-slate-900">
-                      Marine Lines, Mumbai
-                    </p>
-                  </div>
-                </div>
+              {/* Right Column: 3 Clean Contact Info Cards matching reference */}
+              <div className="lg:col-span-6">
+                <CtaContactCards />
               </div>
+
             </div>
           </div>
         </div>
       </section>
 
       {/* ========================================================================= */}
-      {/* MODAL 1: FEATURED CASE STUDY FULL DETAILS                                 */}
-      {/* ========================================================================= */}
-      <Modal
-        isOpen={isFeaturedModalOpen}
-        onClose={() => setIsFeaturedModalOpen(false)}
-        title={FEATURED_CASE_STUDY_DATA.mainHeading}
-      >
-        <div className="space-y-6 text-left">
-          <div className="relative h-60 rounded-2xl overflow-hidden bg-slate-100">
-            <img
-              src={FEATURED_CASE_STUDY_DATA.image}
-              alt="Featured Case Study Robotics"
-              className="w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent pointer-events-none" />
-            <div className="absolute bottom-4 left-4 px-4 py-1.5 rounded-lg bg-[#ed861d] text-white font-bold text-sm flex items-center gap-2 shadow-md">
-              <Factory className="w-4 h-4" />
-              <span>{FEATURED_CASE_STUDY_DATA.industryLabel} Project Spotlight</span>
-            </div>
-          </div>
-
-          <div className="space-y-2">
-            <h4 className="text-[18px] font-bold text-[#10264b]">
-              {FEATURED_CASE_STUDY_DATA.title}
-            </h4>
-            <p className="text-[14px] text-slate-500 italic">
-              {FEATURED_CASE_STUDY_DATA.fullDetails.clientType} • {FEATURED_CASE_STUDY_DATA.fullDetails.timeToDeploy}
-            </p>
-          </div>
-
-          <div className="space-y-3">
-            <h4 className="text-[16px] font-bold text-[#10264b]">Verified Business Outcomes</h4>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-              {FEATURED_CASE_STUDY_DATA.fullDetails.verifiedKpis.map((kpi, idx) => (
-                <div
-                  key={idx}
-                  className="flex items-center gap-2.5 p-3 rounded-xl bg-slate-50 border border-slate-100 text-slate-700 text-[14px]"
-                >
-                  <CheckCircle2 className="w-4 h-4 shrink-0 text-[#16a879]" />
-                  <span className="font-medium">{kpi}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <p className="text-[12px] text-slate-400 border-t border-slate-100 pt-3">
-            {FEATURED_CASE_STUDY_DATA.fullDetails.verifiedOutcomeNote}
-          </p>
-
-          <div className="pt-2 flex flex-col sm:flex-row items-center justify-between gap-4">
-            <button
-              onClick={() => {
-                setIsFeaturedModalOpen(false);
-                setIsConsultationModalOpen(true);
-              }}
-              className="w-full sm:w-auto px-7 py-3 rounded-xl bg-[#0878f9] hover:bg-blue-700 text-white font-semibold text-sm shadow-md transition-all cursor-pointer"
-            >
-              Discuss Your Manufacturing Project
-            </button>
-          </div>
-        </div>
-      </Modal>
-
-      {/* ========================================================================= */}
-      {/* MODAL 2: MORE CASE STUDY ITEM MODAL                                       */}
-      {/* ========================================================================= */}
-      {selectedCaseStudy && (
-        <Modal
-          isOpen={!!selectedCaseStudy}
-          onClose={() => setSelectedCaseStudy(null)}
-          title={selectedCaseStudy.title}
-        >
-          <div className="space-y-6 text-left">
-            <div className="relative h-56 rounded-2xl overflow-hidden bg-slate-100">
-              <img
-                src={selectedCaseStudy.image}
-                alt={selectedCaseStudy.title}
-                className="w-full h-full object-cover"
-                onError={(e) => {
-                  if (selectedCaseStudy.fallbackCrop) {
-                    e.currentTarget.src = selectedCaseStudy.fallbackCrop;
-                  }
-                }}
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent pointer-events-none" />
-              <div
-                className="absolute bottom-4 left-4 px-4 py-1.5 rounded-lg text-white font-bold text-sm flex items-center gap-2 shadow-md"
-                style={{ backgroundColor: selectedCaseStudy.accentColor }}
-              >
-                {renderCardIcon(selectedCaseStudy.iconName, 'w-4 h-4')}
-                <span>{selectedCaseStudy.category}</span>
-              </div>
-            </div>
-
-            <div className="space-y-2">
-              <h4 className="text-[18px] font-bold text-[#10264b]">
-                {selectedCaseStudy.title}
-              </h4>
-              <p className="text-[14px] text-slate-500 font-semibold">
-                Technology Stack: {selectedCaseStudy.techUsed}
-              </p>
-              <p className="text-[15px] text-[#40506a] leading-relaxed">
-                {selectedCaseStudy.description}
-              </p>
-            </div>
-
-            {selectedCaseStudy.challengeDetail && selectedCaseStudy.solutionDetail && (
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div className="p-3.5 rounded-xl bg-red-50/50 border border-red-100 space-y-1">
-                  <h5 className="text-[13px] font-bold text-red-700 uppercase tracking-wider">
-                    Operational Challenge
-                  </h5>
-                  <p className="text-[13px] text-slate-700 leading-relaxed">
-                    {selectedCaseStudy.challengeDetail}
-                  </p>
-                </div>
-                <div className="p-3.5 rounded-xl bg-emerald-50/50 border border-emerald-100 space-y-1">
-                  <h5 className="text-[13px] font-bold text-emerald-700 uppercase tracking-wider">
-                    ATLAS Solution
-                  </h5>
-                  <p className="text-[13px] text-slate-700 leading-relaxed">
-                    {selectedCaseStudy.solutionDetail}
-                  </p>
-                </div>
-              </div>
-            )}
-
-            <div className="space-y-3">
-              <h4 className="text-[16px] font-bold text-[#10264b]">Documented Results</h4>
-              <div className="space-y-2">
-                {selectedCaseStudy.verifiedKpis.map((kpi, idx) => (
-                  <div
-                    key={idx}
-                    className="flex items-center gap-2.5 p-3 rounded-xl bg-slate-50 border border-slate-100 text-slate-700 text-[14px]"
-                  >
-                    <CheckCircle2
-                      className="w-4 h-4 shrink-0"
-                      style={{ color: selectedCaseStudy.accentColor }}
-                    />
-                    <span className="font-medium">{kpi}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="pt-4 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4">
-              <p className="text-[13px] text-slate-500">
-                Ready to achieve similar operational progress?
-              </p>
-              <button
-                onClick={() => {
-                  setSelectedCaseStudy(null);
-                  setIsConsultationModalOpen(true);
-                }}
-                className="w-full sm:w-auto px-6 py-3 rounded-xl bg-[#0878f9] hover:bg-blue-700 text-white font-semibold text-sm shadow-md transition-all cursor-pointer"
-              >
-                Book a Consultation
-              </button>
-            </div>
-          </div>
-        </Modal>
-      )}
-
-      {/* ========================================================================= */}
-      {/* MODAL 3: CONSULTATION BOOKING MODAL                                       */}
+      {/* CONSULTATION BOOKING MODAL                                                */}
       {/* ========================================================================= */}
       <Modal
         isOpen={isConsultationModalOpen}
@@ -839,13 +634,13 @@ export const CaseStudiesPage: React.FC = () => {
             <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto">
               <CheckCircle2 className="w-8 h-8" />
             </div>
-            <h3 className="text-[22px] font-bold text-[#10264b]">
+            <h3 className="text-[22px] font-bold text-[#142B59]">
               Consultation Request Received
             </h3>
             <p className="text-[15px] text-[#40506a] max-w-md mx-auto">
-              Thank you, <span className="font-semibold text-[#10264b]">{formData.fullName}</span>.
+              Thank you, <span className="font-semibold text-[#142B59]">{formData.fullName}</span>.
               Our enterprise solutions architect will review requirements for{' '}
-              <span className="font-semibold text-[#10264b]">{formData.companyName}</span> and
+              <span className="font-semibold text-[#142B59]">{formData.companyName}</span> and
               contact you within 24 hours.
             </p>
             <div className="pt-4">
@@ -1013,15 +808,7 @@ export const CaseStudiesPage: React.FC = () => {
       </Modal>
 
       {/* Floating Scroll to Top Button */}
-      {showScrollTop && (
-        <button
-          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          aria-label="Scroll to top"
-          className="fixed bottom-6 right-6 z-30 p-3 rounded-full bg-[#10264b] hover:bg-[#0878f9] text-white shadow-xl transition-all duration-300 hover:scale-110 cursor-pointer"
-        >
-          <ChevronUp className="w-5 h-5" />
-        </button>
-      )}
+      /* Global scroll-to-top handled by SiteLayout */
     </div>
   );
 };

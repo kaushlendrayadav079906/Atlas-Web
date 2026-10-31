@@ -22,12 +22,12 @@ export const ProcessStep: React.FC<ProcessStepProps> = ({
       </div>
 
       {/* Step Heading */}
-      <h3 className="text-[17px] sm:text-[19px] font-bold text-slate-900 mb-1.5">
+      <h3 className="text-[17px] sm:text-[19px] font-bold text-[#172B50] mb-1.5">
         {title}
       </h3>
 
       {/* Description */}
-      <p className="text-[13px] sm:text-[14px] text-slate-600 leading-snug max-w-[220px]">
+      <p className="text-[13px] sm:text-[14px] text-[#53647A] leading-snug max-w-[220px]">
         {description}
       </p>
 

@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+import { CtaContactCards } from '../components/ui/CtaContactCards';
 import React, { useState, useEffect } from 'react';
 import {
   ArrowRight,
@@ -168,7 +170,7 @@ export const IndustriesPage: React.FC = () => {
   };
 
   return (
-    <div className="relative bg-white text-[#354765] selection:bg-blue-600 selection:text-white">
+    <div className="relative bg-white text-[#45546B] selection:bg-blue-600 selection:text-white">
       {/* Background Decorative Ambient Glow matching About Page */}
       <div className="absolute -left-12 top-1/2 -translate-y-1/2 w-48 h-80 opacity-25 pointer-events-none select-none hidden lg:block">
         <div className="w-full h-full bg-gradient-to-tr from-emerald-600/30 via-teal-500/10 to-transparent rounded-full blur-3xl" />
@@ -184,19 +186,19 @@ export const IndustriesPage: React.FC = () => {
             <div className="lg:col-span-7 space-y-6 text-left">
               {/* Eyebrow */}
               <div className="inline-block">
-                <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-blue-600 select-none">
+                <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-[#1B72E8] select-none">
                   {INDUSTRIES_HERO_DATA.eyebrow}
                 </span>
               </div>
 
               {/* Main Headline */}
-              <h1 className="text-[36px] sm:text-[44px] lg:text-[50px] xl:text-[54px] font-extrabold tracking-tight leading-[1.14] text-[#10264b]">
+              <h1 className="font-serif text-[38px] sm:text-[46px] lg:text-[52px] xl:text-[56px] font-bold tracking-tight leading-[1.14] text-[#142B59]">
                 {INDUSTRIES_HERO_DATA.titleStart}{' '}
-                <span className="text-[#7139e8]">{INDUSTRIES_HERO_DATA.titleHighlight}</span>
+                <span className="bg-gradient-to-r from-[#0052CC] via-[#0066CC] to-[#0A66C2] bg-clip-text text-transparent">{INDUSTRIES_HERO_DATA.titleHighlight}</span>
               </h1>
 
               {/* Subheading / Description */}
-              <p className="text-[16px] sm:text-[17px] lg:text-[18px] text-[#354765] leading-relaxed max-w-2xl font-normal">
+              <p className="text-[16px] sm:text-[17px] lg:text-[18px] text-[#45546B] leading-relaxed max-w-2xl font-normal">
                 {INDUSTRIES_HERO_DATA.description}
               </p>
 
@@ -204,7 +206,7 @@ export const IndustriesPage: React.FC = () => {
               <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
                 <button
                   onClick={() => setIsConsultationModalOpen(true)}
-                  className="inline-flex items-center justify-center gap-2 text-[16px] font-semibold px-8 py-3.5 rounded-xl bg-[#0878f9] hover:bg-blue-700 text-white shadow-md shadow-blue-600/25 transition-all duration-200 cursor-pointer"
+                  className="inline-flex items-center justify-center gap-2 text-[16px] font-semibold px-8 py-3.5 rounded-xl bg-gradient-to-r from-[#0052CC] to-[#0A66C2] hover:from-[#0040A8] hover:to-[#08529C] text-white shadow-md shadow-blue-500/25 transition-all duration-200 cursor-pointer"
                 >
                   <span>{INDUSTRIES_HERO_DATA.primaryCtaText}</span>
                   <ArrowRight className="w-5 h-5" />
@@ -212,7 +214,7 @@ export const IndustriesPage: React.FC = () => {
 
                 <button
                   onClick={() => setIsConsultationModalOpen(true)}
-                  className="inline-flex items-center justify-center gap-2 text-[16px] font-semibold px-8 py-3.5 rounded-xl bg-white hover:bg-slate-50 text-slate-800 border border-slate-200/90 shadow-sm transition-all duration-200 cursor-pointer"
+                  className="inline-flex items-center justify-center gap-2 text-[16px] font-semibold px-8 py-3.5 rounded-xl bg-white hover:bg-slate-50 text-[#142B59] border border-slate-200/90 shadow-sm transition-all duration-200 cursor-pointer"
                 >
                   <span>{INDUSTRIES_HERO_DATA.secondaryCtaText}</span>
                 </button>
@@ -234,7 +236,7 @@ export const IndustriesPage: React.FC = () => {
 
                 {/* Floating Top Right Card: Technology Solutions for Every Industry */}
                 <div className="absolute top-5 right-5 bg-white/95 backdrop-blur-md rounded-2xl p-4 shadow-xl border border-slate-200/90 max-w-[270px]">
-                  <p className="text-[13px] font-bold text-[#10264b] mb-3 leading-snug">
+                  <p className="text-[13px] font-bold text-[#142B59] mb-3 leading-snug">
                     {INDUSTRIES_HERO_DATA.floatingTitle}
                   </p>
                   <div className="space-y-2">
@@ -267,14 +269,14 @@ export const IndustriesPage: React.FC = () => {
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section Header */}
           <div className="text-center max-w-5xl mx-auto mb-14 space-y-3">
-            <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-blue-600">
+            <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-[#1B72E8]">
               {INDUSTRIES_SECTION_HEADER.eyebrow}
             </span>
-            <h2 className="text-[32px] sm:text-[38px] lg:text-[42px] font-extrabold text-[#10264b] tracking-tight">
+            <h2 className="font-serif text-[32px] sm:text-[38px] lg:text-[42px] font-bold text-[#142B59] tracking-tight">
               {INDUSTRIES_SECTION_HEADER.titleStart}{' '}
-              <span className="text-[#7139e8]">{INDUSTRIES_SECTION_HEADER.titleHighlight}</span>
+              <span className="bg-gradient-to-r from-[#0052CC] via-[#0066CC] to-[#0A66C2] bg-clip-text text-transparent">{INDUSTRIES_SECTION_HEADER.titleHighlight}</span>
             </h2>
-            <p className="text-[16px] sm:text-[17px] text-[#354765] leading-relaxed max-w-3xl mx-auto">
+            <p className="text-[16px] sm:text-[17px] text-[#45546B] leading-relaxed max-w-3xl mx-auto">
               {INDUSTRIES_SECTION_HEADER.description}
             </p>
           </div>
@@ -316,10 +318,10 @@ export const IndustriesPage: React.FC = () => {
 
                     {/* Card Content */}
                     <div className="p-5 sm:p-6 space-y-3">
-                      <h3 className="text-[20px] font-bold text-[#10264b] leading-snug group-hover:text-blue-600 transition-colors">
+                      <h3 className="text-[20px] font-bold text-[#142B59] leading-snug group-hover:text-blue-600 transition-colors">
                         {card.title}
                       </h3>
-                      <p className="text-[14px] text-[#354765] leading-relaxed line-clamp-3">
+                      <p className="text-[14px] text-[#45546B] leading-relaxed line-clamp-3">
                         {card.description}
                       </p>
                     </div>
@@ -362,11 +364,11 @@ export const IndustriesPage: React.FC = () => {
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section Header */}
           <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
-            <h2 className="text-[32px] sm:text-[38px] lg:text-[42px] font-extrabold text-[#10264b] tracking-tight">
+            <h2 className="font-serif text-[32px] sm:text-[38px] lg:text-[42px] font-bold text-[#142B59] tracking-tight">
               {INDUSTRY_VALUE_DATA.titleStart}{' '}
-              <span className="text-[#7139e8]">{INDUSTRY_VALUE_DATA.titleHighlight}</span>
+              <span className="bg-gradient-to-r from-[#0052CC] via-[#0066CC] to-[#0A66C2] bg-clip-text text-transparent">{INDUSTRY_VALUE_DATA.titleHighlight}</span>
             </h2>
-            <p className="text-[16px] sm:text-[17px] text-[#354765] leading-relaxed">
+            <p className="text-[16px] sm:text-[17px] text-[#45546B] leading-relaxed">
               {INDUSTRY_VALUE_DATA.description}
             </p>
           </div>
@@ -388,10 +390,10 @@ export const IndustriesPage: React.FC = () => {
 
                 {/* Text Content */}
                 <div className="space-y-1">
-                  <h3 className="text-[17px] font-bold text-[#10264b] leading-snug">
+                  <h3 className="text-[17px] font-bold text-[#172B50] leading-snug">
                     {val.title}
                   </h3>
-                  <p className="text-[13px] text-[#354765] leading-relaxed">
+                  <p className="text-[13px] text-[#53647A] leading-relaxed">
                     {val.description}
                   </p>
                 </div>
@@ -408,11 +410,11 @@ export const IndustriesPage: React.FC = () => {
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section Header */}
           <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-            <h2 className="text-[32px] sm:text-[38px] lg:text-[42px] font-extrabold text-[#10264b] tracking-tight">
+            <h2 className="font-serif text-[32px] sm:text-[38px] lg:text-[42px] font-bold text-[#142B59] tracking-tight">
               {INDUSTRY_ENGAGEMENT_DATA.titleStart}{' '}
-              <span className="text-[#7139e8]">{INDUSTRY_ENGAGEMENT_DATA.titleHighlight}</span>
+              <span className="bg-gradient-to-r from-[#0052CC] via-[#0066CC] to-[#0A66C2] bg-clip-text text-transparent">{INDUSTRY_ENGAGEMENT_DATA.titleHighlight}</span>
             </h2>
-            <p className="text-[16px] sm:text-[17px] text-[#354765] leading-relaxed">
+            <p className="text-[16px] sm:text-[17px] text-[#45546B] leading-relaxed">
               {INDUSTRY_ENGAGEMENT_DATA.description}
             </p>
           </div>
@@ -434,7 +436,7 @@ export const IndustriesPage: React.FC = () => {
                     </div>
 
                     {/* Step Title */}
-                    <h3 className="mt-4 text-[15px] font-bold text-[#10264b] leading-tight group-hover:text-blue-600 transition-colors">
+                    <h3 className="mt-4 text-[15px] font-bold text-[#172B50] leading-tight group-hover:text-[#1B72E8] transition-colors">
                       {step.title}
                     </h3>
                   </div>
@@ -462,92 +464,45 @@ export const IndustriesPage: React.FC = () => {
       {/* ========================================================================= */}
       <section className="py-12 lg:py-16 bg-slate-50/50">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="rounded-2xl bg-[#eaf4ff] border border-blue-200/90 p-8 sm:p-10 lg:p-12 shadow-sm">
+          <div className="rounded-2xl sm:rounded-3xl bg-[#eaf4ff] border border-blue-200/90 p-8 sm:p-10 lg:p-12 shadow-sm">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-              {/* Left Column: Heading, Subheading & Consultation Button */}
+              
+              {/* Left Column: Heading, Subtext & Both Action Buttons */}
               <div className="lg:col-span-6 space-y-4 text-left">
-                <span className="text-[12px] sm:text-[13px] font-bold uppercase tracking-wider text-blue-600">
+                <span className="text-[12px] sm:text-[13px] font-bold uppercase tracking-wider text-[#1B72E8] block">
                   {INDUSTRIES_CONTACT_CTA_DATA.eyebrow}
                 </span>
-
-                <h2 className="text-[28px] sm:text-[34px] lg:text-[38px] font-extrabold text-[#10264b] tracking-tight leading-tight">
+                <h2 className="font-serif text-[28px] sm:text-[34px] lg:text-[40px] font-bold text-[#142B59] tracking-tight leading-[1.18]">
                   {INDUSTRIES_CONTACT_CTA_DATA.titleStart}{' '}
-                  <span className="text-[#7139e8]">
-                    {INDUSTRIES_CONTACT_CTA_DATA.titleHighlight}
-                  </span>
+                  <span className="bg-gradient-to-r from-[#0052CC] via-[#0066CC] to-[#0A66C2] bg-clip-text text-transparent">{INDUSTRIES_CONTACT_CTA_DATA.titleHighlight}</span>
                 </h2>
-
-                <p className="text-[15px] sm:text-[16px] text-[#354765] leading-relaxed max-w-xl">
+                
+                <p className="text-[15px] sm:text-[16px] text-[#45546B] leading-relaxed max-w-lg">
                   {INDUSTRIES_CONTACT_CTA_DATA.description}
                 </p>
 
-                <div className="pt-2">
+                <div className="pt-2 flex flex-wrap items-center gap-4">
                   <button
                     onClick={() => setIsConsultationModalOpen(true)}
-                    className="inline-flex items-center justify-center gap-2 text-[15px] sm:text-[16px] font-semibold px-8 py-3.5 rounded-xl bg-[#0878f9] hover:bg-blue-700 text-white shadow-md shadow-blue-600/25 transition-all cursor-pointer"
+                    className="inline-flex items-center justify-center gap-2 text-[15px] sm:text-[16px] font-semibold px-7 py-3.5 rounded-xl bg-gradient-to-r from-[#0052CC] to-[#0A66C2] hover:from-[#0040A8] hover:to-[#08529C] text-white shadow-md shadow-blue-500/25 transition-all cursor-pointer"
                   >
                     <span>{INDUSTRIES_CONTACT_CTA_DATA.primaryCtaText}</span>
-                    <ArrowRight className="w-5 h-5" />
+                    <ArrowRight className="w-4 h-4" />
                   </button>
+                  <Link
+                    to="/contact"
+                    className="inline-flex items-center justify-center font-semibold rounded-xl px-6 py-3.5 text-[15px] sm:text-[16px] bg-white text-[#142B59] hover:bg-slate-50 border border-slate-300 shadow-sm transition-colors"
+                  >
+                    Contact Us
+                  </Link>
                 </div>
               </div>
 
-              {/* Right Column: 3 Clean Box-Type Contact Cards matching About Page */}
-              <div className="lg:col-span-6 space-y-3.5">
-                {/* Email Card (Green border matching About page) */}
-                <a
-                  href={`mailto:${INDUSTRIES_CONTACT_CTA_DATA.email}?subject=Industry%20Consultation%20Enquiry`}
-                  className="bg-white rounded-xl p-4 sm:p-4.5 border-2 border-[#16b978] shadow-sm hover:shadow-md transition-all flex items-center gap-4 group"
-                >
-                  <div className="w-11 h-11 rounded-lg bg-blue-50 border border-blue-100 text-[#0878f9] flex items-center justify-center shrink-0 group-hover:bg-[#0878f9] group-hover:text-white transition-colors">
-                    <Mail className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <p className="text-[11px] font-bold uppercase tracking-wider text-slate-400">
-                      Email
-                    </p>
-                    <p className="text-[15px] font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
-                      {INDUSTRIES_CONTACT_CTA_DATA.email}
-                    </p>
-                  </div>
-                </a>
-
-                {/* Phone Card (Blue border matching About page) */}
-                <a
-                  href={`tel:${INDUSTRIES_CONTACT_CTA_DATA.phone}`}
-                  className="bg-white rounded-xl p-4 sm:p-4.5 border-2 border-[#2992ff] shadow-sm hover:shadow-md transition-all flex items-center gap-4 group"
-                >
-                  <div className="w-11 h-11 rounded-lg bg-blue-50 border border-blue-100 text-[#0878f9] flex items-center justify-center shrink-0 group-hover:bg-[#0878f9] group-hover:text-white transition-colors">
-                    <Phone className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <p className="text-[11px] font-bold uppercase tracking-wider text-slate-400">
-                      Phone
-                    </p>
-                    <p className="text-[15px] font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
-                      {INDUSTRIES_CONTACT_CTA_DATA.phone}
-                    </p>
-                  </div>
-                </a>
-
-                {/* Locations Card (Violet/Purple border matching About page) */}
-                <div className="bg-white rounded-xl p-4 sm:p-4.5 border-2 border-[#a34dff] shadow-sm flex items-center gap-4">
-                  <div className="w-11 h-11 rounded-lg bg-blue-50 border border-blue-100 text-[#0878f9] flex items-center justify-center shrink-0">
-                    <MapPin className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <p className="text-[11px] font-bold uppercase tracking-wider text-slate-400">
-                      Locations
-                    </p>
-                    <p className="text-[14px] font-bold text-slate-900">
-                      Borivali, Mumbai
-                    </p>
-                    <p className="text-[14px] font-bold text-slate-900">
-                      Marine Lines, Mumbai
-                    </p>
-                  </div>
-                </div>
+              {/* Right Column: 3 Clean Contact Info Cards matching reference */}
+              <div className="lg:col-span-6">
+                <CtaContactCards />
               </div>
+
             </div>
           </div>
         </div>
@@ -585,14 +540,14 @@ export const IndustriesPage: React.FC = () => {
             </div>
 
             <div className="space-y-2">
-              <h4 className="text-[18px] font-bold text-[#10264b]">Industry Focus & Value</h4>
+              <h4 className="text-[18px] font-bold text-[#142B59]">Industry Focus & Value</h4>
               <p className="text-[15px] text-[#40506a] leading-relaxed">
                 {selectedIndustry.description}
               </p>
             </div>
 
             <div className="space-y-3">
-              <h4 className="text-[16px] font-bold text-[#10264b]">
+              <h4 className="text-[16px] font-bold text-[#142B59]">
                 Key Capabilities & Modules
               </h4>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
@@ -645,13 +600,13 @@ export const IndustriesPage: React.FC = () => {
             <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto">
               <CheckCircle2 className="w-8 h-8" />
             </div>
-            <h3 className="text-[22px] font-bold text-[#10264b]">
+            <h3 className="text-[22px] font-bold text-[#142B59]">
               Consultation Request Received
             </h3>
             <p className="text-[15px] text-[#40506a] max-w-md mx-auto">
-              Thank you, <span className="font-semibold text-[#10264b]">{formData.fullName}</span>.
+              Thank you, <span className="font-semibold text-[#142B59]">{formData.fullName}</span>.
               Our industry solutions team will review your requirements for{' '}
-              <span className="font-semibold text-[#10264b]">{formData.companyName}</span> and
+              <span className="font-semibold text-[#142B59]">{formData.companyName}</span> and
               contact you within 24 hours.
             </p>
             <div className="pt-4">
@@ -822,15 +777,7 @@ export const IndustriesPage: React.FC = () => {
       </Modal>
 
       {/* Floating Scroll to Top Button */}
-      {showScrollTop && (
-        <button
-          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          aria-label="Scroll to top"
-          className="fixed bottom-6 right-6 z-30 p-3 rounded-full bg-[#10264b] hover:bg-blue-600 text-white shadow-xl transition-all duration-300 hover:scale-110 cursor-pointer"
-        >
-          <ChevronUp className="w-5 h-5" />
-        </button>
-      )}
+      /* Global scroll-to-top handled by SiteLayout */
     </div>
   );
 };

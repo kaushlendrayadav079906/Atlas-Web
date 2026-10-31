@@ -1,4 +1,6 @@
+import { CtaContactCards } from '../components/ui/CtaContactCards';
 import React, { useState, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import {
   ArrowRight,
   CheckCircle2,
@@ -30,7 +32,8 @@ import {
   UiPathLogo,
   BeasManufacturingLogo,
   ProdumexWMSLogo,
-  B1UPLogo
+  B1UPLogo,
+  AtlasLogo
 } from '../components/ui/PartnerLogos';
 import { BRAND_INFO } from '../data/websiteContent';
 import { ContactFormData } from '../types';
@@ -42,16 +45,14 @@ import {
   UIPATH_PARTNERSHIP_DATA,
   TECHNOLOGY_ECOSYSTEM_DATA,
   WHY_CHOOSE_PARTNERSHIP_DATA,
-  PARTNERS_CTA_DATA,
-  BoyumProductCardItem
+  PARTNERS_CTA_DATA
 } from '../data/partnersContent';
 
 export const PartnersPage: React.FC = () => {
-  // Modal states
+  const navigate = useNavigate();
+
+  // Consultation Modal state
   const [isConsultationModalOpen, setIsConsultationModalOpen] = useState(false);
-  const [selectedBoyumProduct, setSelectedBoyumProduct] = useState<BoyumProductCardItem | null>(null);
-  const [isSapModalOpen, setIsSapModalOpen] = useState(false);
-  const [isUiPathModalOpen, setIsUiPathModalOpen] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
 
   // Form state
@@ -178,7 +179,7 @@ export const PartnersPage: React.FC = () => {
   };
 
   return (
-    <div className="relative bg-white text-[#354765] selection:bg-blue-600 selection:text-white">
+    <div className="relative bg-white text-[#45546B] selection:bg-blue-600 selection:text-white">
       {/* Background Decorative Ambient Glow matching About Page */}
       <div className="absolute -left-12 top-1/2 -translate-y-1/2 w-48 h-80 opacity-25 pointer-events-none select-none hidden lg:block">
         <div className="w-full h-full bg-gradient-to-tr from-emerald-600/30 via-teal-500/10 to-transparent rounded-full blur-3xl" />
@@ -195,19 +196,19 @@ export const PartnersPage: React.FC = () => {
             <div className="lg:col-span-7 space-y-6 text-left">
               {/* Eyebrow */}
               <div className="inline-block">
-                <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-blue-600 select-none">
+                <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-[#1B72E8] select-none">
                   {PARTNERS_HERO_DATA.eyebrow}
                 </span>
               </div>
 
               {/* Main Headline */}
-              <h1 className="text-[36px] sm:text-[44px] lg:text-[50px] xl:text-[54px] font-extrabold tracking-tight leading-[1.14] text-[#10264b]">
+              <h1 className="font-serif text-[38px] sm:text-[46px] lg:text-[52px] xl:text-[56px] font-bold tracking-tight leading-[1.14] text-[#142B59]">
                 {PARTNERS_HERO_DATA.titleStart}{' '}
-                <span className="text-[#7139e8]">{PARTNERS_HERO_DATA.titleHighlight}</span>
+                <span className="bg-gradient-to-r from-[#0052CC] via-[#0066CC] to-[#0A66C2] bg-clip-text text-transparent">{PARTNERS_HERO_DATA.titleHighlight}</span>
               </h1>
 
               {/* Description */}
-              <p className="text-[16px] sm:text-[17px] lg:text-[18px] text-[#354765] leading-relaxed max-w-2xl font-normal">
+              <p className="text-[16px] sm:text-[17px] lg:text-[18px] text-[#45546B] leading-relaxed max-w-2xl font-normal">
                 {PARTNERS_HERO_DATA.description}
               </p>
 
@@ -215,7 +216,7 @@ export const PartnersPage: React.FC = () => {
               <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
                 <a
                   href="#overview"
-                  className="inline-flex items-center justify-center gap-2 text-[16px] font-semibold px-8 py-3.5 rounded-xl bg-[#0878f9] hover:bg-blue-700 text-white shadow-md shadow-blue-600/25 transition-all duration-200 cursor-pointer"
+                  className="inline-flex items-center justify-center gap-2 text-[16px] font-semibold px-8 py-3.5 rounded-xl bg-gradient-to-r from-[#0052CC] to-[#0A66C2] hover:from-[#0040A8] hover:to-[#08529C] text-white shadow-md shadow-blue-500/25 transition-all duration-200 cursor-pointer"
                 >
                   <span>{PARTNERS_HERO_DATA.primaryCtaText}</span>
                   <ArrowRight className="w-5 h-5" />
@@ -223,7 +224,7 @@ export const PartnersPage: React.FC = () => {
 
                 <button
                   onClick={() => setIsConsultationModalOpen(true)}
-                  className="inline-flex items-center justify-center gap-2 text-[16px] font-semibold px-8 py-3.5 rounded-xl bg-white hover:bg-slate-50 text-slate-800 border border-slate-200/90 shadow-sm transition-all duration-200 cursor-pointer"
+                  className="inline-flex items-center justify-center gap-2 text-[16px] font-semibold px-8 py-3.5 rounded-xl bg-white hover:bg-slate-50 text-[#142B59] border border-slate-200/90 shadow-sm transition-all duration-200 cursor-pointer"
                 >
                   <span>{PARTNERS_HERO_DATA.secondaryCtaText}</span>
                 </button>
@@ -266,7 +267,7 @@ export const PartnersPage: React.FC = () => {
                       >
                         {renderBadgeIcon(badge.iconName)}
                       </div>
-                      <span className="text-[12px] sm:text-[13px] font-bold text-[#10264b] leading-tight">
+                      <span className="text-[12px] sm:text-[13px] font-bold text-[#142B59] leading-tight">
                         {badge.label}
                       </span>
                     </div>
@@ -287,34 +288,36 @@ export const PartnersPage: React.FC = () => {
           
           {/* Section Header */}
           <div className="text-left mb-12 space-y-2">
-            <h2 className="text-[32px] sm:text-[38px] lg:text-[42px] font-extrabold text-[#10264b] tracking-tight">
+            <h2 className="font-serif text-[32px] sm:text-[38px] lg:text-[42px] font-bold text-[#142B59] tracking-tight">
               {TECHNOLOGY_PARTNERS_OVERVIEW_DATA.titleStart}{' '}
-              <span className="text-[#7139e8]">{TECHNOLOGY_PARTNERS_OVERVIEW_DATA.titleHighlight}</span>
+              <span className="bg-gradient-to-r from-[#0052CC] via-[#0066CC] to-[#0A66C2] bg-clip-text text-transparent">{TECHNOLOGY_PARTNERS_OVERVIEW_DATA.titleHighlight}</span>
             </h2>
-            <p className="text-[16px] sm:text-[17px] text-[#354765] leading-relaxed max-w-3xl">
+            <p className="text-[16px] sm:text-[17px] text-[#45546B] leading-relaxed max-w-3xl">
               {TECHNOLOGY_PARTNERS_OVERVIEW_DATA.description}
             </p>
           </div>
 
-          {/* 3 Partner Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+          {/* 4 Partner Cards Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {TECHNOLOGY_PARTNERS_OVERVIEW_DATA.partners.map((partner) => (
               <div
                 key={partner.id}
-                className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between"
+                onClick={() => navigate(partner.route)}
+                className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between cursor-pointer"
                 style={{
                   border: `2px solid ${partner.borderColor}`
                 }}
               >
                 <div>
                   {/* Top Bar: Logo & Thumbnail Image */}
-                  <div className="p-5 sm:p-6 pb-2 flex items-center justify-between gap-4">
-                    <div>
-                      {partner.badgeType === 'sap' && <SAPBusinessOneLogo className="h-9" />}
-                      {partner.badgeType === 'boyum' && <BoyumITLogo className="h-9" />}
-                      {partner.badgeType === 'uipath' && <UiPathLogo className="h-9" />}
+                  <div className="p-5 pb-2 flex items-center justify-between gap-3">
+                    <div className="shrink-0">
+                      {partner.badgeType === 'sap' && <SAPBusinessOneLogo className="h-8" />}
+                      {partner.badgeType === 'boyum' && <BoyumITLogo className="h-8" />}
+                      {partner.badgeType === 'uipath' && <UiPathLogo className="h-8" />}
+                      {partner.badgeType === 'atlas' && <AtlasLogo className="h-8" />}
                     </div>
-                    <div className="w-24 h-16 sm:w-28 sm:h-18 rounded-xl overflow-hidden shadow-inner border border-slate-100 shrink-0">
+                    <div className="w-20 h-14 sm:w-22 sm:h-15 rounded-xl overflow-hidden shadow-inner border border-slate-100 shrink-0">
                       <img
                         src={partner.image}
                         alt={partner.title}
@@ -324,38 +327,40 @@ export const PartnersPage: React.FC = () => {
                   </div>
 
                   {/* Card Body */}
-                  <div className="px-5 sm:px-6 py-3 space-y-2 text-left">
-                    <h3 className="text-[20px] font-bold text-[#10264b] leading-snug">
-                      {partner.title}
-                    </h3>
-                    <p className="text-[14px] text-[#354765] leading-relaxed">
+                  <div className="px-5 py-3 space-y-2 text-left">
+                    <Link to={partner.route} className="block">
+                      <h3 className="text-[18px] sm:text-[19px] font-bold text-[#172B50] leading-snug group-hover:text-[#1B72E8] transition-colors">
+                        {partner.title}
+                      </h3>
+                    </Link>
+                    <p className="text-[13px] sm:text-[14px] text-[#53647A] leading-relaxed">
                       {partner.description}
                     </p>
                   </div>
                 </div>
 
                 {/* Card Action Link */}
-                <div className="px-5 sm:px-6 pb-5 pt-3 border-t border-slate-100 flex items-center justify-between">
-                  <a
-                    href={partner.linkTarget}
-                    className="text-[14px] font-bold flex items-center gap-1.5 transition-colors cursor-pointer"
+                <div className="px-5 pb-5 pt-3 border-t border-slate-100 flex items-center justify-between">
+                  <Link
+                    to={partner.route}
+                    className="text-[13px] sm:text-[14px] font-bold flex items-center gap-1.5 transition-colors cursor-pointer"
                     style={{ color: partner.arrowColor }}
                   >
                     <span>{partner.linkText}</span>
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </a>
+                  </Link>
 
-                  <a
-                    href={partner.linkTarget}
+                  <Link
+                    to={partner.route}
                     aria-label={partner.linkText}
-                    className="w-8 h-8 rounded-full flex items-center justify-center border transition-all cursor-pointer"
+                    className="w-8 h-8 rounded-full flex items-center justify-center border transition-all cursor-pointer group-hover:scale-110"
                     style={{
                       borderColor: partner.arrowColor,
                       color: partner.arrowColor
                     }}
                   >
                     <ArrowRight className="w-4 h-4" />
-                  </a>
+                  </Link>
                 </div>
               </div>
             ))}
@@ -372,21 +377,21 @@ export const PartnersPage: React.FC = () => {
           
           {/* Section Header */}
           <div className="text-left mb-10 space-y-2">
-            <h2 className="text-[30px] sm:text-[36px] lg:text-[40px] font-extrabold text-[#10264b] tracking-tight max-w-4xl leading-tight">
+            <h2 className="font-serif text-[30px] sm:text-[36px] lg:text-[40px] font-bold text-[#142B59] tracking-tight max-w-4xl leading-tight">
               {SAP_PARTNERSHIP_DATA.titleStart}{' '}
-              <span className="text-[#7139e8]">{SAP_PARTNERSHIP_DATA.titleHighlight}</span>
+              <span className="bg-gradient-to-r from-[#0052CC] via-[#0066CC] to-[#0A66C2] bg-clip-text text-transparent">{SAP_PARTNERSHIP_DATA.titleHighlight}</span>
             </h2>
-            <p className="text-[16px] sm:text-[17px] text-[#354765] leading-relaxed max-w-3xl">
+            <p className="text-[16px] sm:text-[17px] text-[#45546B] leading-relaxed max-w-3xl">
               {SAP_PARTNERSHIP_DATA.description}
             </p>
             <div className="pt-2">
-              <button
-                onClick={() => setIsSapModalOpen(true)}
-                className="inline-flex items-center justify-center gap-2 text-[15px] sm:text-[16px] font-semibold px-7 py-3 rounded-xl bg-[#0878f9] hover:bg-blue-700 text-white shadow-md shadow-blue-600/20 transition-all cursor-pointer"
+              <Link
+                to="/partners/sap-business-one"
+                className="inline-flex items-center justify-center gap-2 text-[15px] sm:text-[16px] font-semibold px-7 py-3 rounded-xl bg-gradient-to-r from-[#0052CC] to-[#0A66C2] hover:from-[#0040A8] hover:to-[#08529C] text-white shadow-md shadow-blue-500/25 transition-all cursor-pointer"
               >
                 <span>{SAP_PARTNERSHIP_DATA.ctaText}</span>
                 <ArrowRight className="w-4 h-4" />
-              </button>
+              </Link>
             </div>
           </div>
 
@@ -416,7 +421,7 @@ export const PartnersPage: React.FC = () => {
             {/* Right 4 Cols: Key Capabilities Floating Card */}
             <div className="lg:col-span-4 space-y-4">
               <div className="bg-white rounded-2xl p-6 border border-slate-200/90 shadow-sm space-y-4 text-left">
-                <h3 className="text-[19px] font-bold text-[#10264b] border-b border-slate-100 pb-3">
+                <h3 className="text-[19px] font-bold text-[#172B50] border-b border-slate-100 pb-3">
                   {SAP_PARTNERSHIP_DATA.capabilitiesTitle}
                 </h3>
                 
@@ -427,7 +432,7 @@ export const PartnersPage: React.FC = () => {
                         {renderCapabilityIcon(cap.iconName)}
                       </div>
                       <div className="min-w-0">
-                        <h4 className="text-[15px] font-bold text-[#10264b] leading-tight group-hover:text-blue-600 transition-colors">
+                        <h4 className="text-[15px] font-bold text-[#142B59] leading-tight group-hover:text-blue-600 transition-colors">
                           {cap.title}
                         </h4>
                         <p className="text-[13px] text-slate-500 leading-snug mt-0.5">
@@ -453,11 +458,11 @@ export const PartnersPage: React.FC = () => {
           
           {/* Section Header */}
           <div className="text-left mb-12 space-y-2">
-            <h2 className="text-[32px] sm:text-[38px] lg:text-[42px] font-extrabold text-[#10264b] tracking-tight">
+            <h2 className="font-serif text-[32px] sm:text-[38px] lg:text-[42px] font-bold text-[#142B59] tracking-tight">
               {BOYUM_PARTNERSHIP_DATA.titleStart}{' '}
-              <span className="text-[#7139e8]">{BOYUM_PARTNERSHIP_DATA.titleHighlight}</span>
+              <span className="bg-gradient-to-r from-[#0052CC] via-[#0066CC] to-[#0A66C2] bg-clip-text text-transparent">{BOYUM_PARTNERSHIP_DATA.titleHighlight}</span>
             </h2>
-            <p className="text-[16px] sm:text-[17px] text-[#354765] leading-relaxed max-w-3xl">
+            <p className="text-[16px] sm:text-[17px] text-[#45546B] leading-relaxed max-w-3xl">
               {BOYUM_PARTNERSHIP_DATA.description}
             </p>
           </div>
@@ -467,7 +472,8 @@ export const PartnersPage: React.FC = () => {
             {BOYUM_PARTNERSHIP_DATA.products.map((prod) => (
               <div
                 key={prod.id}
-                className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between"
+                onClick={() => navigate(prod.route || '/partners/boyum-it')}
+                className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between cursor-pointer"
                 style={{
                   border: `2px solid ${prod.borderColor}`
                 }}
@@ -494,10 +500,12 @@ export const PartnersPage: React.FC = () => {
 
                   {/* Details */}
                   <div className="p-5 sm:p-6 space-y-2.5 text-left">
-                    <h3 className="text-[20px] font-bold text-[#10264b] leading-snug group-hover:text-blue-600 transition-colors">
-                      {prod.title}
-                    </h3>
-                    <p className="text-[14px] text-[#354765] leading-relaxed">
+                    <Link to={prod.route || '/partners/boyum-it'} className="block">
+                      <h3 className="text-[20px] font-bold text-[#172B50] leading-snug group-hover:text-[#1B72E8] transition-colors">
+                        {prod.title}
+                      </h3>
+                    </Link>
+                    <p className="text-[14px] text-[#53647A] leading-relaxed">
                       {prod.description}
                     </p>
                   </div>
@@ -505,26 +513,26 @@ export const PartnersPage: React.FC = () => {
 
                 {/* Footer Action */}
                 <div className="px-5 sm:px-6 pb-5 pt-3 border-t border-slate-100 flex items-center justify-between">
-                  <button
-                    onClick={() => setSelectedBoyumProduct(prod)}
+                  <Link
+                    to={prod.route || '/partners/boyum-it'}
                     className="text-[14px] font-bold flex items-center gap-1.5 transition-colors cursor-pointer"
                     style={{ color: prod.borderColor }}
                   >
                     <span>{prod.linkText}</span>
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </button>
+                  </Link>
 
-                  <button
-                    onClick={() => setSelectedBoyumProduct(prod)}
+                  <Link
+                    to={prod.route || '/partners/boyum-it'}
                     aria-label={`View ${prod.title}`}
-                    className="w-8 h-8 rounded-full flex items-center justify-center border transition-all cursor-pointer"
+                    className="w-8 h-8 rounded-full flex items-center justify-center border transition-all cursor-pointer group-hover:scale-110"
                     style={{
                       borderColor: prod.borderColor,
                       color: prod.borderColor
                     }}
                   >
                     <ArrowRight className="w-4 h-4" />
-                  </button>
+                  </Link>
                 </div>
               </div>
             ))}
@@ -541,11 +549,11 @@ export const PartnersPage: React.FC = () => {
           
           {/* Section Header */}
           <div className="text-left mb-10 space-y-2">
-            <h2 className="text-[30px] sm:text-[36px] lg:text-[40px] font-extrabold text-[#10264b] tracking-tight max-w-4xl leading-tight">
+            <h2 className="font-serif text-[30px] sm:text-[36px] lg:text-[40px] font-bold text-[#142B59] tracking-tight max-w-4xl leading-tight">
               {UIPATH_PARTNERSHIP_DATA.titleStart}{' '}
-              <span className="text-[#7139e8]">{UIPATH_PARTNERSHIP_DATA.titleHighlight}</span>
+              <span className="bg-gradient-to-r from-[#0052CC] via-[#0066CC] to-[#0A66C2] bg-clip-text text-transparent">{UIPATH_PARTNERSHIP_DATA.titleHighlight}</span>
             </h2>
-            <p className="text-[16px] sm:text-[17px] text-[#354765] leading-relaxed max-w-3xl">
+            <p className="text-[16px] sm:text-[17px] text-[#45546B] leading-relaxed max-w-3xl">
               {UIPATH_PARTNERSHIP_DATA.description}
             </p>
           </div>
@@ -569,13 +577,13 @@ export const PartnersPage: React.FC = () => {
 
                 {/* Button Overlaid at bottom */}
                 <div className="absolute bottom-5 left-5 right-5">
-                  <button
-                    onClick={() => setIsUiPathModalOpen(true)}
-                    className="w-full inline-flex items-center justify-center gap-2 text-[15px] font-semibold px-6 py-3 rounded-xl bg-[#0878f9] hover:bg-blue-700 text-white shadow-lg transition-all cursor-pointer"
+                  <Link
+                    to="/partners/uipath"
+                    className="w-full inline-flex items-center justify-center gap-2 text-[15px] font-semibold px-6 py-3 rounded-xl bg-gradient-to-r from-[#0052CC] to-[#0A66C2] hover:from-[#0040A8] hover:to-[#08529C] text-white shadow-lg shadow-blue-500/25 transition-all cursor-pointer"
                   >
                     <span>{UIPATH_PARTNERSHIP_DATA.ctaText}</span>
                     <ArrowRight className="w-4 h-4" />
-                  </button>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -594,7 +602,7 @@ export const PartnersPage: React.FC = () => {
                     {renderUiPathIcon(benefit.iconName, benefit.color)}
                   </div>
                   <div className="min-w-0">
-                    <h3 className="text-[17px] font-bold text-[#10264b] leading-tight mb-1">
+                    <h3 className="text-[17px] font-bold text-[#172B50] leading-tight mb-1">
                       {benefit.title}
                     </h3>
                     <p className="text-[13px] text-slate-600 leading-snug">
@@ -618,11 +626,11 @@ export const PartnersPage: React.FC = () => {
           
           {/* Section Header */}
           <div className="text-left max-w-3xl mb-14 space-y-2">
-            <h2 className="text-[32px] sm:text-[38px] lg:text-[42px] font-extrabold text-[#10264b] tracking-tight">
+            <h2 className="font-serif text-[32px] sm:text-[38px] lg:text-[42px] font-bold text-[#142B59] tracking-tight">
               {TECHNOLOGY_ECOSYSTEM_DATA.titleStart}{' '}
-              <span className="text-[#7139e8]">{TECHNOLOGY_ECOSYSTEM_DATA.titleHighlight}</span>
+              <span className="bg-gradient-to-r from-[#0052CC] via-[#0066CC] to-[#0A66C2] bg-clip-text text-transparent">{TECHNOLOGY_ECOSYSTEM_DATA.titleHighlight}</span>
             </h2>
-            <p className="text-[16px] sm:text-[17px] text-[#354765] leading-relaxed">
+            <p className="text-[16px] sm:text-[17px] text-[#45546B] leading-relaxed">
               {TECHNOLOGY_ECOSYSTEM_DATA.description}
             </p>
           </div>
@@ -631,37 +639,53 @@ export const PartnersPage: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-5 gap-4 lg:gap-2 items-center">
             {TECHNOLOGY_ECOSYSTEM_DATA.steps.map((step, idx) => {
               const isLast = idx === TECHNOLOGY_ECOSYSTEM_DATA.steps.length - 1;
+              const stepRoute =
+                step.badgeType === 'sap' ? '/partners/sap-business-one' :
+                step.badgeType === 'boyum' ? '/partners/boyum-it' :
+                step.badgeType === 'uipath' ? '/partners/uipath' :
+                step.badgeType === 'atlas' ? '/partners/atlas-solutions' : null;
+
+              const cardContent = (
+                <div className="bg-white rounded-2xl p-5 border border-slate-200/90 shadow-sm hover:shadow-md hover:border-blue-300 transition-all flex flex-col items-center text-center justify-between min-h-[160px] group h-full">
+                  <div className="h-10 flex items-center justify-center">
+                    {step.badgeType === 'sap' && <SAPBusinessOneLogo className="scale-95" />}
+                    {step.badgeType === 'boyum' && <BoyumITLogo className="scale-95" />}
+                    {step.badgeType === 'uipath' && <UiPathLogo className="scale-95" />}
+                    {step.badgeType === 'atlas' && (
+                      <div className="flex items-center gap-2">
+                        <div className="w-8 h-8 rounded-lg overflow-hidden flex items-center justify-center shrink-0">
+                          <img src="/images/logo.png" alt="ATLAS Logo" className="w-full h-full object-contain" />
+                        </div>
+                        <span className="font-extrabold text-sm text-[#142B59]">Technosoft</span>
+                      </div>
+                    )}
+                    {step.badgeType === 'operations' && (
+                      <div className="w-9 h-9 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center">
+                        <TrendingUp className="w-5 h-5" />
+                      </div>
+                    )}
+                  </div>
+
+                  <div className="space-y-1 pt-2">
+                    <h3 className="text-[14px] font-bold text-[#142B59] leading-tight group-hover:text-blue-600 transition-colors">
+                      {step.title}
+                    </h3>
+                    <p className="text-[11px] text-slate-500 leading-snug">
+                      {step.role}
+                    </p>
+                  </div>
+                </div>
+              );
+
               return (
                 <React.Fragment key={step.id}>
-                  <div className="bg-white rounded-2xl p-5 border border-slate-200/90 shadow-sm hover:shadow-md hover:border-blue-300 transition-all flex flex-col items-center text-center justify-between min-h-[160px] group">
-                    <div className="h-10 flex items-center justify-center">
-                      {step.badgeType === 'sap' && <SAPBusinessOneLogo className="scale-95" />}
-                      {step.badgeType === 'boyum' && <BoyumITLogo className="scale-95" />}
-                      {step.badgeType === 'uipath' && <UiPathLogo className="scale-95" />}
-                      {step.badgeType === 'atlas' && (
-                        <div className="flex items-center gap-2">
-                          <div className="w-8 h-8 rounded-lg overflow-hidden flex items-center justify-center shrink-0">
-                            <img src="/images/logo.png" alt="ATLAS Logo" className="w-full h-full object-contain" />
-                          </div>
-                          <span className="font-extrabold text-sm text-[#10264b]">Technosoft</span>
-                        </div>
-                      )}
-                      {step.badgeType === 'operations' && (
-                        <div className="w-9 h-9 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center">
-                          <TrendingUp className="w-5 h-5" />
-                        </div>
-                      )}
-                    </div>
-
-                    <div className="space-y-1 pt-2">
-                      <h3 className="text-[14px] font-bold text-[#10264b] leading-tight group-hover:text-blue-600 transition-colors">
-                        {step.title}
-                      </h3>
-                      <p className="text-[11px] text-slate-500 leading-snug">
-                        {step.role}
-                      </p>
-                    </div>
-                  </div>
+                  {stepRoute ? (
+                    <Link to={stepRoute} className="block h-full cursor-pointer">
+                      {cardContent}
+                    </Link>
+                  ) : (
+                    <div>{cardContent}</div>
+                  )}
 
                   {!isLast && (
                     <div className="hidden lg:flex items-center justify-center text-blue-600/50 -mx-1">
@@ -688,11 +712,11 @@ export const PartnersPage: React.FC = () => {
           
           {/* Section Header */}
           <div className="text-left max-w-3xl mb-12 space-y-2">
-            <h2 className="text-[32px] sm:text-[38px] lg:text-[42px] font-extrabold text-[#10264b] tracking-tight">
+            <h2 className="font-serif text-[32px] sm:text-[38px] lg:text-[42px] font-bold text-[#142B59] tracking-tight">
               {WHY_CHOOSE_PARTNERSHIP_DATA.titleStart}{' '}
-              <span className="text-[#7139e8]">{WHY_CHOOSE_PARTNERSHIP_DATA.titleHighlight}</span>
+              <span className="bg-gradient-to-r from-[#0052CC] via-[#0066CC] to-[#0A66C2] bg-clip-text text-transparent">{WHY_CHOOSE_PARTNERSHIP_DATA.titleHighlight}</span>
             </h2>
-            <p className="text-[16px] sm:text-[17px] text-[#354765] leading-relaxed">
+            <p className="text-[16px] sm:text-[17px] text-[#45546B] leading-relaxed">
               {WHY_CHOOSE_PARTNERSHIP_DATA.description}
             </p>
           </div>
@@ -711,10 +735,10 @@ export const PartnersPage: React.FC = () => {
                   >
                     {renderWhyChooseIcon(pillar.iconName, pillar.color)}
                   </div>
-                  <h3 className="text-[18px] font-bold text-[#10264b] mb-2 leading-snug group-hover:text-blue-600 transition-colors">
+                  <h3 className="text-[18px] font-bold text-[#172B50] mb-2 leading-snug group-hover:text-[#1B72E8] transition-colors">
                     {pillar.title}
                   </h3>
-                  <p className="text-[14px] text-[#354765] leading-relaxed">
+                  <p className="text-[14px] text-[#53647A] leading-relaxed">
                     {pillar.description}
                   </p>
                 </div>
@@ -730,90 +754,43 @@ export const PartnersPage: React.FC = () => {
       {/* ========================================================================= */}
       <section className="py-12 lg:py-16 bg-slate-50/50">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="rounded-2xl bg-[#eaf4ff] border border-blue-200/90 p-8 sm:p-10 lg:p-12 shadow-sm">
+          <div className="rounded-2xl sm:rounded-3xl bg-[#eaf4ff] border border-blue-200/90 p-8 sm:p-10 lg:p-12 shadow-sm">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
               
-              {/* Left Column: Heading, Subtext & Button */}
+              {/* Left Column: Heading, Subtext & Both Action Buttons */}
               <div className="lg:col-span-6 space-y-4 text-left">
-                <span className="text-[12px] sm:text-[13px] font-bold uppercase tracking-wider text-blue-600">
+                <span className="text-[12px] sm:text-[13px] font-bold uppercase tracking-wider text-[#1B72E8] block">
                   LET'S WORK TOGETHER
                 </span>
-
-                <h2 className="text-[28px] sm:text-[34px] lg:text-[38px] font-extrabold text-[#10264b] tracking-tight leading-tight">
+                <h2 className="font-serif text-[28px] sm:text-[34px] lg:text-[40px] font-bold text-[#142B59] tracking-tight leading-[1.18]">
                   {PARTNERS_CTA_DATA.titleStart}{' '}
-                  <span className="text-[#7139e8]">{PARTNERS_CTA_DATA.titleHighlight}</span>
+                  <span className="bg-gradient-to-r from-[#0052CC] via-[#0066CC] to-[#0A66C2] bg-clip-text text-transparent">{PARTNERS_CTA_DATA.titleHighlight}</span>
                 </h2>
-
-                <p className="text-[15px] sm:text-[16px] text-[#354765] leading-relaxed max-w-xl">
+                
+                <p className="text-[15px] sm:text-[16px] text-[#45546B] leading-relaxed max-w-lg">
                   {PARTNERS_CTA_DATA.description}
                 </p>
 
-                <div className="pt-2">
+                <div className="pt-2 flex flex-wrap items-center gap-4">
                   <button
                     onClick={() => setIsConsultationModalOpen(true)}
-                    className="inline-flex items-center justify-center gap-2 text-[15px] sm:text-[16px] font-semibold px-8 py-3.5 rounded-xl bg-[#0878f9] hover:bg-blue-700 text-white shadow-md shadow-blue-600/25 transition-all cursor-pointer"
+                    className="inline-flex items-center justify-center gap-2 text-[15px] sm:text-[16px] font-semibold px-7 py-3.5 rounded-xl bg-gradient-to-r from-[#0052CC] to-[#0A66C2] hover:from-[#0040A8] hover:to-[#08529C] text-white shadow-md shadow-blue-500/25 transition-all cursor-pointer"
                   >
                     <span>{PARTNERS_CTA_DATA.buttonText}</span>
-                    <ArrowRight className="w-5 h-5" />
+                    <ArrowRight className="w-4 h-4" />
                   </button>
+                  <Link
+                    to="/contact"
+                    className="inline-flex items-center justify-center font-semibold rounded-xl px-6 py-3.5 text-[15px] sm:text-[16px] bg-white text-[#142B59] hover:bg-slate-50 border border-slate-300 shadow-sm transition-colors"
+                  >
+                    Contact Us
+                  </Link>
                 </div>
               </div>
 
-              {/* Right Column: 3 Clean Box Cards with Colored Borders matching About Page */}
-              <div className="lg:col-span-6 space-y-3.5">
-                {/* Email Box Card (Green border) */}
-                <a
-                  href={`mailto:${PARTNERS_CTA_DATA.email}?subject=Technology%20Partnership%20Inquiry`}
-                  className="bg-white rounded-xl p-4 sm:p-4.5 border-2 border-[#16b978] shadow-sm hover:shadow-md transition-all flex items-center gap-4 group"
-                >
-                  <div className="w-11 h-11 rounded-lg bg-blue-50 border border-blue-100 text-[#0878f9] flex items-center justify-center shrink-0 group-hover:bg-[#0878f9] group-hover:text-white transition-colors">
-                    <Mail className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <p className="text-[11px] font-bold uppercase tracking-wider text-slate-400">
-                      Email
-                    </p>
-                    <p className="text-[15px] font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
-                      {PARTNERS_CTA_DATA.email}
-                    </p>
-                  </div>
-                </a>
-
-                {/* Phone Box Card (Blue border) */}
-                <a
-                  href={`tel:${PARTNERS_CTA_DATA.phone}`}
-                  className="bg-white rounded-xl p-4 sm:p-4.5 border-2 border-[#2992ff] shadow-sm hover:shadow-md transition-all flex items-center gap-4 group"
-                >
-                  <div className="w-11 h-11 rounded-lg bg-blue-50 border border-blue-100 text-[#0878f9] flex items-center justify-center shrink-0 group-hover:bg-[#0878f9] group-hover:text-white transition-colors">
-                    <Phone className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <p className="text-[11px] font-bold uppercase tracking-wider text-slate-400">
-                      Phone
-                    </p>
-                    <p className="text-[15px] font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
-                      {PARTNERS_CTA_DATA.phone}
-                    </p>
-                  </div>
-                </a>
-
-                {/* Locations Box Card (Purple border) */}
-                <div className="bg-white rounded-xl p-4 sm:p-4.5 border-2 border-[#a34dff] shadow-sm flex items-center gap-4">
-                  <div className="w-11 h-11 rounded-lg bg-blue-50 border border-blue-100 text-[#0878f9] flex items-center justify-center shrink-0">
-                    <MapPin className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <p className="text-[11px] font-bold uppercase tracking-wider text-slate-400">
-                      Locations
-                    </p>
-                    <p className="text-[14px] font-bold text-slate-900">
-                      Borivali, Mumbai
-                    </p>
-                    <p className="text-[14px] font-bold text-slate-900">
-                      Marine Lines, Mumbai
-                    </p>
-                  </div>
-                </div>
+              {/* Right Column: 3 Clean Contact Info Cards matching reference */}
+              <div className="lg:col-span-6">
+                <CtaContactCards />
               </div>
 
             </div>
@@ -822,224 +799,7 @@ export const PartnersPage: React.FC = () => {
       </section>
 
       {/* ========================================================================= */}
-      {/* MODAL 1: BOYUM PRODUCT DETAILS (BEAS, PRODUMEX, B1UP)                     */}
-      {/* ========================================================================= */}
-      {selectedBoyumProduct && (
-        <Modal
-          isOpen={!!selectedBoyumProduct}
-          onClose={() => setSelectedBoyumProduct(null)}
-          title={selectedBoyumProduct.title}
-        >
-          <div className="space-y-6 text-left">
-            <div className="relative h-56 rounded-2xl overflow-hidden bg-slate-100">
-              <img
-                src={selectedBoyumProduct.image}
-                alt={selectedBoyumProduct.title}
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent pointer-events-none" />
-              <div
-                className="absolute bottom-4 left-4 px-4 py-1.5 rounded-lg text-white font-bold text-sm shadow-md flex items-center gap-2"
-                style={{ backgroundColor: selectedBoyumProduct.borderColor }}
-              >
-                <span>Boyum IT Add-on</span>
-              </div>
-            </div>
-
-            <div className="space-y-2">
-              <h4 className="text-[18px] font-bold text-[#10264b]">
-                {selectedBoyumProduct.title}
-              </h4>
-              <p className="text-[14px] text-slate-600 leading-relaxed">
-                {selectedBoyumProduct.description}
-              </p>
-            </div>
-
-            <div className="space-y-3">
-              <h4 className="text-[15px] font-bold text-[#10264b]">Key Functional Capabilities</h4>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                {selectedBoyumProduct.fullDetails.features.map((feat, idx) => (
-                  <div key={idx} className="flex items-center gap-2 text-[13px] text-slate-700">
-                    <CheckCircle2 className="w-4 h-4 shrink-0 text-[#16a879]" />
-                    <span>{feat}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="space-y-3">
-              <h4 className="text-[15px] font-bold text-[#10264b]">Verified Business Impact</h4>
-              <div className="space-y-2">
-                {selectedBoyumProduct.fullDetails.kpis.map((kpi, idx) => (
-                  <div
-                    key={idx}
-                    className="p-3 rounded-xl bg-slate-50 border border-slate-100 flex items-center gap-2.5 text-[13px] text-slate-700 font-medium"
-                  >
-                    <Check className="w-4 h-4 shrink-0 text-amber-600" />
-                    <span>{kpi}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="pt-4 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4">
-              <p className="text-[13px] text-slate-500">
-                Interested in evaluating this add-on for your SAP system?
-              </p>
-              <button
-                onClick={() => {
-                  setSelectedBoyumProduct(null);
-                  setIsConsultationModalOpen(true);
-                }}
-                className="w-full sm:w-auto px-6 py-2.5 rounded-xl bg-[#0878f9] hover:bg-blue-700 text-white font-semibold text-sm shadow-md transition-all cursor-pointer"
-              >
-                Request Product Demo
-              </button>
-            </div>
-          </div>
-        </Modal>
-      )}
-
-      {/* ========================================================================= */}
-      {/* MODAL 2: SAP BUSINESS ONE CAPABILITIES MODAL                              */}
-      {/* ========================================================================= */}
-      <Modal
-        isOpen={isSapModalOpen}
-        onClose={() => setIsSapModalOpen(false)}
-        title="SAP Business One Enterprise Implementation"
-      >
-        <div className="space-y-6 text-left">
-          <div className="relative h-56 rounded-2xl overflow-hidden bg-slate-100">
-            <img
-              src={SAP_PARTNERSHIP_DATA.image}
-              alt="SAP Business One Operations"
-              className="w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent pointer-events-none" />
-            <div className="absolute bottom-4 left-4 bg-white/95 backdrop-blur-md px-3.5 py-1.5 rounded-lg shadow-md">
-              <SAPBusinessOneLogo className="scale-90 origin-left" />
-            </div>
-          </div>
-
-          <div className="space-y-2">
-            <h4 className="text-[18px] font-bold text-[#10264b]">
-              Complete ERP Solution for High-Growth SMEs
-            </h4>
-            <p className="text-[14px] text-slate-600 leading-relaxed">
-              ATLAS Technosoft delivers certified implementation, HANA migration, and multi-country rollouts for SAP Business One, helping manufacturing, trading, and logistics enterprises operate with unified live visibility.
-            </p>
-          </div>
-
-          <div className="space-y-3">
-            <h4 className="text-[15px] font-bold text-[#10264b]">Implementation Highlights</h4>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-              <div className="p-3 rounded-xl bg-slate-50 border border-slate-100 text-[13px] text-slate-700">
-                <span className="font-bold block text-[#10264b]">Cloud & On-Premise</span>
-                HANA and SQL database deployment options.
-              </div>
-              <div className="p-3 rounded-xl bg-slate-50 border border-slate-100 text-[13px] text-slate-700">
-                <span className="font-bold block text-[#10264b]">40% Faster Close</span>
-                Streamlined month-end financial reporting cycles.
-              </div>
-              <div className="p-3 rounded-xl bg-slate-50 border border-slate-100 text-[13px] text-slate-700">
-                <span className="font-bold block text-[#10264b]">Global Rollouts</span>
-                Templates deployed across multiple entities and currencies.
-              </div>
-              <div className="p-3 rounded-xl bg-slate-50 border border-slate-100 text-[13px] text-slate-700">
-                <span className="font-bold block text-[#10264b]">Certified Experts</span>
-                32 SAP HANA and RPA specialists on team.
-              </div>
-            </div>
-          </div>
-
-          <div className="pt-4 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4">
-            <span className="text-[13px] text-slate-500">
-              Schedule a technical discovery session with our architects.
-            </span>
-            <button
-              onClick={() => {
-                setIsSapModalOpen(false);
-                setIsConsultationModalOpen(true);
-              }}
-              className="w-full sm:w-auto px-6 py-2.5 rounded-xl bg-[#0878f9] hover:bg-blue-700 text-white font-semibold text-sm shadow-md transition-all cursor-pointer"
-            >
-              Discuss Your SAP Project
-            </button>
-          </div>
-        </div>
-      </Modal>
-
-      {/* ========================================================================= */}
-      {/* MODAL 3: UIPATH HYPERAUTOMATION MODAL                                     */}
-      {/* ========================================================================= */}
-      <Modal
-        isOpen={isUiPathModalOpen}
-        onClose={() => setIsUiPathModalOpen(false)}
-        title="UiPath RPA & Hyperautomation Solutions"
-      >
-        <div className="space-y-6 text-left">
-          <div className="relative h-56 rounded-2xl overflow-hidden bg-slate-100">
-            <img
-              src={UIPATH_PARTNERSHIP_DATA.image}
-              alt="UiPath Automation"
-              className="w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent pointer-events-none" />
-            <div className="absolute bottom-4 left-4 bg-white/95 backdrop-blur-md px-3.5 py-1.5 rounded-lg shadow-md">
-              <UiPathLogo className="scale-90 origin-left" />
-            </div>
-          </div>
-
-          <div className="space-y-2">
-            <h4 className="text-[18px] font-bold text-[#10264b]">
-              Eliminate Routine Repetitive Manual Operations
-            </h4>
-            <p className="text-[14px] text-slate-600 leading-relaxed">
-              Integrate UiPath software robots directly with SAP Business One to automate vendor invoice entry, AP/AR 3-way matching, bank statement reconciliations, and logistics paperwork.
-            </p>
-          </div>
-
-          <div className="space-y-3">
-            <h4 className="text-[15px] font-bold text-[#10264b]">Documented Impact & Scope</h4>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-              <div className="p-3 rounded-xl bg-slate-50 border border-slate-100 text-[13px] text-slate-700">
-                <span className="font-bold block text-[#10264b]">70% Less Manual Entry</span>
-                Touchless posting from scanned vendor PDFs into SAP.
-              </div>
-              <div className="p-3 rounded-xl bg-slate-50 border border-slate-100 text-[13px] text-slate-700">
-                <span className="font-bold block text-[#10264b]">4–6 Months Target ROI</span>
-                Measurable payback on software robot development.
-              </div>
-              <div className="p-3 rounded-xl bg-slate-50 border border-slate-100 text-[13px] text-slate-700">
-                <span className="font-bold block text-[#10264b]">AI Document Understanding</span>
-                Extracts data from complex invoices and Bills of Lading.
-              </div>
-              <div className="p-3 rounded-xl bg-slate-50 border border-slate-100 text-[13px] text-slate-700">
-                <span className="font-bold block text-[#10264b]">24/7 Unattended Robots</span>
-                Night-time batch reconciliation and order verification.
-              </div>
-            </div>
-          </div>
-
-          <div className="pt-4 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4">
-            <span className="text-[13px] text-slate-500">
-              Calculate projected bot ROI for your business workflows.
-            </span>
-            <button
-              onClick={() => {
-                setIsUiPathModalOpen(false);
-                setIsConsultationModalOpen(true);
-              }}
-              className="w-full sm:w-auto px-6 py-2.5 rounded-xl bg-[#0878f9] hover:bg-blue-700 text-white font-semibold text-sm shadow-md transition-all cursor-pointer"
-            >
-              Book an RPA Demo
-            </button>
-          </div>
-        </div>
-      </Modal>
-
-      {/* ========================================================================= */}
-      {/* MODAL 4: CONSULTATION BOOKING MODAL                                       */}
+      {/* CONSULTATION BOOKING MODAL                                                */}
       {/* ========================================================================= */}
       <Modal
         isOpen={isConsultationModalOpen}
@@ -1054,13 +814,13 @@ export const PartnersPage: React.FC = () => {
             <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto">
               <CheckCircle2 className="w-8 h-8" />
             </div>
-            <h3 className="text-[22px] font-bold text-[#10264b]">
+            <h3 className="text-[22px] font-bold text-[#142B59]">
               Consultation Request Received
             </h3>
             <p className="text-[15px] text-[#40506a] max-w-md mx-auto">
-              Thank you, <span className="font-semibold text-[#10264b]">{formData.fullName}</span>.
+              Thank you, <span className="font-semibold text-[#142B59]">{formData.fullName}</span>.
               Our enterprise solutions architect will review requirements for{' '}
-              <span className="font-semibold text-[#10264b]">{formData.companyName}</span> and
+              <span className="font-semibold text-[#142B59]">{formData.companyName}</span> and
               contact you within 24 hours.
             </p>
             <div className="pt-4">
@@ -1227,15 +987,7 @@ export const PartnersPage: React.FC = () => {
       </Modal>
 
       {/* Floating Scroll to Top Button */}
-      {showScrollTop && (
-        <button
-          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          aria-label="Scroll to top"
-          className="fixed bottom-6 right-6 z-30 p-3 rounded-full bg-[#10264b] hover:bg-[#0878f9] text-white shadow-xl transition-all duration-300 hover:scale-110 cursor-pointer"
-        >
-          <ChevronUp className="w-5 h-5" />
-        </button>
-      )}
+      /* Global scroll-to-top handled by SiteLayout */
 
     </div>
   );

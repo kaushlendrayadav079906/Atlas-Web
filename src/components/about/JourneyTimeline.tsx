@@ -1,393 +1,154 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React from 'react';
 import { 
   Building2, 
-  Award, 
   Layers, 
+  Handshake, 
   Trophy, 
   Sparkles, 
-  CheckCircle2, 
-  AlertCircle,
-  Calendar,
-  ArrowRight
+  ArrowRight,
+  Info
 } from 'lucide-react';
-import { COMPANY_JOURNEY_DATA, MilestoneItem, MilestoneColor } from '../../data/timelineData';
+import { JOURNEY_TIMELINE_DATA, TimelineMilestone } from '../../data/aboutContent';
 
-const iconColorMap: Record<MilestoneColor, {
+const colorStyles: Record<TimelineMilestone['color'], {
+  badgeBg: string;
+  badgeBorder: string;
+  badgeText: string;
   yearText: string;
   iconBg: string;
   iconBorder: string;
   iconText: string;
-  tagBg: string;
-  tagText: string;
-  tagBorder: string;
-  dotBorder: string;
-  dotCore: string;
-  connector: string;
 }> = {
   blue: {
+    badgeBg: 'bg-blue-50',
+    badgeBorder: 'border-blue-200',
+    badgeText: 'text-[#0878f9]',
     yearText: 'text-[#0878f9]',
     iconBg: 'bg-blue-50',
     iconBorder: 'border-blue-200',
     iconText: 'text-[#0878f9]',
-    tagBg: 'bg-blue-50',
-    tagText: 'text-blue-700',
-    tagBorder: 'border-blue-200',
-    dotBorder: 'border-[#0878f9]',
-    dotCore: 'bg-[#0878f9]',
-    connector: 'from-[#0878f9] to-blue-200'
   },
   sky: {
+    badgeBg: 'bg-sky-50',
+    badgeBorder: 'border-sky-200',
+    badgeText: 'text-[#0284c7]',
     yearText: 'text-[#0284c7]',
     iconBg: 'bg-sky-50',
     iconBorder: 'border-sky-200',
     iconText: 'text-[#0284c7]',
-    tagBg: 'bg-sky-50',
-    tagText: 'text-sky-700',
-    tagBorder: 'border-sky-200',
-    dotBorder: 'border-[#0284c7]',
-    dotCore: 'bg-[#0284c7]',
-    connector: 'from-[#0284c7] to-sky-200'
   },
   rose: {
-    yearText: 'text-[#f43f5e]',
-    iconBg: 'bg-rose-50',
-    iconBorder: 'border-rose-200',
-    iconText: 'text-[#f43f5e]',
-    tagBg: 'bg-rose-50',
-    tagText: 'text-rose-700',
-    tagBorder: 'border-rose-200',
-    dotBorder: 'border-[#f43f5e]',
-    dotCore: 'bg-[#f43f5e]',
-    connector: 'from-[#f43f5e] to-rose-200'
+    badgeBg: 'bg-blue-50',
+    badgeBorder: 'border-blue-200',
+    badgeText: 'text-[#0066CC]',
+    yearText: 'text-[#0066CC]',
+    iconBg: 'bg-blue-50',
+    iconBorder: 'border-blue-200',
+    iconText: 'text-[#0066CC]',
   },
   emerald: {
+    badgeBg: 'bg-emerald-50',
+    badgeBorder: 'border-emerald-200',
+    badgeText: 'text-[#10b981]',
     yearText: 'text-[#10b981]',
     iconBg: 'bg-emerald-50',
     iconBorder: 'border-emerald-200',
     iconText: 'text-[#10b981]',
-    tagBg: 'bg-emerald-50',
-    tagText: 'text-emerald-700',
-    tagBorder: 'border-emerald-200',
-    dotBorder: 'border-[#10b981]',
-    dotCore: 'bg-[#10b981]',
-    connector: 'from-[#10b981] to-emerald-200'
   },
   purple: {
-    yearText: 'text-[#7139e8]',
-    iconBg: 'bg-purple-50',
-    iconBorder: 'border-purple-200',
-    iconText: 'text-[#7139e8]',
-    tagBg: 'bg-purple-50',
-    tagText: 'text-purple-700',
-    tagBorder: 'border-purple-200',
-    dotBorder: 'border-[#7139e8]',
-    dotCore: 'bg-[#7139e8]',
-    connector: 'from-[#7139e8] to-purple-200'
+    badgeBg: 'bg-blue-50',
+    badgeBorder: 'border-blue-200',
+    badgeText: 'text-[#0066CC]',
+    yearText: 'text-[#0066CC]',
+    iconBg: 'bg-blue-50',
+    iconBorder: 'border-blue-200',
+    iconText: 'text-[#0066CC]',
   }
 };
 
-interface TimelineItemProps {
-  item: MilestoneItem;
-  index: number;
-  isReducedMotion: boolean;
-}
-
-const TimelineItemCard: React.FC<TimelineItemProps> = ({ item, index, isReducedMotion }) => {
-  const [isVisible, setIsVisible] = useState(false);
-  const cardRef = useRef<HTMLDivElement>(null);
-  const colors = iconColorMap[item.color];
-
-  useEffect(() => {
-    if (isReducedMotion) {
-      setIsVisible(true);
-      return;
-    }
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.disconnect();
-        }
-      },
-      {
-        threshold: 0.05,
-        rootMargin: '300px 0px 300px 0px'
-      }
-    );
-
-    if (cardRef.current) {
-      observer.observe(cardRef.current);
-    }
-
-    const timer = setTimeout(() => {
-      setIsVisible(true);
-    }, 1200);
-
-    return () => {
-      observer.disconnect();
-      clearTimeout(timer);
-    };
-  }, [isReducedMotion]);
-
-  const isRight = item.side === 'right';
-
-  const motionTransform = isReducedMotion
-    ? 'opacity-100 translate-x-0'
-    : isVisible
-      ? 'opacity-100 translate-x-0'
-      : isRight
-        ? 'opacity-0 translate-x-8 sm:translate-x-12'
-        : 'opacity-0 -translate-x-8 sm:-translate-x-12';
-
-  return (
-    <div
-      ref={cardRef}
-      className={`relative mb-10 sm:mb-14 last:mb-0 w-full flex items-center ${
-        isRight ? 'lg:justify-end' : 'lg:justify-start'
-      }`}
-    >
-      {/* =================================================================== */}
-      {/* TIMELINE DOT (Centered on desktop, left-aligned on mobile)          */}
-      {/* =================================================================== */}
-      <div
-        className={`absolute z-20 flex items-center justify-center transition-all duration-500 ${
-          isReducedMotion ? 'scale-100 opacity-100' : isVisible ? 'scale-100 opacity-100' : 'scale-0 opacity-0'
-        } left-6 sm:left-8 -translate-x-1/2 lg:left-1/2 lg:-translate-x-1/2`}
-        aria-hidden="true"
-      >
-        <div className={`w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white border-[3px] ${colors.dotBorder} shadow-md flex items-center justify-center`}>
-          <div className={`w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full ${colors.dotCore} animate-pulse`} />
-        </div>
-      </div>
-
-      {/* Horizontal Connector Line for Desktop */}
-      {isRight ? (
-        <div
-          className={`hidden lg:block absolute left-1/2 top-1/2 -translate-y-1/2 w-10 h-0.5 bg-gradient-to-r ${colors.connector} pointer-events-none`}
-          aria-hidden="true"
-        />
-      ) : (
-        <div
-          className={`hidden lg:block absolute right-1/2 top-1/2 -translate-y-1/2 w-10 h-0.5 bg-gradient-to-l ${colors.connector} pointer-events-none`}
-          aria-hidden="true"
-        />
-      )}
-
-      {/* =================================================================== */}
-      {/* MILESTONE CARD                                                      */}
-      {/* =================================================================== */}
-      <div
-        className={`w-full pl-14 sm:pl-20 lg:pl-0 lg:w-[calc(50%-2.5rem)] transition-all duration-700 ease-out ${
-          isRight ? 'lg:ml-auto' : 'lg:mr-auto'
-        } ${motionTransform}`}
-      >
-        <article className="group relative bg-white rounded-2xl p-6 sm:p-7 border border-slate-200/90 shadow-sm hover:shadow-xl hover:border-blue-400 hover:-translate-y-1 transition-all duration-300">
-          
-          {/* Top Header: Tag Pill + Milestone Icon */}
-          <div className="flex items-center justify-between gap-3 mb-3">
-            <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider ${colors.tagBg} ${colors.tagText} border ${colors.tagBorder}`}>
-              <Calendar className="w-3.5 h-3.5" />
-              <span>{item.tag}</span>
-            </span>
-
-            <div className={`w-10 h-10 rounded-xl ${colors.iconBg} border ${colors.iconBorder} flex items-center justify-center shadow-xs shrink-0 group-hover:scale-105 transition-transform`}>
-              {item.iconName === 'Building2' && <Building2 className={`w-5 h-5 ${colors.iconText}`} />}
-              {item.iconName === 'Award' && <Award className={`w-5 h-5 ${colors.iconText}`} />}
-              {item.iconName === 'Layers' && <Layers className={`w-5 h-5 ${colors.iconText}`} />}
-              {item.iconName === 'Trophy' && <Trophy className={`w-5 h-5 ${colors.iconText}`} />}
-              {item.iconName === 'Sparkles' && <Sparkles className={`w-5 h-5 ${colors.iconText}`} />}
-            </div>
-          </div>
-
-          {/* Year Display in Bold Accent Color (24–28px) */}
-          <div className="mb-1.5">
-            <time className={`text-[24px] sm:text-[28px] font-black tracking-tight ${colors.yearText} font-mono block leading-none`}>
-              {item.displayYear}
-            </time>
-          </div>
-
-          {/* Milestone Title (19–22px) */}
-          <h3 className="text-[19px] sm:text-[21px] font-bold text-[#10264b] leading-snug tracking-tight mb-1 group-hover:text-blue-600 transition-colors">
-            {item.title}
-          </h3>
-
-          {/* Optional Subtitle */}
-          {item.subtitle && (
-            <p className="text-[13px] sm:text-[14px] font-semibold text-slate-500 mb-3">
-              {item.subtitle}
-            </p>
-          )}
-
-          {/* Description Paragraph (15–16px) */}
-          <p className="text-[15px] sm:text-[16px] text-[#354765] leading-relaxed mb-4 font-normal">
-            {item.description}
-          </p>
-
-          {/* Key Stat Pills */}
-          {item.keyStats && item.keyStats.length > 0 && (
-            <div className="flex flex-wrap gap-2 pt-1 pb-3">
-              {item.keyStats.map((stat, sIdx) => (
-                <span
-                  key={sIdx}
-                  className="inline-flex items-center gap-1 text-[12px] font-semibold px-2.5 py-0.5 rounded-md bg-slate-50 text-slate-700 border border-slate-200"
-                >
-                  <CheckCircle2 className="w-3 h-3 text-emerald-600 shrink-0" />
-                  <span>{stat}</span>
-                </span>
-              ))}
-            </div>
-          )}
-
-          {/* Verification / Source Status Tag */}
-          <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
-            {item.isVerifiedFact ? (
-              <span className="inline-flex items-center gap-1.5 text-emerald-700 font-semibold bg-emerald-50 px-2.5 py-1 rounded-md border border-emerald-200">
-                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
-                <span>Verified ATPL Achievement</span>
-              </span>
-            ) : (
-              <span className="inline-flex items-center gap-1.5 text-slate-600 font-medium bg-slate-100 px-2.5 py-1 rounded-md border border-slate-200">
-                <AlertCircle className="w-3.5 h-3.5 text-slate-500" />
-                <span>Date Subject to Formal Confirmation</span>
-              </span>
-            )}
-
-            <span className="text-[11px] text-slate-400 font-medium hidden sm:inline">
-              Milestone {index + 1} of {COMPANY_JOURNEY_DATA.milestones.length}
-            </span>
-          </div>
-
-        </article>
-      </div>
-    </div>
-  );
+const renderMilestoneIcon = (iconName: string, iconClass: string) => {
+  switch (iconName) {
+    case 'Building2':
+      return <Building2 className={iconClass} />;
+    case 'Layers':
+      return <Layers className={iconClass} />;
+    case 'Handshake':
+      return <Handshake className={iconClass} />;
+    case 'Trophy':
+      return <Trophy className={iconClass} />;
+    case 'Sparkles':
+      return <Sparkles className={iconClass} />;
+    default:
+      return <Building2 className={iconClass} />;
+  }
 };
 
 export const JourneyTimeline: React.FC = () => {
-  const [isReducedMotion, setIsReducedMotion] = useState(false);
-  const timelineRef = useRef<HTMLDivElement>(null);
-  const [scrollProgress, setScrollProgress] = useState(0.5);
-
-  useEffect(() => {
-    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-    setIsReducedMotion(mediaQuery.matches);
-
-    const handleMotionChange = (e: MediaQueryListEvent) => {
-      setIsReducedMotion(e.matches);
-    };
-
-    mediaQuery.addEventListener('change', handleMotionChange);
-    return () => mediaQuery.removeEventListener('change', handleMotionChange);
-  }, []);
-
-  // Track scroll progress along the timeline line
-  useEffect(() => {
-    const handleScroll = () => {
-      if (!timelineRef.current) return;
-      const rect = timelineRef.current.getBoundingClientRect();
-      const windowHeight = window.innerHeight;
-      
-      const totalHeight = rect.height;
-      const currentScroll = windowHeight - rect.top;
-      
-      const progress = Math.min(Math.max(currentScroll / (totalHeight + windowHeight * 0.4), 0.1), 1);
-      setScrollProgress(progress);
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll();
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  const { eyebrow, title, milestones } = JOURNEY_TIMELINE_DATA;
 
   return (
-    <section
-      id="journey-timeline"
-      className="relative py-16 sm:py-20 lg:py-24 bg-slate-50/70 border-y border-slate-200/80 overflow-hidden"
-    >
-      <div id="timeline" className="absolute -top-20" />
-
-      <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8 relative">
+    <section id="journey" className="py-12 sm:py-16 lg:py-20 bg-white border-b border-slate-100">
+      <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* =================================================================== */}
-        {/* SECTION HEADER                                                      */}
-        {/* =================================================================== */}
-        <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-18 lg:mb-20 space-y-3.5">
-          
-          {/* Eyebrow in Sapphire Blue (13–14px) */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-50 text-blue-600 border border-blue-200 text-xs sm:text-sm font-bold uppercase tracking-widest">
-            <Sparkles className="w-3.5 h-3.5 text-blue-600" />
-            <span>{COMPANY_JOURNEY_DATA.eyebrow}</span>
-          </div>
-
-          {/* Large Main Heading with Signature Purple Accent (34–48px) */}
-          <h2 className="text-[32px] sm:text-[40px] lg:text-[46px] font-extrabold tracking-tight leading-[1.18] text-[#10264b]">
-            {COMPANY_JOURNEY_DATA.headingMain}{' '}
-            <span className="text-[#7139e8]">
-              {COMPANY_JOURNEY_DATA.headingAccent}
-            </span>
+        {/* Section Header */}
+        <div className="text-left mb-10 sm:mb-12">
+          <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-[#0066CC] block mb-2 select-none">
+            {eyebrow}
+          </span>
+          <h2 className="font-serif text-[28px] sm:text-[34px] lg:text-[40px] font-bold text-[#142B59] tracking-tight leading-tight">
+            Key Milestones in <span className="bg-gradient-to-r from-[#0052CC] via-[#0066CC] to-[#0A66C2] bg-clip-text text-transparent">Our Growth</span>
           </h2>
-
-          {/* Subtitle Paragraph (16–18px) */}
-          <p className="text-[16px] sm:text-[18px] text-[#354765] leading-relaxed font-normal">
-            {COMPANY_JOURNEY_DATA.description}
-          </p>
-
-          {/* Company Confirmation Note */}
-          <div className="pt-1 flex items-center justify-center gap-2 text-xs text-slate-500">
-            <span className="w-2 h-2 rounded-full bg-blue-500" />
-            <span>* Asterisked milestone dates are structured placeholders awaiting formal company registry confirmation.</span>
-          </div>
         </div>
 
-        {/* =================================================================== */}
-        {/* VERTICAL TIMELINE CONTAINER                                         */}
-        {/* =================================================================== */}
-        <div ref={timelineRef} className="relative max-w-5xl mx-auto py-4">
-          
-          {/* Background Static Line */}
-          <div
-            className="absolute top-0 bottom-0 w-1 bg-slate-200 rounded-full left-6 sm:left-8 -translate-x-1/2 lg:left-1/2 lg:-translate-x-1/2"
-            aria-hidden="true"
-          />
+        {/* 5-Card Connected Horizontal Timeline */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 lg:gap-3 items-stretch relative">
+          {milestones.map((item, index) => {
+            const styles = colorStyles[item.color];
+            const isLast = index === milestones.length - 1;
 
-          {/* Multi-Stop Vibrant Gradient Progress Fill Line */}
-          <div
-            className="absolute top-0 w-1 bg-gradient-to-b from-[#0878f9] via-[#0284c7] via-[#f43f5e] via-[#10b981] to-[#7139e8] rounded-full left-6 sm:left-8 -translate-x-1/2 lg:left-1/2 lg:-translate-x-1/2 transition-all duration-150 ease-out shadow-sm"
-            style={{
-              height: `${scrollProgress * 100}%`,
-              maxHeight: '100%'
-            }}
-            aria-hidden="true"
-          />
+            return (
+              <div key={item.year} className="relative flex flex-col">
+                <div className="bg-white rounded-xl border border-slate-200/90 p-4 sm:p-5 shadow-sm hover:shadow-md hover:border-slate-300 transition-all flex flex-col justify-between h-full relative group">
+                  
+                  {/* Top row: Icon + Year */}
+                  <div>
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className={`w-9 h-9 rounded-lg ${styles.iconBg} border ${styles.iconBorder} flex items-center justify-center shrink-0`}>
+                        {renderMilestoneIcon(item.iconName, `w-4.5 h-4.5 ${styles.iconText}`)}
+                      </div>
+                      <div className="flex flex-col">
+                        <span className={`text-[17px] sm:text-[18px] font-extrabold ${styles.yearText} leading-none tracking-tight`}>
+                          {item.year}
+                        </span>
+                        <span className="text-[13px] sm:text-[14px] font-bold text-[#142B59] leading-tight mt-0.5">
+                          {item.title}
+                        </span>
+                      </div>
+                    </div>
 
-          {/* List of Alternating Milestones */}
-          <ol className="relative z-10 list-none m-0 p-0">
-            {COMPANY_JOURNEY_DATA.milestones.map((item, index) => (
-              <li key={item.id}>
-                <TimelineItemCard
-                  item={item}
-                  index={index}
-                  isReducedMotion={isReducedMotion}
-                />
-              </li>
-            ))}
-          </ol>
+                    {/* Description */}
+                    <p className="text-[12.5px] sm:text-[13px] text-[#45546B] leading-relaxed">
+                      {item.description}
+                    </p>
+                  </div>
 
+                </div>
+
+                {/* Arrow connector between cards (visible on desktop) */}
+                {!isLast && (
+                  <div className="hidden lg:flex absolute -right-2 top-1/2 -translate-y-1/2 z-10 text-slate-300 pointer-events-none">
+                    <ArrowRight className="w-4 h-4 text-slate-400" />
+                  </div>
+                )}
+              </div>
+            );
+          })}
         </div>
 
-        {/* Bottom CTA Callout */}
-        <div className="mt-12 text-center">
-          <p className="text-sm font-semibold text-slate-600 mb-2">
-            Looking to partner with an experienced, certified ERP & automation team?
-          </p>
-          <a
-            href="#contact-cta"
-            className="inline-flex items-center gap-2 text-[15px] font-bold text-blue-600 hover:text-blue-700 transition-colors group"
-          >
-            <span>Speak with our senior SAP consultants</span>
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-          </a>
+        {/* Subtle Verification Disclaimer */}
+        <div className="mt-8 pt-4 border-t border-slate-100 flex items-center justify-center gap-2 text-xs text-slate-400">
+          <Info className="w-3.5 h-3.5 shrink-0" />
+          <span>Historical milestones reflect ATLAS Technosoft organizational milestones; company records subject to verification.</span>
         </div>
 
       </div>

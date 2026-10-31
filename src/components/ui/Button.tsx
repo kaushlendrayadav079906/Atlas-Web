@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: 'primary' | 'secondary' | 'outline' | 'ghost' | 'cyan' | 'gold';
@@ -30,12 +31,12 @@ export const Button: React.FC<ButtonProps> = ({
   };
 
   const variantStyles = {
-    primary: "bg-blue-600 text-white hover:bg-blue-700 focus-visible:ring-blue-500 focus-visible:ring-offset-white shadow-blue-600/20",
-    secondary: "bg-white text-slate-800 hover:bg-slate-50 border border-slate-300 focus-visible:ring-slate-400 focus-visible:ring-offset-white",
-    outline: "bg-transparent text-blue-600 hover:bg-blue-50 border border-blue-600 focus-visible:ring-blue-500 focus-visible:ring-offset-white",
-    ghost: "bg-transparent text-slate-700 hover:bg-slate-100 border border-transparent focus-visible:ring-blue-500",
+    primary: "bg-gradient-to-r from-[#0052CC] to-[#0A66C2] hover:from-[#0040A8] hover:to-[#08529C] text-white focus-visible:ring-[#0066CC] focus-visible:ring-offset-white shadow-md shadow-blue-500/25",
+    secondary: "bg-white text-[#142B59] hover:bg-slate-50 border border-slate-300 focus-visible:ring-slate-400 focus-visible:ring-offset-white shadow-sm",
+    outline: "bg-transparent text-[#0066CC] hover:bg-blue-50 border border-[#0066CC] focus-visible:ring-[#0066CC] focus-visible:ring-offset-white",
+    ghost: "bg-transparent text-[#45546B] hover:bg-slate-100 border border-transparent focus-visible:ring-slate-400",
     cyan: "bg-cyan-500 text-slate-950 hover:bg-cyan-400 font-bold shadow-md focus-visible:ring-cyan-400",
-    gold: "bg-[#d99120] text-white hover:bg-[#bd7810] font-semibold shadow-md focus-visible:ring-amber-500 shadow-amber-500/20",
+    gold: "bg-gradient-to-r from-[#0052CC] to-[#0A66C2] hover:from-[#0040A8] hover:to-[#08529C] text-white font-semibold shadow-md shadow-blue-500/25",
   };
 
   const combinedClasses = `${baseStyles} ${sizeStyles[size]} ${variantStyles[variant]} ${fullWidth ? 'w-full' : ''} ${className}`;
@@ -49,6 +50,13 @@ export const Button: React.FC<ButtonProps> = ({
   );
 
   if (href) {
+    if (href.startsWith('/') && !href.startsWith('//')) {
+      return (
+        <Link to={href} className={combinedClasses} tabIndex={0}>
+          {content}
+        </Link>
+      );
+    }
     return (
       <a href={href} className={combinedClasses} tabIndex={0}>
         {content}

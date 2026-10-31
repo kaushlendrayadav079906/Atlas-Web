@@ -32,13 +32,18 @@ export const BRAND_INFO = {
       }
     ],
     website: "www.atlastechnosoft.com"
+  },
+  social: {
+    linkedin: "https://www.linkedin.com/company/atlas-technosoft-pvt-ltd/",
+    whatsapp: "https://wa.me/919372329599?text=Hello%20ATLAS%20Technosoft%2C%20I%20would%20like%20to%20book%20a%20consultation.",
+    twitter: "https://x.com/atlastechnosoft"
   }
 };
 
 export const NAV_LINKS = [
   { name: 'Home', href: '/' },
   { name: 'About', href: '/about' },
-  { name: 'Services', href: '/#services' },
+  { name: 'Services', href: '/services' },
   { name: 'Solutions', href: '/solutions' },
   { name: 'Industries', href: '/industries' },
   { name: 'Case Studies', href: '/case-studies' },

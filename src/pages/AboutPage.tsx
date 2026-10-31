@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+import { CtaContactCards } from '../components/ui/CtaContactCards';
 import React, { useState, useEffect } from 'react';
 import { 
   ArrowRight, 
@@ -51,7 +53,7 @@ import {
 const industryIcons: Record<string, React.ReactNode> = {
   manufacturing: <Factory className="w-5 h-5 text-blue-600" />,
   warehouse: <Truck className="w-5 h-5 text-blue-600" />,
-  finance: <Database className="w-5 h-5 text-[#ff9b27]" />,
+  finance: <Database className="w-5 h-5 text-[#0066CC]" />,
   trading: <Ship className="w-5 h-5 text-[#10b981]" />
 };
 
@@ -140,13 +142,13 @@ export const AboutPage: React.FC = () => {
   };
 
   return (
-    <div className="relative bg-white text-[#354765] selection:bg-blue-600 selection:text-white">
+    <div className="relative bg-white text-[#45546B] selection:bg-blue-600 selection:text-white">
 
       {/* ========================================================================= */}
       {/* SECTION 1: ABOUT HERO SECTION                                             */}
       {/* ========================================================================= */}
-      <section className="relative overflow-hidden bg-gradient-to-r from-sky-50/60 via-white to-blue-50/30 pt-10 pb-12 lg:pt-14 lg:pb-16 border-b border-slate-100">
-        
+      <section className="relative overflow-hidden bg-gradient-to-r from-[#fffbf4] via-[#fdfcf9] to-[#f4f8fe] pt-10 pb-12 lg:pt-14 lg:pb-16 border-b border-slate-100">
+
         {/* Soft subtle botanical ambient glow on far left */}
         <div className="absolute -left-12 top-1/2 -translate-y-1/2 w-48 h-80 opacity-25 pointer-events-none select-none hidden lg:block">
           <div className="w-full h-full bg-gradient-to-tr from-emerald-600/30 via-teal-500/10 to-transparent rounded-full blur-3xl" />
@@ -159,19 +161,19 @@ export const AboutPage: React.FC = () => {
             <div className="lg:col-span-7 space-y-5 text-left">
               {/* Eyebrow: 13–14px */}
               <div className="inline-block">
-                <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-blue-600 select-none">
-                  {ABOUT_HERO_DATA.eyebrow}
+                <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-[#1B72E8] select-none">
+                  {ABOUT_HERO_DATA.eyebrow} —
                 </span>
               </div>
 
               {/* Main Heading: 46–54px desktop, 34–40px mobile */}
-              <h1 className="text-[34px] sm:text-[42px] lg:text-[48px] xl:text-[52px] font-extrabold tracking-tight leading-[1.14] text-[#10264b]">
+              <h1 className="font-serif text-[34px] sm:text-[42px] lg:text-[48px] xl:text-[52px] font-bold tracking-tight leading-[1.14] text-[#142B59]">
                 {ABOUT_HERO_DATA.titleStart}{' '}
-                <span className="text-[#7139e8]">{ABOUT_HERO_DATA.titleHighlight}</span>
+                <span className="bg-gradient-to-r from-[#0052CC] via-[#0066CC] to-[#0A66C2] bg-clip-text text-transparent">{ABOUT_HERO_DATA.titleHighlight}</span>
               </h1>
 
               {/* Supporting Text: 17–18px Desktop, 16px Mobile */}
-              <p className="text-[16px] sm:text-[17px] lg:text-[18px] text-[#354765] leading-relaxed max-w-2xl font-normal">
+              <p className="text-[16px] sm:text-[17px] lg:text-[18px] text-[#45546B] leading-relaxed max-w-2xl font-normal">
                 {ABOUT_HERO_DATA.description}
               </p>
 
@@ -181,7 +183,7 @@ export const AboutPage: React.FC = () => {
                   href="#story"
                   variant="primary"
                   size="lg"
-                  className="text-[16px] sm:text-[17px] font-semibold px-7 py-3.5 shadow-md shadow-blue-600/20 bg-[#0878f9] hover:bg-blue-700"
+                  className="text-[16px] sm:text-[17px] font-semibold px-7 py-3.5 shadow-md shadow-blue-500/25 bg-[#0878f9] hover:bg-blue-700 text-white rounded-lg"
                   icon={<ArrowRight className="w-5 h-5" />}
                 >
                   {ABOUT_HERO_DATA.primaryCtaText}
@@ -191,34 +193,34 @@ export const AboutPage: React.FC = () => {
                   href="#why-choose"
                   variant="secondary"
                   size="lg"
-                  className="text-[16px] sm:text-[17px] font-semibold px-7 py-3.5"
+                  className="text-[16px] sm:text-[17px] font-semibold px-7 py-3.5 bg-white text-[#142B59] border border-slate-200 hover:border-slate-300 hover:bg-slate-50 rounded-lg shadow-sm"
                 >
                   {ABOUT_HERO_DATA.secondaryCtaText}
                 </Button>
               </div>
             </div>
 
-            {/* Right Column: Corporate Headquarters Visual with 4 Floating Pill Cards */}
+            {/* Right Column: Modern Office Team Collaboration Visual with 4 Floating Pill Cards */}
             <div className="lg:col-span-5 relative">
               <div className="relative w-full rounded-2xl overflow-hidden shadow-lg border border-slate-200/90 bg-white">
                 <img
                   src={ABOUT_HERO_DATA.imageSrc}
-                  alt="ATLAS Technosoft Enterprise Headquarters Building"
+                  alt="ATLAS Technosoft Team Collaborating on Enterprise Solutions"
                   className="w-full h-auto object-cover max-h-[390px]"
                 />
 
                 {/* 4 Floating Information Cards Stacked on the Right Edge matching reference */}
-                <div className="absolute top-4 right-4 bottom-4 flex flex-col justify-between gap-2 pointer-events-none">
+                <div className="absolute top-3 right-3 bottom-3 flex flex-col justify-between gap-2 pointer-events-none">
                   {ABOUT_HERO_DATA.floatingCards.map((card, idx) => (
                     <div
                       key={idx}
-                      className="bg-white/95 backdrop-blur-md rounded-xl p-2.5 sm:p-3 shadow-md border border-slate-200/90 flex items-center gap-2.5 max-w-[210px]"
+                      className="bg-white/95 backdrop-blur-md rounded-xl p-2 sm:p-2.5 shadow-md border border-slate-200/90 flex items-center gap-2.5 w-[190px] sm:w-[210px]"
                     >
                       <div className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 ${
                         card.color === 'blue' ? 'bg-blue-50 text-[#0878f9] border border-blue-200' :
-                        card.color === 'purple' ? 'bg-purple-50 text-[#7139e8] border border-purple-200' :
+                        card.color === 'purple' ? 'bg-blue-50 text-[#0066CC] border border-blue-200' :
                         card.color === 'emerald' ? 'bg-emerald-50 text-[#10b981] border border-emerald-200' :
-                        'bg-orange-50 text-[#f28a24] border border-orange-200'
+                        'bg-blue-50 text-[#0066CC] border border-blue-200'
                       }`}>
                         {card.iconName === 'Users' && <Users className="w-4 h-4" />}
                         {card.iconName === 'Cog' && <Cog className="w-4 h-4" />}
@@ -226,7 +228,7 @@ export const AboutPage: React.FC = () => {
                         {card.iconName === 'TrendingUp' && <TrendingUp className="w-4 h-4" />}
                       </div>
                       <div className="min-w-0">
-                        <span className="text-[12px] sm:text-[13px] font-bold text-[#10264b] block leading-tight truncate">
+                        <span className="text-[12px] sm:text-[13px] font-bold text-[#142B59] block leading-tight truncate">
                           {card.title}
                         </span>
                         <span className="text-[10px] sm:text-[11px] text-slate-500 block leading-tight truncate">
@@ -249,16 +251,16 @@ export const AboutPage: React.FC = () => {
       <section id="metrics" className="py-6 sm:py-8 bg-white border-b border-slate-100">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="rounded-xl sm:rounded-2xl bg-white border border-slate-200/90 shadow-sm p-4 sm:p-6">
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 divide-y sm:divide-y-0 sm:divide-x divide-slate-100">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
               {ABOUT_METRICS_DATA.map((metric) => (
-                <div key={metric.id} className="pt-3 sm:pt-0 first:pt-0 flex flex-col items-center text-center p-3 sm:p-4">
+                <div key={metric.id} className="flex flex-col items-center text-center p-3 sm:p-4">
                   
                   {/* Colored Icon Circle */}
-                  <div className={`w-10 h-10 rounded-full border flex items-center justify-center mb-2 mx-auto ${
+                  <div className={`w-11 h-11 rounded-full border flex items-center justify-center mb-2.5 mx-auto ${
                     metric.color === 'blue' ? 'bg-blue-50 border-blue-200 text-[#0878f9]' :
                     metric.color === 'green' ? 'bg-emerald-50 border-emerald-200 text-[#10b981]' :
-                    metric.color === 'purple' ? 'bg-purple-50 border-purple-200 text-[#7139e8]' :
-                    'bg-orange-50 border-orange-200 text-[#f28a24]'
+                    metric.color === 'purple' ? 'bg-blue-50 border-blue-200 text-[#0066CC]' :
+                    'bg-blue-50 border-blue-200 text-[#0066CC]'
                   }`}>
                     {metric.iconName === 'Users' && <Users className="w-5 h-5" />}
                     {metric.iconName === 'TrendingUp' && <TrendingUp className="w-5 h-5" />}
@@ -270,14 +272,14 @@ export const AboutPage: React.FC = () => {
                   <div className={`text-[32px] sm:text-[36px] lg:text-[40px] font-extrabold tracking-tight leading-none mb-1 ${
                     metric.color === 'blue' ? 'text-[#0878f9]' :
                     metric.color === 'green' ? 'text-[#10b981]' :
-                    metric.color === 'purple' ? 'text-[#7139e8]' :
-                    'text-[#f28a24]'
+                    metric.color === 'purple' ? 'text-[#0066CC]' :
+                    'text-[#0066CC]'
                   }`}>
                     {metric.value}
                   </div>
 
                   {/* Bold Label */}
-                  <div className="text-[15px] sm:text-[16px] font-bold text-[#10264b] leading-snug">
+                  <div className="text-[15px] sm:text-[16px] font-bold text-[#142B59] leading-snug">
                     {metric.label}
                   </div>
 
@@ -315,7 +317,7 @@ export const AboutPage: React.FC = () => {
                   </div>
                   <div className="space-y-0.5 text-left">
                     {OUR_STORY_DATA.overlayCardItems.map((item, idx) => (
-                      <div key={idx} className="text-[12px] sm:text-[13px] font-bold text-[#10264b] leading-tight">
+                      <div key={idx} className="text-[12px] sm:text-[13px] font-bold text-[#142B59] leading-tight">
                         {item}
                       </div>
                     ))}
@@ -327,27 +329,27 @@ export const AboutPage: React.FC = () => {
             {/* Right Column: Story Copy & CTA */}
             <div className="lg:col-span-6 space-y-5 text-left relative">
               <div>
-                <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-blue-600 block mb-2">
-                  {OUR_STORY_DATA.eyebrow}
+                <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-[#1B72E8] block mb-2">
+                  {OUR_STORY_DATA.eyebrow} —
                 </span>
-                <h2 className="text-[28px] sm:text-[34px] lg:text-[38px] font-bold text-[#10264b] tracking-tight leading-tight">
+                <h2 className="font-serif text-[28px] sm:text-[34px] lg:text-[40px] font-bold text-[#142B59] tracking-tight leading-tight">
                   {OUR_STORY_DATA.titleStart}{' '}
-                  <span className="text-blue-600">{OUR_STORY_DATA.titleHighlight}</span>
+                  <span className="bg-gradient-to-r from-[#0052CC] via-[#0066CC] to-[#0A66C2] bg-clip-text text-transparent">{OUR_STORY_DATA.titleHighlight}</span>
                 </h2>
               </div>
 
               {OUR_STORY_DATA.paragraphs.map((p, idx) => (
-                <p key={idx} className="text-[16px] sm:text-[17px] text-[#354765] leading-relaxed">
+                <p key={idx} className="text-[16px] sm:text-[17px] text-[#45546B] leading-relaxed">
                   {p}
                 </p>
               ))}
 
               <div className="pt-2">
                 <Button
-                  href="#journey-timeline"
+                  href="#journey"
                   variant="primary"
                   size="lg"
-                  className="text-[16px] sm:text-[17px] font-semibold px-7 py-3.5 shadow-md shadow-blue-600/20 bg-[#0878f9] hover:bg-blue-700"
+                  className="text-[16px] sm:text-[17px] font-semibold px-7 py-3.5 shadow-md shadow-blue-500/25 bg-[#0878f9] hover:bg-blue-700 text-white rounded-lg"
                   icon={<ArrowRight className="w-5 h-5" />}
                 >
                   {OUR_STORY_DATA.ctaText}
@@ -355,7 +357,15 @@ export const AboutPage: React.FC = () => {
               </div>
 
               {/* Decorative Dot Matrix on Bottom Right */}
-              <div className="absolute -bottom-8 right-0 w-24 h-24 bg-dot-pattern opacity-40 pointer-events-none hidden sm:block" />
+              <div className="absolute -bottom-6 right-0 pointer-events-none hidden sm:block opacity-30">
+                <svg width="88" height="88" viewBox="0 0 88 88" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  {[0, 1, 2, 3, 4, 5].map((row) =>
+                    [0, 1, 2, 3, 4, 5].map((col) => (
+                      <circle key={`${row}-${col}`} cx={col * 16 + 4} cy={row * 16 + 4} r="2" fill="#0878f9" />
+                    ))
+                  )}
+                </svg>
+              </div>
             </div>
 
           </div>
@@ -371,14 +381,14 @@ export const AboutPage: React.FC = () => {
             
             {/* Left Intro Column */}
             <div className="lg:col-span-3 space-y-3 flex flex-col justify-center text-left">
-              <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-blue-600 block">
+              <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-[#1B72E8] block">
                 {MISSION_VISION_VALUES_DATA.eyebrow}
               </span>
-              <h2 className="text-[28px] sm:text-[34px] font-bold text-[#10264b] tracking-tight leading-tight">
+              <h2 className="font-serif text-[28px] sm:text-[34px] font-bold text-[#142B59] tracking-tight leading-tight">
                 {MISSION_VISION_VALUES_DATA.titleStart}{' '}
-                <span className="text-[#7139e8]">{MISSION_VISION_VALUES_DATA.titleHighlight}</span>
+                <span className="bg-gradient-to-r from-[#0052CC] via-[#0066CC] to-[#0A66C2] bg-clip-text text-transparent">{MISSION_VISION_VALUES_DATA.titleHighlight}</span>
               </h2>
-              <p className="text-[15px] sm:text-[16px] text-[#354765] leading-relaxed">
+              <p className="text-[15px] sm:text-[16px] text-[#45546B] leading-relaxed">
                 {MISSION_VISION_VALUES_DATA.intro}
               </p>
             </div>
@@ -392,25 +402,25 @@ export const AboutPage: React.FC = () => {
                   <div className="w-12 h-12 rounded-xl bg-blue-100/80 text-[#0878f9] flex items-center justify-center mb-4">
                     <Target className="w-6 h-6" />
                   </div>
-                  <h3 className="text-[20px] sm:text-[22px] font-bold text-[#10264b] mb-2.5">
+                  <h3 className="text-[20px] sm:text-[22px] font-bold text-[#142B59] mb-2.5">
                     {MISSION_VISION_VALUES_DATA.mission.title}
                   </h3>
-                  <p className="text-[14px] sm:text-[15px] text-[#354765] leading-relaxed">
+                  <p className="text-[14px] sm:text-[15px] text-[#45546B] leading-relaxed">
                     {MISSION_VISION_VALUES_DATA.mission.description}
                   </p>
                 </div>
               </div>
 
               {/* Card 2: Our Vision */}
-              <div className="p-6 rounded-2xl bg-[#fbf7ff] border border-purple-200/90 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+              <div className="p-6 rounded-2xl bg-[#f4f9ff] border border-blue-200/90 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
                 <div>
-                  <div className="w-12 h-12 rounded-xl bg-purple-100/80 text-[#7139e8] flex items-center justify-center mb-4">
+                  <div className="w-12 h-12 rounded-xl bg-blue-100/80 text-[#0066CC] flex items-center justify-center mb-4">
                     <Eye className="w-6 h-6" />
                   </div>
-                  <h3 className="text-[20px] sm:text-[22px] font-bold text-[#10264b] mb-2.5">
+                  <h3 className="text-[20px] sm:text-[22px] font-bold text-[#142B59] mb-2.5">
                     {MISSION_VISION_VALUES_DATA.vision.title}
                   </h3>
-                  <p className="text-[14px] sm:text-[15px] text-[#354765] leading-relaxed">
+                  <p className="text-[14px] sm:text-[15px] text-[#45546B] leading-relaxed">
                     {MISSION_VISION_VALUES_DATA.vision.description}
                   </p>
                 </div>
@@ -422,12 +432,12 @@ export const AboutPage: React.FC = () => {
                   <div className="w-12 h-12 rounded-xl bg-emerald-100/80 text-[#10b981] flex items-center justify-center mb-4">
                     <Gem className="w-6 h-6" />
                   </div>
-                  <h3 className="text-[20px] sm:text-[22px] font-bold text-[#10264b] mb-3">
+                  <h3 className="text-[20px] sm:text-[22px] font-bold text-[#142B59] mb-3">
                     {MISSION_VISION_VALUES_DATA.values.title}
                   </h3>
                   <ul className="space-y-2">
                     {MISSION_VISION_VALUES_DATA.values.items.map((item, idx) => (
-                      <li key={idx} className="flex items-center gap-2 text-[14px] sm:text-[15px] text-[#354765]">
+                      <li key={idx} className="flex items-center gap-2 text-[14px] sm:text-[15px] text-[#45546B]">
                         <CheckCircle2 className="w-4 h-4 text-[#10b981] shrink-0" />
                         <span>{item}</span>
                       </li>
@@ -452,15 +462,16 @@ export const AboutPage: React.FC = () => {
             {/* Left Content */}
             <div className="lg:col-span-6 space-y-5 text-left">
               <div>
-                <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-blue-600 block mb-2">
+                <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-[#1B72E8] block mb-2">
                   {ABOUT_EXPERTISE_DATA.eyebrow}
                 </span>
-                <h2 className="text-[28px] sm:text-[34px] lg:text-[38px] font-bold text-[#10264b] tracking-tight leading-tight">
-                  {ABOUT_EXPERTISE_DATA.title}
+                <h2 className="font-serif text-[28px] sm:text-[34px] lg:text-[40px] font-bold text-[#142B59] tracking-tight leading-tight">
+                  {ABOUT_EXPERTISE_DATA.titleStart}{' '}
+                  <span className="bg-gradient-to-r from-[#0052CC] via-[#0066CC] to-[#0A66C2] bg-clip-text text-transparent">{ABOUT_EXPERTISE_DATA.titleHighlight}</span>
                 </h2>
               </div>
 
-              <p className="text-[16px] sm:text-[17px] text-[#354765] leading-relaxed">
+              <p className="text-[16px] sm:text-[17px] text-[#45546B] leading-relaxed">
                 {ABOUT_EXPERTISE_DATA.description}
               </p>
 
@@ -483,7 +494,7 @@ export const AboutPage: React.FC = () => {
                   href="#industries"
                   variant="primary"
                   size="lg"
-                  className="text-[16px] sm:text-[17px] font-semibold px-7 py-3.5 shadow-md shadow-blue-600/20 bg-[#0878f9] hover:bg-blue-700"
+                  className="text-[16px] sm:text-[17px] font-semibold px-7 py-3.5 shadow-md shadow-blue-500/25 bg-[#0878f9] hover:bg-blue-700 text-white rounded-lg"
                   icon={<ArrowRight className="w-5 h-5" />}
                 >
                   {ABOUT_EXPERTISE_DATA.ctaText}
@@ -512,12 +523,17 @@ export const AboutPage: React.FC = () => {
       <section id="industries" className="py-12 sm:py-16 lg:py-20 bg-white border-b border-slate-100">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           
-          <SectionHeading
-            badge="INDUSTRIES WE SERVE"
-            title="Delivering Tailored Solutions Across Industries"
-            subtitle="We understand your industry challenges and deliver tailored solutions."
-            align="center"
-          />
+          <div className="text-center max-w-3xl mx-auto mb-10 md:mb-14">
+            <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-[#1B72E8] select-none block mb-2">
+              INDUSTRIES WE SERVE
+            </span>
+            <h2 className="font-serif text-[28px] sm:text-[34px] lg:text-[40px] font-bold text-[#142B59] tracking-tight leading-tight">
+              Delivering Tailored Solutions Across <span className="bg-gradient-to-r from-[#0052CC] via-[#0066CC] to-[#0A66C2] bg-clip-text text-transparent">Industries</span>
+            </h2>
+            <p className="mt-3.5 text-[16px] sm:text-[17px] text-[#45546B] leading-relaxed">
+              We understand your industry challenges and deliver tailored solutions.
+            </p>
+          </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6">
             {ABOUT_INDUSTRIES_DATA.map((ind) => (
@@ -572,16 +588,16 @@ export const AboutPage: React.FC = () => {
             {/* Left Content */}
             <div className="lg:col-span-5 space-y-5 text-left">
               <div>
-                <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-blue-600 block mb-2">
+                <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-[#1B72E8] block mb-2">
                   {WHY_CHOOSE_ATLAS_DATA.eyebrow}
                 </span>
-                <h2 className="text-[28px] sm:text-[34px] lg:text-[38px] font-bold text-[#10264b] tracking-tight leading-tight">
+                <h2 className="font-serif text-[28px] sm:text-[34px] lg:text-[40px] font-bold text-[#142B59] tracking-tight leading-tight">
                   {WHY_CHOOSE_ATLAS_DATA.titleStart}{' '}
-                  <span className="text-[#7139e8]">{WHY_CHOOSE_ATLAS_DATA.titleHighlight}</span>
+                  <span className="bg-gradient-to-r from-[#0052CC] via-[#0066CC] to-[#0A66C2] bg-clip-text text-transparent">{WHY_CHOOSE_ATLAS_DATA.titleHighlight}</span>
                 </h2>
               </div>
 
-              <p className="text-[16px] sm:text-[17px] text-[#354765] leading-relaxed">
+              <p className="text-[16px] sm:text-[17px] text-[#45546B] leading-relaxed">
                 {WHY_CHOOSE_ATLAS_DATA.description}
               </p>
 
@@ -590,7 +606,7 @@ export const AboutPage: React.FC = () => {
                   onClick={() => setIsModalOpen(true)}
                   variant="primary"
                   size="lg"
-                  className="text-[16px] sm:text-[17px] font-semibold px-7 py-3.5 shadow-md shadow-blue-600/20 bg-[#0878f9] hover:bg-blue-700"
+                  className="text-[16px] sm:text-[17px] font-semibold px-7 py-3.5 shadow-md shadow-blue-500/25 bg-[#0878f9] hover:bg-blue-700 text-white rounded-lg"
                   icon={<ArrowRight className="w-5 h-5" />}
                 >
                   {WHY_CHOOSE_ATLAS_DATA.ctaText}
@@ -607,8 +623,7 @@ export const AboutPage: React.FC = () => {
                 >
                   <div className={`w-11 h-11 rounded-xl flex items-center justify-center shrink-0 ${
                     feat.color === 'blue' ? 'bg-blue-50 text-[#0878f9] border border-blue-200' :
-                    feat.color === 'rose' ? 'bg-rose-50 text-[#ff4356] border border-rose-200' :
-                    feat.color === 'purple' ? 'bg-purple-50 text-[#7139e8] border border-purple-200' :
+                    feat.color === 'purple' ? 'bg-blue-50 text-[#0066CC] border border-blue-200' :
                     'bg-emerald-50 text-[#10b981] border border-emerald-200'
                   }`}>
                     {feat.iconName === 'Users' && <Users className="w-5 h-5" />}
@@ -618,7 +633,7 @@ export const AboutPage: React.FC = () => {
                   </div>
 
                   <div className="min-w-0">
-                    <h3 className="text-[17px] sm:text-[18px] font-bold text-[#10264b] mb-1 leading-snug">
+                    <h3 className="text-[17px] sm:text-[18px] font-bold text-[#142B59] mb-1 leading-snug">
                       {feat.title}
                     </h3>
                     <p className="text-[13px] sm:text-[14px] text-slate-600 leading-snug">
@@ -644,92 +659,45 @@ export const AboutPage: React.FC = () => {
       <section id="contact-cta" className="py-10 sm:py-12 lg:py-14 bg-slate-50/50">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="rounded-2xl bg-[#eaf4ff] border border-blue-200/90 p-6 sm:p-8 lg:p-10 shadow-sm">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+          <div className="rounded-2xl sm:rounded-3xl bg-[#eaf4ff] border border-blue-200/90 p-8 sm:p-10 lg:p-12 shadow-sm">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
               
-              {/* Left Column: Heading, Subtext & CTA Button */}
-              <div className="lg:col-span-5 space-y-4 text-left">
-                <span className="text-[12px] font-bold uppercase tracking-wider text-blue-600 block">
+              {/* Left Column: Heading, Subtext & Both Action Buttons */}
+              <div className="lg:col-span-6 space-y-4 text-left">
+                <span className="text-[12px] sm:text-[13px] font-bold uppercase tracking-wider text-[#1B72E8] block">
                   {ABOUT_CONTACT_CTA_DATA.eyebrow}
                 </span>
-                <h2 className="text-[26px] sm:text-[32px] lg:text-[36px] font-bold text-[#10264b] tracking-tight leading-tight">
+                <h2 className="font-serif text-[28px] sm:text-[34px] lg:text-[40px] font-bold text-[#142B59] tracking-tight leading-[1.18]">
                   {ABOUT_CONTACT_CTA_DATA.titleStart}{' '}
-                  <span className="text-[#7139e8]">{ABOUT_CONTACT_CTA_DATA.titleHighlight}</span>
+                  <span className="bg-gradient-to-r from-[#0052CC] via-[#0066CC] to-[#0A66C2] bg-clip-text text-transparent">{ABOUT_CONTACT_CTA_DATA.titleHighlight}</span>
                 </h2>
                 
-                <p className="text-[15px] sm:text-[17px] text-[#354765] leading-relaxed max-w-lg">
+                <p className="text-[15px] sm:text-[16px] text-[#45546B] leading-relaxed max-w-lg">
                   {ABOUT_CONTACT_CTA_DATA.description}
                 </p>
 
-                <div className="pt-2">
+                <div className="pt-2 flex flex-wrap items-center gap-4">
                   <Button
                     onClick={() => setIsModalOpen(true)}
                     variant="primary"
                     size="lg"
-                    className="text-[16px] sm:text-[17px] font-semibold px-8 py-3.5 shadow-md shadow-blue-600/25 bg-[#0878f9] hover:bg-blue-700"
-                    icon={<ArrowRight className="w-5 h-5" />}
+                    className="text-[15px] sm:text-[16px] font-semibold px-7 py-3.5 shadow-md shadow-blue-500/25 bg-gradient-to-r from-[#0052CC] to-[#0A66C2] hover:from-[#0040A8] hover:to-[#08529C] text-white rounded-xl"
+                    icon={<ArrowRight className="w-4 h-4" />}
                   >
                     {ABOUT_CONTACT_CTA_DATA.buttonText}
                   </Button>
+                  <Link
+                    to="/contact"
+                    className="inline-flex items-center justify-center font-semibold rounded-xl px-6 py-3.5 text-[15px] sm:text-[16px] bg-white text-[#142B59] hover:bg-slate-50 border border-slate-300 shadow-sm transition-colors"
+                  >
+                    Contact Us
+                  </Link>
                 </div>
               </div>
 
-              {/* Right Column: 3 Contact Info Cards matching reference screenshot */}
-              <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-3.5">
-                
-                {/* Email Box Card */}
-                <div className="flex items-center gap-3 p-3.5 rounded-xl bg-white border-2 border-[#16b978] shadow-sm hover:shadow-md transition-all">
-                  <div className="w-10 h-10 rounded-lg bg-blue-50 border border-blue-100 text-[#0878f9] flex items-center justify-center shrink-0">
-                    <Mail className="w-5 h-5" />
-                  </div>
-                  <div className="min-w-0">
-                    <span className="text-[12px] font-bold uppercase tracking-wider text-slate-400 block leading-tight">
-                      Email
-                    </span>
-                    <a
-                      href={`mailto:${BRAND_INFO.contact.email}`}
-                      className="text-[13px] sm:text-[13.5px] font-bold text-slate-900 hover:text-blue-600 transition-colors truncate block leading-snug"
-                    >
-                      {BRAND_INFO.contact.email}
-                    </a>
-                  </div>
-                </div>
-
-                {/* Phone Box Card */}
-                <div className="flex items-center gap-3 p-3.5 rounded-xl bg-white border-2 border-[#2992ff] shadow-sm hover:shadow-md transition-all">
-                  <div className="w-10 h-10 rounded-lg bg-blue-50 border border-blue-100 text-[#0878f9] flex items-center justify-center shrink-0">
-                    <Phone className="w-5 h-5" />
-                  </div>
-                  <div className="min-w-0">
-                    <span className="text-[12px] font-bold uppercase tracking-wider text-slate-400 block leading-tight">
-                      Phone
-                    </span>
-                    <a
-                      href={BRAND_INFO.contact.whatsappLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-[13px] sm:text-[13.5px] font-bold text-slate-900 hover:text-blue-600 transition-colors truncate block leading-snug"
-                    >
-                      {BRAND_INFO.contact.phone}
-                    </a>
-                  </div>
-                </div>
-
-                {/* Locations Box Card */}
-                <div className="flex items-center gap-3 p-3.5 rounded-xl bg-white border-2 border-[#a34dff] shadow-sm hover:shadow-md transition-all">
-                  <div className="w-10 h-10 rounded-lg bg-blue-50 border border-blue-100 text-[#0878f9] flex items-center justify-center shrink-0">
-                    <MapPin className="w-5 h-5" />
-                  </div>
-                  <div className="min-w-0">
-                    <span className="text-[12px] font-bold uppercase tracking-wider text-slate-400 block leading-tight">
-                      Locations
-                    </span>
-                    <span className="text-[12.5px] sm:text-[13px] font-bold text-slate-900 block leading-tight">
-                      Borivali, Mumbai<br className="hidden sm:inline" /> Marine Lines, Mumbai
-                    </span>
-                  </div>
-                </div>
-
+              {/* Right Column: 3 Clean Contact Info Cards matching reference */}
+              <div className="lg:col-span-6">
+                <CtaContactCards />
               </div>
 
             </div>
@@ -922,16 +890,7 @@ export const AboutPage: React.FC = () => {
       </Modal>
 
       {/* Floating Scroll-to-Top Button */}
-      {showScrollTop && (
-        <button
-          type="button"
-          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          className="fixed bottom-6 right-6 z-30 w-11 h-11 rounded-full bg-blue-600 hover:bg-blue-700 text-white shadow-xl flex items-center justify-center transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-400"
-          aria-label="Scroll to top"
-        >
-          <ChevronUp className="w-5 h-5" />
-        </button>
-      )}
+      /* Global scroll-to-top handled by SiteLayout */
 
     </div>
   );

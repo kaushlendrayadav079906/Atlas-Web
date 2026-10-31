@@ -20,7 +20,7 @@ export interface BoyumModuleItem {
   subtitle: string;
   description: string;
   imageSrc: string;
-  color: 'orange' | 'emerald' | 'purple';
+  color: 'blue' | 'emerald' | 'purple';
   linkHref: string;
 }
 
@@ -29,7 +29,7 @@ export interface AutomationAreaItem {
   title: string;
   subtitle: string;
   iconName: 'Cog' | 'TrendingUp' | 'Clock' | 'Cpu';
-  color: 'purple' | 'sky' | 'orange' | 'rose';
+  color: 'purple' | 'sky' | 'indigo' | 'rose';
 }
 
 export interface ProprietaryAddonItem {
@@ -37,7 +37,7 @@ export interface ProprietaryAddonItem {
   title: string;
   subtitle: string;
   imageSrc: string;
-  color: 'blue' | 'cyan' | 'orange' | 'purple' | 'rose';
+  color: 'blue' | 'cyan' | 'indigo' | 'purple' | 'rose';
 }
 
 export const SOLUTIONS_HERO_DATA = {
@@ -67,8 +67,8 @@ export const SOLUTIONS_OVERVIEW_CARDS: SolutionCardItem[] = [
     description: "Powerful add-ons to extend SAP Business One for manufacturing, warehouse and usability.",
     imageSrc: "/images/crystal_hd/ind_warehouse.jpg",
     badgeType: "boyum",
-    color: "coral",
-    linkHref: "#boyum-section"
+    color: "purple",
+    linkHref: "/solutions/boyum-it"
   },
   {
     id: "uipath",
@@ -147,7 +147,7 @@ export const BOYUM_IT_DEEP_DIVE = {
       subtitle: "Complete manufacturing solution for SAP Business One.",
       description: "Advanced planning & scheduling (APS), MRP, quality control, and real-time shop floor execution integrated into SAP B1.",
       imageSrc: "/images/solutions/solutions_beas_manufacturing.jpg",
-      color: "orange" as const,
+      color: "purple" as const,
       linkHref: "#contact-cta"
     },
     {
@@ -198,7 +198,7 @@ export const UIPATH_RPA_DEEP_DIVE = {
       title: "Workflow Efficiency",
       subtitle: "Faster turnaround time",
       iconName: "Clock" as const,
-      color: "orange" as const
+      color: "indigo" as const
     },
     {
       id: "a4",
@@ -235,7 +235,7 @@ export const ATLAS_ADDONS_DEEP_DIVE = {
       title: "WMS & Vendor Portal",
       subtitle: "Efficient warehouse management and supplier collab.",
       imageSrc: "/images/solutions/solutions_wms_operator.jpg",
-      color: "orange" as const
+      color: "indigo" as const
     },
     {
       id: "shipping-auto",
@@ -274,7 +274,7 @@ export const SOLUTIONS_INDUSTRIES_DATA = [
     title: "Finance & Administration",
     description: "Financial control and administrative efficiency.",
     imageSrc: "/images/crystal_hd/ind_finance.jpg",
-    color: "orange" as const
+    color: "purple" as const
   },
   {
     id: "trading",

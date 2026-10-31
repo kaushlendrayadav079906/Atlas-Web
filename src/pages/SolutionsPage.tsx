@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+import { CtaContactCards } from '../components/ui/CtaContactCards';
 import React, { useState, useEffect } from 'react';
 import { 
   ArrowRight, 
@@ -48,8 +50,8 @@ import {
 const industryIcons: Record<string, React.ReactNode> = {
   manufacturing: <Factory className="w-5 h-5 text-blue-600" />,
   warehouse: <Truck className="w-5 h-5 text-emerald-600" />,
-  finance: <Database className="w-5 h-5 text-orange-500" />,
-  trading: <Ship className="w-5 h-5 text-purple-600" />
+  finance: <Database className="w-5 h-5 text-[#0066CC]" />,
+  trading: <Ship className="w-5 h-5 text-[#0066CC]" />
 };
 
 export const SolutionsPage: React.FC = () => {
@@ -137,7 +139,7 @@ export const SolutionsPage: React.FC = () => {
   };
 
   return (
-    <div className="relative bg-white text-[#354765] selection:bg-blue-600 selection:text-white">
+    <div className="relative bg-white text-[#45546B] selection:bg-blue-600 selection:text-white">
 
       {/* ========================================================================= */}
       {/* SECTION 1: SOLUTIONS HERO                                                 */}
@@ -157,19 +159,19 @@ export const SolutionsPage: React.FC = () => {
               
               {/* Eyebrow: 13–14px */}
               <div className="inline-block">
-                <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-blue-600 select-none">
+                <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-[#1B72E8] select-none">
                   {SOLUTIONS_HERO_DATA.eyebrow}
                 </span>
               </div>
 
               {/* Main Heading: 46–54px desktop, 34–40px mobile */}
-              <h1 className="text-[34px] sm:text-[42px] lg:text-[48px] xl:text-[52px] font-extrabold tracking-tight leading-[1.14] text-[#10264b]">
+              <h1 className="font-serif text-[36px] sm:text-[44px] lg:text-[50px] xl:text-[54px] font-bold tracking-tight leading-[1.14] text-[#142B59]">
                 {SOLUTIONS_HERO_DATA.titleStart}{' '}
-                <span className="text-[#7139e8]">{SOLUTIONS_HERO_DATA.titleHighlight}</span>
+                <span className="bg-gradient-to-r from-[#0052CC] via-[#0066CC] to-[#0A66C2] bg-clip-text text-transparent">{SOLUTIONS_HERO_DATA.titleHighlight}</span>
               </h1>
 
               {/* Supporting Text: 17–18px Desktop, 16px Mobile */}
-              <p className="text-[16px] sm:text-[17px] lg:text-[18px] text-[#354765] leading-relaxed max-w-2xl font-normal">
+              <p className="text-[16px] sm:text-[17px] lg:text-[18px] text-[#45546B] leading-relaxed max-w-2xl font-normal">
                 {SOLUTIONS_HERO_DATA.description}
               </p>
 
@@ -179,7 +181,7 @@ export const SolutionsPage: React.FC = () => {
                   href="#overview"
                   variant="primary"
                   size="lg"
-                  className="text-[16px] sm:text-[17px] font-semibold px-7 py-3.5 shadow-md shadow-blue-600/20 bg-[#0878f9] hover:bg-blue-700"
+                  className="text-[16px] sm:text-[17px] font-semibold px-7 py-3.5 shadow-md shadow-blue-500/25 bg-gradient-to-r from-[#0052CC] to-[#0A66C2] hover:from-[#0040A8] hover:to-[#08529C] text-white"
                   icon={<ArrowRight className="w-5 h-5" />}
                 >
                   {SOLUTIONS_HERO_DATA.primaryCtaText}
@@ -189,7 +191,7 @@ export const SolutionsPage: React.FC = () => {
                   onClick={() => setIsModalOpen(true)}
                   variant="secondary"
                   size="lg"
-                  className="text-[16px] sm:text-[17px] font-semibold px-7 py-3.5"
+                  className="text-[16px] sm:text-[17px] font-semibold px-7 py-3.5 text-[#142B59] hover:text-[#1B72E8]"
                 >
                   {SOLUTIONS_HERO_DATA.secondaryCtaText}
                 </Button>
@@ -260,8 +262,7 @@ export const SolutionsPage: React.FC = () => {
                   <div className={`w-10 h-10 rounded-full border flex items-center justify-center mb-2 mx-auto ${
                     metric.color === 'blue' ? 'bg-blue-50 border-blue-200 text-[#0878f9]' :
                     metric.color === 'green' ? 'bg-emerald-50 border-emerald-200 text-[#10b981]' :
-                    metric.color === 'purple' ? 'bg-purple-50 border-purple-200 text-[#7139e8]' :
-                    'bg-orange-50 border-orange-200 text-[#f28a24]'
+                    'bg-blue-50 border-blue-200 text-[#0066CC]'
                   }`}>
                     {metric.iconName === 'Users' && <Users className="w-5 h-5" />}
                     {metric.iconName === 'TrendingUp' && <TrendingUp className="w-5 h-5" />}
@@ -273,19 +274,18 @@ export const SolutionsPage: React.FC = () => {
                   <div className={`text-[32px] sm:text-[36px] lg:text-[40px] font-extrabold tracking-tight leading-none mb-1 ${
                     metric.color === 'blue' ? 'text-[#0878f9]' :
                     metric.color === 'green' ? 'text-[#10b981]' :
-                    metric.color === 'purple' ? 'text-[#7139e8]' :
-                    'text-[#f28a24]'
+                    'text-[#0066CC]'
                   }`}>
                     {metric.value}
                   </div>
 
                   {/* Bold Label */}
-                  <div className="text-[15px] sm:text-[16px] font-bold text-[#10264b] leading-snug">
+                  <div className="text-[15px] sm:text-[16px] font-bold text-[#142B59] leading-snug">
                     {metric.label}
                   </div>
 
                   {/* Small Supporting Description */}
-                  <div className="text-[12px] sm:text-[13px] text-slate-500 leading-snug mt-0.5">
+                  <div className="text-[12px] sm:text-[13px] text-[#53647A] leading-snug mt-0.5">
                     {metric.sublabel}
                   </div>
                 </div>
@@ -303,7 +303,8 @@ export const SolutionsPage: React.FC = () => {
           
           <SectionHeading
             badge="OUR SOLUTIONS —"
-            title="Technology Solutions for Every Business Need"
+            title="Technology Solutions for"
+            titleHighlight="Every Business Need"
             subtitle="A comprehensive range of enterprise solutions to help businesses streamline processes, and achieve long-term growth."
             align="center"
           />
@@ -345,11 +346,13 @@ export const SolutionsPage: React.FC = () => {
                       )}
                     </div>
 
-                    <h3 className="text-[17px] sm:text-[18px] font-bold text-[#10264b] group-hover:text-blue-600 transition-colors leading-snug">
-                      {card.title}
+                    <h3 className="text-[17px] sm:text-[18px] font-bold text-[#172B50] group-hover:text-[#1B72E8] transition-colors leading-snug">
+                      <a href={card.linkHref} className="hover:underline">
+                        {card.title}
+                      </a>
                     </h3>
 
-                    <p className="text-[13px] sm:text-[14px] text-slate-600 leading-snug">
+                    <p className="text-[13px] sm:text-[14px] text-[#53647A] leading-snug">
                       {card.description}
                     </p>
                   </div>
@@ -358,7 +361,7 @@ export const SolutionsPage: React.FC = () => {
                   <div className="pt-2 border-t border-slate-100 flex items-center justify-between">
                     <a
                       href={card.linkHref}
-                      className="text-[13px] sm:text-[14px] font-semibold text-blue-600 group-hover:text-blue-700 transition-colors flex items-center gap-1.5"
+                      className="text-[13px] sm:text-[14px] font-semibold text-[#142B59] group-hover:text-[#1B72E8] transition-colors flex items-center gap-1.5"
                     >
                       <span>Learn More</span>
                     </a>
@@ -367,8 +370,8 @@ export const SolutionsPage: React.FC = () => {
                       href={card.linkHref}
                       className={`w-7 h-7 rounded-full flex items-center justify-center transition-all ${
                         card.color === 'blue' ? 'bg-blue-50 text-blue-600 group-hover:bg-blue-600 group-hover:text-white' :
-                        card.color === 'coral' ? 'bg-rose-50 text-rose-600 group-hover:bg-rose-600 group-hover:text-white' :
-                        card.color === 'purple' ? 'bg-purple-50 text-purple-600 group-hover:bg-purple-600 group-hover:text-white' :
+                        card.color === 'coral' ? 'bg-indigo-50 text-[#6366f1] group-hover:bg-[#6366f1] group-hover:text-white' :
+                        card.color === 'purple' ? 'bg-blue-50 text-[#0066CC] group-hover:bg-[#0066CC] group-hover:text-white' :
                         card.color === 'emerald' ? 'bg-emerald-50 text-emerald-600 group-hover:bg-emerald-600 group-hover:text-white' :
                         'bg-sky-50 text-sky-600 group-hover:bg-sky-600 group-hover:text-white'
                       }`}
@@ -394,7 +397,7 @@ export const SolutionsPage: React.FC = () => {
             
             {/* Left Content (4.5 cols) */}
             <div className="lg:col-span-5 space-y-4 text-left">
-              <span className="text-[13px] font-bold uppercase tracking-wider text-blue-600 block">
+              <span className="text-[13px] font-bold uppercase tracking-wider text-[#1B72E8] block">
                 {SAP_B1_DEEP_DIVE.eyebrow}
               </span>
               
@@ -402,11 +405,11 @@ export const SolutionsPage: React.FC = () => {
                 <SAPBusinessOneLogo />
               </div>
 
-              <h2 className="text-[26px] sm:text-[32px] lg:text-[34px] font-bold text-[#10264b] tracking-tight leading-tight">
-                {SAP_B1_DEEP_DIVE.heading}
+              <h2 className="font-serif text-[28px] sm:text-[34px] lg:text-[38px] font-bold text-[#142B59] tracking-tight leading-tight">
+                Comprehensive ERP for <span className="bg-gradient-to-r from-[#0052CC] via-[#0066CC] to-[#0A66C2] bg-clip-text text-transparent">Growing Enterprises</span>
               </h2>
 
-              <p className="text-[15px] sm:text-[16px] text-[#354765] leading-relaxed">
+              <p className="text-[15px] sm:text-[16px] text-[#45546B] leading-relaxed">
                 {SAP_B1_DEEP_DIVE.description}
               </p>
 
@@ -414,10 +417,10 @@ export const SolutionsPage: React.FC = () => {
               <div className="space-y-2.5 pt-1">
                 {SAP_B1_DEEP_DIVE.checklist.map((item, idx) => (
                   <div key={idx} className="flex items-center gap-3">
-                    <div className="w-5 h-5 rounded-full bg-blue-600 text-white flex items-center justify-center shrink-0">
+                    <div className="w-5 h-5 rounded-full bg-gradient-to-r from-[#0052CC] to-[#0A66C2] text-white flex items-center justify-center shrink-0">
                       <Check className="w-3.5 h-3.5" />
                     </div>
-                    <span className="text-[14px] sm:text-[15px] font-medium text-slate-800">
+                    <span className="text-[14px] sm:text-[15px] font-medium text-[#45546B]">
                       {item}
                     </span>
                   </div>
@@ -429,7 +432,7 @@ export const SolutionsPage: React.FC = () => {
                   onClick={() => setIsModalOpen(true)}
                   variant="primary"
                   size="md"
-                  className="text-[15px] sm:text-[16px] font-semibold px-6 py-3 bg-[#0878f9] hover:bg-blue-700 shadow-md shadow-blue-600/20"
+                  className="text-[15px] sm:text-[16px] font-semibold px-6 py-3 bg-gradient-to-r from-[#0052CC] to-[#0A66C2] hover:from-[#0040A8] hover:to-[#08529C] text-white shadow-md shadow-blue-500/25"
                   icon={<ArrowRight className="w-4 h-4" />}
                 >
                   {SAP_B1_DEEP_DIVE.ctaText}
@@ -450,7 +453,7 @@ export const SolutionsPage: React.FC = () => {
 
             {/* Right Column: Key Benefits (3.5 cols) */}
             <div className="lg:col-span-3 space-y-3">
-              <h4 className="text-[16px] sm:text-[17px] font-bold text-[#10264b] mb-3 text-left">
+              <h4 className="text-[16px] sm:text-[17px] font-bold text-[#172B50] mb-3 text-left">
                 Key Benefits
               </h4>
               <div className="space-y-3">
@@ -465,7 +468,7 @@ export const SolutionsPage: React.FC = () => {
                       {b.iconName === 'Zap' && <Zap className="w-4 h-4" />}
                       {b.iconName === 'TrendingUp' && <TrendingUp className="w-4 h-4" />}
                     </div>
-                    <span className="text-[13px] sm:text-[14px] font-bold text-[#10264b] leading-tight">
+                    <span className="text-[13px] sm:text-[14px] font-bold text-[#172B50] leading-tight">
                       {b.title}
                     </span>
                   </div>
@@ -486,28 +489,28 @@ export const SolutionsPage: React.FC = () => {
             
             {/* Left Content (4 cols) */}
             <div className="lg:col-span-4 space-y-4 text-left">
-              <span className="text-[13px] font-bold uppercase tracking-wider text-blue-600 block">
+              <span className="text-[13px] font-bold uppercase tracking-wider text-[#1B72E8] block">
                 {BOYUM_IT_DEEP_DIVE.eyebrow}
               </span>
 
-              <h2 className="text-[26px] sm:text-[32px] font-bold text-[#10264b] tracking-tight leading-tight">
-                {BOYUM_IT_DEEP_DIVE.title}
+              <h2 className="font-serif text-[28px] sm:text-[34px] lg:text-[38px] font-bold text-[#142B59] tracking-tight leading-tight">
+                Advanced Manufacturing & <span className="bg-gradient-to-r from-[#0052CC] via-[#0066CC] to-[#0A66C2] bg-clip-text text-transparent">Warehouse Management</span>
               </h2>
 
-              <h3 className="text-[17px] sm:text-[18px] font-semibold text-slate-700 leading-snug">
+              <h3 className="text-[17px] sm:text-[18px] font-semibold text-[#142B59] leading-snug">
                 {BOYUM_IT_DEEP_DIVE.subtitle}
               </h3>
 
-              <p className="text-[15px] sm:text-[16px] text-[#354765] leading-relaxed">
+              <p className="text-[15px] sm:text-[16px] text-[#45546B] leading-relaxed">
                 {BOYUM_IT_DEEP_DIVE.description}
               </p>
 
               <div className="pt-2">
                 <Button
-                  href="#contact-cta"
+                  href="/solutions/boyum-it"
                   variant="primary"
                   size="md"
-                  className="text-[15px] sm:text-[16px] font-semibold px-6 py-3 bg-[#0878f9] hover:bg-blue-700 shadow-md shadow-blue-600/20"
+                  className="text-[15px] sm:text-[16px] font-semibold px-6 py-3 bg-gradient-to-r from-[#0052CC] to-[#0A66C2] hover:from-[#0040A8] hover:to-[#08529C] text-white shadow-md shadow-blue-500/25"
                   icon={<ArrowRight className="w-4 h-4" />}
                 >
                   {BOYUM_IT_DEEP_DIVE.ctaText}
@@ -539,20 +542,19 @@ export const SolutionsPage: React.FC = () => {
                     <div className="space-y-2 mb-3">
                       <div className="flex items-center gap-2">
                         <div className={`w-7 h-7 rounded-lg flex items-center justify-center shrink-0 ${
-                          mod.color === 'orange' ? 'bg-orange-50 text-orange-600' :
                           mod.color === 'emerald' ? 'bg-emerald-50 text-emerald-600' :
-                          'bg-purple-50 text-purple-600'
+                          'bg-blue-50 text-[#0066CC]'
                         }`}>
                           {mod.id === 'beas' && <Factory className="w-4 h-4" />}
                           {mod.id === 'produmex' && <Boxes className="w-4 h-4" />}
                           {mod.id === 'b1up' && <Cog className="w-4 h-4" />}
                         </div>
-                        <h4 className="text-[16px] sm:text-[17px] font-bold text-[#10264b] leading-snug">
+                        <h4 className="text-[16px] sm:text-[17px] font-bold text-[#172B50] leading-snug">
                           {mod.title}
                         </h4>
                       </div>
 
-                      <p className="text-[13px] text-slate-600 leading-snug">
+                      <p className="text-[13px] text-[#53647A] leading-snug">
                         {mod.subtitle}
                       </p>
                     </div>
@@ -561,16 +563,15 @@ export const SolutionsPage: React.FC = () => {
                     <div className="pt-2 border-t border-slate-100 flex items-center justify-between">
                       <a
                         href={mod.linkHref}
-                        className="text-[13px] font-semibold text-blue-600 group-hover:text-blue-700 transition-colors"
+                        className="text-[13px] font-semibold text-[#142B59] group-hover:text-[#1B72E8] transition-colors"
                       >
                         Learn More
                       </a>
                       <a
                         href={mod.linkHref}
                         className={`w-6 h-6 rounded-full flex items-center justify-center transition-all ${
-                          mod.color === 'orange' ? 'bg-orange-50 text-orange-600 group-hover:bg-orange-600 group-hover:text-white' :
                           mod.color === 'emerald' ? 'bg-emerald-50 text-emerald-600 group-hover:bg-emerald-600 group-hover:text-white' :
-                          'bg-purple-50 text-purple-600 group-hover:bg-purple-600 group-hover:text-white'
+                          'bg-blue-50 text-[#0066CC] group-hover:bg-[#0066CC] group-hover:text-white'
                         }`}
                         aria-label={`Learn more about ${mod.title}`}
                       >
@@ -595,7 +596,7 @@ export const SolutionsPage: React.FC = () => {
             
             {/* Left Content (4 cols) */}
             <div className="lg:col-span-4 space-y-4 text-left">
-              <span className="text-[13px] font-bold uppercase tracking-wider text-blue-600 block">
+              <span className="text-[13px] font-bold uppercase tracking-wider text-[#1B72E8] block">
                 {UIPATH_RPA_DEEP_DIVE.eyebrow}
               </span>
 
@@ -603,15 +604,15 @@ export const SolutionsPage: React.FC = () => {
                 <UiPathLogo />
               </div>
 
-              <h2 className="text-[26px] sm:text-[30px] font-bold text-[#10264b] tracking-tight leading-tight">
-                {UIPATH_RPA_DEEP_DIVE.title}
+              <h2 className="font-serif text-[28px] sm:text-[34px] lg:text-[38px] font-bold text-[#142B59] tracking-tight leading-tight">
+                Intelligent Process Automation with <span className="bg-gradient-to-r from-[#0052CC] via-[#0066CC] to-[#0A66C2] bg-clip-text text-transparent">RPA & AI</span>
               </h2>
 
-              <h3 className="text-[16px] sm:text-[17px] font-semibold text-slate-700 leading-snug">
+              <h3 className="text-[16px] sm:text-[17px] font-semibold text-[#142B59] leading-snug">
                 {UIPATH_RPA_DEEP_DIVE.subtitle}
               </h3>
 
-              <p className="text-[15px] sm:text-[16px] text-[#354765] leading-relaxed">
+              <p className="text-[15px] sm:text-[16px] text-[#45546B] leading-relaxed">
                 {UIPATH_RPA_DEEP_DIVE.description}
               </p>
 
@@ -620,7 +621,7 @@ export const SolutionsPage: React.FC = () => {
                   onClick={() => setIsModalOpen(true)}
                   variant="primary"
                   size="md"
-                  className="text-[15px] sm:text-[16px] font-semibold px-6 py-3 bg-[#0878f9] hover:bg-blue-700 shadow-md shadow-blue-600/20"
+                  className="text-[15px] sm:text-[16px] font-semibold px-6 py-3 bg-[#0878f9] hover:bg-blue-700 shadow-md shadow-blue-500/25"
                   icon={<ArrowRight className="w-4 h-4" />}
                 >
                   {UIPATH_RPA_DEEP_DIVE.ctaText}
@@ -644,7 +645,7 @@ export const SolutionsPage: React.FC = () => {
 
             {/* Right Column: Key Automation Areas 2x2 Grid (4 cols) */}
             <div className="lg:col-span-4 space-y-3">
-              <h4 className="text-[16px] sm:text-[17px] font-bold text-[#10264b] mb-3 text-left">
+              <h4 className="text-[16px] sm:text-[17px] font-bold text-[#172B50] mb-3 text-left">
                 Key Automation Areas
               </h4>
 
@@ -655,10 +656,10 @@ export const SolutionsPage: React.FC = () => {
                     className="p-4 rounded-xl bg-white border border-slate-200/90 shadow-xs flex flex-col justify-between text-left hover:border-blue-300 transition-colors"
                   >
                     <div className={`w-9 h-9 rounded-lg flex items-center justify-center mb-2.5 shrink-0 ${
-                      area.color === 'purple' ? 'bg-purple-50 text-[#7139e8] border border-purple-200' :
+                      area.color === 'purple' ? 'bg-blue-50 text-[#0066CC] border border-blue-200' :
                       area.color === 'sky' ? 'bg-sky-50 text-[#0284c7] border border-sky-200' :
-                      area.color === 'orange' ? 'bg-orange-50 text-[#f28a24] border border-orange-200' :
-                      'bg-rose-50 text-[#f43f5e] border border-rose-200'
+                      area.color === 'indigo' ? 'bg-indigo-50 text-[#6366f1] border border-indigo-200' :
+                      'bg-emerald-50 text-[#10b981] border border-emerald-200'
                     }`}>
                       {area.iconName === 'Cog' && <Cog className="w-4 h-4" />}
                       {area.iconName === 'TrendingUp' && <TrendingUp className="w-4 h-4" />}
@@ -667,10 +668,10 @@ export const SolutionsPage: React.FC = () => {
                     </div>
 
                     <div>
-                      <h5 className="text-[14px] sm:text-[15px] font-bold text-[#10264b] leading-snug">
+                      <h5 className="text-[14px] sm:text-[15px] font-bold text-[#172B50] leading-snug">
                         {area.title}
                       </h5>
-                      <p className="text-[12px] text-slate-500 leading-snug mt-0.5">
+                      <p className="text-[12px] text-[#53647A] leading-snug mt-0.5">
                         {area.subtitle}
                       </p>
                     </div>
@@ -691,13 +692,13 @@ export const SolutionsPage: React.FC = () => {
           
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10 text-left">
             <div>
-              <span className="text-[13px] font-bold uppercase tracking-wider text-blue-600 block mb-1">
+              <span className="text-[13px] font-bold uppercase tracking-wider text-[#1B72E8] block mb-1">
                 {ATLAS_ADDONS_DEEP_DIVE.eyebrow}
               </span>
-              <h2 className="text-[26px] sm:text-[32px] lg:text-[36px] font-bold text-[#10264b] tracking-tight leading-tight">
-                {ATLAS_ADDONS_DEEP_DIVE.title}
+              <h2 className="font-serif text-[28px] sm:text-[34px] lg:text-[38px] font-bold text-[#142B59] tracking-tight leading-tight">
+                Purpose-Built Solutions for <span className="bg-gradient-to-r from-[#0052CC] via-[#0066CC] to-[#0A66C2] bg-clip-text text-transparent">Specialized Operations</span>
               </h2>
-              <p className="text-[15px] sm:text-[16px] text-[#354765] max-w-2xl mt-1 leading-relaxed">
+              <p className="text-[15px] sm:text-[16px] text-[#45546B] max-w-2xl mt-1 leading-relaxed">
                 {ATLAS_ADDONS_DEEP_DIVE.description}
               </p>
             </div>
@@ -706,7 +707,7 @@ export const SolutionsPage: React.FC = () => {
               href="#contact-cta"
               variant="primary"
               size="md"
-              className="text-[15px] font-semibold px-6 py-3 shrink-0 bg-[#0878f9] hover:bg-blue-700 shadow-md shadow-blue-600/20"
+              className="text-[15px] font-semibold px-6 py-3 shrink-0 bg-gradient-to-r from-[#0052CC] to-[#0A66C2] hover:from-[#0040A8] hover:to-[#08529C] text-white shadow-md shadow-blue-500/25"
               icon={<ArrowRight className="w-4 h-4" />}
             >
               {ATLAS_ADDONS_DEEP_DIVE.ctaText}
@@ -738,9 +739,9 @@ export const SolutionsPage: React.FC = () => {
                       <div className={`w-7 h-7 rounded-lg flex items-center justify-center shrink-0 ${
                         item.color === 'blue' ? 'bg-blue-50 text-blue-600' :
                         item.color === 'cyan' ? 'bg-cyan-50 text-cyan-600' :
-                        item.color === 'orange' ? 'bg-orange-50 text-orange-600' :
-                        item.color === 'purple' ? 'bg-purple-50 text-purple-600' :
-                        'bg-rose-50 text-rose-600'
+                        item.color === 'indigo' ? 'bg-indigo-50 text-indigo-600' :
+                        item.color === 'purple' ? 'bg-blue-50 text-[#0066CC]' :
+                        'bg-teal-50 text-teal-600'
                       }`}>
                         {item.id === 'freight-trading' && <Ship className="w-4 h-4" />}
                         {item.id === 'gate-entry' && <Scale className="w-4 h-4" />}
@@ -748,12 +749,12 @@ export const SolutionsPage: React.FC = () => {
                         {item.id === 'shipping-auto' && <Truck className="w-4 h-4" />}
                         {item.id === 'rpa-sales' && <Handshake className="w-4 h-4" />}
                       </div>
-                      <h4 className="text-[15px] sm:text-[16px] font-bold text-[#10264b] leading-snug">
+                      <h4 className="text-[15px] sm:text-[16px] font-bold text-[#172B50] leading-snug">
                         {item.title}
                       </h4>
                     </div>
 
-                    <p className="text-[12px] sm:text-[13px] text-slate-600 leading-snug">
+                    <p className="text-[12px] sm:text-[13px] text-[#53647A] leading-snug">
                       {item.subtitle}
                     </p>
                   </div>
@@ -764,9 +765,9 @@ export const SolutionsPage: React.FC = () => {
                       className={`w-6 h-6 rounded-full flex items-center justify-center transition-all ${
                         item.color === 'blue' ? 'bg-blue-50 text-blue-600 group-hover:bg-blue-600 group-hover:text-white' :
                         item.color === 'cyan' ? 'bg-cyan-50 text-cyan-600 group-hover:bg-cyan-600 group-hover:text-white' :
-                        item.color === 'orange' ? 'bg-orange-50 text-orange-600 group-hover:bg-orange-600 group-hover:text-white' :
-                        item.color === 'purple' ? 'bg-purple-50 text-purple-600 group-hover:bg-purple-600 group-hover:text-white' :
-                        'bg-rose-50 text-rose-600 group-hover:bg-rose-600 group-hover:text-white'
+                        item.color === 'indigo' ? 'bg-indigo-50 text-indigo-600 group-hover:bg-indigo-600 group-hover:text-white' :
+                        item.color === 'purple' ? 'bg-blue-50 text-[#0066CC] group-hover:bg-[#0066CC] group-hover:text-white' :
+                        'bg-teal-50 text-teal-600 group-hover:bg-teal-600 group-hover:text-white'
                       }`}
                       aria-label={`Inquire about ${item.title}`}
                     >
@@ -788,11 +789,11 @@ export const SolutionsPage: React.FC = () => {
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
-            <span className="text-[13px] font-bold uppercase tracking-wider text-blue-600 block mb-2">
+            <span className="text-[13px] font-bold uppercase tracking-wider text-[#1B72E8] block mb-2">
               INDUSTRIES WE SERVE —
             </span>
-            <h2 className="text-[28px] sm:text-[34px] lg:text-[38px] font-bold text-[#10264b] tracking-tight leading-tight">
-              Solutions Designed Around <span className="text-[#7139e8]">Your Industry</span>
+            <h2 className="font-serif text-[30px] sm:text-[36px] lg:text-[40px] font-bold text-[#142B59] tracking-tight leading-tight">
+              Solutions Designed Around <span className="bg-gradient-to-r from-[#0052CC] via-[#0066CC] to-[#0A66C2] bg-clip-text text-transparent">Your Industry</span>
             </h2>
           </div>
 
@@ -818,11 +819,11 @@ export const SolutionsPage: React.FC = () => {
                       <div className="shrink-0">
                         {industryIcons[ind.id]}
                       </div>
-                      <h3 className="text-[16px] sm:text-[17px] font-bold text-slate-900 group-hover:text-blue-600 transition-colors leading-snug">
+                      <h3 className="text-[16px] sm:text-[17px] font-bold text-[#172B50] group-hover:text-[#1B72E8] transition-colors leading-snug">
                         {ind.title}
                       </h3>
                     </div>
-                    <p className="text-[13px] text-slate-600 leading-snug">
+                    <p className="text-[13px] text-[#53647A] leading-snug">
                       {ind.description}
                     </p>
                   </div>
@@ -845,97 +846,49 @@ export const SolutionsPage: React.FC = () => {
       <section id="contact-cta" className="py-10 sm:py-12 lg:py-14 bg-white">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="rounded-2xl bg-[#eaf4ff] border border-blue-200/90 p-6 sm:p-8 lg:p-10 shadow-sm">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+          <div className="rounded-2xl sm:rounded-3xl bg-[#eaf4ff] border border-blue-200/90 p-8 sm:p-10 lg:p-12 shadow-sm">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
               
-              {/* Left Column: Heading, Subtext & CTA Button */}
-              <div className="lg:col-span-5 space-y-4 text-left">
-                <span className="text-[12px] font-bold uppercase tracking-wider text-blue-600 block">
+              {/* Left Column: Heading, Subtext & Both Action Buttons */}
+              <div className="lg:col-span-6 space-y-4 text-left">
+                <span className="text-[12px] sm:text-[13px] font-bold uppercase tracking-wider text-[#1B72E8] block">
                   {SOLUTIONS_CONTACT_CTA_DATA.eyebrow}
                 </span>
-                <h2 className="text-[26px] sm:text-[32px] lg:text-[36px] font-bold text-[#10264b] tracking-tight leading-tight">
+                <h2 className="font-serif text-[28px] sm:text-[34px] lg:text-[40px] font-bold text-[#142B59] tracking-tight leading-[1.18]">
                   {SOLUTIONS_CONTACT_CTA_DATA.titleStart}{' '}
-                  <span className="text-[#7139e8]">{SOLUTIONS_CONTACT_CTA_DATA.titleHighlight}</span>
+                  <span className="bg-gradient-to-r from-[#0052CC] via-[#0066CC] to-[#0A66C2] bg-clip-text text-transparent">{SOLUTIONS_CONTACT_CTA_DATA.titleHighlight}</span>
                 </h2>
                 
-                <p className="text-[15px] sm:text-[17px] text-[#354765] leading-relaxed max-w-lg">
+                <p className="text-[15px] sm:text-[16px] text-[#45546B] leading-relaxed max-w-lg">
                   {SOLUTIONS_CONTACT_CTA_DATA.description}
                 </p>
 
-                <div className="pt-2">
+                <div className="pt-2 flex flex-wrap items-center gap-4">
                   <Button
                     onClick={() => setIsModalOpen(true)}
                     variant="primary"
                     size="lg"
-                    className="text-[16px] sm:text-[17px] font-semibold px-8 py-3.5 shadow-md shadow-blue-600/25 bg-[#0878f9] hover:bg-blue-700"
-                    icon={<ArrowRight className="w-5 h-5" />}
+                    className="text-[15px] sm:text-[16px] font-semibold px-7 py-3.5 shadow-md shadow-blue-500/25 bg-gradient-to-r from-[#0052CC] to-[#0A66C2] hover:from-[#0040A8] hover:to-[#08529C] text-white rounded-xl"
+                    icon={<ArrowRight className="w-4 h-4" />}
                   >
                     {SOLUTIONS_CONTACT_CTA_DATA.buttonText}
                   </Button>
+                  <Link
+                    to="/contact"
+                    className="inline-flex items-center justify-center font-semibold rounded-xl px-6 py-3.5 text-[15px] sm:text-[16px] bg-white text-[#142B59] hover:bg-slate-50 border border-slate-300 shadow-sm transition-colors"
+                  >
+                    Contact Us
+                  </Link>
                 </div>
               </div>
 
-              {/* Right Column: 3 Contact Info Cards matching reference screenshot */}
-              <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-3.5">
-                
-                {/* Email Box Card */}
-                <div className="flex items-center gap-3 p-3.5 rounded-xl bg-white border-2 border-[#16b978] shadow-sm hover:shadow-md transition-all">
-                  <div className="w-10 h-10 rounded-lg bg-blue-50 border border-blue-100 text-[#0878f9] flex items-center justify-center shrink-0">
-                    <Mail className="w-5 h-5" />
-                  </div>
-                  <div className="min-w-0 text-left">
-                    <span className="text-[12px] font-bold uppercase tracking-wider text-slate-400 block leading-tight">
-                      Email
-                    </span>
-                    <a
-                      href={`mailto:${BRAND_INFO.contact.email}`}
-                      className="text-[13px] sm:text-[13.5px] font-bold text-slate-900 hover:text-blue-600 transition-colors truncate block leading-snug"
-                    >
-                      {BRAND_INFO.contact.email}
-                    </a>
-                  </div>
-                </div>
-
-                {/* Phone Box Card */}
-                <div className="flex items-center gap-3 p-3.5 rounded-xl bg-white border-2 border-[#2992ff] shadow-sm hover:shadow-md transition-all">
-                  <div className="w-10 h-10 rounded-lg bg-blue-50 border border-blue-100 text-[#0878f9] flex items-center justify-center shrink-0">
-                    <Phone className="w-5 h-5" />
-                  </div>
-                  <div className="min-w-0 text-left">
-                    <span className="text-[12px] font-bold uppercase tracking-wider text-slate-400 block leading-tight">
-                      Phone
-                    </span>
-                    <a
-                      href={BRAND_INFO.contact.whatsappLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-[13px] sm:text-[13.5px] font-bold text-slate-900 hover:text-blue-600 transition-colors truncate block leading-snug"
-                    >
-                      {BRAND_INFO.contact.phone}
-                    </a>
-                  </div>
-                </div>
-
-                {/* Locations Box Card */}
-                <div className="flex items-center gap-3 p-3.5 rounded-xl bg-white border-2 border-[#a34dff] shadow-sm hover:shadow-md transition-all">
-                  <div className="w-10 h-10 rounded-lg bg-blue-50 border border-blue-100 text-[#0878f9] flex items-center justify-center shrink-0">
-                    <MapPin className="w-5 h-5" />
-                  </div>
-                  <div className="min-w-0 text-left">
-                    <span className="text-[12px] font-bold uppercase tracking-wider text-slate-400 block leading-tight">
-                      Locations
-                    </span>
-                    <span className="text-[12.5px] sm:text-[13px] font-bold text-slate-900 block leading-tight">
-                      Borivali, Mumbai<br className="hidden sm:inline" /> Marine Lines, Mumbai
-                    </span>
-                  </div>
-                </div>
-
+              {/* Right Column: 3 Clean Contact Info Cards matching reference */}
+              <div className="lg:col-span-6">
+                <CtaContactCards />
               </div>
 
             </div>
           </div>
-
         </div>
       </section>
 
@@ -1123,16 +1076,7 @@ export const SolutionsPage: React.FC = () => {
       </Modal>
 
       {/* Floating Scroll-to-Top Button */}
-      {showScrollTop && (
-        <button
-          type="button"
-          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          className="fixed bottom-6 right-6 z-30 w-11 h-11 rounded-full bg-blue-600 hover:bg-blue-700 text-white shadow-xl flex items-center justify-center transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-400"
-          aria-label="Scroll to top"
-        >
-          <ChevronUp className="w-5 h-5" />
-        </button>
-      )}
+      /* Global scroll-to-top handled by SiteLayout */
 
     </div>
   );

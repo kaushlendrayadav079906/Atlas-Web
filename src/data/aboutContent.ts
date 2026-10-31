@@ -1,7 +1,7 @@
 export interface AboutFloatingCard {
   title: string;
   subtitle: string;
-  color: 'blue' | 'purple' | 'emerald' | 'orange';
+  color: 'blue' | 'purple' | 'emerald';
   iconName: string;
 }
 
@@ -10,7 +10,7 @@ export interface AboutMetric {
   value: string;
   label: string;
   sublabel: string;
-  color: 'blue' | 'green' | 'purple' | 'orange';
+  color: 'blue' | 'green' | 'purple';
   iconName: string;
   requiresVerification: boolean;
   sourceNote: string;
@@ -36,10 +36,10 @@ export const ABOUT_HERO_DATA = {
   eyebrow: "ABOUT ATLAS TECHNOSOFT",
   titleStart: "Turning Business Challenges into",
   titleHighlight: "Smarter Solutions",
-  description: "ATLAS Technosoft is a specialized technology partner helping businesses across manufacturing, logistics, pharma, and trading industries achieve operational excellence through SAP Business One, Boyum IT solutions, UiPath RPA, and AI-driven automation.",
+  description: "ATLAS Technosoft is a specialized technology partner helping businesses across manufacturing, logistics, pharma, and trading industries achieve operational excellence with SAP Business One, Boyum IT solutions, UiPath RPA, and AI-driven automation.",
   primaryCtaText: "Our Story",
   secondaryCtaText: "Meet Our Team",
-  imageSrc: "/images/about/about_hero_building.jpg",
+  imageSrc: "/images/crystal_hd/hero_team.jpg",
   floatingCards: [
     {
       title: "People",
@@ -62,7 +62,7 @@ export const ABOUT_HERO_DATA = {
     {
       title: "Growth",
       subtitle: "Building a Smarter Future",
-      color: "orange" as const,
+      color: "purple" as const,
       iconName: "TrendingUp"
     }
   ]
@@ -104,7 +104,7 @@ export const ABOUT_METRICS_DATA: AboutMetric[] = [
     value: "32",
     label: "Certified Consultants",
     sublabel: "Domain experts",
-    color: "orange",
+    color: "purple",
     iconName: "Award",
     requiresVerification: true,
     sourceNote: "Source: ATPL WEB Site_Content.pdf (Subject to consultant accreditation records)"
@@ -155,6 +155,8 @@ export const MISSION_VISION_VALUES_DATA = {
 export const ABOUT_EXPERTISE_DATA = {
   eyebrow: "OUR EXPERTISE",
   title: "Combining Technology, Domain Knowledge and Real-World Experience",
+  titleStart: "Combining Technology, Domain Knowledge and",
+  titleHighlight: "Real-World Experience",
   description: "We bring deep expertise in SAP Business One, business process optimization, manufacturing and warehouse solutions, and intelligent automation to deliver real business value.",
   checklist: [
     "End-to-end ERP implementation and support",
@@ -165,9 +167,9 @@ export const ABOUT_EXPERTISE_DATA = {
   ctaText: "Explore Our Expertise",
   imageSrc: "/images/about/about_expertise_hub.jpg",
   floatingPills: [
-    { title: "Manufacturing Solutions", color: "orange" },
-    { title: "Warehouse Management", color: "blue" },
-    { title: "RPA & AI Automation", color: "purple" },
+    { title: "Manufacturing Solutions", color: "blue" },
+    { title: "Warehouse Management", color: "purple" },
+    { title: "RPA & AI Automation", color: "blue" },
     { title: "Industry-Specific Add-ons", color: "emerald" }
   ]
 };
@@ -196,9 +198,9 @@ export const ABOUT_INDUSTRIES_DATA = [
     title: "Finance & Administration",
     description: "Improve financial control and administrative efficiency.",
     imageSrc: "/images/crystal_hd/ind_finance.jpg",
-    borderClass: "border-[#ff9b27]",
-    hoverBorderClass: "hover:border-orange-500",
-    arrowBorderClass: "border-orange-200 text-orange-500 group-hover:bg-[#ff9b27] group-hover:text-white"
+    borderClass: "border-[#0066CC]",
+    hoverBorderClass: "hover:border-[#5B21B6]",
+    arrowBorderClass: "border-blue-200 text-[#0066CC] group-hover:bg-[#0066CC] group-hover:text-white"
   },
   {
     id: "trading",
@@ -228,7 +230,7 @@ export const WHY_CHOOSE_ATLAS_DATA = {
       title: "Proven Methodology",
       description: "Structured and efficient implementation approach.",
       iconName: "Settings",
-      color: "rose" as const
+      color: "purple" as const
     },
     {
       title: "Client-Centric Approach",
@@ -269,7 +271,7 @@ export const JOURNEY_TIMELINE_DATA = {
       year: "2018",
       title: "Strategic Partnerships",
       description: "Strengthened partnerships with SAP, Boyum IT, and UiPath.",
-      color: "rose" as const,
+      color: "purple" as const,
       iconName: "Handshake",
       requiresVerification: true
     },

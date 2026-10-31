@@ -23,14 +23,14 @@ const metricColorMap: Record<string, {
     numberColor: 'text-[#16b978]',
   },
   transactions: {
-    icon: <Database className="w-5 h-5 text-[#a34dff]" />,
-    iconBg: 'bg-purple-50 border-purple-200',
-    numberColor: 'text-[#a34dff]',
+    icon: <Database className="w-5 h-5 text-[#0284c7]" />,
+    iconBg: 'bg-sky-50 border-sky-200',
+    numberColor: 'text-[#0284c7]',
   },
   consultants: {
-    icon: <Users2 className="w-5 h-5 text-[#ff9b27]" />,
-    iconBg: 'bg-orange-50 border-orange-200',
-    numberColor: 'text-[#ff9b27]',
+    icon: <Users2 className="w-5 h-5 text-[#0066CC]" />,
+    iconBg: 'bg-blue-50 border-blue-200',
+    numberColor: 'text-[#0066CC]',
   },
 };
 
@@ -50,7 +50,7 @@ export const MetricCard: React.FC<MetricCardProps> = ({ metric }) => {
       </div>
 
       {/* Metric Label: 16–17px */}
-      <div className="text-[15px] sm:text-[16px] font-bold text-[#10264b] leading-snug">
+      <div className="text-[15px] sm:text-[16px] font-bold text-[#142B59] leading-snug">
         {metric.label}
       </div>
 

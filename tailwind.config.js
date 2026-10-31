@@ -30,6 +30,21 @@ export default {
           cyanGlow: 'rgba(34, 211, 238, 0.15)',
           emerald: '#10B981',
           amber: '#F59E0B',
+        },
+        atlas: {
+          heading: '#142B59',
+          body: '#45546B',
+          highlight: '#0066CC',
+          label: '#0066CC',
+          cardTitle: '#172B50',
+          cardDesc: '#53647A',
+          navy: '#142B59',
+          royal: '#0066CC',
+          sapphire: '#0A66C2',
+          gemini: '#0066CC',
+          geminiBlue: '#0066CC',
+          geminiPurple: '#0066CC',
+          geminiLavender: '#0A66C2',
         }
       },
       fontFamily: {

@@ -1,5 +1,6 @@
 export interface CaseStudyItem {
   id: string;
+  route: string;
   category: string;
   title: string;
   description: string;
@@ -43,8 +44,8 @@ export const CASE_STUDIES_HERO_DATA = {
   heroImage: '/images/case_studies/cs_hero_team.jpg',
   floatingBadges: [
     { label: 'Real Solutions', color: '#16a879', icon: 'check-circle' as const },
-    { label: 'Industry Expertise', color: '#ed861d', icon: 'cog' as const },
-    { label: 'Long-Term Partnerships', color: '#963ee8', icon: 'users' as const }
+    { label: 'Industry Expertise', color: '#0066CC', icon: 'cog' as const },
+    { label: 'Long-Term Partnerships', color: '#0066CC', icon: 'users' as const }
   ]
 };
 
@@ -52,14 +53,14 @@ export const FEATURED_CASE_STUDY_DATA = {
   eyebrow: 'FEATURED CASE STUDY —',
   mainHeading: 'Manufacturing Company Streamlines Operations with SAP Business One',
   industryLabel: 'Manufacturing',
-  industryColor: '#ed861d',
+  industryColor: '#1B72E8',
   image: '/images/case_studies/cs_featured_manufacturing.jpg',
   title: 'Integrated ERP Solution for End-to-End Visibility',
   challenge: {
     title: 'Business Challenge',
     description:
       'Disconnected systems, manual processes and limited visibility across production, inventory and finance operations.',
-    color: '#ef4444'
+    color: '#0066CC'
   },
   solution: {
     title: 'Solution Implemented',
@@ -70,7 +71,7 @@ export const FEATURED_CASE_STUDY_DATA = {
   technology: {
     title: 'Technology Used',
     description: 'SAP Business One, Boyum IT Solutions',
-    color: '#963ee8'
+    color: '#0066CC'
   },
   outcomes: {
     title: 'Key Outcomes',
@@ -96,6 +97,7 @@ export const FEATURED_CASE_STUDY_DATA = {
 export const MORE_CASE_STUDIES_DATA: CaseStudyItem[] = [
   {
     id: 'warehouse-logistics',
+    route: '/case-studies/warehouse-management',
     category: 'Warehouse & Logistics',
     title: 'Warehouse Management for Better Control',
     description:
@@ -120,16 +122,17 @@ export const MORE_CASE_STUDIES_DATA: CaseStudyItem[] = [
   },
   {
     id: 'trading-distribution',
+    route: '/case-studies/trading-operations',
     category: 'Trading & Distribution',
     title: 'Unified System for Trading Operations',
     description:
       'Integrated procurement, sales, inventory and finance to improve operational efficiency and support business growth.',
     image: '/images/case_studies/cs_trading.jpg',
     fallbackCrop: '/images/case_studies/cs_trading_crop.jpg',
-    accentColor: '#963ee8',
-    borderColor: 'border-[#963ee8]',
-    badgeBg: 'bg-[#963ee8]/10',
-    badgeText: 'text-[#963ee8]',
+    accentColor: '#0066CC',
+    borderColor: 'border-[#0066CC]',
+    badgeBg: 'bg-[#0066CC]/10',
+    badgeText: 'text-[#0066CC]',
     iconName: 'truck',
     techUsed: 'SAP Business One + ATLAS Freight Suite',
     verifiedKpis: [
@@ -144,16 +147,17 @@ export const MORE_CASE_STUDIES_DATA: CaseStudyItem[] = [
   },
   {
     id: 'retail-wholesale',
+    route: '/case-studies/inventory-visibility',
     category: 'Retail & Wholesale',
     title: 'Improved Inventory Visibility Across Multiple Channels',
     description:
       'Implemented a connected business system to manage multi-location inventory and streamline sales processes.',
     image: '/images/case_studies/cs_retail.jpg',
     fallbackCrop: '/images/case_studies/cs_retail_crop.jpg',
-    accentColor: '#ef4444',
-    borderColor: 'border-[#ef4444]',
-    badgeBg: 'bg-[#ef4444]/10',
-    badgeText: 'text-[#ef4444]',
+    accentColor: '#0066CC',
+    borderColor: 'border-[#0066CC]',
+    badgeBg: 'bg-[#0066CC]/10',
+    badgeText: 'text-[#0066CC]',
     iconName: 'shopping-cart',
     techUsed: 'SAP Business One + B1UP Usability Package',
     verifiedKpis: [
@@ -168,16 +172,17 @@ export const MORE_CASE_STUDIES_DATA: CaseStudyItem[] = [
   },
   {
     id: 'automation-rpa',
+    route: '/case-studies/business-process-automation',
     category: 'Automation & RPA',
     title: 'Automating Manual Business Processes',
     description:
       'Used UiPath RPA to automate repetitive tasks, reduce manual effort and improve process efficiency.',
     image: '/images/case_studies/cs_automation.jpg',
     fallbackCrop: '/images/case_studies/cs_automation_crop.jpg',
-    accentColor: '#ed861d',
-    borderColor: 'border-[#ed861d]',
-    badgeBg: 'bg-[#ed861d]/10',
-    badgeText: 'text-[#ed861d]',
+    accentColor: '#0066CC',
+    borderColor: 'border-[#0066CC]',
+    badgeBg: 'bg-[#0066CC]/10',
+    badgeText: 'text-[#0066CC]',
     iconName: 'cpu',
     techUsed: 'UiPath Studio & Orchestrator + AI Document Understanding',
     verifiedKpis: [
@@ -201,7 +206,7 @@ export const OUR_APPROACH_DATA = {
     {
       stepNumber: '01',
       title: 'Understand Business Needs',
-      color: '#ed861d',
+      color: '#1B72E8',
       iconName: 'message-square' as const,
       summary: 'Discovery assessment to analyze operations and identify high-impact automation areas.'
     },
@@ -215,7 +220,7 @@ export const OUR_APPROACH_DATA = {
     {
       stepNumber: '03',
       title: 'Design Solution',
-      color: '#963ee8',
+      color: '#0066CC',
       iconName: 'lightbulb' as const,
       summary: 'Tailored architecture blueprint combining SAP B1, Boyum modules, and UiPath automations.'
     },
@@ -229,7 +234,7 @@ export const OUR_APPROACH_DATA = {
     {
       stepNumber: '05',
       title: 'Support & Optimize',
-      color: '#ef4444',
+      color: '#0066CC',
       iconName: 'shield-check' as const,
       summary: 'Continuous monitoring, ongoing enhancement sprints, and dedicated consultative support.'
     }

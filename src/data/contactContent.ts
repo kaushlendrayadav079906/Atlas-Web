@@ -52,13 +52,13 @@ export const CONTACT_HERO_DATA: ContactHeroData = {
   description: "We are here to help you with your business requirements. Get in touch with our experts to discuss how our technology solutions can support your growth.",
   primaryCtaText: "Book a Consultation",
   secondaryCtaText: "Talk to Our Experts",
-  heroImage: "/images/contact/contact_hero_reception.jpg",
+  heroImage: "/images/contact/contact_hero_consultation.jpg",
   floatingBadges: [
     {
       title: "Quick Response",
       iconName: "MessageSquare",
-      color: "#ea580c",
-      bgColor: "bg-orange-50"
+      color: "#1B72E8",
+      bgColor: "bg-blue-50"
     },
     {
       title: "Expert Consultation",
@@ -69,8 +69,8 @@ export const CONTACT_HERO_DATA: ContactHeroData = {
     {
       title: "Customized Solutions",
       iconName: "BarChart3",
-      color: "#9333ea",
-      bgColor: "bg-purple-50"
+      color: "#0A66C2",
+      bgColor: "bg-blue-50"
     }
   ]
 };
@@ -82,9 +82,9 @@ export const GET_IN_TOUCH_CARDS: GetInTouchCard[] = [
     primaryValue: "sales@atlastechnosoft.com",
     description: "Drop us an email for any queries or consultation requests.",
     iconName: "Mail",
-    iconColor: "text-[#d99120]",
-    iconBgColor: "bg-[#fef3c7]",
-    borderColor: "border-[#d99120]/40 hover:border-[#d99120]",
+    iconColor: "text-[#1B72E8]",
+    iconBgColor: "bg-[#e0e7ff]",
+    borderColor: "border-[#1B72E8]/40 hover:border-[#1B72E8]",
     actionHref: "mailto:sales@atlastechnosoft.com"
   },
   {
@@ -96,7 +96,8 @@ export const GET_IN_TOUCH_CARDS: GetInTouchCard[] = [
     iconColor: "text-[#10b981]",
     iconBgColor: "bg-[#d1fae5]",
     borderColor: "border-[#10b981]/40 hover:border-[#10b981]",
-    actionHref: "tel:+919372329599"
+    actionHref: "https://wa.me/919372329599?text=Hello%20ATLAS%20Technosoft%2C%20I%20would%20like%20to%20book%20a%20consultation.",
+    isExternalLink: true
   },
   {
     id: "locations",
@@ -104,9 +105,9 @@ export const GET_IN_TOUCH_CARDS: GetInTouchCard[] = [
     primaryValue: "Borivali & Marine Lines, Mumbai",
     description: "Visit our offices to discuss your business needs.",
     iconName: "MapPin",
-    iconColor: "text-[#9333ea]",
-    iconBgColor: "bg-[#f3e8ff]",
-    borderColor: "border-[#9333ea]/40 hover:border-[#9333ea]",
+    iconColor: "text-[#0066CC]",
+    iconBgColor: "bg-blue-50",
+    borderColor: "border-[#0066CC]/40 hover:border-[#0066CC]",
     actionHref: "#locations"
   }
 ];
@@ -136,8 +137,8 @@ export const WHY_GET_IN_TOUCH_CARDS: WhyGetInTouchCard[] = [
     title: "Expert Guidance",
     description: "Get advice from experienced technology consultants.",
     iconName: "Users" as any,
-    color: "#ea580c",
-    bgColor: "bg-[#ea580c]"
+    color: "#1B72E8",
+    bgColor: "bg-[#1B72E8]"
   },
   {
     id: "tailored-solutions",
@@ -152,8 +153,8 @@ export const WHY_GET_IN_TOUCH_CARDS: WhyGetInTouchCard[] = [
     title: "Quick Response",
     description: "We value your time and ensure prompt communication.",
     iconName: "Clock",
-    color: "#9333ea",
-    bgColor: "bg-[#9333ea]"
+    color: "#0A66C2",
+    bgColor: "bg-[#0A66C2]"
   },
   {
     id: "long-term-partnership",
