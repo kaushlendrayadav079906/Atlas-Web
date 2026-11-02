@@ -2,6 +2,7 @@ import React from 'react';
 import { Users, TrendingUp, Database, Users2 } from 'lucide-react';
 import { MetricItem } from '../../types';
 import { VerificationBadge } from './VerificationBadge';
+import { AnimatedCounter } from './AnimatedCounter';
 
 interface MetricCardProps {
   metric: MetricItem;
@@ -40,22 +41,22 @@ export const MetricCard: React.FC<MetricCardProps> = ({ metric }) => {
   return (
     <div className="flex flex-col items-center text-center p-3 sm:p-4 transition-all duration-200">
       {/* Icon in themed circle matching reference */}
-      <div className={`w-10 h-10 rounded-full border ${config.iconBg} flex items-center justify-center mb-2 mx-auto`}>
+      <div className={`w-11 h-11 rounded-full border ${config.iconBg} flex items-center justify-center mb-2 mx-auto`}>
         {config.icon}
       </div>
 
-      {/* Metric Number: 36–42px bold */}
-      <div className={`text-[32px] sm:text-[36px] lg:text-[40px] font-extrabold ${config.numberColor} tracking-tight leading-none mb-1.5`}>
-        {metric.value}
+      {/* Metric Number: 32–40px bold with Animated Count-Up */}
+      <div className={`text-[32px] sm:text-[36px] lg:text-[40px] font-extrabold ${config.numberColor} tracking-tight leading-none mb-1.5 min-h-[44px] flex items-center justify-center`}>
+        <AnimatedCounter value={metric.value} duration={2000} />
       </div>
 
-      {/* Metric Label: 16–17px */}
+      {/* Metric Label: 15–16px */}
       <div className="text-[15px] sm:text-[16px] font-bold text-[#142B59] leading-snug">
         {metric.label}
       </div>
 
       {metric.requiresVerification && (
-        <div className="mt-1.5">
+        <div className="mt-2">
           <VerificationBadge note={metric.sourceNote} variant="subtle" />
         </div>
       )}

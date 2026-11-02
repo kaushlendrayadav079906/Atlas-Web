@@ -807,8 +807,6 @@ export const CaseStudiesPage: React.FC = () => {
         )}
       </Modal>
 
-      {/* Floating Scroll to Top Button */}
-      /* Global scroll-to-top handled by SiteLayout */
     </div>
   );
 };

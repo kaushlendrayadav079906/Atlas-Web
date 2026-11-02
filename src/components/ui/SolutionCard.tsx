@@ -20,32 +20,32 @@ const cardStyleMap: Record<string, {
   arrowHover: string;
 }> = {
   'sap-b1': {
-    borderColor: 'border-[#0052CC]',
-    hoverBorder: 'hover:border-[#0040A8]',
+    borderColor: 'border-[#60a5fa]/80',
+    hoverBorder: 'hover:border-[#1B72E8]',
     hoverShadow: 'hover:shadow-blue-500/10',
     arrowBorder: 'border-blue-200',
     arrowText: 'text-[#0052CC]',
     arrowHover: 'group-hover:bg-[#0052CC] group-hover:text-white group-hover:border-[#0052CC]',
   },
   'boyum': {
-    borderColor: 'border-[#0066CC]',
-    hoverBorder: 'hover:border-[#0052CC]',
+    borderColor: 'border-[#60a5fa]/80',
+    hoverBorder: 'hover:border-[#1B72E8]',
     hoverShadow: 'hover:shadow-blue-500/10',
     arrowBorder: 'border-blue-200',
     arrowText: 'text-[#0066CC]',
     arrowHover: 'group-hover:bg-[#0066CC] group-hover:text-white group-hover:border-[#0066CC]',
   },
   'uipath': {
-    borderColor: 'border-[#0284c7]',
-    hoverBorder: 'hover:border-[#0369a1]',
+    borderColor: 'border-[#60a5fa]/80',
+    hoverBorder: 'hover:border-[#1B72E8]',
     hoverShadow: 'hover:shadow-sky-500/10',
     arrowBorder: 'border-sky-200',
     arrowText: 'text-[#0284c7]',
     arrowHover: 'group-hover:bg-[#0284c7] group-hover:text-white group-hover:border-[#0284c7]',
   },
   'atlas': {
-    borderColor: 'border-[#0A66C2]',
-    hoverBorder: 'hover:border-[#0066CC]',
+    borderColor: 'border-[#60a5fa]/80',
+    hoverBorder: 'hover:border-[#1B72E8]',
     hoverShadow: 'hover:shadow-blue-500/10',
     arrowBorder: 'border-blue-200',
     arrowText: 'text-[#0A66C2]',
@@ -79,7 +79,7 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({
   return (
     <div
       onClick={handleCardClick}
-      className={`group flex flex-col justify-between p-5 sm:p-6 rounded-xl bg-white border-2 ${style.borderColor} ${style.hoverBorder} shadow-sm ${style.hoverShadow} hover:-translate-y-1 transition-all duration-200 h-full cursor-pointer`}
+      className={`group flex flex-col justify-between p-5 sm:p-6 rounded-2xl bg-white border-2 ${style.borderColor} ${style.hoverBorder} shadow-sm ${style.hoverShadow} hover:-translate-y-1 transition-all duration-200 h-full cursor-pointer`}
     >
       <div>
         {/* Top Logo / Icon Box with Circular Arrow in Top-Right Corner */}

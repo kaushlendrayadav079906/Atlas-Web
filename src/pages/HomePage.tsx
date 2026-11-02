@@ -1,3 +1,4 @@
+import { LogoMarquee, ClientLogoMarquee } from '../components/ui/LogoMarquee';
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { 
@@ -322,14 +323,7 @@ export const HomePage: React.FC = () => {
                   className="w-full h-auto object-cover max-h-[390px]"
                 />
 
-                {/* Floating Partner Logo Ribbon Box at Bottom Right */}
-                <div className="absolute bottom-3 right-3 bg-white/95 backdrop-blur-md rounded-xl py-2 px-3.5 shadow-md border border-slate-200/90 flex items-center gap-3">
-                  <SAPBusinessOneLogo className="h-5 sm:h-6" />
-                  <div className="h-3.5 w-px bg-slate-200" />
-                  <BoyumITLogo className="h-5 sm:h-6" />
-                  <div className="h-3.5 w-px bg-slate-200" />
-                  <UiPathLogo className="h-5 sm:h-6" />
-                </div>
+
               </div>
             </div>
 
@@ -358,7 +352,7 @@ export const HomePage: React.FC = () => {
       {/* ========================================================================= */}
       {/* SECTION 4: SERVICES OVERVIEW (4 COMPACT BOX-TYPE CARDS)                   */}
       {/* ========================================================================= */}
-      <section id="services" className="py-10 sm:py-12 lg:py-14 bg-[#f4f9ff]/60 border-b border-slate-100">
+      <section id="services" className="pt-10 sm:pt-12 lg:pt-14 pb-3 sm:pb-4 lg:pb-4 bg-[#f4f9ff]/60">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           
           <SectionHeading
@@ -427,6 +421,11 @@ export const HomePage: React.FC = () => {
 
         </div>
       </section>
+
+      {/* ========================================================================= */}
+      {/* CONTINUOUS COMPANY LOGO SLIDER (SEPARATE ADDITIONAL SECTION)              */}
+      {/* ========================================================================= */}
+      <LogoMarquee />
 
       {/* ========================================================================= */}
       {/* SECTION 5: OUR EXPERTISE (BRIDGING ERP AND AUTOMATION)                    */}
@@ -729,6 +728,10 @@ export const HomePage: React.FC = () => {
       </section>
 
       {/* ========================================================================= */}
+      {/* CONTINUOUS CLIENT LOGO SLIDER (MATCHING REFERENCE IMAGE 3)               */}
+      <ClientLogoMarquee />
+
+      {/* ========================================================================= */}
       {/* SECTION 9: OUR PARTNERS (SIDE-BY-SIDE AS IN REFERENCE IMAGE im2)          */}
       {/* ========================================================================= */}
       <section id="partners" className="py-8 sm:py-10 bg-white border-b border-slate-100">
@@ -1006,8 +1009,6 @@ export const HomePage: React.FC = () => {
         )}
       </Modal>
 
-      {/* Floating Scroll-to-Top Button */}
-      /* Global scroll-to-top handled by SiteLayout */
 
     </div>
   );

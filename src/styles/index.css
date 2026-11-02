@@ -114,3 +114,31 @@
   background-image: radial-gradient(rgba(148, 163, 184, 0.25) 1px, transparent 1px);
   background-size: 24px 24px;
 }
+
+/* Continuous Company Logo Marquee Slider */
+@keyframes marquee-scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-marquee-left {
+  display: flex;
+  flex-shrink: 0;
+  animation: marquee-scroll-left 32s linear infinite;
+  will-change: transform;
+}
+
+.logo-slider-group:hover .animate-marquee-left {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee-left {
+    animation: none !important;
+    transform: none !important;
+  }
+}

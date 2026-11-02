@@ -683,8 +683,6 @@ export const IndividualCaseStudyPage: React.FC = () => {
         )}
       </Modal>
 
-      {/* Floating Back to Top Button */}
-      /* Global scroll-to-top handled by SiteLayout */
     </div>
   );
 };

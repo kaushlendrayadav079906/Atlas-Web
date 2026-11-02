@@ -33,18 +33,7 @@ export const SiteLayout: React.FC<SiteLayoutProps> = ({ children }) => {
       <SiteFooter />
 
       {/* Unified Global Scroll-to-Top Button */}
-      <button
-        type="button"
-        onClick={scrollToTop}
-        className={`fixed bottom-20 md:bottom-8 right-6 z-40 w-11 h-11 rounded-full bg-gradient-to-r from-[#0052CC] to-[#0A66C2] hover:from-[#0040A8] hover:to-[#08529C] text-white shadow-xl shadow-blue-900/25 flex items-center justify-center transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-400 cursor-pointer ${
-          showScrollTop
-            ? 'opacity-100 translate-y-0 scale-100 pointer-events-auto'
-            : 'opacity-0 translate-y-4 scale-90 pointer-events-none'
-        }`}
-        aria-label="Scroll to top"
-      >
-        <ChevronUp className="w-5 h-5" />
-      </button>
+      
     </div>
   );
 };

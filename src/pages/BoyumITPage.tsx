@@ -1,3 +1,4 @@
+import { AnimatedCounter } from '../components/ui/AnimatedCounter';
 import { Link } from 'react-router-dom';
 import { CtaContactCards } from '../components/ui/CtaContactCards';
 import React, { useState, useEffect } from 'react';
@@ -257,7 +258,7 @@ export const BoyumITPage: React.FC = () => {
               {BOYUM_METRICS_DATA.map((metric) => (
                 <div key={metric.id} className="pt-3 sm:pt-0 first:pt-0 flex flex-col items-center text-center p-2 sm:p-3">
                   <div className={`text-[32px] sm:text-[38px] lg:text-[42px] font-extrabold tracking-tight leading-none mb-1 text-[${metric.color}]`}>
-                    <span style={{ color: metric.color }}>{metric.value}</span>
+                    <span style={{ color: metric.color }}><AnimatedCounter value={metric.value} /></span>
                   </div>
                   <div className="text-[14px] sm:text-[15px] font-bold text-[#142B59] leading-snug">
                     {metric.label}
@@ -671,7 +672,6 @@ export const BoyumITPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Global scroll-to-top handled by SiteLayout */}
 
       {/* ========================================================================= */}
       {/* MODAL: BOOK A CONSULTATION FORM                                           */}

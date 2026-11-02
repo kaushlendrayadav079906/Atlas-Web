@@ -1,3 +1,4 @@
+import { AnimatedCounter } from '../components/ui/AnimatedCounter';
 import { Link } from 'react-router-dom';
 import { CtaContactCards } from '../components/ui/CtaContactCards';
 import React, { useState, useEffect } from 'react';
@@ -276,7 +277,7 @@ export const SolutionsPage: React.FC = () => {
                     metric.color === 'green' ? 'text-[#10b981]' :
                     'text-[#0066CC]'
                   }`}>
-                    {metric.value}
+                    <AnimatedCounter value={metric.value} />
                   </div>
 
                   {/* Bold Label */}
@@ -1075,8 +1076,6 @@ export const SolutionsPage: React.FC = () => {
         )}
       </Modal>
 
-      {/* Floating Scroll-to-Top Button */}
-      /* Global scroll-to-top handled by SiteLayout */
 
     </div>
   );

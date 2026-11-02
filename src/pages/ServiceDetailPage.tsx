@@ -1,3 +1,4 @@
+import { AnimatedCounter } from '../components/ui/AnimatedCounter';
 import { CtaContactCards } from '../components/ui/CtaContactCards';
 import React, { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
@@ -242,7 +243,7 @@ export const ServiceDetailPage: React.FC = () => {
               {service.metrics.map((m, idx) => (
                 <div key={idx} className="bg-white p-4 sm:p-5 rounded-xl border border-slate-200/80 shadow-xs hover:border-blue-200 transition-colors">
                   <div className={`text-[28px] sm:text-[34px] font-black ${m.color} tracking-tight leading-none mb-1.5`}>
-                    {m.value}
+                    <AnimatedCounter value={m.value} />
                   </div>
                   <div className="text-[14px] sm:text-[15px] font-bold text-[#142B59] leading-snug">
                     {m.label}
@@ -695,8 +696,6 @@ export const ServiceDetailPage: React.FC = () => {
         )}
       </Modal>
 
-      {/* Floating Back to Top Button */}
-      /* Global scroll-to-top handled by SiteLayout */
     </div>
   );
 };

@@ -1,3 +1,4 @@
+import { AnimatedCounter } from '../components/ui/AnimatedCounter';
 import { CtaContactCards } from '../components/ui/CtaContactCards';
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
@@ -146,7 +147,7 @@ export const ServicesPage: React.FC = () => {
               {TRUST_METRICS.map((m) => (
                 <div key={m.id} className="bg-white p-4 sm:p-5 rounded-xl border border-slate-200/80 shadow-xs">
                   <div className="text-[28px] sm:text-[34px] font-black text-[#1B72E8] tracking-tight leading-none mb-1.5">
-                    {m.value}
+                    <AnimatedCounter value={m.value} />
                   </div>
                   <div className="text-[14px] sm:text-[15px] font-bold text-[#142B59] leading-snug">
                     {m.label}
@@ -464,7 +465,6 @@ export const ServicesPage: React.FC = () => {
         )}
       </Modal>
 
-      /* Global scroll-to-top handled by SiteLayout */
     </div>
   );
 };

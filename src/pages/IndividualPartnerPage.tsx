@@ -1,3 +1,4 @@
+import { AnimatedCounter } from '../components/ui/AnimatedCounter';
 import { CtaContactCards } from '../components/ui/CtaContactCards';
 import React, { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
@@ -329,7 +330,7 @@ export const IndividualPartnerPage: React.FC = () => {
                 className="bg-slate-50/70 rounded-2xl p-5 sm:p-6 border border-slate-200/80 text-left hover:border-blue-300 hover:bg-white hover:shadow-md transition-all group"
               >
                 <div className="font-serif text-[32px] sm:text-[40px] font-bold bg-gradient-to-r from-[#0052CC] to-[#0A66C2] bg-clip-text text-transparent leading-none mb-1.5">
-                  {metric.value}
+                  <AnimatedCounter value={metric.value} />
                 </div>
                 <div className="text-[14px] sm:text-[15px] font-bold text-[#142B59] leading-tight">
                   {metric.label}
@@ -765,7 +766,6 @@ export const IndividualPartnerPage: React.FC = () => {
       {/* ========================================================================= */}
       {/* FLOATING SCROLL TO TOP BUTTON                                             */}
       {/* ========================================================================= */}
-      /* Global scroll-to-top handled by SiteLayout */
 
       {/* ========================================================================= */}
       {/* INTERACTIVE CONSULTATION BOOKING MODAL                                    */}
