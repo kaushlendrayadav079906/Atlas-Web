@@ -175,3 +175,19 @@ ReDoc Documentation: `http://localhost:8000/redoc`
 }
 ```
 
+### D. Rate Limit Exceeded (`429 Too Many Requests`)
+Returned when a client exceeds `RATE_LIMIT_PER_MINUTE` (default: 20 requests per minute).
+Headers included:
+- `Retry-After: 60`
+
+```json
+{
+  "detail": {
+    "message": "Rate limit exceeded. Maximum 20 submissions per minute permitted. Please retry in 42 seconds.",
+    "error_type": "rate_limit_exceeded",
+    "retry_after_seconds": 42
+  }
+}
+```
+
+

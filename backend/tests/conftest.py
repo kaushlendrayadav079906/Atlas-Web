@@ -18,12 +18,14 @@ from app.main import app
 from app.config import settings
 from app.integrations.sap_client import sap_client
 from app.utils.idempotency import idempotency_manager
+from app.utils.rate_limiter import rate_limiter
 
 
 @pytest.fixture(autouse=True)
 def reset_state():
-    """Reset idempotency cache and mock client before each test."""
-    idempotency_manager._cache.clear()
+    """Reset idempotency cache, mock client, and rate limiter before each test."""
+    idempotency_manager.clear()
+    rate_limiter.reset()
     sap_client._mock_leads.clear()
     sap_client._mock_activities.clear()
     sap_client._session_cookies.clear()

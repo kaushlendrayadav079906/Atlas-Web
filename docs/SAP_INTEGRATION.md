@@ -108,11 +108,46 @@ MOCK_SAP_IN_DEV=true
 
 ---
 
-## 5. Development Mock Layer
+## 5. Development Mock Layer & Production Safety
 
 When `MOCK_SAP_IN_DEV=true` and real SAP credentials are not yet configured:
 - The backend seamlessly activates an internal simulation layer.
 - Accurately mimics `/b1s/v1/Login`, `BusinessPartners` queries, Lead creation, and `Activities` creation.
 - Stores mock records in memory during the process lifecycle.
 - Lets frontend engineers and automated CI test the entire flow end-to-end without needing a live SAP HANA server.
+
+> [!CAUTION]
+> **Production Enforcement**: When `APP_ENV=production`, mock mode is **strictly disabled and rejected** automatically by the configuration manager. The API will refuse to boot in simulated mode in production.
+
+---
+
+## 6. Standalone Diagnostics Tool
+
+Use the CLI diagnostic script to verify your live SAP Service Layer before deploying to production:
+
+```bash
+# Non-destructive ping and session login test
+python backend/verify_sap_connection.py --check-only
+
+# Comprehensive verification with diagnostic Lead + Activity creation
+python backend/verify_sap_connection.py --create-test-record
+
+# Enforce live connection (fails if host is unreachable)
+python backend/verify_sap_connection.py --force-live
+```
+
+---
+
+## 7. Production Readiness Checklist
+
+- [x] Service Layer credentials isolated in `.env` (never exposed to client).
+- [x] SSL certificate verification enabled (`SAP_VERIFY_SSL=true`).
+- [x] Session token caching (`B1SESSION`, `ROUTEID`) with 25-minute timeout.
+- [x] Automatic re-authentication on 401 Unauthorized.
+- [x] Lead reconciliation matching existing customers by email address.
+- [x] Persistent SQLite idempotency preventing duplicate submissions.
+- [x] Sliding-window rate limiting protecting against spam & denial-of-service.
+- [x] Automated responsive email alerts via background SMTP.
+- [x] Error messages sanitized to prevent internal SAP URL/credential leakage.
+
 

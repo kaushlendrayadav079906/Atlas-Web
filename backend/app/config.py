@@ -34,6 +34,7 @@ class Settings(BaseSettings):
     SAP_SESSION_TIMEOUT_MINUTES: int = Field(default=25, description="Cached session validity period")
     
     # Mock fallback for offline / development environments
+    # IMPORTANT: Automatically disabled and rejected when APP_ENV == "production"
     MOCK_SAP_IN_DEV: bool = Field(
         default=True,
         description="Allow high-fidelity mock fallback in development when live SAP server is unavailable"
@@ -42,6 +43,27 @@ class Settings(BaseSettings):
     # Security & Rate Limiting
     RATE_LIMIT_PER_MINUTE: int = Field(default=20, description="Max requests per minute per IP")
     DUPLICATE_WINDOW_SECONDS: int = Field(default=300, description="Window to prevent duplicate submissions")
+
+    # Storage for Idempotency
+    IDEMPOTENCY_STORAGE: str = Field(default="sqlite", description="Storage backend: memory or sqlite")
+    IDEMPOTENCY_DB_PATH: str = Field(default="", description="Optional path to sqlite database")
+
+    # Email Notifications (SMTP)
+    ENABLE_EMAIL_NOTIFICATIONS: bool = Field(
+        default=False,
+        description="Enable automated email notifications on new enquiries"
+    )
+    SMTP_HOST: str = Field(default="smtp.gmail.com", description="SMTP server hostname")
+    SMTP_PORT: int = Field(default=587, description="SMTP port (typically 587 for STARTTLS or 465 for SSL)")
+    SMTP_USER: str = Field(default="", description="SMTP account username")
+    SMTP_PASSWORD: str = Field(default="", description="SMTP account password or application password")
+    SMTP_FROM_EMAIL: str = Field(default="sales@atlastechnosoft.com", description="Sender email address")
+    SMTP_FROM_NAME: str = Field(default="ATLAS Technosoft Website", description="Sender display name")
+    NOTIFICATION_RECIPIENT_EMAILS: str = Field(
+        default="sales@atlastechnosoft.com",
+        description="Comma-separated recipient emails for new enquiry notifications"
+    )
+    SMTP_USE_TLS: bool = Field(default=True, description="Enforce STARTTLS encryption for SMTP")
 
     model_config = SettingsConfigDict(
         env_file=os.path.join(os.path.dirname(os.path.dirname(__file__)), ".env"),
@@ -59,6 +81,17 @@ class Settings(BaseSettings):
         """Parse comma-separated origins into a clean list without trailing slashes."""
         origins = [orig.strip().rstrip("/") for orig in self.FRONTEND_URL.split(",") if orig.strip()]
         return origins
+
+    @property
+    def recipient_emails(self) -> List[str]:
+        """Parse comma-separated recipient emails."""
+        return [em.strip() for em in self.NOTIFICATION_RECIPIENT_EMAILS.split(",") if em.strip()]
+
+    def model_post_init(self, __context):
+        """Enforce production security constraints upon initialization."""
+        if self.is_production:
+            # Strictly disable mock mode in production
+            self.MOCK_SAP_IN_DEV = False
 
     @field_validator("SAP_BASE_URL")
     @classmethod
