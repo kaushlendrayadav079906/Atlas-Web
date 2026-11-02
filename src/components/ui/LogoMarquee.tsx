@@ -11,10 +11,15 @@ import {
   ProdumexScanLogo,
 } from './PartnerLogos';
 import { LOGO_SLIDER_ITEMS, LogoSliderItem } from '../../data/logoSliderData';
+import { SectionHeading } from './SectionHeading';
 
 interface LogoMarqueeProps {
   className?: string;
   showHeading?: boolean;
+  badge?: string;
+  title?: string;
+  titleHighlight?: string;
+  subtitle?: string;
 }
 
 const renderLogoComponent = (logoType: LogoSliderItem['logoType']) => {
@@ -68,36 +73,28 @@ const LogoCard: React.FC<{ item: LogoSliderItem }> = ({ item }) => {
 export const LogoMarquee: React.FC<LogoMarqueeProps> = ({
   className = '',
   showHeading = true,
+  badge = 'OUR TRUSTED PARTNERS',
+  title = 'Authorized Technology',
+  titleHighlight = 'Ecosystem',
+  subtitle = 'Certified Enterprise Implementations & Authorized Channel Partnerships',
 }) => {
   return (
     <section
       id="technology-partners-slider"
-      className={`relative pt-6 pb-10 sm:pt-8 sm:pb-14 lg:pt-9 lg:pb-16 bg-[#f4f9ff]/70 border-b border-slate-100 overflow-hidden z-20 ${className}`}
+      className={`relative pt-8 pb-10 sm:pt-10 sm:pb-14 lg:pt-12 lg:pb-16 bg-[#f4f9ff]/70 border-b border-slate-100 overflow-hidden z-20 ${className}`}
       aria-label="Certified Technology Partners & Platforms"
     >
       <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
         
         {showHeading && (
-          <div className="max-w-3xl mx-auto text-center mb-6 sm:mb-8">
-            {/* 1. Pill badge: Our Trusted Partner matching reference image */}
-            <div className="mb-3">
-              <span className="inline-flex items-center justify-center px-5 py-1.5 rounded-full text-white font-semibold text-xs sm:text-[13.5px] bg-gradient-to-r from-[#1B72E8] via-[#0D8ABC] to-[#10B981] shadow-sm tracking-wide">
-                Our Trusted Partner
-              </span>
-            </div>
-
-            {/* 2. Eyebrow badge matching website section standards */}
-            <div className="mb-1.5">
-              <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-[#0066CC] select-none">
-                AUTHORIZED TECHNOLOGY ECOSYSTEM
-              </span>
-            </div>
-            
-            {/* 3. Section subtitle matching reference */}
-            <p className="text-[15px] sm:text-[17px] font-bold text-[#142B59]">
-              Certified Enterprise Implementations & Authorized Channel Partnerships
-            </p>
-          </div>
+          <SectionHeading
+            badge={badge}
+            title={title}
+            titleHighlight={titleHighlight}
+            subtitle={subtitle}
+            align="center"
+            className="mb-8 md:mb-10"
+          />
         )}
 
         {/* Marquee Track Container with gradient fade edges and generous vertical padding */}
@@ -258,8 +255,8 @@ export const ClientLogoMarquee: React.FC<{ className?: string; showPill?: boolea
       <div className="max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
         {showPill && (
           <div className="flex justify-center mb-5 sm:mb-6">
-            <span className="inline-flex items-center justify-center px-6 py-2 rounded-full text-white font-bold text-sm sm:text-[15px] bg-gradient-to-r from-[#1B72E8] via-[#0D8ABC] to-[#10B981] shadow-sm tracking-wide">
-              Our Trusted Partner
+            <span className="inline-flex items-center justify-center px-6 py-1.5 rounded-full text-white font-bold text-xs sm:text-[13px] bg-gradient-to-r from-[#0052CC] via-[#0866D9] to-[#0A66C2] shadow-sm tracking-wide uppercase">
+              Trusted by Industry Leaders
             </span>
           </div>
         )}

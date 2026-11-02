@@ -18,6 +18,7 @@ import {
 } from 'lucide-react';
 import { Modal } from '../components/ui/Modal';
 import { BRAND_INFO } from '../data/websiteContent';
+import { apiService, ApiResponse } from '../services/api';
 import {
   CONTACT_HERO_DATA,
   OFFICE_LOCATIONS,
@@ -50,6 +51,8 @@ export const ContactPage: React.FC = () => {
   const [formErrors, setFormErrors] = useState<Partial<Record<keyof ContactEnquiryFields, string>>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmittedSuccess, setIsSubmittedSuccess] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
+  const [submittedDetails, setSubmittedDetails] = useState<ApiResponse | null>(null);
 
   // Modal form state
   const [modalData, setModalData] = useState<ContactEnquiryFields>({
@@ -57,12 +60,14 @@ export const ContactPage: React.FC = () => {
     email: '',
     phone: '',
     companyName: '',
-    service: 'sap-b1',
+    service: 'SAP Business One',
     message: ''
   });
   const [modalErrors, setModalErrors] = useState<Partial<Record<keyof ContactEnquiryFields, string>>>({});
   const [isModalSubmitting, setIsModalSubmitting] = useState(false);
   const [isModalSubmittedSuccess, setIsModalSubmittedSuccess] = useState(false);
+  const [modalSubmitError, setModalSubmitError] = useState<string | null>(null);
+  const [modalSubmittedDetails, setModalSubmittedDetails] = useState<ApiResponse | null>(null);
 
   const validateField = (name: keyof ContactEnquiryFields, value: string): string | undefined => {
     switch (name) {
@@ -117,8 +122,9 @@ export const ContactPage: React.FC = () => {
     }
   };
 
-  const handleMainFormSubmit = (e: React.FormEvent) => {
+  const handleMainFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setSubmitError(null);
 
     const errors: Partial<Record<keyof ContactEnquiryFields, string>> = {};
     (Object.keys(formData) as (keyof ContactEnquiryFields)[]).forEach((key) => {
@@ -132,14 +138,20 @@ export const ContactPage: React.FC = () => {
     }
 
     setIsSubmitting(true);
-    setTimeout(() => {
-      setIsSubmitting(false);
+    try {
+      const res = await apiService.submitContact(formData);
+      setSubmittedDetails(res);
       setIsSubmittedSuccess(true);
-    }, 450);
+    } catch (err: any) {
+      setSubmitError(err.message || 'Unable to save enquiry in SAP Business One. Please check your connection or contact our team directly.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
-  const handleModalSubmit = (e: React.FormEvent) => {
+  const handleModalSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setModalSubmitError(null);
 
     const errors: Partial<Record<keyof ContactEnquiryFields, string>> = {};
     (Object.keys(modalData) as (keyof ContactEnquiryFields)[]).forEach((key) => {
@@ -153,10 +165,15 @@ export const ContactPage: React.FC = () => {
     }
 
     setIsModalSubmitting(true);
-    setTimeout(() => {
-      setIsModalSubmitting(false);
+    try {
+      const res = await apiService.submitConsultation(modalData);
+      setModalSubmittedDetails(res);
       setIsModalSubmittedSuccess(true);
-    }, 450);
+    } catch (err: any) {
+      setModalSubmitError(err.message || 'Unable to schedule consultation in SAP Business One. Please try again or reach out by phone/email.');
+    } finally {
+      setIsModalSubmitting(false);
+    }
   };
 
   const createMailtoLink = (data: ContactEnquiryFields) => {
@@ -417,6 +434,14 @@ export const ContactPage: React.FC = () => {
                     <p className="text-[15px] text-emerald-800 leading-relaxed max-w-md mx-auto">
                       Your enquiry for <strong className="text-emerald-950">{formData.companyName}</strong> regarding <strong className="text-emerald-950">{formData.service}</strong> has been logged. Our consultants will review your requirements and respond within 24 business hours.
                     </p>
+                    {submittedDetails?.referenceId && (
+                      <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-emerald-100/80 border border-emerald-300 text-[13px] font-semibold text-emerald-950 mx-auto">
+                        <span>Ref: {submittedDetails.referenceId}</span>
+                        {submittedDetails.sapCardCode && (
+                          <span className="text-emerald-800 font-normal">| SAP Lead: {submittedDetails.sapCardCode}</span>
+                        )}
+                      </div>
+                    )}
                     <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
                       <a
                         href={createMailtoLink(formData)}
@@ -446,6 +471,15 @@ export const ContactPage: React.FC = () => {
                   </div>
                 ) : (
                   <form onSubmit={handleMainFormSubmit} className="space-y-4 sm:space-y-5" noValidate>
+                    {submitError && (
+                      <div className="p-3.5 rounded-xl bg-rose-50 border border-rose-200 text-rose-700 text-[13.5px] flex items-start gap-2.5">
+                        <AlertCircle className="w-5 h-5 shrink-0 text-rose-500 mt-0.5" />
+                        <div>
+                          <p className="font-semibold">Unable to submit enquiry</p>
+                          <p className="text-[13px] mt-0.5 text-rose-600">{submitError}</p>
+                        </div>
+                      </div>
+                    )}
                     
                     {/* Row 1: Full Name & Business Email */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
@@ -828,19 +862,35 @@ export const ContactPage: React.FC = () => {
               <p className="text-[15px] text-slate-600 leading-relaxed max-w-sm mx-auto">
                 Thank you, <strong>{modalData.fullName}</strong>. An enterprise solution architect will contact you at <strong>{modalData.phone}</strong> or <strong>{modalData.email}</strong> within 24 business hours.
               </p>
-              <button
-                type="button"
-                onClick={() => {
-                  setIsConsultationModalOpen(false);
-                  setIsModalSubmittedSuccess(false);
-                }}
-                className="px-6 py-2.5 rounded-xl bg-gradient-to-r from-[#0052CC] to-[#0A66C2] text-white font-semibold hover:from-[#0040A8] hover:to-[#08529C] transition-colors"
-              >
-                Close
-              </button>
+              {modalSubmittedDetails?.referenceId && (
+                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-blue-50 border border-blue-200 text-[13px] font-semibold text-blue-900 mx-auto">
+                  <span>Ref: {modalSubmittedDetails.referenceId}</span>
+                  {modalSubmittedDetails.sapCardCode && (
+                    <span className="text-blue-700 font-normal">| SAP Lead: {modalSubmittedDetails.sapCardCode}</span>
+                  )}
+                </div>
+              )}
+              <div>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setIsConsultationModalOpen(false);
+                    setIsModalSubmittedSuccess(false);
+                  }}
+                  className="px-6 py-2.5 rounded-xl bg-gradient-to-r from-[#0052CC] to-[#0A66C2] text-white font-semibold hover:from-[#0040A8] hover:to-[#08529C] transition-colors"
+                >
+                  Close
+                </button>
+              </div>
             </div>
           ) : (
             <form onSubmit={handleModalSubmit} className="space-y-4" noValidate>
+              {modalSubmitError && (
+                <div className="p-3 rounded-xl bg-rose-50 border border-rose-200 text-rose-700 text-[13px] flex items-start gap-2">
+                  <AlertCircle className="w-4 h-4 shrink-0 text-rose-500 mt-0.5" />
+                  <span>{modalSubmitError}</span>
+                </div>
+              )}
               <div>
                 <label className="block text-[13.5px] font-semibold text-[#142B55] mb-1">
                   Full Name <span className="text-rose-500">*</span>
@@ -960,9 +1010,16 @@ export const ContactPage: React.FC = () => {
                 <button
                   type="submit"
                   disabled={isModalSubmitting}
-                  className="w-full py-3 rounded-xl bg-gradient-to-r from-[#0052CC] to-[#0A66C2] hover:from-[#0040A8] hover:to-[#08529C] text-white font-bold text-[15px] shadow-md shadow-blue-500/25 transition-all flex items-center justify-center gap-2"
+                  className="w-full py-3.5 rounded-xl bg-gradient-to-r from-[#0052CC] to-[#0A66C2] hover:from-[#0040A8] hover:to-[#08529C] text-white font-bold text-[15px] shadow-md shadow-blue-500/25 transition-all flex items-center justify-center gap-2 disabled:opacity-75 disabled:cursor-not-allowed"
                 >
-                  {isModalSubmitting ? 'Submitting...' : 'Confirm Consultation Request'}
+                  {isModalSubmitting ? (
+                    <>
+                      <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                      <span>Scheduling in SAP...</span>
+                    </>
+                  ) : (
+                    <span>Confirm Consultation Request</span>
+                  )}
                 </button>
               </div>
             </form>

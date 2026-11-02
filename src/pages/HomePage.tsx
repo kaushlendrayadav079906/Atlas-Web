@@ -1,4 +1,4 @@
-import { LogoMarquee, ClientLogoMarquee } from '../components/ui/LogoMarquee';
+import { LogoMarquee } from '../components/ui/LogoMarquee';
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { 
@@ -726,11 +726,6 @@ export const HomePage: React.FC = () => {
 
         </div>
       </section>
-
-      {/* ========================================================================= */}
-      {/* CONTINUOUS CLIENT LOGO SLIDER (MATCHING REFERENCE IMAGE 3)               */}
-      <ClientLogoMarquee />
-
       {/* ========================================================================= */}
       {/* SECTION 9: OUR PARTNERS (SIDE-BY-SIDE AS IN REFERENCE IMAGE im2)          */}
       {/* ========================================================================= */}

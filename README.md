@@ -13,41 +13,48 @@ This repository contains the enterprise frontend for **ATLAS Technosoft Pvt. Ltd
 
 ## Technology Stack
 
-- **Framework:** React 18
-- **Language:** TypeScript 5.5
-- **Build Tool:** Vite 5.4
-- **Routing:** React Router DOM 6.26 (configured for seamless anchor navigation and future multi-page expansion)
-- **Styling:** Tailwind CSS with custom enterprise navy theme (`#070D1E`, `#0B1530`, `#22D3EE`, `#2563EB`)
-- **Icons:** Lucide React
-- **Testing & Verification:** Puppeteer (multi-viewport responsive validation, interactive form testing, and zero broken links audit)
+- **Frontend:** React 18, TypeScript 5.5, Vite 5.4, React Router 6.26, Tailwind CSS, Lucide Icons
+- **Backend:** Python 3.12, FastAPI, Pydantic v2, Uvicorn, httpx, Starlette, slowapi
+- **Integration:** SAP Business One Service Layer (OData REST API / HTTPS)
+- **Testing:** Pytest, pytest-asyncio, Puppeteer headless verification
 
 ---
 
-## Phase 1 Implementation Scope
+## Backend & SAP Business One Integration
 
-- **System Architecture & Design System:**
-  - Complete 5-tier architecture definition (Presentation, Component, Page, Data, Future Integration).
-  - Component hierarchy and routing strategy.
-  - Strict enterprise color system, typography scale, responsive breakpoints, and reduced-motion support.
-- **Complete Homepage:**
-  - **Sticky Header & Mobile Drawer:** Responsive navigation bar with official logo, partner statement ribbon, desktop links, and slide-out mobile drawer.
-  - **Hero Section:** Official PDF headline *"Where SAP Business One Meets Intelligent Automation"*, supporting SME value messaging, dual CTAs (*"Get a Free Hyperautomation Health Check"* & *"View Our Solutions"*), partner badges (*Authorized SAP Channel Partner*, *Boyum IT Silver Partner*, *UiPath Silver Partner*), and connected systems visual.
-  - **Trust & Impact Metrics:** 4 metric cards (*80+ Live Clients*, *98.7% Retention*, *1.2M+ Annual Transactions*, *32 Certified Consultants*) flagged with source claim verification badges.
-  - **Solutions Section (6 Cards):** SAP B1 Implementation, Boyum IT Add-ons, UiPath RPA & AI, Freight & Trading Module, Gate Entry & Weighment, and ATLAS AI-Ready Add-ons.
-  - **Expertise & Business Outcomes:** 4 convergence pillars explaining how SAP B1, Boyum, UiPath, and AI integrate into a unified autonomous engine.
-  - **Industry Solutions (4 Sectors):** Manufacturing, Warehouse & Logistics, Finance & Administration, and Trading & Shipping.
-  - **Implementation Approach:** 3-step structured discovery-to-delivery framework (*Understand Business*, *Map Opportunities*, *Clear Roadmap & Costing*).
-  - **Customer Outcomes & Social Proof:** Client quotes, real client KPIs (*OEE +28%, Scrap -42%, 58-Day Go-Live*), and Clutch 5.0 rating.
-  - **Conversion Section:** Prominent consultation CTA with 48-hour readiness score and complimentary 3-year AI roadmap.
-  - **Interactive Contact Form & Direct Reach:** Comprehensive client-side validated form, placeholder confirmation modal with pre-formatted email draft and direct WhatsApp launcher (`+91-9372329599`).
-  - **Footer & Mobile Quick CTA:** Full corporate footer with disclaimers and a sticky mobile consultation action bar for viewports `< 768px`.
+The FastAPI backend lives in `/backend` and manages:
+- **Lead Creation & Reconciliation**: Automatically checks existing Business Partners by email address before creating new Leads (`CardType='cLead'`), preventing duplicate customer records in SAP.
+- **Activity Generation**: Logs an interaction in SAP Business One (`Activities`) linked to the Lead (`cn_Task` for inquiries, `cn_Meeting` for consultations with scheduled time slots).
+- **Session Management**: Authenticates against `POST /b1s/v1/Login`, captures and reuses `B1SESSION` + `ROUTEID` cookies, and automatically re-authenticates upon token expiration.
+- **Deduplication & Rate Limiting**: In-memory idempotency manager guards against rapid repeat submissions and concurrent requests.
 
----
-
-## Quick Start & Verification
-
-### 1. Install Dependencies
+### Backend Setup & Execution
 ```bash
+# Start backend API (port 8000)
+cd backend
+pip install -r requirements.txt
+uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+```
+
+- **Interactive API Docs (Swagger UI)**: [http://localhost:8000/docs](http://localhost:8000/docs)
+- **API Health**: [http://localhost:8000/api/v1/health](http://localhost:8000/api/v1/health)
+- **SAP Connectivity Status**: [http://localhost:8000/api/v1/health/sap](http://localhost:8000/api/v1/health/sap)
+- **Run Backend Tests**: `cd backend && python -m pytest tests -v` (25/25 passing)
+
+For detailed documentation, refer to:
+- [`docs/SAP_INTEGRATION.md`](docs/SAP_INTEGRATION.md)
+- [`docs/SAP_FIELD_MAPPING.md`](docs/SAP_FIELD_MAPPING.md)
+- [`docs/API_DOCUMENTATION.md`](docs/API_DOCUMENTATION.md)
+
+---
+
+## Phase Roadmap
+
+- [x] **Phase 1: Frontend Foundation & Complete Homepage**
+- [x] **Phase 2: Dedicated Multi-Page Expansion (About, Services, Solutions, Industries, Case Studies, Partners, Contact)**
+- [x] **Phase 3: Production-Ready FastAPI Backend with SAP Business One Service Layer Integration**
+- [ ] **Phase 4: Technical SEO, Accessibility Audit (WCAG AA), and Lighthouse 95+ Optimization**
+- [ ] **Phase 5: Production Deployment & Cloud Infrastructure Configuration**
 npm install
 ```
 
