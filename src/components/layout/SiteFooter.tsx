@@ -68,6 +68,7 @@ export const SiteFooter: React.FC = () => {
     { name: 'Industries', href: '/industries' },
     { name: 'Case Studies', href: '/case-studies' },
     { name: 'Partners', href: '/partners' },
+    { name: 'Blog & Insights', href: '/blog' },
     { name: 'Contact Us', href: '/contact' },
   ];
 

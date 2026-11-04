@@ -1,6 +1,7 @@
 import { LogoMarquee } from '../components/ui/LogoMarquee';
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import { Link } from 'react-router-dom';
+import { BlogSection } from '../components/ui/blog/BlogSection';
 import { 
   ArrowRight, 
   CheckCircle2, 
@@ -768,7 +769,12 @@ export const HomePage: React.FC = () => {
         </div>
       </section>
 
+            {/* ========================================================================= */}
+      {/* SECTION: LATEST INSIGHTS & ARTICLES (BLOG)                               */}
       {/* ========================================================================= */}
+      <BlogSection />
+
+{/* ========================================================================= */}
       {/* SECTION 10: READY TO TRANSFORM YOUR BUSINESS (BOX-TYPE BANNER im2)         */}
       {/* ========================================================================= */}
       <section id="contact" className="py-10 sm:py-12 lg:py-14 bg-[#f4f9ff]/60">

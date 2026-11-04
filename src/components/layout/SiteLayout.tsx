@@ -3,6 +3,8 @@ import { ChevronUp } from 'lucide-react';
 import { SiteHeader } from './SiteHeader';
 import { SiteFooter } from './SiteFooter';
 import { MobileQuickCTA } from './MobileQuickCTA';
+import { WhatsAppFloatingButton } from '../ui/WhatsAppFloatingButton';
+import { CustomerSupportWidget } from '../ui/CustomerSupportWidget';
 
 interface SiteLayoutProps {
   children: React.ReactNode;
@@ -32,8 +34,9 @@ export const SiteLayout: React.FC<SiteLayoutProps> = ({ children }) => {
       <MobileQuickCTA />
       <SiteFooter />
 
-      {/* Unified Global Scroll-to-Top Button */}
-      
+      {/* Global Floating Communication & Support Tools */}
+      <WhatsAppFloatingButton />
+      <CustomerSupportWidget />
     </div>
   );
 };

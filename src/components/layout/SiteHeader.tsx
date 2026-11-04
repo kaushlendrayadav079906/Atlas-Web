@@ -88,6 +88,8 @@ export const SiteHeader: React.FC = () => {
       setActiveSection('Partners');
     } else if (path.startsWith('/contact')) {
       setActiveSection('Contact');
+    } else if (path.startsWith('/blog') || path.startsWith('/insights')) {
+      setActiveSection('Blog');
     } else if (path === '/' && !location.hash) {
       setActiveSection('Home');
     }

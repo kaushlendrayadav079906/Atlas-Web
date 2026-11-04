@@ -16,6 +16,7 @@ from app.config import settings
 from app.api.v1.contact import router as contact_router
 from app.api.v1.consultations import router as consultation_router
 from app.api.v1.health import router as health_router
+from app.api.v1.chat import router as chat_router
 from app.integrations.sap_client import sap_client
 
 # Configure Logging
@@ -110,6 +111,7 @@ async def validation_exception_handler(request: Request, exc: RequestValidationE
 app.include_router(health_router, prefix="/api/v1")
 app.include_router(contact_router, prefix="/api/v1")
 app.include_router(consultation_router, prefix="/api/v1")
+app.include_router(chat_router, prefix="/api/v1")
 
 
 @app.get("/", include_in_schema=False)

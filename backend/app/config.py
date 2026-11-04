@@ -65,6 +65,28 @@ class Settings(BaseSettings):
     )
     SMTP_USE_TLS: bool = Field(default=True, description="Enforce STARTTLS encryption for SMTP")
 
+    # Chatbot & AI Configuration
+    CHATBOT_RATE_LIMIT_PER_MINUTE: int = Field(
+        default=30,
+        description="Max chatbot requests per minute per IP"
+    )
+    CHATBOT_AI_ENABLED: bool = Field(
+        default=False,
+        description="Enable live external LLM for chatbot if API key is provided"
+    )
+    OPENAI_API_KEY: str = Field(
+        default="",
+        description="Optional OpenAI API key for LLM-powered chatbot responses"
+    )
+    GEMINI_API_KEY: str = Field(
+        default="",
+        description="Optional Gemini API key for LLM-powered chatbot responses"
+    )
+    CHATBOT_MODEL: str = Field(
+        default="gpt-4o-mini",
+        description="Model name to use for AI chat if enabled"
+    )
+
     model_config = SettingsConfigDict(
         env_file=os.path.join(os.path.dirname(os.path.dirname(__file__)), ".env"),
         env_file_encoding="utf-8",

@@ -352,6 +352,11 @@ export const NAVIGATION_ITEMS: NavItem[] = [
     ]
   },
   {
+    name: 'Blog',
+    href: '/blog',
+    hasDropdown: false,
+  },
+  {
     name: 'Contact',
     href: '/contact',
     hasDropdown: false,

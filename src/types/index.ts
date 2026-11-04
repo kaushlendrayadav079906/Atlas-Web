@@ -82,3 +82,6 @@ export interface ContactFormData {
   message: string;
 }
 
+export * from './blog';
+
+
