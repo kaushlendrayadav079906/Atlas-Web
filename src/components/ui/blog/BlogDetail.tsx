@@ -256,13 +256,24 @@ export const BlogDetail: React.FC<BlogDetailProps> = ({
             </p>
 
             <div className="flex flex-wrap items-center gap-3">
-              <Link
-                to="/contact"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold text-sm shadow-md transition-colors"
-              >
-                <span>Book a Consultation</span>
-                <ArrowRight className="w-4 h-4" />
-              </Link>
+              {onOpenConsultation ? (
+                <button
+                  type="button"
+                  onClick={onOpenConsultation}
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold text-sm shadow-md transition-colors cursor-pointer"
+                >
+                  <span>Book a Consultation</span>
+                  <ArrowRight className="w-4 h-4" />
+                </button>
+              ) : (
+                <Link
+                  to="/contact"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold text-sm shadow-md transition-colors"
+                >
+                  <span>Book a Consultation</span>
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              )}
               <a
                 href="https://wa.me/919372329599?text=Hello%20ATLAS%20Technosoft%2C%20I%20would%20like%20to%20discuss%20the%20article%20I%20read%20on%20your%20website."
                 target="_blank"

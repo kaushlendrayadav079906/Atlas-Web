@@ -27,10 +27,15 @@ import {
   Phone,
   Mail,
   MapPin,
-  Linkedin
+  Linkedin,
+  BookOpen,
+  FileText,
+  HelpCircle,
+  Ship,
+  PhoneCall
 } from 'lucide-react';
+import { CallbackModal } from '../ui/CallbackModal';
 import { Button } from '../ui/Button';
-import { TopInfoBar } from './TopInfoBar';
 import { MegaMenuDropdown } from './MegaMenuDropdown';
 import { NAVIGATION_ITEMS, TOP_BAR_INFO, NavItem } from '../../data/navigationData';
 
@@ -52,10 +57,15 @@ const iconMap: Record<string, React.FC<{ className?: string }>> = {
   Building2,
   ShieldCheck,
   Clock,
+  BookOpen,
+  FileText,
+  HelpCircle,
+  Ship,
 };
 
 export const SiteHeader: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isCallbackModalOpen, setIsCallbackModalOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [mobileExpandedItem, setMobileExpandedItem] = useState<string | null>(null);
@@ -123,8 +133,6 @@ export const SiteHeader: React.FC = () => {
 
   return (
     <>
-      {/* Top Information Bar */}
-      <TopInfoBar />
 
       {/* Main Sticky Navigation Header */}
       <header
@@ -243,6 +251,17 @@ export const SiteHeader: React.FC = () => {
 
               {/* Book a Consultation Button (Extreme Right) */}
               <div className="pl-1 xl:pl-2 shrink-0">
+                <button
+                  type="button"
+                  onClick={() => setIsCallbackModalOpen(true)}
+                  className="hidden xl:inline-flex items-center gap-2 px-3.5 xl:px-4 py-2.5 rounded-xl text-[13.5px] 2xl:text-[14px] font-bold text-white bg-gradient-to-r from-emerald-500 via-emerald-600 to-teal-600 hover:from-emerald-600 hover:to-teal-700 shadow-md shadow-emerald-600/25 hover:shadow-lg transition-all duration-200 cursor-pointer active:scale-[0.98] group mr-2.5 shrink-0"
+                  title="Schedule a direct phone callback with our consultants"
+                >
+                  <span className="relative flex items-center justify-center w-5 h-5 rounded-full bg-white/25 group-hover:bg-white/35 transition-colors">
+                    <PhoneCall className="w-3.5 h-3.5 text-white animate-pulse" />
+                  </span>
+                  <span>Request Callback</span>
+                </button>
                 <Button
                   href={location.pathname === '/contact' ? '#contact-form' : '/contact'}
                   variant="gold"
@@ -440,6 +459,20 @@ export const SiteHeader: React.FC = () => {
                 </div>
               </div>
 
+              <button
+                type="button"
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  setIsCallbackModalOpen(true);
+                }}
+                className="w-full inline-flex items-center justify-center gap-2.5 py-3.5 rounded-xl text-white font-bold text-[15px] bg-gradient-to-r from-emerald-500 via-emerald-600 to-teal-600 hover:from-emerald-600 hover:to-teal-700 shadow-md shadow-emerald-600/25 transition-all cursor-pointer mb-2.5"
+              >
+                <span className="flex items-center justify-center w-6 h-6 rounded-full bg-white/25">
+                  <PhoneCall className="w-4 h-4 text-white animate-pulse" />
+                </span>
+                <span>Request a Callback</span>
+              </button>
+
               <Button
                 href={location.pathname === '/contact' ? '#contact-form' : '/contact'}
                 variant="gold"
@@ -455,6 +488,12 @@ export const SiteHeader: React.FC = () => {
           </div>
         </div>
       )}
+
+      {/* Reusable Enterprise Callback Modal */}
+      <CallbackModal
+        isOpen={isCallbackModalOpen}
+        onClose={() => setIsCallbackModalOpen(false)}
+      />
     </>
   );
 };

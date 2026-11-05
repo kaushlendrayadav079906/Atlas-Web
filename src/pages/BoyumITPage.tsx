@@ -27,7 +27,7 @@ import {
 } from 'lucide-react';
 import { Button } from '../components/ui/Button';
 import { SectionHeading } from '../components/ui/SectionHeading';
-import { Modal } from '../components/ui/Modal';
+import { ConsultationModal } from '../components/ui/ConsultationModal';
 import { BoyumITLogo, SAPBusinessOneLogo } from '../components/ui/PartnerLogos';
 import { 
   BOYUM_HERO_DATA,
@@ -41,25 +41,12 @@ import {
   BoyumProductCard
 } from '../data/boyumItContent';
 import { BRAND_INFO } from '../data/websiteContent';
-import { ContactFormData } from '../types';
 
 export const BoyumITPage: React.FC = () => {
-  // Modal & Form State
+  // Modal State
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState<BoyumProductCard | null>(null);
   const [showScrollTop, setShowScrollTop] = useState(false);
-  const [formData, setFormData] = useState<ContactFormData>({
-    fullName: '',
-    companyName: '',
-    workEmail: '',
-    phoneNumber: '',
-    areaOfInterest: 'boyum',
-    message: ''
-  });
-  const [formErrors, setFormErrors] = useState<Partial<Record<keyof ContactFormData, string>>>({});
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSuccessSubmitted, setIsSuccessSubmitted] = useState(false);
-
   useEffect(() => {
     const handleScroll = () => {
       setShowScrollTop(window.scrollY > 400);
@@ -68,67 +55,9 @@ export const BoyumITPage: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const validateForm = (): boolean => {
-    const errors: Partial<Record<keyof ContactFormData, string>> = {};
-
-    if (!formData.fullName.trim()) errors.fullName = 'Full name is required';
-    if (!formData.companyName.trim()) errors.companyName = 'Company name is required';
-    if (!formData.workEmail.trim()) {
-      errors.workEmail = 'Work email is required';
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.workEmail)) {
-      errors.workEmail = 'Please provide a valid work email address';
-    }
-    if (!formData.phoneNumber.trim()) {
-      errors.phoneNumber = 'Phone number is required';
-    } else if (!/^\+?[0-9\s\-()]{8,20}$/.test(formData.phoneNumber.trim())) {
-      errors.phoneNumber = 'Please enter a valid phone number';
-    }
-    if (!formData.message.trim()) errors.message = 'Please provide a brief description of your requirements';
-
-    setFormErrors(errors);
-    return Object.keys(errors).length === 0;
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!validateForm()) return;
-
-    setIsSubmitting(true);
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setIsSuccessSubmitted(true);
-    }, 400);
-  };
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-    if (formErrors[name as keyof ContactFormData]) {
-      setFormErrors(prev => ({ ...prev, [name]: undefined }));
-    }
-  };
-
   const openProductModal = (product: BoyumProductCard) => {
     setSelectedProduct(product);
-    setFormData(prev => ({
-      ...prev,
-      areaOfInterest: product.id,
-      message: `Inquiring about ${product.name} implementation for SAP Business One.`
-    }));
     setIsModalOpen(true);
-  };
-
-  const generateMailtoLink = (data: ContactFormData) => {
-    const subject = encodeURIComponent(`Boyum IT Consultation Request: ${data.companyName || 'Inquiry'}`);
-    const body = encodeURIComponent(
-      `Name: ${data.fullName}\n` +
-      `Company: ${data.companyName}\n` +
-      `Work Email: ${data.workEmail}\n` +
-      `Phone: ${data.phoneNumber}\n` +
-      `Product Interest: ${data.areaOfInterest}\n\n` +
-      `Message / Requirements:\n${data.message}`
-    );
-    return `mailto:${BRAND_INFO.contact.email}?subject=${subject}&body=${body}`;
   };
 
   const renderBenefitIcon = (iconName: string) => {
@@ -595,10 +524,6 @@ export const BoyumITPage: React.FC = () => {
                   <button
                     type="button"
                     onClick={() => {
-                      setFormData(prev => ({
-                        ...prev,
-                        message: `Inquiring about Boyum IT solutions for ${ind.title} industry.`
-                      }));
                       setIsModalOpen(true);
                     }}
                     className="inline-flex items-center gap-1.5 text-xs font-bold text-[#1B72E8] hover:text-[#1557B0] transition-colors"
@@ -674,184 +599,18 @@ export const BoyumITPage: React.FC = () => {
 
 
       {/* ========================================================================= */}
-      {/* MODAL: BOOK A CONSULTATION FORM                                           */}
+      {/* REUSABLE ENTERPRISE CONSULTATION MODAL                                    */}
       {/* ========================================================================= */}
-      <Modal
+      <ConsultationModal
         isOpen={isModalOpen}
         onClose={() => {
           setIsModalOpen(false);
-          setIsSuccessSubmitted(false);
           setSelectedProduct(null);
         }}
+        defaultService={selectedProduct ? `Boyum IT Solutions (${selectedProduct.name})` : "Boyum IT Solutions (Beas Manufacturing / Produmex WMS)"}
         title={selectedProduct ? `Consultation: ${selectedProduct.name}` : "Book a Boyum IT Consultation"}
-      >
-        {!isSuccessSubmitted ? (
-          <form onSubmit={handleSubmit} className="space-y-4 text-left">
-            <p className="text-xs text-slate-600 leading-relaxed mb-4">
-              Speak directly with an ATLAS Technosoft certified Boyum IT specialist. We will evaluate your current SAP Business One workflow and share tailored implementation recommendations.
-            </p>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
-              <div>
-                <label className="block text-xs font-bold text-[#142B59] mb-1">
-                  Full Name <span className="text-rose-500">*</span>
-                </label>
-                <input
-                  type="text"
-                  name="fullName"
-                  value={formData.fullName}
-                  onChange={handleInputChange}
-                  placeholder="e.g. Rahul Sharma"
-                  className={`w-full px-3.5 py-2 rounded-lg border text-sm focus:outline-none focus:ring-2 ${
-                    formErrors.fullName ? 'border-rose-400 bg-rose-50/20' : 'border-slate-300 focus:ring-blue-500/20 focus:border-blue-500'
-                  }`}
-                />
-                {formErrors.fullName && <p className="mt-1 text-xs text-rose-600">{formErrors.fullName}</p>}
-              </div>
-
-              <div>
-                <label className="block text-xs font-bold text-[#142B59] mb-1">
-                  Company Name <span className="text-rose-500">*</span>
-                </label>
-                <input
-                  type="text"
-                  name="companyName"
-                  value={formData.companyName}
-                  onChange={handleInputChange}
-                  placeholder="e.g. Apex Manufacturing Pvt Ltd"
-                  className={`w-full px-3.5 py-2 rounded-lg border text-sm focus:outline-none focus:ring-2 ${
-                    formErrors.companyName ? 'border-rose-400 bg-rose-50/20' : 'border-slate-300 focus:ring-blue-500/20 focus:border-blue-500'
-                  }`}
-                />
-                {formErrors.companyName && <p className="mt-1 text-xs text-rose-600">{formErrors.companyName}</p>}
-              </div>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
-              <div>
-                <label className="block text-xs font-bold text-[#142B59] mb-1">
-                  Work Email <span className="text-rose-500">*</span>
-                </label>
-                <input
-                  type="email"
-                  name="workEmail"
-                  value={formData.workEmail}
-                  onChange={handleInputChange}
-                  placeholder="rahul@company.com"
-                  className={`w-full px-3.5 py-2 rounded-lg border text-sm focus:outline-none focus:ring-2 ${
-                    formErrors.workEmail ? 'border-rose-400 bg-rose-50/20' : 'border-slate-300 focus:ring-blue-500/20 focus:border-blue-500'
-                  }`}
-                />
-                {formErrors.workEmail && <p className="mt-1 text-xs text-rose-600">{formErrors.workEmail}</p>}
-              </div>
-
-              <div>
-                <label className="block text-xs font-bold text-[#142B59] mb-1">
-                  Phone Number <span className="text-rose-500">*</span>
-                </label>
-                <input
-                  type="tel"
-                  name="phoneNumber"
-                  value={formData.phoneNumber}
-                  onChange={handleInputChange}
-                  placeholder="+91 98765 43210"
-                  className={`w-full px-3.5 py-2 rounded-lg border text-sm focus:outline-none focus:ring-2 ${
-                    formErrors.phoneNumber ? 'border-rose-400 bg-rose-50/20' : 'border-slate-300 focus:ring-blue-500/20 focus:border-blue-500'
-                  }`}
-                />
-                {formErrors.phoneNumber && <p className="mt-1 text-xs text-rose-600">{formErrors.phoneNumber}</p>}
-              </div>
-            </div>
-
-            <div>
-              <label className="block text-xs font-bold text-[#142B59] mb-1">
-                Area of Interest
-              </label>
-              <select
-                name="areaOfInterest"
-                value={formData.areaOfInterest}
-                onChange={handleInputChange}
-                className="w-full px-3.5 py-2 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 bg-white"
-              >
-                <option value="boyum">All Boyum IT Solutions</option>
-                <option value="beas">Beas Manufacturing (APS / MRP / Shop Floor)</option>
-                <option value="produmex">Produmex WMS (Warehouse / RF Barcoding)</option>
-                <option value="b1up">B1 Usability Package (B1UP Automation)</option>
-                <option value="sap-b1">SAP Business One Core Integration</option>
-              </select>
-            </div>
-
-            <div>
-              <label className="block text-xs font-bold text-[#142B59] mb-1">
-                How Can We Help? <span className="text-rose-500">*</span>
-              </label>
-              <textarea
-                name="message"
-                rows={3}
-                value={formData.message}
-                onChange={handleInputChange}
-                placeholder="Briefly describe your manufacturing or warehouse requirements..."
-                className={`w-full px-4 py-2.5 rounded-lg border text-sm focus:outline-none focus:ring-2 ${
-                  formErrors.message ? 'border-rose-400 bg-rose-50/20' : 'border-slate-300 focus:ring-blue-500/20 focus:border-blue-500'
-                }`}
-              />
-              {formErrors.message && <p className="mt-1 text-xs text-rose-600">{formErrors.message}</p>}
-            </div>
-
-            <Button
-              type="submit"
-              variant="primary"
-              size="lg"
-              fullWidth
-              disabled={isSubmitting}
-              icon={isSubmitting ? undefined : <Send className="w-4 h-4" />}
-            >
-              {isSubmitting ? 'Validating...' : 'Submit Consultation Request'}
-            </Button>
-          </form>
-        ) : (
-          <div className="space-y-4 text-left">
-            <div className="p-3.5 rounded-xl bg-emerald-50 border border-emerald-200 text-xs text-emerald-900 flex items-start gap-2.5">
-              <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
-              <div>
-                <strong className="font-bold block">Consultation Details Validated!</strong>
-                Your details are validated. You can send this directly via Email or WhatsApp to ATLAS Technosoft.
-              </div>
-            </div>
-
-            <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 text-xs space-y-1.5">
-              <div><strong>Name:</strong> {formData.fullName}</div>
-              <div><strong>Company:</strong> {formData.companyName}</div>
-              <div><strong>Work Email:</strong> {formData.workEmail}</div>
-              <div><strong>Phone:</strong> {formData.phoneNumber}</div>
-              <div><strong>Area of Interest:</strong> {formData.areaOfInterest}</div>
-              <div><strong>Message:</strong> {formData.message}</div>
-            </div>
-
-            <div className="pt-2 flex flex-col sm:flex-row gap-3">
-              <a
-                href={generateMailtoLink(formData)}
-                className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold uppercase tracking-wider transition-colors"
-              >
-                <Mail className="w-4 h-4" />
-                <span>Open Email Draft</span>
-              </a>
-
-              <a
-                href={`https://wa.me/919372329599?text=${encodeURIComponent(
-                  `Hello ATLAS Technosoft, I submitted a Boyum IT consultation request for ${formData.companyName}. Name: ${formData.fullName}. Product: ${formData.areaOfInterest}.`
-                )}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold uppercase tracking-wider transition-colors"
-              >
-                <Phone className="w-4 h-4" />
-                <span>Send via WhatsApp</span>
-              </a>
-            </div>
-          </div>
-        )}
-      </Modal>
+        subtitle="Speak directly with an ATLAS Technosoft certified Boyum IT specialist. We will evaluate your current SAP Business One workflow and share tailored implementation recommendations."
+      />
 
     </div>
   );

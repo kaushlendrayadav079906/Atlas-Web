@@ -27,10 +27,9 @@ import {
   Quote
 } from 'lucide-react';
 import { Button } from '../components/ui/Button';
-import { Modal } from '../components/ui/Modal';
+import { ConsultationModal } from '../components/ui/ConsultationModal';
 import { INDIVIDUAL_CASE_STUDIES, IndividualCaseStudy } from '../data/individualCaseStudiesData';
 import { BRAND_INFO } from '../data/websiteContent';
-import { ContactFormData } from '../types';
 
 const renderCategoryIcon = (iconName: string, className = "w-4 h-4") => {
   switch (iconName) {
@@ -39,6 +38,7 @@ const renderCategoryIcon = (iconName: string, className = "w-4 h-4") => {
     case 'shopping-cart': return <ShoppingCart className={className} />;
     case 'cpu': return <Cpu className={className} />;
     case 'factory': return <Factory className={className} />;
+    case 'shield-check': return <ShieldCheck className={className} />;
     default: return <Sparkles className={className} />;
   }
 };
@@ -53,6 +53,7 @@ const renderChallengeIcon = (iconName: string, className = "w-5 h-5") => {
     case 'Layers': return <Layers className={className} />;
     case 'BarChart3': return <BarChart3 className={className} />;
     case 'Receipt': return <Receipt className={className} />;
+    case 'Boxes': return <Boxes className={className} />;
     default: return <Clock className={className} />;
   }
 };
@@ -65,15 +66,12 @@ export const IndividualCaseStudyPage: React.FC = () => {
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
-  const [formSubmitted, setFormSubmitted] = useState(false);
-  const [formData, setFormData] = useState<ContactFormData>({
-    fullName: '',
-    workEmail: '',
-    phoneNumber: '',
-    companyName: '',
-    areaOfInterest: caseStudy ? `Case Study Inquiry: ${caseStudy.title}` : 'Case Study Consultation',
-    message: ''
-  });
+
+  useEffect(() => {
+    if (caseStudy) {
+      document.title = `${caseStudy.title} ${caseStudy.titleHighlight} | ATLAS Technosoft Case Study`;
+    }
+  }, [caseStudy]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -83,22 +81,6 @@ export const IndividualCaseStudyPage: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handleFormSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setFormSubmitted(true);
-    setTimeout(() => {
-      setIsModalOpen(false);
-      setFormSubmitted(false);
-      setFormData({
-        fullName: '',
-        workEmail: '',
-        phoneNumber: '',
-        companyName: '',
-        areaOfInterest: `Case Study Inquiry: ${caseStudy.title}`,
-        message: ''
-      });
-    }, 2500);
-  };
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -580,108 +562,12 @@ export const IndividualCaseStudyPage: React.FC = () => {
       {/* ========================================================================= */}
       {/* INTERACTIVE BOOK A CONSULTATION MODAL                                    */}
       {/* ========================================================================= */}
-      <Modal
+      <ConsultationModal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
+        defaultService={caseStudy ? `Case Study Inquiry: ${caseStudy.title}` : "SAP Business One Implementation"}
         title={`Book a Consultation — ${caseStudy.title}`}
-      >
-        {formSubmitted ? (
-          <div className="py-8 text-center space-y-3">
-            <div className="w-16 h-16 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center mx-auto">
-              <CheckCircle2 className="w-8 h-8" />
-            </div>
-            <h3 className="text-xl font-bold text-[#142B59]">Thank You!</h3>
-            <p className="text-sm text-[#45546B]">
-              Your consultation request has been received. Our solutions architect will contact you within 24 business hours.
-            </p>
-          </div>
-        ) : (
-          <form onSubmit={handleFormSubmit} className="space-y-4 pt-2">
-            <div>
-              <label className="block text-xs font-bold text-[#142B59] uppercase tracking-wider mb-1">Full Name *</label>
-              <input
-                type="text"
-                required
-                value={formData.fullName}
-                onChange={e => setFormData({ ...formData, fullName: e.target.value })}
-                placeholder="e.g. Sunil Deshmukh"
-                className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#1B72E8]"
-              />
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div>
-                <label className="block text-xs font-bold text-[#142B59] uppercase tracking-wider mb-1">Work Email *</label>
-                <input
-                  type="email"
-                  required
-                  value={formData.workEmail}
-                  onChange={e => setFormData({ ...formData, workEmail: e.target.value })}
-                  placeholder="name@company.com"
-                  className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#1B72E8]"
-                />
-              </div>
-
-              <div>
-                <label className="block text-xs font-bold text-[#142B59] uppercase tracking-wider mb-1">Phone Number *</label>
-                <input
-                  type="tel"
-                  required
-                  value={formData.phoneNumber}
-                  onChange={e => setFormData({ ...formData, phoneNumber: e.target.value })}
-                  placeholder="+91 98765 43210"
-                  className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#1B72E8]"
-                />
-              </div>
-            </div>
-
-            <div>
-              <label className="block text-xs font-bold text-[#142B59] uppercase tracking-wider mb-1">Company Name *</label>
-              <input
-                type="text"
-                required
-                value={formData.companyName}
-                onChange={e => setFormData({ ...formData, companyName: e.target.value })}
-                placeholder="Enterprise Pvt. Ltd."
-                className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#1B72E8]"
-              />
-            </div>
-
-            <div>
-              <label className="block text-xs font-bold text-[#142B59] uppercase tracking-wider mb-1">Inquiry Context</label>
-              <input
-                type="text"
-                readOnly
-                value={formData.areaOfInterest}
-                className="w-full px-3.5 py-2.5 rounded-lg bg-slate-50 border border-slate-200 text-sm text-slate-700 font-medium"
-              />
-            </div>
-
-            <div>
-              <label className="block text-xs font-bold text-[#142B59] uppercase tracking-wider mb-1">Brief Description of Your Requirements</label>
-              <textarea
-                rows={3}
-                value={formData.message}
-                onChange={e => setFormData({ ...formData, message: e.target.value })}
-                placeholder="Tell us about your current operational challenges..."
-                className="w-full px-3.5 py-2 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#1B72E8]"
-              />
-            </div>
-
-            <div className="pt-2">
-              <Button
-                type="submit"
-                variant="primary"
-                fullWidth
-                size="md"
-                icon={<Send className="w-4 h-4" />}
-              >
-                Submit Consultation Request
-              </Button>
-            </div>
-          </form>
-        )}
-      </Modal>
+      />
 
     </div>
   );

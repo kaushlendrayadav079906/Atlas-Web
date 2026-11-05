@@ -23,22 +23,12 @@ import {
 import { Button } from '../components/ui/Button';
 import { SectionHeading } from '../components/ui/SectionHeading';
 import { ServiceCard } from '../components/ui/SolutionCard';
-import { Modal } from '../components/ui/Modal';
+import { ConsultationModal } from '../components/ui/ConsultationModal';
 import { BRAND_INFO, TRUST_METRICS } from '../data/websiteContent';
-import { ContactFormData } from '../types';
 
 export const ServicesPage: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
-  const [formSubmitted, setFormSubmitted] = useState(false);
-  const [formData, setFormData] = useState<ContactFormData>({
-    fullName: '',
-    workEmail: '',
-    phoneNumber: '',
-    companyName: '',
-    areaOfInterest: 'Enterprise Services & Solutions',
-    message: ''
-  });
 
   useEffect(() => {
     const handleScroll = () => {
@@ -48,22 +38,6 @@ export const ServicesPage: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handleFormSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setFormSubmitted(true);
-    setTimeout(() => {
-      setIsModalOpen(false);
-      setFormSubmitted(false);
-      setFormData({
-        fullName: '',
-        workEmail: '',
-        phoneNumber: '',
-        companyName: '',
-        areaOfInterest: 'Enterprise Services & Solutions',
-        message: ''
-      });
-    }, 2500);
-  };
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -369,101 +343,12 @@ export const ServicesPage: React.FC = () => {
       </section>
 
       {/* Consultation Modal */}
-      <Modal
+      <ConsultationModal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
+        defaultService="SAP Business One Implementation"
         title="Book a Consultation — ATLAS Technosoft"
-      >
-        {formSubmitted ? (
-          <div className="py-8 text-center space-y-3">
-            <div className="w-16 h-16 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center mx-auto">
-              <CheckCircle2 className="w-8 h-8" />
-            </div>
-            <h3 className="text-xl font-bold text-[#142B59]">Thank You!</h3>
-            <p className="text-sm text-[#45546B]">
-              Your consultation request has been received. Our team will contact you shortly.
-            </p>
-          </div>
-        ) : (
-          <form onSubmit={handleFormSubmit} className="space-y-4 pt-2">
-            <div>
-              <label className="block text-xs font-bold text-[#142B59] uppercase tracking-wider mb-1">Full Name *</label>
-              <input
-                type="text"
-                required
-                value={formData.fullName}
-                onChange={e => setFormData({ ...formData, fullName: e.target.value })}
-                placeholder="e.g. Rajesh Sharma"
-                className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#1B72E8]"
-              />
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div>
-                <label className="block text-xs font-bold text-[#142B59] uppercase tracking-wider mb-1">Work Email *</label>
-                <input
-                  type="email"
-                  required
-                  value={formData.workEmail}
-                  onChange={e => setFormData({ ...formData, workEmail: e.target.value })}
-                  placeholder="name@company.com"
-                  className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#1B72E8]"
-                />
-              </div>
-
-              <div>
-                <label className="block text-xs font-bold text-[#142B59] uppercase tracking-wider mb-1">Phone Number *</label>
-                <input
-                  type="tel"
-                  required
-                  value={formData.phoneNumber}
-                  onChange={e => setFormData({ ...formData, phoneNumber: e.target.value })}
-                  placeholder="+91 98765 43210"
-                  className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#1B72E8]"
-                />
-              </div>
-            </div>
-
-            <div>
-              <label className="block text-xs font-bold text-[#142B59] uppercase tracking-wider mb-1">Company Name *</label>
-              <input
-                type="text"
-                required
-                value={formData.companyName}
-                onChange={e => setFormData({ ...formData, companyName: e.target.value })}
-                placeholder="Company Pvt. Ltd."
-                className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#1B72E8]"
-              />
-            </div>
-
-            <div>
-              <label className="block text-xs font-bold text-[#142B59] uppercase tracking-wider mb-1">Service of Interest</label>
-              <select
-                value={formData.areaOfInterest}
-                onChange={e => setFormData({ ...formData, areaOfInterest: e.target.value })}
-                className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#1B72E8]"
-              >
-                <option value="SAP Business One">SAP Business One Implementation & Optimization</option>
-                <option value="Boyum IT Solutions">Boyum IT Solutions (Beas Manufacturing, Produmex WMS, B1UP)</option>
-                <option value="UiPath RPA & AI Automation">UiPath RPA & AI Automation</option>
-                <option value="ATLAS Proprietary Add-ons">ATLAS Proprietary Add-ons</option>
-              </select>
-            </div>
-
-            <div className="pt-2">
-              <Button
-                type="submit"
-                variant="primary"
-                fullWidth
-                size="md"
-                icon={<Send className="w-4 h-4" />}
-              >
-                Submit Consultation Request
-              </Button>
-            </div>
-          </form>
-        )}
-      </Modal>
+      />
 
     </div>
   );

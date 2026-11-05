@@ -120,21 +120,51 @@ class SAPService:
         Creates an Activity in SAP Business One linked to the Lead.
         - Contact enquiries are recorded as 'cn_Task' or 'cn_Other'
         - Consultation bookings are recorded as 'cn_Meeting' with requested scheduling
+        - Callback requests are recorded as 'cn_Conversation' (Phone Call) with requested time slot
         """
         today_date = datetime.now(timezone.utc).strftime("%Y-%m-%d")
         now_time = datetime.now(timezone.utc).strftime("%H:%M:%S")
 
         is_consultation = "consultation" in enquiry_type.lower()
-        activity_type_name = "cn_Meeting" if is_consultation else "cn_Task"
+        is_callback = "callback" in enquiry_type.lower() or "phone" in enquiry_type.lower()
+
+        if is_callback:
+            activity_type_name = "cn_Conversation"
+        elif is_consultation:
+            activity_type_name = "cn_Meeting"
+        else:
+            activity_type_name = "cn_Task"
 
         notes_content = (
             f"Contact: {full_name}\n"
             f"Enquiry Type: {enquiry_type}\n"
             f"Service of Interest: {service}\n"
         )
-        if is_consultation and (preferred_date or preferred_time):
-            notes_content += f"Preferred Slot: {preferred_date or 'Any'} at {preferred_time or 'Any'}\n"
+        if (is_consultation or is_callback) and (preferred_date or preferred_time):
+            slot_label = "Requested Callback Slot" if is_callback else "Preferred Slot"
+            notes_content += f"{slot_label}: {preferred_date or 'Any'} at {preferred_time or 'Any'}\n"
         notes_content += f"\nClient Message:\n{message}"
+
+        # Determine start/end times based on preferred_time slot
+        start_time = now_time
+        end_time = now_time
+        if is_consultation:
+            start_time = "10:00:00"
+            end_time = "11:00:00"
+        elif is_callback and preferred_time:
+            time_lower = preferred_time.lower()
+            if "morning" in time_lower or "10:00" in time_lower:
+                start_time = "10:00:00"
+                end_time = "11:00:00"
+            elif "afternoon" in time_lower or "2:00" in time_lower:
+                start_time = "14:00:00"
+                end_time = "15:00:00"
+            elif "evening" in time_lower or "5:00" in time_lower:
+                start_time = "17:00:00"
+                end_time = "18:00:00"
+            else:
+                start_time = "10:00:00"
+                end_time = "10:30:00"
 
         activity_payload = {
             "CardCode": card_code,
@@ -143,9 +173,9 @@ class SAPService:
             "Details": f"ATLAS Website: {enquiry_type} - {service}",
             "Notes": notes_content,
             "StartDate": preferred_date if (preferred_date and len(preferred_date) == 10) else today_date,
-            "StartTime": "10:00:00" if is_consultation else now_time,
+            "StartTime": start_time,
             "EndDate": preferred_date if (preferred_date and len(preferred_date) == 10) else today_date,
-            "EndTime": "11:00:00" if is_consultation else now_time,
+            "EndTime": end_time,
             "Priority": "pr_Normal"
         }
 

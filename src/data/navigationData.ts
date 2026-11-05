@@ -132,13 +132,13 @@ export const NAVIGATION_ITEMS: NavItem[] = [
         id: 'support-ams',
         name: 'Support & AMS',
         icon: 'Headphones',
-        href: '/services/sap-business-one',
+        href: '/services/support-maintenance',
         description: 'Dedicated Application Management Services (AMS) backed by guaranteed SLAs and certified specialists.',
         subItems: [
-          { name: '24/7 SLA-Backed Support', href: '/services/sap-business-one' },
-          { name: 'Incident & Defect Resolution', href: '/services/sap-business-one' },
-          { name: 'System Health Checks & Tuning', href: '/services/sap-business-one' },
-          { name: 'End-User Knowledge Transfer', href: '/services/sap-business-one' }
+          { name: '24/7 SLA-Backed Support', href: '/services/support-maintenance#sla-matrix' },
+          { name: 'Incident & Defect Resolution', href: '/services/support-maintenance#sla-matrix' },
+          { name: 'System Health Checks & Tuning', href: '/services/support-maintenance' },
+          { name: 'End-User Knowledge Transfer', href: '/services/support-maintenance' }
         ]
       },
       {
@@ -188,16 +188,55 @@ export const NAVIGATION_ITEMS: NavItem[] = [
     hasDropdown: true,
     categories: [
       {
-        id: 'sap-business-one',
-        name: 'SAP Business One',
-        icon: 'Database',
-        href: '/solutions#sap-b1-section',
-        description: 'Complete enterprise ERP managing finance, sales, purchasing, inventory, and operations in a single database.',
+        id: 'manufacturing-solutions',
+        name: 'Manufacturing Solutions',
+        icon: 'Factory',
+        href: '/solutions/manufacturing',
+        description: 'Closed-loop discrete and process manufacturing ERP with Beas APS, MRP II, and touch terminals.',
         subItems: [
-          { name: 'Financial Management & Accounting', href: '/solutions' },
-          { name: 'Sales & Customer Relationship (CRM)', href: '/solutions' },
-          { name: 'Purchasing & Inventory Control', href: '/solutions' },
-          { name: 'Executive Real-Time Analytics', href: '/solutions' }
+          { name: 'Beas Manufacturing (APS / MRP)', href: '/solutions/manufacturing' },
+          { name: 'Multi-Level BOM & Cost Estimation', href: '/solutions/manufacturing' },
+          { name: 'Shop-Floor Data Collection (Terminal)', href: '/solutions/manufacturing' },
+          { name: 'Quality Control & Batch Traceability', href: '/solutions/manufacturing' }
+        ]
+      },
+      {
+        id: 'warehouse-solutions',
+        name: 'Warehouse Management (WMS)',
+        icon: 'Truck',
+        href: '/solutions/warehouse-management',
+        description: 'Multi-bin storage hierarchy, RF handheld barcode scanning, automated e-way billing, and lot control.',
+        subItems: [
+          { name: 'Produmex WMS Integration', href: '/solutions/warehouse-management' },
+          { name: 'Handheld RF Barcode Scanning', href: '/solutions/warehouse-management' },
+          { name: 'Batch & Serial Number Tracking', href: '/solutions/warehouse-management' },
+          { name: 'Automated E-Way Bill & Dispatch', href: '/solutions/warehouse-management' }
+        ]
+      },
+      {
+        id: 'finance-automation',
+        name: 'Finance Automation Solutions',
+        icon: 'TrendingUp',
+        href: '/solutions/finance-automation',
+        description: 'SAP HANA in-memory financials, UiPath OCR AP invoice ingestion, and automated bank reconciliation.',
+        subItems: [
+          { name: 'SAP HANA In-Memory Financials', href: '/solutions/finance-automation' },
+          { name: 'UiPath AI Invoice & GRPO Ingestion', href: '/solutions/finance-automation' },
+          { name: 'GSTR-2B & Vendor Statement Matching', href: '/solutions/finance-automation' },
+          { name: 'Automated Bank Reconciliation', href: '/solutions/finance-automation' }
+        ]
+      },
+      {
+        id: 'logistics-shipping',
+        name: 'Logistics & Shipping Solutions',
+        icon: 'Ship',
+        href: '/solutions/logistics-shipping',
+        description: 'Multi-modal freight forwarding, precision landed cost allocation, weighbridge automation, and EXIM compliance.',
+        subItems: [
+          { name: 'Multi-Modal Freight & Cargo Tracking', href: '/solutions/logistics-shipping' },
+          { name: 'Precision Landed Cost Allocation', href: '/solutions/logistics-shipping' },
+          { name: 'Electronic Weighbridge & Gate Entry', href: '/solutions/logistics-shipping' },
+          { name: 'EXIM Customs Documentation', href: '/solutions/logistics-shipping' }
         ]
       },
       {
@@ -207,40 +246,28 @@ export const NAVIGATION_ITEMS: NavItem[] = [
         href: '/solutions/boyum-it',
         description: 'World-class SAP Certified add-ons for discrete manufacturing, advanced warehousing, and screen customization.',
         subItems: [
-          { name: 'Beas Manufacturing (APS / MRP)', href: '/solutions/boyum-it' },
-          { name: 'Produmex WMS & Mobile Barcode RF', href: '/solutions/boyum-it' },
+          { name: 'Beas Manufacturing', href: '/solutions/manufacturing' },
+          { name: 'Produmex WMS Suite', href: '/solutions/warehouse-management' },
           { name: 'B1 Usability Package (B1UP)', href: '/solutions/boyum-it' },
-          { name: 'Produmex Scan Handheld Suite', href: '/solutions/boyum-it' }
-        ]
-      },
-      {
-        id: 'uipath-rpa-ai',
-        name: 'UiPath RPA & AI Automation',
-        icon: 'Zap',
-        href: '/services/uipath-automation',
-        description: 'Enterprise software robots and AI Document Understanding eliminating repetitive manual transactional tasks.',
-        subItems: [
-          { name: 'Invoice & GRPO Automated Processing', href: '/services/uipath-automation' },
-          { name: 'AI Document Understanding (OCR)', href: '/services/uipath-automation' },
-          { name: 'Automated Bank Reconciliation', href: '/services/uipath-automation' },
-          { name: 'Vendor Statement Matching', href: '/services/uipath-automation' }
+          { name: 'Boyum Cloud & Usability', href: '/solutions/boyum-it' }
         ]
       },
       {
         id: 'atlas-proprietary-addons',
         name: 'ATLAS Proprietary Add-ons',
         icon: 'Cpu',
-        href: '/services/atlas-addons',
+        href: '/solutions/atlas-addons',
         description: 'Niche proprietary IP solutions designed to address complex industrial, trading, and logistics requirements.',
         subItems: [
-          { name: 'Multi-Modal Freight & Cargo Trading', href: '/services/atlas-addons' },
-          { name: 'AI Gate Entry & Weighbridge Automation', href: '/services/atlas-addons' },
-          { name: 'Vendor Collaboration Portal', href: '/services/atlas-addons' },
-          { name: 'Export & Shipping Documentation', href: '/services/atlas-addons' }
+          { name: 'Multi-Modal Freight & Cargo Trading', href: '/solutions/atlas-addons' },
+          { name: 'AI Gate Entry & Weighbridge Automation', href: '/solutions/atlas-addons' },
+          { name: 'Vendor Collaboration Portal', href: '/solutions/atlas-addons' },
+          { name: 'Export & Shipping Documentation', href: '/solutions/atlas-addons' }
         ]
       }
     ]
   },
+
   {
     name: 'Industries',
     href: '/industries',
@@ -250,13 +277,13 @@ export const NAVIGATION_ITEMS: NavItem[] = [
         id: 'manufacturing',
         name: 'Manufacturing',
         icon: 'Factory',
-        href: '/industries#manufacturing',
+        href: '/industries/manufacturing',
         description: 'Discrete, batch, chemical, and engineered-to-order manufacturing with live shop-floor data collection.',
         subItems: [
-          { name: 'Advanced Planning & Scheduling (APS)', href: '/industries' },
-          { name: 'Multi-Level Bill of Materials (BOM)', href: '/industries' },
-          { name: 'Shop-Floor Data Capture & Job Costing', href: '/industries' },
-          { name: 'Batch Traceability & Quality Control', href: '/industries' }
+          { name: 'Advanced Planning & Scheduling (APS)', href: '/industries/manufacturing' },
+          { name: 'Multi-Level Bill of Materials (BOM)', href: '/industries/manufacturing' },
+          { name: 'Shop-Floor Data Capture & Job Costing', href: '/industries/manufacturing' },
+          { name: 'Batch Traceability & Quality Control', href: '/industries/manufacturing' }
         ]
       },
       {
@@ -352,9 +379,63 @@ export const NAVIGATION_ITEMS: NavItem[] = [
     ]
   },
   {
-    name: 'Blog',
+    name: 'Insights & Resources',
     href: '/blog',
-    hasDropdown: false,
+    hasDropdown: true,
+    categories: [
+      {
+        id: 'blog',
+        name: 'Blog',
+        icon: 'BookOpen',
+        href: '/blog',
+        description: 'Practical guides, strategic ERP insights, and technical breakthroughs written by ATLAS consultants.',
+        subItems: [
+          { name: 'All Insights & Articles', href: '/blog' },
+          { name: 'SAP Business One Strategy', href: '/blog?category=SAP+Business+One' },
+          { name: 'Manufacturing & Operations', href: '/blog?category=Manufacturing' },
+          { name: 'UiPath & Intelligent RPA', href: '/blog?category=UiPath+%26+Intelligent+Automation' }
+        ]
+      },
+      {
+        id: 'sap-guides',
+        name: 'SAP Guides',
+        icon: 'FileText',
+        href: '/resources/sap-guides',
+        description: 'Educational resources and blueprints covering SAP Business One basics, HANA migration, and financial architecture.',
+        subItems: [
+          { name: 'SAP Business One Introduction', href: '/resources/sap-guides#sap-b1-introduction' },
+          { name: 'SAP Implementation Methodology', href: '/resources/sap-guides#sap-implementation-methodology' },
+          { name: 'SAP HANA Migration Guide', href: '/resources/sap-guides#sap-hana-migration' },
+          { name: 'Inventory & Accounting Controls', href: '/resources/sap-guides#inventory-warehouse-management' }
+        ]
+      },
+      {
+        id: 'industry-insights',
+        name: 'Industry Insights',
+        icon: 'TrendingUp',
+        href: '/resources/industry-insights',
+        description: 'Sector-specific frameworks for discrete manufacturing, multi-bin warehousing, and automated trading operations.',
+        subItems: [
+          { name: 'Manufacturing ERP (Beas)', href: '/resources/industry-insights#manufacturing-erp-insight' },
+          { name: 'Warehouse Logistics (Produmex)', href: '/resources/industry-insights#warehouse-management-insight' },
+          { name: 'Finance & Compliance Automation', href: '/resources/industry-insights#finance-automation-insight' },
+          { name: 'Trading & Shipping Automation', href: '/resources/industry-insights#trading-shipping-insight' }
+        ]
+      },
+      {
+        id: 'faqs',
+        name: 'FAQs',
+        icon: 'HelpCircle',
+        href: '/resources/faqs',
+        description: 'Answers to frequently asked questions regarding SAP Business One, Boyum IT modules, UiPath RPA, and support SLAs.',
+        subItems: [
+          { name: 'SAP Business One Essentials', href: '/resources/faqs#sap-b1' },
+          { name: 'Implementation & Migration', href: '/resources/faqs#implementation' },
+          { name: 'Boyum IT & WMS Modules', href: '/resources/faqs#boyum-it' },
+          { name: 'UiPath RPA & Automation', href: '/resources/faqs#uipath' }
+        ]
+      }
+    ]
   },
   {
     name: 'Contact',

@@ -12,6 +12,7 @@ import {
   ChevronRight,
   ChevronUp,
   Send,
+  PhoneCall
 } from 'lucide-react';
 import { Button } from '../components/ui/Button';
 import { SectionHeading } from '../components/ui/SectionHeading';
@@ -20,11 +21,11 @@ import { ServiceCard } from '../components/ui/SolutionCard';
 import { IndustryCard } from '../components/ui/IndustryCard';
 import { ProcessStep } from '../components/ui/ProcessStep';
 import { TestimonialCard } from '../components/ui/TestimonialCard';
-import { Modal } from '../components/ui/Modal';
+import { ConsultationModal } from '../components/ui/ConsultationModal';
+import { CallbackModal } from '../components/ui/CallbackModal';
 import { CtaContactCards } from '../components/ui/CtaContactCards';
 import { SAPBusinessOneLogo, BoyumITLogo, UiPathLogo } from '../components/ui/PartnerLogos';
 import { BRAND_INFO, TRUST_METRICS } from '../data/websiteContent';
-import { ContactFormData } from '../types';
 
 export interface CustomerStoryItem {
   id: string;
@@ -110,6 +111,8 @@ export const CUSTOMER_STORIES: CustomerStoryItem[] = [
 export const HomePage: React.FC = () => {
   // Contact Form & Modal State
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isCallbackModalOpen, setIsCallbackModalOpen] = useState(false);
+  const [selectedService, setSelectedService] = useState("SAP Business One Implementation");
   const [activeSlide, setActiveSlide] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
   const [touchStartX, setTouchStartX] = useState<number | null>(null);
@@ -164,17 +167,6 @@ export const HomePage: React.FC = () => {
     setTouchStartX(null);
   };
   const [showScrollTop, setShowScrollTop] = useState(false);
-  const [formData, setFormData] = useState<ContactFormData>({
-    fullName: '',
-    companyName: '',
-    workEmail: '',
-    phoneNumber: '',
-    areaOfInterest: 'sap-b1',
-    message: ''
-  });
-  const [formErrors, setFormErrors] = useState<Partial<Record<keyof ContactFormData, string>>>({});
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSuccessSubmitted, setIsSuccessSubmitted] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -185,74 +177,10 @@ export const HomePage: React.FC = () => {
   }, []);
 
   const openConsultationFor = (area: string) => {
-    setFormData(prev => ({ ...prev, areaOfInterest: area }));
+    setSelectedService(area);
     setIsModalOpen(true);
   };
 
-  // Form Field Validation
-  const validateForm = (): boolean => {
-    const errors: Partial<Record<keyof ContactFormData, string>> = {};
-
-    if (!formData.fullName.trim()) {
-      errors.fullName = 'Full name is required';
-    }
-    if (!formData.companyName.trim()) {
-      errors.companyName = 'Company name is required';
-    }
-    if (!formData.workEmail.trim()) {
-      errors.workEmail = 'Work email is required';
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.workEmail)) {
-      errors.workEmail = 'Please provide a valid work email address';
-    }
-    if (!formData.phoneNumber.trim()) {
-      errors.phoneNumber = 'Phone number is required';
-    } else if (!/^[+0-9\s-]{8,15}$/.test(formData.phoneNumber.trim())) {
-      errors.phoneNumber = 'Please provide a valid phone number';
-    }
-    if (!formData.message.trim()) {
-      errors.message = 'Please briefly outline your process or requirements';
-    }
-
-    setFormErrors(errors);
-    return Object.keys(errors).length === 0;
-  };
-
-  const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
-  ) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-    if (formErrors[name as keyof ContactFormData]) {
-      setFormErrors(prev => ({ ...prev, [name]: undefined }));
-    }
-  };
-
-  const handleFormSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!validateForm()) return;
-
-    setIsSubmitting(true);
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setIsSuccessSubmitted(true);
-    }, 400);
-  };
-
-  const generateMailtoLink = (data: ContactFormData) => {
-    const subject = encodeURIComponent(`Consultation Booking: ${data.companyName}`);
-    const body = encodeURIComponent(
-      `Dear ATLAS Technosoft Team,\n\n` +
-      `I would like to book a consultation regarding ${data.areaOfInterest}.\n\n` +
-      `Contact Details:\n` +
-      `• Name: ${data.fullName}\n` +
-      `• Company: ${data.companyName}\n` +
-      `• Work Email: ${data.workEmail}\n` +
-      `• Phone/WhatsApp: ${data.phoneNumber}\n\n` +
-      `Requirements / Message:\n${data.message}\n\n` +
-      `Submitted via ATLAS Technosoft Website.`
-    );
-    return `mailto:${BRAND_INFO.contact.email}?subject=${subject}&body=${body}`;
-  };
 
   return (
     <div className="relative bg-white text-[#354765] selection:bg-blue-600 selection:text-white">
@@ -807,6 +735,14 @@ export const HomePage: React.FC = () => {
                   >
                     Book a Consultation
                   </Button>
+                  <button
+                    type="button"
+                    onClick={() => setIsCallbackModalOpen(true)}
+                    className="inline-flex items-center justify-center font-semibold rounded-xl px-6 py-3.5 text-[15px] sm:text-[16px] bg-white text-[#0052CC] hover:bg-blue-50 border border-blue-300 shadow-sm transition-colors gap-2 cursor-pointer"
+                  >
+                    <PhoneCall className="w-4 h-4 text-[#0052CC]" />
+                    <span>Request a Callback</span>
+                  </button>
                   <Link
                     to="/contact"
                     className="inline-flex items-center justify-center font-semibold rounded-xl px-6 py-3.5 text-[15px] sm:text-[16px] bg-white text-[#142B59] hover:bg-slate-50 border border-slate-300 shadow-sm transition-colors"
@@ -828,187 +764,20 @@ export const HomePage: React.FC = () => {
       </section>
 
       {/* ========================================================================= */}
-      {/* INTERACTIVE CONSULTATION BOOKING MODAL                                    */}
+      {/* REUSABLE ENTERPRISE CONSULTATION MODAL                                    */}
       {/* ========================================================================= */}
-      <Modal
+      <ConsultationModal
         isOpen={isModalOpen}
-        onClose={() => {
-          setIsModalOpen(false);
-          setIsSuccessSubmitted(false);
-        }}
-        title="Book a Consultation with ATLAS Technosoft"
-      >
-        {!isSuccessSubmitted ? (
-          <form onSubmit={handleFormSubmit} noValidate className="space-y-4">
-            <p className="text-[14px] text-slate-600 mb-2">
-              Speak directly with certified SAP Business One, Boyum IT, and UiPath RPA experts.
-            </p>
+        onClose={() => setIsModalOpen(false)}
+        defaultService={selectedService}
+      />
 
-            <div>
-              <label htmlFor="fullName" className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
-                Full Name <span className="text-rose-500">*</span>
-              </label>
-              <input
-                type="text"
-                id="fullName"
-                name="fullName"
-                value={formData.fullName}
-                onChange={handleInputChange}
-                placeholder="e.g. Rajesh Sharma"
-                className={`w-full px-4 py-2.5 rounded-lg border text-sm focus:outline-none focus:ring-2 ${
-                  formErrors.fullName ? 'border-rose-400 bg-rose-50/20' : 'border-slate-300 focus:ring-blue-500/20 focus:border-blue-500'
-                }`}
-              />
-              {formErrors.fullName && <p className="mt-1 text-xs text-rose-600">{formErrors.fullName}</p>}
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div>
-                <label htmlFor="companyName" className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
-                  Company Name <span className="text-rose-500">*</span>
-                </label>
-                <input
-                  type="text"
-                  id="companyName"
-                  name="companyName"
-                  value={formData.companyName}
-                  onChange={handleInputChange}
-                  placeholder="e.g. Apex Manufacturing Ltd"
-                  className={`w-full px-4 py-2.5 rounded-lg border text-sm focus:outline-none focus:ring-2 ${
-                    formErrors.companyName ? 'border-rose-400 bg-rose-50/20' : 'border-slate-300 focus:ring-blue-500/20 focus:border-blue-500'
-                  }`}
-                />
-                {formErrors.companyName && <p className="mt-1 text-xs text-rose-600">{formErrors.companyName}</p>}
-              </div>
-
-              <div>
-                <label htmlFor="workEmail" className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
-                  Work Email <span className="text-rose-500">*</span>
-                </label>
-                <input
-                  type="email"
-                  id="workEmail"
-                  name="workEmail"
-                  value={formData.workEmail}
-                  onChange={handleInputChange}
-                  placeholder="e.g. rajesh@apex.com"
-                  className={`w-full px-4 py-2.5 rounded-lg border text-sm focus:outline-none focus:ring-2 ${
-                    formErrors.workEmail ? 'border-rose-400 bg-rose-50/20' : 'border-slate-300 focus:ring-blue-500/20 focus:border-blue-500'
-                  }`}
-                />
-                {formErrors.workEmail && <p className="mt-1 text-xs text-rose-600">{formErrors.workEmail}</p>}
-              </div>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div>
-                <label htmlFor="phoneNumber" className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
-                  Phone / WhatsApp <span className="text-rose-500">*</span>
-                </label>
-                <input
-                  type="tel"
-                  id="phoneNumber"
-                  name="phoneNumber"
-                  value={formData.phoneNumber}
-                  onChange={handleInputChange}
-                  placeholder="e.g. +91 98200 12345"
-                  className={`w-full px-4 py-2.5 rounded-lg border text-sm focus:outline-none focus:ring-2 ${
-                    formErrors.phoneNumber ? 'border-rose-400 bg-rose-50/20' : 'border-slate-300 focus:ring-blue-500/20 focus:border-blue-500'
-                  }`}
-                />
-                {formErrors.phoneNumber && <p className="mt-1 text-xs text-rose-600">{formErrors.phoneNumber}</p>}
-              </div>
-
-              <div>
-                <label htmlFor="areaOfInterest" className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
-                  Area of Interest
-                </label>
-                <select
-                  id="areaOfInterest"
-                  name="areaOfInterest"
-                  value={formData.areaOfInterest}
-                  onChange={handleInputChange}
-                  className="w-full px-4 py-2.5 rounded-lg border border-slate-300 bg-white text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500"
-                >
-                  <option value="sap-b1">SAP Business One Implementation</option>
-                  <option value="boyum">Boyum IT Solutions (Beas / WMS)</option>
-                  <option value="uipath-rpa">UiPath RPA & Automation</option>
-                  <option value="atlas-addons">ATLAS Proprietary Add-ons</option>
-                </select>
-              </div>
-            </div>
-
-            <div>
-              <label htmlFor="message" className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
-                Requirements / Goals <span className="text-rose-500">*</span>
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                rows={3}
-                value={formData.message}
-                onChange={handleInputChange}
-                placeholder="Briefly describe your process bottlenecks or ERP requirements..."
-                className={`w-full px-4 py-2.5 rounded-lg border text-sm focus:outline-none focus:ring-2 ${
-                  formErrors.message ? 'border-rose-400 bg-rose-50/20' : 'border-slate-300 focus:ring-blue-500/20 focus:border-blue-500'
-                }`}
-              />
-              {formErrors.message && <p className="mt-1 text-xs text-rose-600">{formErrors.message}</p>}
-            </div>
-
-            <Button
-              type="submit"
-              variant="primary"
-              size="lg"
-              fullWidth
-              disabled={isSubmitting}
-              icon={isSubmitting ? undefined : <Send className="w-4 h-4" />}
-            >
-              {isSubmitting ? 'Validating...' : 'Submit Consultation Request'}
-            </Button>
-          </form>
-        ) : (
-          <div className="space-y-4">
-            <div className="p-3.5 rounded-xl bg-emerald-50 border border-emerald-200 text-xs text-emerald-900 flex items-start gap-2.5">
-              <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
-              <div>
-                <strong className="font-bold block">Consultation Details Validated!</strong>
-                Your details are validated. You can send this directly via Email or WhatsApp to ATLAS Technosoft.
-              </div>
-            </div>
-
-            <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 text-xs space-y-1.5">
-              <div><strong>Name:</strong> {formData.fullName}</div>
-              <div><strong>Company:</strong> {formData.companyName}</div>
-              <div><strong>Work Email:</strong> {formData.workEmail}</div>
-              <div><strong>Phone:</strong> {formData.phoneNumber}</div>
-              <div><strong>Message:</strong> {formData.message}</div>
-            </div>
-
-            <div className="pt-2 flex flex-col sm:flex-row gap-3">
-              <a
-                href={generateMailtoLink(formData)}
-                className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold uppercase tracking-wider transition-colors"
-              >
-                <Mail className="w-4 h-4" />
-                <span>Open Email Draft</span>
-              </a>
-
-              <a
-                href={`https://wa.me/919372329599?text=${encodeURIComponent(
-                  `Hello ATLAS Technosoft, I submitted a consultation request for ${formData.companyName}. Name: ${formData.fullName}.`
-                )}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold uppercase tracking-wider transition-colors"
-              >
-                <Phone className="w-4 h-4" />
-                <span>Send via WhatsApp</span>
-              </a>
-            </div>
-          </div>
-        )}
-      </Modal>
+      {/* Reusable Enterprise Callback Modal */}
+      <CallbackModal
+        isOpen={isCallbackModalOpen}
+        onClose={() => setIsCallbackModalOpen(false)}
+        defaultService={selectedService}
+      />
 
 
     </div>

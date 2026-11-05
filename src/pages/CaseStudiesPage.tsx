@@ -27,6 +27,7 @@ import {
   Check
 } from 'lucide-react';
 import { Modal } from '../components/ui/Modal';
+import { ConsultationModal } from '../components/ui/ConsultationModal';
 import { SAPBusinessOneLogo, BoyumITLogo, UiPathLogo } from '../components/ui/PartnerLogos';
 import { BRAND_INFO } from '../data/websiteContent';
 import { ContactFormData } from '../types';
@@ -46,68 +47,6 @@ export const CaseStudiesPage: React.FC = () => {
   const [showScrollTop, setShowScrollTop] = useState(false);
 
   // Form State
-  const [formData, setFormData] = useState<ContactFormData>({
-    fullName: '',
-    companyName: '',
-    workEmail: '',
-    phoneNumber: '',
-    areaOfInterest: 'sap-b1',
-    message: ''
-  });
-  const [formErrors, setFormErrors] = useState<Partial<Record<keyof ContactFormData, string>>>({});
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSuccessSubmitted, setIsSuccessSubmitted] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setShowScrollTop(window.scrollY > 400);
-    };
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const validateForm = (): boolean => {
-    const errors: Partial<Record<keyof ContactFormData, string>> = {};
-    if (!formData.fullName.trim()) errors.fullName = 'Full name is required';
-    if (!formData.companyName.trim()) errors.companyName = 'Company name is required';
-    if (!formData.workEmail.trim()) {
-      errors.workEmail = 'Work email is required';
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.workEmail)) {
-      errors.workEmail = 'Please provide a valid work email address';
-    }
-    if (!formData.phoneNumber.trim()) {
-      errors.phoneNumber = 'Phone number is required';
-    } else if (!/^[+0-9\s-]{8,15}$/.test(formData.phoneNumber.trim())) {
-      errors.phoneNumber = 'Please provide a valid phone number';
-    }
-    if (!formData.message.trim()) {
-      errors.message = 'Please briefly outline your process or requirements';
-    }
-    setFormErrors(errors);
-    return Object.keys(errors).length === 0;
-  };
-
-  const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
-  ) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-    if (formErrors[name as keyof ContactFormData]) {
-      setFormErrors(prev => ({ ...prev, [name]: undefined }));
-    }
-  };
-
-  const handleFormSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!validateForm()) return;
-
-    setIsSubmitting(true);
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setIsSuccessSubmitted(true);
-    }, 400);
-  };
-
   const renderCardIcon = (iconName: string, className = 'w-5 h-5') => {
     switch (iconName) {
       case 'boxes':
@@ -619,193 +558,13 @@ export const CaseStudiesPage: React.FC = () => {
       </section>
 
       {/* ========================================================================= */}
-      {/* CONSULTATION BOOKING MODAL                                                */}
-      {/* ========================================================================= */}
-      <Modal
+      {/* REUSABLE ENTERPRISE CONSULTATION MODAL */}
+      <ConsultationModal
         isOpen={isConsultationModalOpen}
-        onClose={() => {
-          setIsConsultationModalOpen(false);
-          setIsSuccessSubmitted(false);
-        }}
+        onClose={() => setIsConsultationModalOpen(false)}
+        defaultService="SAP Business One Implementation"
         title="Book a Case Study Consultation"
-      >
-        {isSuccessSubmitted ? (
-          <div className="text-center py-8 space-y-4">
-            <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto">
-              <CheckCircle2 className="w-8 h-8" />
-            </div>
-            <h3 className="text-[22px] font-bold text-[#142B59]">
-              Consultation Request Received
-            </h3>
-            <p className="text-[15px] text-[#40506a] max-w-md mx-auto">
-              Thank you, <span className="font-semibold text-[#142B59]">{formData.fullName}</span>.
-              Our enterprise solutions architect will review requirements for{' '}
-              <span className="font-semibold text-[#142B59]">{formData.companyName}</span> and
-              contact you within 24 hours.
-            </p>
-            <div className="pt-4">
-              <button
-                onClick={() => {
-                  setIsConsultationModalOpen(false);
-                  setIsSuccessSubmitted(false);
-                }}
-                className="px-6 py-2.5 rounded-lg bg-[#0878f9] text-white font-semibold hover:bg-blue-700 transition-colors cursor-pointer"
-              >
-                Close
-              </button>
-            </div>
-          </div>
-        ) : (
-          <form onSubmit={handleFormSubmit} className="space-y-4 text-left">
-            <p className="text-[14px] text-slate-600 mb-2">
-              Speak with ATLAS Technosoft ERP & Automation experts to explore relevant case studies
-              and calculate estimated ROI for your business.
-            </p>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div>
-                <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
-                  Full Name *
-                </label>
-                <input
-                  type="text"
-                  name="fullName"
-                  value={formData.fullName}
-                  onChange={handleInputChange}
-                  placeholder="e.g. Rahul Sharma"
-                  className={`w-full px-4 py-2.5 rounded-lg border text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 ${
-                    formErrors.fullName ? 'border-red-400 bg-red-50/20' : 'border-slate-300'
-                  }`}
-                />
-                {formErrors.fullName && (
-                  <p className="text-red-500 text-xs mt-1">{formErrors.fullName}</p>
-                )}
-              </div>
-
-              <div>
-                <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
-                  Company Name *
-                </label>
-                <input
-                  type="text"
-                  name="companyName"
-                  value={formData.companyName}
-                  onChange={handleInputChange}
-                  placeholder="e.g. Acme Industries Ltd."
-                  className={`w-full px-4 py-2.5 rounded-lg border text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 ${
-                    formErrors.companyName ? 'border-red-400 bg-red-50/20' : 'border-slate-300'
-                  }`}
-                />
-                {formErrors.companyName && (
-                  <p className="text-red-500 text-xs mt-1">{formErrors.companyName}</p>
-                )}
-              </div>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div>
-                <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
-                  Work Email *
-                </label>
-                <input
-                  type="email"
-                  name="workEmail"
-                  value={formData.workEmail}
-                  onChange={handleInputChange}
-                  placeholder="rahul@company.com"
-                  className={`w-full px-4 py-2.5 rounded-lg border text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 ${
-                    formErrors.workEmail ? 'border-red-400 bg-red-50/20' : 'border-slate-300'
-                  }`}
-                />
-                {formErrors.workEmail && (
-                  <p className="text-red-500 text-xs mt-1">{formErrors.workEmail}</p>
-                )}
-              </div>
-
-              <div>
-                <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
-                  Phone Number *
-                </label>
-                <input
-                  type="tel"
-                  name="phoneNumber"
-                  value={formData.phoneNumber}
-                  onChange={handleInputChange}
-                  placeholder="+91-9876543210"
-                  className={`w-full px-4 py-2.5 rounded-lg border text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 ${
-                    formErrors.phoneNumber ? 'border-red-400 bg-red-50/20' : 'border-slate-300'
-                  }`}
-                />
-                {formErrors.phoneNumber && (
-                  <p className="text-red-500 text-xs mt-1">{formErrors.phoneNumber}</p>
-                )}
-              </div>
-            </div>
-
-            <div>
-              <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
-                Area of Interest
-              </label>
-              <select
-                name="areaOfInterest"
-                value={formData.areaOfInterest}
-                onChange={handleInputChange}
-                className="w-full px-4 py-2.5 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 bg-white"
-              >
-                <option value="manufacturing">Manufacturing (Discrete / Process)</option>
-                <option value="warehouse">Warehouse & Logistics (Produmex WMS)</option>
-                <option value="trading">Trading & Distribution (Freight Suite)</option>
-                <option value="retail">Retail & Multi-Channel Inventory</option>
-                <option value="automation">UiPath RPA & Hyperautomation</option>
-                <option value="sap-b1">General SAP Business One Implementation</option>
-              </select>
-            </div>
-
-            <div>
-              <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
-                Describe Your Current Challenge *
-              </label>
-              <textarea
-                name="message"
-                rows={3}
-                value={formData.message}
-                onChange={handleInputChange}
-                placeholder="Briefly describe your process bottlenecks or expected project timeline..."
-                className={`w-full px-4 py-2.5 rounded-lg border text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 ${
-                  formErrors.message ? 'border-red-400 bg-red-50/20' : 'border-slate-300'
-                }`}
-              />
-              {formErrors.message && (
-                <p className="text-red-500 text-xs mt-1">{formErrors.message}</p>
-              )}
-            </div>
-
-            <div className="pt-3 flex flex-col sm:flex-row items-center justify-between gap-3">
-              <span className="text-[12px] text-slate-500">
-                Direct contact:{' '}
-                <a href={`tel:${BRAND_INFO.contact.phone}`} className="font-semibold text-slate-700">
-                  {BRAND_INFO.contact.phone}
-                </a>
-              </span>
-
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="w-full sm:w-auto px-7 py-3 rounded-xl bg-[#0878f9] hover:bg-blue-700 text-white font-semibold text-sm shadow-md transition-all flex items-center justify-center gap-2 disabled:opacity-70 cursor-pointer"
-              >
-                {isSubmitting ? (
-                  <span>Submitting...</span>
-                ) : (
-                  <>
-                    <span>Submit Consultation Request</span>
-                    <Send className="w-4 h-4" />
-                  </>
-                )}
-              </button>
-            </div>
-          </form>
-        )}
-      </Modal>
+      />
 
     </div>
   );

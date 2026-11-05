@@ -37,10 +37,9 @@ import {
   FileText
 } from 'lucide-react';
 import { Button } from '../components/ui/Button';
-import { Modal } from '../components/ui/Modal';
+import { ConsultationModal } from '../components/ui/ConsultationModal';
 import { INDUSTRY_DETAILS, IndustryDetailItem } from '../data/industryDetailsData';
 import { BRAND_INFO } from '../data/websiteContent';
-import { ContactFormData } from '../types';
 
 // Dynamic icon resolver for industry capabilities
 const getIndustryIcon = (iconName: string, className = "w-5 h-5") => {
@@ -75,16 +74,8 @@ export const IndustryDetailPage: React.FC = () => {
   const industry: IndustryDetailItem = INDUSTRY_DETAILS[industrySlug || ''] || INDUSTRY_DETAILS['manufacturing'];
 
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedService, setSelectedService] = useState(industry ? `Industry Assessment: ${industry.title}` : "Industry Assessment");
   const [showScrollTop, setShowScrollTop] = useState(false);
-  const [formSubmitted, setFormSubmitted] = useState(false);
-  const [formData, setFormData] = useState<ContactFormData>({
-    fullName: '',
-    workEmail: '',
-    phoneNumber: '',
-    companyName: '',
-    areaOfInterest: industry ? `Industry Assessment: ${industry.title}` : 'Industry Assessment',
-    message: ''
-  });
 
   useEffect(() => {
     const handleScroll = () => {
@@ -94,22 +85,6 @@ export const IndustryDetailPage: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handleFormSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setFormSubmitted(true);
-    setTimeout(() => {
-      setIsModalOpen(false);
-      setFormSubmitted(false);
-      setFormData({
-        fullName: '',
-        workEmail: '',
-        phoneNumber: '',
-        companyName: '',
-        areaOfInterest: `Industry Assessment: ${industry.title}`,
-        message: ''
-      });
-    }, 2500);
-  };
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -363,7 +338,7 @@ export const IndustryDetailPage: React.FC = () => {
                 <div className="pt-3 border-t border-slate-100">
                   <button
                     onClick={() => {
-                      setFormData(prev => ({ ...prev, areaOfInterest: `${industry.title} - ${cap.title}` }));
+                      setSelectedService(`${industry.title} - ${cap.title}`);
                       setIsModalOpen(true);
                     }}
                     className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-[#142B59] hover:text-[#1B72E8] group-hover:gap-2 transition-all"
@@ -619,108 +594,12 @@ export const IndustryDetailPage: React.FC = () => {
       {/* ========================================================================= */}
       {/* INTERACTIVE BOOK A CONSULTATION MODAL                                    */}
       {/* ========================================================================= */}
-      <Modal
+      <ConsultationModal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
-        title={`Book Assessment — ${industry.title}`}
-      >
-        {formSubmitted ? (
-          <div className="py-8 text-center space-y-3">
-            <div className="w-16 h-16 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center mx-auto">
-              <CheckCircle2 className="w-8 h-8" />
-            </div>
-            <h3 className="text-xl font-bold text-[#142B59]">Thank You!</h3>
-            <p className="text-sm text-[#45546B]">
-              Your industry assessment request has been received. Our sector specialist will contact you within 24 business hours.
-            </p>
-          </div>
-        ) : (
-          <form onSubmit={handleFormSubmit} className="space-y-4 pt-2">
-            <div>
-              <label className="block text-xs font-bold text-[#142B59] uppercase tracking-wider mb-1">Full Name *</label>
-              <input
-                type="text"
-                required
-                value={formData.fullName}
-                onChange={e => setFormData({ ...formData, fullName: e.target.value })}
-                placeholder="e.g. Vikram Mehta"
-                className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#1B72E8]"
-              />
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div>
-                <label className="block text-xs font-bold text-[#142B59] uppercase tracking-wider mb-1">Work Email *</label>
-                <input
-                  type="email"
-                  required
-                  value={formData.workEmail}
-                  onChange={e => setFormData({ ...formData, workEmail: e.target.value })}
-                  placeholder="name@company.com"
-                  className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#1B72E8]"
-                />
-              </div>
-
-              <div>
-                <label className="block text-xs font-bold text-[#142B59] uppercase tracking-wider mb-1">Phone Number *</label>
-                <input
-                  type="tel"
-                  required
-                  value={formData.phoneNumber}
-                  onChange={e => setFormData({ ...formData, phoneNumber: e.target.value })}
-                  placeholder="+91 98765 43210"
-                  className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#1B72E8]"
-                />
-              </div>
-            </div>
-
-            <div>
-              <label className="block text-xs font-bold text-[#142B59] uppercase tracking-wider mb-1">Company Name *</label>
-              <input
-                type="text"
-                required
-                value={formData.companyName}
-                onChange={e => setFormData({ ...formData, companyName: e.target.value })}
-                placeholder="Industrial Enterprises Ltd."
-                className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#1B72E8]"
-              />
-            </div>
-
-            <div>
-              <label className="block text-xs font-bold text-[#142B59] uppercase tracking-wider mb-1">Industry Focus</label>
-              <input
-                type="text"
-                readOnly
-                value={formData.areaOfInterest}
-                className="w-full px-3.5 py-2.5 rounded-lg bg-slate-50 border border-slate-200 text-sm text-slate-700 font-medium"
-              />
-            </div>
-
-            <div>
-              <label className="block text-xs font-bold text-[#142B59] uppercase tracking-wider mb-1">Specific Operational Challenges</label>
-              <textarea
-                rows={3}
-                value={formData.message}
-                onChange={e => setFormData({ ...formData, message: e.target.value })}
-                placeholder="Mention current ERP challenges, warehouse pain points, or automation needs..."
-                className="w-full px-3.5 py-2 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#1B72E8]"
-              />
-            </div>
-
-            <div className="pt-2">
-              <Button
-                type="submit"
-                variant="primary"
-                fullWidth
-                size="md"
-                icon={<Send className="w-4 h-4" />}
-              >
-                Submit Assessment Request
-              </Button>
-            </div>
-          </form>
-        )}
-      </Modal>
+        defaultService={selectedService}
+        title={`Book Industry Assessment — ${industry.title}`}
+      />
 
     </div>
   );

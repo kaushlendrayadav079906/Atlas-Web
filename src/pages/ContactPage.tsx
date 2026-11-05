@@ -14,9 +14,11 @@ import {
   Handshake,
   ExternalLink,
   Send,
-  Briefcase
+  Briefcase,
+  PhoneCall
 } from 'lucide-react';
-import { Modal } from '../components/ui/Modal';
+import { ConsultationModal } from '../components/ui/ConsultationModal';
+import { CallbackModal } from '../components/ui/CallbackModal';
 import { BRAND_INFO } from '../data/websiteContent';
 import { apiService, ApiResponse } from '../services/api';
 import {
@@ -38,6 +40,7 @@ interface ContactEnquiryFields {
 export const ContactPage: React.FC = () => {
   // Consultation Modal State
   const [isConsultationModalOpen, setIsConsultationModalOpen] = useState(false);
+  const [isCallbackModalOpen, setIsCallbackModalOpen] = useState(false);
 
   // Main Page Contact Enquiry Form State
   const [formData, setFormData] = useState<ContactEnquiryFields>({
@@ -54,20 +57,6 @@ export const ContactPage: React.FC = () => {
   const [submitError, setSubmitError] = useState<string | null>(null);
   const [submittedDetails, setSubmittedDetails] = useState<ApiResponse | null>(null);
 
-  // Modal form state
-  const [modalData, setModalData] = useState<ContactEnquiryFields>({
-    fullName: '',
-    email: '',
-    phone: '',
-    companyName: '',
-    service: 'SAP Business One',
-    message: ''
-  });
-  const [modalErrors, setModalErrors] = useState<Partial<Record<keyof ContactEnquiryFields, string>>>({});
-  const [isModalSubmitting, setIsModalSubmitting] = useState(false);
-  const [isModalSubmittedSuccess, setIsModalSubmittedSuccess] = useState(false);
-  const [modalSubmitError, setModalSubmitError] = useState<string | null>(null);
-  const [modalSubmittedDetails, setModalSubmittedDetails] = useState<ApiResponse | null>(null);
 
   const validateField = (name: keyof ContactEnquiryFields, value: string): string | undefined => {
     switch (name) {
@@ -110,17 +99,6 @@ export const ContactPage: React.FC = () => {
     }
   };
 
-  const handleModalInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
-  ) => {
-    const { name, value } = e.target;
-    const fieldName = name as keyof ContactEnquiryFields;
-    setModalData(prev => ({ ...prev, [fieldName]: value }));
-
-    if (modalErrors[fieldName]) {
-      setModalErrors(prev => ({ ...prev, [fieldName]: undefined }));
-    }
-  };
 
   const handleMainFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -146,33 +124,6 @@ export const ContactPage: React.FC = () => {
       setSubmitError(err.message || 'Unable to save enquiry in SAP Business One. Please check your connection or contact our team directly.');
     } finally {
       setIsSubmitting(false);
-    }
-  };
-
-  const handleModalSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setModalSubmitError(null);
-
-    const errors: Partial<Record<keyof ContactEnquiryFields, string>> = {};
-    (Object.keys(modalData) as (keyof ContactEnquiryFields)[]).forEach((key) => {
-      const error = validateField(key, modalData[key]);
-      if (error) errors[key] = error;
-    });
-
-    if (Object.keys(errors).length > 0) {
-      setModalErrors(errors);
-      return;
-    }
-
-    setIsModalSubmitting(true);
-    try {
-      const res = await apiService.submitConsultation(modalData);
-      setModalSubmittedDetails(res);
-      setIsModalSubmittedSuccess(true);
-    } catch (err: any) {
-      setModalSubmitError(err.message || 'Unable to schedule consultation in SAP Business One. Please try again or reach out by phone/email.');
-    } finally {
-      setIsModalSubmitting(false);
     }
   };
 
@@ -422,7 +373,32 @@ export const ContactPage: React.FC = () => {
                 </p>
               </div>
 
-              <div className="bg-white rounded-2xl border border-blue-100/80 shadow-md p-6 sm:p-8 lg:p-9">
+                            {/* Quick Action: Request a Callback Card */}
+              <div className="bg-gradient-to-r from-blue-50 to-indigo-50/70 border border-blue-200/90 rounded-2xl p-4 sm:p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-xs">
+                <div className="flex items-start gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-[#0052CC] text-white flex items-center justify-center shrink-0 shadow-sm">
+                    <PhoneCall className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <h3 className="text-[15px] font-bold text-[#142B55]">
+                      Prefer a Direct Phone Call?
+                    </h3>
+                    <p className="text-[13px] text-[#45546B] mt-0.5">
+                      Choose your preferred date and time slot. Our certified consultants will call you.
+                    </p>
+                  </div>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => setIsCallbackModalOpen(true)}
+                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white hover:bg-blue-50 text-[#0052CC] border border-blue-300 font-semibold text-[13.5px] shadow-xs hover:shadow transition-all shrink-0 cursor-pointer"
+                >
+                  <PhoneCall className="w-4 h-4 text-[#0052CC]" />
+                  <span>Request a Callback</span>
+                </button>
+              </div>
+
+<div className="bg-white rounded-2xl border border-blue-100/80 shadow-md p-6 sm:p-8 lg:p-9">
                 {isSubmittedSuccess ? (
                   <div className="bg-emerald-50 border border-emerald-200 rounded-xl p-6 sm:p-8 text-center space-y-4">
                     <div className="w-14 h-14 bg-emerald-500 text-white rounded-full flex items-center justify-center mx-auto shadow-md">
@@ -842,190 +818,18 @@ export const ContactPage: React.FC = () => {
       {/* ========================================================================= */}
       {/* CONSULTATION MODAL                                                        */}
       {/* ========================================================================= */}
-      <Modal
+      <ConsultationModal
         isOpen={isConsultationModalOpen}
-        onClose={() => {
-          setIsConsultationModalOpen(false);
-          setIsModalSubmittedSuccess(false);
-        }}
-        title="Book a Consultation with Our Experts"
-      >
-        <div className="p-6">
-          {isModalSubmittedSuccess ? (
-            <div className="text-center py-6 space-y-4">
-              <div className="w-14 h-14 bg-emerald-500 text-white rounded-full flex items-center justify-center mx-auto shadow-md">
-                <CheckCircle2 className="w-8 h-8" />
-              </div>
-              <h3 className="text-[20px] font-bold text-slate-900 font-serif">
-                Consultation Request Received!
-              </h3>
-              <p className="text-[15px] text-slate-600 leading-relaxed max-w-sm mx-auto">
-                Thank you, <strong>{modalData.fullName}</strong>. An enterprise solution architect will contact you at <strong>{modalData.phone}</strong> or <strong>{modalData.email}</strong> within 24 business hours.
-              </p>
-              {modalSubmittedDetails?.referenceId && (
-                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-blue-50 border border-blue-200 text-[13px] font-semibold text-blue-900 mx-auto">
-                  <span>Ref: {modalSubmittedDetails.referenceId}</span>
-                  {modalSubmittedDetails.sapCardCode && (
-                    <span className="text-blue-700 font-normal">| SAP Lead: {modalSubmittedDetails.sapCardCode}</span>
-                  )}
-                </div>
-              )}
-              <div>
-                <button
-                  type="button"
-                  onClick={() => {
-                    setIsConsultationModalOpen(false);
-                    setIsModalSubmittedSuccess(false);
-                  }}
-                  className="px-6 py-2.5 rounded-xl bg-gradient-to-r from-[#0052CC] to-[#0A66C2] text-white font-semibold hover:from-[#0040A8] hover:to-[#08529C] transition-colors"
-                >
-                  Close
-                </button>
-              </div>
-            </div>
-          ) : (
-            <form onSubmit={handleModalSubmit} className="space-y-4" noValidate>
-              {modalSubmitError && (
-                <div className="p-3 rounded-xl bg-rose-50 border border-rose-200 text-rose-700 text-[13px] flex items-start gap-2">
-                  <AlertCircle className="w-4 h-4 shrink-0 text-rose-500 mt-0.5" />
-                  <span>{modalSubmitError}</span>
-                </div>
-              )}
-              <div>
-                <label className="block text-[13.5px] font-semibold text-[#142B55] mb-1">
-                  Full Name <span className="text-rose-500">*</span>
-                </label>
-                <input
-                  type="text"
-                  name="fullName"
-                  value={modalData.fullName}
-                  onChange={handleModalInputChange}
-                  placeholder="e.g. Rahul Sharma"
-                  className={`w-full px-4 py-2.5 rounded-xl border text-[14px] bg-slate-50/50 focus:bg-white focus:outline-none transition-all ${
-                    modalErrors.fullName ? 'border-rose-400' : 'border-slate-200 focus:border-[#0866D9]'
-                  }`}
-                />
-                {modalErrors.fullName && (
-                  <p className="mt-1 text-[12px] text-rose-600">{modalErrors.fullName}</p>
-                )}
-              </div>
+        onClose={() => setIsConsultationModalOpen(false)}
+        defaultService="SAP Business One Implementation"
+      />
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-[13.5px] font-semibold text-[#142B55] mb-1">
-                    Business Email <span className="text-rose-500">*</span>
-                  </label>
-                  <input
-                    type="email"
-                    name="email"
-                    value={modalData.email}
-                    onChange={handleModalInputChange}
-                    placeholder="e.g. rahul@company.com"
-                    className={`w-full px-4 py-2.5 rounded-xl border text-[14px] bg-slate-50/50 focus:bg-white focus:outline-none transition-all ${
-                      modalErrors.email ? 'border-rose-400' : 'border-slate-200 focus:border-[#0866D9]'
-                    }`}
-                  />
-                  {modalErrors.email && (
-                    <p className="mt-1 text-[12px] text-rose-600">{modalErrors.email}</p>
-                  )}
-                </div>
-
-                <div>
-                  <label className="block text-[13.5px] font-semibold text-[#142B55] mb-1">
-                    Phone Number <span className="text-rose-500">*</span>
-                  </label>
-                  <input
-                    type="tel"
-                    name="phone"
-                    value={modalData.phone}
-                    onChange={handleModalInputChange}
-                    placeholder="e.g. +91 93723 29599"
-                    className={`w-full px-4 py-2.5 rounded-xl border text-[14px] bg-slate-50/50 focus:bg-white focus:outline-none transition-all ${
-                      modalErrors.phone ? 'border-rose-400' : 'border-slate-200 focus:border-[#0866D9]'
-                    }`}
-                  />
-                  {modalErrors.phone && (
-                    <p className="mt-1 text-[12px] text-rose-600">{modalErrors.phone}</p>
-                  )}
-                </div>
-              </div>
-
-              <div>
-                <label className="block text-[13.5px] font-semibold text-[#142B55] mb-1">
-                  Company Name <span className="text-rose-500">*</span>
-                </label>
-                <input
-                  type="text"
-                  name="companyName"
-                  value={modalData.companyName}
-                  onChange={handleModalInputChange}
-                  placeholder="e.g. Acme Industries Ltd"
-                  className={`w-full px-4 py-2.5 rounded-xl border text-[14px] bg-slate-50/50 focus:bg-white focus:outline-none transition-all ${
-                    modalErrors.companyName ? 'border-rose-400' : 'border-slate-200 focus:border-[#0866D9]'
-                  }`}
-                />
-                {modalErrors.companyName && (
-                  <p className="mt-1 text-[12px] text-rose-600">{modalErrors.companyName}</p>
-                )}
-              </div>
-
-              <div>
-                <label className="block text-[13.5px] font-semibold text-[#142B55] mb-1">
-                  Service Interested In <span className="text-rose-500">*</span>
-                </label>
-                <select
-                  name="service"
-                  value={modalData.service}
-                  onChange={handleModalInputChange}
-                  className="w-full px-4 py-2.5 rounded-xl border border-slate-200 bg-slate-50/50 focus:bg-white focus:outline-none text-[14px]"
-                >
-                  {SUBJECT_OPTIONS.map((opt) => (
-                    <option key={opt.value} value={opt.value}>
-                      {opt.label}
-                    </option>
-                  ))}
-                </select>
-              </div>
-
-              <div>
-                <label className="block text-[13.5px] font-semibold text-[#142B55] mb-1">
-                  Message <span className="text-rose-500">*</span>
-                </label>
-                <textarea
-                  name="message"
-                  rows={3}
-                  value={modalData.message}
-                  onChange={handleModalInputChange}
-                  placeholder="Outline your project requirements or questions..."
-                  className={`w-full px-4 py-2.5 rounded-xl border text-[14px] bg-slate-50/50 focus:bg-white focus:outline-none transition-all resize-y ${
-                    modalErrors.message ? 'border-rose-400' : 'border-slate-200 focus:border-[#0866D9]'
-                  }`}
-                />
-                {modalErrors.message && (
-                  <p className="mt-1 text-[12px] text-rose-600">{modalErrors.message}</p>
-                )}
-              </div>
-
-              <div className="pt-2">
-                <button
-                  type="submit"
-                  disabled={isModalSubmitting}
-                  className="w-full py-3.5 rounded-xl bg-gradient-to-r from-[#0052CC] to-[#0A66C2] hover:from-[#0040A8] hover:to-[#08529C] text-white font-bold text-[15px] shadow-md shadow-blue-500/25 transition-all flex items-center justify-center gap-2 disabled:opacity-75 disabled:cursor-not-allowed"
-                >
-                  {isModalSubmitting ? (
-                    <>
-                      <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                      <span>Scheduling in SAP...</span>
-                    </>
-                  ) : (
-                    <span>Confirm Consultation Request</span>
-                  )}
-                </button>
-              </div>
-            </form>
-          )}
-        </div>
-      </Modal>
+      {/* Reusable Enterprise Callback Modal */}
+      <CallbackModal
+        isOpen={isCallbackModalOpen}
+        onClose={() => setIsCallbackModalOpen(false)}
+        defaultService={formData.service || 'SAP Business One Implementation'}
+      />
 
     </div>
   );

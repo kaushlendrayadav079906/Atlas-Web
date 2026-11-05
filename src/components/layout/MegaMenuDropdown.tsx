@@ -19,6 +19,10 @@ import {
   Building2,
   ShieldCheck,
   Clock,
+  BookOpen,
+  FileText,
+  HelpCircle,
+  Ship,
 } from 'lucide-react';
 import { MegaMenuCategory } from '../../data/navigationData';
 
@@ -39,6 +43,10 @@ const iconMap: Record<string, React.FC<{ className?: string }>> = {
   Building2,
   ShieldCheck,
   Clock,
+  BookOpen,
+  FileText,
+  HelpCircle,
+  Ship,
 };
 
 interface MegaMenuDropdownProps {

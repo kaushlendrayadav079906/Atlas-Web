@@ -354,6 +354,159 @@ ATLAS Technosoft Enterprise Solutions
             self.recipients
         )
 
+    def _format_callback_email(self, data: Dict[str, Any]) -> Tuple[str, str, str]:
+        """Generate subject, text, and HTML body for a Request a Callback submission."""
+        ref_id = data.get("referenceId", "N/A")
+        full_name = data.get("fullName", "N/A")
+        company = data.get("companyName", "N/A")
+        email = data.get("email", "N/A")
+        phone = data.get("phone", "N/A")
+        service = data.get("service", "N/A")
+        message = data.get("message") or "No additional message provided."
+        pref_date = data.get("preferredDate") or "Not specified"
+        pref_time = data.get("preferredTime") or "Not specified"
+        sap_lead = data.get("sapCardCode", "N/A")
+        sap_activity = data.get("sapActivityId", "N/A")
+        submitted_at = data.get("submittedAt", "N/A")
+
+        subject = f"[Callback Request] {company} - {pref_date} ({pref_time}) (Ref: {ref_id})"
+
+        text_body = f"""
+======================================================================
+ATLAS TECHNOSOFT - REQUEST A CALLBACK
+======================================================================
+
+Reference ID:   {ref_id}
+Submitted At:   {submitted_at}
+SAP Lead Code:  {sap_lead}
+SAP Activity:   {sap_activity} (cn_Conversation - Phone Call)
+
+REQUESTED CALLBACK WINDOW:
+----------------------------------------------------------------------
+Preferred Date: {pref_date}
+Preferred Slot: {pref_time}
+Service Focus:  {service}
+
+CONTACT DETAILS:
+----------------------------------------------------------------------
+Full Name:      {full_name}
+Company Name:   {company}
+Business Email: {email}
+Phone Number:   {phone}
+
+ADDITIONAL NOTES:
+----------------------------------------------------------------------
+{message}
+
+======================================================================
+This callback interaction has been logged into SAP Business One.
+ATLAS Technosoft Enterprise Solutions
+"""
+
+        html_body = f"""
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body {{ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #f4f7fc; margin: 0; padding: 24px; color: #1e293b; }}
+    .container {{ max-width: 620px; margin: 0 auto; background: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.06); border: 1px solid #e2e8f0; }}
+    .header {{ background: linear-gradient(135deg, #142B59 0%, #0052cc 100%); padding: 28px 24px; text-align: left; color: #ffffff; }}
+    .header h1 {{ margin: 0; font-size: 20px; font-weight: 700; letter-spacing: -0.3px; }}
+    .header p {{ margin: 6px 0 0 0; font-size: 13px; opacity: 0.9; }}
+    .badge {{ display: inline-block; background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.3); padding: 4px 10px; border-radius: 6px; font-size: 12px; font-weight: bold; margin-top: 10px; }}
+    .content {{ padding: 28px 24px; }}
+    .slot-card {{ background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 14px 16px; margin-bottom: 20px; }}
+    .slot-title {{ font-size: 12px; font-weight: 700; color: #1d4ed8; text-transform: uppercase; margin-bottom: 6px; }}
+    .section-title {{ font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #0866d9; margin-bottom: 12px; border-bottom: 1px solid #e2e8f0; padding-bottom: 6px; }}
+    .grid {{ width: 100%; border-collapse: collapse; margin-bottom: 20px; }}
+    .grid td {{ padding: 8px 0; font-size: 14px; vertical-align: top; }}
+    .grid td.label {{ width: 140px; color: #64748b; font-weight: 600; }}
+    .grid td.value {{ color: #0f172a; font-weight: 500; }}
+    .sap-box {{ background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 14px 16px; margin-bottom: 24px; }}
+    .sap-title {{ font-size: 12px; font-weight: 700; color: #0f172a; text-transform: uppercase; margin-bottom: 8px; }}
+    .message-box {{ background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 14px 16px; font-size: 14px; line-height: 1.6; color: #334155; white-space: pre-wrap; }}
+    .footer {{ background: #f8fafc; padding: 18px 24px; border-top: 1px solid #e2e8f0; font-size: 12px; color: #64748b; text-align: center; }}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>ATLAS Technosoft — Request a Callback</h1>
+      <p>A new callback request has been logged via the corporate website.</p>
+      <div class="badge">Ref: {ref_id}</div>
+    </div>
+    <div class="content">
+      <div class="slot-card">
+        <div class="slot-title">Requested Callback Window</div>
+        <div style="font-size: 15px; font-weight: 700; color: #1e40af;">{pref_date} &bull; {pref_time}</div>
+      </div>
+
+      <div class="sap-box">
+        <div class="sap-title">SAP Business One Lead & Activity</div>
+        <table class="grid" style="margin-bottom: 0;">
+          <tr>
+            <td class="label">SAP Lead Code:</td>
+            <td class="value"><strong>{sap_lead}</strong> (Business Partner)</td>
+          </tr>
+          <tr>
+            <td class="label">SAP Activity ID:</td>
+            <td class="value"><strong>#{sap_activity}</strong> (cn_Conversation - Phone Call)</td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="section-title">Prospect Information</div>
+      <table class="grid">
+        <tr>
+          <td class="label">Full Name:</td>
+          <td class="value">{full_name}</td>
+        </tr>
+        <tr>
+          <td class="label">Company Name:</td>
+          <td class="value"><strong>{company}</strong></td>
+        </tr>
+        <tr>
+          <td class="label">Business Email:</td>
+          <td class="value"><a href="mailto:{email}" style="color: #0866d9; text-decoration: none;">{email}</a></td>
+        </tr>
+        <tr>
+          <td class="label">Phone / WhatsApp:</td>
+          <td class="value"><a href="tel:{phone}" style="color: #0866d9; text-decoration: none;">{phone}</a></td>
+        </tr>
+        <tr>
+          <td class="label">Service of Interest:</td>
+          <td class="value"><strong>{service}</strong></td>
+        </tr>
+        <tr>
+          <td class="label">Submitted At:</td>
+          <td class="value">{submitted_at}</td>
+        </tr>
+      </table>
+
+      <div class="section-title">Additional Message / Context</div>
+      <div class="message-box">{message}</div>
+    </div>
+    <div class="footer">
+      Automated notification from ATLAS Technosoft API Backend &bull; SAP Business One Service Layer
+    </div>
+  </div>
+</body>
+</html>
+"""
+        return subject, text_body, html_body
+
+    async def send_callback_notification(self, callback_data: Dict[str, Any]) -> bool:
+        """Dispatches an asynchronous email notification for a Callback request."""
+        subject, text_body, html_body = self._format_callback_email(callback_data)
+        return await asyncio.to_thread(
+            self._send_smtp_sync,
+            subject,
+            text_body,
+            html_body,
+            self.recipients
+        )
+
 
 # Global singleton instance
 email_service = EmailService()

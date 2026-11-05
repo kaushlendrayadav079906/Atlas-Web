@@ -1,6 +1,10 @@
 import React from 'react';
-import { MapPin, Mail, Phone, Linkedin } from 'lucide-react';
+import { MapPin, Mail, Phone, Linkedin, PhoneCall } from 'lucide-react';
 import { TOP_BAR_INFO } from '../../data/navigationData';
+
+export interface TopInfoBarProps {
+  onRequestCallback?: () => void;
+}
 
 // Custom crisp SVG for X (formerly Twitter)
 const XIcon: React.FC<{ className?: string }> = ({ className = 'w-3.5 h-3.5' }) => (
@@ -16,7 +20,7 @@ const WhatsAppIcon: React.FC<{ className?: string }> = ({ className = 'w-3.5 h-3
   </svg>
 );
 
-export const TopInfoBar: React.FC = () => {
+export const TopInfoBar: React.FC<TopInfoBarProps> = ({ onRequestCallback }) => {
   return (
     <div className="bg-[#0B192C] text-slate-300 text-[12.5px] sm:text-[13px] border-b border-slate-800/80 select-none py-1.5 sm:py-2">
       <div className="w-full max-w-[1720px] 2xl:max-w-[1840px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">

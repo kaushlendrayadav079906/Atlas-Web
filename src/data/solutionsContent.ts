@@ -86,7 +86,7 @@ export const SOLUTIONS_OVERVIEW_CARDS: SolutionCardItem[] = [
     imageSrc: "/images/crystal_hd/ind_shipping.jpg",
     badgeType: "atlas",
     color: "emerald",
-    linkHref: "#atlas-addons-section"
+    linkHref: "/solutions/atlas-addons"
   },
   {
     id: "integrated-solutions",
@@ -148,7 +148,7 @@ export const BOYUM_IT_DEEP_DIVE = {
       description: "Advanced planning & scheduling (APS), MRP, quality control, and real-time shop floor execution integrated into SAP B1.",
       imageSrc: "/images/solutions/solutions_beas_manufacturing.jpg",
       color: "purple" as const,
-      linkHref: "#contact-cta"
+      linkHref: "/solutions/manufacturing"
     },
     {
       id: "produmex",
@@ -157,7 +157,7 @@ export const BOYUM_IT_DEEP_DIVE = {
       description: "Barcode scanning, mobile RF terminals, batch/serial traceability, multi-zone picking, and 3PL billing automation.",
       imageSrc: "/images/solutions/solutions_produmex_wms.jpg",
       color: "emerald" as const,
-      linkHref: "#contact-cta"
+      linkHref: "/solutions/warehouse-management"
     },
     {
       id: "b1up",
@@ -166,7 +166,7 @@ export const BOYUM_IT_DEEP_DIVE = {
       description: "Custom screen design, 300+ approval workflows, mandatory field validations, and automated recurring tasks.",
       imageSrc: "/images/solutions/solutions_b1up_interface.jpg",
       color: "purple" as const,
-      linkHref: "#contact-cta"
+      linkHref: "/solutions/boyum-it"
     }
   ]
 };

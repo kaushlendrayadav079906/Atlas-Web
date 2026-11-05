@@ -17,6 +17,18 @@ export interface ConsultationPayload extends ContactEnquiryPayload {
   preferredTime?: string;
 }
 
+export interface CallbackPayload {
+  fullName: string;
+  email: string;
+  phone: string;
+  companyName: string;
+  service: string;
+  preferredDate: string;
+  preferredTime: string;
+  message?: string;
+  consent: boolean;
+}
+
 export interface ApiResponse<T = any> {
   success: boolean;
   status: string;
@@ -211,6 +223,21 @@ export const apiService = {
    */
   async submitConsultation(payload: ConsultationPayload): Promise<ApiResponse> {
     const response = await fetch(`${API_BASE_URL}/api/v1/consultations`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify(payload)
+    });
+    return handleResponse<ApiResponse>(response);
+  },
+
+  /**
+   * Schedule Phone Callback in SAP Business One
+   */
+  async submitCallback(payload: CallbackPayload): Promise<ApiResponse> {
+    const response = await fetch(`${API_BASE_URL}/api/v1/callbacks`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

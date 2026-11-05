@@ -2,9 +2,12 @@ import React, { useEffect, useMemo } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, BookOpen } from 'lucide-react';
 import { BlogDetail } from '../components/ui/blog/BlogDetail';
+import { ConsultationModal } from '../components/ui/ConsultationModal';
+import { useState } from 'react';
 import { getArticleBySlug, getRelatedArticles } from '../data/blogData';
 
 export const BlogDetailPage: React.FC = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const { slug } = useParams<{ slug: string }>();
 
   const article = useMemo(() => {
@@ -52,10 +55,20 @@ export const BlogDetailPage: React.FC = () => {
   }
 
   return (
-    <BlogDetail
-      article={article}
-      relatedArticles={relatedArticles}
-    />
+    <>
+      <BlogDetail
+        article={article}
+        relatedArticles={relatedArticles}
+        onOpenConsultation={() => setIsModalOpen(true)}
+      />
+      <ConsultationModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        defaultService={article ? `Article Inquiry: ${article.title}` : 'SAP Business One Implementation'}
+        title="Book an Architecture Consultation"
+        subtitle="Speak directly with certified SAP Business One, Boyum IT, and UiPath solution architects."
+      />
+    </>
   );
 };
 

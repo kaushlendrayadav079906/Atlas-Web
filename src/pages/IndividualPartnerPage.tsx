@@ -30,6 +30,7 @@ import {
 } from 'lucide-react';
 import { Button } from '../components/ui/Button';
 import { Modal } from '../components/ui/Modal';
+import { ConsultationModal } from '../components/ui/ConsultationModal';
 import {
   SAPBusinessOneLogo,
   BoyumITLogo,
@@ -57,17 +58,6 @@ export const IndividualPartnerPage: React.FC = () => {
 
   // Modal and consultation state
   const [isConsultationModalOpen, setIsConsultationModalOpen] = useState(false);
-  const [formData, setFormData] = useState<ContactFormData>({
-    fullName: '',
-    companyName: '',
-    workEmail: '',
-    phoneNumber: '',
-    areaOfInterest: partnerSlug || 'sap-b1',
-    message: ''
-  });
-  const [formErrors, setFormErrors] = useState<Partial<Record<keyof ContactFormData, string>>>({});
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSuccessSubmitted, setIsSuccessSubmitted] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -96,48 +86,6 @@ export const IndividualPartnerPage: React.FC = () => {
       </div>
     );
   }
-
-  const validateForm = (): boolean => {
-    const errors: Partial<Record<keyof ContactFormData, string>> = {};
-    if (!formData.fullName.trim()) errors.fullName = 'Full name is required';
-    if (!formData.companyName.trim()) errors.companyName = 'Company name is required';
-    if (!formData.workEmail.trim()) {
-      errors.workEmail = 'Work email is required';
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.workEmail)) {
-      errors.workEmail = 'Please provide a valid work email address';
-    }
-    if (!formData.phoneNumber.trim()) {
-      errors.phoneNumber = 'Phone number is required';
-    } else if (!/^[+0-9\s-]{8,15}$/.test(formData.phoneNumber.trim())) {
-      errors.phoneNumber = 'Please provide a valid phone number';
-    }
-    if (!formData.message.trim()) {
-      errors.message = 'Please briefly outline your requirements';
-    }
-    setFormErrors(errors);
-    return Object.keys(errors).length === 0;
-  };
-
-  const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
-  ) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-    if (formErrors[name as keyof ContactFormData]) {
-      setFormErrors(prev => ({ ...prev, [name]: undefined }));
-    }
-  };
-
-  const handleFormSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!validateForm()) return;
-
-    setIsSubmitting(true);
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setIsSuccessSubmitted(true);
-    }, 450);
-  };
 
   const renderIcon = (iconName: string, className = "w-5 h-5") => {
     switch (iconName) {
@@ -768,157 +716,13 @@ export const IndividualPartnerPage: React.FC = () => {
       {/* ========================================================================= */}
 
       {/* ========================================================================= */}
-      {/* INTERACTIVE CONSULTATION BOOKING MODAL                                    */}
-      {/* ========================================================================= */}
-      <Modal
+      {/* REUSABLE ENTERPRISE CONSULTATION MODAL */}
+      <ConsultationModal
         isOpen={isConsultationModalOpen}
-        onClose={() => {
-          setIsConsultationModalOpen(false);
-          setIsSuccessSubmitted(false);
-        }}
-        title={`Consult with Our ${partner.name} Architects`}
-      >
-        {isSuccessSubmitted ? (
-          <div className="p-6 text-center space-y-4">
-            <div className="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto">
-              <CheckCircle2 className="w-8 h-8" />
-            </div>
-            <h3 className="text-xl font-bold text-[#142B59]">Inquiry Received</h3>
-            <p className="text-slate-600 text-sm max-w-sm mx-auto">
-              Thank you for reaching out regarding {partner.name}. A certified solution architect will contact you within 1 business day.
-            </p>
-            <button
-              onClick={() => {
-                setIsConsultationModalOpen(false);
-                setIsSuccessSubmitted(false);
-              }}
-              className="mt-4 px-6 py-2.5 rounded-xl bg-[#1B72E8] text-white font-semibold text-sm hover:bg-blue-700 transition-colors"
-            >
-              Close Window
-            </button>
-          </div>
-        ) : (
-          <form onSubmit={handleFormSubmit} className="space-y-4 text-left">
-            <p className="text-xs text-slate-500 mb-2">
-              Fill in your details below and an enterprise partner specialist will arrange a tailored demonstration.
-            </p>
-
-            <div>
-              <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
-                Full Name *
-              </label>
-              <input
-                type="text"
-                name="fullName"
-                value={formData.fullName}
-                onChange={handleInputChange}
-                placeholder="e.g. Rajesh Sharma"
-                className={`w-full px-3.5 py-2.5 rounded-xl border text-sm outline-none transition-colors ${
-                  formErrors.fullName ? 'border-rose-400 bg-rose-50/30' : 'border-slate-300 focus:border-blue-500'
-                }`}
-              />
-              {formErrors.fullName && (
-                <p className="text-rose-500 text-xs mt-1">{formErrors.fullName}</p>
-              )}
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div>
-                <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
-                  Company Name *
-                </label>
-                <input
-                  type="text"
-                  name="companyName"
-                  value={formData.companyName}
-                  onChange={handleInputChange}
-                  placeholder="e.g. Apex Industries"
-                  className={`w-full px-3.5 py-2.5 rounded-xl border text-sm outline-none transition-colors ${
-                    formErrors.companyName ? 'border-rose-400 bg-rose-50/30' : 'border-slate-300 focus:border-blue-500'
-                  }`}
-                />
-                {formErrors.companyName && (
-                  <p className="text-rose-500 text-xs mt-1">{formErrors.companyName}</p>
-                )}
-              </div>
-
-              <div>
-                <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
-                  Phone Number *
-                </label>
-                <input
-                  type="tel"
-                  name="phoneNumber"
-                  value={formData.phoneNumber}
-                  onChange={handleInputChange}
-                  placeholder="e.g. +91 98765 43210"
-                  className={`w-full px-3.5 py-2.5 rounded-xl border text-sm outline-none transition-colors ${
-                    formErrors.phoneNumber ? 'border-rose-400 bg-rose-50/30' : 'border-slate-300 focus:border-blue-500'
-                  }`}
-                />
-                {formErrors.phoneNumber && (
-                  <p className="text-rose-500 text-xs mt-1">{formErrors.phoneNumber}</p>
-                )}
-              </div>
-            </div>
-
-            <div>
-              <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
-                Corporate Work Email *
-              </label>
-              <input
-                type="email"
-                name="workEmail"
-                value={formData.workEmail}
-                onChange={handleInputChange}
-                placeholder="e.g. rajesh@apexindustries.com"
-                className={`w-full px-3.5 py-2.5 rounded-xl border text-sm outline-none transition-colors ${
-                  formErrors.workEmail ? 'border-rose-400 bg-rose-50/30' : 'border-slate-300 focus:border-blue-500'
-                }`}
-              />
-              {formErrors.workEmail && (
-                <p className="text-rose-500 text-xs mt-1">{formErrors.workEmail}</p>
-              )}
-            </div>
-
-            <div>
-              <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
-                Project Scope / Key Requirements *
-              </label>
-              <textarea
-                name="message"
-                rows={3}
-                value={formData.message}
-                onChange={handleInputChange}
-                placeholder={`Briefly describe your objectives or questions regarding ${partner.name}...`}
-                className={`w-full px-3.5 py-2.5 rounded-xl border text-sm outline-none transition-colors ${
-                  formErrors.message ? 'border-rose-400 bg-rose-50/30' : 'border-slate-300 focus:border-blue-500'
-                }`}
-              />
-              {formErrors.message && (
-                <p className="text-rose-500 text-xs mt-1">{formErrors.message}</p>
-              )}
-            </div>
-
-            <div className="pt-2">
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="w-full py-3 rounded-xl bg-gradient-to-r from-[#0052CC] to-[#0A66C2] hover:from-[#0040A8] hover:to-[#08529C] text-white font-semibold text-sm shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-70"
-              >
-                {isSubmitting ? (
-                  <span>Submitting Inquiry...</span>
-                ) : (
-                  <>
-                    <span>Submit Consultation Request</span>
-                    <Send className="w-4 h-4" />
-                  </>
-                )}
-              </button>
-            </div>
-          </form>
-        )}
-      </Modal>
+        onClose={() => setIsConsultationModalOpen(false)}
+        defaultService={partner ? `Partner Consultation: ${partner.name}` : "SAP Business One Implementation"}
+        title={partner ? `Book a ${partner.name} Consultation` : "Book a Partner Consultation"}
+      />
     </div>
   );
 };
