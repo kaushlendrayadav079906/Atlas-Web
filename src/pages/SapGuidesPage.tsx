@@ -68,7 +68,7 @@ export const SapGuidesPage: React.FC = () => {
       {/* ===================================================================== */}
       {/* 1. HERO HEADER                                                        */}
       {/* ===================================================================== */}
-      <section className="relative overflow-hidden py-12 sm:py-16 lg:py-20 border-b border-white/10 bg-atlas-navy atlas-dark">
+      <section className="relative overflow-hidden py-12 sm:py-16 lg:py-20 border-b border-white/10 atlas-dark">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
           
           <div className="max-w-3xl mx-auto space-y-4">
@@ -115,7 +115,7 @@ export const SapGuidesPage: React.FC = () => {
       {/* ===================================================================== */}
       {/* 2. CATEGORY PILLS & GUIDES DIRECTORY                                  */}
       {/* ===================================================================== */}
-      <section className="py-12 sm:py-16 bg-atlas-navy atlas-dark">
+      <section className="py-12 sm:py-16 atlas-dark">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
           
           {/* Category Filter Tabs */}

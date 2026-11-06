@@ -53,7 +53,7 @@ export const BlogDetail: React.FC<BlogDetailProps> = ({
       {/* ===================================================================== */}
       {/* BREADCRUMB & ARTICLE HEADER HERO                                      */}
       {/* ===================================================================== */}
-      <section className="pt-8 pb-10 sm:pb-12 border-b border-white/10 bg-atlas-navy atlas-dark">
+      <section className="pt-8 pb-10 sm:pb-12 border-b border-white/10 atlas-dark">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           
           {/* Breadcrumb Navigation */}
@@ -293,7 +293,7 @@ export const BlogDetail: React.FC<BlogDetailProps> = ({
       {/* RELATED ARTICLES SECTION                                              */}
       {/* ===================================================================== */}
       {relatedArticles && relatedArticles.length > 0 && (
-        <section className="py-14 sm:py-16 border-t border-white/10 bg-atlas-navy atlas-dark">
+        <section className="py-14 sm:py-16 border-t border-white/10 atlas-dark">
           <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center justify-between mb-8">
               <div>

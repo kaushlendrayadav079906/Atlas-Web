@@ -115,7 +115,7 @@ export const ServiceDetailPage: React.FC = () => {
       {/* ========================================================================= */}
       {/* SECTION 1: BREADCRUMBS & HERO SECTION                                     */}
       {/* ========================================================================= */}
-      <section className="relative pt-6 pb-12 sm:pb-16 border-b border-white/10 overflow-hidden bg-atlas-navy atlas-dark">
+      <section className="relative pt-6 pb-12 sm:pb-16 border-b border-white/10 overflow-hidden atlas-dark">
         {/* Subtle decorative background glow */}
         <div className="absolute top-0 right-0 w-[500px] h-[400px] bg-gradient-to-bl from-blue-100/40 via-blue-100/20 to-transparent rounded-full blur-3xl -z-10 pointer-events-none" />
 
@@ -239,7 +239,7 @@ export const ServiceDetailPage: React.FC = () => {
       {/* ========================================================================= */}
       {/* SECTION 2: STRATEGIC OVERVIEW & VALUE PROPOSITION                         */}
       {/* ========================================================================= */}
-      <section className="py-12 sm:py-16 border-b border-white/10 bg-atlas-navy atlas-dark">
+      <section className="py-12 sm:py-16 border-b border-white/10 atlas-dark">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
             
@@ -336,7 +336,7 @@ export const ServiceDetailPage: React.FC = () => {
       {/* ========================================================================= */}
       {/* SECTION 4: KEY BUSINESS BENEFITS (6-CARD GRID)                            */}
       {/* ========================================================================= */}
-      <section className="py-12 sm:py-16 border-b border-white/10 bg-atlas-navy atlas-dark">
+      <section className="py-12 sm:py-16 border-b border-white/10 atlas-dark">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="text-center max-w-3xl mx-auto mb-12 space-y-3">
@@ -414,7 +414,7 @@ export const ServiceDetailPage: React.FC = () => {
       {/* ========================================================================= */}
       {/* SECTION 6: RELATED SOLUTIONS & CROSS-SERVICE NAVIGATION                  */}
       {/* ========================================================================= */}
-      <section className="py-12 sm:py-16 border-b border-white/10 bg-atlas-navy atlas-dark">
+      <section className="py-12 sm:py-16 border-b border-white/10 atlas-dark">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4 mb-8">

@@ -185,20 +185,31 @@ export const HomePage: React.FC = () => {
       {/* ========================================================================= */}
       {/* HERO — mist canvas, large sans headline, signature-corner media           */}
       {/* ========================================================================= */}
-      <section className="relative overflow-hidden bg-atlas-navy" data-no-reveal>
+      <section className="relative overflow-hidden atlas-cream" data-no-reveal>
         {/* Ambient drifting glows */}
-        <div className="pointer-events-none absolute -top-40 right-[8%] w-[520px] h-[520px] rounded-full bg-atlas-royal/25 blur-[120px] animate-drift" aria-hidden="true" />
-        <div className="pointer-events-none absolute -bottom-48 left-[-6%] w-[460px] h-[460px] rounded-full bg-atlas-gold/10 blur-[120px] animate-drift-slow" aria-hidden="true" />
+        <div className="pointer-events-none absolute -top-40 right-[8%] w-[520px] h-[520px] rounded-full bg-atlas-gold/20 blur-[120px] animate-drift" aria-hidden="true" />
+        <div className="pointer-events-none absolute -bottom-48 left-[-6%] w-[460px] h-[460px] rounded-full bg-[#F5C77E]/25 blur-[120px] animate-drift-slow" aria-hidden="true" />
         <svg
           className="pointer-events-none absolute inset-0 w-full h-full"
           viewBox="0 0 1440 640"
           preserveAspectRatio="none"
           aria-hidden="true"
         >
-          <path d="M860 0 L1440 420" stroke="rgba(201,213,238,0.14)" strokeWidth="1" fill="none" />
-          <path d="M1040 0 L1440 260" stroke="rgba(201,213,238,0.14)" strokeWidth="1" fill="none" />
+          <path d="M860 0 L1440 420" stroke="rgba(181,122,16,0.16)" strokeWidth="1" fill="none" />
+          <path d="M1040 0 L1440 260" stroke="rgba(181,122,16,0.16)" strokeWidth="1" fill="none" />
           <path className="animate-dash" d="M0 560 L720 640" stroke="rgba(224,163,59,0.45)" strokeWidth="1.2" fill="none" />
-          <path className="animate-dash" d="M1440 520 C1180 470 1000 600 760 640" stroke="rgba(99,199,247,0.22)" strokeWidth="1" fill="none" />
+          <path className="animate-dash" d="M1440 520 C1180 470 1000 600 760 640" stroke="rgba(181,122,16,0.18)" strokeWidth="1" fill="none" />
+        </svg>
+
+        {/* Soft golden waves along the bottom (brand reference) */}
+        <svg
+          className="pointer-events-none absolute bottom-0 left-0 w-full h-[180px] sm:h-[220px]"
+          viewBox="0 0 1440 220"
+          preserveAspectRatio="none"
+          aria-hidden="true"
+        >
+          <path d="M0 150 C 240 95, 420 205, 720 150 S 1200 70, 1440 120 L1440 220 L0 220 Z" fill="#FCEFD9" opacity="0.9" />
+          <path d="M0 185 C 300 140, 520 225, 860 180 S 1260 130, 1440 165 L1440 220 L0 220 Z" fill="#F8E2BC" opacity="0.55" />
         </svg>
 
         <div className="atlas-container relative pt-14 pb-32 sm:pt-20 sm:pb-36 lg:pt-24 lg:pb-40">
@@ -358,7 +369,7 @@ export const HomePage: React.FC = () => {
       {/* ========================================================================= */}
       {/* EXPERTISE — navy band with big sky numbers                                */}
       {/* ========================================================================= */}
-      <section id="expertise" className="bg-atlas-navy text-white py-20 sm:py-24 lg:py-28">
+      <section id="expertise" className="atlas-cream text-white py-20 sm:py-24 lg:py-28">
         <div className="atlas-container">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             <div className="lg:col-span-6 flex flex-col gap-6">
@@ -464,7 +475,7 @@ export const HomePage: React.FC = () => {
       {/* ========================================================================= */}
       {/* APPROACH                                                                  */}
       {/* ========================================================================= */}
-      <section id="approach" className="py-20 sm:py-24 bg-atlas-navy atlas-dark">
+      <section id="approach" className="py-20 sm:py-24 atlas-dark">
         <div className="atlas-container">
           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-12">
             <div className="flex flex-col gap-4 max-w-[820px]">
@@ -588,7 +599,7 @@ export const HomePage: React.FC = () => {
       {/* ========================================================================= */}
       {/* PARTNERS                                                                  */}
       {/* ========================================================================= */}
-      <section id="partners" className="py-14 sm:py-16 bg-atlas-navy atlas-dark">
+      <section id="partners" className="py-14 sm:py-16 atlas-dark">
         <div className="atlas-container">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-6 flex flex-col gap-3">
@@ -621,7 +632,7 @@ export const HomePage: React.FC = () => {
       {/* ========================================================================= */}
       <section id="contact" className="pb-20 sm:pb-24 pt-4 bg-white">
         <div className="atlas-container">
-          <div className="rounded-[32px] bg-atlas-navy p-8 sm:p-12 lg:p-16 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+          <div className="rounded-[32px] atlas-cream p-8 sm:p-12 lg:p-16 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             <div className="lg:col-span-6 flex flex-col gap-4">
               <span className="text-[13px] font-bold uppercase tracking-[0.14em] text-atlas-gold">Let&apos;s work together</span>
               <h2 className="atlas-h2-size font-extrabold !text-white">

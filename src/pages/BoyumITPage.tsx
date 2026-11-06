@@ -207,7 +207,7 @@ export const BoyumITPage: React.FC = () => {
       {/* ========================================================================= */}
       {/* SECTION 2: INTRODUCTION (TWO-COLUMN EXPLAINER)                             */}
       {/* ========================================================================= */}
-      <section id="introduction" className="py-14 sm:py-16 lg:py-20 border-b border-white/10 bg-atlas-navy atlas-dark">
+      <section id="introduction" className="py-14 sm:py-16 lg:py-20 border-b border-white/10 atlas-dark">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             
@@ -388,7 +388,7 @@ export const BoyumITPage: React.FC = () => {
       {/* ========================================================================= */}
       {/* SECTION 4: KEY BENEFITS (6-CARD GRID)                                     */}
       {/* ========================================================================= */}
-      <section id="benefits" className="py-14 sm:py-16 lg:py-20 border-b border-white/10 bg-atlas-navy atlas-dark">
+      <section id="benefits" className="py-14 sm:py-16 lg:py-20 border-b border-white/10 atlas-dark">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           
           <SectionHeading
@@ -465,7 +465,7 @@ export const BoyumITPage: React.FC = () => {
       {/* ========================================================================= */}
       {/* SECTION 6: INDUSTRIES                                                     */}
       {/* ========================================================================= */}
-      <section id="industries" className="py-14 sm:py-16 lg:py-20 border-b border-white/10 bg-atlas-navy atlas-dark">
+      <section id="industries" className="py-14 sm:py-16 lg:py-20 border-b border-white/10 atlas-dark">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           
           <SectionHeading

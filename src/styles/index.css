@@ -14,6 +14,11 @@
   --atlas-royal-tint: #EEF3FF;
   --atlas-sky: #63C7F7;
   --atlas-gold: #E0A33B;
+  --atlas-cream: #FCF6EE;
+  --atlas-cream-deep: #FCEFD9;
+  --atlas-gold-deep: #B57A10;
+  --atlas-gold-ink: #94680F;
+  --atlas-cream-border: #E8D9BE;
   --font-accent: 'Playfair Display', Georgia, serif;
   --atlas-mist: #EEF4FA;
   --atlas-tint: #F5F8FC;
@@ -156,67 +161,90 @@
 }
 
 /* ==========================================================================
-   Navy section theme (.atlas-dark)
-   Sections that used to sit on off-white now sit on navy. Text coloured for a
-   light background is re-coloured for navy, but any light surface (white cards,
-   tinted chips, buttons, form fields, photo cards) and everything inside it keeps
-   its original colours, so cards on navy read exactly as before.
+   Cream section theme
+   The site's feature bands use the warm cream from the brand reference
+   (#FCF6EE). Two kinds of section carry it:
+   - .atlas-dark  : sections that were originally light; they keep their
+                    original dark text and only swap the background.
+   - .atlas-cream : bands that were designed light-on-navy; their light text
+                    is flipped back to dark here. Dark surfaces inside them
+                    (gold/royal buttons, the dark "Proven impact" card, photo
+                    cards) keep their own colours.
    ========================================================================== */
-.atlas-dark {
-  background-color: var(--atlas-navy) !important;
+.atlas-dark,
+.atlas-cream {
+  background-color: var(--atlas-cream) !important;
   background-image: none !important;
-  color: var(--atlas-on-navy);
+}
+.atlas-cream {
+  color: var(--atlas-navy);
+}
+.atlas-cream.atlas-cream-deep {
+  background-color: var(--atlas-cream-deep) !important;
 }
 
-/* Inherited text inside light surfaces returns to the light-theme body colour
-   (zero specificity, so explicit text-* utilities still win) */
-:where(.atlas-dark) :where(.bg-white, [class*="bg-white/"], [class*="bg-slate-50"], [class*="bg-slate-100"], [class*="bg-blue-50"], [class*="bg-blue-100"], [class*="bg-sky-50"], [class*="bg-emerald-50"], [class*="bg-[#EEF4FA]"], [class*="bg-[#E6EDFF]"], [class*="bg-[#F"], .bg-atlas-mist, .bg-atlas-tint, .bg-atlas-royalTint, .bg-atlas-goldTint, input, textarea, select) {
-  color: var(--atlas-body);
+/* White text -> navy */
+.atlas-cream:is(.text-white),
+.atlas-cream :is(.text-white, [class*="!text-white"]):not(.atlas-cream :is(.bg-atlas-gold, .bg-atlas-royal, [class*="bg-atlas-navy"], [class*="bg-[#0"], [class*="bg-[#1"], [class*="bg-blue-6"], [class*="bg-blue-7"], [class*="bg-emerald-5"], [class*="bg-emerald-6"], [class*="bg-gradient"], [data-card], .atlas-keep-dark), .atlas-cream :is(.bg-atlas-gold, .bg-atlas-royal, [class*="bg-atlas-navy"], [class*="bg-[#0"], [class*="bg-[#1"], [class*="bg-blue-6"], [class*="bg-blue-7"], [class*="bg-emerald-5"], [class*="bg-emerald-6"], [class*="bg-gradient"], [data-card], .atlas-keep-dark) *) {
+  color: var(--atlas-navy) !important;
 }
 
-/* Headings and dark text -> white */
-.atlas-dark :is(h1, h2, h3, h4, h5, h6, [class*="text-[#0A1B4F]"], .text-atlas-navy, [class*="text-slate-900"], [class*="text-slate-800"], [class*="text-gray-900"], [class*="text-gray-800"], [class*="text-[#1A202C]"], .text-heading, .text-card-title):not(.atlas-dark :is(.atlas-light-surface, .bg-white, [class*="bg-white/"], [class*="bg-slate-"], [class*="bg-gray-"], [class*="bg-blue-"], [class*="bg-sky-"], [class*="bg-emerald-"], [class*="bg-green-"], [class*="bg-amber-"], [class*="bg-orange-"], [class*="bg-red-"], [class*="bg-purple-"], [class*="bg-indigo-"], [class*="bg-teal-"], [class*="bg-cyan-"], [class*="bg-[#"], [class*="bg-gradient"], .bg-atlas-mist, .bg-atlas-tint, .bg-atlas-royalTint, .bg-atlas-goldTint, .bg-atlas-royal, .bg-atlas-gold, [data-card], button, input, textarea, select), .atlas-dark :is(.atlas-light-surface, .bg-white, [class*="bg-white/"], [class*="bg-slate-"], [class*="bg-gray-"], [class*="bg-blue-"], [class*="bg-sky-"], [class*="bg-emerald-"], [class*="bg-green-"], [class*="bg-amber-"], [class*="bg-orange-"], [class*="bg-red-"], [class*="bg-purple-"], [class*="bg-indigo-"], [class*="bg-teal-"], [class*="bg-cyan-"], [class*="bg-[#"], [class*="bg-gradient"], .bg-atlas-mist, .bg-atlas-tint, .bg-atlas-royalTint, .bg-atlas-goldTint, .bg-atlas-royal, .bg-atlas-gold, [data-card], button, input, textarea, select) *) {
-  color: #ffffff !important;
+/* Light/muted text designed for navy -> body colour */
+.atlas-cream :is([class*="text-white/"], .text-atlas-onNavy, [class*="text-atlas-onNavy"], [class*="text-slate-300"],
+  [class*="text-slate-200"], [class*="text-blue-100"], [class*="text-blue-200"], [class*="text-blue-300"]):not(.atlas-cream :is(.bg-atlas-gold, .bg-atlas-royal, [class*="bg-atlas-navy"], [class*="bg-[#0"], [class*="bg-[#1"], [class*="bg-blue-6"], [class*="bg-blue-7"], [class*="bg-emerald-5"], [class*="bg-emerald-6"], [class*="bg-gradient"], [data-card], .atlas-keep-dark), .atlas-cream :is(.bg-atlas-gold, .bg-atlas-royal, [class*="bg-atlas-navy"], [class*="bg-[#0"], [class*="bg-[#1"], [class*="bg-blue-6"], [class*="bg-blue-7"], [class*="bg-emerald-5"], [class*="bg-emerald-6"], [class*="bg-gradient"], [data-card], .atlas-keep-dark) *) {
+  color: var(--atlas-body) !important;
 }
 
-/* Body / muted text -> light blue-grey */
-.atlas-dark :is([class*="text-[#4A5876]"], .text-atlas-body, [class*="text-slate-700"], [class*="text-slate-600"], [class*="text-slate-500"], [class*="text-slate-400"], [class*="text-gray-700"], [class*="text-gray-600"], [class*="text-gray-500"], .text-body, .text-card-description):not(.atlas-dark :is(.atlas-light-surface, .bg-white, [class*="bg-white/"], [class*="bg-slate-"], [class*="bg-gray-"], [class*="bg-blue-"], [class*="bg-sky-"], [class*="bg-emerald-"], [class*="bg-green-"], [class*="bg-amber-"], [class*="bg-orange-"], [class*="bg-red-"], [class*="bg-purple-"], [class*="bg-indigo-"], [class*="bg-teal-"], [class*="bg-cyan-"], [class*="bg-[#"], [class*="bg-gradient"], .bg-atlas-mist, .bg-atlas-tint, .bg-atlas-royalTint, .bg-atlas-goldTint, .bg-atlas-royal, .bg-atlas-gold, [data-card], button, input, textarea, select), .atlas-dark :is(.atlas-light-surface, .bg-white, [class*="bg-white/"], [class*="bg-slate-"], [class*="bg-gray-"], [class*="bg-blue-"], [class*="bg-sky-"], [class*="bg-emerald-"], [class*="bg-green-"], [class*="bg-amber-"], [class*="bg-orange-"], [class*="bg-red-"], [class*="bg-purple-"], [class*="bg-indigo-"], [class*="bg-teal-"], [class*="bg-cyan-"], [class*="bg-[#"], [class*="bg-gradient"], .bg-atlas-mist, .bg-atlas-tint, .bg-atlas-royalTint, .bg-atlas-goldTint, .bg-atlas-royal, .bg-atlas-gold, [data-card], button, input, textarea, select) *) {
-  color: var(--atlas-on-navy) !important;
+/* Muted grey labels in any cream section -> body colour (keeps 4.5:1 on cream) */
+:is(.atlas-cream, .atlas-dark) :is([class~="text-slate-500"], [class~="text-slate-400"], [class~="text-gray-500"]):not(:is(.atlas-cream, .atlas-dark) :is(.bg-atlas-gold, .bg-atlas-royal, [class*="bg-atlas-navy"], [class*="bg-[#0"], [class*="bg-[#1"], [class*="bg-blue-6"], [class*="bg-blue-7"], [class*="bg-emerald-5"], [class*="bg-emerald-6"], [class*="bg-gradient"], [data-card], .atlas-keep-dark, .bg-white) *) {
+  color: var(--atlas-body) !important;
 }
 
-/* Royal-blue labels, links and icons -> gold */
-.atlas-dark :is([class*="text-[#1F4FE0]"], .text-atlas-royal, [class*="text-blue-5"], [class*="text-blue-6"], [class*="text-blue-7"], .text-label):not(.atlas-dark :is(.atlas-light-surface, .bg-white, [class*="bg-white/"], [class*="bg-slate-"], [class*="bg-gray-"], [class*="bg-blue-"], [class*="bg-sky-"], [class*="bg-emerald-"], [class*="bg-green-"], [class*="bg-amber-"], [class*="bg-orange-"], [class*="bg-red-"], [class*="bg-purple-"], [class*="bg-indigo-"], [class*="bg-teal-"], [class*="bg-cyan-"], [class*="bg-[#"], [class*="bg-gradient"], .bg-atlas-mist, .bg-atlas-tint, .bg-atlas-royalTint, .bg-atlas-goldTint, .bg-atlas-royal, .bg-atlas-gold, [data-card], button, input, textarea, select), .atlas-dark :is(.atlas-light-surface, .bg-white, [class*="bg-white/"], [class*="bg-slate-"], [class*="bg-gray-"], [class*="bg-blue-"], [class*="bg-sky-"], [class*="bg-emerald-"], [class*="bg-green-"], [class*="bg-amber-"], [class*="bg-orange-"], [class*="bg-red-"], [class*="bg-purple-"], [class*="bg-indigo-"], [class*="bg-teal-"], [class*="bg-cyan-"], [class*="bg-[#"], [class*="bg-gradient"], .bg-atlas-mist, .bg-atlas-tint, .bg-atlas-royalTint, .bg-atlas-goldTint, .bg-atlas-royal, .bg-atlas-gold, [data-card], button, input, textarea, select) *) {
-  color: var(--atlas-gold) !important;
+/* Gold text -> deep gold (plain gold is unreadable on cream) */
+.atlas-cream :is(.text-atlas-gold, [class~="!text-atlas-gold"]):not(.atlas-cream :is(.bg-atlas-gold, .bg-atlas-royal, [class*="bg-atlas-navy"], [class*="bg-[#0"], [class*="bg-[#1"], [class*="bg-blue-6"], [class*="bg-blue-7"], [class*="bg-emerald-5"], [class*="bg-emerald-6"], [class*="bg-gradient"], [data-card], .atlas-keep-dark), .atlas-cream :is(.bg-atlas-gold, .bg-atlas-royal, [class*="bg-atlas-navy"], [class*="bg-[#0"], [class*="bg-[#1"], [class*="bg-blue-6"], [class*="bg-blue-7"], [class*="bg-emerald-5"], [class*="bg-emerald-6"], [class*="bg-gradient"], [data-card], .atlas-keep-dark) *) {
+  color: var(--atlas-gold-deep) !important;
 }
 
-/* Italic accent words (royal gradient text) -> gold */
-.atlas-dark :is(.bg-clip-text.text-transparent, .atlas-accent.text-atlas-royal):not(.atlas-dark :is(.atlas-light-surface, .bg-white, [class*="bg-white/"], [class*="bg-slate-"], [class*="bg-gray-"], [class*="bg-blue-"], [class*="bg-sky-"], [class*="bg-emerald-"], [class*="bg-green-"], [class*="bg-amber-"], [class*="bg-orange-"], [class*="bg-red-"], [class*="bg-purple-"], [class*="bg-indigo-"], [class*="bg-teal-"], [class*="bg-cyan-"], [class*="bg-[#"], [class*="bg-gradient"], .bg-atlas-mist, .bg-atlas-tint, .bg-atlas-royalTint, .bg-atlas-goldTint, .bg-atlas-royal, .bg-atlas-gold, [data-card], button, input, textarea, select) *) {
+/* Translucent-white chips/panels and white hairlines -> solid white / navy hairlines */
+.atlas-cream :is([class*="bg-white/["], [class*="bg-white/5"], [class*="bg-white/1"], [class*="bg-white/2"]):not(.atlas-cream :is(.bg-atlas-gold, .bg-atlas-royal, [class*="bg-atlas-navy"], [class*="bg-[#0"], [class*="bg-[#1"], [class*="bg-blue-6"], [class*="bg-blue-7"], [class*="bg-emerald-5"], [class*="bg-emerald-6"], [class*="bg-gradient"], [data-card], .atlas-keep-dark), .atlas-cream :is(.bg-atlas-gold, .bg-atlas-royal, [class*="bg-atlas-navy"], [class*="bg-[#0"], [class*="bg-[#1"], [class*="bg-blue-6"], [class*="bg-blue-7"], [class*="bg-emerald-5"], [class*="bg-emerald-6"], [class*="bg-gradient"], [data-card], .atlas-keep-dark) *) {
+  background-color: #ffffff !important;
+}
+.atlas-cream :is([class*="border-white/"]):not(.atlas-cream :is(.bg-atlas-gold, .bg-atlas-royal, [class*="bg-atlas-navy"], [class*="bg-[#0"], [class*="bg-[#1"], [class*="bg-blue-6"], [class*="bg-blue-7"], [class*="bg-emerald-5"], [class*="bg-emerald-6"], [class*="bg-gradient"], [data-card], .atlas-keep-dark), .atlas-cream :is(.bg-atlas-gold, .bg-atlas-royal, [class*="bg-atlas-navy"], [class*="bg-[#0"], [class*="bg-[#1"], [class*="bg-blue-6"], [class*="bg-blue-7"], [class*="bg-emerald-5"], [class*="bg-emerald-6"], [class*="bg-gradient"], [data-card], .atlas-keep-dark) *),
+.atlas-cream:is([class*="border-white/"]) {
+  border-color: rgba(10, 27, 79, 0.12) !important;
+}
+.atlas-cream :is([class*="divide-white/"]):not(.atlas-cream :is(.bg-atlas-gold, .bg-atlas-royal, [class*="bg-atlas-navy"], [class*="bg-[#0"], [class*="bg-[#1"], [class*="bg-blue-6"], [class*="bg-blue-7"], [class*="bg-emerald-5"], [class*="bg-emerald-6"], [class*="bg-gradient"], [data-card], .atlas-keep-dark), .atlas-cream :is(.bg-atlas-gold, .bg-atlas-royal, [class*="bg-atlas-navy"], [class*="bg-[#0"], [class*="bg-[#1"], [class*="bg-blue-6"], [class*="bg-blue-7"], [class*="bg-emerald-5"], [class*="bg-emerald-6"], [class*="bg-gradient"], [data-card], .atlas-keep-dark) *) > * + * {
+  border-color: rgba(10, 27, 79, 0.12) !important;
+}
+
+/* Accent words and eyebrows on cream use the reference's gold */
+:is(.atlas-cream, .atlas-dark) :is(.bg-clip-text.text-transparent, .atlas-accent):not(:is(.atlas-cream, .atlas-dark) :is(.bg-atlas-gold, .bg-atlas-royal, [class*="bg-atlas-navy"], [class*="bg-[#0"], [class*="bg-[#1"], [class*="bg-blue-6"], [class*="bg-blue-7"], [class*="bg-emerald-5"], [class*="bg-emerald-6"], [class*="bg-gradient"], [data-card], .atlas-keep-dark) *) {
   background-image: none !important;
-  -webkit-text-fill-color: var(--atlas-gold);
-  color: var(--atlas-gold) !important;
+  -webkit-text-fill-color: var(--atlas-gold-deep);
+  color: var(--atlas-gold-deep) !important;
+}
+:is(.atlas-cream, .atlas-dark) :is(.atlas-eyebrow, [class*="uppercase"][class*="text-[#1F4FE0]"], [class*="uppercase"].text-atlas-royal,
+  [class*="uppercase"].text-atlas-gold):not(:is(.atlas-cream, .atlas-dark) :is(.bg-atlas-gold, .bg-atlas-royal, [class*="bg-atlas-navy"], [class*="bg-[#0"], [class*="bg-[#1"], [class*="bg-blue-6"], [class*="bg-blue-7"], [class*="bg-emerald-5"], [class*="bg-emerald-6"], [class*="bg-gradient"], [data-card], .atlas-keep-dark, .bg-white, [class*="bg-blue-"], [class*="bg-atlas-royalTint"]) *):not([class*="bg-"]) {
+  color: var(--atlas-gold-ink) !important;
 }
 
-/* Two navy sections in a row keep the same navy, separated by a hairline */
-.atlas-dark + .atlas-dark,
-.bg-atlas-navy + .atlas-dark,
-.atlas-dark + section.bg-atlas-navy {
-  box-shadow: inset 0 1px 0 rgba(201, 213, 238, 0.14);
+/* Two cream sections in a row: same cream, separated by a hairline */
+:is(.atlas-cream, .atlas-dark) + :is(.atlas-cream, .atlas-dark) {
+  box-shadow: inset 0 1px 0 rgba(181, 122, 16, 0.16);
 }
 
 /* Card surfaces
    - On white sections: white cards (incl. photo cards) get a dark border.
-   - On navy sections: cards are plain white and stand out on their own.
+   - On cream sections: white cards get a soft warm border.
    (Selector parts are joined without spaces so they apply to the same element.) */
-main section:not(.atlas-dark):not(.bg-atlas-navy) :is([data-card], :is([class*="rounded-xl"], [class*="rounded-2xl"], [class*="rounded-3xl"], [class*="rounded-[2"], [class*="rounded-[3"]):is(.bg-white, [class*="bg-white/"])):not(input, textarea, select, .atlas-no-border, [class*="backdrop-blur"], .absolute, .bg-atlas-navy *, .atlas-dark *, .fixed *) {
+main section:not(.atlas-dark):not(.atlas-cream):not(.bg-atlas-navy) :is([data-card], :is([class*="rounded-xl"], [class*="rounded-2xl"], [class*="rounded-3xl"], [class*="rounded-[2"], [class*="rounded-[3"]):is(.bg-white, [class*="bg-white/"])):not(input, textarea, select, .atlas-no-border, [class*="backdrop-blur"], .absolute, .fixed *):not(:is(.atlas-cream, .atlas-dark, .bg-atlas-navy) *) {
   border: 1px solid var(--atlas-card-border) !important;
 }
-main section:not(.atlas-dark):not(.bg-atlas-navy) :is([data-card], :is([class*="rounded-xl"], [class*="rounded-2xl"], [class*="rounded-3xl"], [class*="rounded-[2"], [class*="rounded-[3"]):is(.bg-white, [class*="bg-white/"])):not(input, textarea, select, .atlas-no-border, [class*="backdrop-blur"], .absolute, .bg-atlas-navy *, .atlas-dark *, .fixed *):is(:hover, :focus-within) {
-  border-color: var(--atlas-royal) !important;
+:is(.atlas-cream, .atlas-dark) :is([data-card], :is([class*="rounded-xl"], [class*="rounded-2xl"], [class*="rounded-3xl"], [class*="rounded-[2"], [class*="rounded-[3"]):is(.bg-white, [class*="bg-white/"])):not(input, textarea, select, .atlas-no-border, [class*="backdrop-blur"], .absolute, .fixed *):not(:is(.atlas-cream, .atlas-dark) :is(.bg-atlas-gold, .bg-atlas-royal, [class*="bg-atlas-navy"], [class*="bg-[#0"], [class*="bg-[#1"], [class*="bg-blue-6"], [class*="bg-blue-7"], [class*="bg-emerald-5"], [class*="bg-emerald-6"], [class*="bg-gradient"], [data-card], .atlas-keep-dark) *) {
+  border: 1px solid var(--atlas-cream-border) !important;
 }
-
-/* Hairlines on navy */
-.atlas-dark :is([class*="border-slate-100"], [class*="border-slate-200"], [class*="border-blue-100"]):not(.atlas-dark :is(.atlas-light-surface, .bg-white, [class*="bg-white/"], [class*="bg-slate-"], [class*="bg-gray-"], [class*="bg-blue-"], [class*="bg-sky-"], [class*="bg-emerald-"], [class*="bg-green-"], [class*="bg-amber-"], [class*="bg-orange-"], [class*="bg-red-"], [class*="bg-purple-"], [class*="bg-indigo-"], [class*="bg-teal-"], [class*="bg-cyan-"], [class*="bg-[#"], [class*="bg-gradient"], .bg-atlas-mist, .bg-atlas-tint, .bg-atlas-royalTint, .bg-atlas-goldTint, .bg-atlas-royal, .bg-atlas-gold, [data-card], button, input, textarea, select), .atlas-dark :is(.atlas-light-surface, .bg-white, [class*="bg-white/"], [class*="bg-slate-"], [class*="bg-gray-"], [class*="bg-blue-"], [class*="bg-sky-"], [class*="bg-emerald-"], [class*="bg-green-"], [class*="bg-amber-"], [class*="bg-orange-"], [class*="bg-red-"], [class*="bg-purple-"], [class*="bg-indigo-"], [class*="bg-teal-"], [class*="bg-cyan-"], [class*="bg-[#"], [class*="bg-gradient"], .bg-atlas-mist, .bg-atlas-tint, .bg-atlas-royalTint, .bg-atlas-goldTint, .bg-atlas-royal, .bg-atlas-gold, [data-card], button, input, textarea, select) *) {
-  border-color: rgba(201, 213, 238, 0.16) !important;
+:is(main section:not(.atlas-dark):not(.atlas-cream), .atlas-cream, .atlas-dark) :is([data-card], :is([class*="rounded-xl"], [class*="rounded-2xl"], [class*="rounded-3xl"], [class*="rounded-[2"], [class*="rounded-[3"]):is(.bg-white, [class*="bg-white/"])):not(input, textarea, select, .atlas-no-border, [class*="backdrop-blur"], .absolute, .fixed *):is(:hover, :focus-within) {
+  border-color: var(--atlas-royal) !important;
 }
 
 /* Accessibility: Respect user motion preferences */

@@ -81,7 +81,7 @@ export const LogoMarquee: React.FC<LogoMarqueeProps> = ({
   return (
     <section
       id="technology-partners-slider"
-      className={`relative pt-8 pb-10 sm:pt-10 sm:pb-14 lg:pt-12 lg:pb-16 bg-atlas-navy atlas-dark border-b border-white/10 overflow-hidden z-20 ${className}`}
+      className={`relative pt-8 pb-10 sm:pt-10 sm:pb-14 lg:pt-12 lg:pb-16 atlas-dark border-b border-white/10 overflow-hidden z-20 ${className}`}
       aria-label="Certified Technology Partners & Platforms"
     >
       <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
@@ -101,12 +101,12 @@ export const LogoMarquee: React.FC<LogoMarqueeProps> = ({
         <div className="relative w-full overflow-hidden logo-slider-group py-3.5 sm:py-4">
           {/* Left fade gradient mask matching section background */}
           <div
-            className="pointer-events-none absolute inset-y-0 left-0 w-12 sm:w-28 bg-gradient-to-r from-atlas-navy via-atlas-navy/80 to-transparent z-10"
+            className="pointer-events-none absolute inset-y-0 left-0 w-12 sm:w-28 bg-gradient-to-r from-atlas-cream via-atlas-cream/80 to-transparent z-10"
             aria-hidden="true"
           />
           {/* Right fade gradient mask matching section background */}
           <div
-            className="pointer-events-none absolute inset-y-0 right-0 w-12 sm:w-28 bg-gradient-to-l from-atlas-navy via-atlas-navy/80 to-transparent z-10"
+            className="pointer-events-none absolute inset-y-0 right-0 w-12 sm:w-28 bg-gradient-to-l from-atlas-cream via-atlas-cream/80 to-transparent z-10"
             aria-hidden="true"
           />
 
@@ -263,11 +263,11 @@ export const ClientLogoMarquee: React.FC<{ className?: string; showPill?: boolea
 
         <div className="relative w-full overflow-hidden logo-slider-group py-2">
           <div
-            className="pointer-events-none absolute inset-y-0 left-0 w-12 sm:w-24 bg-gradient-to-r from-atlas-navy via-atlas-navy/80 to-transparent z-10"
+            className="pointer-events-none absolute inset-y-0 left-0 w-12 sm:w-24 bg-gradient-to-r from-atlas-cream via-atlas-cream/80 to-transparent z-10"
             aria-hidden="true"
           />
           <div
-            className="pointer-events-none absolute inset-y-0 right-0 w-12 sm:w-24 bg-gradient-to-l from-atlas-navy via-atlas-navy/80 to-transparent z-10"
+            className="pointer-events-none absolute inset-y-0 right-0 w-12 sm:w-24 bg-gradient-to-l from-atlas-cream via-atlas-cream/80 to-transparent z-10"
             aria-hidden="true"
           />
 

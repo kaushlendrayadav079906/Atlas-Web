@@ -145,7 +145,7 @@ export const IndividualPartnerPage: React.FC = () => {
       {/* ========================================================================= */}
       {/* TOP NAVIGATION STRIP & BREADCRUMBS                                       */}
       {/* ========================================================================= */}
-      <section className="border-b border-white/10 py-3.5 bg-atlas-navy atlas-dark">
+      <section className="border-b border-white/10 py-3.5 atlas-dark">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap items-center justify-between gap-4">
             
@@ -180,7 +180,7 @@ export const IndividualPartnerPage: React.FC = () => {
       {/* ========================================================================= */}
       {/* SECTION 1: HERO SECTION                                                   */}
       {/* ========================================================================= */}
-      <section className="relative overflow-hidden pt-10 pb-14 lg:pt-14 lg:pb-18 border-b border-white/10 bg-atlas-navy atlas-dark">
+      <section className="relative overflow-hidden pt-10 pb-14 lg:pt-14 lg:pb-18 border-b border-white/10 atlas-dark">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
             
@@ -297,7 +297,7 @@ export const IndividualPartnerPage: React.FC = () => {
       {/* ========================================================================= */}
       {/* SECTION 3: TECHNOLOGY & ARCHITECTURE OVERVIEW                             */}
       {/* ========================================================================= */}
-      <section className="py-16 lg:py-24 border-b border-white/10 bg-atlas-navy atlas-dark">
+      <section className="py-16 lg:py-24 border-b border-white/10 atlas-dark">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
             
@@ -391,7 +391,7 @@ export const IndividualPartnerPage: React.FC = () => {
       {/* ========================================================================= */}
       {/* SECTION 5: MEASURABLE BUSINESS BENEFITS (4 CARDS)                         */}
       {/* ========================================================================= */}
-      <section className="py-16 lg:py-24 border-b border-white/10 bg-atlas-navy atlas-dark">
+      <section className="py-16 lg:py-24 border-b border-white/10 atlas-dark">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="text-left mb-12 space-y-2">
@@ -499,7 +499,7 @@ export const IndividualPartnerPage: React.FC = () => {
       {/* ========================================================================= */}
       {/* SECTION 7: RELEVANT INDUSTRIES & USE CASES                                */}
       {/* ========================================================================= */}
-      <section className="py-16 lg:py-24 border-b border-white/10 bg-atlas-navy atlas-dark">
+      <section className="py-16 lg:py-24 border-b border-white/10 atlas-dark">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="text-left mb-12 space-y-2">
@@ -584,7 +584,7 @@ export const IndividualPartnerPage: React.FC = () => {
       {/* ========================================================================= */}
       {/* SECTION 9: CONSULTATION CTA CARD (CONSISTENT WITH ABOUT/PARTNERS)          */}
       {/* ========================================================================= */}
-      <section className="py-12 lg:py-16 bg-atlas-navy atlas-dark">
+      <section className="py-12 lg:py-16 atlas-dark">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="rounded-2xl bg-white border border-blue-200/90 p-8 sm:p-10 lg:p-12 shadow-sm">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
