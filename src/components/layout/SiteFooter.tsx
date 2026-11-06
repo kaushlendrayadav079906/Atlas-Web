@@ -41,7 +41,7 @@ const YouTubeIcon: React.FC<{ className?: string }> = ({ className = "w-4 h-4" }
 
 // Official SAP Silver Partner Badge matching Reference Screenshot
 const SAPSilverPartnerBadge: React.FC<{ className?: string }> = ({ className = "h-[66px] sm:h-[72px]" }) => (
-  <div className={`inline-block select-none ${className}`}>
+  <div className={`inline-flex items-center rounded-2xl bg-white px-3 py-1.5 select-none ${className}`}>
     <img
       src="/images/sap_silver_partner_transparent.png"
       alt="SAP Silver Partner"
@@ -80,66 +80,8 @@ export const SiteFooter: React.FC = () => {
   ];
 
   return (
-    <footer className="relative bg-gradient-to-b from-[#F0F7FF] via-[#F8FBFF] to-[#E3F0FF] text-[#0B2450] pt-12 sm:pt-14 pb-0 border-t border-[#D0E4FF] overflow-hidden">
+    <footer className="relative bg-atlas-navy text-white pt-16 sm:pt-20 pb-0 overflow-hidden">
       
-      {/* 1. Soft blue ambient background glow */}
-      <div
-        className="pointer-events-none absolute -top-24 left-1/4 w-[550px] h-[340px] bg-gradient-to-b from-[#E1F0FF]/80 via-[#F0F7FF]/50 to-transparent rounded-full blur-3xl -z-0"
-        aria-hidden="true"
-      />
-      <div
-        className="pointer-events-none absolute top-10 left-8 w-[400px] h-[240px] bg-gradient-to-tr from-[#E1F0FF]/50 to-transparent rounded-full blur-2xl -z-0"
-        aria-hidden="true"
-      />
-
-      {/* 2. Subtle curved blue wave shapes at bottom-right (matching exact reference curves) */}
-      <div
-        className="pointer-events-none absolute bottom-0 right-0 w-[550px] sm:w-[750px] lg:w-[980px] xl:w-[1150px] h-[220px] sm:h-[280px] lg:h-[340px] overflow-hidden select-none -z-0"
-        aria-hidden="true"
-      >
-        <svg
-          viewBox="0 0 1150 340"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          className="w-full h-full object-cover object-bottom"
-          preserveAspectRatio="none"
-        >
-          <defs>
-            <linearGradient id="footerWaveGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#E6F2FE" stopOpacity="0.45" />
-              <stop offset="60%" stopColor="#D2E8FD" stopOpacity="0.75" />
-              <stop offset="100%" stopColor="#C4E0FD" stopOpacity="0.9" />
-            </linearGradient>
-            <linearGradient id="footerWaveGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#DEF0FE" stopOpacity="0.4" />
-              <stop offset="60%" stopColor="#C8E4FD" stopOpacity="0.7" />
-              <stop offset="100%" stopColor="#B6DCFD" stopOpacity="0.85" />
-            </linearGradient>
-            <linearGradient id="footerWaveGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#D0E7FD" stopOpacity="0.35" />
-              <stop offset="70%" stopColor="#BADEFD" stopOpacity="0.65" />
-              <stop offset="100%" stopColor="#A8D6FD" stopOpacity="0.8" />
-            </linearGradient>
-          </defs>
-
-          {/* Layer 1: High sweeping organic wave */}
-          <path
-            d="M150 340 C380 310 580 230 790 160 C940 110 1060 60 1150 20 L1150 340 Z"
-            fill="url(#footerWaveGrad1)"
-          />
-          {/* Layer 2: Mid sweeping curve */}
-          <path
-            d="M360 340 C560 320 720 255 890 195 C1010 155 1090 120 1150 85 L1150 340 Z"
-            fill="url(#footerWaveGrad2)"
-          />
-          {/* Layer 3: Foreground gentle curve */}
-          <path
-            d="M580 340 C750 325 870 280 990 235 C1070 205 1120 180 1150 160 L1150 340 Z"
-            fill="url(#footerWaveGrad3)"
-          />
-        </svg>
-      </div>
-
       <div className="max-w-[1420px] 2xl:max-w-[1480px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-10 relative z-10">
         
         {/* Main 4-Column Footer Grid matching Reference */}
@@ -156,22 +98,22 @@ export const SiteFooter: React.FC = () => {
                 />
               </div>
               <div className="flex flex-col leading-none select-none">
-                <span className="text-[24px] font-black tracking-tight text-[#0B2450] group-hover:text-[#0066CC] transition-colors">
+                <span className="text-[24px] font-extrabold tracking-[-0.02em] text-white group-hover:text-atlas-gold transition-colors">
                   ATLAS
                 </span>
-                <span className="text-[15px] font-bold text-[#0B2450] tracking-normal mt-0.5">
+                <span className="text-[15px] font-bold text-white tracking-normal mt-0.5">
                   Technosoft
                 </span>
               </div>
             </Link>
 
-            <p className="text-[13.5px] text-[#334D6E] leading-relaxed max-w-sm font-normal">
+            <p className="text-[13.5px] text-atlas-onNavy leading-relaxed max-w-sm font-normal">
               Your technology partner for SAP Business One, Boyum IT solutions, and intelligent automation.
             </p>
 
             {/* Official SAP Silver Partner Badge (matching reference) */}
             <div className="pt-1.5">
-              <SAPSilverPartnerBadge className="h-[64px] sm:h-[70px]" />
+              <SAPSilverPartnerBadge className="h-[64px] sm:h-[68px]" />
             </div>
 
             {/* Social Icons matching Reference: LinkedIn, WhatsApp, X (Twitter), YouTube */}
@@ -180,7 +122,7 @@ export const SiteFooter: React.FC = () => {
                 href="https://www.linkedin.com/company/atlas-technosoft-pvt-ltd/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-8.5 h-8.5 rounded-lg bg-[#E1F0FF] border border-blue-200/60 hover:border-[#0066CC] hover:bg-[#0066CC] text-[#0066CC] hover:text-white flex items-center justify-center transition-all duration-200 shadow-2xs"
+                className="w-8.5 h-8.5 rounded-lg bg-white/10 border border-white/10 hover:border-atlas-gold hover:bg-atlas-gold text-white hover:text-atlas-navy flex items-center justify-center transition-all duration-200 shadow-2xs"
                 aria-label="LinkedIn"
               >
                 <Linkedin className="w-4 h-4" />
@@ -189,7 +131,7 @@ export const SiteFooter: React.FC = () => {
                 href="https://wa.me/919372329599?text=Hello%20ATLAS%20Technosoft%2C%20I%20would%20like%20to%20book%20a%20consultation."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-8.5 h-8.5 rounded-lg bg-[#E1F0FF] border border-blue-200/60 hover:border-[#0066CC] hover:bg-[#0066CC] text-[#0066CC] hover:text-white flex items-center justify-center transition-all duration-200 shadow-2xs"
+                className="w-8.5 h-8.5 rounded-lg bg-white/10 border border-white/10 hover:border-atlas-gold hover:bg-atlas-gold text-white hover:text-atlas-navy flex items-center justify-center transition-all duration-200 shadow-2xs"
                 aria-label="WhatsApp"
               >
                 <WhatsAppIcon className="w-4 h-4" />
@@ -198,7 +140,7 @@ export const SiteFooter: React.FC = () => {
                 href="https://x.com/atlastechnosoft"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-8.5 h-8.5 rounded-lg bg-[#E1F0FF] border border-blue-200/60 hover:border-[#0066CC] hover:bg-[#0066CC] text-[#0066CC] hover:text-white flex items-center justify-center transition-all duration-200 shadow-2xs"
+                className="w-8.5 h-8.5 rounded-lg bg-white/10 border border-white/10 hover:border-atlas-gold hover:bg-atlas-gold text-white hover:text-atlas-navy flex items-center justify-center transition-all duration-200 shadow-2xs"
                 aria-label="X (Twitter)"
               >
                 <XTwitterIcon className="w-4 h-4" />
@@ -207,7 +149,7 @@ export const SiteFooter: React.FC = () => {
                 href="https://youtube.com/@atlastechnosoft"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-8.5 h-8.5 rounded-lg bg-[#E1F0FF] border border-blue-200/60 hover:border-[#0066CC] hover:bg-[#0066CC] text-[#0066CC] hover:text-white flex items-center justify-center transition-all duration-200 shadow-2xs"
+                className="w-8.5 h-8.5 rounded-lg bg-white/10 border border-white/10 hover:border-atlas-gold hover:bg-atlas-gold text-white hover:text-atlas-navy flex items-center justify-center transition-all duration-200 shadow-2xs"
                 aria-label="YouTube"
               >
                 <YouTubeIcon className="w-4 h-4" />
@@ -218,65 +160,65 @@ export const SiteFooter: React.FC = () => {
           {/* Column 2: Contact Info */}
           <div className="lg:col-span-3 xl:col-span-3 text-left">
             <div className="mb-4">
-              <h4 className="text-[16px] sm:text-[17px] font-bold text-[#0B2450] tracking-wide uppercase">
+              <h4 className="text-[13px] font-bold text-atlas-gold tracking-[0.14em] uppercase">
                 CONTACT
               </h4>
-              <div className="w-8 h-[2.5px] bg-[#0066CC] rounded-full mt-1.5" />
+              <div className="w-8 h-[2.5px] bg-atlas-gold rounded-full mt-2" />
             </div>
 
             <ul className="space-y-3 text-[14px]">
               <li className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-lg bg-[#E1F0FF] text-[#0066CC] flex items-center justify-center shrink-0 border border-blue-200/50 shadow-2xs">
+                <div className="w-8 h-8 rounded-lg bg-white/10 text-atlas-gold flex items-center justify-center shrink-0 border border-white/10">
                   <Mail className="w-4 h-4" />
                 </div>
                 <a
                   href={`mailto:${BRAND_INFO.contact.email}`}
-                  className="font-medium text-[#0B2450] hover:text-[#0066CC] transition-colors break-words"
+                  className="font-medium text-white hover:text-atlas-gold transition-colors break-words"
                 >
                   {BRAND_INFO.contact.email}
                 </a>
               </li>
               <li className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-lg bg-[#E1F0FF] text-[#0066CC] flex items-center justify-center shrink-0 border border-blue-200/50 shadow-2xs">
+                <div className="w-8 h-8 rounded-lg bg-white/10 text-atlas-gold flex items-center justify-center shrink-0 border border-white/10">
                   <Phone className="w-4 h-4" />
                 </div>
                 <a
                   href={`tel:+919372329599`}
-                  className="font-medium text-[#0B2450] hover:text-[#0066CC] transition-colors"
+                  className="font-medium text-white hover:text-atlas-gold transition-colors"
                 >
                   +91 93723 29599
                 </a>
               </li>
               <li className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-lg bg-[#E1F0FF] text-[#0066CC] flex items-center justify-center shrink-0 border border-blue-200/50 shadow-2xs">
+                <div className="w-8 h-8 rounded-lg bg-white/10 text-atlas-gold flex items-center justify-center shrink-0 border border-white/10">
                   <WhatsAppIcon className="w-4 h-4" />
                 </div>
                 <a
                   href={BRAND_INFO.contact.whatsappLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-medium text-[#0B2450] hover:text-[#0066CC] transition-colors"
+                  className="font-medium text-white hover:text-atlas-gold transition-colors"
                 >
                   Chat on WhatsApp
                 </a>
               </li>
               
               {/* Divider */}
-              <li className="pt-2 border-t border-blue-200/60">
+              <li className="pt-2 border-t border-white/10">
                 <div className="flex items-start gap-3">
-                  <div className="w-8 h-8 rounded-lg bg-[#E1F0FF] text-[#0066CC] flex items-center justify-center shrink-0 border border-blue-200/50 shadow-2xs mt-0.5">
+                  <div className="w-8 h-8 rounded-lg bg-white/10 text-atlas-gold flex items-center justify-center shrink-0 border border-white/10 mt-0.5">
                     <MapPin className="w-4 h-4" />
                   </div>
                   <div className="space-y-1 text-[13px]">
-                    <div className="font-bold text-[#0B2450] uppercase tracking-wide text-[12px]">
+                    <div className="font-bold text-white uppercase tracking-wide text-[12px]">
                       OUR OFFICES
                     </div>
-                    <div className="text-[#334D6E] flex items-center gap-1.5 font-medium">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#0066CC]" />
+                    <div className="text-atlas-onNavy flex items-center gap-1.5 font-medium">
+                      <span className="w-1.5 h-1.5 rounded-full bg-atlas-gold" />
                       <span>Borivali (West), Mumbai, Maharashtra</span>
                     </div>
-                    <div className="text-[#334D6E] flex items-center gap-1.5 font-medium">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#0066CC]" />
+                    <div className="text-atlas-onNavy flex items-center gap-1.5 font-medium">
+                      <span className="w-1.5 h-1.5 rounded-full bg-atlas-gold" />
                       <span>Marine Lines, Mumbai, Maharashtra</span>
                     </div>
                   </div>
@@ -288,10 +230,10 @@ export const SiteFooter: React.FC = () => {
           {/* Column 3: Our Trusted Partners */}
           <div className="lg:col-span-3 xl:col-span-3 text-left">
             <div className="mb-4">
-              <h4 className="text-[16px] sm:text-[17px] font-bold text-[#0B2450] tracking-wide uppercase">
+              <h4 className="text-[13px] font-bold text-atlas-gold tracking-[0.14em] uppercase">
                 OUR TRUSTED PARTNERS
               </h4>
-              <div className="w-8 h-[2.5px] bg-[#0066CC] rounded-full mt-1.5" />
+              <div className="w-8 h-[2.5px] bg-atlas-gold rounded-full mt-2" />
             </div>
 
             <ul className="space-y-3.5 text-[14px]">
@@ -299,9 +241,9 @@ export const SiteFooter: React.FC = () => {
                 <li key={item.name}>
                   <Link
                     to={item.href}
-                    className="group inline-flex items-center gap-2.5 font-semibold text-[#0B2450] hover:text-[#0066CC] transition-colors"
+                    className="group inline-flex items-center gap-2.5 font-medium text-atlas-onNavy hover:text-atlas-gold transition-colors"
                   >
-                    <span className="w-4 h-4 rounded-full bg-[#0066CC] text-white flex items-center justify-center shrink-0 shadow-2xs">
+                    <span className="w-4 h-4 rounded-full bg-atlas-gold text-atlas-navy flex items-center justify-center shrink-0 shadow-2xs">
                       <Check className="w-2.5 h-2.5 stroke-[3]" />
                     </span>
                     <span className="group-hover:translate-x-0.5 transition-transform">{item.name}</span>
@@ -314,10 +256,10 @@ export const SiteFooter: React.FC = () => {
           {/* Column 4: Quick Links */}
           <div className="lg:col-span-3 xl:col-span-3 text-left">
             <div className="mb-4">
-              <h4 className="text-[16px] sm:text-[17px] font-bold text-[#0B2450] tracking-wide uppercase">
+              <h4 className="text-[13px] font-bold text-atlas-gold tracking-[0.14em] uppercase">
                 QUICK LINKS
               </h4>
-              <div className="w-8 h-[2.5px] bg-[#0066CC] rounded-full mt-1.5" />
+              <div className="w-8 h-[2.5px] bg-atlas-gold rounded-full mt-2" />
             </div>
 
             <div className="grid grid-cols-2 gap-x-4 gap-y-3 text-[14px]">
@@ -326,9 +268,9 @@ export const SiteFooter: React.FC = () => {
                   <li key={link.name}>
                     <Link
                       to={link.href}
-                      className="text-[#0B2450] hover:text-[#0066CC] hover:translate-x-1 inline-flex items-center gap-1.5 font-semibold transition-all duration-200 whitespace-nowrap"
+                      className="text-white hover:text-atlas-gold hover:translate-x-1 inline-flex items-center gap-1.5 font-semibold transition-all duration-200 whitespace-nowrap"
                     >
-                      <ChevronRight className="w-3.5 h-3.5 text-[#0066CC] shrink-0" />
+                      <ChevronRight className="w-3.5 h-3.5 text-atlas-gold shrink-0" />
                       <span>{link.name}</span>
                     </Link>
                   </li>
@@ -339,9 +281,9 @@ export const SiteFooter: React.FC = () => {
                   <li key={link.name}>
                     <Link
                       to={link.href}
-                      className="text-[#0B2450] hover:text-[#0066CC] hover:translate-x-1 inline-flex items-center gap-1.5 font-semibold transition-all duration-200 whitespace-nowrap"
+                      className="text-white hover:text-atlas-gold hover:translate-x-1 inline-flex items-center gap-1.5 font-semibold transition-all duration-200 whitespace-nowrap"
                     >
-                      <ChevronRight className="w-3.5 h-3.5 text-[#0066CC] shrink-0" />
+                      <ChevronRight className="w-3.5 h-3.5 text-atlas-gold shrink-0" />
                       <span>{link.name}</span>
                     </Link>
                   </li>
@@ -355,7 +297,7 @@ export const SiteFooter: React.FC = () => {
       </div>
 
       {/* Bottom Deep Blue Copyright Bar matching Reference (#004DB3) */}
-      <div className="bg-[#004DB3] py-4 text-white text-[13px] sm:text-[14px] relative z-10 border-t border-blue-400/20">
+      <div className="bg-atlas-navy py-5 text-white text-[13px] sm:text-[14px] relative z-10 border-t border-white/10">
         <div className="max-w-[1420px] 2xl:max-w-[1480px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-10 flex flex-col sm:flex-row items-center justify-between gap-3">
           <div className="text-center sm:text-left text-white/95 font-normal">
             © {currentYear} ATLAS Technosoft. All rights reserved.

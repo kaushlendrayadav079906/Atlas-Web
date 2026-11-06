@@ -134,28 +134,28 @@ export const SupportMaintenancePage: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-white text-[#45546B]">
+    <div className="min-h-screen bg-white text-[#4A5876]">
       {/* ========================================================================= */}
       {/* 1. BREADCRUMBS                                                           */}
       {/* ========================================================================= */}
-      <nav aria-label="Breadcrumb" className="bg-slate-50 border-b border-slate-200/80 py-3">
+      <nav aria-label="Breadcrumb" className="bg-white border-b border-slate-200/80 py-3">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           <ol className="flex items-center space-x-2 text-xs sm:text-sm text-slate-500">
             <li>
-              <Link to="/" className="hover:text-[#1B72E8] transition-colors">
+              <Link to="/" className="hover:text-[#1F4FE0] transition-colors">
                 Home
               </Link>
             </li>
             <li>
-              <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
+              <ChevronRight className="w-3.5 h-3.5 text-slate-500" />
             </li>
             <li>
-              <Link to="/services" className="hover:text-[#1B72E8] transition-colors">
+              <Link to="/services" className="hover:text-[#1F4FE0] transition-colors">
                 Services
               </Link>
             </li>
             <li>
-              <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
+              <ChevronRight className="w-3.5 h-3.5 text-slate-500" />
             </li>
             <li className="font-semibold text-slate-800 truncate" aria-current="page">
               Support & Maintenance (AMS)
@@ -167,7 +167,7 @@ export const SupportMaintenancePage: React.FC = () => {
       {/* ========================================================================= */}
       {/* 2. HERO SECTION                                                          */}
       {/* ========================================================================= */}
-      <section className="relative pt-10 pb-16 lg:pt-14 lg:pb-20 overflow-hidden bg-gradient-to-b from-white via-slate-50/50 to-white border-b border-slate-100">
+      <section className="relative pt-10 pb-16 lg:pt-14 lg:pb-20 overflow-hidden border-b border-white/10 bg-atlas-navy atlas-dark">
         <div className="absolute inset-0 bg-dot-pattern opacity-40 pointer-events-none" />
         <div className="absolute -top-32 -left-32 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute top-1/2 -right-32 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl pointer-events-none" />
@@ -177,13 +177,13 @@ export const SupportMaintenancePage: React.FC = () => {
             {/* Left Content */}
             <div className="lg:col-span-7 space-y-6 text-left">
               <div className="inline-flex items-center gap-2">
-                <span className="text-[12px] sm:text-[13px] font-bold uppercase tracking-wider text-[#1B72E8] bg-blue-50 px-3 py-1 rounded-full border border-blue-200">
+                <span className="text-[12px] sm:text-[13px] font-bold uppercase tracking-wider text-[#1F4FE0] bg-blue-50 px-3 py-1 rounded-full border border-blue-200">
                   APPLICATION MANAGEMENT SERVICES (AMS)
                 </span>
               </div>
 
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#1A202C] tracking-tight leading-tight">
-                Enterprise SAP Business One <span className="text-[#1B72E8]">Support & Maintenance</span>
+              <h1 className="atlas-h1-size font-extrabold text-[#1A202C]">
+                Enterprise SAP Business One <span className="text-[#1F4FE0]">Support & Maintenance</span>
               </h1>
 
               <p className="text-lg sm:text-xl font-medium text-slate-700 leading-snug">
@@ -221,7 +221,7 @@ export const SupportMaintenancePage: React.FC = () => {
               <div className="pt-4 flex flex-wrap gap-3 sm:gap-4 items-center">
                 <Button
                   onClick={() => setIsModalOpen(true)}
-                  className="bg-[#1B72E8] hover:bg-blue-700 text-white font-semibold px-6 py-3.5 rounded-lg shadow-sm transition-all duration-200 inline-flex items-center gap-2"
+                  className="bg-[#1F4FE0] hover:bg-blue-700 text-white font-semibold px-6 py-3.5 rounded-lg shadow-sm transition-all duration-200 inline-flex items-center gap-2"
                 >
                   Request AMS Proposal
                   <ArrowRight className="w-4 h-4" />
@@ -230,7 +230,7 @@ export const SupportMaintenancePage: React.FC = () => {
                   href="#sla-matrix"
                   className="inline-flex items-center gap-2 px-5 py-3.5 rounded-lg text-slate-700 font-semibold bg-white border border-slate-300 hover:bg-slate-50 hover:border-slate-400 transition-all duration-200"
                 >
-                  <Clock className="w-4 h-4 text-[#1B72E8]" />
+                  <Clock className="w-4 h-4 text-[#1F4FE0]" />
                   Review SLA Tiers
                 </a>
               </div>
@@ -238,7 +238,7 @@ export const SupportMaintenancePage: React.FC = () => {
 
             {/* Right Media Card */}
             <div className="lg:col-span-5">
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-slate-200/80 bg-slate-900 group">
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-slate-200/80 bg-atlas-navy group">
                 <img
                   src="/images/dashboards/executive-command-center.jpg"
                   alt="ATLAS Technosoft Executive Command Center and 24/7 Monitoring Desk"
@@ -278,8 +278,8 @@ export const SupportMaintenancePage: React.FC = () => {
       <section className="py-12 bg-white border-b border-slate-200/80">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
-            <div className="bg-slate-50/70 rounded-2xl p-6 sm:p-7 border border-slate-200/80 hover:border-blue-300 transition-all duration-200 hover:shadow-md">
-              <div className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#1B72E8] tracking-tight mb-2">
+            <div className="bg-white rounded-2xl p-6 sm:p-7 border border-slate-200/80 hover:border-blue-300 transition-all duration-200 hover:shadow-md">
+              <div className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#1F4FE0] tracking-tight mb-2">
                 1 Hour
               </div>
               <div className="text-base sm:text-lg font-bold text-slate-900 mb-1">
@@ -290,7 +290,7 @@ export const SupportMaintenancePage: React.FC = () => {
               </p>
             </div>
 
-            <div className="bg-slate-50/70 rounded-2xl p-6 sm:p-7 border border-slate-200/80 hover:border-blue-300 transition-all duration-200 hover:shadow-md">
+            <div className="bg-white rounded-2xl p-6 sm:p-7 border border-slate-200/80 hover:border-blue-300 transition-all duration-200 hover:shadow-md">
               <div className="text-3xl sm:text-4xl lg:text-5xl font-black text-emerald-600 tracking-tight mb-2">
                 99.9%
               </div>
@@ -302,7 +302,7 @@ export const SupportMaintenancePage: React.FC = () => {
               </p>
             </div>
 
-            <div className="bg-slate-50/70 rounded-2xl p-6 sm:p-7 border border-slate-200/80 hover:border-blue-300 transition-all duration-200 hover:shadow-md">
+            <div className="bg-white rounded-2xl p-6 sm:p-7 border border-slate-200/80 hover:border-blue-300 transition-all duration-200 hover:shadow-md">
               <div className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#E06D53] tracking-tight mb-2">
                 80+
               </div>
@@ -320,13 +320,13 @@ export const SupportMaintenancePage: React.FC = () => {
       {/* ========================================================================= */}
       {/* 4. SLA TIER MATRIX                                                       */}
       {/* ========================================================================= */}
-      <section id="sla-matrix" className="py-16 lg:py-24 bg-slate-50 border-b border-slate-200/80">
+      <section id="sla-matrix" className="py-16 lg:py-24 border-b border-white/10 bg-atlas-navy atlas-dark">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-14">
-            <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#1B72E8]">
+            <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#1F4FE0]">
               Contractual Transparency
             </span>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 mt-2 mb-4">
+            <h2 className="atlas-h2-size font-extrabold text-slate-900 mt-2 mb-4">
               Tiered SLA Response & Resolution Matrix
             </h2>
             <p className="text-base text-slate-600">
@@ -342,7 +342,7 @@ export const SupportMaintenancePage: React.FC = () => {
               >
                 <div>
                   <div className="flex items-center justify-between gap-2 mb-3">
-                    <span className="text-xs font-bold uppercase tracking-wider text-[#1B72E8] bg-blue-50 px-2.5 py-1 rounded-md border border-blue-200">
+                    <span className="text-xs font-bold uppercase tracking-wider text-[#1F4FE0] bg-blue-50 px-2.5 py-1 rounded-md border border-blue-200">
                       {tier.coverage}
                     </span>
                     <span className="text-xs sm:text-sm font-extrabold text-slate-900 bg-slate-100 px-3 py-1 rounded-full">
@@ -360,7 +360,7 @@ export const SupportMaintenancePage: React.FC = () => {
                 </div>
 
                 <div className="pt-4 border-t border-slate-100 text-xs sm:text-sm text-slate-700">
-                  <span className="font-bold text-[#1B72E8]">Resolution Action: </span>
+                  <span className="font-bold text-[#1F4FE0]">Resolution Action: </span>
                   {tier.action}
                 </div>
               </div>
@@ -378,7 +378,7 @@ export const SupportMaintenancePage: React.FC = () => {
             <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-emerald-600">
               Complete Protection
             </span>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 mt-2 mb-4">
+            <h2 className="atlas-h2-size font-extrabold text-slate-900 mt-2 mb-4">
               Comprehensive Support Scope
             </h2>
             <p className="text-base text-slate-600">
@@ -392,9 +392,9 @@ export const SupportMaintenancePage: React.FC = () => {
               return (
                 <div
                   key={idx}
-                  className="bg-slate-50/70 rounded-2xl p-6 sm:p-7 border border-slate-200/80 hover:border-blue-400 hover:shadow-md transition-all duration-200 group"
+                  className="bg-white rounded-2xl p-6 sm:p-7 border border-slate-200/80 hover:border-blue-400 hover:shadow-md transition-all duration-200 group"
                 >
-                  <div className="p-3 rounded-xl bg-blue-100 text-[#1B72E8] group-hover:bg-[#1B72E8] group-hover:text-white transition-colors duration-200 w-fit mb-4">
+                  <div className="p-3 rounded-xl bg-blue-100 text-[#1F4FE0] group-hover:bg-[#1F4FE0] group-hover:text-white transition-colors duration-200 w-fit mb-4">
                     <Icon className="w-6 h-6" />
                   </div>
                   <h3 className="text-lg font-bold text-slate-900 mb-2">
@@ -413,13 +413,13 @@ export const SupportMaintenancePage: React.FC = () => {
       {/* ========================================================================= */}
       {/* 6. STEP-BY-STEP ONBOARDING PROCESS                                       */}
       {/* ========================================================================= */}
-      <section className="py-16 lg:py-24 bg-slate-50 border-b border-slate-200/80">
+      <section className="py-16 lg:py-24 border-b border-white/10 bg-atlas-navy atlas-dark">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-14">
-            <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#1B72E8]">
+            <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#1F4FE0]">
               Seamless Transition
             </span>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 mt-2 mb-4">
+            <h2 className="atlas-h2-size font-extrabold text-slate-900 mt-2 mb-4">
               5-Stage AMS Onboarding Framework
             </h2>
             <p className="text-base text-slate-600">
@@ -434,7 +434,7 @@ export const SupportMaintenancePage: React.FC = () => {
                 className="bg-white border border-slate-200/90 rounded-2xl p-6 sm:p-7 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 sm:gap-6 hover:border-blue-400 transition-all duration-200 shadow-sm"
               >
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-blue-50 text-[#1B72E8] border border-blue-200 flex items-center justify-center font-extrabold text-lg flex-shrink-0">
+                  <div className="w-12 h-12 rounded-xl bg-blue-50 text-[#1F4FE0] border border-blue-200 flex items-center justify-center font-extrabold text-lg flex-shrink-0">
                     0{step.step}
                   </div>
                   <div>
@@ -448,7 +448,7 @@ export const SupportMaintenancePage: React.FC = () => {
                 </div>
 
                 <div className="sm:text-right flex-shrink-0 w-full sm:w-auto pt-2 sm:pt-0 border-t sm:border-t-0 border-slate-100">
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-blue-50 text-[#1B72E8] border border-blue-200">
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-blue-50 text-[#1F4FE0] border border-blue-200">
                     <FileCheck2 className="w-3.5 h-3.5" />
                     {step.output}
                   </span>
@@ -462,17 +462,17 @@ export const SupportMaintenancePage: React.FC = () => {
       {/* ========================================================================= */}
       {/* 7. VERIFIED ENTERPRISE AMS SUCCESS STORY                                  */}
       {/* ========================================================================= */}
-      <section className="py-16 lg:py-20 bg-slate-900 text-white">
+      <section className="py-16 lg:py-20 bg-atlas-navy text-white">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 rounded-3xl p-8 sm:p-12 border border-slate-700/80 shadow-2xl relative overflow-hidden">
+          <div className="bg-white atlas-light-surface rounded-3xl p-8 sm:p-12 shadow-2xl relative overflow-hidden">
             <div className="max-w-3xl relative z-10">
-              <span className="inline-block px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-blue-500/20 text-blue-300 border border-blue-400/30 mb-4">
+              <span className="inline-block px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-atlas-royalTint text-atlas-royal border border-blue-400/30 mb-4">
                 LONG-TERM AMS PARTNERSHIP TRACK RECORD
               </span>
-              <h3 className="text-2xl sm:text-3xl font-extrabold text-white mb-4">
+              <h3 className="text-2xl sm:text-3xl font-extrabold text-atlas-navy mb-4">
                 36 Consecutive Months of 99.95% System Uptime
               </h3>
-              <blockquote className="text-lg sm:text-xl text-slate-300 italic mb-6 leading-relaxed">
+              <blockquote className="text-lg sm:text-xl text-atlas-body italic mb-6 leading-relaxed">
                 "Having ATLAS Technosoft manage our SAP Business One HANA cluster eliminated the recurring memory slowdowns and dispatch stoppages we experienced before. Their Mumbai team is exceptionally fast, technically grounded, and treats our business like their own."
               </blockquote>
               <div className="flex items-center gap-4 mb-8">
@@ -480,17 +480,17 @@ export const SupportMaintenancePage: React.FC = () => {
                   ATPL
                 </div>
                 <div>
-                  <div className="font-bold text-white text-sm">
+                  <div className="font-bold text-atlas-navy text-sm">
                     Leading Industrial Manufacturing & Distribution Client
                   </div>
-                  <div className="text-xs text-slate-400">
+                  <div className="text-xs text-slate-500">
                     Application Management Services • Managed by ATLAS Technosoft
                   </div>
                 </div>
               </div>
               <Link
                 to="/case-studies/industrial-manufacturing"
-                className="inline-flex items-center gap-2 bg-[#1B72E8] hover:bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg shadow-sm transition-all duration-200"
+                className="inline-flex items-center gap-2 bg-[#1F4FE0] hover:bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg shadow-sm transition-all duration-200"
               >
                 Read Manufacturing Case Study
                 <ArrowRight className="w-4 h-4" />
@@ -503,13 +503,13 @@ export const SupportMaintenancePage: React.FC = () => {
       {/* ========================================================================= */}
       {/* 8. RELATED SERVICES                                                      */}
       {/* ========================================================================= */}
-      <section className="py-16 lg:py-20 bg-slate-50 border-b border-slate-200/80">
+      <section className="py-16 lg:py-20 border-b border-white/10 bg-atlas-navy atlas-dark">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-12">
-            <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#1B72E8]">
+            <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#1F4FE0]">
               Comprehensive Services
             </span>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-2 mb-3">
+            <h2 className="atlas-h2-size font-extrabold text-slate-900 mt-2 mb-3">
               Explore Our Full ERP Lifecycle
             </h2>
             <p className="text-sm sm:text-base text-slate-600">
@@ -532,7 +532,7 @@ export const SupportMaintenancePage: React.FC = () => {
               </div>
               <Link
                 to="/services/sap-business-one"
-                className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#1B72E8] hover:text-blue-700 transition-colors"
+                className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#1F4FE0] hover:text-blue-700 transition-colors"
               >
                 Learn More
                 <ArrowRight className="w-4 h-4" />
@@ -553,7 +553,7 @@ export const SupportMaintenancePage: React.FC = () => {
               </div>
               <Link
                 to="/solutions/boyum-it"
-                className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#1B72E8] hover:text-blue-700 transition-colors"
+                className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#1F4FE0] hover:text-blue-700 transition-colors"
               >
                 Learn More
                 <ArrowRight className="w-4 h-4" />
@@ -574,7 +574,7 @@ export const SupportMaintenancePage: React.FC = () => {
               </div>
               <Link
                 to="/services/uipath-automation"
-                className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#1B72E8] hover:text-blue-700 transition-colors"
+                className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#1F4FE0] hover:text-blue-700 transition-colors"
               >
                 Learn More
                 <ArrowRight className="w-4 h-4" />
@@ -589,12 +589,12 @@ export const SupportMaintenancePage: React.FC = () => {
       {/* ========================================================================= */}
       <section className="py-16 lg:py-24 bg-white">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900 rounded-3xl p-8 sm:p-14 text-white text-center relative overflow-hidden mb-12">
+          <div className="bg-atlas-navy rounded-3xl p-8 sm:p-14 text-white text-center relative overflow-hidden mb-12">
             <div className="max-w-2xl mx-auto space-y-5 relative z-10">
               <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-blue-300">
                 Guaranteed Response Times
               </span>
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-white">
+              <h2 className="atlas-h2-size font-extrabold text-white">
                 Ensure Uninterrupted ERP Performance Today
               </h2>
               <p className="text-base sm:text-lg text-slate-300 leading-relaxed">
@@ -603,7 +603,7 @@ export const SupportMaintenancePage: React.FC = () => {
               <div className="pt-3 flex flex-wrap items-center justify-center gap-4">
                 <Button
                   onClick={() => setIsModalOpen(true)}
-                  className="bg-[#1B72E8] hover:bg-blue-600 text-white font-bold text-base px-8 py-4 rounded-xl shadow-lg transition-all duration-200 inline-flex items-center gap-2"
+                  className="bg-[#1F4FE0] hover:bg-blue-600 text-white font-bold text-base px-8 py-4 rounded-xl shadow-lg transition-all duration-200 inline-flex items-center gap-2"
                 >
                   Schedule AMS Consultation
                   <ArrowRight className="w-5 h-5" />

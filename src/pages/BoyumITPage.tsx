@@ -41,6 +41,8 @@ import {
   BoyumProductCard
 } from '../data/boyumItContent';
 import { BRAND_INFO } from '../data/websiteContent';
+import { ImageFeatureSlider } from '../components/ui/ImageFeatureSlider';
+import { cardImage, poolForSlug } from '../data/cardImagePools';
 
 export const BoyumITPage: React.FC = () => {
   // Modal State
@@ -73,7 +75,7 @@ export const BoyumITPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white text-[#45546B]">
+    <div className="min-h-screen bg-white text-[#4A5876]">
       
       {/* ========================================================================= */}
       {/* SECTION 1: HERO SECTION                                                   */}
@@ -93,21 +95,21 @@ export const BoyumITPage: React.FC = () => {
               
               {/* Eyebrow Label */}
               <div className="inline-flex items-center gap-2">
-                <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-[#1B72E8] select-none">
+                <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-[#1F4FE0] select-none">
                   {BOYUM_HERO_DATA.eyebrow}
                 </span>
               </div>
 
               {/* Main Hero Heading */}
-              <h1 className="font-serif text-[36px] sm:text-[44px] lg:text-[50px] xl:text-[54px] font-bold tracking-tight leading-[1.14] text-[#142B59]">
+              <h1 className="atlas-h1-size font-serif font-extrabold text-[#0A1B4F]">
                 {BOYUM_HERO_DATA.titleStart}{' '}
-                <span className="bg-gradient-to-r from-[#0052CC] via-[#0066CC] to-[#0A66C2] bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-[#1F4FE0] via-[#1F4FE0] to-[#1F4FE0] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">
                   {BOYUM_HERO_DATA.titleHighlight}
                 </span>
               </h1>
 
               {/* Description */}
-              <p className="text-[16px] sm:text-[18px] lg:text-[19px] text-[#45546B] leading-relaxed max-w-2xl font-normal">
+              <p className="text-[16px] sm:text-[18px] lg:text-[19px] text-[#4A5876] leading-relaxed max-w-2xl font-normal">
                 {BOYUM_HERO_DATA.description}
               </p>
 
@@ -115,7 +117,7 @@ export const BoyumITPage: React.FC = () => {
               <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
                 <a
                   href="#products"
-                  className="inline-flex items-center justify-center gap-2 text-[16px] font-semibold px-8 py-3.5 rounded-xl bg-gradient-to-r from-[#0052CC] to-[#0A66C2] hover:from-[#0040A8] hover:to-[#08529C] text-white shadow-md shadow-blue-500/25 transition-all duration-200 cursor-pointer"
+                  className="inline-flex items-center justify-center gap-2 text-[16px] font-semibold px-8 py-3.5 rounded-xl bg-gradient-to-r from-[#1F4FE0] to-[#1F4FE0] hover:from-[#1739B8] hover:to-[#1739B8] text-white shadow-md shadow-blue-500/25 transition-all duration-200 cursor-pointer"
                 >
                   <span>{BOYUM_HERO_DATA.primaryCtaText}</span>
                   <ArrowRight className="w-5 h-5" />
@@ -124,7 +126,7 @@ export const BoyumITPage: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => setIsModalOpen(true)}
-                  className="inline-flex items-center justify-center gap-2 text-[16px] font-semibold px-8 py-3.5 rounded-xl bg-white hover:bg-slate-50 text-[#142B59] border border-slate-300 shadow-sm transition-all duration-200 cursor-pointer"
+                  className="inline-flex items-center justify-center gap-2 text-[16px] font-semibold px-8 py-3.5 rounded-xl bg-white hover:bg-slate-50 text-[#0A1B4F] border border-slate-300 shadow-sm transition-all duration-200 cursor-pointer"
                 >
                   <span>{BOYUM_HERO_DATA.secondaryCtaText}</span>
                 </button>
@@ -132,12 +134,12 @@ export const BoyumITPage: React.FC = () => {
 
               {/* Partner Badges Strip */}
               <div className="pt-3 flex flex-wrap items-center gap-3">
-                <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-blue-50 border border-blue-200 text-xs font-bold text-[#1B72E8]">
-                  <Award className="w-4 h-4 text-[#1B72E8]" />
+                <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-blue-50 border border-blue-200 text-xs font-bold text-[#1F4FE0]">
+                  <Award className="w-4 h-4 text-[#1F4FE0]" />
                   <span>Boyum IT Silver Partner</span>
                 </div>
-                <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-blue-50 border border-blue-200 text-xs font-bold text-[#0066CC]">
-                  <Layers className="w-4 h-4 text-[#0066CC]" />
+                <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-blue-50 border border-blue-200 text-xs font-bold text-[#1F4FE0]">
+                  <Layers className="w-4 h-4 text-[#1F4FE0]" />
                   <span>320+ Modules Deployed</span>
                 </div>
                 <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-50 border border-emerald-200 text-xs font-bold text-[#10b981]">
@@ -166,7 +168,7 @@ export const BoyumITPage: React.FC = () => {
                     <div className="h-5 w-px bg-slate-300" />
                     <SAPBusinessOneLogo className="h-6 sm:h-7" />
                   </div>
-                  <span className="text-[11px] sm:text-[12px] font-bold text-[#142B59] bg-blue-50 px-2.5 py-1 rounded-md border border-blue-100">
+                  <span className="text-[11px] sm:text-[12px] font-bold text-[#0A1B4F] bg-blue-50 px-2.5 py-1 rounded-md border border-blue-100">
                     Certified Add-on
                   </span>
                 </div>
@@ -189,7 +191,7 @@ export const BoyumITPage: React.FC = () => {
                   <div className={`text-[32px] sm:text-[38px] lg:text-[42px] font-extrabold tracking-tight leading-none mb-1 text-[${metric.color}]`}>
                     <span style={{ color: metric.color }}><AnimatedCounter value={metric.value} /></span>
                   </div>
-                  <div className="text-[14px] sm:text-[15px] font-bold text-[#142B59] leading-snug">
+                  <div className="text-[14px] sm:text-[15px] font-bold text-[#0A1B4F] leading-snug">
                     {metric.label}
                   </div>
                   <div className="text-[12px] sm:text-[13px] text-slate-500 leading-snug mt-0.5">
@@ -205,29 +207,29 @@ export const BoyumITPage: React.FC = () => {
       {/* ========================================================================= */}
       {/* SECTION 2: INTRODUCTION (TWO-COLUMN EXPLAINER)                             */}
       {/* ========================================================================= */}
-      <section id="introduction" className="py-14 sm:py-16 lg:py-20 bg-[#f4f9ff]/60 border-b border-slate-100">
+      <section id="introduction" className="py-14 sm:py-16 lg:py-20 border-b border-white/10 bg-atlas-navy atlas-dark">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             
             {/* Left Column: Descriptive Content */}
             <div className="lg:col-span-6 space-y-5 text-left">
               <div>
-                <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-[#1B72E8] block mb-2 select-none">
+                <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-[#1F4FE0] block mb-2 select-none">
                   {BOYUM_INTRO_DATA.eyebrow}
                 </span>
-                <h2 className="font-serif text-[28px] sm:text-[34px] lg:text-[40px] font-bold text-[#142B59] tracking-tight leading-tight">
+                <h2 className="atlas-h2-size font-serif font-extrabold text-[#0A1B4F]">
                   {BOYUM_INTRO_DATA.titleStart}{' '}
-                  <span className="bg-gradient-to-r from-[#0052CC] via-[#0066CC] to-[#0A66C2] bg-clip-text text-transparent">
+                  <span className="bg-gradient-to-r from-[#1F4FE0] via-[#1F4FE0] to-[#1F4FE0] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">
                     {BOYUM_INTRO_DATA.titleHighlight}
                   </span>
                 </h2>
               </div>
 
-              <p className="text-[16px] sm:text-[17px] text-[#45546B] leading-relaxed">
+              <p className="text-[16px] sm:text-[17px] text-[#4A5876] leading-relaxed">
                 {BOYUM_INTRO_DATA.description}
               </p>
 
-              <p className="text-[15px] sm:text-[16px] text-[#45546B] leading-relaxed">
+              <p className="text-[15px] sm:text-[16px] text-[#4A5876] leading-relaxed">
                 {BOYUM_INTRO_DATA.secondaryParagraph}
               </p>
 
@@ -235,10 +237,10 @@ export const BoyumITPage: React.FC = () => {
               <div className="space-y-3 pt-2">
                 {BOYUM_INTRO_DATA.highlights.map((highlight, idx) => (
                   <div key={idx} className="flex items-start gap-3">
-                    <div className="w-5 h-5 rounded-full bg-gradient-to-r from-[#0052CC] to-[#0A66C2] text-white flex items-center justify-center shrink-0 mt-0.5 shadow-sm">
+                    <div className="w-5 h-5 rounded-full bg-gradient-to-r from-[#1F4FE0] to-[#1F4FE0] text-white flex items-center justify-center shrink-0 mt-0.5 shadow-sm">
                       <Check className="w-3.5 h-3.5" />
                     </div>
-                    <span className="text-[15px] sm:text-[16px] font-medium text-[#172B50]">
+                    <span className="text-[15px] sm:text-[16px] font-medium text-[#0A1B4F]">
                       {highlight}
                     </span>
                   </div>
@@ -270,7 +272,7 @@ export const BoyumITPage: React.FC = () => {
                 {/* Floating Badge */}
                 <div className="absolute top-4 right-4 bg-white/95 backdrop-blur-md rounded-xl py-2 px-3.5 shadow-md border border-slate-200/90 flex items-center gap-2">
                   <ShieldCheck className="w-4 h-4 text-emerald-600" />
-                  <span className="text-xs font-bold text-[#142B59]">100% Native SAP B1 Integration</span>
+                  <span className="text-xs font-bold text-[#0A1B4F]">100% Native SAP B1 Integration</span>
                 </div>
               </div>
             </div>
@@ -322,27 +324,27 @@ export const BoyumITPage: React.FC = () => {
                   <div className="p-6 space-y-4 text-left">
                     
                     <div>
-                      <h3 className="font-serif text-[22px] sm:text-[24px] font-bold text-[#142B59] group-hover:text-[#1B72E8] transition-colors leading-snug">
+                      <h3 className="font-serif text-[22px] sm:text-[24px] font-bold text-[#0A1B4F] group-hover:text-[#1F4FE0] transition-colors leading-snug">
                         {product.name}
                       </h3>
-                      <p className="text-[13px] font-semibold text-[#0066CC] mt-1 leading-snug">
+                      <p className="text-[13px] font-semibold text-[#1F4FE0] mt-1 leading-snug">
                         {product.tagline}
                       </p>
                     </div>
 
-                    <p className="text-[14px] text-[#53647A] leading-relaxed">
+                    <p className="text-[14px] text-[#4A5876] leading-relaxed">
                       {product.description}
                     </p>
 
                     {/* Features List */}
                     <div className="space-y-2 pt-2 border-t border-slate-100">
-                      <div className="text-[12px] font-bold uppercase tracking-wider text-slate-400">
+                      <div className="text-[12px] font-bold uppercase tracking-wider text-slate-500">
                         Core Capabilities
                       </div>
                       <ul className="space-y-2">
                         {product.features.map((feat, idx) => (
-                          <li key={idx} className="flex items-start gap-2.5 text-[13px] sm:text-[14px] text-[#172B50]">
-                            <CheckCircle2 className="w-4 h-4 text-[#1B72E8] shrink-0 mt-0.5" />
+                          <li key={idx} className="flex items-start gap-2.5 text-[13px] sm:text-[14px] text-[#0A1B4F]">
+                            <CheckCircle2 className="w-4 h-4 text-[#1F4FE0] shrink-0 mt-0.5" />
                             <span>{feat}</span>
                           </li>
                         ))}
@@ -369,7 +371,7 @@ export const BoyumITPage: React.FC = () => {
                   <button
                     type="button"
                     onClick={() => openProductModal(product)}
-                    className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl text-sm font-bold transition-all duration-200 shadow-sm cursor-pointer bg-gradient-to-r from-[#0052CC] to-[#0A66C2] hover:from-[#0040A8] hover:to-[#08529C] text-white"
+                    className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl text-sm font-bold transition-all duration-200 shadow-sm cursor-pointer bg-gradient-to-r from-[#1F4FE0] to-[#1F4FE0] hover:from-[#1739B8] hover:to-[#1739B8] text-white"
                   >
                     <span>Inquire About {product.name}</span>
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -386,7 +388,7 @@ export const BoyumITPage: React.FC = () => {
       {/* ========================================================================= */}
       {/* SECTION 4: KEY BENEFITS (6-CARD GRID)                                     */}
       {/* ========================================================================= */}
-      <section id="benefits" className="py-14 sm:py-16 lg:py-20 bg-[#f4f9ff]/60 border-b border-slate-100">
+      <section id="benefits" className="py-14 sm:py-16 lg:py-20 border-b border-white/10 bg-atlas-navy atlas-dark">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           
           <SectionHeading
@@ -397,27 +399,15 @@ export const BoyumITPage: React.FC = () => {
             align="center"
           />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {BOYUM_BENEFITS_DATA.benefits.map((benefit) => (
-              <div
-                key={benefit.id}
-                className="p-6 rounded-2xl bg-white border border-slate-200/90 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-200 text-left space-y-3"
-              >
-                {/* Colored Icon Circle */}
-                <div className={`w-12 h-12 rounded-xl flex items-center justify-center shrink-0 ${benefit.bgColor}`}>
-                  {renderBenefitIcon(benefit.iconName)}
-                </div>
-
-                <h3 className="text-[18px] sm:text-[19px] font-bold text-[#172B50] leading-snug">
-                  {benefit.title}
-                </h3>
-
-                <p className="text-[14px] text-[#53647A] leading-relaxed">
-                  {benefit.description}
-                </p>
-              </div>
-            ))}
-          </div>
+          <ImageFeatureSlider
+            ariaLabel="Boyum IT key benefits"
+            perView={3}
+            items={BOYUM_BENEFITS_DATA.benefits.map((benefit, idx) => ({
+              title: benefit.title,
+              description: benefit.description,
+              image: cardImage('boyum', idx),
+            }))}
+          />
 
         </div>
       </section>
@@ -443,19 +433,19 @@ export const BoyumITPage: React.FC = () => {
                 className="relative flex flex-col items-center text-center p-4 sm:p-5 rounded-2xl bg-[#f8faff] border border-blue-100/80 hover:shadow-md transition-all duration-200"
               >
                 {/* Number Badge with Gemini gradient */}
-                <div className="w-12 h-12 rounded-full bg-gradient-to-r from-[#0052CC] to-[#0A66C2] text-white font-extrabold text-[18px] flex items-center justify-center shadow-md shadow-blue-500/20 mb-3.5 shrink-0">
+                <div className="w-12 h-12 rounded-full bg-gradient-to-r from-[#1F4FE0] to-[#1F4FE0] text-white font-extrabold text-[18px] flex items-center justify-center shadow-md shadow-blue-500/20 mb-3.5 shrink-0">
                   {step.number}
                 </div>
 
-                <h3 className="text-[17px] sm:text-[18px] font-bold text-[#172B50] mb-2 leading-snug">
+                <h3 className="text-[17px] sm:text-[18px] font-bold text-[#0A1B4F] mb-2 leading-snug">
                   {step.title}
                 </h3>
 
-                <p className="text-[13px] text-[#53647A] leading-relaxed mb-2">
+                <p className="text-[13px] text-[#4A5876] leading-relaxed mb-2">
                   {step.description}
                 </p>
 
-                <p className="text-[11px] text-slate-400 leading-snug mt-auto pt-2 border-t border-slate-200/60 w-full">
+                <p className="text-[11px] text-slate-500 leading-snug mt-auto pt-2 border-t border-slate-200/60 w-full">
                   {step.detail}
                 </p>
 
@@ -475,7 +465,7 @@ export const BoyumITPage: React.FC = () => {
       {/* ========================================================================= */}
       {/* SECTION 6: INDUSTRIES                                                     */}
       {/* ========================================================================= */}
-      <section id="industries" className="py-14 sm:py-16 lg:py-20 bg-[#f4f9ff]/60 border-b border-slate-100">
+      <section id="industries" className="py-14 sm:py-16 lg:py-20 border-b border-white/10 bg-atlas-navy atlas-dark">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           
           <SectionHeading
@@ -507,14 +497,14 @@ export const BoyumITPage: React.FC = () => {
                   </div>
 
                   <div className="p-5 sm:p-6 space-y-3">
-                    <h3 className="font-serif text-[20px] font-bold text-[#142B59] leading-snug">
+                    <h3 className="font-serif text-[20px] font-bold text-[#0A1B4F] leading-snug">
                       {ind.title}
                     </h3>
-                    <p className="text-[14px] text-[#53647A] leading-relaxed">
+                    <p className="text-[14px] text-[#4A5876] leading-relaxed">
                       {ind.description}
                     </p>
-                    <div className="pt-2 flex items-start gap-2 text-xs font-semibold text-[#1B72E8]">
-                      <Check className="w-4 h-4 shrink-0 mt-0.5 text-[#1B72E8]" />
+                    <div className="pt-2 flex items-start gap-2 text-xs font-semibold text-[#1F4FE0]">
+                      <Check className="w-4 h-4 shrink-0 mt-0.5 text-[#1F4FE0]" />
                       <span>{ind.bullet}</span>
                     </div>
                   </div>
@@ -526,7 +516,7 @@ export const BoyumITPage: React.FC = () => {
                     onClick={() => {
                       setIsModalOpen(true);
                     }}
-                    className="inline-flex items-center gap-1.5 text-xs font-bold text-[#1B72E8] hover:text-[#1557B0] transition-colors"
+                    className="inline-flex items-center gap-1.5 text-xs font-bold text-[#1F4FE0] hover:text-[#1F4FE0] transition-colors"
                   >
                     <span>Request Industry Assessment</span>
                     <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
@@ -546,23 +536,23 @@ export const BoyumITPage: React.FC = () => {
       <section id="contact-cta" className="py-14 sm:py-16 lg:py-20 bg-white">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="rounded-2xl bg-[#eaf4ff] border border-blue-200/90 p-6 sm:p-8 lg:p-12 shadow-sm">
+          <div className="rounded-2xl bg-white border border-blue-200/90 p-6 sm:p-8 lg:p-12 shadow-sm">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
               
               {/* Left Column: Heading, Subtext & CTA Button */}
               <div className="lg:col-span-6 space-y-4 text-left">
-                <span className="text-[12px] font-bold uppercase tracking-wider text-[#1B72E8] block select-none">
+                <span className="text-[12px] font-bold uppercase tracking-wider text-[#1F4FE0] block select-none">
                   {BOYUM_CTA_DATA.eyebrow}
                 </span>
 
-                <h2 className="font-serif text-[26px] sm:text-[32px] lg:text-[38px] font-bold text-[#142B59] tracking-tight leading-tight">
+                <h2 className="font-serif text-[26px] sm:text-[32px] lg:text-[38px] font-bold text-[#0A1B4F] tracking-tight leading-tight">
                   {BOYUM_CTA_DATA.titleStart}{' '}
-                  <span className="bg-gradient-to-r from-[#0052CC] via-[#0066CC] to-[#0A66C2] bg-clip-text text-transparent">
+                  <span className="bg-gradient-to-r from-[#1F4FE0] via-[#1F4FE0] to-[#1F4FE0] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">
                     {BOYUM_CTA_DATA.titleHighlight}
                   </span>
                 </h2>
                 
-                <p className="text-[15px] sm:text-[17px] text-[#45546B] leading-relaxed max-w-xl">
+                <p className="text-[15px] sm:text-[17px] text-[#4A5876] leading-relaxed max-w-xl">
                   {BOYUM_CTA_DATA.description}
                 </p>
 
@@ -578,9 +568,9 @@ export const BoyumITPage: React.FC = () => {
 
                   <a
                     href={`mailto:${BRAND_INFO.contact.email}`}
-                    className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-white hover:bg-slate-50 text-[#142B59] border border-slate-300 text-[15px] font-semibold shadow-sm transition-all duration-200"
+                    className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-white hover:bg-slate-50 text-[#0A1B4F] border border-slate-300 text-[15px] font-semibold shadow-sm transition-all duration-200"
                   >
-                    <Mail className="w-4 h-4 text-[#1B72E8]" />
+                    <Mail className="w-4 h-4 text-[#1F4FE0]" />
                     <span>{BOYUM_CTA_DATA.secondaryButtonText}</span>
                   </a>
                 </div>

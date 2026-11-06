@@ -197,20 +197,20 @@ export const CustomerSupportWidget: React.FC = () => {
         >
           {/* Tooltip on hover */}
           <div
-            className={`absolute right-full top-1/2 -translate-y-1/2 mr-3 px-3 py-1.5 rounded-lg bg-[#071B3B] text-white text-xs font-medium tracking-wide shadow-xl whitespace-nowrap pointer-events-none transition-all duration-200 flex items-center gap-1.5 ${
+            className={`absolute right-full top-1/2 -translate-y-1/2 mr-3 px-3 py-1.5 rounded-lg bg-[#0A1B4F] text-white text-xs font-medium tracking-wide shadow-xl whitespace-nowrap pointer-events-none transition-all duration-200 flex items-center gap-1.5 ${
               isHovered ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-2'
             }`}
           >
             <Sparkles className="w-3.5 h-3.5 text-blue-400" />
             <span>Need help? Ask ATLAS Assistant</span>
-            <div className="absolute left-full top-1/2 -translate-y-1/2 -ml-1 border-4 border-transparent border-l-[#071B3B]" />
+            <div className="absolute left-full top-1/2 -translate-y-1/2 -ml-1 border-4 border-transparent border-l-[#0A1B4F]" />
           </div>
 
           <button
             type="button"
             onClick={handleOpenChat}
             aria-label="Open ATLAS Customer Support Chat"
-            className="group relative flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-tr from-[#0B2450] via-[#0052A3] to-[#0066CC] hover:from-[#071A3A] hover:to-[#004D99] text-white shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 active:scale-95 focus:outline-none focus:ring-4 focus:ring-blue-500/40 cursor-pointer"
+            className="group relative flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-tr from-[#0A1B4F] via-[#0052A3] to-[#1F4FE0] hover:from-[#071A3A] hover:to-[#004D99] text-white shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 active:scale-95 focus:outline-none focus:ring-4 focus:ring-blue-500/40 cursor-pointer"
           >
             {/* Pulsing ring indicator */}
             <span className="absolute inset-0 rounded-full bg-blue-500 opacity-20 animate-ping group-hover:opacity-0" />

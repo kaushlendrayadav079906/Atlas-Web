@@ -17,6 +17,7 @@ import {
   Briefcase,
   PhoneCall
 } from 'lucide-react';
+import { ImageFeatureSlider } from '../components/ui/ImageFeatureSlider';
 import { ConsultationModal } from '../components/ui/ConsultationModal';
 import { CallbackModal } from '../components/ui/CallbackModal';
 import { BRAND_INFO } from '../data/websiteContent';
@@ -149,16 +150,16 @@ export const ContactPage: React.FC = () => {
   };
 
   return (
-    <div className="relative bg-[#F0F7FF] text-[#45546B] selection:bg-[#0866D9] selection:text-white">
+    <div className="relative bg-white text-[#4A5876] selection:bg-[#1F4FE0] selection:text-white">
 
       {/* ========================================================================= */}
       {/* SECTION 1: CONTACT HERO SECTION                                           */}
       {/* ========================================================================= */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-[#F0F7FF] via-[#F8FBFF] to-[#F0F7FF] pt-10 pb-14 lg:pt-16 lg:pb-20 border-b border-blue-100/60">
+      <section className="relative overflow-hidden pt-10 pb-14 lg:pt-16 lg:pb-20 border-b border-white/10 bg-atlas-navy atlas-dark">
         
         {/* Subtle decorative background shapes */}
         <div className="pointer-events-none absolute -top-24 left-1/2 -translate-x-1/2 w-[850px] h-[360px] bg-gradient-to-tr from-blue-400/10 via-sky-300/15 to-transparent rounded-full blur-3xl -z-10" />
-        <div className="pointer-events-none absolute -left-12 top-1/3 w-72 h-72 bg-gradient-to-br from-[#0866D9]/10 via-teal-400/5 to-transparent rounded-full blur-2xl -z-10" />
+        <div className="pointer-events-none absolute -left-12 top-1/3 w-72 h-72 bg-gradient-to-br from-[#1F4FE0]/10 via-teal-400/5 to-transparent rounded-full blur-2xl -z-10" />
 
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
@@ -167,21 +168,21 @@ export const ContactPage: React.FC = () => {
             <div className="lg:col-span-7 space-y-6 text-left">
               {/* Eyebrow Label */}
               <div className="inline-block">
-                <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-[#0866D9] select-none">
+                <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-[#1F4FE0] select-none">
                   CONTACT US —
                 </span>
               </div>
 
               {/* Main Headline */}
-              <h1 className="font-serif text-[38px] sm:text-[46px] lg:text-[52px] xl:text-[56px] font-bold tracking-tight leading-[1.14] text-[#142B55]">
+              <h1 className="atlas-h1-size font-serif font-extrabold text-[#0A1B4F]">
                 Let's Build Something Great{' '}
-                <span className="bg-gradient-to-r from-[#0052CC] via-[#0866D9] to-[#0A66C2] bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-[#1F4FE0] via-[#1F4FE0] to-[#1F4FE0] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">
                   Together
                 </span>
               </h1>
 
               {/* Description */}
-              <p className="text-[16px] sm:text-[18px] lg:text-[19px] text-[#45546B] leading-relaxed max-w-2xl font-normal">
+              <p className="text-[16px] sm:text-[18px] lg:text-[19px] text-[#4A5876] leading-relaxed max-w-2xl font-normal">
                 We are here to help you with your business requirements. Get in touch with our experts to discuss how our technology solutions can support your growth.
               </p>
 
@@ -190,7 +191,7 @@ export const ContactPage: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => setIsConsultationModalOpen(true)}
-                  className="inline-flex items-center justify-center gap-2 text-[16px] font-semibold px-8 py-3.5 rounded-xl bg-gradient-to-r from-[#0052CC] to-[#0A66C2] hover:from-[#0040A8] hover:to-[#08529C] text-white shadow-md shadow-blue-500/25 transition-all duration-200 cursor-pointer"
+                  className="inline-flex items-center justify-center gap-2 text-[16px] font-semibold px-8 py-3.5 rounded-xl bg-gradient-to-r from-[#1F4FE0] to-[#1F4FE0] hover:from-[#1739B8] hover:to-[#1739B8] text-white shadow-md shadow-blue-500/25 transition-all duration-200 cursor-pointer"
                 >
                   <span>Book a Consultation</span>
                   <ArrowRight className="w-5 h-5" />
@@ -199,7 +200,7 @@ export const ContactPage: React.FC = () => {
                 <button
                   type="button"
                   onClick={scrollToEnquiryForm}
-                  className="inline-flex items-center justify-center gap-2 text-[16px] font-semibold px-8 py-3.5 rounded-xl bg-white hover:bg-slate-50 text-[#142B55] border border-blue-200 shadow-xs hover:border-[#0866D9] transition-all duration-200 cursor-pointer"
+                  className="inline-flex items-center justify-center gap-2 text-[16px] font-semibold px-8 py-3.5 rounded-xl bg-white hover:bg-slate-50 text-[#0A1B4F] border border-blue-200 shadow-xs hover:border-[#1F4FE0] transition-all duration-200 cursor-pointer"
                 >
                   <span>Talk to Our Experts</span>
                 </button>
@@ -214,15 +215,15 @@ export const ContactPage: React.FC = () => {
                   alt="ATLAS Technosoft Executive Team Consultation"
                   className="w-full h-auto object-cover max-h-[420px] group-hover:scale-105 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#142B55]/30 via-transparent to-transparent pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0A1B4F]/30 via-transparent to-transparent pointer-events-none" />
 
                 {/* Subtle feature tag badge */}
                 <div className="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-md rounded-xl p-3 border border-slate-200/80 shadow-md flex items-center justify-between text-[12px] sm:text-[13px]">
-                  <div className="flex items-center gap-2 text-[#142B55] font-semibold">
+                  <div className="flex items-center gap-2 text-[#0A1B4F] font-semibold">
                     <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
                     <span>Response within 24 business hours</span>
                   </div>
-                  <span className="font-bold text-[#0866D9]">SAP Silver Partner</span>
+                  <span className="font-bold text-[#1F4FE0]">SAP Silver Partner</span>
                 </div>
               </div>
             </div>
@@ -240,17 +241,17 @@ export const ContactPage: React.FC = () => {
           {/* Section Heading */}
           <div className="max-w-3xl mx-auto text-center mb-10 sm:mb-12">
             <div className="mb-2.5">
-              <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-[#0866D9] select-none">
+              <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-[#1F4FE0] select-none">
                 COMMUNICATION CHANNELS
               </span>
             </div>
-            <h2 className="font-serif text-[28px] sm:text-[34px] lg:text-[38px] font-bold tracking-tight text-[#142B55]">
+            <h2 className="atlas-h2-size font-serif font-extrabold text-[#0A1B4F]">
               Get in Touch with{' '}
-              <span className="bg-gradient-to-r from-[#0052CC] via-[#0866D9] to-[#0A66C2] bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-[#1F4FE0] via-[#1F4FE0] to-[#1F4FE0] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">
                 Our Specialists
               </span>
             </h2>
-            <p className="mt-3 text-[15px] sm:text-[17px] text-[#45546B] leading-relaxed">
+            <p className="mt-3 text-[15px] sm:text-[17px] text-[#4A5876] leading-relaxed">
               Reach out through any of the following channels. Our consultants are ready to assist you.
             </p>
           </div>
@@ -261,20 +262,20 @@ export const ContactPage: React.FC = () => {
             {/* Card 1: Email */}
             <a
               href="mailto:sales@atlastechnosoft.com"
-              className="group p-6 rounded-2xl bg-white border border-blue-100/80 hover:border-[#0866D9] shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-200 flex flex-col justify-between"
+              className="group p-6 rounded-2xl bg-white border border-blue-100/80 hover:border-[#1F4FE0] shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-200 flex flex-col justify-between"
             >
               <div>
-                <div className="w-13 h-13 rounded-2xl bg-blue-50 text-[#0866D9] flex items-center justify-center border border-blue-100/80 mb-4 group-hover:scale-110 transition-transform">
+                <div className="w-13 h-13 rounded-2xl bg-blue-50 text-[#1F4FE0] flex items-center justify-center border border-blue-100/80 mb-4 group-hover:scale-110 transition-transform">
                   <Mail className="w-6 h-6" />
                 </div>
-                <h3 className="text-[14px] font-bold uppercase tracking-wider text-slate-400 mb-1">
+                <h3 className="text-[14px] font-bold uppercase tracking-wider text-slate-500 mb-1">
                   Email Address
                 </h3>
-                <div className="text-[16px] font-bold text-[#142B55] group-hover:text-[#0866D9] transition-colors break-words">
+                <div className="text-[16px] font-bold text-[#0A1B4F] group-hover:text-[#1F4FE0] transition-colors break-words">
                   sales@atlastechnosoft.com
                 </div>
               </div>
-              <p className="text-[12.5px] text-[#53647A] mt-4 pt-3 border-t border-slate-100">
+              <p className="text-[12.5px] text-[#4A5876] mt-4 pt-3 border-t border-slate-100">
                 Typically responds within 24 business hours
               </p>
             </a>
@@ -288,14 +289,14 @@ export const ContactPage: React.FC = () => {
                 <div className="w-13 h-13 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center border border-emerald-100 mb-4 group-hover:scale-110 transition-transform">
                   <Phone className="w-6 h-6" />
                 </div>
-                <h3 className="text-[14px] font-bold uppercase tracking-wider text-slate-400 mb-1">
+                <h3 className="text-[14px] font-bold uppercase tracking-wider text-slate-500 mb-1">
                   Phone Number
                 </h3>
-                <div className="text-[16px] font-bold text-[#142B55] group-hover:text-emerald-600 transition-colors">
+                <div className="text-[16px] font-bold text-[#0A1B4F] group-hover:text-emerald-600 transition-colors">
                   +91 93723 29599
                 </div>
               </div>
-              <p className="text-[12.5px] text-[#53647A] mt-4 pt-3 border-t border-slate-100">
+              <p className="text-[12.5px] text-[#4A5876] mt-4 pt-3 border-t border-slate-100">
                 Mon – Sat: 9:30 AM to 6:30 PM IST
               </p>
             </a>
@@ -311,14 +312,14 @@ export const ContactPage: React.FC = () => {
                 <div className="w-13 h-13 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center border border-emerald-100 mb-4 group-hover:scale-110 transition-transform">
                   <MessageCircle className="w-6 h-6" />
                 </div>
-                <h3 className="text-[14px] font-bold uppercase tracking-wider text-slate-400 mb-1">
+                <h3 className="text-[14px] font-bold uppercase tracking-wider text-slate-500 mb-1">
                   WhatsApp Support
                 </h3>
-                <div className="text-[16px] font-bold text-[#142B55] group-hover:text-emerald-600 transition-colors">
+                <div className="text-[16px] font-bold text-[#0A1B4F] group-hover:text-emerald-600 transition-colors">
                   +91 93723 29599
                 </div>
               </div>
-              <p className="text-[12.5px] text-[#53647A] mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
+              <p className="text-[12.5px] text-[#4A5876] mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
                 <span>Instant chat with our team</span>
                 <ExternalLink className="w-3.5 h-3.5 text-emerald-600" />
               </p>
@@ -327,20 +328,20 @@ export const ContactPage: React.FC = () => {
             {/* Card 4: Office Headquarters */}
             <a
               href="#locations"
-              className="group p-6 rounded-2xl bg-white border border-blue-100/80 hover:border-[#0866D9] shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-200 flex flex-col justify-between"
+              className="group p-6 rounded-2xl bg-white border border-blue-100/80 hover:border-[#1F4FE0] shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-200 flex flex-col justify-between"
             >
               <div>
-                <div className="w-13 h-13 rounded-2xl bg-sky-50 text-[#0066CC] flex items-center justify-center border border-sky-100 mb-4 group-hover:scale-110 transition-transform">
+                <div className="w-13 h-13 rounded-2xl bg-sky-50 text-[#1F4FE0] flex items-center justify-center border border-sky-100 mb-4 group-hover:scale-110 transition-transform">
                   <MapPin className="w-6 h-6" />
                 </div>
-                <h3 className="text-[14px] font-bold uppercase tracking-wider text-slate-400 mb-1">
+                <h3 className="text-[14px] font-bold uppercase tracking-wider text-slate-500 mb-1">
                   Our Locations
                 </h3>
-                <div className="text-[16px] font-bold text-[#142B55] group-hover:text-[#0866D9] transition-colors">
+                <div className="text-[16px] font-bold text-[#0A1B4F] group-hover:text-[#1F4FE0] transition-colors">
                   Borivali & Marine Lines
                 </div>
               </div>
-              <p className="text-[12.5px] text-[#53647A] mt-4 pt-3 border-t border-slate-100">
+              <p className="text-[12.5px] text-[#4A5876] mt-4 pt-3 border-t border-slate-100">
                 Mumbai, Maharashtra, India
               </p>
             </a>
@@ -353,7 +354,7 @@ export const ContactPage: React.FC = () => {
       {/* ========================================================================= */}
       {/* SECTION 3: MAIN SECTION – ENQUIRY FORM & OFFICE LOCATIONS                  */}
       {/* ========================================================================= */}
-      <section id="contact-enquiry-form" className="py-14 sm:py-20 bg-[#F0F7FF] border-b border-blue-100/60">
+      <section id="contact-enquiry-form" className="py-14 sm:py-20 border-b border-white/10 bg-atlas-navy atlas-dark">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
             
@@ -362,13 +363,13 @@ export const ContactPage: React.FC = () => {
             {/* ------------------------------------------------------------------- */}
             <div className="lg:col-span-6 space-y-5">
               <div>
-                <span className="text-[13px] font-bold uppercase tracking-wider text-[#0866D9] block mb-1">
+                <span className="text-[13px] font-bold uppercase tracking-wider text-[#1F4FE0] block mb-1">
                   DIRECT ENQUIRY
                 </span>
-                <h2 className="font-serif text-[28px] sm:text-[34px] font-bold text-[#142B55] tracking-tight">
-                  Send Us an <span className="bg-gradient-to-r from-[#0052CC] via-[#0866D9] to-[#0A66C2] bg-clip-text text-transparent">Enquiry</span>
+                <h2 className="atlas-h2-size font-serif font-extrabold text-[#0A1B4F]">
+                  Send Us an <span className="bg-gradient-to-r from-[#1F4FE0] via-[#1F4FE0] to-[#1F4FE0] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">Enquiry</span>
                 </h2>
-                <p className="text-[15px] sm:text-[16px] text-[#45546B] mt-1">
+                <p className="text-[15px] sm:text-[16px] text-[#4A5876] mt-1">
                   Fill in the details below and an ATLAS enterprise consultant will get back to you shortly.
                 </p>
               </div>
@@ -376,14 +377,14 @@ export const ContactPage: React.FC = () => {
                             {/* Quick Action: Request a Callback Card */}
               <div className="bg-gradient-to-r from-blue-50 to-indigo-50/70 border border-blue-200/90 rounded-2xl p-4 sm:p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-xs">
                 <div className="flex items-start gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-[#0052CC] text-white flex items-center justify-center shrink-0 shadow-sm">
+                  <div className="w-10 h-10 rounded-xl bg-[#1F4FE0] text-white flex items-center justify-center shrink-0 shadow-sm">
                     <PhoneCall className="w-5 h-5" />
                   </div>
                   <div>
-                    <h3 className="text-[15px] font-bold text-[#142B55]">
+                    <h3 className="text-[15px] font-bold text-[#0A1B4F]">
                       Prefer a Direct Phone Call?
                     </h3>
-                    <p className="text-[13px] text-[#45546B] mt-0.5">
+                    <p className="text-[13px] text-[#4A5876] mt-0.5">
                       Choose your preferred date and time slot. Our certified consultants will call you.
                     </p>
                   </div>
@@ -391,9 +392,9 @@ export const ContactPage: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => setIsCallbackModalOpen(true)}
-                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white hover:bg-blue-50 text-[#0052CC] border border-blue-300 font-semibold text-[13.5px] shadow-xs hover:shadow transition-all shrink-0 cursor-pointer"
+                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white hover:bg-blue-50 text-[#1F4FE0] border border-blue-300 font-semibold text-[13.5px] shadow-xs hover:shadow transition-all shrink-0 cursor-pointer"
                 >
-                  <PhoneCall className="w-4 h-4 text-[#0052CC]" />
+                  <PhoneCall className="w-4 h-4 text-[#1F4FE0]" />
                   <span>Request a Callback</span>
                 </button>
               </div>
@@ -460,7 +461,7 @@ export const ContactPage: React.FC = () => {
                     {/* Row 1: Full Name & Business Email */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
                       <div>
-                        <label htmlFor="fullName" className="block text-[13.5px] font-semibold text-[#142B55] mb-1.5">
+                        <label htmlFor="fullName" className="block text-[13.5px] font-semibold text-[#0A1B4F] mb-1.5">
                           Full Name <span className="text-rose-500">*</span>
                         </label>
                         <input
@@ -470,10 +471,10 @@ export const ContactPage: React.FC = () => {
                           value={formData.fullName}
                           onChange={handleInputChange}
                           placeholder="e.g. Rahul Sharma"
-                          className={`w-full px-4 py-3 rounded-xl border text-[14.5px] text-slate-800 placeholder-slate-400 bg-slate-50/50 focus:bg-white focus:outline-none transition-all ${
+                          className={`w-full px-4 py-3 rounded-xl border text-[14.5px] text-slate-800 placeholder-slate-400 bg-white focus:bg-white focus:outline-none transition-all ${
                             formErrors.fullName
                               ? 'border-rose-400 focus:ring-2 focus:ring-rose-200'
-                              : 'border-slate-200 focus:border-[#0866D9] focus:ring-2 focus:ring-blue-100'
+                              : 'border-slate-200 focus:border-[#1F4FE0] focus:ring-2 focus:ring-blue-100'
                           }`}
                         />
                         {formErrors.fullName && (
@@ -485,7 +486,7 @@ export const ContactPage: React.FC = () => {
                       </div>
 
                       <div>
-                        <label htmlFor="email" className="block text-[13.5px] font-semibold text-[#142B55] mb-1.5">
+                        <label htmlFor="email" className="block text-[13.5px] font-semibold text-[#0A1B4F] mb-1.5">
                           Business Email <span className="text-rose-500">*</span>
                         </label>
                         <input
@@ -495,10 +496,10 @@ export const ContactPage: React.FC = () => {
                           value={formData.email}
                           onChange={handleInputChange}
                           placeholder="e.g. rahul@company.com"
-                          className={`w-full px-4 py-3 rounded-xl border text-[14.5px] text-slate-800 placeholder-slate-400 bg-slate-50/50 focus:bg-white focus:outline-none transition-all ${
+                          className={`w-full px-4 py-3 rounded-xl border text-[14.5px] text-slate-800 placeholder-slate-400 bg-white focus:bg-white focus:outline-none transition-all ${
                             formErrors.email
                               ? 'border-rose-400 focus:ring-2 focus:ring-rose-200'
-                              : 'border-slate-200 focus:border-[#0866D9] focus:ring-2 focus:ring-blue-100'
+                              : 'border-slate-200 focus:border-[#1F4FE0] focus:ring-2 focus:ring-blue-100'
                           }`}
                         />
                         {formErrors.email && (
@@ -513,7 +514,7 @@ export const ContactPage: React.FC = () => {
                     {/* Row 2: Phone Number & Company Name */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
                       <div>
-                        <label htmlFor="phone" className="block text-[13.5px] font-semibold text-[#142B55] mb-1.5">
+                        <label htmlFor="phone" className="block text-[13.5px] font-semibold text-[#0A1B4F] mb-1.5">
                           Phone Number <span className="text-rose-500">*</span>
                         </label>
                         <input
@@ -523,10 +524,10 @@ export const ContactPage: React.FC = () => {
                           value={formData.phone}
                           onChange={handleInputChange}
                           placeholder="e.g. +91 93723 29599"
-                          className={`w-full px-4 py-3 rounded-xl border text-[14.5px] text-slate-800 placeholder-slate-400 bg-slate-50/50 focus:bg-white focus:outline-none transition-all ${
+                          className={`w-full px-4 py-3 rounded-xl border text-[14.5px] text-slate-800 placeholder-slate-400 bg-white focus:bg-white focus:outline-none transition-all ${
                             formErrors.phone
                               ? 'border-rose-400 focus:ring-2 focus:ring-rose-200'
-                              : 'border-slate-200 focus:border-[#0866D9] focus:ring-2 focus:ring-blue-100'
+                              : 'border-slate-200 focus:border-[#1F4FE0] focus:ring-2 focus:ring-blue-100'
                           }`}
                         />
                         {formErrors.phone && (
@@ -538,7 +539,7 @@ export const ContactPage: React.FC = () => {
                       </div>
 
                       <div>
-                        <label htmlFor="companyName" className="block text-[13.5px] font-semibold text-[#142B55] mb-1.5">
+                        <label htmlFor="companyName" className="block text-[13.5px] font-semibold text-[#0A1B4F] mb-1.5">
                           Company Name <span className="text-rose-500">*</span>
                         </label>
                         <input
@@ -548,10 +549,10 @@ export const ContactPage: React.FC = () => {
                           value={formData.companyName}
                           onChange={handleInputChange}
                           placeholder="e.g. Acme Industries Ltd"
-                          className={`w-full px-4 py-3 rounded-xl border text-[14.5px] text-slate-800 placeholder-slate-400 bg-slate-50/50 focus:bg-white focus:outline-none transition-all ${
+                          className={`w-full px-4 py-3 rounded-xl border text-[14.5px] text-slate-800 placeholder-slate-400 bg-white focus:bg-white focus:outline-none transition-all ${
                             formErrors.companyName
                               ? 'border-rose-400 focus:ring-2 focus:ring-rose-200'
-                              : 'border-slate-200 focus:border-[#0866D9] focus:ring-2 focus:ring-blue-100'
+                              : 'border-slate-200 focus:border-[#1F4FE0] focus:ring-2 focus:ring-blue-100'
                           }`}
                         />
                         {formErrors.companyName && (
@@ -565,7 +566,7 @@ export const ContactPage: React.FC = () => {
 
                     {/* Row 3: Service Interested In */}
                     <div>
-                      <label htmlFor="service" className="block text-[13.5px] font-semibold text-[#142B55] mb-1.5">
+                      <label htmlFor="service" className="block text-[13.5px] font-semibold text-[#0A1B4F] mb-1.5">
                         Service Interested In <span className="text-rose-500">*</span>
                       </label>
                       <select
@@ -573,10 +574,10 @@ export const ContactPage: React.FC = () => {
                         name="service"
                         value={formData.service}
                         onChange={handleInputChange}
-                        className={`w-full px-4 py-3 rounded-xl border text-[14.5px] text-slate-800 bg-slate-50/50 focus:bg-white focus:outline-none transition-all cursor-pointer ${
+                        className={`w-full px-4 py-3 rounded-xl border text-[14.5px] text-slate-800 bg-white focus:bg-white focus:outline-none transition-all cursor-pointer ${
                           formErrors.service
                             ? 'border-rose-400 focus:ring-2 focus:ring-rose-200'
-                            : 'border-slate-200 focus:border-[#0866D9] focus:ring-2 focus:ring-blue-100'
+                            : 'border-slate-200 focus:border-[#1F4FE0] focus:ring-2 focus:ring-blue-100'
                         }`}
                       >
                         {SUBJECT_OPTIONS.map((opt) => (
@@ -595,7 +596,7 @@ export const ContactPage: React.FC = () => {
 
                     {/* Row 4: Message Textarea */}
                     <div>
-                      <label htmlFor="message" className="block text-[13.5px] font-semibold text-[#142B55] mb-1.5">
+                      <label htmlFor="message" className="block text-[13.5px] font-semibold text-[#0A1B4F] mb-1.5">
                         Message <span className="text-rose-500">*</span>
                       </label>
                       <textarea
@@ -605,10 +606,10 @@ export const ContactPage: React.FC = () => {
                         value={formData.message}
                         onChange={handleInputChange}
                         placeholder="Briefly outline your ERP requirements, current system, or challenges..."
-                        className={`w-full px-4 py-3 rounded-xl border text-[14.5px] text-slate-800 placeholder-slate-400 bg-slate-50/50 focus:bg-white focus:outline-none transition-all resize-y ${
+                        className={`w-full px-4 py-3 rounded-xl border text-[14.5px] text-slate-800 placeholder-slate-400 bg-white focus:bg-white focus:outline-none transition-all resize-y ${
                           formErrors.message
                             ? 'border-rose-400 focus:ring-2 focus:ring-rose-200'
-                            : 'border-slate-200 focus:border-[#0866D9] focus:ring-2 focus:ring-blue-100'
+                            : 'border-slate-200 focus:border-[#1F4FE0] focus:ring-2 focus:ring-blue-100'
                         }`}
                       />
                       {formErrors.message && (
@@ -624,7 +625,7 @@ export const ContactPage: React.FC = () => {
                       <button
                         type="submit"
                         disabled={isSubmitting}
-                        className="w-full py-3.5 sm:py-4 rounded-xl bg-gradient-to-r from-[#0052CC] to-[#0A66C2] hover:from-[#0040A8] hover:to-[#08529C] text-white font-bold text-[16px] shadow-md shadow-blue-500/25 transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-75 disabled:cursor-not-allowed"
+                        className="w-full py-3.5 sm:py-4 rounded-xl bg-gradient-to-r from-[#1F4FE0] to-[#1F4FE0] hover:from-[#1739B8] hover:to-[#1739B8] text-white font-bold text-[16px] shadow-md shadow-blue-500/25 transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-75 disabled:cursor-not-allowed"
                       >
                         {isSubmitting ? (
                           <>
@@ -650,13 +651,13 @@ export const ContactPage: React.FC = () => {
             {/* ------------------------------------------------------------------- */}
             <div id="locations" className="lg:col-span-6 space-y-5">
               <div>
-                <span className="text-[13px] font-bold uppercase tracking-wider text-[#0866D9] block mb-1">
+                <span className="text-[13px] font-bold uppercase tracking-wider text-[#1F4FE0] block mb-1">
                   OFFICE LOCATIONS
                 </span>
-                <h2 className="font-serif text-[28px] sm:text-[34px] font-bold text-[#142B55] tracking-tight">
-                  Visit Our <span className="bg-gradient-to-r from-[#0052CC] via-[#0866D9] to-[#0A66C2] bg-clip-text text-transparent">Offices</span>
+                <h2 className="atlas-h2-size font-serif font-extrabold text-[#0A1B4F]">
+                  Visit Our <span className="bg-gradient-to-r from-[#1F4FE0] via-[#1F4FE0] to-[#1F4FE0] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">Offices</span>
                 </h2>
-                <p className="text-[15px] sm:text-[16px] text-[#45546B] mt-1">
+                <p className="text-[15px] sm:text-[16px] text-[#4A5876] mt-1">
                   Visit our Mumbai corporate offices to consult with our leadership and solution specialists in person.
                 </p>
               </div>
@@ -666,7 +667,7 @@ export const ContactPage: React.FC = () => {
                 {OFFICE_LOCATIONS.map((office) => (
                   <div
                     key={office.id}
-                    className="bg-white rounded-2xl border border-blue-100/80 shadow-sm overflow-hidden flex flex-col justify-between hover:shadow-md hover:border-[#0866D9]/40 transition-all duration-300 group"
+                    className="bg-white rounded-2xl border border-blue-100/80 shadow-sm overflow-hidden flex flex-col justify-between hover:shadow-md hover:border-[#1F4FE0]/40 transition-all duration-300 group"
                   >
                     <div>
                       {/* Building Photo */}
@@ -676,22 +677,22 @@ export const ContactPage: React.FC = () => {
                           alt={office.title}
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-[#142B55]/50 via-transparent to-transparent pointer-events-none" />
-                        <span className="absolute bottom-2.5 left-3 px-2.5 py-1 rounded-md bg-white/90 backdrop-blur-md text-[11.5px] font-bold text-[#142B55]">
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#0A1B4F]/50 via-transparent to-transparent pointer-events-none" />
+                        <span className="absolute bottom-2.5 left-3 px-2.5 py-1 rounded-md bg-white/90 backdrop-blur-md text-[11.5px] font-bold text-[#0A1B4F]">
                           {office.id === 'borivali' ? 'Borivali (West), Mumbai' : 'Marine Lines, Mumbai'}
                         </span>
                       </div>
 
                       {/* Details */}
                       <div className="p-4 sm:p-5 space-y-2.5">
-                        <div className="flex items-center gap-2 text-[#0866D9]">
+                        <div className="flex items-center gap-2 text-[#1F4FE0]">
                           <MapPin className="w-4.5 h-4.5 shrink-0" />
-                          <h3 className="font-serif text-[17px] sm:text-[18px] font-bold text-[#142B55]">
+                          <h3 className="font-serif text-[17px] sm:text-[18px] font-bold text-[#0A1B4F]">
                             {office.title}
                           </h3>
                         </div>
 
-                        <p className="text-[13px] text-[#53647A] leading-relaxed">
+                        <p className="text-[13px] text-[#4A5876] leading-relaxed">
                           {office.address}
                         </p>
 
@@ -700,7 +701,7 @@ export const ContactPage: React.FC = () => {
                             href={office.googleMapsUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center gap-1.5 text-[12.5px] font-bold text-[#0866D9] hover:text-[#0052CC] transition-colors py-1 px-3 rounded-lg border border-blue-200 hover:border-[#0866D9] bg-blue-50/50"
+                            className="inline-flex items-center gap-1.5 text-[12.5px] font-bold text-[#1F4FE0] hover:text-[#1F4FE0] transition-colors py-1 px-3 rounded-lg border border-blue-200 hover:border-[#1F4FE0] bg-blue-50/50"
                           >
                             <span>Open in Google Maps</span>
                             <ArrowRight className="w-3.5 h-3.5" />
@@ -714,7 +715,7 @@ export const ContactPage: React.FC = () => {
                       href={office.googleMapsUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="block border-t border-slate-100 relative h-[125px] overflow-hidden bg-slate-50 group/map"
+                      className="block border-t border-slate-100 relative h-[125px] overflow-hidden bg-white group/map"
                       title={`Open map location for ${office.title}`}
                     >
                       <img
@@ -744,73 +745,51 @@ export const ContactPage: React.FC = () => {
           {/* Section Heading */}
           <div className="max-w-3xl mx-auto text-center mb-10 sm:mb-12">
             <div className="mb-2.5">
-              <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-[#0866D9] select-none">
+              <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-[#1F4FE0] select-none">
                 VALUE COMMITMENT
               </span>
             </div>
-            <h2 className="font-serif text-[28px] sm:text-[34px] lg:text-[38px] font-bold tracking-tight text-[#142B55]">
+            <h2 className="atlas-h2-size font-serif font-extrabold text-[#0A1B4F]">
               Why Connect with{' '}
-              <span className="bg-gradient-to-r from-[#0052CC] via-[#0866D9] to-[#0A66C2] bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-[#1F4FE0] via-[#1F4FE0] to-[#1F4FE0] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">
                 ATLAS Technosoft?
               </span>
             </h2>
-            <p className="mt-3 text-[15px] sm:text-[17px] text-[#45546B] leading-relaxed">
+            <p className="mt-3 text-[15px] sm:text-[17px] text-[#4A5876] leading-relaxed">
               We combine deep ERP domain expertise with agile automation to deliver measurable, lasting business impact.
             </p>
           </div>
 
-          {/* 4 Cards Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            
-            <div className="bg-[#F0F7FF] hover:bg-white rounded-2xl p-6 border border-blue-100/80 hover:border-[#0866D9] shadow-xs hover:shadow-md transition-all text-left">
-              <div className="w-12 h-12 rounded-xl bg-blue-100 text-[#0866D9] flex items-center justify-center mb-4">
-                <Users className="w-6 h-6" />
-              </div>
-              <h3 className="font-bold text-[17px] text-[#142B55] mb-1.5">
-                Certified Consultants
-              </h3>
-              <p className="text-[13px] text-[#53647A] leading-relaxed">
-                32 certified experts across SAP HANA, Beas Manufacturing, Produmex WMS, and UiPath RPA.
-              </p>
-            </div>
-
-            <div className="bg-[#F0F7FF] hover:bg-white rounded-2xl p-6 border border-blue-100/80 hover:border-emerald-500 shadow-xs hover:shadow-md transition-all text-left">
-              <div className="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center mb-4">
-                <ShieldCheck className="w-6 h-6" />
-              </div>
-              <h3 className="font-bold text-[17px] text-[#142B55] mb-1.5">
-                Proven Track Record
-              </h3>
-              <p className="text-[13px] text-[#53647A] leading-relaxed">
-                80+ enterprise implementations completed on-time and within budget across India and globally.
-              </p>
-            </div>
-
-            <div className="bg-[#F0F7FF] hover:bg-white rounded-2xl p-6 border border-blue-100/80 hover:border-[#0866D9] shadow-xs hover:shadow-md transition-all text-left">
-              <div className="w-12 h-12 rounded-xl bg-sky-100 text-[#0066CC] flex items-center justify-center mb-4">
-                <Clock className="w-6 h-6" />
-              </div>
-              <h3 className="font-bold text-[17px] text-[#142B55] mb-1.5">
-                SLA-Backed Support
-              </h3>
-              <p className="text-[13px] text-[#53647A] leading-relaxed">
-                Guaranteed response times, system health tuning, and dedicated AMS account managers.
-              </p>
-            </div>
-
-            <div className="bg-[#F0F7FF] hover:bg-white rounded-2xl p-6 border border-blue-100/80 hover:border-emerald-500 shadow-xs hover:shadow-md transition-all text-left">
-              <div className="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center mb-4">
-                <Handshake className="w-6 h-6" />
-              </div>
-              <h3 className="font-bold text-[17px] text-[#142B55] mb-1.5">
-                Strategic Partnership
-              </h3>
-              <p className="text-[13px] text-[#53647A] leading-relaxed">
-                Long-term collaboration focused on business process optimization and ROI maximization.
-              </p>
-            </div>
-
-          </div>
+          {/* Interactive image cards */}
+          <ImageFeatureSlider
+            ariaLabel="Why connect with ATLAS Technosoft"
+            items={[
+              {
+                title: 'Certified Consultants',
+                description: '32 certified experts across SAP HANA, Beas Manufacturing, Produmex WMS, and UiPath RPA.',
+                image: '/images/about/about_expertise_hub.jpg',
+                href: '/about#team',
+              },
+              {
+                title: 'Proven Track Record',
+                description: '80+ enterprise implementations completed on-time and within budget across India and globally.',
+                image: '/images/case_studies/cs_featured_manufacturing.jpg',
+                href: '/case-studies',
+              },
+              {
+                title: 'SLA-Backed Support',
+                description: 'Guaranteed response times, system health tuning, and dedicated AMS account managers.',
+                image: '/images/dashboards/executive-command-center.jpg',
+                href: '/services/support-maintenance',
+              },
+              {
+                title: 'Strategic Partnership',
+                description: 'Long-term collaboration focused on business process optimization and ROI maximization.',
+                image: '/images/solutions/solutions_sales_handshake.jpg',
+                href: '/partners',
+              },
+            ]}
+          />
 
         </div>
       </section>

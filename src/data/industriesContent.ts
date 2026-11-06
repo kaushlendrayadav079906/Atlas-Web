@@ -39,9 +39,9 @@ export const INDUSTRIES_HERO_DATA = {
   heroImage: '/images/industries/industries_hero_engineer.jpg',
   floatingTitle: 'Technology Solutions for Every Industry',
   floatingBadges: [
-    { label: 'Greater Efficiency', color: '#1B72E8' },
+    { label: 'Greater Efficiency', color: '#1F4FE0' },
     { label: 'Better Visibility', color: '#13a9a0' },
-    { label: 'Sustainable Growth', color: '#0066CC' }
+    { label: 'Sustainable Growth', color: '#1F4FE0' }
   ]
 };
 
@@ -61,11 +61,11 @@ export const INDUSTRIES_CARDS_DATA: IndustryCardItem[] = [
       'Simplify production, inventory and operations with integrated ERP and industry-specific add-ons.',
     image: '/images/industries/ind_manufacturing.jpg',
     fallbackCrop: '/images/industries/ind_manufacturing_crop.jpg',
-    accentColor: '#1B72E8',
-    borderColor: 'border-[#1B72E8]',
-    hoverBorderColor: 'hover:border-[#1B72E8]',
-    badgeBg: 'bg-[#1B72E8]/10',
-    badgeText: 'text-[#1B72E8]',
+    accentColor: '#1F4FE0',
+    borderColor: 'border-[#1F4FE0]',
+    hoverBorderColor: 'hover:border-[#1F4FE0]',
+    badgeBg: 'bg-[#1F4FE0]/10',
+    badgeText: 'text-[#1F4FE0]',
     iconName: 'factory',
     features: ['Production Planning & MRP', 'Shop-Floor Control', 'Bill of Materials (BOM)', 'Machine Maintenance']
   },
@@ -91,11 +91,11 @@ export const INDUSTRIES_CARDS_DATA: IndustryCardItem[] = [
       'Enhance transportation, warehouse and shipment management.',
     image: '/images/industries/ind_logistics.jpg',
     fallbackCrop: '/images/industries/ind_logistics_crop.jpg',
-    accentColor: '#0066CC',
-    borderColor: 'border-[#0066CC]',
-    hoverBorderColor: 'hover:border-[#0066CC]',
-    badgeBg: 'bg-[#0066CC]/10',
-    badgeText: 'text-[#0066CC]',
+    accentColor: '#1F4FE0',
+    borderColor: 'border-[#1F4FE0]',
+    hoverBorderColor: 'hover:border-[#1F4FE0]',
+    badgeBg: 'bg-[#1F4FE0]/10',
+    badgeText: 'text-[#1F4FE0]',
     iconName: 'boxes',
     features: ['Fleet & Gate Entry Automation', 'Weighment System Sync', 'Barcode & RFID Handling', 'Freight Optimization']
   },
@@ -106,11 +106,11 @@ export const INDUSTRIES_CARDS_DATA: IndustryCardItem[] = [
       'Get real-time stock visibility and seamless multi-channel sales management.',
     image: '/images/industries/ind_retail.jpg',
     fallbackCrop: '/images/industries/ind_retail_crop.jpg',
-    accentColor: '#0066CC',
-    borderColor: 'border-[#0066CC]',
-    hoverBorderColor: 'hover:border-[#0066CC]',
-    badgeBg: 'bg-[#0066CC]/10',
-    badgeText: 'text-[#0066CC]',
+    accentColor: '#1F4FE0',
+    borderColor: 'border-[#1F4FE0]',
+    hoverBorderColor: 'hover:border-[#1F4FE0]',
+    badgeBg: 'bg-[#1F4FE0]/10',
+    badgeText: 'text-[#1F4FE0]',
     iconName: 'shopping-cart',
     features: ['POS Integration', 'Omnichannel Fulfillment', 'Automated Reordering', 'Customer Loyalty Management']
   },
@@ -151,11 +151,11 @@ export const INDUSTRIES_CARDS_DATA: IndustryCardItem[] = [
       'Maintain compliance and process efficiency with integrated systems.',
     image: '/images/industries/ind_pharma.jpg',
     fallbackCrop: '/images/industries/ind_pharma_crop.jpg',
-    accentColor: '#0066CC',
-    borderColor: 'border-[#0066CC]',
-    hoverBorderColor: 'hover:border-[#0066CC]',
-    badgeBg: 'bg-[#0066CC]/10',
-    badgeText: 'text-[#0066CC]',
+    accentColor: '#1F4FE0',
+    borderColor: 'border-[#1F4FE0]',
+    hoverBorderColor: 'hover:border-[#1F4FE0]',
+    badgeBg: 'bg-[#1F4FE0]/10',
+    badgeText: 'text-[#1F4FE0]',
     iconName: 'pill',
     features: ['cGMP & 21 CFR Part 11 Audit Trail', 'Sample Testing & COA', 'Formula & Batch Release', 'Cold Chain Verification']
   },
@@ -187,7 +187,7 @@ export const INDUSTRY_VALUE_DATA = {
       title: 'Industry Best Practices',
       description: 'Proven solutions aligned with industry processes.',
       iconName: 'cog' as const,
-      color: '#1B72E8'
+      color: '#1F4FE0'
     },
     {
       id: 'operational-efficiency',
@@ -201,14 +201,14 @@ export const INDUSTRY_VALUE_DATA = {
       title: 'End-to-End Visibility',
       description: 'Real-time insights across the business.',
       iconName: 'eye' as const,
-      color: '#0066CC'
+      color: '#1F4FE0'
     },
     {
       id: 'scalable-growth',
       title: 'Scalable Growth',
       description: 'Flexible solutions to support future expansion.',
       iconName: 'bar-chart' as const,
-      color: '#0066CC'
+      color: '#1F4FE0'
     }
   ]
 };
@@ -223,13 +223,13 @@ export const INDUSTRY_ENGAGEMENT_DATA = {
       number: 1,
       title: 'Understand Industry Needs',
       iconName: 'message-square' as const,
-      color: '#10264b'
+      color: '#0A1B4F'
     },
     {
       number: 2,
       title: 'Analyze Requirements',
       iconName: 'line-chart' as const,
-      color: '#1B72E8'
+      color: '#1F4FE0'
     },
     {
       number: 3,
@@ -241,19 +241,19 @@ export const INDUSTRY_ENGAGEMENT_DATA = {
       number: 4,
       title: 'Implement & Configure',
       iconName: 'settings' as const,
-      color: '#0066CC'
+      color: '#1F4FE0'
     },
     {
       number: 5,
       title: 'Train & Support',
       iconName: 'user-check' as const,
-      color: '#0878f9'
+      color: '#1F4FE0'
     },
     {
       number: 6,
       title: 'Drive Business Growth',
       iconName: 'trending-up' as const,
-      color: '#1B72E8'
+      color: '#1F4FE0'
     }
   ]
 };

@@ -53,13 +53,13 @@ export const ChatWindow: React.FC<ChatWindowProps> = ({
       {/* ===================================================================== */}
       {/* Header                                                                */}
       {/* ===================================================================== */}
-      <div className="bg-gradient-to-r from-[#071B3B] via-[#0B2450] to-[#123A73] text-white p-3.5 select-none flex items-center justify-between shrink-0 shadow-md">
+      <div className="bg-atlas-navy text-white p-3.5 select-none flex items-center justify-between shrink-0 shadow-md">
         <div className="flex items-center gap-2.5">
           {/* ATLAS Monogram Avatar */}
           <div className="relative w-9 h-9 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center shrink-0">
             <span className="text-xs font-black tracking-tight text-blue-200">AT</span>
             <span
-              className="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-emerald-400 ring-2 ring-[#0B2450]"
+              className="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-emerald-400 ring-2 ring-[#0A1B4F]"
               title="Online"
             />
           </div>
@@ -121,7 +121,7 @@ export const ChatWindow: React.FC<ChatWindowProps> = ({
       {/* ===================================================================== */}
       {!isMinimized && (
         <>
-          <div className="flex-1 overflow-y-auto p-3.5 space-y-3.5 bg-slate-50/70 text-slate-800 text-[13.5px] leading-relaxed">
+          <div className="flex-1 overflow-y-auto p-3.5 space-y-3.5 bg-white text-slate-800 text-[13.5px] leading-relaxed">
             {messages.map(msg => (
               <ChatMessage
                 key={msg.id}
@@ -134,7 +134,7 @@ export const ChatWindow: React.FC<ChatWindowProps> = ({
             {/* Typing / Loading indicator */}
             {isLoading && (
               <div className="flex items-center gap-2 text-slate-500 text-xs py-1">
-                <div className="w-7 h-7 rounded-full bg-[#071B3B] text-white flex items-center justify-center shrink-0 shadow-xs border border-blue-400/30 text-[11px] font-black">
+                <div className="w-7 h-7 rounded-full bg-[#0A1B4F] text-white flex items-center justify-center shrink-0 shadow-xs border border-blue-400/30 text-[11px] font-black">
                   AT
                 </div>
                 <div className="flex items-center gap-1 bg-white border border-slate-200/90 px-3 py-2 rounded-2xl rounded-bl-xs shadow-xs">

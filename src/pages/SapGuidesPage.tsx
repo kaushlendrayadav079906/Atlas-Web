@@ -68,20 +68,20 @@ export const SapGuidesPage: React.FC = () => {
       {/* ===================================================================== */}
       {/* 1. HERO HEADER                                                        */}
       {/* ===================================================================== */}
-      <section className="relative overflow-hidden bg-gradient-to-r from-sky-50/70 via-white to-blue-50/40 py-12 sm:py-16 lg:py-20 border-b border-slate-100">
+      <section className="relative overflow-hidden py-12 sm:py-16 lg:py-20 border-b border-white/10 bg-atlas-navy atlas-dark">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
           
           <div className="max-w-3xl mx-auto space-y-4">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200/80 text-[#0052CC] text-xs font-bold uppercase tracking-wider">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200/80 text-[#1F4FE0] text-xs font-bold uppercase tracking-wider">
               <FileText className="w-4 h-4" />
               <span>PRACTICAL ENTERPRISE KNOWLEDGE</span>
             </div>
 
-            <h1 className="font-serif text-[32px] sm:text-[42px] lg:text-[48px] font-bold text-[#142B59] tracking-tight leading-[1.15]">
-              SAP Business One <span className="bg-gradient-to-r from-[#0052CC] via-[#0066CC] to-[#0A66C2] bg-clip-text text-transparent">Educational Guides</span>
+            <h1 className="atlas-h1-size font-serif font-extrabold text-[#0A1B4F]">
+              SAP Business One <span className="bg-gradient-to-r from-[#1F4FE0] via-[#1F4FE0] to-[#1F4FE0] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">Educational Guides</span>
             </h1>
 
-            <p className="text-[16px] sm:text-[19px] text-[#45546B] leading-relaxed font-normal">
+            <p className="text-[16px] sm:text-[19px] text-[#4A5876] leading-relaxed font-normal">
               Explore in-depth technical blueprints, migration checklists, and operational best practices engineered by certified SAP solution architects.
             </p>
           </div>
@@ -89,19 +89,19 @@ export const SapGuidesPage: React.FC = () => {
           {/* Search Box */}
           <div className="max-w-xl mx-auto mt-8 sm:mt-10">
             <div className="relative flex items-center">
-              <Search className="w-5 h-5 absolute left-4 text-slate-400 pointer-events-none" />
+              <Search className="w-5 h-5 absolute left-4 text-slate-500 pointer-events-none" />
               <input
                 type="text"
                 value={searchQuery}
                 onChange={e => setSearchQuery(e.target.value)}
                 placeholder="Search guides (e.g., HANA migration, inventory valuation, GST, Service Layer)..."
-                className="w-full pl-12 pr-4 py-3.5 bg-white border border-slate-200 rounded-xl text-slate-800 placeholder-slate-400 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-[#0066CC] focus:border-transparent shadow-xs transition-all"
+                className="w-full pl-12 pr-4 py-3.5 bg-white border border-slate-200 rounded-xl text-slate-800 placeholder-slate-400 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-[#1F4FE0] focus:border-transparent shadow-xs transition-all"
               />
               {searchQuery && (
                 <button
                   type="button"
                   onClick={() => setSearchQuery('')}
-                  className="absolute right-4 text-xs font-semibold text-slate-400 hover:text-slate-700 bg-slate-100 px-2 py-1 rounded"
+                  className="absolute right-4 text-xs font-semibold text-slate-500 hover:text-slate-700 bg-slate-100 px-2 py-1 rounded"
                 >
                   Clear
                 </button>
@@ -115,7 +115,7 @@ export const SapGuidesPage: React.FC = () => {
       {/* ===================================================================== */}
       {/* 2. CATEGORY PILLS & GUIDES DIRECTORY                                  */}
       {/* ===================================================================== */}
-      <section className="py-12 sm:py-16 bg-[#F8FAFC]">
+      <section className="py-12 sm:py-16 bg-atlas-navy atlas-dark">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
           
           {/* Category Filter Tabs */}
@@ -131,8 +131,8 @@ export const SapGuidesPage: React.FC = () => {
                   onClick={() => setSelectedCategory(cat)}
                   className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all cursor-pointer ${
                     isSelected
-                      ? 'bg-[#0052CC] text-white shadow-sm shadow-blue-500/20'
-                      : 'bg-white text-slate-600 hover:bg-blue-50/80 hover:text-[#0052CC] border border-slate-200'
+                      ? 'bg-[#1F4FE0] text-white shadow-sm shadow-blue-500/20'
+                      : 'bg-white text-slate-600 hover:bg-blue-50/80 hover:text-[#1F4FE0] border border-slate-200'
                   }`}
                 >
                   <span>{cat}</span>
@@ -147,18 +147,18 @@ export const SapGuidesPage: React.FC = () => {
           </div>
 
           {/* Download Notice Box (Compliance with rule: Do not invent downloadable files) */}
-          <div className="bg-blue-50/80 border border-blue-200 rounded-xl p-4 sm:p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <div className="bg-white atlas-light-surface rounded-xl p-4 sm:p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             <div className="flex items-start gap-3">
-              <ShieldAlert className="w-5 h-5 text-[#0052CC] shrink-0 mt-0.5" />
+              <ShieldAlert className="w-5 h-5 text-[#1F4FE0] shrink-0 mt-0.5" />
               <div className="text-xs sm:text-sm text-slate-700 leading-snug">
-                <strong className="font-bold text-[#142B59]">Official Whitepapers & Custom Sizing Roadmaps: </strong>
+                <strong className="font-bold text-[#0A1B4F]">Official Whitepapers & Custom Sizing Roadmaps: </strong>
                 All technical blueprints below are available for immediate online reference. For formal downloadable architectural PDFs and customized server sizing calculations, connect directly with our advisory practice.
               </div>
             </div>
             <button
               type="button"
               onClick={() => openConsultation('General Architecture Consultation')}
-              className="shrink-0 text-xs sm:text-sm font-bold text-[#0052CC] hover:text-[#003E99] whitespace-nowrap inline-flex items-center gap-1.5"
+              className="shrink-0 text-xs sm:text-sm font-bold text-[#1F4FE0] hover:text-[#1739B8] whitespace-nowrap inline-flex items-center gap-1.5"
             >
               <span>Request Advisory Document</span>
               <ArrowRight className="w-4 h-4" />
@@ -180,19 +180,19 @@ export const SapGuidesPage: React.FC = () => {
                   <div className="p-6 sm:p-8 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
                     <div className="space-y-3 flex-1">
                       <div className="flex flex-wrap items-center gap-2">
-                        <span className="text-[11px] font-bold uppercase tracking-wider text-[#0052CC] bg-blue-50 px-2.5 py-1 rounded-md">
+                        <span className="text-[11px] font-bold uppercase tracking-wider text-[#1F4FE0] bg-blue-50 px-2.5 py-1 rounded-md">
                           {guide.category}
                         </span>
                         <span className="text-[11px] font-semibold text-slate-500 bg-slate-100 px-2.5 py-1 rounded-md">
                           {guide.documentType}
                         </span>
-                        <span className="inline-flex items-center gap-1 text-[11px] text-slate-400">
+                        <span className="inline-flex items-center gap-1 text-[11px] text-slate-500">
                           <Clock className="w-3.5 h-3.5" />
                           <span>{guide.readTime}</span>
                         </span>
                       </div>
 
-                      <h2 className="font-serif text-xl sm:text-2xl font-bold text-[#142B59] leading-snug">
+                      <h2 className="font-serif text-xl sm:text-2xl font-bold text-[#0A1B4F] leading-snug">
                         {guide.title}
                       </h2>
 
@@ -201,7 +201,7 @@ export const SapGuidesPage: React.FC = () => {
                       </p>
 
                       <div className="flex items-center gap-2 text-xs text-slate-500 font-medium">
-                        <Users className="w-3.5 h-3.5 text-[#0052CC]" />
+                        <Users className="w-3.5 h-3.5 text-[#1F4FE0]" />
                         <span><strong>Target Audience:</strong> {guide.targetAudience}</span>
                       </div>
                     </div>
@@ -221,7 +221,7 @@ export const SapGuidesPage: React.FC = () => {
                       <button
                         type="button"
                         onClick={() => openConsultation(guide.title)}
-                        className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-[#0052CC] hover:bg-[#003E99] text-white text-xs sm:text-sm font-bold shadow-xs transition-colors cursor-pointer"
+                        className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-[#1F4FE0] hover:bg-[#1739B8] text-white text-xs sm:text-sm font-bold shadow-xs transition-colors cursor-pointer"
                       >
                         <span>Consult on this Topic</span>
                         <ArrowRight className="w-4 h-4" />
@@ -231,12 +231,12 @@ export const SapGuidesPage: React.FC = () => {
 
                   {/* Expanded Blueprint Details */}
                   {isExpanded && (
-                    <div className="px-6 sm:px-8 pb-8 pt-4 border-t border-slate-100 bg-slate-50/50 space-y-8 animate-fadeIn">
+                    <div className="px-6 sm:px-8 pb-8 pt-4 border-t border-slate-100 bg-white space-y-8 animate-fadeIn">
                       
                       {/* Topics Covered */}
                       <div>
-                        <h4 className="text-xs font-bold uppercase tracking-wider text-[#142B59] mb-3 flex items-center gap-2">
-                          <Layers className="w-4 h-4 text-[#0052CC]" />
+                        <h4 className="text-xs font-bold uppercase tracking-wider text-[#0A1B4F] mb-3 flex items-center gap-2">
+                          <Layers className="w-4 h-4 text-[#1F4FE0]" />
                           <span>Core Architectural Topics Covered</span>
                         </h4>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5">
@@ -251,14 +251,14 @@ export const SapGuidesPage: React.FC = () => {
 
                       {/* Key Highlights */}
                       <div>
-                        <h4 className="text-xs font-bold uppercase tracking-wider text-[#142B59] mb-3 flex items-center gap-2">
-                          <Sparkles className="w-4 h-4 text-[#0052CC]" />
+                        <h4 className="text-xs font-bold uppercase tracking-wider text-[#0A1B4F] mb-3 flex items-center gap-2">
+                          <Sparkles className="w-4 h-4 text-[#1F4FE0]" />
                           <span>Key Implementation Takeaways</span>
                         </h4>
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                           {guide.keyHighlights.map((hl, i) => (
                             <div key={i} className="bg-white p-4.5 rounded-xl border border-slate-200/80 space-y-1.5 shadow-2xs">
-                              <div className="text-xs sm:text-sm font-bold text-[#142B59]">
+                              <div className="text-xs sm:text-sm font-bold text-[#0A1B4F]">
                                 {hl.title}
                               </div>
                               <p className="text-xs text-slate-600 leading-relaxed">
@@ -279,7 +279,7 @@ export const SapGuidesPage: React.FC = () => {
                             <ul className="space-y-2 text-xs sm:text-sm text-slate-600">
                               {guide.prerequisites.map((p, i) => (
                                 <li key={i} className="flex items-start gap-2">
-                                  <span className="w-1.5 h-1.5 rounded-full bg-[#0052CC] mt-1.5 shrink-0" />
+                                  <span className="w-1.5 h-1.5 rounded-full bg-[#1F4FE0] mt-1.5 shrink-0" />
                                   <span>{p}</span>
                                 </li>
                               ))}
@@ -295,7 +295,7 @@ export const SapGuidesPage: React.FC = () => {
                             <ol className="space-y-2 text-xs sm:text-sm text-slate-600">
                               {guide.implementationSteps.map((step, i) => (
                                 <li key={i} className="flex items-start gap-2">
-                                  <span className="text-xs font-bold text-[#0052CC] bg-blue-50 px-1.5 py-0.5 rounded shrink-0">
+                                  <span className="text-xs font-bold text-[#1F4FE0] bg-blue-50 px-1.5 py-0.5 rounded shrink-0">
                                     0{i + 1}
                                   </span>
                                   <span>{step}</span>
@@ -314,7 +314,7 @@ export const SapGuidesPage: React.FC = () => {
                             <Link
                               key={idx}
                               to={sol.href}
-                              className="text-[#0052CC] font-bold hover:underline inline-flex items-center gap-1"
+                              className="text-[#1F4FE0] font-bold hover:underline inline-flex items-center gap-1"
                             >
                               <span>{sol.name}</span>
                               <ExternalLink className="w-3 h-3" />
@@ -325,7 +325,7 @@ export const SapGuidesPage: React.FC = () => {
                         <button
                           type="button"
                           onClick={() => openConsultation(guide.title)}
-                          className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-[#0052CC] hover:text-[#003E99]"
+                          className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-[#1F4FE0] hover:text-[#1739B8]"
                         >
                           <span>Schedule Deep-Dive Architecture Review</span>
                           <ArrowRight className="w-4 h-4" />
@@ -346,7 +346,7 @@ export const SapGuidesPage: React.FC = () => {
       {/* ===================================================================== */}
       {/* 3. BOTTOM CTA & CONTACT CARDS                                         */}
       {/* ===================================================================== */}
-      <section className="py-16 sm:py-20 bg-gradient-to-b from-[#142B59] to-[#0A1A3A] text-white">
+      <section className="py-16 sm:py-20 bg-gradient-to-b from-[#0A1B4F] to-[#0A1B4F] text-white">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             
@@ -365,7 +365,7 @@ export const SapGuidesPage: React.FC = () => {
                   onClick={() => openConsultation('Executive Technical Advisory')}
                   variant="gold"
                   size="md"
-                  className="bg-[#1B72E8] hover:bg-[#1557B0] text-white font-semibold px-6 py-3 rounded-xl shadow-md"
+                  className="bg-[#1F4FE0] hover:bg-[#1F4FE0] text-white font-semibold px-6 py-3 rounded-xl shadow-md"
                   icon={<ArrowRight className="w-4 h-4" />}
                 >
                   Book Strategic Consultation

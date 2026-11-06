@@ -53,27 +53,27 @@ export const BlogDetail: React.FC<BlogDetailProps> = ({
       {/* ===================================================================== */}
       {/* BREADCRUMB & ARTICLE HEADER HERO                                      */}
       {/* ===================================================================== */}
-      <section className="bg-gradient-to-b from-sky-50/70 via-white to-white pt-8 pb-10 sm:pb-12 border-b border-slate-100">
+      <section className="pt-8 pb-10 sm:pb-12 border-b border-white/10 bg-atlas-navy atlas-dark">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           
           {/* Breadcrumb Navigation */}
           <nav aria-label="Breadcrumb" className="mb-6 flex flex-wrap items-center gap-2 text-xs sm:text-sm text-slate-500 font-medium">
-            <Link to="/" className="hover:text-[#0052CC] transition-colors">Home</Link>
-            <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
-            <Link to="/blog" className="hover:text-[#0052CC] transition-colors">Blog & Insights</Link>
-            <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
-            <span className="text-[#0052CC] font-semibold">{article.category}</span>
+            <Link to="/" className="hover:text-[#1F4FE0] transition-colors">Home</Link>
+            <ChevronRight className="w-3.5 h-3.5 text-slate-500" />
+            <Link to="/blog" className="hover:text-[#1F4FE0] transition-colors">Blog & Insights</Link>
+            <ChevronRight className="w-3.5 h-3.5 text-slate-500" />
+            <span className="text-[#1F4FE0] font-semibold">{article.category}</span>
           </nav>
 
           {/* Category Tag */}
           <div className="mb-4">
-            <span className="inline-flex items-center px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-blue-100/80 text-[#0052CC]">
+            <span className="inline-flex items-center px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-blue-100/80 text-[#1F4FE0]">
               {article.category}
             </span>
           </div>
 
           {/* Main Title */}
-          <h1 className="font-serif text-[28px] sm:text-[36px] md:text-[44px] font-bold text-[#142B59] leading-[1.2] tracking-tight mb-5">
+          <h1 className="font-serif text-[28px] sm:text-[36px] md:text-[44px] font-bold text-[#0A1B4F] leading-[1.2] tracking-tight mb-5">
             {article.title}
           </h1>
 
@@ -92,12 +92,12 @@ export const BlogDetail: React.FC<BlogDetailProps> = ({
                   className="w-12 h-12 rounded-full object-cover border-2 border-blue-200 shadow-2xs"
                 />
               ) : (
-                <div className="w-12 h-12 rounded-full bg-[#071B3B] text-white flex items-center justify-center font-black text-sm">
+                <div className="w-12 h-12 rounded-full bg-[#0A1B4F] text-white flex items-center justify-center font-black text-sm">
                   AT
                 </div>
               )}
               <div>
-                <div className="text-sm font-bold text-[#142B59]">
+                <div className="text-sm font-bold text-[#0A1B4F]">
                   {article.author.name}
                 </div>
                 <div className="text-xs text-slate-500">
@@ -134,7 +134,7 @@ export const BlogDetail: React.FC<BlogDetailProps> = ({
       {/* FEATURED COVER IMAGE                                                  */}
       {/* ===================================================================== */}
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 -mt-2 sm:-mt-4 mb-8 sm:mb-12">
-        <div className="rounded-2xl sm:rounded-3xl overflow-hidden shadow-lg border border-slate-200/90 aspect-[16/9] bg-slate-900 relative">
+        <div className="rounded-2xl sm:rounded-3xl overflow-hidden shadow-lg border border-slate-200/90 aspect-[16/9] bg-atlas-navy relative">
           <img
             src={article.coverImage}
             alt={article.title}
@@ -150,16 +150,16 @@ export const BlogDetail: React.FC<BlogDetailProps> = ({
         
         {/* Table of Contents for Long Articles */}
         {article.tableOfContents && article.tableOfContents.length > 0 && (
-          <div className="mb-10 p-5 sm:p-6 rounded-2xl bg-[#F0F7FF] border border-blue-200/70 shadow-2xs">
-            <div className="flex items-center gap-2 mb-3 text-[#142B59]">
-              <List className="w-5 h-5 text-[#0052CC]" />
+          <div className="mb-10 p-5 sm:p-6 rounded-2xl bg-white border border-blue-200/70 shadow-2xs">
+            <div className="flex items-center gap-2 mb-3 text-[#0A1B4F]">
+              <List className="w-5 h-5 text-[#1F4FE0]" />
               <h3 className="text-base font-bold uppercase tracking-wider">
                 Table of Contents
               </h3>
             </div>
             <ol className="space-y-2 list-decimal list-inside text-sm sm:text-[15px]">
               {article.tableOfContents.map((item, idx) => (
-                <li key={item.id} className="text-slate-700 font-medium hover:text-[#0052CC] transition-colors">
+                <li key={item.id} className="text-slate-700 font-medium hover:text-[#1F4FE0] transition-colors">
                   <button
                     type="button"
                     onClick={() => scrollToSection(item.id)}
@@ -177,7 +177,7 @@ export const BlogDetail: React.FC<BlogDetailProps> = ({
         <div className="space-y-10 sm:space-y-12">
           {article.sections.map((section, sIdx) => (
             <section key={section.id} id={section.id} className="scroll-mt-24">
-              <h2 className="font-serif text-[22px] sm:text-[26px] font-bold text-[#142B59] leading-snug mb-4">
+              <h2 className="font-serif text-[22px] sm:text-[26px] font-bold text-[#0A1B4F] leading-snug mb-4">
                 {section.title}
               </h2>
 
@@ -201,7 +201,7 @@ export const BlogDetail: React.FC<BlogDetailProps> = ({
 
               {/* Key Takeaway Box */}
               {section.keyTakeaway && (
-                <div className="my-6 p-4 sm:p-5 rounded-xl bg-blue-50/80 border-l-4 border-blue-600 text-[15px] text-[#0B2450] font-medium leading-relaxed">
+                <div className="my-6 p-4 sm:p-5 rounded-xl bg-blue-50/80 border-l-4 border-blue-600 text-[15px] text-[#0A1B4F] font-medium leading-relaxed">
                   <strong className="block text-xs uppercase tracking-wider text-blue-700 font-bold mb-1">
                     Key Takeaway:
                   </strong>
@@ -211,8 +211,8 @@ export const BlogDetail: React.FC<BlogDetailProps> = ({
 
               {/* Callout Box */}
               {section.callout && (
-                <div className="my-6 p-5 rounded-2xl bg-slate-50 border border-slate-200/90 text-sm leading-relaxed">
-                  <div className="flex items-center gap-2 font-bold text-[#142B59] mb-1.5">
+                <div className="my-6 p-5 rounded-2xl bg-white border border-slate-200/90 text-sm leading-relaxed">
+                  <div className="flex items-center gap-2 font-bold text-[#0A1B4F] mb-1.5">
                     <Sparkles className="w-4 h-4 text-blue-600" />
                     <span>{section.callout.title}</span>
                   </div>
@@ -226,7 +226,7 @@ export const BlogDetail: React.FC<BlogDetailProps> = ({
         {/* Tags Bar */}
         {article.tags && article.tags.length > 0 && (
           <div className="mt-12 pt-6 border-t border-slate-200 flex flex-wrap items-center gap-2">
-            <span className="text-xs font-bold uppercase tracking-wider text-slate-400 mr-2">
+            <span className="text-xs font-bold uppercase tracking-wider text-slate-500 mr-2">
               Tags:
             </span>
             {article.tags.map(tag => (
@@ -243,7 +243,7 @@ export const BlogDetail: React.FC<BlogDetailProps> = ({
         {/* ===================================================================== */}
         {/* IN-ARTICLE STRATEGIC CONSULTATION CTA                                 */}
         {/* ===================================================================== */}
-        <div className="mt-14 p-8 sm:p-10 rounded-3xl bg-gradient-to-br from-[#071B3B] via-[#0B2450] to-[#142B59] text-white shadow-xl">
+        <div className="mt-14 p-8 sm:p-10 rounded-3xl bg-gradient-to-br from-[#0A1B4F] via-[#0A1B4F] to-[#0A1B4F] text-white shadow-xl">
           <div className="max-w-2xl">
             <span className="text-xs font-bold uppercase tracking-wider text-blue-300 block mb-2">
               Transform Your Operations with ATLAS
@@ -293,21 +293,21 @@ export const BlogDetail: React.FC<BlogDetailProps> = ({
       {/* RELATED ARTICLES SECTION                                              */}
       {/* ===================================================================== */}
       {relatedArticles && relatedArticles.length > 0 && (
-        <section className="py-14 sm:py-16 bg-[#F4F9FF]/70 border-t border-slate-200/80">
+        <section className="py-14 sm:py-16 border-t border-white/10 bg-atlas-navy atlas-dark">
           <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center justify-between mb-8">
               <div>
-                <span className="text-xs font-bold uppercase tracking-wider text-[#0052CC] block mb-1">
+                <span className="text-xs font-bold uppercase tracking-wider text-[#1F4FE0] block mb-1">
                   CONTINUE READING
                 </span>
-                <h3 className="font-serif text-2xl sm:text-3xl font-bold text-[#142B59]">
+                <h3 className="font-serif text-2xl sm:text-3xl font-bold text-[#0A1B4F]">
                   Related Insights & Guides
                 </h3>
               </div>
 
               <Link
                 to="/blog"
-                className="hidden sm:inline-flex items-center gap-1.5 text-sm font-bold text-[#0052CC] hover:text-[#003E99] transition-colors"
+                className="hidden sm:inline-flex items-center gap-1.5 text-sm font-bold text-[#1F4FE0] hover:text-[#1739B8] transition-colors"
               >
                 <span>View All Articles</span>
                 <ArrowRight className="w-4 h-4" />
@@ -323,7 +323,7 @@ export const BlogDetail: React.FC<BlogDetailProps> = ({
             <div className="text-center mt-8 sm:hidden">
               <Link
                 to="/blog"
-                className="inline-flex items-center gap-2 text-sm font-bold text-[#0052CC]"
+                className="inline-flex items-center gap-2 text-sm font-bold text-[#1F4FE0]"
               >
                 <span>View All Articles</span>
                 <ArrowRight className="w-4 h-4" />

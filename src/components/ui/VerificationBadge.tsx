@@ -36,7 +36,7 @@ export const VerificationBadge: React.FC<VerificationBadgeProps> = ({
       {showTooltip && (
         <div
           role="tooltip"
-          className="absolute z-50 bottom-full left-1/2 -translate-x-1/2 mb-2 w-64 p-2.5 text-[11px] leading-snug rounded-md bg-slate-900 text-slate-100 shadow-xl border border-slate-700 pointer-events-none transition-all"
+          className="absolute z-50 bottom-full left-1/2 -translate-x-1/2 mb-2 w-64 p-2.5 text-[11px] leading-snug rounded-md bg-atlas-navy text-slate-100 shadow-xl border border-slate-700 pointer-events-none transition-all"
         >
           <div className="font-semibold text-blue-400 mb-1 flex items-center gap-1">
             <AlertCircle className="w-3 h-3 inline" />

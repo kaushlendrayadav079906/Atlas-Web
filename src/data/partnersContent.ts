@@ -70,9 +70,9 @@ export const PARTNERS_HERO_DATA = {
   secondaryCtaText: 'Talk to Our Experts',
   heroImage: '/images/partners/partners_hero.jpg',
   floatingBadges: [
-    { label: 'Stronger Solutions', color: '#0066CC', iconName: 'Settings' as const },
+    { label: 'Stronger Solutions', color: '#1F4FE0', iconName: 'Settings' as const },
     { label: 'Greater Efficiency', color: '#16a879', iconName: 'TrendingUp' as const },
-    { label: 'Long-Term Partnership', color: '#0066CC', iconName: 'Users' as const },
+    { label: 'Long-Term Partnership', color: '#1F4FE0', iconName: 'Users' as const },
     { label: 'Mutual Growth', color: '#0ea5e9', iconName: 'Handshake' as const }
   ]
 };
@@ -94,8 +94,8 @@ export const TECHNOLOGY_PARTNERS_OVERVIEW_DATA = {
       linkTarget: '/partners/sap-business-one',
       route: '/partners/sap-business-one',
       image: '/images/partners/partners_sap_laptop.jpg',
-      borderColor: '#0066CC',
-      arrowColor: '#0066CC',
+      borderColor: '#1F4FE0',
+      arrowColor: '#1F4FE0',
       badgeType: 'sap' as const
     },
     {
@@ -122,8 +122,8 @@ export const TECHNOLOGY_PARTNERS_OVERVIEW_DATA = {
       linkTarget: '/partners/uipath',
       route: '/partners/uipath',
       image: '/images/partners/partners_uipath_ai.jpg',
-      borderColor: '#0066CC',
-      arrowColor: '#0066CC',
+      borderColor: '#1F4FE0',
+      arrowColor: '#1F4FE0',
       badgeType: 'uipath' as const
     },
     {
@@ -136,8 +136,8 @@ export const TECHNOLOGY_PARTNERS_OVERVIEW_DATA = {
       linkTarget: '/partners/atlas-solutions',
       route: '/partners/atlas-solutions',
       image: '/images/solutions/solutions_integrated_ecosystem.jpg',
-      borderColor: '#1B72E8',
-      arrowColor: '#1B72E8',
+      borderColor: '#1F4FE0',
+      arrowColor: '#1F4FE0',
       badgeType: 'atlas' as const
     }
   ]
@@ -190,7 +190,7 @@ export const BOYUM_PARTNERSHIP_DATA = {
       description:
         'Complete manufacturing solution for SAP Business One with production planning, shop floor control and more.',
       image: '/images/partners/partners_beas.jpg',
-      borderColor: '#0066CC',
+      borderColor: '#1F4FE0',
       linkText: 'Learn More',
       route: '/partners/boyum-it',
       fullDetails: {
@@ -238,7 +238,7 @@ export const BOYUM_PARTNERSHIP_DATA = {
       description:
         'Productivity tools and user-friendly enhancements to simplify and accelerate daily operations.',
       image: '/images/partners/partners_b1up.jpg',
-      borderColor: '#0066CC',
+      borderColor: '#1F4FE0',
       linkText: 'Learn More',
       route: '/partners/boyum-it',
       fullDetails: {
@@ -270,13 +270,13 @@ export const UIPATH_PARTNERSHIP_DATA = {
     {
       title: 'RPA and Process Automation',
       iconName: 'Cog' as const,
-      color: '#0066CC',
+      color: '#1F4FE0',
       description: 'Automate repetitive data entry, AP/AR posting, and reconciliation.'
     },
     {
       title: 'AI-Powered Workflows',
       iconName: 'Cpu' as const,
-      color: '#0066CC',
+      color: '#1F4FE0',
       description: 'Machine learning document understanding for invoices and shipping documents.'
     },
     {
@@ -288,7 +288,7 @@ export const UIPATH_PARTNERSHIP_DATA = {
     {
       title: 'Improved Operational Efficiency',
       iconName: 'TrendingUp' as const,
-      color: '#0878f9',
+      color: '#1F4FE0',
       description: 'Accelerate transaction turnarounds with reliable 24/7 software bot execution.'
     }
   ]
@@ -344,7 +344,7 @@ export const WHY_CHOOSE_PARTNERSHIP_DATA = {
     {
       title: 'Technology Expertise',
       description: 'Deep knowledge of SAP, Boyum IT, UiPath and industry solutions.',
-      color: '#1B72E8',
+      color: '#1F4FE0',
       iconName: 'ShieldCheck' as const
     },
     {
@@ -356,13 +356,13 @@ export const WHY_CHOOSE_PARTNERSHIP_DATA = {
     {
       title: 'Integrated Solutions',
       description: 'End-to-end business solutions tailored to your requirements.',
-      color: '#0066CC',
+      color: '#1F4FE0',
       iconName: 'Settings' as const
     },
     {
       title: 'Ongoing Support',
       description: 'Continuous support and guidance to ensure long-term success.',
-      color: '#0878f9',
+      color: '#1F4FE0',
       iconName: 'Headphones' as const
     }
   ]

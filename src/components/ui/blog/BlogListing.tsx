@@ -22,11 +22,11 @@ export const BlogListing: React.FC<BlogListingProps> = ({
 }) => {
   if (articles.length === 0) {
     return (
-      <div className="py-16 px-4 text-center rounded-3xl bg-slate-50 border border-dashed border-slate-300 max-w-2xl mx-auto my-8">
-        <div className="w-12 h-12 rounded-2xl bg-blue-100 text-[#0052CC] flex items-center justify-center mx-auto mb-4">
+      <div className="py-16 px-4 text-center rounded-3xl bg-white border border-dashed border-slate-300 max-w-2xl mx-auto my-8">
+        <div className="w-12 h-12 rounded-2xl bg-blue-100 text-[#1F4FE0] flex items-center justify-center mx-auto mb-4">
           <SearchX className="w-6 h-6" />
         </div>
-        <h3 className="font-serif text-xl font-bold text-[#142B59] mb-2">
+        <h3 className="font-serif text-xl font-bold text-[#0A1B4F] mb-2">
           No Insights Found
         </h3>
         <p className="text-slate-600 text-sm max-w-md mx-auto mb-6">
@@ -36,7 +36,7 @@ export const BlogListing: React.FC<BlogListingProps> = ({
           <button
             type="button"
             onClick={onResetFilters}
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#0052CC] hover:bg-[#003E99] text-white text-sm font-semibold transition-colors cursor-pointer"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#1F4FE0] hover:bg-[#1739B8] text-white text-sm font-semibold transition-colors cursor-pointer"
           >
             <RotateCcw className="w-4 h-4" />
             <span>Reset Filters & Show All</span>
@@ -61,7 +61,7 @@ export const BlogListing: React.FC<BlogListingProps> = ({
           <button
             type="button"
             onClick={onLoadMore}
-            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl bg-white hover:bg-slate-50 text-[#142B59] hover:text-[#0052CC] font-semibold text-sm sm:text-base border border-slate-300 shadow-xs hover:shadow-md transition-all active:scale-95 cursor-pointer"
+            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl bg-white hover:bg-slate-50 text-[#0A1B4F] hover:text-[#1F4FE0] font-semibold text-sm sm:text-base border border-slate-300 shadow-xs hover:shadow-md transition-all active:scale-95 cursor-pointer"
           >
             <span>Load More Articles</span>
             <span className="text-xs text-slate-500 font-normal">

@@ -56,20 +56,20 @@ export const IndustryInsightsPage: React.FC = () => {
       {/* ===================================================================== */}
       {/* 1. HERO HEADER                                                        */}
       {/* ===================================================================== */}
-      <section className="relative overflow-hidden bg-gradient-to-r from-sky-50/70 via-white to-blue-50/40 py-12 sm:py-16 lg:py-20 border-b border-slate-100">
+      <section className="relative overflow-hidden py-12 sm:py-16 lg:py-20 border-b border-white/10 bg-atlas-navy atlas-dark">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
           
           <div className="max-w-3xl mx-auto space-y-4">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200/80 text-[#0052CC] text-xs font-bold uppercase tracking-wider">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200/80 text-[#1F4FE0] text-xs font-bold uppercase tracking-wider">
               <TrendingUp className="w-4 h-4" />
               <span>SECTOR BENCHMARKS & BLUEPRINTS</span>
             </div>
 
-            <h1 className="font-serif text-[32px] sm:text-[42px] lg:text-[48px] font-bold text-[#142B59] tracking-tight leading-[1.15]">
-              Industry-Focused <span className="bg-gradient-to-r from-[#0052CC] via-[#0066CC] to-[#0A66C2] bg-clip-text text-transparent">ERP & Automation Insights</span>
+            <h1 className="atlas-h1-size font-serif font-extrabold text-[#0A1B4F]">
+              Industry-Focused <span className="bg-gradient-to-r from-[#1F4FE0] via-[#1F4FE0] to-[#1F4FE0] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">ERP & Automation Insights</span>
             </h1>
 
-            <p className="text-[16px] sm:text-[19px] text-[#45546B] leading-relaxed font-normal">
+            <p className="text-[16px] sm:text-[19px] text-[#4A5876] leading-relaxed font-normal">
               Practical domain analysis addressing manufacturing bottlenecks, multi-bin inventory drift, financial closing delays, and global trading logistics.
             </p>
           </div>
@@ -85,8 +85,8 @@ export const IndustryInsightsPage: React.FC = () => {
                   onClick={() => setSelectedSector(sec)}
                   className={`px-4 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all cursor-pointer ${
                     isSelected
-                      ? 'bg-[#0052CC] text-white shadow-sm shadow-blue-500/20'
-                      : 'bg-white text-slate-600 hover:bg-blue-50 hover:text-[#0052CC] border border-slate-200'
+                      ? 'bg-[#1F4FE0] text-white shadow-sm shadow-blue-500/20'
+                      : 'bg-white text-slate-600 hover:bg-blue-50 hover:text-[#1F4FE0] border border-slate-200'
                   }`}
                 >
                   {sec}
@@ -101,7 +101,7 @@ export const IndustryInsightsPage: React.FC = () => {
       {/* ===================================================================== */}
       {/* 2. INDUSTRY INSIGHTS ARTICLES LISTING                                 */}
       {/* ===================================================================== */}
-      <section className="py-12 sm:py-16 bg-[#F8FAFC]">
+      <section className="py-12 sm:py-16 bg-atlas-navy atlas-dark">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           
           {filteredInsights.map((insight, idx) => {
@@ -116,7 +116,7 @@ export const IndustryInsightsPage: React.FC = () => {
                 <div className="grid grid-cols-1 lg:grid-cols-12">
                   
                   {/* Left Column: Cover Image & Key Operational Metrics */}
-                  <div className="lg:col-span-5 bg-slate-900 relative flex flex-col justify-between overflow-hidden min-h-[320px] lg:min-h-full">
+                  <div className="lg:col-span-5 bg-atlas-navy relative flex flex-col justify-between overflow-hidden min-h-[320px] lg:min-h-full">
                     <img
                       src={insight.heroImage}
                       alt={insight.title}
@@ -144,11 +144,11 @@ export const IndustryInsightsPage: React.FC = () => {
                       </div>
                       <div className="grid grid-cols-3 gap-2">
                         {insight.operationalMetrics.map((met, mIdx) => (
-                          <div key={mIdx} className="bg-white/10 backdrop-blur-md rounded-xl p-3 border border-white/10 text-center">
-                            <div className="text-lg sm:text-xl font-black text-white">
+                          <div key={mIdx} className="bg-white atlas-light-surface rounded-xl p-3 text-center">
+                            <div className="text-lg sm:text-xl font-black text-atlas-navy">
                               {met.value}
                             </div>
-                            <div className="text-[10px] text-blue-100 font-medium leading-tight mt-0.5">
+                            <div className="text-[10px] text-atlas-body font-medium leading-tight mt-0.5">
                               {met.label}
                             </div>
                           </div>
@@ -162,13 +162,13 @@ export const IndustryInsightsPage: React.FC = () => {
                     
                     <div className="space-y-4">
                       <div>
-                        <span className="text-xs font-bold uppercase tracking-wider text-[#0052CC] block mb-1">
+                        <span className="text-xs font-bold uppercase tracking-wider text-[#1F4FE0] block mb-1">
                           EXECUTIVE PROBLEM & SOLUTION ARCHITECTURE
                         </span>
-                        <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#142B59] leading-tight">
+                        <h2 className="text-[28px] sm:text-[34px] leading-[1.15] font-extrabold text-[#0A1B4F]">
                           {insight.title}
                         </h2>
-                        <p className="text-sm sm:text-base font-semibold text-[#0066CC] mt-1">
+                        <p className="text-sm sm:text-base font-semibold text-[#1F4FE0] mt-1">
                           {insight.subtitle}
                         </p>
                       </div>
@@ -185,7 +185,7 @@ export const IndustryInsightsPage: React.FC = () => {
 
                       {/* The Solution Architecture */}
                       <div className="space-y-2">
-                        <div className="text-xs font-bold uppercase tracking-wider text-[#142B59]">
+                        <div className="text-xs font-bold uppercase tracking-wider text-[#0A1B4F]">
                           ATLAS Architectural Approach
                         </div>
                         <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
@@ -195,7 +195,7 @@ export const IndustryInsightsPage: React.FC = () => {
 
                       {/* Key Value Drivers */}
                       <div className="space-y-2 pt-1">
-                        <div className="text-xs font-bold uppercase tracking-wider text-[#142B59]">
+                        <div className="text-xs font-bold uppercase tracking-wider text-[#0A1B4F]">
                           Measurable Business Impact
                         </div>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
@@ -218,7 +218,7 @@ export const IndustryInsightsPage: React.FC = () => {
                             <Link
                               key={sIdx}
                               to={srv.href}
-                              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-blue-50 text-slate-700 hover:text-[#0052CC] text-xs font-semibold border border-slate-200/80 transition-colors group"
+                              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-blue-50 text-slate-700 hover:text-[#1F4FE0] text-xs font-semibold border border-slate-200/80 transition-colors group"
                             >
                               <span>{srv.name}</span>
                               <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
@@ -234,7 +234,7 @@ export const IndustryInsightsPage: React.FC = () => {
                       {insight.caseStudyRef && (
                         <Link
                           to={insight.caseStudyRef.href}
-                          className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-[#0052CC] hover:underline"
+                          className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-[#1F4FE0] hover:underline"
                         >
                           <BarChart3 className="w-4 h-4" />
                           <span>View Real-World Case Study</span>
@@ -244,7 +244,7 @@ export const IndustryInsightsPage: React.FC = () => {
                       <button
                         type="button"
                         onClick={() => openConsultation(insight.title)}
-                        className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#0052CC] hover:bg-[#003E99] text-white text-xs sm:text-sm font-bold shadow-xs transition-colors cursor-pointer ml-auto"
+                        className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#1F4FE0] hover:bg-[#1739B8] text-white text-xs sm:text-sm font-bold shadow-xs transition-colors cursor-pointer ml-auto"
                       >
                         <span>Request Industry Assessment</span>
                         <ArrowRight className="w-4 h-4" />
@@ -264,7 +264,7 @@ export const IndustryInsightsPage: React.FC = () => {
       {/* ===================================================================== */}
       {/* 3. BOTTOM CTA & CONTACT CARDS                                         */}
       {/* ===================================================================== */}
-      <section className="py-16 sm:py-20 bg-gradient-to-b from-[#142B59] to-[#0A1A3A] text-white">
+      <section className="py-16 sm:py-20 bg-gradient-to-b from-[#0A1B4F] to-[#0A1B4F] text-white">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             
@@ -283,7 +283,7 @@ export const IndustryInsightsPage: React.FC = () => {
                   onClick={() => openConsultation('Sector Process Maturity Audit')}
                   variant="gold"
                   size="md"
-                  className="bg-[#1B72E8] hover:bg-[#1557B0] text-white font-semibold px-6 py-3 rounded-xl shadow-md"
+                  className="bg-[#1F4FE0] hover:bg-[#1F4FE0] text-white font-semibold px-6 py-3 rounded-xl shadow-md"
                   icon={<ArrowRight className="w-4 h-4" />}
                 >
                   Book Strategic Consultation

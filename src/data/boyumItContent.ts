@@ -49,8 +49,8 @@ export const BOYUM_HERO_DATA = {
   primaryCtaText: "Explore Solutions",
   secondaryCtaText: "Book a Consultation",
   floatingBadges: [
-    { label: "Boyum IT Silver Partner", color: "#1B72E8", iconName: "Award" },
-    { label: "320+ Add-On Modules Deployed", color: "#0066CC", iconName: "Layers" },
+    { label: "Boyum IT Silver Partner", color: "#1F4FE0", iconName: "Award" },
+    { label: "320+ Add-On Modules Deployed", color: "#1F4FE0", iconName: "Layers" },
     { label: "99.9% Inventory Accuracy", color: "#10b981", iconName: "CheckCircle2" },
     { label: "SAP Certified Integration", color: "#0284c7", iconName: "ShieldCheck" }
   ]
@@ -62,7 +62,7 @@ export const BOYUM_METRICS_DATA = [
     value: "320+",
     label: "Boyum Modules Deployed",
     sublabel: "Across manufacturing & logistics",
-    color: "#1B72E8",
+    color: "#1F4FE0",
     bgColor: "bg-blue-50 border-blue-200"
   },
   {
@@ -78,7 +78,7 @@ export const BOYUM_METRICS_DATA = [
     value: "99.9%",
     label: "Inventory Accuracy",
     sublabel: "With Produmex WMS mobile RF",
-    color: "#0066CC",
+    color: "#1F4FE0",
     bgColor: "bg-blue-50 border-blue-200"
   },
   {
@@ -126,10 +126,10 @@ export const BOYUM_PRODUCTS_DATA: BoyumProductCard[] = [
       "Shop floor terminal data collection"
     ],
     kpis: ["28% OEE Improvement", "42% Scrap & Rework Reduction", "Automated Netronic Gantt APS"],
-    accentColor: "#1B72E8",
-    borderColor: "border-[#1B72E8]",
-    hoverBorderColor: "hover:border-[#1557B0]",
-    badgeBg: "bg-blue-50 text-[#1B72E8] border border-blue-200"
+    accentColor: "#1F4FE0",
+    borderColor: "border-[#1F4FE0]",
+    hoverBorderColor: "hover:border-[#1F4FE0]",
+    badgeBg: "bg-blue-50 text-[#1F4FE0] border border-blue-200"
   },
   {
     id: "produmex",
@@ -170,10 +170,10 @@ export const BOYUM_PRODUCTS_DATA: BoyumProductCard[] = [
       "Automated scheduled reports & email delivery"
     ],
     kpis: ["35% Higher Productivity", "300+ Pre-built Automations", "Zero-Code Customization"],
-    accentColor: "#0066CC",
-    borderColor: "border-[#0066CC]",
+    accentColor: "#1F4FE0",
+    borderColor: "border-[#1F4FE0]",
     hoverBorderColor: "hover:border-[#5B21B6]",
-    badgeBg: "bg-blue-50 text-[#0066CC] border border-blue-200"
+    badgeBg: "bg-blue-50 text-[#1F4FE0] border border-blue-200"
   }
 ];
 
@@ -189,16 +189,16 @@ export const BOYUM_BENEFITS_DATA = {
       title: "Improved Operational Efficiency",
       description: "Streamline multi-department workflows, eliminate manual re-keying, and connect your front and back office.",
       iconName: "TrendingUp" as const,
-      color: "#1B72E8",
-      bgColor: "bg-blue-50 text-[#1B72E8] border border-blue-200"
+      color: "#1F4FE0",
+      bgColor: "bg-blue-50 text-[#1F4FE0] border border-blue-200"
     },
     {
       id: "b2",
       title: "Better Manufacturing Control",
       description: "Gain complete transparency over bills of materials, machine capacity, shop floor execution, and quality inspection.",
       iconName: "Factory" as const,
-      color: "#0066CC",
-      bgColor: "bg-blue-50 text-[#0066CC] border border-blue-200"
+      color: "#1F4FE0",
+      bgColor: "bg-blue-50 text-[#1F4FE0] border border-blue-200"
     },
     {
       id: "b3",
@@ -221,16 +221,16 @@ export const BOYUM_BENEFITS_DATA = {
       title: "Improved Business Workflows",
       description: "Establish automated approval processes, scheduled alerts, and seamless handoffs between production and logistics.",
       iconName: "GitMerge" as const,
-      color: "#0A66C2",
-      bgColor: "bg-blue-50 text-[#0A66C2] border border-blue-200"
+      color: "#1F4FE0",
+      bgColor: "bg-blue-50 text-[#1F4FE0] border border-blue-200"
     },
     {
       id: "b6",
       title: "Better SAP Business One Experience",
       description: "Unlock the full power of your ERP investment with certified, cohesive add-ons that grow alongside your business.",
       iconName: "Award" as const,
-      color: "#1B72E8",
-      bgColor: "bg-blue-50 text-[#1B72E8] border border-blue-200"
+      color: "#1F4FE0",
+      bgColor: "bg-blue-50 text-[#1F4FE0] border border-blue-200"
     }
   ]
 };
@@ -283,8 +283,8 @@ export const BOYUM_INDUSTRIES_DATA = {
         "Discrete, process, chemical, and industrial manufacturing companies rely on Beas Manufacturing for production planning, BOM control, and shop-floor execution.",
       bullet: "BOM, APS scheduling, machine capacity & live shop-floor tracking",
       imageSrc: "/images/crystal_hd/ind_manufacturing.jpg",
-      color: "#1B72E8",
-      borderColor: "border-[#1B72E8]"
+      color: "#1F4FE0",
+      borderColor: "border-[#1F4FE0]"
     },
     {
       id: "warehouse-logistics",
@@ -303,8 +303,8 @@ export const BOYUM_INDUSTRIES_DATA = {
         "High-volume wholesale traders and multi-branch distributors utilize B1UP and Produmex WMS to speed up order-to-cash workflows and eliminate errors.",
       bullet: "Automated order entry, real-time stock allocation & dispatch tracking",
       imageSrc: "/images/crystal_hd/ind_shipping.jpg",
-      color: "#0066CC",
-      borderColor: "border-[#0066CC]"
+      color: "#1F4FE0",
+      borderColor: "border-[#1F4FE0]"
     }
   ]
 };

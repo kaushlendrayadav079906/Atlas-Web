@@ -2,28 +2,47 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
+/* ==========================================================================
+   ATLAS design tokens (see Claude Design canvas "Atlas Technosoft Website Redesign")
+   Navy bands + royal-blue actions + sky accents on a clean white / mist canvas.
+   ========================================================================== */
 :root {
-  --color-heading: #142B59;
-  --color-body: #45546B;
-  --color-highlight: #0066CC;
-  --color-label: #0066CC;
-  --color-card-title: #172B50;
-  --color-card-description: #53647A;
+  --atlas-navy: #0A1B4F;
+  --atlas-navy-deep: #071340;
+  --atlas-royal: #1F4FE0;
+  --atlas-royal-dark: #1739B8;
+  --atlas-royal-tint: #EEF3FF;
+  --atlas-sky: #63C7F7;
+  --atlas-gold: #E0A33B;
+  --font-accent: 'Playfair Display', Georgia, serif;
+  --atlas-mist: #EEF4FA;
+  --atlas-tint: #F5F8FC;
+  --atlas-line: #E3EAF3;
+  --atlas-body: #4A5876;
+  --atlas-on-navy: #C9D5EE;
+  --atlas-card-border: #0F172A;
 
-  --font-heading: 'Playfair Display', Georgia, Cambria, serif;
-  --font-body: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --color-heading: var(--atlas-navy);
+  --color-body: var(--atlas-body);
+  --color-highlight: var(--atlas-royal);
+  --color-label: var(--atlas-royal);
+  --color-card-title: var(--atlas-navy);
+  --color-card-description: var(--atlas-body);
 
-  --brand-royal: #0066CC;
-  --brand-sapphire: #0A66C2;
-  --brand-navy: #142B59;
-  --brand-gradient: linear-gradient(135deg, #0052CC 0%, #0066CC 55%, #0A66C2 100%);
-  --primary-blue: #0066CC;
-  --dark-navy: #142B59;
-  --heading-color: #142B59;
-  --body-color: #45546B;
+  --font-heading: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
+  --font-body: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  --brand-royal: var(--atlas-royal);
+  --brand-sapphire: var(--atlas-royal);
+  --brand-navy: var(--atlas-navy);
+  --brand-gradient: linear-gradient(135deg, var(--atlas-royal) 0%, var(--atlas-royal) 100%);
+  --primary-blue: var(--atlas-royal);
+  --dark-navy: var(--atlas-navy);
+  --heading-color: var(--atlas-navy);
+  --body-color: var(--atlas-body);
   --background: #ffffff;
-  --soft-background: #f4f9ff;
-  --border-blue: #2992ff;
+  --soft-background: var(--atlas-mist);
+  --border-blue: var(--atlas-royal);
   --border-green: #16b978;
 }
 
@@ -33,6 +52,7 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     color: var(--body-color);
+    font-family: var(--font-body);
   }
 
   body {
@@ -42,6 +62,53 @@
 
   h1, h2, h3, h4, h5, h6 {
     color: var(--heading-color);
+    font-family: var(--font-heading);
+    letter-spacing: -0.02em;
+  }
+
+  h1, h2 {
+    font-weight: 800;
+    letter-spacing: -0.03em;
+  }
+}
+
+@layer components {
+  /* Layout container used by redesigned sections */
+  .atlas-container {
+    @apply w-full max-w-[1280px] mx-auto px-4 sm:px-6;
+  }
+
+  .atlas-eyebrow {
+    @apply inline-block text-[13px] font-bold uppercase tracking-[0.14em] text-atlas-royal;
+  }
+
+  .atlas-eyebrow-pill {
+    @apply inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-[12px] font-bold uppercase tracking-[0.14em];
+  }
+
+  /* Headline scale — matches the home hero headline */
+  .atlas-h1-size {
+    @apply text-[40px] sm:text-[52px] lg:text-[60px] xl:text-[66px] leading-[1.05] tracking-[-0.035em];
+  }
+
+  .atlas-h2-size {
+    @apply text-[34px] sm:text-[46px] lg:text-[56px] xl:text-[62px] leading-[1.07] tracking-[-0.032em];
+  }
+
+  .atlas-h2 {
+    @apply atlas-h2-size font-extrabold text-atlas-navy;
+  }
+
+  .atlas-lead {
+    @apply text-[16px] sm:text-[17px] leading-relaxed text-atlas-body;
+  }
+
+  .atlas-card {
+    @apply rounded-3xl bg-white border border-atlas-line transition-all duration-200;
+  }
+
+  .atlas-card-hover {
+    @apply hover:-translate-y-1 hover:border-atlas-royal/40 hover:shadow-enterprise-lg;
   }
 }
 
@@ -50,32 +117,28 @@
     color: var(--color-heading);
     font-family: var(--font-heading);
   }
-  .text-highlight {
-    background: linear-gradient(135deg, #1262daff 0%, #0066CC 55%, #0A66C2 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    display: inline-block;
-  }
-  .text-royal {
-    background: linear-gradient(135deg, #1262daff 0%, #0066CC 55%, #0A66C2 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    display: inline-block;
-  }
+  /* Highlight words are now a solid royal blue (no gradient text) */
+  .text-highlight,
+  .text-royal,
   .text-gemini {
-    background: linear-gradient(135deg, #1262daff 0%, #0066CC 55%, #0A66C2 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    display: inline-block;
+    color: var(--atlas-royal);
+    display: inline;
+    font-family: var(--font-accent);
+    font-style: italic;
+    font-weight: 600;
+    letter-spacing: -0.01em;
   }
-  .bg-royal {
-    background: linear-gradient(135deg, #1262daff 0%, #0066CC 100%);
+  /* Editorial accent word: Playfair italic (royal on light, gold on navy) */
+  .atlas-accent {
+    font-family: var(--font-accent);
+    font-style: italic;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    padding-right: 0.06em;
   }
+  .bg-royal,
   .bg-gemini {
-    background: linear-gradient(135deg, #1262daff 0%, #0066CC 100%);
+    background: var(--atlas-royal);
   }
   .text-label {
     color: var(--color-label);
@@ -92,6 +155,70 @@
   }
 }
 
+/* ==========================================================================
+   Navy section theme (.atlas-dark)
+   Sections that used to sit on off-white now sit on navy. Text coloured for a
+   light background is re-coloured for navy, but any light surface (white cards,
+   tinted chips, buttons, form fields, photo cards) and everything inside it keeps
+   its original colours, so cards on navy read exactly as before.
+   ========================================================================== */
+.atlas-dark {
+  background-color: var(--atlas-navy) !important;
+  background-image: none !important;
+  color: var(--atlas-on-navy);
+}
+
+/* Inherited text inside light surfaces returns to the light-theme body colour
+   (zero specificity, so explicit text-* utilities still win) */
+:where(.atlas-dark) :where(.bg-white, [class*="bg-white/"], [class*="bg-slate-50"], [class*="bg-slate-100"], [class*="bg-blue-50"], [class*="bg-blue-100"], [class*="bg-sky-50"], [class*="bg-emerald-50"], [class*="bg-[#EEF4FA]"], [class*="bg-[#E6EDFF]"], [class*="bg-[#F"], .bg-atlas-mist, .bg-atlas-tint, .bg-atlas-royalTint, .bg-atlas-goldTint, input, textarea, select) {
+  color: var(--atlas-body);
+}
+
+/* Headings and dark text -> white */
+.atlas-dark :is(h1, h2, h3, h4, h5, h6, [class*="text-[#0A1B4F]"], .text-atlas-navy, [class*="text-slate-900"], [class*="text-slate-800"], [class*="text-gray-900"], [class*="text-gray-800"], [class*="text-[#1A202C]"], .text-heading, .text-card-title):not(.atlas-dark :is(.atlas-light-surface, .bg-white, [class*="bg-white/"], [class*="bg-slate-"], [class*="bg-gray-"], [class*="bg-blue-"], [class*="bg-sky-"], [class*="bg-emerald-"], [class*="bg-green-"], [class*="bg-amber-"], [class*="bg-orange-"], [class*="bg-red-"], [class*="bg-purple-"], [class*="bg-indigo-"], [class*="bg-teal-"], [class*="bg-cyan-"], [class*="bg-[#"], [class*="bg-gradient"], .bg-atlas-mist, .bg-atlas-tint, .bg-atlas-royalTint, .bg-atlas-goldTint, .bg-atlas-royal, .bg-atlas-gold, [data-card], button, input, textarea, select), .atlas-dark :is(.atlas-light-surface, .bg-white, [class*="bg-white/"], [class*="bg-slate-"], [class*="bg-gray-"], [class*="bg-blue-"], [class*="bg-sky-"], [class*="bg-emerald-"], [class*="bg-green-"], [class*="bg-amber-"], [class*="bg-orange-"], [class*="bg-red-"], [class*="bg-purple-"], [class*="bg-indigo-"], [class*="bg-teal-"], [class*="bg-cyan-"], [class*="bg-[#"], [class*="bg-gradient"], .bg-atlas-mist, .bg-atlas-tint, .bg-atlas-royalTint, .bg-atlas-goldTint, .bg-atlas-royal, .bg-atlas-gold, [data-card], button, input, textarea, select) *) {
+  color: #ffffff !important;
+}
+
+/* Body / muted text -> light blue-grey */
+.atlas-dark :is([class*="text-[#4A5876]"], .text-atlas-body, [class*="text-slate-700"], [class*="text-slate-600"], [class*="text-slate-500"], [class*="text-slate-400"], [class*="text-gray-700"], [class*="text-gray-600"], [class*="text-gray-500"], .text-body, .text-card-description):not(.atlas-dark :is(.atlas-light-surface, .bg-white, [class*="bg-white/"], [class*="bg-slate-"], [class*="bg-gray-"], [class*="bg-blue-"], [class*="bg-sky-"], [class*="bg-emerald-"], [class*="bg-green-"], [class*="bg-amber-"], [class*="bg-orange-"], [class*="bg-red-"], [class*="bg-purple-"], [class*="bg-indigo-"], [class*="bg-teal-"], [class*="bg-cyan-"], [class*="bg-[#"], [class*="bg-gradient"], .bg-atlas-mist, .bg-atlas-tint, .bg-atlas-royalTint, .bg-atlas-goldTint, .bg-atlas-royal, .bg-atlas-gold, [data-card], button, input, textarea, select), .atlas-dark :is(.atlas-light-surface, .bg-white, [class*="bg-white/"], [class*="bg-slate-"], [class*="bg-gray-"], [class*="bg-blue-"], [class*="bg-sky-"], [class*="bg-emerald-"], [class*="bg-green-"], [class*="bg-amber-"], [class*="bg-orange-"], [class*="bg-red-"], [class*="bg-purple-"], [class*="bg-indigo-"], [class*="bg-teal-"], [class*="bg-cyan-"], [class*="bg-[#"], [class*="bg-gradient"], .bg-atlas-mist, .bg-atlas-tint, .bg-atlas-royalTint, .bg-atlas-goldTint, .bg-atlas-royal, .bg-atlas-gold, [data-card], button, input, textarea, select) *) {
+  color: var(--atlas-on-navy) !important;
+}
+
+/* Royal-blue labels, links and icons -> gold */
+.atlas-dark :is([class*="text-[#1F4FE0]"], .text-atlas-royal, [class*="text-blue-5"], [class*="text-blue-6"], [class*="text-blue-7"], .text-label):not(.atlas-dark :is(.atlas-light-surface, .bg-white, [class*="bg-white/"], [class*="bg-slate-"], [class*="bg-gray-"], [class*="bg-blue-"], [class*="bg-sky-"], [class*="bg-emerald-"], [class*="bg-green-"], [class*="bg-amber-"], [class*="bg-orange-"], [class*="bg-red-"], [class*="bg-purple-"], [class*="bg-indigo-"], [class*="bg-teal-"], [class*="bg-cyan-"], [class*="bg-[#"], [class*="bg-gradient"], .bg-atlas-mist, .bg-atlas-tint, .bg-atlas-royalTint, .bg-atlas-goldTint, .bg-atlas-royal, .bg-atlas-gold, [data-card], button, input, textarea, select), .atlas-dark :is(.atlas-light-surface, .bg-white, [class*="bg-white/"], [class*="bg-slate-"], [class*="bg-gray-"], [class*="bg-blue-"], [class*="bg-sky-"], [class*="bg-emerald-"], [class*="bg-green-"], [class*="bg-amber-"], [class*="bg-orange-"], [class*="bg-red-"], [class*="bg-purple-"], [class*="bg-indigo-"], [class*="bg-teal-"], [class*="bg-cyan-"], [class*="bg-[#"], [class*="bg-gradient"], .bg-atlas-mist, .bg-atlas-tint, .bg-atlas-royalTint, .bg-atlas-goldTint, .bg-atlas-royal, .bg-atlas-gold, [data-card], button, input, textarea, select) *) {
+  color: var(--atlas-gold) !important;
+}
+
+/* Italic accent words (royal gradient text) -> gold */
+.atlas-dark :is(.bg-clip-text.text-transparent, .atlas-accent.text-atlas-royal):not(.atlas-dark :is(.atlas-light-surface, .bg-white, [class*="bg-white/"], [class*="bg-slate-"], [class*="bg-gray-"], [class*="bg-blue-"], [class*="bg-sky-"], [class*="bg-emerald-"], [class*="bg-green-"], [class*="bg-amber-"], [class*="bg-orange-"], [class*="bg-red-"], [class*="bg-purple-"], [class*="bg-indigo-"], [class*="bg-teal-"], [class*="bg-cyan-"], [class*="bg-[#"], [class*="bg-gradient"], .bg-atlas-mist, .bg-atlas-tint, .bg-atlas-royalTint, .bg-atlas-goldTint, .bg-atlas-royal, .bg-atlas-gold, [data-card], button, input, textarea, select) *) {
+  background-image: none !important;
+  -webkit-text-fill-color: var(--atlas-gold);
+  color: var(--atlas-gold) !important;
+}
+
+/* Two navy sections in a row keep the same navy, separated by a hairline */
+.atlas-dark + .atlas-dark,
+.bg-atlas-navy + .atlas-dark,
+.atlas-dark + section.bg-atlas-navy {
+  box-shadow: inset 0 1px 0 rgba(201, 213, 238, 0.14);
+}
+
+/* Card surfaces
+   - On white sections: white cards (incl. photo cards) get a dark border.
+   - On navy sections: cards are plain white and stand out on their own.
+   (Selector parts are joined without spaces so they apply to the same element.) */
+main section:not(.atlas-dark):not(.bg-atlas-navy) :is([data-card], :is([class*="rounded-xl"], [class*="rounded-2xl"], [class*="rounded-3xl"], [class*="rounded-[2"], [class*="rounded-[3"]):is(.bg-white, [class*="bg-white/"])):not(input, textarea, select, .atlas-no-border, [class*="backdrop-blur"], .absolute, .bg-atlas-navy *, .atlas-dark *, .fixed *) {
+  border: 1px solid var(--atlas-card-border) !important;
+}
+main section:not(.atlas-dark):not(.bg-atlas-navy) :is([data-card], :is([class*="rounded-xl"], [class*="rounded-2xl"], [class*="rounded-3xl"], [class*="rounded-[2"], [class*="rounded-[3"]):is(.bg-white, [class*="bg-white/"])):not(input, textarea, select, .atlas-no-border, [class*="backdrop-blur"], .absolute, .bg-atlas-navy *, .atlas-dark *, .fixed *):is(:hover, :focus-within) {
+  border-color: var(--atlas-royal) !important;
+}
+
+/* Hairlines on navy */
+.atlas-dark :is([class*="border-slate-100"], [class*="border-slate-200"], [class*="border-blue-100"]):not(.atlas-dark :is(.atlas-light-surface, .bg-white, [class*="bg-white/"], [class*="bg-slate-"], [class*="bg-gray-"], [class*="bg-blue-"], [class*="bg-sky-"], [class*="bg-emerald-"], [class*="bg-green-"], [class*="bg-amber-"], [class*="bg-orange-"], [class*="bg-red-"], [class*="bg-purple-"], [class*="bg-indigo-"], [class*="bg-teal-"], [class*="bg-cyan-"], [class*="bg-[#"], [class*="bg-gradient"], .bg-atlas-mist, .bg-atlas-tint, .bg-atlas-royalTint, .bg-atlas-goldTint, .bg-atlas-royal, .bg-atlas-gold, [data-card], button, input, textarea, select), .atlas-dark :is(.atlas-light-surface, .bg-white, [class*="bg-white/"], [class*="bg-slate-"], [class*="bg-gray-"], [class*="bg-blue-"], [class*="bg-sky-"], [class*="bg-emerald-"], [class*="bg-green-"], [class*="bg-amber-"], [class*="bg-orange-"], [class*="bg-red-"], [class*="bg-purple-"], [class*="bg-indigo-"], [class*="bg-teal-"], [class*="bg-cyan-"], [class*="bg-[#"], [class*="bg-gradient"], .bg-atlas-mist, .bg-atlas-tint, .bg-atlas-royalTint, .bg-atlas-goldTint, .bg-atlas-royal, .bg-atlas-gold, [data-card], button, input, textarea, select) *) {
+  border-color: rgba(201, 213, 238, 0.16) !important;
+}
+
 /* Accessibility: Respect user motion preferences */
 @media (prefers-reduced-motion: reduce) {
   *, ::before, ::after {
@@ -102,10 +229,10 @@
   }
 }
 
-/* Subtle enterprise gradient background */
+/* Subtle enterprise grid background */
 .bg-grid-pattern {
   background-size: 40px 40px;
-  background-image: 
+  background-image:
     linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
 }
@@ -139,6 +266,147 @@
 @media (prefers-reduced-motion: reduce) {
   .animate-marquee-left {
     animation: none !important;
+    transform: none !important;
+  }
+}
+
+/* ==========================================================================
+   Motion system — entrance, scroll reveal, ambient and micro-interactions.
+   Everything here is neutralised by the prefers-reduced-motion block below.
+   ========================================================================== */
+:root {
+  --ease-out-expo: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes atlas-fade-up {
+  from { opacity: 0; transform: translate3d(0, 28px, 0); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes atlas-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes atlas-scale-in {
+  from { opacity: 0; transform: scale(0.94) translate3d(0, 16px, 0); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes atlas-float {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50%      { transform: translate3d(0, -12px, 0); }
+}
+@keyframes atlas-drift {
+  0%   { transform: translate3d(0, 0, 0) scale(1); }
+  33%  { transform: translate3d(60px, -40px, 0) scale(1.08); }
+  66%  { transform: translate3d(-30px, 30px, 0) scale(0.95); }
+  100% { transform: translate3d(0, 0, 0) scale(1); }
+}
+@keyframes atlas-dash {
+  to { stroke-dashoffset: -320; }
+}
+@keyframes atlas-pulse-ring {
+  0%   { box-shadow: 0 0 0 0 rgba(224, 163, 59, 0.65); }
+  100% { box-shadow: 0 0 0 10px rgba(224, 163, 59, 0); }
+}
+@keyframes atlas-underline-grow {
+  to { background-size: 100% 0.09em; }
+}
+@keyframes atlas-menu-in {
+  from { opacity: 0; transform: translate3d(0, -10px, 0); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes atlas-sheen {
+  from { transform: translateX(-120%) skewX(-20deg); }
+  to   { transform: translateX(220%) skewX(-20deg); }
+}
+
+.animate-fade-up  { animation: atlas-fade-up 0.9s var(--ease-out-expo) both; }
+.animate-fade-in  { animation: atlas-fade-in 0.6s ease-out both; }
+.animate-scale-in { animation: atlas-scale-in 1s var(--ease-out-expo) both; }
+.animate-menu-in  { animation: atlas-menu-in 0.28s var(--ease-out-expo) both; }
+.animate-float    { animation: atlas-float 6s ease-in-out infinite; }
+.animate-drift    { animation: atlas-drift 22s ease-in-out infinite; }
+.animate-drift-slow { animation: atlas-drift 30s ease-in-out infinite reverse; }
+.animate-pulse-ring { animation: atlas-pulse-ring 1.8s ease-out infinite; }
+.animate-dash     { stroke-dasharray: 6 10; animation: atlas-dash 9s linear infinite; }
+
+/* Entrance + continuous float on the same element */
+.animate-float-in {
+  animation:
+    atlas-fade-up 0.9s var(--ease-out-expo) 0.7s both,
+    atlas-float 6s ease-in-out 1.6s infinite;
+}
+
+/* Stagger helpers for keyframe animations */
+.anim-delay-1 { animation-delay: 0.1s; }
+.anim-delay-2 { animation-delay: 0.2s; }
+.anim-delay-3 { animation-delay: 0.3s; }
+.anim-delay-4 { animation-delay: 0.4s; }
+.anim-delay-5 { animation-delay: 0.5s; }
+.anim-delay-6 { animation-delay: 0.6s; }
+.anim-delay-8 { animation-delay: 0.8s; }
+
+/* Gold underline that draws itself under an accent phrase */
+.atlas-underline {
+  background-image: linear-gradient(rgba(224, 163, 59, 0.55), rgba(224, 163, 59, 0.55));
+  background-repeat: no-repeat;
+  background-position: 0 92%;
+  background-size: 0% 0.09em;
+  animation: atlas-underline-grow 1.1s var(--ease-out-expo) 1s forwards;
+}
+
+/* Light sweep across buttons on hover */
+.atlas-sheen {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+.atlas-sheen::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  width: 40%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+  transform: translateX(-120%) skewX(-20deg);
+  pointer-events: none;
+  z-index: 1;
+}
+.atlas-sheen:hover::after {
+  animation: atlas-sheen 0.8s ease-out;
+}
+
+/* Scroll reveal — classes are added by <ScrollReveal /> only when motion is allowed,
+   and removed once the element has appeared so its own hover transitions return. */
+.reveal-init {
+  opacity: 0;
+  transform: translate3d(0, 32px, 0);
+  transition:
+    opacity 0.8s var(--ease-out-expo),
+    transform 0.8s var(--ease-out-expo);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+.reveal-init.reveal-scale {
+  transform: scale(0.96) translate3d(0, 24px, 0);
+}
+.reveal-init.reveal-in {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-up, .animate-fade-in, .animate-scale-in, .animate-menu-in,
+  .animate-float, .animate-float-in, .animate-drift, .animate-drift-slow,
+  .animate-pulse-ring, .animate-dash {
+    animation: none !important;
+  }
+  .atlas-underline {
+    animation: none !important;
+    background-size: 100% 0.09em;
+  }
+  .atlas-sheen:hover::after {
+    animation: none !important;
+  }
+  .reveal-init {
+    opacity: 1 !important;
     transform: none !important;
   }
 }

@@ -89,9 +89,9 @@ export const IndividualCaseStudyPage: React.FC = () => {
   if (!caseStudy) {
     return (
       <div className="min-h-[60vh] flex flex-col items-center justify-center p-8 text-center">
-        <h1 className="font-serif text-3xl font-bold text-[#142B59] mb-4">Case Study Not Found</h1>
-        <p className="text-[#45546B] mb-6">The requested customer success story could not be found.</p>
-        <Link to="/case-studies" className="inline-flex items-center gap-2 text-[#1B72E8] font-semibold hover:underline">
+        <h1 className="atlas-h1-size font-serif font-bold text-[#0A1B4F] mb-4">Case Study Not Found</h1>
+        <p className="text-[#4A5876] mb-6">The requested customer success story could not be found.</p>
+        <Link to="/case-studies" className="inline-flex items-center gap-2 text-[#1F4FE0] font-semibold hover:underline">
           <ArrowLeft className="w-4 h-4" /> Back to All Case Studies
         </Link>
       </div>
@@ -103,7 +103,7 @@ export const IndividualCaseStudyPage: React.FC = () => {
       {/* ========================================================================= */}
       {/* SECTION 1: BREADCRUMBS & CASE STUDY HERO                                  */}
       {/* ========================================================================= */}
-      <section className="relative pt-6 pb-12 sm:pb-16 bg-gradient-to-b from-blue-50/50 via-white to-white border-b border-slate-100 overflow-hidden">
+      <section className="relative pt-6 pb-12 sm:pb-16 border-b border-white/10 overflow-hidden bg-atlas-navy atlas-dark">
         {/* Subtle decorative glow */}
         <div className="absolute top-0 right-0 w-[500px] h-[400px] bg-gradient-to-bl from-blue-100/40 via-blue-100/20 to-transparent rounded-full blur-3xl -z-10 pointer-events-none" />
 
@@ -111,19 +111,19 @@ export const IndividualCaseStudyPage: React.FC = () => {
           
           {/* Breadcrumb Navigation: Home -> Case Studies -> Current Case Study */}
           <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
-            <nav className="flex items-center gap-2 text-xs sm:text-sm text-[#53647A]">
-              <Link to="/" className="hover:text-[#1B72E8] transition-colors">Home</Link>
+            <nav className="flex items-center gap-2 text-xs sm:text-sm text-[#4A5876]">
+              <Link to="/" className="hover:text-[#1F4FE0] transition-colors">Home</Link>
               <span>/</span>
-              <Link to="/case-studies" className="hover:text-[#1B72E8] transition-colors">Case Studies</Link>
+              <Link to="/case-studies" className="hover:text-[#1F4FE0] transition-colors">Case Studies</Link>
               <span>/</span>
-              <span className="font-semibold text-[#142B59] truncate max-w-[280px] sm:max-w-md">
+              <span className="font-semibold text-[#0A1B4F] truncate max-w-[280px] sm:max-w-md">
                 {caseStudy.title}
               </span>
             </nav>
 
             <Link
               to="/case-studies"
-              className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-[#1B72E8] hover:underline"
+              className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-[#1F4FE0] hover:underline"
             >
               <ArrowLeft className="w-3.5 h-3.5" />
               <span>Back to Case Studies</span>
@@ -136,44 +136,44 @@ export const IndividualCaseStudyPage: React.FC = () => {
             <div className="lg:col-span-7 space-y-5">
               
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50/80 border border-blue-200/60 shadow-xs">
-                {renderCategoryIcon(caseStudy.categoryIcon, "w-4 h-4 text-[#1B72E8]")}
-                <span className="text-[12px] sm:text-[13px] font-bold uppercase tracking-wider text-[#1B72E8]">
+                {renderCategoryIcon(caseStudy.categoryIcon, "w-4 h-4 text-[#1F4FE0]")}
+                <span className="text-[12px] sm:text-[13px] font-bold uppercase tracking-wider text-[#1F4FE0]">
                   {caseStudy.category} • CUSTOMER SUCCESS STORY
                 </span>
               </div>
 
-              <h1 className="font-serif text-[32px] sm:text-[42px] lg:text-[46px] font-bold text-[#142B59] tracking-tight leading-[1.15]">
+              <h1 className="atlas-h1-size font-serif font-extrabold text-[#0A1B4F]">
                 {caseStudy.title}{' '}
-                <span className="bg-gradient-to-r from-[#0052CC] via-[#0066CC] to-[#0A66C2] bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-[#1F4FE0] via-[#1F4FE0] to-[#1F4FE0] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">
                   {caseStudy.titleHighlight}
                 </span>
               </h1>
 
-              <p className="text-[18px] sm:text-[20px] font-medium text-[#172B50] leading-snug">
+              <p className="text-[18px] sm:text-[20px] font-medium text-[#0A1B4F] leading-snug">
                 {caseStudy.tagline}
               </p>
 
-              <p className="text-[15px] sm:text-[16px] lg:text-[17px] text-[#45546B] leading-relaxed max-w-2xl">
+              <p className="text-[15px] sm:text-[16px] lg:text-[17px] text-[#4A5876] leading-relaxed max-w-2xl">
                 {caseStudy.introduction}
               </p>
 
               {/* Client Profile Data Strip */}
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2 pb-2">
-                <div className="p-3 rounded-xl bg-slate-50 border border-slate-200/80">
-                  <div className="text-[11px] font-bold text-[#53647A] uppercase tracking-wider">Industry</div>
-                  <div className="text-[13px] font-bold text-[#142B59] truncate">{caseStudy.clientProfile.industry}</div>
+                <div className="p-3 rounded-xl bg-white border border-slate-200/80">
+                  <div className="text-[11px] font-bold text-[#4A5876] uppercase tracking-wider">Industry</div>
+                  <div className="text-[13px] font-bold text-[#0A1B4F] truncate">{caseStudy.clientProfile.industry}</div>
                 </div>
-                <div className="p-3 rounded-xl bg-slate-50 border border-slate-200/80">
-                  <div className="text-[11px] font-bold text-[#53647A] uppercase tracking-wider">Timeline</div>
-                  <div className="text-[13px] font-bold text-[#142B59] truncate">{caseStudy.clientProfile.deploymentTime}</div>
+                <div className="p-3 rounded-xl bg-white border border-slate-200/80">
+                  <div className="text-[11px] font-bold text-[#4A5876] uppercase tracking-wider">Timeline</div>
+                  <div className="text-[13px] font-bold text-[#0A1B4F] truncate">{caseStudy.clientProfile.deploymentTime}</div>
                 </div>
-                <div className="p-3 rounded-xl bg-slate-50 border border-slate-200/80">
-                  <div className="text-[11px] font-bold text-[#53647A] uppercase tracking-wider">Scale</div>
-                  <div className="text-[13px] font-bold text-[#142B59] truncate">{caseStudy.clientProfile.companyScale}</div>
+                <div className="p-3 rounded-xl bg-white border border-slate-200/80">
+                  <div className="text-[11px] font-bold text-[#4A5876] uppercase tracking-wider">Scale</div>
+                  <div className="text-[13px] font-bold text-[#0A1B4F] truncate">{caseStudy.clientProfile.companyScale}</div>
                 </div>
-                <div className="p-3 rounded-xl bg-slate-50 border border-slate-200/80">
-                  <div className="text-[11px] font-bold text-[#53647A] uppercase tracking-wider">Region</div>
-                  <div className="text-[13px] font-bold text-[#142B59] truncate">{caseStudy.clientProfile.geography}</div>
+                <div className="p-3 rounded-xl bg-white border border-slate-200/80">
+                  <div className="text-[11px] font-bold text-[#4A5876] uppercase tracking-wider">Region</div>
+                  <div className="text-[13px] font-bold text-[#0A1B4F] truncate">{caseStudy.clientProfile.geography}</div>
                 </div>
               </div>
 
@@ -183,7 +183,7 @@ export const IndividualCaseStudyPage: React.FC = () => {
                   onClick={() => setIsModalOpen(true)}
                   variant="gold"
                   size="lg"
-                  className="text-[15px] sm:text-[16px] font-semibold px-6 py-3.5 shadow-md shadow-blue-500/25 bg-gradient-to-r from-[#0052CC] to-[#0A66C2] hover:from-[#0040A8] hover:to-[#08529C] text-white"
+                  className="text-[15px] sm:text-[16px] font-semibold px-6 py-3.5 shadow-md shadow-blue-500/25 bg-gradient-to-r from-[#1F4FE0] to-[#1F4FE0] hover:from-[#1739B8] hover:to-[#1739B8] text-white"
                   icon={<ArrowRight className="w-4 h-4" />}
                 >
                   Book a Consultation
@@ -191,13 +191,13 @@ export const IndividualCaseStudyPage: React.FC = () => {
 
                 <a
                   href="#solution"
-                  className="inline-flex items-center justify-center font-semibold rounded-lg transition-all duration-200 px-6 py-3.5 text-[15px] sm:text-[16px] bg-white text-[#142B59] hover:bg-slate-50 border border-slate-300 shadow-xs"
+                  className="inline-flex items-center justify-center font-semibold rounded-lg transition-all duration-200 px-6 py-3.5 text-[15px] sm:text-[16px] bg-white text-[#0A1B4F] hover:bg-slate-50 border border-slate-300 shadow-xs"
                 >
                   View Solution & Results
                 </a>
               </div>
 
-              <div className="pt-1 flex items-center gap-2 text-xs sm:text-sm font-semibold text-[#142B59]">
+              <div className="pt-1 flex items-center gap-2 text-xs sm:text-sm font-semibold text-[#0A1B4F]">
                 <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0" />
                 <span>Verified Client Engagement • Protected under Corporate NDA</span>
               </div>
@@ -211,7 +211,7 @@ export const IndividualCaseStudyPage: React.FC = () => {
                   alt={caseStudy.heroImageAlt}
                   className="w-full h-auto object-cover max-h-[420px] group-hover:scale-102 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0d1d3d]/50 via-transparent to-transparent pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0A1B4F]/50 via-transparent to-transparent pointer-events-none" />
                 
                 {/* Floating Micro Badge */}
                 <div className="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-md rounded-xl p-3 border border-slate-200/90 shadow-lg flex items-center justify-between">
@@ -220,8 +220,8 @@ export const IndividualCaseStudyPage: React.FC = () => {
                       ✓
                     </div>
                     <div>
-                      <div className="text-xs font-bold text-[#142B59]">Verified Production Deployment</div>
-                      <div className="text-[11px] text-[#53647A]">{caseStudy.clientProfile.deploymentTime}</div>
+                      <div className="text-xs font-bold text-[#0A1B4F]">Verified Production Deployment</div>
+                      <div className="text-[11px] text-[#4A5876]">{caseStudy.clientProfile.deploymentTime}</div>
                     </div>
                   </div>
                   <span className="text-[11px] font-bold text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-md">
@@ -238,13 +238,13 @@ export const IndividualCaseStudyPage: React.FC = () => {
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
               {caseStudy.verifiedOutcomes.map((m, idx) => (
                 <div key={idx} className="bg-white p-4 sm:p-5 rounded-xl border border-slate-200/80 shadow-xs hover:border-blue-200 transition-colors">
-                  <div className="text-[28px] sm:text-[34px] font-black text-[#1B72E8] tracking-tight leading-none mb-1.5">
+                  <div className="text-[28px] sm:text-[34px] font-black text-[#1F4FE0] tracking-tight leading-none mb-1.5">
                     {m.metric}
                   </div>
-                  <div className="text-[14px] sm:text-[15px] font-bold text-[#142B59] leading-snug">
+                  <div className="text-[14px] sm:text-[15px] font-bold text-[#0A1B4F] leading-snug">
                     {m.label}
                   </div>
-                  <div className="text-[12px] sm:text-[13px] text-[#53647A] leading-normal mt-1">
+                  <div className="text-[12px] sm:text-[13px] text-[#4A5876] leading-normal mt-1">
                     {m.detail}
                   </div>
                 </div>
@@ -258,7 +258,7 @@ export const IndividualCaseStudyPage: React.FC = () => {
       {/* ========================================================================= */}
       {/* SECTION 2: BUSINESS CHALLENGES & TECHNOLOGY STACK                         */}
       {/* ========================================================================= */}
-      <section className="py-12 sm:py-16 bg-[#f4f9ff]/60 border-b border-slate-100">
+      <section className="py-12 sm:py-16 border-b border-white/10 bg-atlas-navy atlas-dark">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14">
@@ -266,16 +266,16 @@ export const IndividualCaseStudyPage: React.FC = () => {
             {/* Left Column: Business Challenges */}
             <div className="lg:col-span-7 space-y-6">
               <div>
-                <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-[#1B72E8] block mb-1">
+                <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-[#1F4FE0] block mb-1">
                   OPERATIONAL BOTTLENECKS
                 </span>
-                <h2 className="font-serif text-[28px] sm:text-[34px] font-bold text-[#142B59] tracking-tight">
+                <h2 className="atlas-h2-size font-serif font-extrabold text-[#0A1B4F]">
                   The Business{' '}
-                  <span className="bg-gradient-to-r from-[#0052CC] via-[#0066CC] to-[#0A66C2] bg-clip-text text-transparent">
+                  <span className="bg-gradient-to-r from-[#1F4FE0] via-[#1F4FE0] to-[#1F4FE0] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">
                     Challenges
                   </span>
                 </h2>
-                <p className="text-[15px] sm:text-[16px] text-[#45546B] mt-2">
+                <p className="text-[15px] sm:text-[16px] text-[#4A5876] mt-2">
                   Key hurdles faced by the client before partnering with ATLAS Technosoft:
                 </p>
               </div>
@@ -286,14 +286,14 @@ export const IndividualCaseStudyPage: React.FC = () => {
                     key={idx}
                     className="p-5 rounded-2xl bg-white border border-slate-200/90 shadow-xs flex items-start gap-4 hover:border-blue-300 transition-colors"
                   >
-                    <div className="w-10 h-10 rounded-xl bg-blue-50 text-[#0066CC] border border-blue-200/80 flex items-center justify-center shrink-0 mt-0.5">
+                    <div className="w-10 h-10 rounded-xl bg-blue-50 text-[#1F4FE0] border border-blue-200/80 flex items-center justify-center shrink-0 mt-0.5">
                       {renderChallengeIcon(ch.icon, "w-5 h-5")}
                     </div>
                     <div>
-                      <h3 className="text-[17px] font-bold text-[#142B59] mb-1">
+                      <h3 className="text-[17px] font-bold text-[#0A1B4F] mb-1">
                         {ch.title}
                       </h3>
-                      <p className="text-[14px] text-[#53647A] leading-relaxed">
+                      <p className="text-[14px] text-[#4A5876] leading-relaxed">
                         {ch.description}
                       </p>
                     </div>
@@ -305,16 +305,16 @@ export const IndividualCaseStudyPage: React.FC = () => {
             {/* Right Column: Technology Stack Deployed */}
             <div className="lg:col-span-5 space-y-6">
               <div>
-                <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-[#1B72E8] block mb-1">
+                <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-[#1F4FE0] block mb-1">
                   SOLUTION ARCHITECTURE
                 </span>
-                <h2 className="font-serif text-[28px] sm:text-[34px] font-bold text-[#142B59] tracking-tight">
+                <h2 className="atlas-h2-size font-serif font-extrabold text-[#0A1B4F]">
                   Technology{' '}
-                  <span className="bg-gradient-to-r from-[#0052CC] via-[#0066CC] to-[#0A66C2] bg-clip-text text-transparent">
+                  <span className="bg-gradient-to-r from-[#1F4FE0] via-[#1F4FE0] to-[#1F4FE0] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">
                     Stack
                   </span>
                 </h2>
-                <p className="text-[15px] sm:text-[16px] text-[#45546B] mt-2">
+                <p className="text-[15px] sm:text-[16px] text-[#4A5876] mt-2">
                   The integrated technologies deployed to solve these bottlenecks:
                 </p>
               </div>
@@ -326,10 +326,10 @@ export const IndividualCaseStudyPage: React.FC = () => {
                     className="p-4 rounded-xl bg-white border border-slate-200/90 shadow-xs flex items-center justify-between"
                   >
                     <div>
-                      <div className="text-base font-bold text-[#142B59]">{tech.name}</div>
-                      <div className="text-xs text-[#53647A]">{tech.role}</div>
+                      <div className="text-base font-bold text-[#0A1B4F]">{tech.name}</div>
+                      <div className="text-xs text-[#4A5876]">{tech.role}</div>
                     </div>
-                    <span className="text-xs font-bold text-[#1B72E8] bg-blue-50 px-2.5 py-1 rounded-md border border-blue-100">
+                    <span className="text-xs font-bold text-[#1F4FE0] bg-blue-50 px-2.5 py-1 rounded-md border border-blue-100">
                       {tech.tag}
                     </span>
                   </div>
@@ -337,14 +337,14 @@ export const IndividualCaseStudyPage: React.FC = () => {
               </div>
 
               {/* Client Quote Card */}
-              <div className="p-6 rounded-2xl bg-[#f0f6ff] border border-blue-200/80 shadow-xs relative">
+              <div className="p-6 rounded-2xl bg-white border border-blue-200/80 shadow-xs relative">
                 <Quote className="w-8 h-8 text-blue-300 absolute top-4 right-4" />
-                <p className="text-[14px] sm:text-[15px] italic text-[#172B50] leading-relaxed mb-4">
+                <p className="text-[14px] sm:text-[15px] italic text-[#0A1B4F] leading-relaxed mb-4">
                   "{caseStudy.clientQuote.quote}"
                 </p>
                 <div>
-                  <div className="text-xs font-bold text-[#142B59]">{caseStudy.clientQuote.author}</div>
-                  <div className="text-[11px] text-[#53647A]">{caseStudy.clientQuote.role}</div>
+                  <div className="text-xs font-bold text-[#0A1B4F]">{caseStudy.clientQuote.author}</div>
+                  <div className="text-[11px] text-[#4A5876]">{caseStudy.clientQuote.role}</div>
                 </div>
               </div>
 
@@ -376,13 +376,13 @@ export const IndividualCaseStudyPage: React.FC = () => {
 
             {/* Right Narrative */}
             <div className="lg:col-span-7 order-1 lg:order-2 space-y-4">
-              <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-[#1B72E8] block">
+              <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-[#1F4FE0] block">
                 ATLAS SOLUTION & IMPLEMENTATION
               </span>
-              <h2 className="font-serif text-[28px] sm:text-[36px] font-bold text-[#142B59] tracking-tight leading-tight">
+              <h2 className="atlas-h2-size font-serif font-extrabold text-[#0A1B4F]">
                 {caseStudy.solutionImplementation.heading}
               </h2>
-              <p className="text-[15px] sm:text-[16px] text-[#45546B] leading-relaxed">
+              <p className="text-[15px] sm:text-[16px] text-[#4A5876] leading-relaxed">
                 {caseStudy.solutionImplementation.description}
               </p>
             </div>
@@ -394,15 +394,15 @@ export const IndividualCaseStudyPage: React.FC = () => {
             {caseStudy.solutionImplementation.pillars.map((pil, idx) => (
               <div
                 key={idx}
-                className="p-6 rounded-2xl bg-white border border-slate-200/90 shadow-xs hover:border-[#1B72E8] hover:shadow-md transition-all"
+                className="p-6 rounded-2xl bg-white border border-slate-200/90 shadow-xs hover:border-[#1F4FE0] hover:shadow-md transition-all"
               >
-                <div className="w-8 h-8 rounded-lg bg-blue-50 text-[#1B72E8] flex items-center justify-center font-bold text-sm mb-4">
+                <div className="w-8 h-8 rounded-lg bg-blue-50 text-[#1F4FE0] flex items-center justify-center font-bold text-sm mb-4">
                   0{idx + 1}
                 </div>
-                <h3 className="text-[17px] font-bold text-[#172B50] mb-2 leading-snug">
+                <h3 className="text-[17px] font-bold text-[#0A1B4F] mb-2 leading-snug">
                   {pil.title}
                 </h3>
-                <p className="text-[13px] sm:text-[14px] text-[#53647A] leading-relaxed">
+                <p className="text-[13px] sm:text-[14px] text-[#4A5876] leading-relaxed">
                   {pil.description}
                 </p>
               </div>
@@ -415,20 +415,20 @@ export const IndividualCaseStudyPage: React.FC = () => {
       {/* ========================================================================= */}
       {/* SECTION 4: KEY FEATURES DEPLOYED                                          */}
       {/* ========================================================================= */}
-      <section className="py-12 sm:py-16 bg-[#f4f9ff]/60 border-b border-slate-100">
+      <section className="py-12 sm:py-16 border-b border-white/10 bg-atlas-navy atlas-dark">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="text-center max-w-3xl mx-auto mb-10 space-y-3">
-            <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-[#1B72E8]">
+            <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-[#1F4FE0]">
               SYSTEM CAPABILITIES
             </span>
-            <h2 className="font-serif text-[30px] sm:text-[38px] font-bold text-[#142B59] tracking-tight">
+            <h2 className="atlas-h2-size font-serif font-extrabold text-[#0A1B4F]">
               Key Features &{' '}
-              <span className="bg-gradient-to-r from-[#0052CC] via-[#0066CC] to-[#0A66C2] bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-[#1F4FE0] via-[#1F4FE0] to-[#1F4FE0] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">
                 Capabilities Deployed
               </span>
             </h2>
-            <p className="text-[15px] sm:text-[16px] text-[#45546B]">
+            <p className="text-[15px] sm:text-[16px] text-[#4A5876]">
               Specific technical capabilities engineered to achieve the client's operational goals.
             </p>
           </div>
@@ -436,10 +436,10 @@ export const IndividualCaseStudyPage: React.FC = () => {
           <div className="max-w-4xl mx-auto bg-white rounded-2xl p-6 sm:p-8 border border-slate-200/90 shadow-xs space-y-3.5">
             {caseStudy.keyFeatures.map((feat, idx) => (
               <div key={idx} className="flex items-start gap-3.5 p-2">
-                <div className="w-5 h-5 rounded-full bg-[#142B59] text-white flex items-center justify-center shrink-0 mt-0.5">
+                <div className="w-5 h-5 rounded-full bg-[#0A1B4F] text-white flex items-center justify-center shrink-0 mt-0.5">
                   <CheckCircle2 className="w-3.5 h-3.5 text-white" />
                 </div>
-                <span className="text-[15px] sm:text-[16px] text-[#172B50] font-medium leading-snug">
+                <span className="text-[15px] sm:text-[16px] text-[#0A1B4F] font-medium leading-snug">
                   {feat}
                 </span>
               </div>
@@ -457,19 +457,19 @@ export const IndividualCaseStudyPage: React.FC = () => {
           
           <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4 mb-8">
             <div>
-              <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-[#1B72E8] block mb-1">
+              <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-[#1F4FE0] block mb-1">
                 COMPLEMENTARY EXPERTISE
               </span>
-              <h2 className="font-serif text-[26px] sm:text-[32px] font-bold text-[#142B59]">
+              <h2 className="font-serif text-[26px] sm:text-[32px] font-bold text-[#0A1B4F]">
                 Related Services &{' '}
-                <span className="bg-gradient-to-r from-[#0052CC] via-[#0066CC] to-[#0A66C2] bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-[#1F4FE0] via-[#1F4FE0] to-[#1F4FE0] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">
                   Solutions
                 </span>
               </h2>
             </div>
             <Link
               to="/case-studies"
-              className="inline-flex items-center gap-1.5 text-sm font-bold text-[#1B72E8] hover:underline"
+              className="inline-flex items-center gap-1.5 text-sm font-bold text-[#1F4FE0] hover:underline"
             >
               <span>View All Case Studies</span>
               <ArrowRight className="w-4 h-4" />
@@ -481,22 +481,22 @@ export const IndividualCaseStudyPage: React.FC = () => {
               <Link
                 key={idx}
                 to={rel.route}
-                className="group p-6 rounded-xl bg-white border border-slate-200/90 shadow-xs hover:border-[#1B72E8] hover:shadow-md transition-all flex flex-col justify-between"
+                className="group p-6 rounded-xl bg-white border border-slate-200/90 shadow-xs hover:border-[#1F4FE0] hover:shadow-md transition-all flex flex-col justify-between"
               >
                 <div>
-                  <span className="text-xs font-bold text-[#1B72E8] bg-blue-50 px-2.5 py-1 rounded-md mb-3 inline-block">
+                  <span className="text-xs font-bold text-[#1F4FE0] bg-blue-50 px-2.5 py-1 rounded-md mb-3 inline-block">
                     {rel.tag}
                   </span>
-                  <h3 className="text-[18px] font-bold text-[#172B50] group-hover:text-[#1B72E8] transition-colors mb-2">
+                  <h3 className="text-[18px] font-bold text-[#0A1B4F] group-hover:text-[#1F4FE0] transition-colors mb-2">
                     {rel.title}
                   </h3>
-                  <p className="text-[13px] sm:text-[14px] text-[#53647A] leading-relaxed">
+                  <p className="text-[13px] sm:text-[14px] text-[#4A5876] leading-relaxed">
                     {rel.description}
                   </p>
                 </div>
-                <div className="pt-4 border-t border-slate-100 mt-4 flex items-center justify-between text-xs font-bold text-[#142B59] group-hover:text-[#1B72E8]">
+                <div className="pt-4 border-t border-slate-100 mt-4 flex items-center justify-between text-xs font-bold text-[#0A1B4F] group-hover:text-[#1F4FE0]">
                   <span>Explore Solution</span>
-                  <ArrowRight className="w-4 h-4 text-[#1B72E8] group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="w-4 h-4 text-[#1F4FE0] group-hover:translate-x-1 transition-transform" />
                 </div>
               </Link>
             ))}
@@ -508,24 +508,24 @@ export const IndividualCaseStudyPage: React.FC = () => {
       {/* ========================================================================= */}
       {/* SECTION 6: CONSULTATION CALL-TO-ACTION                                    */}
       {/* ========================================================================= */}
-      <section id="contact-cta" className="py-12 sm:py-16 bg-[#f4f9ff]/60">
+      <section id="contact-cta" className="py-12 sm:py-16 bg-atlas-navy atlas-dark">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="rounded-2xl bg-gradient-to-br from-blue-50/90 via-[#f0f6ff] to-blue-50/70 border border-blue-200/80 p-8 sm:p-10 lg:p-12 shadow-sm">
+          <div className="rounded-2xl bg-gradient-to-br from-blue-50/90 via-[#EEF4FA] to-blue-50/70 border border-blue-200/80 p-8 sm:p-10 lg:p-12 shadow-sm">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
               
               {/* Left Column: Heading & CTA */}
               <div className="lg:col-span-6 space-y-4 text-left">
-                <span className="text-[12px] font-bold uppercase tracking-wider text-[#1B72E8] block">
+                <span className="text-[12px] font-bold uppercase tracking-wider text-[#1F4FE0] block">
                   READY FOR SIMILAR MEASURABLE RESULTS?
                 </span>
-                <h2 className="font-serif text-[28px] sm:text-[34px] lg:text-[40px] font-bold text-[#142B59] tracking-tight leading-tight">
+                <h2 className="atlas-h2-size font-serif font-extrabold text-[#0A1B4F]">
                   Achieve Similar Outcomes for{' '}
-                  <span className="bg-gradient-to-r from-[#0052CC] via-[#0066CC] to-[#0A66C2] bg-clip-text text-transparent">
+                  <span className="bg-gradient-to-r from-[#1F4FE0] via-[#1F4FE0] to-[#1F4FE0] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">
                     Your Business
                   </span>
                 </h2>
-                <p className="text-[15px] sm:text-[16px] text-[#45546B] leading-relaxed">
+                <p className="text-[15px] sm:text-[16px] text-[#4A5876] leading-relaxed">
                   Book a consultation with our technology architects to discuss your specific operations and explore how SAP Business One, Boyum IT, and UiPath RPA can transform your workflows.
                 </p>
 
@@ -534,14 +534,14 @@ export const IndividualCaseStudyPage: React.FC = () => {
                     onClick={() => setIsModalOpen(true)}
                     variant="gold"
                     size="lg"
-                    className="text-[15px] sm:text-[16px] font-semibold px-7 py-3.5 bg-gradient-to-r from-[#0052CC] to-[#0A66C2] hover:from-[#0040A8] hover:to-[#08529C] text-white shadow-md shadow-blue-500/25"
+                    className="text-[15px] sm:text-[16px] font-semibold px-7 py-3.5 bg-gradient-to-r from-[#1F4FE0] to-[#1F4FE0] hover:from-[#1739B8] hover:to-[#1739B8] text-white shadow-md shadow-blue-500/25"
                     icon={<ArrowRight className="w-4 h-4" />}
                   >
                     Book a Consultation
                   </Button>
                   <Link
                     to="/case-studies"
-                    className="inline-flex items-center justify-center font-semibold rounded-lg px-6 py-3.5 text-[15px] sm:text-[16px] bg-white text-[#142B59] hover:bg-slate-50 border border-slate-300 shadow-xs"
+                    className="inline-flex items-center justify-center font-semibold rounded-lg px-6 py-3.5 text-[15px] sm:text-[16px] bg-white text-[#0A1B4F] hover:bg-slate-50 border border-slate-300 shadow-xs"
                   >
                     View More Case Studies
                   </Link>

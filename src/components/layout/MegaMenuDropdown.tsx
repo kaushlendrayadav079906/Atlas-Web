@@ -1,53 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import {
-  ChevronRight,
-  Check,
-  Settings,
-  Layers,
-  Headphones,
-  RefreshCw,
-  Link2,
-  Users,
-  Database,
-  Zap,
-  Cpu,
-  Factory,
-  Truck,
-  Boxes,
-  TrendingUp,
-  Building2,
-  ShieldCheck,
-  Clock,
-  BookOpen,
-  FileText,
-  HelpCircle,
-  Ship,
-} from 'lucide-react';
+import { ArrowRight, ArrowUpRight } from 'lucide-react';
 import { MegaMenuCategory } from '../../data/navigationData';
-
-const iconMap: Record<string, React.FC<{ className?: string }>> = {
-  Settings,
-  Layers,
-  Headphones,
-  RefreshCw,
-  Link2,
-  Users,
-  Database,
-  Zap,
-  Cpu,
-  Factory,
-  Truck,
-  Boxes,
-  TrendingUp,
-  Building2,
-  ShieldCheck,
-  Clock,
-  BookOpen,
-  FileText,
-  HelpCircle,
-  Ship,
-};
 
 interface MegaMenuDropdownProps {
   categories: MegaMenuCategory[];
@@ -56,180 +10,211 @@ interface MegaMenuDropdownProps {
   menuName: string;
 }
 
+interface FeaturedCard {
+  image: string;
+  title: string;
+  summary: string;
+  href: string;
+  cta: string;
+}
+
+// Featured promo card shown on the right of each mega menu
+const FEATURED: Record<string, FeaturedCard> = {
+  About: {
+    image: '/images/about/about_story_team.jpg',
+    title: 'Meet the ATLAS team',
+    summary: 'Certified consultants across SAP, Boyum IT and UiPath.',
+    href: '/about#team',
+    cta: 'Meet the team',
+  },
+  Services: {
+    image: '/images/crystal_hd/expertise_erp.jpg',
+    title: 'Support & AMS',
+    summary: 'SLA-backed support that keeps SAP Business One running smoothly.',
+    href: '/services/support-maintenance',
+    cta: 'Explore support',
+  },
+  Solutions: {
+    image: '/images/solutions/solutions_integrated_ecosystem.jpg',
+    title: 'ATLAS Add-ons',
+    summary: 'Our own SAP add-ons for trading, gate entry and shipping.',
+    href: '/solutions/atlas-addons',
+    cta: 'Explore add-ons',
+  },
+  Industries: {
+    image: '/images/industries/industries_hero_engineer.jpg',
+    title: 'Customer stories',
+    summary: 'See how companies like yours run on SAP Business One.',
+    href: '/case-studies',
+    cta: 'Read case studies',
+  },
+  Partners: {
+    image: '/images/partners/partners_hero.jpg',
+    title: 'Our partner ecosystem',
+    summary: 'Certified with SAP, Boyum IT and UiPath.',
+    href: '/partners',
+    cta: 'View partners',
+  },
+  Resources: {
+    image: '/images/case_studies/cs_hero_team.jpg',
+    title: 'Talk to an expert',
+    summary: 'Book a consultation about your ERP and automation plans.',
+    href: '/contact',
+    cta: 'Book a consultation',
+  },
+};
+
 export const MegaMenuDropdown: React.FC<MegaMenuDropdownProps> = ({
   categories,
   isOpen,
   onClose,
   menuName,
 }) => {
-  const [activeCategoryId, setActiveCategoryId] = useState<string>(
-    categories[0]?.id || ''
-  );
+  const [activeCategoryId, setActiveCategoryId] = useState<string>(categories[0]?.id || '');
   const menuRef = useRef<HTMLDivElement | null>(null);
-  const [styleOffset, setStyleOffset] = useState<React.CSSProperties>({
-    left: '0px',
-  });
 
-  // Reset active category when menu opens or categories change
+  // Reset to the first tab whenever the menu opens
   useEffect(() => {
-    if (categories.length > 0) {
-      setActiveCategoryId(categories[0].id);
-    }
+    if (categories.length > 0) setActiveCategoryId(categories[0].id);
   }, [categories, isOpen]);
 
-  // Handle outside click and escape key
+  // Escape key and outside click close the menu
   useEffect(() => {
     if (!isOpen) return;
-
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
-        onClose();
-      }
+      if (e.key === 'Escape') onClose();
     };
-
     const handleClickOutside = (e: MouseEvent) => {
-      if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
-        onClose();
-      }
+      if (menuRef.current && !menuRef.current.contains(e.target as Node)) onClose();
     };
-
     document.addEventListener('keydown', handleKeyDown);
     document.addEventListener('mousedown', handleClickOutside);
-
     return () => {
       document.removeEventListener('keydown', handleKeyDown);
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, [isOpen, onClose]);
 
-  // Viewport-aware horizontal positioning: directly below trigger and clamped within screen
-  useEffect(() => {
-    if (!isOpen || !menuRef.current) return;
-
-    const el = menuRef.current;
-    const parent = el.parentElement;
-    if (!parent) return;
-
-    const updatePosition = () => {
-      const parentRect = parent.getBoundingClientRect();
-      const dropdownWidth = el.offsetWidth || 540;
-      const viewportWidth = window.innerWidth;
-      const margin = 16;
-
-      // Align directly with the left edge of trigger button
-      let desiredLeft = parentRect.left;
-
-      // Clamp within viewport so it never overflows right edge
-      if (desiredLeft + dropdownWidth > viewportWidth - margin) {
-        desiredLeft = viewportWidth - margin - dropdownWidth;
-      }
-      // Clamp left edge so it never overflows left edge
-      if (desiredLeft < margin) {
-        desiredLeft = margin;
-      }
-
-      // Relative to parent trigger element
-      const relativeLeft = desiredLeft - parentRect.left;
-      setStyleOffset({
-        left: `${relativeLeft}px`,
-      });
-    };
-
-    updatePosition();
-    window.addEventListener('resize', updatePosition);
-    return () => window.removeEventListener('resize', updatePosition);
-  }, [isOpen, menuName]);
-
   if (!isOpen || categories.length === 0) return null;
 
-  const activeCategory =
-    categories.find((c) => c.id === activeCategoryId) || categories[0];
+  const activeCategory = categories.find((c) => c.id === activeCategoryId) || categories[0];
+  const featured = FEATURED[menuName];
 
   return (
-    <div
-      ref={menuRef}
-      style={styleOffset}
-      className="absolute top-full mt-2 w-[530px] sm:w-[550px] max-w-[calc(100vw-32px)] bg-white rounded-2xl shadow-xl border border-slate-200/90 z-50 overflow-hidden transition-all duration-200 ease-out"
-      role="region"
-      aria-label={`${menuName} Mega Menu`}
-    >
-      <div className="grid grid-cols-12 min-h-[300px]">
-        
-        {/* Left Column: Categories List */}
-        <div className="col-span-5 bg-slate-50/60 p-2.5 sm:p-3 border-r border-slate-100 flex flex-col justify-start space-y-1">
-          {categories.map((cat) => {
-            const IconComponent = iconMap[cat.icon] || Settings;
-            const isSelected = cat.id === activeCategory.id;
-
-            return (
-              <button
-                key={cat.id}
-                type="button"
-                onMouseEnter={() => setActiveCategoryId(cat.id)}
-                onClick={() => setActiveCategoryId(cat.id)}
-                className={`w-full flex items-center justify-between px-3 py-2 rounded-xl text-left transition-all text-[13.5px] ${
-                  isSelected
-                    ? 'bg-[#eef4ff] text-[#1B72E8] font-semibold'
-                    : 'text-[#142B59] font-medium hover:bg-white hover:text-[#1B72E8]'
-                }`}
-                aria-selected={isSelected}
-              >
-                <div className="flex items-center gap-2.5 truncate">
-                  <IconComponent
-                    className={`w-4 h-4 shrink-0 transition-colors ${
-                      isSelected ? 'text-[#1B72E8]' : 'text-slate-400'
-                    }`}
-                  />
-                  <span className="truncate">{cat.name}</span>
-                </div>
-                {isSelected && (
-                  <ChevronRight className="w-4 h-4 text-[#1B72E8] shrink-0" />
-                )}
-              </button>
-            );
-          })}
-        </div>
-
-        {/* Right Column: Category Details & Submenu Items */}
-        <div className="col-span-7 p-5 sm:p-6 flex flex-col justify-start bg-white">
-          {/* Category Header & Description */}
-          <div>
-            <Link
-              to={activeCategory.href}
-              onClick={onClose}
-              className="text-[17px] font-bold text-[#142B59] hover:text-[#1B72E8] tracking-tight block transition-colors"
+    // Positioned against the sticky <header>, spanning the full width under it
+    <div ref={menuRef} className="absolute left-0 right-0 top-full z-50 pt-0" role="region" aria-label={`${menuName} menu`}>
+      <div className="max-w-[1280px] mx-auto px-4 sm:px-6">
+        <div className="animate-menu-in grid grid-cols-12 gap-6 bg-white rounded-b-3xl border border-t-0 border-atlas-line shadow-[0_30px_60px_-30px_rgba(10,27,79,0.35)] p-6">
+          {/* Left: tabs + items */}
+          <div className={`${featured ? 'col-span-8' : 'col-span-12'} flex flex-col min-w-0`}>
+            {/* Category tabs */}
+            <div
+              className="grid border-b border-atlas-line"
+              style={{ gridTemplateColumns: `repeat(${categories.length}, minmax(0, 1fr))` }}
+              role="tablist"
+              aria-label={`${menuName} categories`}
             >
-              {activeCategory.name}
-            </Link>
-            <p className="text-[13px] text-slate-500 leading-relaxed mt-1">
-              {activeCategory.description}
-            </p>
-          </div>
-
-          {/* Submenu Item Links with Filled Blue Circle Checkmarks */}
-          <div className="mt-4 pt-3 border-t border-slate-100">
-            <ul className="space-y-2.5">
-              {activeCategory.subItems.map((sub, idx) => (
-                <li key={idx}>
-                  <Link
-                    to={sub.href}
-                    onClick={onClose}
-                    className="group flex items-center gap-2.5 text-[13.5px] font-medium text-[#142B59] hover:text-[#1B72E8] transition-colors"
+              {categories.map((cat) => {
+                const isSelected = cat.id === activeCategory.id;
+                return (
+                  <button
+                    key={cat.id}
+                    type="button"
+                    role="tab"
+                    aria-selected={isSelected}
+                    onMouseEnter={() => setActiveCategoryId(cat.id)}
+                    onFocus={() => setActiveCategoryId(cat.id)}
+                    onClick={() => setActiveCategoryId(cat.id)}
+                    className={`relative px-2 pb-3.5 pt-1 text-[13.5px] leading-snug text-center transition-colors ${
+                      isSelected ? 'text-atlas-royal font-bold' : 'text-atlas-navy font-semibold hover:text-atlas-royal'
+                    }`}
                   >
-                    <span className="w-4 h-4 rounded-full bg-[#1B72E8] text-white flex items-center justify-center shrink-0 shadow-xs">
-                      <Check className="w-2.5 h-2.5 stroke-[3]" />
-                    </span>
-                    <span className="group-hover:translate-x-0.5 transition-transform">
+                    {cat.name}
+                    <span
+                      className={`absolute left-2 right-2 -bottom-px h-[2px] rounded-full transition-colors ${
+                        isSelected ? 'bg-atlas-royal' : 'bg-transparent'
+                      }`}
+                    />
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* Active category heading */}
+            <div className="pt-5 pb-4">
+              <Link
+                to={activeCategory.href}
+                onClick={onClose}
+                className="text-[20px] font-extrabold text-atlas-navy hover:text-atlas-royal transition-colors"
+              >
+                {activeCategory.name}
+              </Link>
+              <p className="mt-1 text-[14px] text-atlas-body line-clamp-1">{activeCategory.description}</p>
+            </div>
+
+            {/* Items: title + one-line summary + link */}
+            <div className="grid grid-cols-2 border-t border-l border-atlas-line rounded-2xl overflow-hidden">
+              {activeCategory.subItems.map((sub) => (
+                <Link
+                  key={sub.name}
+                  to={sub.href}
+                  onClick={onClose}
+                  className="group flex items-start justify-between gap-4 px-5 py-4 border-b border-r border-atlas-line hover:bg-atlas-mist transition-colors"
+                >
+                  <span className="min-w-0">
+                    <span className="block text-[15px] font-bold text-atlas-navy group-hover:text-atlas-royal transition-colors">
                       {sub.name}
                     </span>
-                  </Link>
-                </li>
+                    {sub.summary && (
+                      <span className="block mt-1 text-[13px] text-atlas-body truncate">{sub.summary}</span>
+                    )}
+                  </span>
+                  <ArrowUpRight
+                    className="w-5 h-5 mt-0.5 shrink-0 text-atlas-navy group-hover:text-atlas-royal group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-all"
+                    aria-hidden="true"
+                  />
+                </Link>
               ))}
-            </ul>
+            </div>
+
+            <div className="pt-4 text-center">
+              <Link
+                to={activeCategory.href}
+                onClick={onClose}
+                className="inline-flex items-center gap-2 text-[14px] font-bold text-atlas-royal hover:text-atlas-royalDark"
+              >
+                View all {activeCategory.name}
+                <ArrowRight className="w-4 h-4" aria-hidden="true" />
+              </Link>
+            </div>
           </div>
 
+          {/* Right: featured card */}
+          {featured && (
+            <Link
+              to={featured.href}
+              onClick={onClose}
+              className="col-span-4 group flex flex-col rounded-2xl overflow-hidden bg-atlas-tint hover:bg-atlas-mist transition-colors"
+            >
+              <img
+                src={featured.image}
+                alt=""
+                className="w-full h-48 object-cover group-hover:scale-[1.02] transition-transform duration-500"
+                onError={(e) => {
+                  e.currentTarget.style.display = 'none';
+                }}
+              />
+              <span className="p-5 flex flex-col gap-1.5 flex-1">
+                <span className="text-[18px] font-extrabold text-atlas-navy">{featured.title}</span>
+                <span className="text-[13.5px] leading-relaxed text-atlas-body">{featured.summary}</span>
+                <span className="mt-auto pt-3 inline-flex items-center gap-1.5 text-[14px] font-bold text-atlas-royal">
+                  {featured.cta}
+                  <ArrowUpRight className="w-4 h-4" aria-hidden="true" />
+                </span>
+              </span>
+            </Link>
+          )}
         </div>
-
       </div>
     </div>
   );

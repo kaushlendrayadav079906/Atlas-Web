@@ -57,7 +57,7 @@ export const CONTACT_HERO_DATA: ContactHeroData = {
     {
       title: "Quick Response",
       iconName: "MessageSquare",
-      color: "#1B72E8",
+      color: "#1F4FE0",
       bgColor: "bg-blue-50"
     },
     {
@@ -69,7 +69,7 @@ export const CONTACT_HERO_DATA: ContactHeroData = {
     {
       title: "Customized Solutions",
       iconName: "BarChart3",
-      color: "#0A66C2",
+      color: "#1F4FE0",
       bgColor: "bg-blue-50"
     }
   ]
@@ -82,9 +82,9 @@ export const GET_IN_TOUCH_CARDS: GetInTouchCard[] = [
     primaryValue: "sales@atlastechnosoft.com",
     description: "Drop us an email for any queries or consultation requests.",
     iconName: "Mail",
-    iconColor: "text-[#1B72E8]",
+    iconColor: "text-[#1F4FE0]",
     iconBgColor: "bg-[#e0e7ff]",
-    borderColor: "border-[#1B72E8]/40 hover:border-[#1B72E8]",
+    borderColor: "border-[#1F4FE0]/40 hover:border-[#1F4FE0]",
     actionHref: "mailto:sales@atlastechnosoft.com"
   },
   {
@@ -105,9 +105,9 @@ export const GET_IN_TOUCH_CARDS: GetInTouchCard[] = [
     primaryValue: "Borivali & Marine Lines, Mumbai",
     description: "Visit our offices to discuss your business needs.",
     iconName: "MapPin",
-    iconColor: "text-[#0066CC]",
+    iconColor: "text-[#1F4FE0]",
     iconBgColor: "bg-blue-50",
-    borderColor: "border-[#0066CC]/40 hover:border-[#0066CC]",
+    borderColor: "border-[#1F4FE0]/40 hover:border-[#1F4FE0]",
     actionHref: "#locations"
   }
 ];
@@ -137,8 +137,8 @@ export const WHY_GET_IN_TOUCH_CARDS: WhyGetInTouchCard[] = [
     title: "Expert Guidance",
     description: "Get advice from experienced technology consultants.",
     iconName: "Users" as any,
-    color: "#1B72E8",
-    bgColor: "bg-[#1B72E8]"
+    color: "#1F4FE0",
+    bgColor: "bg-[#1F4FE0]"
   },
   {
     id: "tailored-solutions",
@@ -153,8 +153,8 @@ export const WHY_GET_IN_TOUCH_CARDS: WhyGetInTouchCard[] = [
     title: "Quick Response",
     description: "We value your time and ensure prompt communication.",
     iconName: "Clock",
-    color: "#0A66C2",
-    bgColor: "bg-[#0A66C2]"
+    color: "#1F4FE0",
+    bgColor: "bg-[#1F4FE0]"
   },
   {
     id: "long-term-partnership",

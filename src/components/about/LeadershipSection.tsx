@@ -101,7 +101,7 @@ export const LeadershipSection: React.FC = () => {
   return (
     <section 
       id="team" 
-      className="py-16 sm:py-20 lg:py-24 bg-slate-50/50 border-b border-slate-100 relative overflow-hidden"
+      className="py-16 sm:py-20 lg:py-24 border-b border-white/10 relative overflow-hidden bg-atlas-navy atlas-dark"
     >
       {/* Anchor for scroll navigation */}
       <span id="leadership" className="absolute -top-24 opacity-0 pointer-events-none" />
@@ -116,26 +116,26 @@ export const LeadershipSection: React.FC = () => {
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-16">
-          <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-blue-50 text-[#0052CC] border border-blue-200/80 mb-3.5 select-none">
-            <Users className="w-3.5 h-3.5 text-[#0052CC]" />
+          <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-blue-50 text-[#1F4FE0] border border-blue-200/80 mb-3.5 select-none">
+            <Users className="w-3.5 h-3.5 text-[#1F4FE0]" />
             <span>LEADERSHIP & EXPERT TEAM</span>
           </div>
 
-          <h2 className="font-serif text-[30px] sm:text-[38px] lg:text-[44px] font-bold text-[#142B59] tracking-tight leading-[1.15]">
+          <h2 className="atlas-h2-size font-serif font-extrabold text-[#0A1B4F]">
             Certified ERP & Automation Experts,{' '}
-            <span className="bg-gradient-to-r from-[#0052CC] via-[#0066CC] to-[#0A66C2] bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[#1F4FE0] via-[#1F4FE0] to-[#1F4FE0] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">
               Not Salespeople
             </span>
           </h2>
 
-          <p className="mt-4 text-[15px] sm:text-[17px] text-[#45546B] leading-relaxed">
+          <p className="mt-4 text-[15px] sm:text-[17px] text-[#4A5876] leading-relaxed">
             Our delivery strength rests on a unified force of <strong>32 SAP HANA, Boyum IT, and UiPath RPA certified consultants</strong> based across our Mumbai delivery centers, with global project execution track records.
           </p>
 
           {/* Quick Metrics Bar */}
           <div className="mt-6 flex flex-wrap items-center justify-center gap-3 sm:gap-6 text-xs sm:text-sm font-semibold text-slate-700">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-white border border-slate-200 shadow-2xs">
-              <Award className="w-4 h-4 text-[#0052CC]" />
+              <Award className="w-4 h-4 text-[#1F4FE0]" />
               <span>32 Certified Consultants</span>
             </div>
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-white border border-slate-200 shadow-2xs">
@@ -143,7 +143,7 @@ export const LeadershipSection: React.FC = () => {
               <span>99.9% Production Uptime</span>
             </div>
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-white border border-slate-200 shadow-2xs">
-              <MapPin className="w-4 h-4 text-[#0878f9]" />
+              <MapPin className="w-4 h-4 text-[#1F4FE0]" />
               <span>Mumbai Delivery Centers (Borivali & Marine Lines)</span>
             </div>
           </div>
@@ -161,7 +161,7 @@ export const LeadershipSection: React.FC = () => {
                 <div>
                   {/* Card Header */}
                   <div className="flex items-start justify-between gap-3 mb-4">
-                    <div className="w-12 h-12 rounded-xl bg-blue-50 text-[#0052CC] border border-blue-200/80 flex items-center justify-center shrink-0 group-hover:scale-105 group-hover:bg-[#0052CC] group-hover:text-white transition-all">
+                    <div className="w-12 h-12 rounded-xl bg-blue-50 text-[#1F4FE0] border border-blue-200/80 flex items-center justify-center shrink-0 group-hover:scale-105 group-hover:bg-[#1F4FE0] group-hover:text-white transition-all">
                       <Icon className="w-6 h-6" />
                     </div>
 
@@ -169,14 +169,14 @@ export const LeadershipSection: React.FC = () => {
                       <span className="inline-block px-2.5 py-1 rounded-md text-[11px] font-bold uppercase tracking-wider bg-slate-100 text-slate-700 border border-slate-200">
                         {group.badge}
                       </span>
-                      <div className="text-[11.5px] font-semibold text-[#0052CC] mt-1">
+                      <div className="text-[11.5px] font-semibold text-[#1F4FE0] mt-1">
                         {group.metrics}
                       </div>
                     </div>
                   </div>
 
                   {/* Title & Role */}
-                  <h3 className="font-serif text-[20px] sm:text-[22px] font-bold text-[#142B59] leading-snug mb-1">
+                  <h3 className="font-serif text-[20px] sm:text-[22px] font-bold text-[#0A1B4F] leading-snug mb-1">
                     {group.title}
                   </h3>
                   <div className="text-xs sm:text-[13px] font-semibold text-slate-500 mb-3">
@@ -190,12 +190,12 @@ export const LeadershipSection: React.FC = () => {
 
                   {/* Competencies List */}
                   <div className="space-y-2 pt-3 border-t border-slate-100">
-                    <div className="text-[11.5px] font-bold uppercase tracking-wider text-slate-400">
+                    <div className="text-[11.5px] font-bold uppercase tracking-wider text-slate-500">
                       Core Functional Competencies
                     </div>
                     {group.competencies.map((comp, idx) => (
                       <div key={idx} className="flex items-center gap-2 text-xs sm:text-[13px] text-slate-700">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-[#0052CC] shrink-0" />
+                        <CheckCircle2 className="w-3.5 h-3.5 text-[#1F4FE0] shrink-0" />
                         <span>{comp}</span>
                       </div>
                     ))}
@@ -209,7 +209,7 @@ export const LeadershipSection: React.FC = () => {
                   </span>
                   <a
                     href="#contact"
-                    className="inline-flex items-center gap-1.5 text-xs font-bold text-[#0052CC] hover:text-[#003E99] transition-colors"
+                    className="inline-flex items-center gap-1.5 text-xs font-bold text-[#1F4FE0] hover:text-[#1739B8] transition-colors"
                   >
                     <span>Consult Practice Lead</span>
                     <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
@@ -221,16 +221,16 @@ export const LeadershipSection: React.FC = () => {
         </div>
 
         {/* Bottom Dedicated AMS Support Banner */}
-        <div className="mt-10 sm:mt-12 p-6 sm:p-7 rounded-2xl bg-[#eaf4ff] border border-blue-200/90 flex flex-col md:flex-row items-center justify-between gap-5 text-center md:text-left">
+        <div className="mt-10 sm:mt-12 p-6 sm:p-7 rounded-2xl bg-white border border-blue-200/90 flex flex-col md:flex-row items-center justify-between gap-5 text-center md:text-left">
           <div className="flex items-center gap-4">
-            <div className="w-12 h-12 rounded-xl bg-white border border-blue-200 text-[#0052CC] flex items-center justify-center shrink-0 shadow-xs">
+            <div className="w-12 h-12 rounded-xl bg-white border border-blue-200 text-[#1F4FE0] flex items-center justify-center shrink-0 shadow-xs">
               <Headphones className="w-6 h-6" />
             </div>
             <div>
-              <h4 className="text-base sm:text-lg font-bold text-[#142B59]">
+              <h4 className="text-base sm:text-lg font-bold text-[#0A1B4F]">
                 Dedicated Application Management (AMS) Account Managers
               </h4>
-              <p className="text-xs sm:text-sm text-[#45546B] mt-0.5">
+              <p className="text-xs sm:text-sm text-[#4A5876] mt-0.5">
                 Every ATLAS client receives a named certified SAP consultant and dedicated AMS account manager with guaranteed response SLAs.
               </p>
             </div>
@@ -238,7 +238,7 @@ export const LeadershipSection: React.FC = () => {
 
           <a
             href="#contact"
-            className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-[#0052CC] hover:bg-[#003E99] text-white text-xs sm:text-sm font-bold uppercase tracking-wider shadow-sm transition-colors whitespace-nowrap"
+            className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-[#1F4FE0] hover:bg-[#1739B8] text-white text-xs sm:text-sm font-bold uppercase tracking-wider shadow-sm transition-colors whitespace-nowrap"
           >
             <span>Speak with our Consultants</span>
             <ArrowRight className="w-4 h-4" />

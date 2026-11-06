@@ -55,9 +55,9 @@ export const SERVICE_DETAILS: Record<string, ServiceDetailItem> = {
     heroImageAlt: 'SAP Business One Executive Dashboard on Modern Workstation',
     partnerBadge: '80+ Certified Implementations Across India & Global Markets',
     metrics: [
-      { value: '80+', label: 'SAP B1 Live Clients', detail: 'Across manufacturing, logistics, pharma & trading', color: 'text-[#1B72E8]' },
+      { value: '80+', label: 'SAP B1 Live Clients', detail: 'Across manufacturing, logistics, pharma & trading', color: 'text-[#1F4FE0]' },
       { value: '40%', label: 'Faster Financial Close', detail: 'Accelerated month-end reporting and consolidation', color: 'text-[#10b981]' },
-      { value: '100%', label: 'Statutory Compliance', detail: 'GST, e-invoicing, TDS & multi-currency precision', color: 'text-[#0066CC]' },
+      { value: '100%', label: 'Statutory Compliance', detail: 'GST, e-invoicing, TDS & multi-currency precision', color: 'text-[#1F4FE0]' },
       { value: '98.7%', label: 'Client Retention Rate', detail: 'Continuous post-go-live ERP optimization and support', color: 'text-[#0284c7]' },
     ],
     overview: {
@@ -177,9 +177,9 @@ export const SERVICE_DETAILS: Record<string, ServiceDetailItem> = {
     heroImageAlt: 'UiPath Robotic Process Automation and Artificial Intelligence Interface',
     partnerBadge: 'Certified Hyperautomation Specialists with 1.2M+ Annual Automated Transactions',
     metrics: [
-      { value: '70%', label: 'Manual Work Eliminated', detail: 'Touchless processing across AP, AR, GRPO & logistics', color: 'text-[#1B72E8]' },
+      { value: '70%', label: 'Manual Work Eliminated', detail: 'Touchless processing across AP, AR, GRPO & logistics', color: 'text-[#1F4FE0]' },
       { value: '4–6 Mo', label: 'Average Investment ROI', detail: 'Rapid payback with immediate operational hours recovered', color: 'text-[#10b981]' },
-      { value: '1.2M+', label: 'Annual Transactions', detail: 'Invoices, vendor reconciliations, and warehouse scans', color: 'text-[#0066CC]' },
+      { value: '1.2M+', label: 'Annual Transactions', detail: 'Invoices, vendor reconciliations, and warehouse scans', color: 'text-[#1F4FE0]' },
       { value: '99.8%', label: 'Data Extraction Accuracy', detail: 'Machine learning Document Understanding OCR engine', color: 'text-[#0284c7]' },
     ],
     overview: {
@@ -299,9 +299,9 @@ export const SERVICE_DETAILS: Record<string, ServiceDetailItem> = {
     heroImageAlt: 'AI-Powered Gate Entry and Weighbridge Automation at Industrial Logistics Facility',
     partnerBadge: 'Over 5 Specialized Proprietary Extensions Deployed Across Leading SMEs',
     metrics: [
-      { value: '5+', label: 'Proprietary Modules', detail: 'Freight, Gate Entry, WMS, Shipping & Vendor Portals', color: 'text-[#1B72E8]' },
+      { value: '5+', label: 'Proprietary Modules', detail: 'Freight, Gate Entry, WMS, Shipping & Vendor Portals', color: 'text-[#1F4FE0]' },
       { value: '90%', label: 'Freight Error Reduction', detail: 'Automated landed cost calculation and billing verification', color: 'text-[#10b981]' },
-      { value: '3×', label: 'Faster Gate Turnaround', detail: 'Computer vision vehicle recognition and auto-weight logging', color: 'text-[#0066CC]' },
+      { value: '3×', label: 'Faster Gate Turnaround', detail: 'Computer vision vehicle recognition and auto-weight logging', color: 'text-[#1F4FE0]' },
       { value: '85%', label: 'Documentation Time Saved', detail: 'Instant automated generation of shipping documents', color: 'text-[#0284c7]' },
     ],
     overview: {

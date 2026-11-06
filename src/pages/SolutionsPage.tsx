@@ -50,8 +50,8 @@ import {
 const industryIcons: Record<string, React.ReactNode> = {
   manufacturing: <Factory className="w-5 h-5 text-blue-600" />,
   warehouse: <Truck className="w-5 h-5 text-emerald-600" />,
-  finance: <Database className="w-5 h-5 text-[#0066CC]" />,
-  trading: <Ship className="w-5 h-5 text-[#0066CC]" />
+  finance: <Database className="w-5 h-5 text-[#1F4FE0]" />,
+  trading: <Ship className="w-5 h-5 text-[#1F4FE0]" />
 };
 
 export const SolutionsPage: React.FC = () => {
@@ -69,12 +69,12 @@ export const SolutionsPage: React.FC = () => {
 
 
   return (
-    <div className="relative bg-white text-[#45546B] selection:bg-blue-600 selection:text-white">
+    <div className="relative bg-white text-[#4A5876] selection:bg-blue-600 selection:text-white">
 
       {/* ========================================================================= */}
       {/* SECTION 1: SOLUTIONS HERO                                                 */}
       {/* ========================================================================= */}
-      <section className="relative overflow-hidden bg-gradient-to-r from-sky-50/60 via-white to-blue-50/30 pt-10 pb-12 lg:pt-14 lg:pb-16 border-b border-slate-100">
+      <section className="relative overflow-hidden pt-10 pb-12 lg:pt-14 lg:pb-16 border-b border-white/10 bg-atlas-navy atlas-dark">
         
         {/* Soft subtle botanical ambient glow on far left */}
         <div className="absolute -left-12 top-1/2 -translate-y-1/2 w-48 h-80 opacity-25 pointer-events-none select-none hidden lg:block">
@@ -89,19 +89,19 @@ export const SolutionsPage: React.FC = () => {
               
               {/* Eyebrow: 13–14px */}
               <div className="inline-block">
-                <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-[#1B72E8] select-none">
+                <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-[#1F4FE0] select-none">
                   {SOLUTIONS_HERO_DATA.eyebrow}
                 </span>
               </div>
 
               {/* Main Heading: 46–54px desktop, 34–40px mobile */}
-              <h1 className="font-serif text-[36px] sm:text-[44px] lg:text-[50px] xl:text-[54px] font-bold tracking-tight leading-[1.14] text-[#142B59]">
+              <h1 className="atlas-h1-size font-serif font-extrabold text-[#0A1B4F]">
                 {SOLUTIONS_HERO_DATA.titleStart}{' '}
-                <span className="bg-gradient-to-r from-[#0052CC] via-[#0066CC] to-[#0A66C2] bg-clip-text text-transparent">{SOLUTIONS_HERO_DATA.titleHighlight}</span>
+                <span className="bg-gradient-to-r from-[#1F4FE0] via-[#1F4FE0] to-[#1F4FE0] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">{SOLUTIONS_HERO_DATA.titleHighlight}</span>
               </h1>
 
               {/* Supporting Text: 17–18px Desktop, 16px Mobile */}
-              <p className="text-[16px] sm:text-[17px] lg:text-[18px] text-[#45546B] leading-relaxed max-w-2xl font-normal">
+              <p className="text-[16px] sm:text-[17px] lg:text-[18px] text-[#4A5876] leading-relaxed max-w-2xl font-normal">
                 {SOLUTIONS_HERO_DATA.description}
               </p>
 
@@ -111,7 +111,7 @@ export const SolutionsPage: React.FC = () => {
                   href="#overview"
                   variant="primary"
                   size="lg"
-                  className="text-[16px] sm:text-[17px] font-semibold px-7 py-3.5 shadow-md shadow-blue-500/25 bg-gradient-to-r from-[#0052CC] to-[#0A66C2] hover:from-[#0040A8] hover:to-[#08529C] text-white"
+                  className="text-[16px] sm:text-[17px] font-semibold px-7 py-3.5 shadow-md shadow-blue-500/25 bg-gradient-to-r from-[#1F4FE0] to-[#1F4FE0] hover:from-[#1739B8] hover:to-[#1739B8] text-white"
                   icon={<ArrowRight className="w-5 h-5" />}
                 >
                   {SOLUTIONS_HERO_DATA.primaryCtaText}
@@ -121,7 +121,7 @@ export const SolutionsPage: React.FC = () => {
                   onClick={() => setIsModalOpen(true)}
                   variant="secondary"
                   size="lg"
-                  className="text-[16px] sm:text-[17px] font-semibold px-7 py-3.5 text-[#142B59] hover:text-[#1B72E8]"
+                  className="text-[16px] sm:text-[17px] font-semibold px-7 py-3.5 text-[#0A1B4F] hover:text-[#1F4FE0]"
                 >
                   {SOLUTIONS_HERO_DATA.secondaryCtaText}
                 </Button>
@@ -190,9 +190,9 @@ export const SolutionsPage: React.FC = () => {
                   
                   {/* Colored Icon Circle */}
                   <div className={`w-10 h-10 rounded-full border flex items-center justify-center mb-2 mx-auto ${
-                    metric.color === 'blue' ? 'bg-blue-50 border-blue-200 text-[#0878f9]' :
+                    metric.color === 'blue' ? 'bg-blue-50 border-blue-200 text-[#1F4FE0]' :
                     metric.color === 'green' ? 'bg-emerald-50 border-emerald-200 text-[#10b981]' :
-                    'bg-blue-50 border-blue-200 text-[#0066CC]'
+                    'bg-blue-50 border-blue-200 text-[#1F4FE0]'
                   }`}>
                     {metric.iconName === 'Users' && <Users className="w-5 h-5" />}
                     {metric.iconName === 'TrendingUp' && <TrendingUp className="w-5 h-5" />}
@@ -202,20 +202,20 @@ export const SolutionsPage: React.FC = () => {
 
                   {/* Metric Numeric Value */}
                   <div className={`text-[32px] sm:text-[36px] lg:text-[40px] font-extrabold tracking-tight leading-none mb-1 ${
-                    metric.color === 'blue' ? 'text-[#0878f9]' :
+                    metric.color === 'blue' ? 'text-[#1F4FE0]' :
                     metric.color === 'green' ? 'text-[#10b981]' :
-                    'text-[#0066CC]'
+                    'text-[#1F4FE0]'
                   }`}>
                     <AnimatedCounter value={metric.value} />
                   </div>
 
                   {/* Bold Label */}
-                  <div className="text-[15px] sm:text-[16px] font-bold text-[#142B59] leading-snug">
+                  <div className="text-[15px] sm:text-[16px] font-bold text-[#0A1B4F] leading-snug">
                     {metric.label}
                   </div>
 
                   {/* Small Supporting Description */}
-                  <div className="text-[12px] sm:text-[13px] text-[#53647A] leading-snug mt-0.5">
+                  <div className="text-[12px] sm:text-[13px] text-[#4A5876] leading-snug mt-0.5">
                     {metric.sublabel}
                   </div>
                 </div>
@@ -276,13 +276,13 @@ export const SolutionsPage: React.FC = () => {
                       )}
                     </div>
 
-                    <h3 className="text-[17px] sm:text-[18px] font-bold text-[#172B50] group-hover:text-[#1B72E8] transition-colors leading-snug">
+                    <h3 className="text-[17px] sm:text-[18px] font-bold text-[#0A1B4F] group-hover:text-[#1F4FE0] transition-colors leading-snug">
                       <a href={card.linkHref} className="hover:underline">
                         {card.title}
                       </a>
                     </h3>
 
-                    <p className="text-[13px] sm:text-[14px] text-[#53647A] leading-snug">
+                    <p className="text-[13px] sm:text-[14px] text-[#4A5876] leading-snug">
                       {card.description}
                     </p>
                   </div>
@@ -291,7 +291,7 @@ export const SolutionsPage: React.FC = () => {
                   <div className="pt-2 border-t border-slate-100 flex items-center justify-between">
                     <a
                       href={card.linkHref}
-                      className="text-[13px] sm:text-[14px] font-semibold text-[#142B59] group-hover:text-[#1B72E8] transition-colors flex items-center gap-1.5"
+                      className="text-[13px] sm:text-[14px] font-semibold text-[#0A1B4F] group-hover:text-[#1F4FE0] transition-colors flex items-center gap-1.5"
                     >
                       <span>Learn More</span>
                     </a>
@@ -301,7 +301,7 @@ export const SolutionsPage: React.FC = () => {
                       className={`w-7 h-7 rounded-full flex items-center justify-center transition-all ${
                         card.color === 'blue' ? 'bg-blue-50 text-blue-600 group-hover:bg-blue-600 group-hover:text-white' :
                         card.color === 'coral' ? 'bg-indigo-50 text-[#6366f1] group-hover:bg-[#6366f1] group-hover:text-white' :
-                        card.color === 'purple' ? 'bg-blue-50 text-[#0066CC] group-hover:bg-[#0066CC] group-hover:text-white' :
+                        card.color === 'purple' ? 'bg-blue-50 text-[#1F4FE0] group-hover:bg-[#1F4FE0] group-hover:text-white' :
                         card.color === 'emerald' ? 'bg-emerald-50 text-emerald-600 group-hover:bg-emerald-600 group-hover:text-white' :
                         'bg-sky-50 text-sky-600 group-hover:bg-sky-600 group-hover:text-white'
                       }`}
@@ -321,13 +321,13 @@ export const SolutionsPage: React.FC = () => {
       {/* ========================================================================= */}
       {/* SECTION 4: DEEP DIVE — SAP BUSINESS ONE (ONE PLATFORM FOR SMARTER MGMT)   */}
       {/* ========================================================================= */}
-      <section id="sap-b1-section" className="py-12 sm:py-16 lg:py-20 bg-slate-50/60 border-b border-slate-100">
+      <section id="sap-b1-section" className="py-12 sm:py-16 lg:py-20 border-b border-white/10 bg-atlas-navy atlas-dark">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 xl:gap-12 items-center">
             
             {/* Left Content (4.5 cols) */}
             <div className="lg:col-span-5 space-y-4 text-left">
-              <span className="text-[13px] font-bold uppercase tracking-wider text-[#1B72E8] block">
+              <span className="text-[13px] font-bold uppercase tracking-wider text-[#1F4FE0] block">
                 {SAP_B1_DEEP_DIVE.eyebrow}
               </span>
               
@@ -335,11 +335,11 @@ export const SolutionsPage: React.FC = () => {
                 <SAPBusinessOneLogo />
               </div>
 
-              <h2 className="font-serif text-[28px] sm:text-[34px] lg:text-[38px] font-bold text-[#142B59] tracking-tight leading-tight">
-                Comprehensive ERP for <span className="bg-gradient-to-r from-[#0052CC] via-[#0066CC] to-[#0A66C2] bg-clip-text text-transparent">Growing Enterprises</span>
+              <h2 className="atlas-h2-size font-serif font-extrabold text-[#0A1B4F]">
+                Comprehensive ERP for <span className="bg-gradient-to-r from-[#1F4FE0] via-[#1F4FE0] to-[#1F4FE0] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">Growing Enterprises</span>
               </h2>
 
-              <p className="text-[15px] sm:text-[16px] text-[#45546B] leading-relaxed">
+              <p className="text-[15px] sm:text-[16px] text-[#4A5876] leading-relaxed">
                 {SAP_B1_DEEP_DIVE.description}
               </p>
 
@@ -347,10 +347,10 @@ export const SolutionsPage: React.FC = () => {
               <div className="space-y-2.5 pt-1">
                 {SAP_B1_DEEP_DIVE.checklist.map((item, idx) => (
                   <div key={idx} className="flex items-center gap-3">
-                    <div className="w-5 h-5 rounded-full bg-gradient-to-r from-[#0052CC] to-[#0A66C2] text-white flex items-center justify-center shrink-0">
+                    <div className="w-5 h-5 rounded-full bg-gradient-to-r from-[#1F4FE0] to-[#1F4FE0] text-white flex items-center justify-center shrink-0">
                       <Check className="w-3.5 h-3.5" />
                     </div>
-                    <span className="text-[14px] sm:text-[15px] font-medium text-[#45546B]">
+                    <span className="text-[14px] sm:text-[15px] font-medium text-[#4A5876]">
                       {item}
                     </span>
                   </div>
@@ -362,7 +362,7 @@ export const SolutionsPage: React.FC = () => {
                   onClick={() => setIsModalOpen(true)}
                   variant="primary"
                   size="md"
-                  className="text-[15px] sm:text-[16px] font-semibold px-6 py-3 bg-gradient-to-r from-[#0052CC] to-[#0A66C2] hover:from-[#0040A8] hover:to-[#08529C] text-white shadow-md shadow-blue-500/25"
+                  className="text-[15px] sm:text-[16px] font-semibold px-6 py-3 bg-gradient-to-r from-[#1F4FE0] to-[#1F4FE0] hover:from-[#1739B8] hover:to-[#1739B8] text-white shadow-md shadow-blue-500/25"
                   icon={<ArrowRight className="w-4 h-4" />}
                 >
                   {SAP_B1_DEEP_DIVE.ctaText}
@@ -383,7 +383,7 @@ export const SolutionsPage: React.FC = () => {
 
             {/* Right Column: Key Benefits (3.5 cols) */}
             <div className="lg:col-span-3 space-y-3">
-              <h4 className="text-[16px] sm:text-[17px] font-bold text-[#172B50] mb-3 text-left">
+              <h4 className="text-[16px] sm:text-[17px] font-bold text-[#0A1B4F] mb-3 text-left">
                 Key Benefits
               </h4>
               <div className="space-y-3">
@@ -398,7 +398,7 @@ export const SolutionsPage: React.FC = () => {
                       {b.iconName === 'Zap' && <Zap className="w-4 h-4" />}
                       {b.iconName === 'TrendingUp' && <TrendingUp className="w-4 h-4" />}
                     </div>
-                    <span className="text-[13px] sm:text-[14px] font-bold text-[#172B50] leading-tight">
+                    <span className="text-[13px] sm:text-[14px] font-bold text-[#0A1B4F] leading-tight">
                       {b.title}
                     </span>
                   </div>
@@ -419,19 +419,19 @@ export const SolutionsPage: React.FC = () => {
             
             {/* Left Content (4 cols) */}
             <div className="lg:col-span-4 space-y-4 text-left">
-              <span className="text-[13px] font-bold uppercase tracking-wider text-[#1B72E8] block">
+              <span className="text-[13px] font-bold uppercase tracking-wider text-[#1F4FE0] block">
                 {BOYUM_IT_DEEP_DIVE.eyebrow}
               </span>
 
-              <h2 className="font-serif text-[28px] sm:text-[34px] lg:text-[38px] font-bold text-[#142B59] tracking-tight leading-tight">
-                Advanced Manufacturing & <span className="bg-gradient-to-r from-[#0052CC] via-[#0066CC] to-[#0A66C2] bg-clip-text text-transparent">Warehouse Management</span>
+              <h2 className="atlas-h2-size font-serif font-extrabold text-[#0A1B4F]">
+                Advanced Manufacturing & <span className="bg-gradient-to-r from-[#1F4FE0] via-[#1F4FE0] to-[#1F4FE0] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">Warehouse Management</span>
               </h2>
 
-              <h3 className="text-[17px] sm:text-[18px] font-semibold text-[#142B59] leading-snug">
+              <h3 className="text-[17px] sm:text-[18px] font-semibold text-[#0A1B4F] leading-snug">
                 {BOYUM_IT_DEEP_DIVE.subtitle}
               </h3>
 
-              <p className="text-[15px] sm:text-[16px] text-[#45546B] leading-relaxed">
+              <p className="text-[15px] sm:text-[16px] text-[#4A5876] leading-relaxed">
                 {BOYUM_IT_DEEP_DIVE.description}
               </p>
 
@@ -440,7 +440,7 @@ export const SolutionsPage: React.FC = () => {
                   href="/solutions/boyum-it"
                   variant="primary"
                   size="md"
-                  className="text-[15px] sm:text-[16px] font-semibold px-6 py-3 bg-gradient-to-r from-[#0052CC] to-[#0A66C2] hover:from-[#0040A8] hover:to-[#08529C] text-white shadow-md shadow-blue-500/25"
+                  className="text-[15px] sm:text-[16px] font-semibold px-6 py-3 bg-gradient-to-r from-[#1F4FE0] to-[#1F4FE0] hover:from-[#1739B8] hover:to-[#1739B8] text-white shadow-md shadow-blue-500/25"
                   icon={<ArrowRight className="w-4 h-4" />}
                 >
                   {BOYUM_IT_DEEP_DIVE.ctaText}
@@ -473,18 +473,18 @@ export const SolutionsPage: React.FC = () => {
                       <div className="flex items-center gap-2">
                         <div className={`w-7 h-7 rounded-lg flex items-center justify-center shrink-0 ${
                           mod.color === 'emerald' ? 'bg-emerald-50 text-emerald-600' :
-                          'bg-blue-50 text-[#0066CC]'
+                          'bg-blue-50 text-[#1F4FE0]'
                         }`}>
                           {mod.id === 'beas' && <Factory className="w-4 h-4" />}
                           {mod.id === 'produmex' && <Boxes className="w-4 h-4" />}
                           {mod.id === 'b1up' && <Cog className="w-4 h-4" />}
                         </div>
-                        <h4 className="text-[16px] sm:text-[17px] font-bold text-[#172B50] leading-snug">
+                        <h4 className="text-[16px] sm:text-[17px] font-bold text-[#0A1B4F] leading-snug">
                           {mod.title}
                         </h4>
                       </div>
 
-                      <p className="text-[13px] text-[#53647A] leading-snug">
+                      <p className="text-[13px] text-[#4A5876] leading-snug">
                         {mod.subtitle}
                       </p>
                     </div>
@@ -493,7 +493,7 @@ export const SolutionsPage: React.FC = () => {
                     <div className="pt-2 border-t border-slate-100 flex items-center justify-between">
                       <a
                         href={mod.linkHref}
-                        className="text-[13px] font-semibold text-[#142B59] group-hover:text-[#1B72E8] transition-colors"
+                        className="text-[13px] font-semibold text-[#0A1B4F] group-hover:text-[#1F4FE0] transition-colors"
                       >
                         Learn More
                       </a>
@@ -501,7 +501,7 @@ export const SolutionsPage: React.FC = () => {
                         href={mod.linkHref}
                         className={`w-6 h-6 rounded-full flex items-center justify-center transition-all ${
                           mod.color === 'emerald' ? 'bg-emerald-50 text-emerald-600 group-hover:bg-emerald-600 group-hover:text-white' :
-                          'bg-blue-50 text-[#0066CC] group-hover:bg-[#0066CC] group-hover:text-white'
+                          'bg-blue-50 text-[#1F4FE0] group-hover:bg-[#1F4FE0] group-hover:text-white'
                         }`}
                         aria-label={`Learn more about ${mod.title}`}
                       >
@@ -520,13 +520,13 @@ export const SolutionsPage: React.FC = () => {
       {/* ========================================================================= */}
       {/* SECTION 6: DEEP DIVE — UIPATH RPA & AI AUTOMATION                         */}
       {/* ========================================================================= */}
-      <section id="uipath-section" className="py-12 sm:py-16 lg:py-20 bg-slate-50/60 border-b border-slate-100">
+      <section id="uipath-section" className="py-12 sm:py-16 lg:py-20 border-b border-white/10 bg-atlas-navy atlas-dark">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 xl:gap-12 items-center">
             
             {/* Left Content (4 cols) */}
             <div className="lg:col-span-4 space-y-4 text-left">
-              <span className="text-[13px] font-bold uppercase tracking-wider text-[#1B72E8] block">
+              <span className="text-[13px] font-bold uppercase tracking-wider text-[#1F4FE0] block">
                 {UIPATH_RPA_DEEP_DIVE.eyebrow}
               </span>
 
@@ -534,15 +534,15 @@ export const SolutionsPage: React.FC = () => {
                 <UiPathLogo />
               </div>
 
-              <h2 className="font-serif text-[28px] sm:text-[34px] lg:text-[38px] font-bold text-[#142B59] tracking-tight leading-tight">
-                Intelligent Process Automation with <span className="bg-gradient-to-r from-[#0052CC] via-[#0066CC] to-[#0A66C2] bg-clip-text text-transparent">RPA & AI</span>
+              <h2 className="atlas-h2-size font-serif font-extrabold text-[#0A1B4F]">
+                Intelligent Process Automation with <span className="bg-gradient-to-r from-[#1F4FE0] via-[#1F4FE0] to-[#1F4FE0] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">RPA & AI</span>
               </h2>
 
-              <h3 className="text-[16px] sm:text-[17px] font-semibold text-[#142B59] leading-snug">
+              <h3 className="text-[16px] sm:text-[17px] font-semibold text-[#0A1B4F] leading-snug">
                 {UIPATH_RPA_DEEP_DIVE.subtitle}
               </h3>
 
-              <p className="text-[15px] sm:text-[16px] text-[#45546B] leading-relaxed">
+              <p className="text-[15px] sm:text-[16px] text-[#4A5876] leading-relaxed">
                 {UIPATH_RPA_DEEP_DIVE.description}
               </p>
 
@@ -551,7 +551,7 @@ export const SolutionsPage: React.FC = () => {
                   onClick={() => setIsModalOpen(true)}
                   variant="primary"
                   size="md"
-                  className="text-[15px] sm:text-[16px] font-semibold px-6 py-3 bg-[#0878f9] hover:bg-blue-700 shadow-md shadow-blue-500/25"
+                  className="text-[15px] sm:text-[16px] font-semibold px-6 py-3 bg-[#1F4FE0] hover:bg-blue-700 shadow-md shadow-blue-500/25"
                   icon={<ArrowRight className="w-4 h-4" />}
                 >
                   {UIPATH_RPA_DEEP_DIVE.ctaText}
@@ -575,7 +575,7 @@ export const SolutionsPage: React.FC = () => {
 
             {/* Right Column: Key Automation Areas 2x2 Grid (4 cols) */}
             <div className="lg:col-span-4 space-y-3">
-              <h4 className="text-[16px] sm:text-[17px] font-bold text-[#172B50] mb-3 text-left">
+              <h4 className="text-[16px] sm:text-[17px] font-bold text-[#0A1B4F] mb-3 text-left">
                 Key Automation Areas
               </h4>
 
@@ -586,7 +586,7 @@ export const SolutionsPage: React.FC = () => {
                     className="p-4 rounded-xl bg-white border border-slate-200/90 shadow-xs flex flex-col justify-between text-left hover:border-blue-300 transition-colors"
                   >
                     <div className={`w-9 h-9 rounded-lg flex items-center justify-center mb-2.5 shrink-0 ${
-                      area.color === 'purple' ? 'bg-blue-50 text-[#0066CC] border border-blue-200' :
+                      area.color === 'purple' ? 'bg-blue-50 text-[#1F4FE0] border border-blue-200' :
                       area.color === 'sky' ? 'bg-sky-50 text-[#0284c7] border border-sky-200' :
                       area.color === 'indigo' ? 'bg-indigo-50 text-[#6366f1] border border-indigo-200' :
                       'bg-emerald-50 text-[#10b981] border border-emerald-200'
@@ -598,10 +598,10 @@ export const SolutionsPage: React.FC = () => {
                     </div>
 
                     <div>
-                      <h5 className="text-[14px] sm:text-[15px] font-bold text-[#172B50] leading-snug">
+                      <h5 className="text-[14px] sm:text-[15px] font-bold text-[#0A1B4F] leading-snug">
                         {area.title}
                       </h5>
-                      <p className="text-[12px] text-[#53647A] leading-snug mt-0.5">
+                      <p className="text-[12px] text-[#4A5876] leading-snug mt-0.5">
                         {area.subtitle}
                       </p>
                     </div>
@@ -622,13 +622,13 @@ export const SolutionsPage: React.FC = () => {
           
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10 text-left">
             <div>
-              <span className="text-[13px] font-bold uppercase tracking-wider text-[#1B72E8] block mb-1">
+              <span className="text-[13px] font-bold uppercase tracking-wider text-[#1F4FE0] block mb-1">
                 {ATLAS_ADDONS_DEEP_DIVE.eyebrow}
               </span>
-              <h2 className="font-serif text-[28px] sm:text-[34px] lg:text-[38px] font-bold text-[#142B59] tracking-tight leading-tight">
-                Purpose-Built Solutions for <span className="bg-gradient-to-r from-[#0052CC] via-[#0066CC] to-[#0A66C2] bg-clip-text text-transparent">Specialized Operations</span>
+              <h2 className="atlas-h2-size font-serif font-extrabold text-[#0A1B4F]">
+                Purpose-Built Solutions for <span className="bg-gradient-to-r from-[#1F4FE0] via-[#1F4FE0] to-[#1F4FE0] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">Specialized Operations</span>
               </h2>
-              <p className="text-[15px] sm:text-[16px] text-[#45546B] max-w-2xl mt-1 leading-relaxed">
+              <p className="text-[15px] sm:text-[16px] text-[#4A5876] max-w-2xl mt-1 leading-relaxed">
                 {ATLAS_ADDONS_DEEP_DIVE.description}
               </p>
             </div>
@@ -637,7 +637,7 @@ export const SolutionsPage: React.FC = () => {
               href="#contact-cta"
               variant="primary"
               size="md"
-              className="text-[15px] font-semibold px-6 py-3 shrink-0 bg-gradient-to-r from-[#0052CC] to-[#0A66C2] hover:from-[#0040A8] hover:to-[#08529C] text-white shadow-md shadow-blue-500/25"
+              className="text-[15px] font-semibold px-6 py-3 shrink-0 bg-gradient-to-r from-[#1F4FE0] to-[#1F4FE0] hover:from-[#1739B8] hover:to-[#1739B8] text-white shadow-md shadow-blue-500/25"
               icon={<ArrowRight className="w-4 h-4" />}
             >
               {ATLAS_ADDONS_DEEP_DIVE.ctaText}
@@ -670,7 +670,7 @@ export const SolutionsPage: React.FC = () => {
                         item.color === 'blue' ? 'bg-blue-50 text-blue-600' :
                         item.color === 'cyan' ? 'bg-cyan-50 text-cyan-600' :
                         item.color === 'indigo' ? 'bg-indigo-50 text-indigo-600' :
-                        item.color === 'purple' ? 'bg-blue-50 text-[#0066CC]' :
+                        item.color === 'purple' ? 'bg-blue-50 text-[#1F4FE0]' :
                         'bg-teal-50 text-teal-600'
                       }`}>
                         {item.id === 'freight-trading' && <Ship className="w-4 h-4" />}
@@ -679,12 +679,12 @@ export const SolutionsPage: React.FC = () => {
                         {item.id === 'shipping-auto' && <Truck className="w-4 h-4" />}
                         {item.id === 'rpa-sales' && <Handshake className="w-4 h-4" />}
                       </div>
-                      <h4 className="text-[15px] sm:text-[16px] font-bold text-[#172B50] leading-snug">
+                      <h4 className="text-[15px] sm:text-[16px] font-bold text-[#0A1B4F] leading-snug">
                         {item.title}
                       </h4>
                     </div>
 
-                    <p className="text-[12px] sm:text-[13px] text-[#53647A] leading-snug">
+                    <p className="text-[12px] sm:text-[13px] text-[#4A5876] leading-snug">
                       {item.subtitle}
                     </p>
                   </div>
@@ -696,7 +696,7 @@ export const SolutionsPage: React.FC = () => {
                         item.color === 'blue' ? 'bg-blue-50 text-blue-600 group-hover:bg-blue-600 group-hover:text-white' :
                         item.color === 'cyan' ? 'bg-cyan-50 text-cyan-600 group-hover:bg-cyan-600 group-hover:text-white' :
                         item.color === 'indigo' ? 'bg-indigo-50 text-indigo-600 group-hover:bg-indigo-600 group-hover:text-white' :
-                        item.color === 'purple' ? 'bg-blue-50 text-[#0066CC] group-hover:bg-[#0066CC] group-hover:text-white' :
+                        item.color === 'purple' ? 'bg-blue-50 text-[#1F4FE0] group-hover:bg-[#1F4FE0] group-hover:text-white' :
                         'bg-teal-50 text-teal-600 group-hover:bg-teal-600 group-hover:text-white'
                       }`}
                       aria-label={`Inquire about ${item.title}`}
@@ -715,15 +715,15 @@ export const SolutionsPage: React.FC = () => {
       {/* ========================================================================= */}
       {/* SECTION 8: SOLUTIONS DESIGNED AROUND YOUR INDUSTRY (4 CARDS)              */}
       {/* ========================================================================= */}
-      <section id="industries" className="py-12 sm:py-16 lg:py-20 bg-slate-50/60 border-b border-slate-100">
+      <section id="industries" className="py-12 sm:py-16 lg:py-20 border-b border-white/10 bg-atlas-navy atlas-dark">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
-            <span className="text-[13px] font-bold uppercase tracking-wider text-[#1B72E8] block mb-2">
+            <span className="text-[13px] font-bold uppercase tracking-wider text-[#1F4FE0] block mb-2">
               INDUSTRIES WE SERVE —
             </span>
-            <h2 className="font-serif text-[30px] sm:text-[36px] lg:text-[40px] font-bold text-[#142B59] tracking-tight leading-tight">
-              Solutions Designed Around <span className="bg-gradient-to-r from-[#0052CC] via-[#0066CC] to-[#0A66C2] bg-clip-text text-transparent">Your Industry</span>
+            <h2 className="atlas-h2-size font-serif font-extrabold text-[#0A1B4F]">
+              Solutions Designed Around <span className="bg-gradient-to-r from-[#1F4FE0] via-[#1F4FE0] to-[#1F4FE0] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">Your Industry</span>
             </h2>
           </div>
 
@@ -749,11 +749,11 @@ export const SolutionsPage: React.FC = () => {
                       <div className="shrink-0">
                         {industryIcons[ind.id]}
                       </div>
-                      <h3 className="text-[16px] sm:text-[17px] font-bold text-[#172B50] group-hover:text-[#1B72E8] transition-colors leading-snug">
+                      <h3 className="text-[16px] sm:text-[17px] font-bold text-[#0A1B4F] group-hover:text-[#1F4FE0] transition-colors leading-snug">
                         {ind.title}
                       </h3>
                     </div>
-                    <p className="text-[13px] text-[#53647A] leading-snug">
+                    <p className="text-[13px] text-[#4A5876] leading-snug">
                       {ind.description}
                     </p>
                   </div>
@@ -776,20 +776,20 @@ export const SolutionsPage: React.FC = () => {
       <section id="contact-cta" className="py-10 sm:py-12 lg:py-14 bg-white">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="rounded-2xl sm:rounded-3xl bg-[#eaf4ff] border border-blue-200/90 p-8 sm:p-10 lg:p-12 shadow-sm">
+          <div className="rounded-2xl sm:rounded-3xl bg-white border border-blue-200/90 p-8 sm:p-10 lg:p-12 shadow-sm">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
               
               {/* Left Column: Heading, Subtext & Both Action Buttons */}
               <div className="lg:col-span-6 space-y-4 text-left">
-                <span className="text-[12px] sm:text-[13px] font-bold uppercase tracking-wider text-[#1B72E8] block">
+                <span className="text-[12px] sm:text-[13px] font-bold uppercase tracking-wider text-[#1F4FE0] block">
                   {SOLUTIONS_CONTACT_CTA_DATA.eyebrow}
                 </span>
-                <h2 className="font-serif text-[28px] sm:text-[34px] lg:text-[40px] font-bold text-[#142B59] tracking-tight leading-[1.18]">
+                <h2 className="atlas-h2-size font-serif font-extrabold text-[#0A1B4F]">
                   {SOLUTIONS_CONTACT_CTA_DATA.titleStart}{' '}
-                  <span className="bg-gradient-to-r from-[#0052CC] via-[#0066CC] to-[#0A66C2] bg-clip-text text-transparent">{SOLUTIONS_CONTACT_CTA_DATA.titleHighlight}</span>
+                  <span className="bg-gradient-to-r from-[#1F4FE0] via-[#1F4FE0] to-[#1F4FE0] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">{SOLUTIONS_CONTACT_CTA_DATA.titleHighlight}</span>
                 </h2>
                 
-                <p className="text-[15px] sm:text-[16px] text-[#45546B] leading-relaxed max-w-lg">
+                <p className="text-[15px] sm:text-[16px] text-[#4A5876] leading-relaxed max-w-lg">
                   {SOLUTIONS_CONTACT_CTA_DATA.description}
                 </p>
 
@@ -798,14 +798,14 @@ export const SolutionsPage: React.FC = () => {
                     onClick={() => setIsModalOpen(true)}
                     variant="primary"
                     size="lg"
-                    className="text-[15px] sm:text-[16px] font-semibold px-7 py-3.5 shadow-md shadow-blue-500/25 bg-gradient-to-r from-[#0052CC] to-[#0A66C2] hover:from-[#0040A8] hover:to-[#08529C] text-white rounded-xl"
+                    className="text-[15px] sm:text-[16px] font-semibold px-7 py-3.5 shadow-md shadow-blue-500/25 bg-gradient-to-r from-[#1F4FE0] to-[#1F4FE0] hover:from-[#1739B8] hover:to-[#1739B8] text-white rounded-xl"
                     icon={<ArrowRight className="w-4 h-4" />}
                   >
                     {SOLUTIONS_CONTACT_CTA_DATA.buttonText}
                   </Button>
                   <Link
                     to="/contact"
-                    className="inline-flex items-center justify-center font-semibold rounded-xl px-6 py-3.5 text-[15px] sm:text-[16px] bg-white text-[#142B59] hover:bg-slate-50 border border-slate-300 shadow-sm transition-colors"
+                    className="inline-flex items-center justify-center font-semibold rounded-xl px-6 py-3.5 text-[15px] sm:text-[16px] bg-white text-[#0A1B4F] hover:bg-slate-50 border border-slate-300 shadow-sm transition-colors"
                   >
                     Contact Us
                   </Link>

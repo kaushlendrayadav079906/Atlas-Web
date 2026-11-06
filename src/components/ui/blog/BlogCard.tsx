@@ -30,7 +30,7 @@ export const BlogCard: React.FC<BlogCardProps> = ({ article, featured = false })
 
         {/* Category Pill Tag */}
         <div className="absolute top-3.5 left-3.5 z-10">
-          <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-white/95 text-[#0052CC] backdrop-blur-md shadow-xs border border-blue-100">
+          <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-white/95 text-[#1F4FE0] backdrop-blur-md shadow-xs border border-blue-100">
             {article.category}
           </span>
         </div>
@@ -52,7 +52,7 @@ export const BlogCard: React.FC<BlogCardProps> = ({ article, featured = false })
           </div>
 
           {/* Title */}
-          <h3 className="font-serif text-[18px] sm:text-[20px] font-bold text-[#142B59] group-hover:text-[#0052CC] transition-colors leading-snug line-clamp-2 mb-2.5">
+          <h3 className="font-serif text-[18px] sm:text-[20px] font-bold text-[#0A1B4F] group-hover:text-[#1F4FE0] transition-colors leading-snug line-clamp-2 mb-2.5">
             <Link to={`/blog/${article.slug}`} className="focus:outline-none focus:underline">
               {article.title}
             </Link>
@@ -72,7 +72,7 @@ export const BlogCard: React.FC<BlogCardProps> = ({ article, featured = false })
 
           <Link
             to={`/blog/${article.slug}`}
-            className="inline-flex items-center gap-1.5 text-[14px] font-bold text-[#0052CC] group-hover:text-[#003E99] transition-colors"
+            className="inline-flex items-center gap-1.5 text-[14px] font-bold text-[#1F4FE0] group-hover:text-[#1739B8] transition-colors"
             aria-label={`Read article: ${article.title}`}
           >
             <span>Read More</span>

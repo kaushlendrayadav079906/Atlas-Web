@@ -58,12 +58,12 @@ const LogoCard: React.FC<{ item: LogoSliderItem }> = ({ item }) => {
       </div>
 
       {/* 2. Company Name in bold navy blue */}
-      <div className="mt-2 font-bold text-[14px] sm:text-[15px] text-[#142B59] group-hover:text-[#0066CC] transition-colors leading-tight truncate max-w-full">
+      <div className="mt-2 font-bold text-[14px] sm:text-[15px] text-[#0A1B4F] group-hover:text-[#1F4FE0] transition-colors leading-tight truncate max-w-full">
         {item.name}
       </div>
 
       {/* 3. Short description or partnership label in smaller grey text */}
-      <div className="mt-1 text-[11.5px] sm:text-[12.5px] font-medium text-[#53647A] truncate max-w-full">
+      <div className="mt-1 text-[11.5px] sm:text-[12.5px] font-medium text-[#4A5876] truncate max-w-full">
         {item.badge}
       </div>
     </Link>
@@ -81,7 +81,7 @@ export const LogoMarquee: React.FC<LogoMarqueeProps> = ({
   return (
     <section
       id="technology-partners-slider"
-      className={`relative pt-8 pb-10 sm:pt-10 sm:pb-14 lg:pt-12 lg:pb-16 bg-[#f4f9ff]/70 border-b border-slate-100 overflow-hidden z-20 ${className}`}
+      className={`relative pt-8 pb-10 sm:pt-10 sm:pb-14 lg:pt-12 lg:pb-16 bg-atlas-navy atlas-dark border-b border-white/10 overflow-hidden z-20 ${className}`}
       aria-label="Certified Technology Partners & Platforms"
     >
       <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
@@ -101,12 +101,12 @@ export const LogoMarquee: React.FC<LogoMarqueeProps> = ({
         <div className="relative w-full overflow-hidden logo-slider-group py-3.5 sm:py-4">
           {/* Left fade gradient mask matching section background */}
           <div
-            className="pointer-events-none absolute inset-y-0 left-0 w-12 sm:w-28 bg-gradient-to-r from-[#f4f9ff] via-[#f4f9ff]/80 to-transparent z-10"
+            className="pointer-events-none absolute inset-y-0 left-0 w-12 sm:w-28 bg-gradient-to-r from-atlas-navy via-atlas-navy/80 to-transparent z-10"
             aria-hidden="true"
           />
           {/* Right fade gradient mask matching section background */}
           <div
-            className="pointer-events-none absolute inset-y-0 right-0 w-12 sm:w-28 bg-gradient-to-l from-[#f4f9ff] via-[#f4f9ff]/80 to-transparent z-10"
+            className="pointer-events-none absolute inset-y-0 right-0 w-12 sm:w-28 bg-gradient-to-l from-atlas-navy via-atlas-navy/80 to-transparent z-10"
             aria-hidden="true"
           />
 
@@ -162,14 +162,14 @@ const ExcelLogo: React.FC = () => (
 const BritishSchoolLogo: React.FC = () => (
   <div className="inline-flex items-center gap-2 select-none h-11 sm:h-13">
     <svg viewBox="0 0 100 100" className="h-10 w-10 shrink-0" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="50" cy="50" r="46" stroke="#1e3a8a" strokeWidth="4" fill="#ffffff" />
+      <circle cx="50" cy="50" r="46" stroke="#0A1B4F" strokeWidth="4" fill="#ffffff" />
       <circle cx="50" cy="50" r="38" stroke="#dc2626" strokeWidth="1.5" strokeDasharray="3 2" />
       <path d="M50 22 L55 35 L68 35 L58 43 L62 56 L50 48 L38 56 L42 43 L32 35 L45 35 Z" fill="#2563eb" />
-      <path d="M26 62 Q50 56 74 62 L70 70 Q50 64 30 70 Z" fill="#1e3a8a" />
-      <text x="50" y="86" textAnchor="middle" fill="#1e3a8a" fontSize="7" fontWeight="bold" fontFamily="system-ui">BRITISH SCHOOL</text>
+      <path d="M26 62 Q50 56 74 62 L70 70 Q50 64 30 70 Z" fill="#0A1B4F" />
+      <text x="50" y="86" textAnchor="middle" fill="#0A1B4F" fontSize="7" fontWeight="bold" fontFamily="system-ui">BRITISH SCHOOL</text>
     </svg>
     <div className="flex flex-col leading-tight">
-      <span className="text-[#1e3a8a] font-extrabold text-[12px] sm:text-[13px] tracking-tight">THE BRITISH SCHOOL</span>
+      <span className="text-[#0A1B4F] font-extrabold text-[12px] sm:text-[13px] tracking-tight">THE BRITISH SCHOOL</span>
       <span className="text-slate-500 font-bold text-[9px] uppercase tracking-wider">NEW DELHI</span>
     </div>
   </div>
@@ -249,13 +249,13 @@ export const ClientLogoMarquee: React.FC<{ className?: string; showPill?: boolea
   return (
     <section
       id="client-logos-showcase"
-      className={`relative pt-5 pb-8 sm:pt-6 sm:pb-10 bg-[#eaf4fd] border-y border-blue-100/70 overflow-hidden ${className}`}
+      className={`relative pt-5 pb-8 sm:pt-6 sm:pb-10 bg-white border-y border-blue-100/70 overflow-hidden ${className}`}
       aria-label="Our Trusted Clients & Partners"
     >
       <div className="max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
         {showPill && (
           <div className="flex justify-center mb-5 sm:mb-6">
-            <span className="inline-flex items-center justify-center px-6 py-1.5 rounded-full text-white font-bold text-xs sm:text-[13px] bg-gradient-to-r from-[#0052CC] via-[#0866D9] to-[#0A66C2] shadow-sm tracking-wide uppercase">
+            <span className="inline-flex items-center justify-center px-6 py-1.5 rounded-full text-white font-bold text-xs sm:text-[13px] bg-gradient-to-r from-[#1F4FE0] via-[#1F4FE0] to-[#1F4FE0] shadow-sm tracking-wide uppercase">
               Trusted by Industry Leaders
             </span>
           </div>
@@ -263,11 +263,11 @@ export const ClientLogoMarquee: React.FC<{ className?: string; showPill?: boolea
 
         <div className="relative w-full overflow-hidden logo-slider-group py-2">
           <div
-            className="pointer-events-none absolute inset-y-0 left-0 w-12 sm:w-24 bg-gradient-to-r from-[#eaf4fd] via-[#eaf4fd]/80 to-transparent z-10"
+            className="pointer-events-none absolute inset-y-0 left-0 w-12 sm:w-24 bg-gradient-to-r from-atlas-navy via-atlas-navy/80 to-transparent z-10"
             aria-hidden="true"
           />
           <div
-            className="pointer-events-none absolute inset-y-0 right-0 w-12 sm:w-24 bg-gradient-to-l from-[#eaf4fd] via-[#eaf4fd]/80 to-transparent z-10"
+            className="pointer-events-none absolute inset-y-0 right-0 w-12 sm:w-24 bg-gradient-to-l from-atlas-navy via-atlas-navy/80 to-transparent z-10"
             aria-hidden="true"
           />
 
