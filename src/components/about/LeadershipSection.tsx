@@ -101,7 +101,7 @@ export const LeadershipSection: React.FC = () => {
   return (
     <section 
       id="team" 
-      className="py-16 sm:py-20 lg:py-24 border-b border-white/10 relative overflow-hidden bg-atlas-navy atlas-dark"
+      className="py-16 sm:py-20 lg:py-24 border-b border-white/10 relative overflow-hidden atlas-dark"
     >
       {/* Anchor for scroll navigation */}
       <span id="leadership" className="absolute -top-24 opacity-0 pointer-events-none" />

@@ -74,7 +74,7 @@ export const SolutionsPage: React.FC = () => {
       {/* ========================================================================= */}
       {/* SECTION 1: SOLUTIONS HERO                                                 */}
       {/* ========================================================================= */}
-      <section className="relative overflow-hidden pt-10 pb-12 lg:pt-14 lg:pb-16 border-b border-white/10 bg-atlas-navy atlas-dark">
+      <section className="relative overflow-hidden pt-10 pb-12 lg:pt-14 lg:pb-16 border-b border-white/10 atlas-dark">
         
         {/* Soft subtle botanical ambient glow on far left */}
         <div className="absolute -left-12 top-1/2 -translate-y-1/2 w-48 h-80 opacity-25 pointer-events-none select-none hidden lg:block">
@@ -321,7 +321,7 @@ export const SolutionsPage: React.FC = () => {
       {/* ========================================================================= */}
       {/* SECTION 4: DEEP DIVE — SAP BUSINESS ONE (ONE PLATFORM FOR SMARTER MGMT)   */}
       {/* ========================================================================= */}
-      <section id="sap-b1-section" className="py-12 sm:py-16 lg:py-20 border-b border-white/10 bg-atlas-navy atlas-dark">
+      <section id="sap-b1-section" className="py-12 sm:py-16 lg:py-20 border-b border-white/10 atlas-dark">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 xl:gap-12 items-center">
             
@@ -520,7 +520,7 @@ export const SolutionsPage: React.FC = () => {
       {/* ========================================================================= */}
       {/* SECTION 6: DEEP DIVE — UIPATH RPA & AI AUTOMATION                         */}
       {/* ========================================================================= */}
-      <section id="uipath-section" className="py-12 sm:py-16 lg:py-20 border-b border-white/10 bg-atlas-navy atlas-dark">
+      <section id="uipath-section" className="py-12 sm:py-16 lg:py-20 border-b border-white/10 atlas-dark">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 xl:gap-12 items-center">
             
@@ -715,7 +715,7 @@ export const SolutionsPage: React.FC = () => {
       {/* ========================================================================= */}
       {/* SECTION 8: SOLUTIONS DESIGNED AROUND YOUR INDUSTRY (4 CARDS)              */}
       {/* ========================================================================= */}
-      <section id="industries" className="py-12 sm:py-16 lg:py-20 border-b border-white/10 bg-atlas-navy atlas-dark">
+      <section id="industries" className="py-12 sm:py-16 lg:py-20 border-b border-white/10 atlas-dark">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">

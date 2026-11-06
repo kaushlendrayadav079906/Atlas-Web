@@ -129,7 +129,7 @@ export const PartnersPage: React.FC = () => {
       {/* ========================================================================= */}
       {/* SECTION 1: HERO SECTION                                                   */}
       {/* ========================================================================= */}
-      <section className="relative overflow-hidden pt-10 pb-14 lg:pt-14 lg:pb-18 border-b border-white/10 bg-atlas-navy atlas-dark">
+      <section className="relative overflow-hidden pt-10 pb-14 lg:pt-14 lg:pb-18 border-b border-white/10 atlas-dark">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
             
@@ -313,7 +313,7 @@ export const PartnersPage: React.FC = () => {
       {/* ========================================================================= */}
       {/* SECTION 3: SAP BUSINESS ONE PARTNERSHIP                                   */}
       {/* ========================================================================= */}
-      <section id="sap-partnership" className="py-16 lg:py-24 border-b border-white/10 bg-atlas-navy atlas-dark">
+      <section id="sap-partnership" className="py-16 lg:py-24 border-b border-white/10 atlas-dark">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           
           {/* Section Header */}
@@ -485,7 +485,7 @@ export const PartnersPage: React.FC = () => {
       {/* ========================================================================= */}
       {/* SECTION 5: UIPATH PARTNERSHIP                                             */}
       {/* ========================================================================= */}
-      <section id="uipath-partnership" className="py-16 lg:py-24 border-b border-white/10 bg-atlas-navy atlas-dark">
+      <section id="uipath-partnership" className="py-16 lg:py-24 border-b border-white/10 atlas-dark">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           
           {/* Section Header */}
@@ -648,7 +648,7 @@ export const PartnersPage: React.FC = () => {
       {/* ========================================================================= */}
       {/* SECTION 7: WHY CHOOSE ATLAS TECHNOSOFT                                    */}
       {/* ========================================================================= */}
-      <section className="py-16 lg:py-24 border-b border-white/10 bg-atlas-navy atlas-dark">
+      <section className="py-16 lg:py-24 border-b border-white/10 atlas-dark">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           
           {/* Section Header */}
@@ -679,7 +679,7 @@ export const PartnersPage: React.FC = () => {
       {/* ========================================================================= */}
       {/* SECTION 8: SIMPLE CONTACT CTA (RULE 9 - NO LENGTHY FORMS)                 */}
       {/* ========================================================================= */}
-      <section className="py-12 lg:py-16 bg-atlas-navy atlas-dark">
+      <section className="py-12 lg:py-16 atlas-dark">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="rounded-2xl sm:rounded-3xl bg-white border border-blue-200/90 p-8 sm:p-10 lg:p-12 shadow-sm">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">

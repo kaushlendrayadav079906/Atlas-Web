@@ -80,7 +80,7 @@ export const SiteFooter: React.FC = () => {
   ];
 
   return (
-    <footer className="relative bg-atlas-navy text-white pt-16 sm:pt-20 pb-0 overflow-hidden">
+    <footer className="relative atlas-cream text-white pt-16 sm:pt-20 pb-0 overflow-hidden">
       
       <div className="max-w-[1420px] 2xl:max-w-[1480px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-10 relative z-10">
         
@@ -297,7 +297,7 @@ export const SiteFooter: React.FC = () => {
       </div>
 
       {/* Bottom Deep Blue Copyright Bar matching Reference (#004DB3) */}
-      <div className="bg-atlas-navy py-5 text-white text-[13px] sm:text-[14px] relative z-10 border-t border-white/10">
+      <div className="atlas-cream atlas-cream-deep py-5 text-white text-[13px] sm:text-[14px] relative z-10 border-t border-white/10">
         <div className="max-w-[1420px] 2xl:max-w-[1480px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-10 flex flex-col sm:flex-row items-center justify-between gap-3">
           <div className="text-center sm:text-left text-white/95 font-normal">
             © {currentYear} ATLAS Technosoft. All rights reserved.

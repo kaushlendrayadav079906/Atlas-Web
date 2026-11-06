@@ -118,7 +118,7 @@ export const IndustriesPage: React.FC = () => {
       {/* ========================================================================= */}
       {/* SECTION 1: HERO SECTION                                                   */}
       {/* ========================================================================= */}
-      <section className="relative overflow-hidden pt-10 pb-14 lg:pt-14 lg:pb-18 border-b border-white/10 bg-atlas-navy atlas-dark">
+      <section className="relative overflow-hidden pt-10 pb-14 lg:pt-14 lg:pb-18 border-b border-white/10 atlas-dark">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
             {/* Left Content Column */}
@@ -299,7 +299,7 @@ export const IndustriesPage: React.FC = () => {
       {/* ========================================================================= */}
       {/* SECTION 3: INDUSTRY VALUE WE DELIVER (4 CARDS)                            */}
       {/* ========================================================================= */}
-      <section className="py-16 lg:py-20 border-b border-white/10 bg-atlas-navy atlas-dark">
+      <section className="py-16 lg:py-20 border-b border-white/10 atlas-dark">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section Header */}
           <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
@@ -401,7 +401,7 @@ export const IndustriesPage: React.FC = () => {
       {/* ========================================================================= */}
       {/* SECTION 5: SIMPLE CONTACT CTA (RULE 9 - NO COMPLICATED FORMS)             */}
       {/* ========================================================================= */}
-      <section className="py-12 lg:py-16 bg-atlas-navy atlas-dark">
+      <section className="py-12 lg:py-16 atlas-dark">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="rounded-2xl sm:rounded-3xl bg-white border border-blue-200/90 p-8 sm:p-10 lg:p-12 shadow-sm">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">

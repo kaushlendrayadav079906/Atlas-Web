@@ -48,7 +48,7 @@ export const ServicesPage: React.FC = () => {
       {/* ========================================================================= */}
       {/* SECTION 1: SERVICES HERO                                                  */}
       {/* ========================================================================= */}
-      <section className="relative pt-8 pb-12 sm:pb-16 border-b border-white/10 overflow-hidden bg-atlas-navy atlas-dark">
+      <section className="relative pt-8 pb-12 sm:pb-16 border-b border-white/10 overflow-hidden atlas-dark">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           
           <nav className="flex items-center gap-2 text-xs sm:text-sm text-[#4A5876] mb-6">
@@ -140,7 +140,7 @@ export const ServicesPage: React.FC = () => {
       {/* ========================================================================= */}
       {/* SECTION 2: 4 CORE SERVICE SUITES CATALOG                                  */}
       {/* ========================================================================= */}
-      <section id="services-catalog" className="py-12 sm:py-16 border-b border-white/10 scroll-mt-20 bg-atlas-navy atlas-dark">
+      <section id="services-catalog" className="py-12 sm:py-16 border-b border-white/10 scroll-mt-20 atlas-dark">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           
           <SectionHeading
@@ -259,7 +259,7 @@ export const ServicesPage: React.FC = () => {
       {/* ========================================================================= */}
       {/* SECTION 4: CONSULTATION CALL-TO-ACTION                                    */}
       {/* ========================================================================= */}
-      <section id="contact-cta" className="py-12 sm:py-16 bg-atlas-navy atlas-dark">
+      <section id="contact-cta" className="py-12 sm:py-16 atlas-dark">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="rounded-2xl bg-white border border-blue-200/90 p-8 sm:p-10 lg:p-12 shadow-sm">

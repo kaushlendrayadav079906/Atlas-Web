@@ -167,7 +167,7 @@ export const SupportMaintenancePage: React.FC = () => {
       {/* ========================================================================= */}
       {/* 2. HERO SECTION                                                          */}
       {/* ========================================================================= */}
-      <section className="relative pt-10 pb-16 lg:pt-14 lg:pb-20 overflow-hidden border-b border-white/10 bg-atlas-navy atlas-dark">
+      <section className="relative pt-10 pb-16 lg:pt-14 lg:pb-20 overflow-hidden border-b border-white/10 atlas-dark">
         <div className="absolute inset-0 bg-dot-pattern opacity-40 pointer-events-none" />
         <div className="absolute -top-32 -left-32 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute top-1/2 -right-32 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl pointer-events-none" />
@@ -320,7 +320,7 @@ export const SupportMaintenancePage: React.FC = () => {
       {/* ========================================================================= */}
       {/* 4. SLA TIER MATRIX                                                       */}
       {/* ========================================================================= */}
-      <section id="sla-matrix" className="py-16 lg:py-24 border-b border-white/10 bg-atlas-navy atlas-dark">
+      <section id="sla-matrix" className="py-16 lg:py-24 border-b border-white/10 atlas-dark">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-14">
             <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#1F4FE0]">
@@ -413,7 +413,7 @@ export const SupportMaintenancePage: React.FC = () => {
       {/* ========================================================================= */}
       {/* 6. STEP-BY-STEP ONBOARDING PROCESS                                       */}
       {/* ========================================================================= */}
-      <section className="py-16 lg:py-24 border-b border-white/10 bg-atlas-navy atlas-dark">
+      <section className="py-16 lg:py-24 border-b border-white/10 atlas-dark">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-14">
             <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#1F4FE0]">
@@ -462,7 +462,7 @@ export const SupportMaintenancePage: React.FC = () => {
       {/* ========================================================================= */}
       {/* 7. VERIFIED ENTERPRISE AMS SUCCESS STORY                                  */}
       {/* ========================================================================= */}
-      <section className="py-16 lg:py-20 bg-atlas-navy text-white">
+      <section className="py-16 lg:py-20 atlas-cream text-white">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-white atlas-light-surface rounded-3xl p-8 sm:p-12 shadow-2xl relative overflow-hidden">
             <div className="max-w-3xl relative z-10">
@@ -503,7 +503,7 @@ export const SupportMaintenancePage: React.FC = () => {
       {/* ========================================================================= */}
       {/* 8. RELATED SERVICES                                                      */}
       {/* ========================================================================= */}
-      <section className="py-16 lg:py-20 border-b border-white/10 bg-atlas-navy atlas-dark">
+      <section className="py-16 lg:py-20 border-b border-white/10 atlas-dark">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-12">
             <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#1F4FE0]">
@@ -589,7 +589,7 @@ export const SupportMaintenancePage: React.FC = () => {
       {/* ========================================================================= */}
       <section className="py-16 lg:py-24 bg-white">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-atlas-navy rounded-3xl p-8 sm:p-14 text-white text-center relative overflow-hidden mb-12">
+          <div className="atlas-cream rounded-3xl p-8 sm:p-14 text-white text-center relative overflow-hidden mb-12">
             <div className="max-w-2xl mx-auto space-y-5 relative z-10">
               <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-blue-300">
                 Guaranteed Response Times

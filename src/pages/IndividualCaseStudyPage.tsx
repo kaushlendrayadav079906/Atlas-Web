@@ -103,7 +103,7 @@ export const IndividualCaseStudyPage: React.FC = () => {
       {/* ========================================================================= */}
       {/* SECTION 1: BREADCRUMBS & CASE STUDY HERO                                  */}
       {/* ========================================================================= */}
-      <section className="relative pt-6 pb-12 sm:pb-16 border-b border-white/10 overflow-hidden bg-atlas-navy atlas-dark">
+      <section className="relative pt-6 pb-12 sm:pb-16 border-b border-white/10 overflow-hidden atlas-dark">
         {/* Subtle decorative glow */}
         <div className="absolute top-0 right-0 w-[500px] h-[400px] bg-gradient-to-bl from-blue-100/40 via-blue-100/20 to-transparent rounded-full blur-3xl -z-10 pointer-events-none" />
 
@@ -258,7 +258,7 @@ export const IndividualCaseStudyPage: React.FC = () => {
       {/* ========================================================================= */}
       {/* SECTION 2: BUSINESS CHALLENGES & TECHNOLOGY STACK                         */}
       {/* ========================================================================= */}
-      <section className="py-12 sm:py-16 border-b border-white/10 bg-atlas-navy atlas-dark">
+      <section className="py-12 sm:py-16 border-b border-white/10 atlas-dark">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14">
@@ -415,7 +415,7 @@ export const IndividualCaseStudyPage: React.FC = () => {
       {/* ========================================================================= */}
       {/* SECTION 4: KEY FEATURES DEPLOYED                                          */}
       {/* ========================================================================= */}
-      <section className="py-12 sm:py-16 border-b border-white/10 bg-atlas-navy atlas-dark">
+      <section className="py-12 sm:py-16 border-b border-white/10 atlas-dark">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="text-center max-w-3xl mx-auto mb-10 space-y-3">
@@ -508,7 +508,7 @@ export const IndividualCaseStudyPage: React.FC = () => {
       {/* ========================================================================= */}
       {/* SECTION 6: CONSULTATION CALL-TO-ACTION                                    */}
       {/* ========================================================================= */}
-      <section id="contact-cta" className="py-12 sm:py-16 bg-atlas-navy atlas-dark">
+      <section id="contact-cta" className="py-12 sm:py-16 atlas-dark">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="rounded-2xl bg-gradient-to-br from-blue-50/90 via-[#EEF4FA] to-blue-50/70 border border-blue-200/80 p-8 sm:p-10 lg:p-12 shadow-sm">

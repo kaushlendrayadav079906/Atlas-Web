@@ -155,7 +155,7 @@ export const ContactPage: React.FC = () => {
       {/* ========================================================================= */}
       {/* SECTION 1: CONTACT HERO SECTION                                           */}
       {/* ========================================================================= */}
-      <section className="relative overflow-hidden pt-10 pb-14 lg:pt-16 lg:pb-20 border-b border-white/10 bg-atlas-navy atlas-dark">
+      <section className="relative overflow-hidden pt-10 pb-14 lg:pt-16 lg:pb-20 border-b border-white/10 atlas-dark">
         
         {/* Subtle decorative background shapes */}
         <div className="pointer-events-none absolute -top-24 left-1/2 -translate-x-1/2 w-[850px] h-[360px] bg-gradient-to-tr from-blue-400/10 via-sky-300/15 to-transparent rounded-full blur-3xl -z-10" />
@@ -354,7 +354,7 @@ export const ContactPage: React.FC = () => {
       {/* ========================================================================= */}
       {/* SECTION 3: MAIN SECTION – ENQUIRY FORM & OFFICE LOCATIONS                  */}
       {/* ========================================================================= */}
-      <section id="contact-enquiry-form" className="py-14 sm:py-20 border-b border-white/10 bg-atlas-navy atlas-dark">
+      <section id="contact-enquiry-form" className="py-14 sm:py-20 border-b border-white/10 atlas-dark">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
             

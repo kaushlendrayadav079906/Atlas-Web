@@ -80,7 +80,7 @@ export const AboutPage: React.FC = () => {
       {/* ========================================================================= */}
       {/* SECTION 1: ABOUT HERO SECTION                                             */}
       {/* ========================================================================= */}
-      <section className="relative overflow-hidden pt-10 pb-12 lg:pt-14 lg:pb-16 border-b border-white/10 bg-atlas-navy atlas-dark">
+      <section className="relative overflow-hidden pt-10 pb-12 lg:pt-14 lg:pb-16 border-b border-white/10 atlas-dark">
 
         {/* Soft subtle botanical ambient glow on far left */}
         <div className="absolute -left-12 top-1/2 -translate-y-1/2 w-48 h-80 opacity-25 pointer-events-none select-none hidden lg:block">
@@ -230,7 +230,7 @@ export const AboutPage: React.FC = () => {
       {/* ========================================================================= */}
       {/* SECTION 3: OUR STORY                                                      */}
       {/* ========================================================================= */}
-      <section id="story" className="py-12 sm:py-16 lg:py-20 border-b border-white/10 bg-atlas-navy atlas-dark">
+      <section id="story" className="py-12 sm:py-16 lg:py-20 border-b border-white/10 atlas-dark">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
             
@@ -360,7 +360,7 @@ export const AboutPage: React.FC = () => {
       {/* ========================================================================= */}
       {/* SECTION 5: OUR EXPERTISE                                                  */}
       {/* ========================================================================= */}
-      <section id="expertise" className="py-12 sm:py-16 lg:py-20 border-b border-white/10 bg-atlas-navy atlas-dark">
+      <section id="expertise" className="py-12 sm:py-16 lg:py-20 border-b border-white/10 atlas-dark">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
             
@@ -486,7 +486,7 @@ export const AboutPage: React.FC = () => {
       {/* ========================================================================= */}
       {/* SECTION 7: WHY CHOOSE ATLAS TECHNOSOFT                                    */}
       {/* ========================================================================= */}
-      <section id="why-choose" className="py-12 sm:py-16 lg:py-20 border-b border-white/10 bg-atlas-navy atlas-dark">
+      <section id="why-choose" className="py-12 sm:py-16 lg:py-20 border-b border-white/10 atlas-dark">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
             
@@ -550,7 +550,7 @@ export const AboutPage: React.FC = () => {
       {/* ========================================================================= */}
       {/* SECTION 9: CONTACT CTA ("LET'S WORK TOGETHER")                             */}
       {/* ========================================================================= */}
-      <section id="contact-cta" className="py-10 sm:py-12 lg:py-14 bg-atlas-navy atlas-dark">
+      <section id="contact-cta" className="py-10 sm:py-12 lg:py-14 atlas-dark">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="rounded-2xl sm:rounded-3xl bg-white border border-blue-200/90 p-8 sm:p-10 lg:p-12 shadow-sm">
