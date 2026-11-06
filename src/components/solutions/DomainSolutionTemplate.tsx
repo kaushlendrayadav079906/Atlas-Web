@@ -40,7 +40,7 @@ export const DomainSolutionTemplate: React.FC<DomainSolutionTemplateProps> = ({ 
     window.scrollTo(0, 0);
   }, [data]);
 
-  const renderIcon = (name: string, className = 'w-6 h-6 text-[#1B72E8]') => {
+  const renderIcon = (name: string, className = 'w-6 h-6 text-[#1F4FE0]') => {
     switch (name) {
       case 'Boxes':
         return <Boxes className={className} />;
@@ -68,28 +68,28 @@ export const DomainSolutionTemplate: React.FC<DomainSolutionTemplateProps> = ({ 
   };
 
   return (
-    <div className="min-h-screen bg-white text-[#45546B]">
+    <div className="min-h-screen bg-white text-[#4A5876]">
       {/* ========================================================================= */}
       {/* 1. BREADCRUMBS                                                           */}
       {/* ========================================================================= */}
-      <nav aria-label="Breadcrumb" className="bg-slate-50 border-b border-slate-200/80 py-3">
+      <nav aria-label="Breadcrumb" className="bg-white border-b border-slate-200/80 py-3">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           <ol className="flex items-center space-x-2 text-xs sm:text-sm text-slate-500">
             <li>
-              <Link to="/" className="hover:text-[#1B72E8] transition-colors">
+              <Link to="/" className="hover:text-[#1F4FE0] transition-colors">
                 Home
               </Link>
             </li>
             <li>
-              <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
+              <ChevronRight className="w-3.5 h-3.5 text-slate-500" />
             </li>
             <li>
-              <Link to="/solutions" className="hover:text-[#1B72E8] transition-colors">
+              <Link to="/solutions" className="hover:text-[#1F4FE0] transition-colors">
                 Solutions
               </Link>
             </li>
             <li>
-              <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
+              <ChevronRight className="w-3.5 h-3.5 text-slate-500" />
             </li>
             <li className="font-semibold text-slate-800 truncate" aria-current="page">
               {data.title}
@@ -101,7 +101,7 @@ export const DomainSolutionTemplate: React.FC<DomainSolutionTemplateProps> = ({ 
       {/* ========================================================================= */}
       {/* 2. HERO SECTION                                                          */}
       {/* ========================================================================= */}
-      <section className="relative pt-10 pb-16 lg:pt-14 lg:pb-20 overflow-hidden bg-gradient-to-b from-white via-slate-50/50 to-white border-b border-slate-100">
+      <section className="relative pt-10 pb-16 lg:pt-14 lg:pb-20 overflow-hidden border-b border-white/10 bg-atlas-navy atlas-dark">
         <div className="absolute inset-0 bg-dot-pattern opacity-40 pointer-events-none" />
         <div className="absolute -top-32 -left-32 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute top-1/2 -right-32 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl pointer-events-none" />
@@ -111,13 +111,13 @@ export const DomainSolutionTemplate: React.FC<DomainSolutionTemplateProps> = ({ 
             {/* Left Content */}
             <div className="lg:col-span-7 space-y-6 text-left">
               <div className="inline-flex items-center gap-2">
-                <span className="text-[12px] sm:text-[13px] font-bold uppercase tracking-wider text-[#1B72E8] bg-blue-50 px-3 py-1 rounded-full border border-blue-200">
+                <span className="text-[12px] sm:text-[13px] font-bold uppercase tracking-wider text-[#1F4FE0] bg-blue-50 px-3 py-1 rounded-full border border-blue-200">
                   {data.eyebrow}
                 </span>
               </div>
 
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#1A202C] tracking-tight leading-tight">
-                {data.title} <span className="text-[#1B72E8]">{data.titleHighlight}</span>
+              <h1 className="atlas-h1-size font-extrabold text-[#1A202C]">
+                {data.title} <span className="text-[#1F4FE0]">{data.titleHighlight}</span>
               </h1>
 
               <p className="text-lg sm:text-xl font-medium text-slate-700 leading-snug">
@@ -150,7 +150,7 @@ export const DomainSolutionTemplate: React.FC<DomainSolutionTemplateProps> = ({ 
               <div className="pt-4 flex flex-wrap gap-3 sm:gap-4 items-center">
                 <Button
                   onClick={() => setIsModalOpen(true)}
-                  className="bg-[#1B72E8] hover:bg-blue-700 text-white font-semibold px-6 py-3.5 rounded-lg shadow-sm transition-all duration-200 inline-flex items-center gap-2"
+                  className="bg-[#1F4FE0] hover:bg-blue-700 text-white font-semibold px-6 py-3.5 rounded-lg shadow-sm transition-all duration-200 inline-flex items-center gap-2"
                 >
                   Book a Domain Consultation
                   <ArrowRight className="w-4 h-4" />
@@ -159,7 +159,7 @@ export const DomainSolutionTemplate: React.FC<DomainSolutionTemplateProps> = ({ 
                   href="#architecture"
                   className="inline-flex items-center gap-2 px-5 py-3.5 rounded-lg text-slate-700 font-semibold bg-white border border-slate-300 hover:bg-slate-50 hover:border-slate-400 transition-all duration-200"
                 >
-                  <Layers className="w-4 h-4 text-[#1B72E8]" />
+                  <Layers className="w-4 h-4 text-[#1F4FE0]" />
                   Explore Architecture
                 </a>
               </div>
@@ -167,7 +167,7 @@ export const DomainSolutionTemplate: React.FC<DomainSolutionTemplateProps> = ({ 
 
             {/* Right Media */}
             <div className="lg:col-span-5">
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-slate-200/80 bg-slate-900 group">
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-slate-200/80 bg-atlas-navy group">
                 <img
                   src={data.heroImage}
                   alt={data.heroImageAlt}
@@ -182,11 +182,11 @@ export const DomainSolutionTemplate: React.FC<DomainSolutionTemplateProps> = ({ 
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none" />
                 <div className="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-md rounded-xl p-4 border border-slate-200/60 shadow-lg">
                   <div className="flex items-center gap-3">
-                    <div className="p-2 bg-blue-50 text-[#1B72E8] rounded-lg">
+                    <div className="p-2 bg-blue-50 text-[#1F4FE0] rounded-lg">
                       <ShieldCheck className="w-5 h-5" />
                     </div>
                     <div>
-                      <p className="text-xs font-bold uppercase tracking-wider text-[#1B72E8]">
+                      <p className="text-xs font-bold uppercase tracking-wider text-[#1F4FE0]">
                         Enterprise-Grade Implementation
                       </p>
                       <p className="text-xs font-medium text-slate-700">
@@ -210,9 +210,9 @@ export const DomainSolutionTemplate: React.FC<DomainSolutionTemplateProps> = ({ 
             {data.metrics.map((metric, idx) => (
               <div
                 key={idx}
-                className="bg-slate-50/70 rounded-2xl p-6 sm:p-7 border border-slate-200/80 hover:border-blue-300 transition-all duration-200 hover:shadow-md"
+                className="bg-white rounded-2xl p-6 sm:p-7 border border-slate-200/80 hover:border-blue-300 transition-all duration-200 hover:shadow-md"
               >
-                <div className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#1B72E8] tracking-tight mb-2">
+                <div className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#1F4FE0] tracking-tight mb-2">
                   {metric.value}
                 </div>
                 <div className="text-base sm:text-lg font-bold text-slate-900 mb-1">
@@ -230,13 +230,13 @@ export const DomainSolutionTemplate: React.FC<DomainSolutionTemplateProps> = ({ 
       {/* ========================================================================= */}
       {/* 4. INDUSTRY CHALLENGES ELIMINATED                                        */}
       {/* ========================================================================= */}
-      <section className="py-16 lg:py-20 bg-slate-50 border-b border-slate-200/80">
+      <section className="py-16 lg:py-20 border-b border-white/10 bg-atlas-navy atlas-dark">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
             <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#E06D53]">
               Operational Bottlenecks
             </span>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 mt-2 mb-4">
+            <h2 className="atlas-h2-size font-extrabold text-slate-900 mt-2 mb-4">
               Core Industry Challenges We Eliminate
             </h2>
             <p className="text-base text-slate-600">
@@ -279,10 +279,10 @@ export const DomainSolutionTemplate: React.FC<DomainSolutionTemplateProps> = ({ 
       <section id="architecture" className="py-16 lg:py-24 bg-white border-b border-slate-200/80">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-14">
-            <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#1B72E8]">
+            <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#1F4FE0]">
               Proven Technical Blueprint
             </span>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 mt-2 mb-4">
+            <h2 className="atlas-h2-size font-extrabold text-slate-900 mt-2 mb-4">
               {data.architectureOverview.heading}
             </h2>
             <p className="text-base text-slate-600 leading-relaxed">
@@ -294,10 +294,10 @@ export const DomainSolutionTemplate: React.FC<DomainSolutionTemplateProps> = ({ 
             {data.architectureOverview.points.map((point, idx) => (
               <div
                 key={idx}
-                className="bg-slate-50/60 rounded-2xl p-6 sm:p-8 border border-slate-200/90 hover:border-blue-400 transition-all duration-200"
+                className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200/90 hover:border-blue-400 transition-all duration-200"
               >
                 <div className="flex items-center gap-3 mb-3">
-                  <div className="w-8 h-8 rounded-lg bg-blue-100 text-[#1B72E8] flex items-center justify-center font-bold text-sm">
+                  <div className="w-8 h-8 rounded-lg bg-blue-100 text-[#1F4FE0] flex items-center justify-center font-bold text-sm">
                     {idx + 1}
                   </div>
                   <h3 className="text-lg sm:text-xl font-bold text-slate-900">
@@ -323,7 +323,7 @@ export const DomainSolutionTemplate: React.FC<DomainSolutionTemplateProps> = ({ 
 
           {data.architectureOverview.diagramNote && (
             <div className="bg-blue-50/70 border border-blue-200 rounded-2xl p-6 flex items-center gap-4">
-              <div className="p-3 bg-blue-100 text-[#1B72E8] rounded-xl flex-shrink-0">
+              <div className="p-3 bg-blue-100 text-[#1F4FE0] rounded-xl flex-shrink-0">
                 <Layers className="w-6 h-6" />
               </div>
               <p className="text-sm sm:text-base text-blue-900 font-medium">
@@ -338,13 +338,13 @@ export const DomainSolutionTemplate: React.FC<DomainSolutionTemplateProps> = ({ 
       {/* ========================================================================= */}
       {/* 6. KEY FEATURES & CAPABILITIES                                          */}
       {/* ========================================================================= */}
-      <section className="py-16 lg:py-24 bg-slate-50 border-b border-slate-200/80">
+      <section className="py-16 lg:py-24 border-b border-white/10 bg-atlas-navy atlas-dark">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-14">
-            <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#1B72E8]">
+            <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#1F4FE0]">
               Comprehensive Functionality
             </span>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 mt-2 mb-4">
+            <h2 className="atlas-h2-size font-extrabold text-slate-900 mt-2 mb-4">
               Core Capabilities & Modules
             </h2>
             <p className="text-base text-slate-600">
@@ -359,7 +359,7 @@ export const DomainSolutionTemplate: React.FC<DomainSolutionTemplateProps> = ({ 
                 className="bg-white rounded-2xl p-6 sm:p-7 border border-slate-200/80 shadow-sm hover:shadow-lg transition-all duration-200 flex flex-col justify-between group"
               >
                 <div>
-                  <div className="p-3 rounded-xl bg-blue-50 text-[#1B72E8] group-hover:bg-[#1B72E8] group-hover:text-white transition-colors duration-200 w-fit mb-4">
+                  <div className="p-3 rounded-xl bg-blue-50 text-[#1F4FE0] group-hover:bg-[#1F4FE0] group-hover:text-white transition-colors duration-200 w-fit mb-4">
                     {renderIcon(feature.icon, 'w-6 h-6')}
                   </div>
                   <h3 className="text-lg font-bold text-slate-900 mb-2.5">
@@ -384,7 +384,7 @@ export const DomainSolutionTemplate: React.FC<DomainSolutionTemplateProps> = ({ 
             <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-emerald-600">
               Execution Methodology
             </span>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 mt-2 mb-4">
+            <h2 className="atlas-h2-size font-extrabold text-slate-900 mt-2 mb-4">
               End-to-End Operational Workflow
             </h2>
             <p className="text-base text-slate-600">
@@ -396,7 +396,7 @@ export const DomainSolutionTemplate: React.FC<DomainSolutionTemplateProps> = ({ 
             {data.workflowSteps.map((step) => (
               <div
                 key={step.step}
-                className="bg-slate-50/70 border border-slate-200/90 rounded-2xl p-6 sm:p-7 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 sm:gap-6 hover:border-emerald-400 transition-all duration-200"
+                className="bg-white border border-slate-200/90 rounded-2xl p-6 sm:p-7 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 sm:gap-6 hover:border-emerald-400 transition-all duration-200"
               >
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 border border-emerald-200 flex items-center justify-center font-extrabold text-lg flex-shrink-0">
@@ -428,17 +428,17 @@ export const DomainSolutionTemplate: React.FC<DomainSolutionTemplateProps> = ({ 
       {/* 8. VERIFIED CASE STUDY SPOTLIGHT                                         */}
       {/* ========================================================================= */}
       {data.caseStudy && (
-        <section className="py-16 lg:py-20 bg-slate-900 text-white">
+        <section className="py-16 lg:py-20 bg-atlas-navy text-white">
           <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 rounded-3xl p-8 sm:p-12 border border-slate-700/80 shadow-2xl relative overflow-hidden">
+            <div className="bg-white atlas-light-surface rounded-3xl p-8 sm:p-12 shadow-2xl relative overflow-hidden">
               <div className="max-w-3xl relative z-10">
-                <span className="inline-block px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-blue-500/20 text-blue-300 border border-blue-400/30 mb-4">
+                <span className="inline-block px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-atlas-royalTint text-atlas-royal border border-blue-400/30 mb-4">
                   {data.caseStudy.category}
                 </span>
-                <h3 className="text-2xl sm:text-3xl font-extrabold text-white mb-4">
+                <h3 className="text-2xl sm:text-3xl font-extrabold text-atlas-navy mb-4">
                   {data.caseStudy.title}
                 </h3>
-                <blockquote className="text-lg sm:text-xl text-slate-300 italic mb-6 leading-relaxed">
+                <blockquote className="text-lg sm:text-xl text-atlas-body italic mb-6 leading-relaxed">
                   "{data.caseStudy.quote}"
                 </blockquote>
                 <div className="flex items-center gap-4 mb-8">
@@ -446,17 +446,17 @@ export const DomainSolutionTemplate: React.FC<DomainSolutionTemplateProps> = ({ 
                     ATPL
                   </div>
                   <div>
-                    <div className="font-bold text-white text-sm">
+                    <div className="font-bold text-atlas-navy text-sm">
                       Enterprise Customer Deployment
                     </div>
-                    <div className="text-xs text-slate-400">
+                    <div className="text-xs text-slate-500">
                       {data.caseStudy.designation}
                     </div>
                   </div>
                 </div>
                 <Link
                   to={data.caseStudy.href}
-                  className="inline-flex items-center gap-2 bg-[#1B72E8] hover:bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg shadow-sm transition-all duration-200"
+                  className="inline-flex items-center gap-2 bg-[#1F4FE0] hover:bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg shadow-sm transition-all duration-200"
                 >
                   Read Full Case Study
                   <ArrowRight className="w-4 h-4" />
@@ -470,13 +470,13 @@ export const DomainSolutionTemplate: React.FC<DomainSolutionTemplateProps> = ({ 
       {/* ========================================================================= */}
       {/* 9. RELATED SOLUTIONS                                                     */}
       {/* ========================================================================= */}
-      <section className="py-16 lg:py-20 bg-slate-50 border-b border-slate-200/80">
+      <section className="py-16 lg:py-20 border-b border-white/10 bg-atlas-navy atlas-dark">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-12">
-            <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#1B72E8]">
+            <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#1F4FE0]">
               Ecosystem Connectivity
             </span>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-2 mb-3">
+            <h2 className="atlas-h2-size font-extrabold text-slate-900 mt-2 mb-3">
               Complementary Enterprise Solutions
             </h2>
             <p className="text-sm sm:text-base text-slate-600">
@@ -503,7 +503,7 @@ export const DomainSolutionTemplate: React.FC<DomainSolutionTemplateProps> = ({ 
                 </div>
                 <Link
                   to={item.href}
-                  className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#1B72E8] hover:text-blue-700 transition-colors"
+                  className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#1F4FE0] hover:text-blue-700 transition-colors"
                 >
                   Explore Solution
                   <ArrowRight className="w-4 h-4" />
@@ -519,12 +519,12 @@ export const DomainSolutionTemplate: React.FC<DomainSolutionTemplateProps> = ({ 
       {/* ========================================================================= */}
       <section className="py-16 lg:py-24 bg-white">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900 rounded-3xl p-8 sm:p-14 text-white text-center relative overflow-hidden mb-12">
+          <div className="bg-atlas-navy rounded-3xl p-8 sm:p-14 text-white text-center relative overflow-hidden mb-12">
             <div className="max-w-2xl mx-auto space-y-5 relative z-10">
               <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-blue-300">
                 Let's Talk Architecture
               </span>
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-white">
+              <h2 className="atlas-h2-size font-extrabold text-white">
                 Ready to Upgrade Your {data.title}?
               </h2>
               <p className="text-base sm:text-lg text-slate-300 leading-relaxed">
@@ -533,7 +533,7 @@ export const DomainSolutionTemplate: React.FC<DomainSolutionTemplateProps> = ({ 
               <div className="pt-3 flex flex-wrap items-center justify-center gap-4">
                 <Button
                   onClick={() => setIsModalOpen(true)}
-                  className="bg-[#1B72E8] hover:bg-blue-600 text-white font-bold text-base px-8 py-4 rounded-xl shadow-lg transition-all duration-200 inline-flex items-center gap-2"
+                  className="bg-[#1F4FE0] hover:bg-blue-600 text-white font-bold text-base px-8 py-4 rounded-xl shadow-lg transition-all duration-200 inline-flex items-center gap-2"
                 >
                   Schedule Solution Consultation
                   <ArrowRight className="w-5 h-5" />

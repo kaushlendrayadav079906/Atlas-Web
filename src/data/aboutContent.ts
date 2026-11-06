@@ -180,27 +180,27 @@ export const ABOUT_INDUSTRIES_DATA = [
     title: "Manufacturing",
     description: "Streamline production, inventory and operations with intelligent solutions.",
     imageSrc: "/images/crystal_hd/ind_manufacturing.jpg",
-    borderClass: "border-[#2992ff]",
+    borderClass: "border-[#1F4FE0]",
     hoverBorderClass: "hover:border-blue-600",
-    arrowBorderClass: "border-blue-200 text-blue-600 group-hover:bg-[#2992ff] group-hover:text-white"
+    arrowBorderClass: "border-blue-200 text-blue-600 group-hover:bg-[#1F4FE0] group-hover:text-white"
   },
   {
     id: "warehouse",
     title: "Warehouse & Logistics",
     description: "Optimize warehousing, logistics and supply chain operations.",
     imageSrc: "/images/crystal_hd/ind_warehouse.jpg",
-    borderClass: "border-[#2992ff]",
+    borderClass: "border-[#1F4FE0]",
     hoverBorderClass: "hover:border-blue-600",
-    arrowBorderClass: "border-blue-200 text-blue-600 group-hover:bg-[#2992ff] group-hover:text-white"
+    arrowBorderClass: "border-blue-200 text-blue-600 group-hover:bg-[#1F4FE0] group-hover:text-white"
   },
   {
     id: "finance",
     title: "Finance & Administration",
     description: "Improve financial control and administrative efficiency.",
     imageSrc: "/images/crystal_hd/ind_finance.jpg",
-    borderClass: "border-[#0066CC]",
+    borderClass: "border-[#1F4FE0]",
     hoverBorderClass: "hover:border-[#5B21B6]",
-    arrowBorderClass: "border-blue-200 text-[#0066CC] group-hover:bg-[#0066CC] group-hover:text-white"
+    arrowBorderClass: "border-blue-200 text-[#1F4FE0] group-hover:bg-[#1F4FE0] group-hover:text-white"
   },
   {
     id: "trading",

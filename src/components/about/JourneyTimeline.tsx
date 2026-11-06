@@ -101,21 +101,21 @@ export const JourneyTimeline: React.FC = () => {
         {/* =================================================================== */}
         <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-20">
           {/* Eyebrow Badge matching ATLAS standards */}
-          <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-blue-50 text-[#0052CC] border border-blue-200/80 mb-3.5 select-none">
-            <Sparkles className="w-3.5 h-3.5 text-[#0052CC]" />
+          <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-blue-50 text-[#1F4FE0] border border-blue-200/80 mb-3.5 select-none">
+            <Sparkles className="w-3.5 h-3.5 text-[#1F4FE0]" />
             <span>{eyebrow}</span>
           </div>
 
           {/* Main Display Heading */}
-          <h2 className="font-serif text-[32px] sm:text-[42px] lg:text-[48px] font-bold text-[#142B59] tracking-tight leading-[1.15]">
+          <h2 className="atlas-h2-size font-serif font-extrabold text-[#0A1B4F]">
             {headingMain}{' '}
-            <span className="bg-gradient-to-r from-[#0052CC] via-[#0066CC] to-[#0A66C2] bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[#1F4FE0] via-[#1F4FE0] to-[#1F4FE0] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">
               {headingAccent}
             </span>
           </h2>
 
           {/* Subtitle */}
-          <p className="mt-4 text-[15px] sm:text-[17px] text-[#45546B] leading-relaxed">
+          <p className="mt-4 text-[15px] sm:text-[17px] text-[#4A5876] leading-relaxed">
             {description}
           </p>
 
@@ -138,7 +138,7 @@ export const JourneyTimeline: React.FC = () => {
           >
             {/* Animated Progress Line */}
             <div 
-              className="w-full bg-gradient-to-b from-[#0052CC] via-[#0878f9] to-[#00A3BF] transition-all duration-300 rounded-full"
+              className="w-full bg-gradient-to-b from-[#1F4FE0] via-[#1F4FE0] to-[#00A3BF] transition-all duration-300 rounded-full"
               style={{ height: `${lineProgress}%` }}
             />
           </div>
@@ -149,7 +149,7 @@ export const JourneyTimeline: React.FC = () => {
             aria-hidden="true"
           >
             <div 
-              className="w-full bg-gradient-to-b from-[#0052CC] via-[#0878f9] to-[#00A3BF] transition-all duration-300 rounded-full"
+              className="w-full bg-gradient-to-b from-[#1F4FE0] via-[#1F4FE0] to-[#00A3BF] transition-all duration-300 rounded-full"
               style={{ height: `${lineProgress}%` }}
             />
           </div>
@@ -163,11 +163,11 @@ export const JourneyTimeline: React.FC = () => {
 
               // Node dot color scheme harmonized to ATLAS enterprise blue palette
               const dotColors: Record<MilestoneItem['color'], { ring: string; dot: string; glow: string }> = {
-                blue: { ring: 'ring-blue-500/20 border-[#0052CC]', dot: 'bg-[#0052CC]', glow: 'shadow-blue-500/20' },
-                sky: { ring: 'ring-sky-500/20 border-[#0878f9]', dot: 'bg-[#0878f9]', glow: 'shadow-sky-500/20' },
-                rose: { ring: 'ring-blue-500/20 border-[#0066CC]', dot: 'bg-[#0066CC]', glow: 'shadow-blue-500/20' },
+                blue: { ring: 'ring-blue-500/20 border-[#1F4FE0]', dot: 'bg-[#1F4FE0]', glow: 'shadow-blue-500/20' },
+                sky: { ring: 'ring-sky-500/20 border-[#1F4FE0]', dot: 'bg-[#1F4FE0]', glow: 'shadow-sky-500/20' },
+                rose: { ring: 'ring-blue-500/20 border-[#1F4FE0]', dot: 'bg-[#1F4FE0]', glow: 'shadow-blue-500/20' },
                 emerald: { ring: 'ring-emerald-500/20 border-emerald-500', dot: 'bg-emerald-500', glow: 'shadow-emerald-500/20' },
-                purple: { ring: 'ring-indigo-500/20 border-[#142B59]', dot: 'bg-[#142B59]', glow: 'shadow-indigo-500/20' }
+                purple: { ring: 'ring-indigo-500/20 border-[#0A1B4F]', dot: 'bg-[#0A1B4F]', glow: 'shadow-indigo-500/20' }
               };
               const dotStyle = dotColors[item.color];
 
@@ -214,23 +214,23 @@ export const JourneyTimeline: React.FC = () => {
                       
                       {/* Card Header: Tag Pill & Icon */}
                       <div className="flex items-center justify-between gap-3 mb-3.5">
-                        <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-blue-50/80 text-[#0052CC] border border-blue-200/80">
-                          <Calendar className="w-3 h-3 text-[#0052CC]" />
+                        <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-blue-50/80 text-[#1F4FE0] border border-blue-200/80">
+                          <Calendar className="w-3 h-3 text-[#1F4FE0]" />
                           <span>{item.tag}</span>
                         </span>
 
-                        <div className="w-9 h-9 rounded-xl bg-blue-50 border border-blue-200/80 text-[#0052CC] flex items-center justify-center shadow-2xs group-hover:scale-105 group-hover:bg-[#0052CC] group-hover:text-white transition-all">
+                        <div className="w-9 h-9 rounded-xl bg-blue-50 border border-blue-200/80 text-[#1F4FE0] flex items-center justify-center shadow-2xs group-hover:scale-105 group-hover:bg-[#1F4FE0] group-hover:text-white transition-all">
                           <IconComponent className="w-4.5 h-4.5" />
                         </div>
                       </div>
 
                       {/* Year Highlight in Signature ATLAS Royal Blue */}
-                      <div className="text-[26px] sm:text-[30px] font-black text-[#0052CC] tracking-tight leading-none mb-1.5">
+                      <div className="text-[26px] sm:text-[30px] font-black text-[#1F4FE0] tracking-tight leading-none mb-1.5">
                         {item.displayYear}
                       </div>
 
                       {/* Title in Dark Navy */}
-                      <h3 className="font-serif text-[19px] sm:text-[21px] font-bold text-[#142B59] leading-snug mb-1">
+                      <h3 className="font-serif text-[19px] sm:text-[21px] font-bold text-[#0A1B4F] leading-snug mb-1">
                         {item.title}
                       </h3>
 
@@ -252,9 +252,9 @@ export const JourneyTimeline: React.FC = () => {
                           {item.keyStats.map((stat, sIdx) => (
                             <span 
                               key={sIdx}
-                              className="inline-flex items-center gap-1 px-2.5 py-0.8 rounded-md text-[11.5px] font-semibold bg-slate-50 text-slate-700 border border-slate-200/60"
+                              className="inline-flex items-center gap-1 px-2.5 py-0.8 rounded-md text-[11.5px] font-semibold bg-white text-slate-700 border border-slate-200/60"
                             >
-                              <CheckCircle2 className="w-3 h-3 text-[#0052CC]" />
+                              <CheckCircle2 className="w-3 h-3 text-[#1F4FE0]" />
                               <span>{stat}</span>
                             </span>
                           ))}
@@ -262,7 +262,7 @@ export const JourneyTimeline: React.FC = () => {
                       )}
 
                       {/* Card Footer: Verification Notice */}
-                      <div className="pt-2.5 flex items-center justify-between text-[11px] text-slate-400">
+                      <div className="pt-2.5 flex items-center justify-between text-[11px] text-slate-500">
                         {item.isVerifiedFact ? (
                           <span className="inline-flex items-center gap-1 font-semibold text-emerald-600">
                             <CheckCircle2 className="w-3.5 h-3.5" />
@@ -274,7 +274,7 @@ export const JourneyTimeline: React.FC = () => {
                             <span>Date Subject to Formal Confirmation</span>
                           </span>
                         )}
-                        <span className="text-slate-400 font-mono">
+                        <span className="text-slate-500 font-mono">
                           Milestone {index + 1} of {milestones.length}
                         </span>
                       </div>
@@ -300,7 +300,7 @@ export const JourneyTimeline: React.FC = () => {
           </p>
           <a
             href="#contact"
-            className="inline-flex items-center gap-2 text-sm sm:text-base font-bold text-[#0052CC] hover:text-[#003E99] transition-colors group"
+            className="inline-flex items-center gap-2 text-sm sm:text-base font-bold text-[#1F4FE0] hover:text-[#1739B8] transition-colors group"
           >
             <span>Speak with our senior SAP consultants</span>
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

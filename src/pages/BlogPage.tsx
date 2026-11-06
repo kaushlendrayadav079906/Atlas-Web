@@ -99,19 +99,19 @@ export const BlogPage: React.FC = () => {
       {/* ===================================================================== */}
       {/* 1. HERO HEADER                                                        */}
       {/* ===================================================================== */}
-      <section className="relative overflow-hidden bg-gradient-to-r from-sky-50/70 via-white to-blue-50/40 py-12 sm:py-16 lg:py-20 border-b border-slate-100">
+      <section className="relative overflow-hidden py-12 sm:py-16 lg:py-20 border-b border-white/10 bg-atlas-navy atlas-dark">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8 relative text-center">
           
           <div className="max-w-3xl mx-auto space-y-4">
-            <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#0052CC] block">
+            <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#1F4FE0] block">
               ATLAS TECHNOSOFT INSIGHTS
             </span>
 
-            <h1 className="font-serif text-[32px] sm:text-[42px] lg:text-[48px] font-bold text-[#142B59] tracking-tight leading-[1.15]">
-              Knowledge, Insights & <span className="bg-gradient-to-r from-[#0052CC] via-[#0066CC] to-[#0A66C2] bg-clip-text text-transparent">Innovation</span>
+            <h1 className="atlas-h1-size font-serif font-extrabold text-[#0A1B4F]">
+              Knowledge, Insights & <span className="bg-gradient-to-r from-[#1F4FE0] via-[#1F4FE0] to-[#1F4FE0] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">Innovation</span>
             </h1>
 
-            <p className="text-[16px] sm:text-[19px] text-[#45546B] leading-relaxed font-normal">
+            <p className="text-[16px] sm:text-[19px] text-[#4A5876] leading-relaxed font-normal">
               Discover ideas and practical guidance to help your business grow with SAP Business One and intelligent automation.
             </p>
           </div>
@@ -138,7 +138,7 @@ export const BlogPage: React.FC = () => {
       {/* ===================================================================== */}
       {/* 3. CATEGORY FILTERS & ARTICLES LISTING GRID                           */}
       {/* ===================================================================== */}
-      <section className="py-12 sm:py-16 bg-[#F4F9FF]/50 min-h-[500px]">
+      <section className="py-12 sm:py-16 min-h-[500px] bg-atlas-navy atlas-dark">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           
           {/* Category Filter Controls */}
@@ -153,8 +153,8 @@ export const BlogPage: React.FC = () => {
 
             {/* Results count label */}
             <div className="text-xs sm:text-sm font-medium text-slate-500 whitespace-nowrap">
-              Showing <span className="font-bold text-[#142B59]">{listingArticles.length}</span> {listingArticles.length === 1 ? 'article' : 'articles'}
-              {selectedCategory !== 'All' && <span> in <strong className="text-[#0052CC]">{selectedCategory}</strong></span>}
+              Showing <span className="font-bold text-[#0A1B4F]">{listingArticles.length}</span> {listingArticles.length === 1 ? 'article' : 'articles'}
+              {selectedCategory !== 'All' && <span> in <strong className="text-[#1F4FE0]">{selectedCategory}</strong></span>}
             </div>
           </div>
 

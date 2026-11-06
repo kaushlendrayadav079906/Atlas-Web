@@ -56,9 +56,9 @@ export const INDUSTRY_DETAILS: Record<string, IndustryDetailItem> = {
     heroImage: '/images/crystal_hd/ind_manufacturing.jpg',
     heroImageAlt: 'Modern High-Precision Manufacturing Production Floor and Robotics Line',
     metrics: [
-      { value: '35%', label: 'Manufacturing Efficiency Gain', detail: 'Optimized scheduling and reduced idle machine time', color: 'text-[#1B72E8]' },
+      { value: '35%', label: 'Manufacturing Efficiency Gain', detail: 'Optimized scheduling and reduced idle machine time', color: 'text-[#1F4FE0]' },
       { value: '28%', label: 'OEE Improvement', detail: 'Overall Equipment Effectiveness with Beas APS', color: 'text-[#10b981]' },
-      { value: '42%', label: 'Scrap & Defect Reduction', detail: 'In-line quality inspection & AI vision defect detection', color: 'text-[#0066CC]' },
+      { value: '42%', label: 'Scrap & Defect Reduction', detail: 'In-line quality inspection & AI vision defect detection', color: 'text-[#1F4FE0]' },
       { value: '58 Days', label: 'Rapid Go-Live Benchmark', detail: 'Turnkey SAP B1 + Beas implementation for pharma client', color: 'text-[#0284c7]' },
     ],
     overview: {
@@ -188,9 +188,9 @@ export const INDUSTRY_DETAILS: Record<string, IndustryDetailItem> = {
     heroImage: '/images/crystal_hd/ind_warehouse.jpg',
     heroImageAlt: 'Modern Automated Distribution Center with Pallet Racks and High-Speed Forklifts',
     metrics: [
-      { value: '99.9%', label: 'Inventory Accuracy', detail: 'Real-time bin-level tracking with mobile RF barcode scanners', color: 'text-[#1B72E8]' },
+      { value: '99.9%', label: 'Inventory Accuracy', detail: 'Real-time bin-level tracking with mobile RF barcode scanners', color: 'text-[#1F4FE0]' },
       { value: '3×', label: 'Faster Goods Receipt', detail: 'Touchless GRPO generation from Advance Shipping Notices (ASNs)', color: 'text-[#10b981]' },
-      { value: '50%', label: 'Fulfillment Time Saved', detail: 'Optimized wave picking, multi-order consolidation & zone routing', color: 'text-[#0066CC]' },
+      { value: '50%', label: 'Fulfillment Time Saved', detail: 'Optimized wave picking, multi-order consolidation & zone routing', color: 'text-[#1F4FE0]' },
       { value: '400%', label: '9-Month Payback ROI', detail: 'Proven labor savings, eliminated mispicks & inventory shrinkage', color: 'text-[#0284c7]' },
     ],
     overview: {
@@ -320,9 +320,9 @@ export const INDUSTRY_DETAILS: Record<string, IndustryDetailItem> = {
     heroImage: '/images/crystal_hd/ind_finance.jpg',
     heroImageAlt: 'Corporate Finance Executive analyzing Financial Charts and Real-Time Ledger on Modern Workstation',
     metrics: [
-      { value: '18 Days', label: 'DSO Reduction', detail: 'Accelerated receivables collection with automated customer reminders', color: 'text-[#1B72E8]' },
+      { value: '18 Days', label: 'DSO Reduction', detail: 'Accelerated receivables collection with automated customer reminders', color: 'text-[#1F4FE0]' },
       { value: '1,000+', label: 'Daily Touchless Invoices', detail: 'Posted into SAP B1 with zero human typing or data entry errors', color: 'text-[#10b981]' },
-      { value: '92%', label: 'Cash Flow Prediction Accuracy', detail: 'Machine learning predictive models forecasting customer payment delays', color: 'text-[#0066CC]' },
+      { value: '92%', label: 'Cash Flow Prediction Accuracy', detail: 'Machine learning predictive models forecasting customer payment delays', color: 'text-[#1F4FE0]' },
       { value: '40%', label: 'Faster Financial Close', detail: 'Automated journals, depreciation runs, and intercompany reconciliation', color: 'text-[#0284c7]' },
     ],
     overview: {
@@ -452,9 +452,9 @@ export const INDUSTRY_DETAILS: Record<string, IndustryDetailItem> = {
     heroImage: '/images/crystal_hd/ind_shipping.jpg',
     heroImageAlt: 'International Maritime Container Vessel Docked at Busy Port Container Terminal',
     metrics: [
-      { value: '85%', label: 'Documentation Time Saved', detail: 'Instant generation of Commercial Invoices, Packing Lists & Bills of Lading', color: 'text-[#1B72E8]' },
+      { value: '85%', label: 'Documentation Time Saved', detail: 'Instant generation of Commercial Invoices, Packing Lists & Bills of Lading', color: 'text-[#1F4FE0]' },
       { value: '90%', label: 'Trade Processing Error Drop', detail: 'Automated landed cost computation and customs duty distribution', color: 'text-[#10b981]' },
-      { value: '100%', label: 'End-to-End Visibility', detail: 'Real-time container tracking, port ETA forecasting & shipment milestones', color: 'text-[#0066CC]' },
+      { value: '100%', label: 'End-to-End Visibility', detail: 'Real-time container tracking, port ETA forecasting & shipment milestones', color: 'text-[#1F4FE0]' },
       { value: '2×', label: 'Faster Order Turnaround', detail: 'Direct customer PO ingestion and automated sales order creation', color: 'text-[#0284c7]' },
     ],
     overview: {

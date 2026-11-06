@@ -82,7 +82,7 @@ export const CaseStudiesPage: React.FC = () => {
   };
 
   return (
-    <div className="relative bg-white text-[#45546B] selection:bg-blue-600 selection:text-white">
+    <div className="relative bg-white text-[#4A5876] selection:bg-blue-600 selection:text-white">
       {/* Background Decorative Ambient Glow matching About Page */}
       <div className="absolute -left-12 top-1/2 -translate-y-1/2 w-48 h-80 opacity-25 pointer-events-none select-none hidden lg:block">
         <div className="w-full h-full bg-gradient-to-tr from-emerald-600/30 via-teal-500/10 to-transparent rounded-full blur-3xl" />
@@ -91,26 +91,26 @@ export const CaseStudiesPage: React.FC = () => {
       {/* ========================================================================= */}
       {/* SECTION 1: HERO SECTION                                                   */}
       {/* ========================================================================= */}
-      <section className="relative overflow-hidden bg-gradient-to-r from-sky-50/60 via-white to-blue-50/30 pt-10 pb-14 lg:pt-14 lg:pb-18 border-b border-slate-100">
+      <section className="relative overflow-hidden pt-10 pb-14 lg:pt-14 lg:pb-18 border-b border-white/10 bg-atlas-navy atlas-dark">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
             {/* Left Content Column */}
             <div className="lg:col-span-7 space-y-6 text-left">
               {/* Eyebrow */}
               <div className="inline-block">
-                <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-[#1B72E8] select-none">
+                <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-[#1F4FE0] select-none">
                   {CASE_STUDIES_HERO_DATA.eyebrow}
                 </span>
               </div>
 
               {/* Main Headline */}
-              <h1 className="font-serif text-[38px] sm:text-[46px] lg:text-[52px] xl:text-[56px] font-bold tracking-tight leading-[1.14] text-[#142B59]">
+              <h1 className="atlas-h1-size font-serif font-extrabold text-[#0A1B4F]">
                 {CASE_STUDIES_HERO_DATA.titleStart}{' '}
-                <span className="bg-gradient-to-r from-[#0052CC] via-[#0066CC] to-[#0A66C2] bg-clip-text text-transparent">{CASE_STUDIES_HERO_DATA.titleHighlight}</span>
+                <span className="bg-gradient-to-r from-[#1F4FE0] via-[#1F4FE0] to-[#1F4FE0] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">{CASE_STUDIES_HERO_DATA.titleHighlight}</span>
               </h1>
 
               {/* Subheading / Description */}
-              <p className="text-[16px] sm:text-[17px] lg:text-[18px] text-[#45546B] leading-relaxed max-w-2xl font-normal">
+              <p className="text-[16px] sm:text-[17px] lg:text-[18px] text-[#4A5876] leading-relaxed max-w-2xl font-normal">
                 {CASE_STUDIES_HERO_DATA.description}
               </p>
 
@@ -118,7 +118,7 @@ export const CaseStudiesPage: React.FC = () => {
               <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
                 <a
                   href="#featured-case-study"
-                  className="inline-flex items-center justify-center gap-2 text-[16px] font-semibold px-8 py-3.5 rounded-xl bg-gradient-to-r from-[#0052CC] to-[#0A66C2] hover:from-[#0040A8] hover:to-[#08529C] text-white shadow-md shadow-blue-500/25 transition-all duration-200 cursor-pointer"
+                  className="inline-flex items-center justify-center gap-2 text-[16px] font-semibold px-8 py-3.5 rounded-xl bg-gradient-to-r from-[#1F4FE0] to-[#1F4FE0] hover:from-[#1739B8] hover:to-[#1739B8] text-white shadow-md shadow-blue-500/25 transition-all duration-200 cursor-pointer"
                 >
                   <span>{CASE_STUDIES_HERO_DATA.primaryCtaText}</span>
                   <ArrowRight className="w-5 h-5" />
@@ -126,7 +126,7 @@ export const CaseStudiesPage: React.FC = () => {
 
                 <button
                   onClick={() => setIsConsultationModalOpen(true)}
-                  className="inline-flex items-center justify-center gap-2 text-[16px] font-semibold px-8 py-3.5 rounded-xl bg-white hover:bg-slate-50 text-[#142B59] border border-slate-200/90 shadow-sm transition-all duration-200 cursor-pointer"
+                  className="inline-flex items-center justify-center gap-2 text-[16px] font-semibold px-8 py-3.5 rounded-xl bg-white hover:bg-slate-50 text-[#0A1B4F] border border-slate-200/90 shadow-sm transition-all duration-200 cursor-pointer"
                 >
                   <span>{CASE_STUDIES_HERO_DATA.secondaryCtaText}</span>
                 </button>
@@ -156,7 +156,7 @@ export const CaseStudiesPage: React.FC = () => {
                       >
                         ✓
                       </span>
-                      <span className="text-[12px] sm:text-[13px] font-bold text-[#142B59]">
+                      <span className="text-[12px] sm:text-[13px] font-bold text-[#0A1B4F]">
                         {badge.label}
                       </span>
                     </div>
@@ -175,12 +175,12 @@ export const CaseStudiesPage: React.FC = () => {
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           {/* Eyebrow & Main Heading */}
           <div className="mb-10 text-left space-y-2">
-            <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-[#1B72E8]">
+            <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-[#1F4FE0]">
               {FEATURED_CASE_STUDY_DATA.eyebrow}
             </span>
-            <h2 className="font-serif text-[30px] sm:text-[36px] lg:text-[40px] font-bold text-[#142B59] tracking-tight max-w-4xl leading-tight">
+            <h2 className="atlas-h2-size font-serif font-extrabold text-[#0A1B4F] max-w-4xl">
               Manufacturing Company Streamlines Operations with{' '}
-              <span className="bg-gradient-to-r from-[#0052CC] via-[#0066CC] to-[#0A66C2] bg-clip-text text-transparent">SAP Business One</span>
+              <span className="bg-gradient-to-r from-[#1F4FE0] via-[#1F4FE0] to-[#1F4FE0] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">SAP Business One</span>
             </h2>
           </div>
 
@@ -202,11 +202,11 @@ export const CaseStudiesPage: React.FC = () => {
             <div className="lg:col-span-6 space-y-6 text-left">
               {/* Category Pill + Subtitle */}
               <div className="space-y-2">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-blue-50 border border-blue-200 text-[#1B72E8] font-bold text-xs uppercase tracking-wider">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-blue-50 border border-blue-200 text-[#1F4FE0] font-bold text-xs uppercase tracking-wider">
                   <Factory className="w-4 h-4" />
                   <span>{FEATURED_CASE_STUDY_DATA.industryLabel}</span>
                 </div>
-                <h3 className="font-serif text-[22px] sm:text-[25px] font-bold text-[#142B59] leading-snug">
+                <h3 className="font-serif text-[22px] sm:text-[25px] font-bold text-[#0A1B4F] leading-snug">
                   {FEATURED_CASE_STUDY_DATA.title}
                 </h3>
               </div>
@@ -214,61 +214,61 @@ export const CaseStudiesPage: React.FC = () => {
               {/* 2x2 Key Breakdown Grid */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {/* 1. Business Challenge */}
-                <div className="p-4 rounded-xl bg-slate-50/70 border border-slate-200/80 space-y-1.5 hover:shadow-sm transition-shadow">
+                <div className="p-4 rounded-xl bg-white border border-slate-200/80 space-y-1.5 hover:shadow-sm transition-shadow">
                   <div className="flex items-center gap-2">
-                    <div className="w-8 h-8 rounded-lg bg-blue-50 text-[#0066CC] border border-blue-200/80 flex items-center justify-center shrink-0">
+                    <div className="w-8 h-8 rounded-lg bg-blue-50 text-[#1F4FE0] border border-blue-200/80 flex items-center justify-center shrink-0">
                       <Building2 className="w-4 h-4" />
                     </div>
-                    <h4 className="text-[14px] font-bold text-[#142B59]">
+                    <h4 className="text-[14px] font-bold text-[#0A1B4F]">
                       {FEATURED_CASE_STUDY_DATA.challenge.title}
                     </h4>
                   </div>
-                  <p className="text-[13px] text-[#45546B] leading-relaxed">
+                  <p className="text-[13px] text-[#4A5876] leading-relaxed">
                     {FEATURED_CASE_STUDY_DATA.challenge.description}
                   </p>
                 </div>
 
                 {/* 2. Solution Implemented */}
-                <div className="p-4 rounded-xl bg-slate-50/70 border border-slate-200/80 space-y-1.5 hover:shadow-sm transition-shadow">
+                <div className="p-4 rounded-xl bg-white border border-slate-200/80 space-y-1.5 hover:shadow-sm transition-shadow">
                   <div className="flex items-center gap-2">
                     <div className="w-8 h-8 rounded-lg bg-emerald-50 text-[#16a879] flex items-center justify-center shrink-0">
                       <Lightbulb className="w-4 h-4" />
                     </div>
-                    <h4 className="text-[14px] font-bold text-[#142B59]">
+                    <h4 className="text-[14px] font-bold text-[#0A1B4F]">
                       {FEATURED_CASE_STUDY_DATA.solution.title}
                     </h4>
                   </div>
-                  <p className="text-[13px] text-[#45546B] leading-relaxed">
+                  <p className="text-[13px] text-[#4A5876] leading-relaxed">
                     {FEATURED_CASE_STUDY_DATA.solution.description}
                   </p>
                 </div>
 
                 {/* 3. Technology Used */}
-                <div className="p-4 rounded-xl bg-slate-50/70 border border-slate-200/80 space-y-1.5 hover:shadow-sm transition-shadow">
+                <div className="p-4 rounded-xl bg-white border border-slate-200/80 space-y-1.5 hover:shadow-sm transition-shadow">
                   <div className="flex items-center gap-2">
-                    <div className="w-8 h-8 rounded-lg bg-blue-50 text-[#0066CC] flex items-center justify-center shrink-0">
+                    <div className="w-8 h-8 rounded-lg bg-blue-50 text-[#1F4FE0] flex items-center justify-center shrink-0">
                       <Settings className="w-4 h-4" />
                     </div>
-                    <h4 className="text-[14px] font-bold text-[#142B59]">
+                    <h4 className="text-[14px] font-bold text-[#0A1B4F]">
                       {FEATURED_CASE_STUDY_DATA.technology.title}
                     </h4>
                   </div>
-                  <p className="text-[13px] text-[#45546B] leading-relaxed">
+                  <p className="text-[13px] text-[#4A5876] leading-relaxed">
                     {FEATURED_CASE_STUDY_DATA.technology.description}
                   </p>
                 </div>
 
                 {/* 4. Key Outcomes */}
-                <div className="p-4 rounded-xl bg-slate-50/70 border border-slate-200/80 space-y-1.5 hover:shadow-sm transition-shadow">
+                <div className="p-4 rounded-xl bg-white border border-slate-200/80 space-y-1.5 hover:shadow-sm transition-shadow">
                   <div className="flex items-center gap-2">
-                    <div className="w-8 h-8 rounded-lg bg-blue-50 text-[#0878f9] flex items-center justify-center shrink-0">
+                    <div className="w-8 h-8 rounded-lg bg-blue-50 text-[#1F4FE0] flex items-center justify-center shrink-0">
                       <TrendingUp className="w-4 h-4" />
                     </div>
-                    <h4 className="text-[14px] font-bold text-[#142B59]">
+                    <h4 className="text-[14px] font-bold text-[#0A1B4F]">
                       {FEATURED_CASE_STUDY_DATA.outcomes.title}
                     </h4>
                   </div>
-                  <p className="text-[13px] text-[#45546B] leading-relaxed">
+                  <p className="text-[13px] text-[#4A5876] leading-relaxed">
                     {FEATURED_CASE_STUDY_DATA.outcomes.description}
                   </p>
                 </div>
@@ -278,7 +278,7 @@ export const CaseStudiesPage: React.FC = () => {
               <div className="pt-2">
                 <Link
                   to="/industries/manufacturing"
-                  className="inline-flex items-center justify-center gap-2 text-[15px] sm:text-[16px] font-semibold px-8 py-3.5 rounded-xl bg-gradient-to-r from-[#0052CC] to-[#0A66C2] hover:from-[#0040A8] hover:to-[#08529C] text-white shadow-md shadow-blue-500/25 transition-all cursor-pointer"
+                  className="inline-flex items-center justify-center gap-2 text-[15px] sm:text-[16px] font-semibold px-8 py-3.5 rounded-xl bg-gradient-to-r from-[#1F4FE0] to-[#1F4FE0] hover:from-[#1739B8] hover:to-[#1739B8] text-white shadow-md shadow-blue-500/25 transition-all cursor-pointer"
                 >
                   <span>{FEATURED_CASE_STUDY_DATA.ctaText}</span>
                   <ArrowRight className="w-5 h-5" />
@@ -292,14 +292,14 @@ export const CaseStudiesPage: React.FC = () => {
       {/* ========================================================================= */}
       {/* SECTION 3: MORE CASE STUDIES (4 CARDS)                                    */}
       {/* ========================================================================= */}
-      <section id="more-case-studies" className="py-16 lg:py-24 bg-slate-50/60 border-b border-slate-100">
+      <section id="more-case-studies" className="py-16 lg:py-24 border-b border-white/10 bg-atlas-navy atlas-dark">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section Header */}
           <div className="text-left mb-12 space-y-2">
-            <h2 className="font-serif text-[32px] sm:text-[38px] lg:text-[42px] font-bold text-[#142B59] tracking-tight">
-              More Case <span className="bg-gradient-to-r from-[#0052CC] via-[#0066CC] to-[#0A66C2] bg-clip-text text-transparent">Studies</span>
+            <h2 className="atlas-h2-size font-serif font-extrabold text-[#0A1B4F]">
+              More Case <span className="bg-gradient-to-r from-[#1F4FE0] via-[#1F4FE0] to-[#1F4FE0] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">Studies</span>
             </h2>
-            <p className="text-[16px] sm:text-[17px] text-[#45546B] leading-relaxed max-w-3xl">
+            <p className="text-[16px] sm:text-[17px] text-[#4A5876] leading-relaxed max-w-3xl">
               Explore how businesses across different industries have improved their operations with our solutions.
             </p>
           </div>
@@ -350,12 +350,12 @@ export const CaseStudiesPage: React.FC = () => {
                     >
                       {study.category}
                     </span>
-                    <h3 className="text-[19px] font-bold text-[#172B50] leading-snug group-hover:text-[#1B72E8] transition-colors">
+                    <h3 className="text-[19px] font-bold text-[#0A1B4F] leading-snug group-hover:text-[#1F4FE0] transition-colors">
                       <Link to={study.route}>
                         {study.title}
                       </Link>
                     </h3>
-                    <p className="text-[14px] text-[#53647A] leading-relaxed line-clamp-3">
+                    <p className="text-[14px] text-[#4A5876] leading-relaxed line-clamp-3">
                       {study.description}
                     </p>
                   </div>
@@ -365,7 +365,7 @@ export const CaseStudiesPage: React.FC = () => {
                 <div className="px-5 pb-5 pt-2 border-t border-slate-100 flex items-center justify-between">
                   <Link
                     to={study.route}
-                    className="text-[14px] font-bold text-[#142B59] hover:text-[#1B72E8] flex items-center gap-1.5 transition-colors cursor-pointer"
+                    className="text-[14px] font-bold text-[#0A1B4F] hover:text-[#1F4FE0] flex items-center gap-1.5 transition-colors cursor-pointer"
                   >
                     <span>Read More</span>
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -396,11 +396,11 @@ export const CaseStudiesPage: React.FC = () => {
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section Header */}
           <div className="text-left max-w-3xl mb-16 space-y-2">
-            <h2 className="font-serif text-[32px] sm:text-[38px] lg:text-[42px] font-bold text-[#142B59] tracking-tight">
+            <h2 className="atlas-h2-size font-serif font-extrabold text-[#0A1B4F]">
               {OUR_APPROACH_DATA.titleStart}{' '}
-              <span className="bg-gradient-to-r from-[#0052CC] via-[#0066CC] to-[#0A66C2] bg-clip-text text-transparent">{OUR_APPROACH_DATA.titleHighlight}</span>
+              <span className="bg-gradient-to-r from-[#1F4FE0] via-[#1F4FE0] to-[#1F4FE0] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">{OUR_APPROACH_DATA.titleHighlight}</span>
             </h2>
-            <p className="text-[16px] sm:text-[17px] text-[#45546B] leading-relaxed">
+            <p className="text-[16px] sm:text-[17px] text-[#4A5876] leading-relaxed">
               {OUR_APPROACH_DATA.description}
             </p>
           </div>
@@ -422,7 +422,7 @@ export const CaseStudiesPage: React.FC = () => {
                     </div>
 
                     {/* Step Title & Number */}
-                    <h3 className="mt-4 text-[15px] font-bold text-[#172B50] leading-tight group-hover:text-[#1B72E8] transition-colors">
+                    <h3 className="mt-4 text-[15px] font-bold text-[#0A1B4F] leading-tight group-hover:text-[#1F4FE0] transition-colors">
                       <span className="font-extrabold block text-xs opacity-70 mb-0.5">
                         {step.stepNumber}
                       </span>
@@ -451,15 +451,15 @@ export const CaseStudiesPage: React.FC = () => {
       {/* ========================================================================= */}
       {/* SECTION 5: TECHNOLOGIES USED IN OUR CASE STUDIES (4 TECH CARDS)            */}
       {/* ========================================================================= */}
-      <section className="py-16 lg:py-24 bg-slate-50/60 border-b border-slate-100">
+      <section className="py-16 lg:py-24 border-b border-white/10 bg-atlas-navy atlas-dark">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section Header */}
           <div className="text-left max-w-3xl mb-12 space-y-2">
-            <h2 className="font-serif text-[32px] sm:text-[38px] lg:text-[42px] font-bold text-[#142B59] tracking-tight">
+            <h2 className="atlas-h2-size font-serif font-extrabold text-[#0A1B4F]">
               {TECHNOLOGY_SHOWCASE_DATA.titleStart}{' '}
-              <span className="bg-gradient-to-r from-[#0052CC] via-[#0066CC] to-[#0A66C2] bg-clip-text text-transparent">{TECHNOLOGY_SHOWCASE_DATA.titleHighlight}</span>
+              <span className="bg-gradient-to-r from-[#1F4FE0] via-[#1F4FE0] to-[#1F4FE0] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">{TECHNOLOGY_SHOWCASE_DATA.titleHighlight}</span>
             </h2>
-            <p className="text-[16px] sm:text-[17px] text-[#45546B] leading-relaxed">
+            <p className="text-[16px] sm:text-[17px] text-[#4A5876] leading-relaxed">
               {TECHNOLOGY_SHOWCASE_DATA.description}
             </p>
           </div>
@@ -491,13 +491,13 @@ export const CaseStudiesPage: React.FC = () => {
 
                   {/* Text Details */}
                   <div className="space-y-1 pt-1">
-                    <h3 className="text-[17px] font-bold text-[#172B50]">
+                    <h3 className="text-[17px] font-bold text-[#0A1B4F]">
                       {tech.name}
                     </h3>
                     <p className="text-[13px] font-semibold text-blue-600">
                       {tech.role}
                     </p>
-                    <p className="text-[13px] text-[#53647A] leading-relaxed pt-1">
+                    <p className="text-[13px] text-[#4A5876] leading-relaxed pt-1">
                       {tech.description}
                     </p>
                   </div>
@@ -511,36 +511,36 @@ export const CaseStudiesPage: React.FC = () => {
       {/* ========================================================================= */}
       {/* SECTION 6: SIMPLE CONTACT CTA (RULE 9 - NO COMPLICATED FORMS)             */}
       {/* ========================================================================= */}
-      <section className="py-12 lg:py-16 bg-slate-50/50">
+      <section className="py-12 lg:py-16 bg-atlas-navy atlas-dark">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="rounded-2xl sm:rounded-3xl bg-[#eaf4ff] border border-blue-200/90 p-8 sm:p-10 lg:p-12 shadow-sm">
+          <div className="rounded-2xl sm:rounded-3xl bg-white border border-blue-200/90 p-8 sm:p-10 lg:p-12 shadow-sm">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
               
               {/* Left Column: Heading, Subtext & Both Action Buttons */}
               <div className="lg:col-span-6 space-y-4 text-left">
-                <span className="text-[12px] sm:text-[13px] font-bold uppercase tracking-wider text-[#1B72E8] block">
+                <span className="text-[12px] sm:text-[13px] font-bold uppercase tracking-wider text-[#1F4FE0] block">
                   LET'S WORK TOGETHER
                 </span>
-                <h2 className="font-serif text-[28px] sm:text-[34px] lg:text-[40px] font-bold text-[#142B59] tracking-tight leading-[1.18]">
+                <h2 className="atlas-h2-size font-serif font-extrabold text-[#0A1B4F]">
                   {CASE_STUDIES_CTA_DATA.titleStart}{' '}
-                  <span className="bg-gradient-to-r from-[#0052CC] via-[#0066CC] to-[#0A66C2] bg-clip-text text-transparent">{CASE_STUDIES_CTA_DATA.titleHighlight}</span>
+                  <span className="bg-gradient-to-r from-[#1F4FE0] via-[#1F4FE0] to-[#1F4FE0] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">{CASE_STUDIES_CTA_DATA.titleHighlight}</span>
                 </h2>
                 
-                <p className="text-[15px] sm:text-[16px] text-[#45546B] leading-relaxed max-w-lg">
+                <p className="text-[15px] sm:text-[16px] text-[#4A5876] leading-relaxed max-w-lg">
                   {CASE_STUDIES_CTA_DATA.description}
                 </p>
 
                 <div className="pt-2 flex flex-wrap items-center gap-4">
                   <button
                     onClick={() => setIsConsultationModalOpen(true)}
-                    className="inline-flex items-center justify-center gap-2 text-[15px] sm:text-[16px] font-semibold px-7 py-3.5 rounded-xl bg-gradient-to-r from-[#0052CC] to-[#0A66C2] hover:from-[#0040A8] hover:to-[#08529C] text-white shadow-md shadow-blue-500/25 transition-all cursor-pointer"
+                    className="inline-flex items-center justify-center gap-2 text-[15px] sm:text-[16px] font-semibold px-7 py-3.5 rounded-xl bg-gradient-to-r from-[#1F4FE0] to-[#1F4FE0] hover:from-[#1739B8] hover:to-[#1739B8] text-white shadow-md shadow-blue-500/25 transition-all cursor-pointer"
                   >
                     <span>{CASE_STUDIES_CTA_DATA.primaryCtaText}</span>
                     <ArrowRight className="w-4 h-4" />
                   </button>
                   <Link
                     to="/contact"
-                    className="inline-flex items-center justify-center font-semibold rounded-xl px-6 py-3.5 text-[15px] sm:text-[16px] bg-white text-[#142B59] hover:bg-slate-50 border border-slate-300 shadow-sm transition-colors"
+                    className="inline-flex items-center justify-center font-semibold rounded-xl px-6 py-3.5 text-[15px] sm:text-[16px] bg-white text-[#0A1B4F] hover:bg-slate-50 border border-slate-300 shadow-sm transition-colors"
                   >
                     Contact Us
                   </Link>

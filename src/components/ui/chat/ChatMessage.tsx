@@ -72,7 +72,7 @@ export const ChatMessage: React.FC<ChatMessageProps> = ({
     >
       <div className={`flex items-start gap-2 max-w-[88%] ${isUser ? 'flex-row-reverse' : 'flex-row'}`}>
         {!isUser && (
-          <div className="w-7 h-7 rounded-full bg-[#071B3B] text-white flex items-center justify-center shrink-0 shadow-xs border border-blue-400/30 text-[11px] font-black mt-0.5">
+          <div className="w-7 h-7 rounded-full bg-[#0A1B4F] text-white flex items-center justify-center shrink-0 shadow-xs border border-blue-400/30 text-[11px] font-black mt-0.5">
             AT
           </div>
         )}
@@ -80,7 +80,7 @@ export const ChatMessage: React.FC<ChatMessageProps> = ({
         <div
           className={`rounded-2xl px-3.5 py-2.5 shadow-xs text-[13.5px] leading-relaxed ${
             isUser
-              ? 'bg-[#0052CC] text-white rounded-br-xs'
+              ? 'bg-[#1F4FE0] text-white rounded-br-xs'
               : 'bg-white text-slate-800 border border-slate-200/80 rounded-bl-xs'
           }`}
         >
@@ -90,7 +90,7 @@ export const ChatMessage: React.FC<ChatMessageProps> = ({
 
       {/* Message Timestamp */}
       <span
-        className={`text-[10px] text-slate-400 mt-1 px-1 ${
+        className={`text-[10px] text-slate-500 mt-1 px-1 ${
           isUser ? 'mr-1' : 'ml-9'
         }`}
       >

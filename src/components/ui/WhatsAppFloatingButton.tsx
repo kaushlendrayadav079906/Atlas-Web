@@ -24,7 +24,7 @@ export const WhatsAppFloatingButton: React.FC<WhatsAppFloatingButtonProps> = ({
     >
       {/* Tooltip on hover/focus */}
       <div
-        className={`absolute right-full top-1/2 -translate-y-1/2 mr-3 px-3 py-1.5 rounded-lg bg-slate-900 text-white text-xs font-medium tracking-wide shadow-xl whitespace-nowrap pointer-events-none transition-all duration-200 flex items-center gap-1.5 ${
+        className={`absolute right-full top-1/2 -translate-y-1/2 mr-3 px-3 py-1.5 rounded-lg bg-atlas-navy text-white text-xs font-medium tracking-wide shadow-xl whitespace-nowrap pointer-events-none transition-all duration-200 flex items-center gap-1.5 ${
           isHovered
             ? 'opacity-100 translate-x-0'
             : 'opacity-0 translate-x-2'

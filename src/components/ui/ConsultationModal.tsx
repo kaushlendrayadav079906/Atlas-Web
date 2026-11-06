@@ -219,7 +219,7 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
               className={`w-full px-3.5 py-2.5 rounded-lg border text-sm transition-colors focus:outline-none focus:ring-2 ${
                 formErrors.fullName
                   ? 'border-rose-400 bg-rose-50/20 focus:ring-rose-200'
-                  : 'border-slate-300 focus:ring-blue-500/20 focus:border-[#0052CC]'
+                  : 'border-slate-300 focus:ring-blue-500/20 focus:border-[#1F4FE0]'
               }`}
             />
             {formErrors.fullName && <p className="mt-1 text-xs text-rose-600 font-medium">{formErrors.fullName}</p>}
@@ -242,7 +242,7 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
                 className={`w-full px-3.5 py-2.5 rounded-lg border text-sm transition-colors focus:outline-none focus:ring-2 ${
                   formErrors.companyName
                     ? 'border-rose-400 bg-rose-50/20 focus:ring-rose-200'
-                    : 'border-slate-300 focus:ring-blue-500/20 focus:border-[#0052CC]'
+                    : 'border-slate-300 focus:ring-blue-500/20 focus:border-[#1F4FE0]'
                 }`}
               />
               {formErrors.companyName && <p className="mt-1 text-xs text-rose-600 font-medium">{formErrors.companyName}</p>}
@@ -263,7 +263,7 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
                 className={`w-full px-3.5 py-2.5 rounded-lg border text-sm transition-colors focus:outline-none focus:ring-2 ${
                   formErrors.email
                     ? 'border-rose-400 bg-rose-50/20 focus:ring-rose-200'
-                    : 'border-slate-300 focus:ring-blue-500/20 focus:border-[#0052CC]'
+                    : 'border-slate-300 focus:ring-blue-500/20 focus:border-[#1F4FE0]'
                 }`}
               />
               {formErrors.email && <p className="mt-1 text-xs text-rose-600 font-medium">{formErrors.email}</p>}
@@ -287,7 +287,7 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
                 className={`w-full px-3.5 py-2.5 rounded-lg border text-sm transition-colors focus:outline-none focus:ring-2 ${
                   formErrors.phone
                     ? 'border-rose-400 bg-rose-50/20 focus:ring-rose-200'
-                    : 'border-slate-300 focus:ring-blue-500/20 focus:border-[#0052CC]'
+                    : 'border-slate-300 focus:ring-blue-500/20 focus:border-[#1F4FE0]'
                 }`}
               />
               {formErrors.phone && <p className="mt-1 text-xs text-rose-600 font-medium">{formErrors.phone}</p>}
@@ -303,7 +303,7 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
                 value={formData.service}
                 onChange={handleInputChange}
                 disabled={isSubmitting}
-                className="w-full px-3 py-2.5 rounded-lg border border-slate-300 bg-white text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-[#0052CC]"
+                className="w-full px-3 py-2.5 rounded-lg border border-slate-300 bg-white text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-[#1F4FE0]"
               >
                 {SERVICE_OPTIONS.map((opt, i) => (
                   <option key={i} value={opt}>
@@ -330,7 +330,7 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
               className={`w-full px-3.5 py-2.5 rounded-lg border text-sm transition-colors focus:outline-none focus:ring-2 ${
                 formErrors.message
                   ? 'border-rose-400 bg-rose-50/20 focus:ring-rose-200'
-                  : 'border-slate-300 focus:ring-blue-500/20 focus:border-[#0052CC]'
+                  : 'border-slate-300 focus:ring-blue-500/20 focus:border-[#1F4FE0]'
               }`}
             />
             {formErrors.message && <p className="mt-1 text-xs text-rose-600 font-medium">{formErrors.message}</p>}
@@ -349,7 +349,7 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
                 value={formData.preferredDate || ''}
                 onChange={handleInputChange}
                 disabled={isSubmitting}
-                className="w-full px-3 py-2 rounded-lg border border-slate-200 bg-slate-50/50 text-xs focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-[#0052CC]"
+                className="w-full px-3 py-2 rounded-lg border border-slate-200 bg-white text-xs focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-[#1F4FE0]"
               />
             </div>
             <div>
@@ -362,7 +362,7 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
                 value={formData.preferredTime || ''}
                 onChange={handleInputChange}
                 disabled={isSubmitting}
-                className="w-full px-3 py-2 rounded-lg border border-slate-200 bg-slate-50/50 text-xs focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-[#0052CC]"
+                className="w-full px-3 py-2 rounded-lg border border-slate-200 bg-white text-xs focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-[#1F4FE0]"
               >
                 <option value="">Any Convenient Time</option>
                 <option value="Morning (10:00 AM - 1:00 PM IST)">Morning (10:00 AM - 1:00 PM IST)</option>
@@ -383,7 +383,7 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-bold text-sm text-white bg-gradient-to-r from-[#0052CC] to-[#0A66C2] hover:from-[#0040A8] hover:to-[#08529C] shadow-md shadow-blue-500/25 transition-all duration-200 disabled:opacity-60 disabled:cursor-not-allowed cursor-pointer"
+              className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-bold text-sm text-white bg-gradient-to-r from-[#1F4FE0] to-[#1F4FE0] hover:from-[#1739B8] hover:to-[#1739B8] shadow-md shadow-blue-500/25 transition-all duration-200 disabled:opacity-60 disabled:cursor-not-allowed cursor-pointer"
             >
               {isSubmitting ? (
                 <>
@@ -415,10 +415,10 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
           </div>
 
           {/* Booking Summary Box */}
-          <div className="p-4 sm:p-5 rounded-xl bg-slate-50 border border-slate-200 space-y-2 text-xs text-slate-700">
+          <div className="p-4 sm:p-5 rounded-xl bg-white border border-slate-200 space-y-2 text-xs text-slate-700">
             <div className="flex items-center justify-between pb-2 border-b border-slate-200">
-              <span className="font-bold text-[#142B59] uppercase tracking-wider text-[11px]">Reference ID</span>
-              <span className="font-mono font-bold text-[#0052CC] bg-blue-50 px-2 py-0.5 rounded border border-blue-200/60">
+              <span className="font-bold text-[#0A1B4F] uppercase tracking-wider text-[11px]">Reference ID</span>
+              <span className="font-mono font-bold text-[#1F4FE0] bg-blue-50 px-2 py-0.5 rounded border border-blue-200/60">
                 {submittedDetails.referenceId || 'ATLAS-CNS-ACTIVE'}
               </span>
             </div>
@@ -465,7 +465,7 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
             <button
               type="button"
               onClick={handleResetAndClose}
-              className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold uppercase tracking-wider transition-colors cursor-pointer"
+              className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-atlas-navy hover:bg-atlas-royal text-white text-xs font-bold uppercase tracking-wider transition-colors cursor-pointer"
             >
               <span>Done</span>
             </button>

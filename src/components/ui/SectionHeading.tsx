@@ -23,28 +23,36 @@ export const SectionHeading: React.FC<SectionHeadingProps> = ({
   const isCenter = align === 'center';
 
   return (
-    <div className={`max-w-3xl ${isCenter ? 'mx-auto text-center' : 'text-left'} mb-10 md:mb-14 ${className}`}>
+    <div className={`max-w-4xl ${isCenter ? 'mx-auto text-center' : 'text-left'} mb-10 md:mb-14 ${className}`}>
       {badge && (
-        <div className="mb-3">
-          <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-[#0066CC] select-none">
+        <div className="mb-4">
+          <span
+            className={`text-[13px] font-bold uppercase tracking-[0.14em] select-none ${
+              isDark ? 'text-atlas-gold' : 'text-atlas-royal'
+            }`}
+          >
             {badge}
           </span>
         </div>
       )}
 
-      <h2 className={`font-serif text-[28px] sm:text-[32px] lg:text-[38px] font-bold tracking-tight leading-tight ${
-        isDark ? 'text-white' : 'text-[#142B59]'
-      }`}>
+      <h2
+        className={`atlas-h2-size font-extrabold ${
+          isDark ? 'text-white' : 'text-atlas-navy'
+        }`}
+      >
         {title}{' '}
         {titleHighlight && (
-          <span className="bg-gradient-to-r from-[#0052CC] via-[#0066CC] to-[#0A66C2] bg-clip-text text-transparent">{titleHighlight}</span>
+          <span className={`atlas-accent ${isDark ? 'text-atlas-gold' : 'text-atlas-royal'}`}>{titleHighlight}</span>
         )}
       </h2>
 
       {subtitle && (
-        <p className={`mt-3.5 text-[16px] sm:text-[18px] leading-relaxed ${
-          isDark ? 'text-slate-300' : 'text-[#45546B]'
-        }`}>
+        <p
+          className={`mt-4 text-[16px] sm:text-[17px] leading-relaxed ${
+            isDark ? 'text-atlas-onNavy' : 'text-atlas-body'
+          } ${isCenter ? 'max-w-2xl mx-auto' : 'max-w-2xl'}`}
+        >
           {subtitle}
         </p>
       )}

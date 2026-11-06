@@ -43,6 +43,8 @@ import {
 } from '../data/individualPartnersData';
 import { BRAND_INFO } from '../data/websiteContent';
 import { ContactFormData } from '../types';
+import { ImageFeatureSlider } from '../components/ui/ImageFeatureSlider';
+import { cardImage, poolForSlug } from '../data/cardImagePools';
 
 export const IndividualPartnerPage: React.FC = () => {
   const { partnerSlug } = useParams<{ partnerSlug: string }>();
@@ -72,13 +74,13 @@ export const IndividualPartnerPage: React.FC = () => {
   if (!partner) {
     return (
       <div className="min-h-[70vh] flex flex-col items-center justify-center p-8 text-center bg-white">
-        <h2 className="font-serif text-3xl font-bold text-[#142B59] mb-4">Partner Not Found</h2>
-        <p className="text-[#45546B] max-w-md mb-6">
+        <h2 className="atlas-h2-size font-serif font-bold text-[#0A1B4F] mb-4">Partner Not Found</h2>
+        <p className="text-[#4A5876] max-w-md mb-6">
           The technology partner page you are looking for does not exist or has been relocated.
         </p>
         <Link
           to="/partners"
-          className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-[#0052CC] to-[#0A66C2] text-white font-semibold shadow-md hover:shadow-lg transition-all"
+          className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-[#1F4FE0] to-[#1F4FE0] text-white font-semibold shadow-md hover:shadow-lg transition-all"
         >
           <ArrowLeft className="w-4 h-4" />
           <span>Return to All Partners</span>
@@ -134,7 +136,7 @@ export const IndividualPartnerPage: React.FC = () => {
   };
 
   return (
-    <div className="relative bg-white text-[#45546B] selection:bg-blue-600 selection:text-white">
+    <div className="relative bg-white text-[#4A5876] selection:bg-blue-600 selection:text-white">
       {/* Background Decorative Ambient Glow matching About Page */}
       <div className="absolute -left-12 top-1/2 -translate-y-1/2 w-48 h-80 opacity-25 pointer-events-none select-none hidden lg:block">
         <div className="w-full h-full bg-gradient-to-tr from-emerald-600/30 via-teal-500/10 to-transparent rounded-full blur-3xl" />
@@ -143,21 +145,21 @@ export const IndividualPartnerPage: React.FC = () => {
       {/* ========================================================================= */}
       {/* TOP NAVIGATION STRIP & BREADCRUMBS                                       */}
       {/* ========================================================================= */}
-      <section className="bg-slate-50/80 border-b border-slate-200/80 py-3.5">
+      <section className="border-b border-white/10 py-3.5 bg-atlas-navy atlas-dark">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap items-center justify-between gap-4">
             
             {/* Breadcrumbs: Home -> Partners -> Partner Name */}
             <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs sm:text-sm font-medium">
-              <Link to="/" className="text-slate-500 hover:text-[#1B72E8] transition-colors">
+              <Link to="/" className="text-slate-500 hover:text-[#1F4FE0] transition-colors">
                 Home
               </Link>
-              <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
-              <Link to="/partners" className="text-slate-500 hover:text-[#1B72E8] transition-colors">
+              <ChevronRight className="w-3.5 h-3.5 text-slate-500" />
+              <Link to="/partners" className="text-slate-500 hover:text-[#1F4FE0] transition-colors">
                 Partners
               </Link>
-              <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
-              <span className="text-[#142B59] font-bold">
+              <ChevronRight className="w-3.5 h-3.5 text-slate-500" />
+              <span className="text-[#0A1B4F] font-bold">
                 {partner.name}
               </span>
             </nav>
@@ -165,7 +167,7 @@ export const IndividualPartnerPage: React.FC = () => {
             {/* Back to Partners Link Button */}
             <Link
               to="/partners"
-              className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-[#1B72E8] hover:text-[#1557B0] group transition-colors"
+              className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-[#1F4FE0] hover:text-[#1F4FE0] group transition-colors"
             >
               <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
               <span>Back to All Partners</span>
@@ -178,7 +180,7 @@ export const IndividualPartnerPage: React.FC = () => {
       {/* ========================================================================= */}
       {/* SECTION 1: HERO SECTION                                                   */}
       {/* ========================================================================= */}
-      <section className="relative overflow-hidden bg-gradient-to-r from-sky-50/60 via-white to-blue-50/30 pt-10 pb-14 lg:pt-14 lg:pb-18 border-b border-slate-100">
+      <section className="relative overflow-hidden pt-10 pb-14 lg:pt-14 lg:pb-18 border-b border-white/10 bg-atlas-navy atlas-dark">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
             
@@ -187,10 +189,10 @@ export const IndividualPartnerPage: React.FC = () => {
               
               {/* Eyebrow & Verified Partnership Pill */}
               <div className="flex flex-wrap items-center gap-3">
-                <span className="text-[12px] sm:text-[13px] font-bold uppercase tracking-wider text-[#1B72E8]">
+                <span className="text-[12px] sm:text-[13px] font-bold uppercase tracking-wider text-[#1F4FE0]">
                   {partner.eyebrow}
                 </span>
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-blue-50 text-[#1B72E8] border border-blue-200">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-blue-50 text-[#1F4FE0] border border-blue-200">
                   <Award className="w-3.5 h-3.5" />
                   <span>{partner.partnershipLevel}</span>
                 </span>
@@ -204,15 +206,15 @@ export const IndividualPartnerPage: React.FC = () => {
               </div>
 
               {/* Main Headline */}
-              <h1 className="font-serif text-[36px] sm:text-[44px] lg:text-[48px] xl:text-[52px] font-bold tracking-tight leading-[1.15] text-[#142B59]">
+              <h1 className="atlas-h1-size font-serif font-extrabold text-[#0A1B4F]">
                 {partner.heroTitle}{' '}
-                <span className="bg-gradient-to-r from-[#0052CC] via-[#0066CC] to-[#0A66C2] bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-[#1F4FE0] via-[#1F4FE0] to-[#1F4FE0] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">
                   {partner.heroHighlight}
                 </span>
               </h1>
 
               {/* Partner Introduction */}
-              <p className="text-[16px] sm:text-[17px] lg:text-[18px] text-[#45546B] leading-relaxed max-w-2xl font-normal">
+              <p className="text-[16px] sm:text-[17px] lg:text-[18px] text-[#4A5876] leading-relaxed max-w-2xl font-normal">
                 {partner.introduction}
               </p>
 
@@ -220,7 +222,7 @@ export const IndividualPartnerPage: React.FC = () => {
               <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
                 <button
                   onClick={() => setIsConsultationModalOpen(true)}
-                  className="inline-flex items-center justify-center gap-2 text-[16px] font-semibold px-8 py-3.5 rounded-xl bg-gradient-to-r from-[#0052CC] to-[#0A66C2] hover:from-[#0040A8] hover:to-[#08529C] text-white shadow-md shadow-blue-500/25 transition-all duration-200 cursor-pointer"
+                  className="inline-flex items-center justify-center gap-2 text-[16px] font-semibold px-8 py-3.5 rounded-xl bg-gradient-to-r from-[#1F4FE0] to-[#1F4FE0] hover:from-[#1739B8] hover:to-[#1739B8] text-white shadow-md shadow-blue-500/25 transition-all duration-200 cursor-pointer"
                 >
                   <span>Book a Consultation</span>
                   <ArrowRight className="w-5 h-5" />
@@ -228,7 +230,7 @@ export const IndividualPartnerPage: React.FC = () => {
 
                 <a
                   href="#capabilities"
-                  className="inline-flex items-center justify-center gap-2 text-[16px] font-semibold px-8 py-3.5 rounded-xl bg-white hover:bg-slate-50 text-[#142B59] border border-slate-200/90 shadow-sm transition-all duration-200 cursor-pointer"
+                  className="inline-flex items-center justify-center gap-2 text-[16px] font-semibold px-8 py-3.5 rounded-xl bg-white hover:bg-slate-50 text-[#0A1B4F] border border-slate-200/90 shadow-sm transition-all duration-200 cursor-pointer"
                 >
                   <span>Explore Capabilities</span>
                 </a>
@@ -248,10 +250,10 @@ export const IndividualPartnerPage: React.FC = () => {
                 {/* Overlaid Partner Badge at Bottom Left */}
                 <div className="absolute bottom-5 left-5 right-5 bg-white/95 backdrop-blur-md rounded-xl p-3.5 shadow-lg border border-slate-200/90 flex items-center justify-between gap-3">
                   <div>
-                    <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400 block">
+                    <span className="text-[11px] font-bold uppercase tracking-wider text-slate-500 block">
                       Technology Partner
                     </span>
-                    <span className="text-[14px] font-bold text-[#142B59]">
+                    <span className="text-[14px] font-bold text-[#0A1B4F]">
                       {partner.name}
                     </span>
                   </div>
@@ -275,12 +277,12 @@ export const IndividualPartnerPage: React.FC = () => {
             {partner.metrics.map((metric, idx) => (
               <div
                 key={idx}
-                className="bg-slate-50/70 rounded-2xl p-5 sm:p-6 border border-slate-200/80 text-left hover:border-blue-300 hover:bg-white hover:shadow-md transition-all group"
+                className="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200/80 text-left hover:border-blue-300 hover:bg-white hover:shadow-md transition-all group"
               >
-                <div className="font-serif text-[32px] sm:text-[40px] font-bold bg-gradient-to-r from-[#0052CC] to-[#0A66C2] bg-clip-text text-transparent leading-none mb-1.5">
+                <div className="font-serif text-[32px] sm:text-[40px] font-bold bg-gradient-to-r from-[#1F4FE0] to-[#1F4FE0] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em] leading-none mb-1.5">
                   <AnimatedCounter value={metric.value} />
                 </div>
-                <div className="text-[14px] sm:text-[15px] font-bold text-[#142B59] leading-tight">
+                <div className="text-[14px] sm:text-[15px] font-bold text-[#0A1B4F] leading-tight">
                   {metric.label}
                 </div>
                 <div className="text-[12px] text-slate-500 leading-snug mt-1">
@@ -295,7 +297,7 @@ export const IndividualPartnerPage: React.FC = () => {
       {/* ========================================================================= */}
       {/* SECTION 3: TECHNOLOGY & ARCHITECTURE OVERVIEW                             */}
       {/* ========================================================================= */}
-      <section className="py-16 lg:py-24 bg-slate-50/60 border-b border-slate-100">
+      <section className="py-16 lg:py-24 border-b border-white/10 bg-atlas-navy atlas-dark">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
             
@@ -309,7 +311,7 @@ export const IndividualPartnerPage: React.FC = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
                 <div className="absolute bottom-4 left-4 bg-white/95 backdrop-blur-md rounded-xl px-4 py-2 shadow-md border border-slate-200/90 flex items-center gap-2">
-                  <Layers className="w-4 h-4 text-[#1B72E8]" />
+                  <Layers className="w-4 h-4 text-[#1F4FE0]" />
                   <span className="text-xs font-bold text-slate-700">
                     Enterprise Architecture
                   </span>
@@ -320,16 +322,16 @@ export const IndividualPartnerPage: React.FC = () => {
             {/* Right 7 Cols: Overview Narrative & Architectural Highlights */}
             <div className="lg:col-span-7 order-1 lg:order-2 space-y-6 text-left">
               <div className="inline-block">
-                <span className="text-[13px] font-bold uppercase tracking-wider text-[#1B72E8]">
+                <span className="text-[13px] font-bold uppercase tracking-wider text-[#1F4FE0]">
                   TECHNOLOGY & ARCHITECTURE —
                 </span>
               </div>
 
-              <h2 className="font-serif text-[30px] sm:text-[36px] lg:text-[40px] font-bold text-[#142B59] tracking-tight leading-tight">
+              <h2 className="atlas-h2-size font-serif font-extrabold text-[#0A1B4F]">
                 {partner.techOverview.title}
               </h2>
 
-              <p className="text-[16px] sm:text-[17px] text-[#45546B] leading-relaxed font-normal">
+              <p className="text-[16px] sm:text-[17px] text-[#4A5876] leading-relaxed font-normal">
                 {partner.techOverview.description}
               </p>
 
@@ -337,7 +339,7 @@ export const IndividualPartnerPage: React.FC = () => {
               <div className="space-y-3 pt-2">
                 {partner.techOverview.architecturePoints.map((point, idx) => (
                   <div key={idx} className="flex items-start gap-3 p-3.5 rounded-xl bg-white border border-slate-200/80 shadow-sm">
-                    <div className="w-6 h-6 rounded-md bg-blue-50 text-[#1B72E8] flex items-center justify-center shrink-0 mt-0.5">
+                    <div className="w-6 h-6 rounded-md bg-blue-50 text-[#1F4FE0] flex items-center justify-center shrink-0 mt-0.5">
                       <Check className="w-4 h-4 stroke-[2.5]" />
                     </div>
                     <span className="text-[14px] sm:text-[15px] font-medium text-slate-700 leading-snug">
@@ -359,42 +361,29 @@ export const IndividualPartnerPage: React.FC = () => {
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="text-left mb-12 space-y-2">
-            <span className="text-[13px] font-bold uppercase tracking-wider text-[#1B72E8] block">
+            <span className="text-[13px] font-bold uppercase tracking-wider text-[#1F4FE0] block">
               CORE CAPABILITIES —
             </span>
-            <h2 className="font-serif text-[32px] sm:text-[38px] lg:text-[42px] font-bold text-[#142B59] tracking-tight">
+            <h2 className="atlas-h2-size font-serif font-extrabold text-[#0A1B4F]">
               Key Features &{' '}
-              <span className="bg-gradient-to-r from-[#0052CC] via-[#0066CC] to-[#0A66C2] bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-[#1F4FE0] via-[#1F4FE0] to-[#1F4FE0] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">
                 Functional Highlights
               </span>
             </h2>
-            <p className="text-[16px] sm:text-[17px] text-[#45546B] leading-relaxed max-w-3xl">
+            <p className="text-[16px] sm:text-[17px] text-[#4A5876] leading-relaxed max-w-3xl">
               Engineered to handle complex business transactions, streamline cross-functional workflows, and empower teams with real-time operational accuracy.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-            {partner.capabilities.map((cap, idx) => (
-              <div
-                key={idx}
-                className="bg-white rounded-2xl p-6 sm:p-7 border border-slate-200/90 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between text-left group"
-              >
-                <div>
-                  <div className="w-12 h-12 rounded-xl bg-blue-50 border border-blue-200/80 text-[#1B72E8] flex items-center justify-center mb-5 group-hover:bg-[#1B72E8] group-hover:text-white transition-colors duration-200 shadow-sm">
-                    {renderIcon(cap.iconName, "w-6 h-6")}
-                  </div>
-
-                  <h3 className="text-[19px] font-bold text-[#172B50] mb-2.5 leading-snug group-hover:text-[#1B72E8] transition-colors">
-                    {cap.title}
-                  </h3>
-
-                  <p className="text-[14px] sm:text-[15px] text-[#53647A] leading-relaxed">
-                    {cap.description}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
+          <ImageFeatureSlider
+            ariaLabel={`${partner.name} capabilities`}
+            perView={3}
+            items={partner.capabilities.map((cap, idx) => ({
+              title: cap.title,
+              description: cap.description,
+              image: cardImage(poolForSlug(partnerSlug), idx),
+            }))}
+          />
 
         </div>
       </section>
@@ -402,20 +391,20 @@ export const IndividualPartnerPage: React.FC = () => {
       {/* ========================================================================= */}
       {/* SECTION 5: MEASURABLE BUSINESS BENEFITS (4 CARDS)                         */}
       {/* ========================================================================= */}
-      <section className="py-16 lg:py-24 bg-slate-50/60 border-b border-slate-100">
+      <section className="py-16 lg:py-24 border-b border-white/10 bg-atlas-navy atlas-dark">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="text-left mb-12 space-y-2">
-            <span className="text-[13px] font-bold uppercase tracking-wider text-[#1B72E8] block">
+            <span className="text-[13px] font-bold uppercase tracking-wider text-[#1F4FE0] block">
               MEASURABLE ROI —
             </span>
-            <h2 className="font-serif text-[32px] sm:text-[38px] lg:text-[42px] font-bold text-[#142B59] tracking-tight">
+            <h2 className="atlas-h2-size font-serif font-extrabold text-[#0A1B4F]">
               Proven Business{' '}
-              <span className="bg-gradient-to-r from-[#0052CC] via-[#0066CC] to-[#0A66C2] bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-[#1F4FE0] via-[#1F4FE0] to-[#1F4FE0] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">
                 Advantages
               </span>
             </h2>
-            <p className="text-[16px] sm:text-[17px] text-[#45546B] leading-relaxed max-w-3xl">
+            <p className="text-[16px] sm:text-[17px] text-[#4A5876] leading-relaxed max-w-3xl">
               Concrete operational improvements and financial returns delivered through structured ATLAS Technosoft deployments.
             </p>
           </div>
@@ -428,16 +417,16 @@ export const IndividualPartnerPage: React.FC = () => {
               >
                 <div>
                   {benefit.metric && (
-                    <div className="inline-block px-3 py-1 rounded-full text-xs font-bold bg-blue-50 text-[#1B72E8] border border-blue-200/80 mb-4">
+                    <div className="inline-block px-3 py-1 rounded-full text-xs font-bold bg-blue-50 text-[#1F4FE0] border border-blue-200/80 mb-4">
                       {benefit.metric}
                     </div>
                   )}
 
-                  <h3 className="text-[18px] font-bold text-[#172B50] mb-2 leading-snug group-hover:text-[#1B72E8] transition-colors">
+                  <h3 className="text-[18px] font-bold text-[#0A1B4F] mb-2 leading-snug group-hover:text-[#1F4FE0] transition-colors">
                     {benefit.title}
                   </h3>
 
-                  <p className="text-[14px] text-[#53647A] leading-relaxed">
+                  <p className="text-[14px] text-[#4A5876] leading-relaxed">
                     {benefit.description}
                   </p>
                 </div>
@@ -455,16 +444,16 @@ export const IndividualPartnerPage: React.FC = () => {
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="text-left mb-12 space-y-2">
-            <span className="text-[13px] font-bold uppercase tracking-wider text-[#1B72E8] block">
+            <span className="text-[13px] font-bold uppercase tracking-wider text-[#1F4FE0] block">
               OUR IMPLEMENTATION METHODOLOGY —
             </span>
-            <h2 className="font-serif text-[32px] sm:text-[38px] lg:text-[42px] font-bold text-[#142B59] tracking-tight">
+            <h2 className="atlas-h2-size font-serif font-extrabold text-[#0A1B4F]">
               How ATLAS Delivers{' '}
-              <span className="bg-gradient-to-r from-[#0052CC] via-[#0066CC] to-[#0A66C2] bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-[#1F4FE0] via-[#1F4FE0] to-[#1F4FE0] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">
                 {partner.name}
               </span>
             </h2>
-            <p className="text-[16px] sm:text-[17px] text-[#45546B] leading-relaxed max-w-3xl">
+            <p className="text-[16px] sm:text-[17px] text-[#4A5876] leading-relaxed max-w-3xl">
               A structured 4-phase rollout methodology refined across 80+ live deployments ensuring on-time delivery and predictable results.
             </p>
           </div>
@@ -473,29 +462,29 @@ export const IndividualPartnerPage: React.FC = () => {
             {partner.howAtlasWorks.map((pillar, idx) => (
               <div
                 key={idx}
-                className="bg-slate-50/70 rounded-2xl p-6 border border-slate-200/90 text-left hover:bg-white hover:shadow-lg hover:border-blue-300 transition-all duration-300 flex flex-col justify-between"
+                className="bg-white rounded-2xl p-6 border border-slate-200/90 text-left hover:bg-white hover:shadow-lg hover:border-blue-300 transition-all duration-300 flex flex-col justify-between"
               >
                 <div>
-                  <div className="font-serif text-3xl font-bold text-[#1B72E8] mb-3">
+                  <div className="font-serif text-3xl font-bold text-[#1F4FE0] mb-3">
                     {pillar.step}
                   </div>
                   
-                  <h3 className="text-[18px] font-bold text-[#142B59] mb-2 leading-snug">
+                  <h3 className="text-[18px] font-bold text-[#0A1B4F] mb-2 leading-snug">
                     {pillar.title}
                   </h3>
 
-                  <p className="text-[13px] sm:text-[14px] text-[#53647A] leading-relaxed mb-4">
+                  <p className="text-[13px] sm:text-[14px] text-[#4A5876] leading-relaxed mb-4">
                     {pillar.description}
                   </p>
                 </div>
 
                 <div className="pt-4 border-t border-slate-200/80 space-y-1.5">
-                  <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400 block">
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-slate-500 block">
                     Key Deliverables:
                   </span>
                   {pillar.deliverables.map((item, dIdx) => (
                     <div key={dIdx} className="flex items-center gap-2 text-xs text-slate-700">
-                      <div className="w-1.5 h-1.5 rounded-full bg-[#1B72E8] shrink-0" />
+                      <div className="w-1.5 h-1.5 rounded-full bg-[#1F4FE0] shrink-0" />
                       <span>{item}</span>
                     </div>
                   ))}
@@ -510,60 +499,36 @@ export const IndividualPartnerPage: React.FC = () => {
       {/* ========================================================================= */}
       {/* SECTION 7: RELEVANT INDUSTRIES & USE CASES                                */}
       {/* ========================================================================= */}
-      <section className="py-16 lg:py-24 bg-slate-50/60 border-b border-slate-100">
+      <section className="py-16 lg:py-24 border-b border-white/10 bg-atlas-navy atlas-dark">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="text-left mb-12 space-y-2">
-            <span className="text-[13px] font-bold uppercase tracking-wider text-[#1B72E8] block">
+            <span className="text-[13px] font-bold uppercase tracking-wider text-[#1F4FE0] block">
               INDUSTRY APPLICATIONS —
             </span>
-            <h2 className="font-serif text-[32px] sm:text-[38px] lg:text-[42px] font-bold text-[#142B59] tracking-tight">
+            <h2 className="atlas-h2-size font-serif font-extrabold text-[#0A1B4F]">
               Tailored Industry{' '}
-              <span className="bg-gradient-to-r from-[#0052CC] via-[#0066CC] to-[#0A66C2] bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-[#1F4FE0] via-[#1F4FE0] to-[#1F4FE0] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">
                 Solutions
               </span>
             </h2>
-            <p className="text-[16px] sm:text-[17px] text-[#45546B] leading-relaxed max-w-3xl">
+            <p className="text-[16px] sm:text-[17px] text-[#4A5876] leading-relaxed max-w-3xl">
               Discover how {partner.name} addresses sector-specific manufacturing, logistics, and trading challenges.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {partner.industryUseCases.map((useCase, idx) => (
-              <div
-                key={idx}
-                onClick={() => navigate(useCase.route)}
-                className="bg-white rounded-2xl p-6 border border-slate-200/90 shadow-sm hover:shadow-xl hover:-translate-y-1.5 hover:border-blue-300 transition-all duration-300 flex flex-col justify-between text-left cursor-pointer group"
-              >
-                <div>
-                  <div className="w-11 h-11 rounded-xl bg-blue-50 border border-blue-200 text-[#1B72E8] flex items-center justify-center mb-4 group-hover:bg-[#1B72E8] group-hover:text-white transition-colors shadow-sm">
-                    {renderIcon(useCase.iconName, "w-5 h-5")}
-                  </div>
-
-                  <span className="text-[11px] font-bold uppercase tracking-wider text-[#1B72E8] block mb-1">
-                    {useCase.industry}
-                  </span>
-
-                  <h3 className="text-[17px] font-bold text-[#172B50] mb-2 leading-snug group-hover:text-[#1B72E8] transition-colors">
-                    {useCase.title}
-                  </h3>
-
-                  <p className="text-[13px] text-slate-600 leading-relaxed">
-                    {useCase.description}
-                  </p>
-                </div>
-
-                <div className="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between">
-                  <span className="text-xs font-bold text-[#1B72E8] group-hover:underline">
-                    Explore Industry
-                  </span>
-                  <div className="w-7 h-7 rounded-full bg-slate-50 border border-slate-200 flex items-center justify-center group-hover:bg-[#1B72E8] group-hover:text-white transition-colors">
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+          <ImageFeatureSlider
+            ariaLabel={`${partner.name} industry use cases`}
+            perView={4}
+            items={partner.industryUseCases.map((useCase) => ({
+              title: useCase.title,
+              description: useCase.description,
+              eyebrow: useCase.industry,
+              href: useCase.route,
+              actionLabel: 'Explore industry',
+              image: cardImage(poolForSlug(useCase.route), 0),
+            }))}
+          />
 
         </div>
       </section>
@@ -575,12 +540,12 @@ export const IndividualPartnerPage: React.FC = () => {
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="text-left mb-10 space-y-2">
-            <span className="text-[13px] font-bold uppercase tracking-wider text-[#1B72E8] block">
+            <span className="text-[13px] font-bold uppercase tracking-wider text-[#1F4FE0] block">
               ECOSYSTEM SYNERGY —
             </span>
-            <h2 className="font-serif text-[28px] sm:text-[34px] font-bold text-[#142B59] tracking-tight">
+            <h2 className="atlas-h2-size font-serif font-extrabold text-[#0A1B4F]">
               Complementary Services &{' '}
-              <span className="bg-gradient-to-r from-[#0052CC] via-[#0066CC] to-[#0A66C2] bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-[#1F4FE0] via-[#1F4FE0] to-[#1F4FE0] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">
                 Solutions
               </span>
             </h2>
@@ -591,21 +556,21 @@ export const IndividualPartnerPage: React.FC = () => {
               <Link
                 key={idx}
                 to={rel.route}
-                className="bg-slate-50/70 rounded-2xl p-6 border border-slate-200/90 hover:bg-white hover:border-blue-300 hover:shadow-md transition-all flex flex-col justify-between text-left group"
+                className="bg-white rounded-2xl p-6 border border-slate-200/90 hover:bg-white hover:border-blue-300 hover:shadow-md transition-all flex flex-col justify-between text-left group"
               >
                 <div>
-                  <span className="text-[11px] font-bold uppercase tracking-wider text-[#1B72E8] block mb-1.5">
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-[#1F4FE0] block mb-1.5">
                     {rel.category}
                   </span>
-                  <h3 className="text-[18px] font-bold text-[#142B59] mb-2 leading-snug group-hover:text-[#1B72E8] transition-colors">
+                  <h3 className="text-[18px] font-bold text-[#0A1B4F] mb-2 leading-snug group-hover:text-[#1F4FE0] transition-colors">
                     {rel.title}
                   </h3>
-                  <p className="text-[13px] sm:text-[14px] text-[#53647A] leading-relaxed">
+                  <p className="text-[13px] sm:text-[14px] text-[#4A5876] leading-relaxed">
                     {rel.description}
                   </p>
                 </div>
 
-                <div className="pt-4 mt-4 border-t border-slate-200/60 flex items-center gap-1.5 text-xs font-bold text-[#1B72E8] group-hover:underline">
+                <div className="pt-4 mt-4 border-t border-slate-200/60 flex items-center gap-1.5 text-xs font-bold text-[#1F4FE0] group-hover:underline">
                   <span>Learn More</span>
                   <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                 </div>
@@ -619,32 +584,32 @@ export const IndividualPartnerPage: React.FC = () => {
       {/* ========================================================================= */}
       {/* SECTION 9: CONSULTATION CTA CARD (CONSISTENT WITH ABOUT/PARTNERS)          */}
       {/* ========================================================================= */}
-      <section className="py-12 lg:py-16 bg-slate-50/50">
+      <section className="py-12 lg:py-16 bg-atlas-navy atlas-dark">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="rounded-2xl bg-[#eaf4ff] border border-blue-200/90 p-8 sm:p-10 lg:p-12 shadow-sm">
+          <div className="rounded-2xl bg-white border border-blue-200/90 p-8 sm:p-10 lg:p-12 shadow-sm">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
               
               {/* Left Column: Heading, Subtext & Button */}
               <div className="lg:col-span-6 space-y-4 text-left">
-                <span className="text-[12px] sm:text-[13px] font-bold uppercase tracking-wider text-[#1B72E8]">
+                <span className="text-[12px] sm:text-[13px] font-bold uppercase tracking-wider text-[#1F4FE0]">
                   CONNECT WITH OUR SPECIALISTS
                 </span>
 
-                <h2 className="font-serif text-[28px] sm:text-[34px] lg:text-[38px] font-bold text-[#142B59] tracking-tight leading-tight">
+                <h2 className="atlas-h2-size font-serif font-extrabold text-[#0A1B4F]">
                   Ready to Deploy{' '}
-                  <span className="bg-gradient-to-r from-[#0052CC] via-[#0066CC] to-[#0A66C2] bg-clip-text text-transparent">
+                  <span className="bg-gradient-to-r from-[#1F4FE0] via-[#1F4FE0] to-[#1F4FE0] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">
                     {partner.name}?
                   </span>
                 </h2>
 
-                <p className="text-[15px] sm:text-[16px] text-[#45546B] leading-relaxed max-w-xl">
+                <p className="text-[15px] sm:text-[16px] text-[#4A5876] leading-relaxed max-w-xl">
                   Schedule a discovery session with our certified architects to explore how {partner.name} can streamline operations and drive bottom-line efficiency.
                 </p>
 
                 <div className="pt-2">
                   <button
                     onClick={() => setIsConsultationModalOpen(true)}
-                    className="inline-flex items-center justify-center gap-2 text-[15px] sm:text-[16px] font-semibold px-8 py-3.5 rounded-xl bg-gradient-to-r from-[#0052CC] to-[#0A66C2] hover:from-[#0040A8] hover:to-[#08529C] text-white shadow-md shadow-blue-500/25 transition-all cursor-pointer"
+                    className="inline-flex items-center justify-center gap-2 text-[15px] sm:text-[16px] font-semibold px-8 py-3.5 rounded-xl bg-gradient-to-r from-[#1F4FE0] to-[#1F4FE0] hover:from-[#1739B8] hover:to-[#1739B8] text-white shadow-md shadow-blue-500/25 transition-all cursor-pointer"
                   >
                     <span>Book a Partner Consultation</span>
                     <ArrowRight className="w-5 h-5" />
@@ -659,11 +624,11 @@ export const IndividualPartnerPage: React.FC = () => {
                   href={`mailto:sales@atlastechnosoft.com?subject=Partnership%20Inquiry%20-%20${encodeURIComponent(partner.name)}`}
                   className="bg-white rounded-xl p-4 sm:p-4.5 border-2 border-[#16b978] shadow-sm hover:shadow-md transition-all flex items-center gap-4 group"
                 >
-                  <div className="w-11 h-11 rounded-lg bg-blue-50 border border-blue-100 text-[#0878f9] flex items-center justify-center shrink-0 group-hover:bg-[#0878f9] group-hover:text-white transition-colors">
+                  <div className="w-11 h-11 rounded-lg bg-blue-50 border border-blue-100 text-[#1F4FE0] flex items-center justify-center shrink-0 group-hover:bg-[#1F4FE0] group-hover:text-white transition-colors">
                     <Mail className="w-5 h-5" />
                   </div>
                   <div>
-                    <p className="text-[11px] font-bold uppercase tracking-wider text-slate-400">
+                    <p className="text-[11px] font-bold uppercase tracking-wider text-slate-500">
                       Direct Email
                     </p>
                     <p className="text-[15px] font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
@@ -675,13 +640,13 @@ export const IndividualPartnerPage: React.FC = () => {
                 {/* Phone Box */}
                 <a
                   href="tel:+919372329599"
-                  className="bg-white rounded-xl p-4 sm:p-4.5 border-2 border-[#2992ff] shadow-sm hover:shadow-md transition-all flex items-center gap-4 group"
+                  className="bg-white rounded-xl p-4 sm:p-4.5 border-2 border-[#1F4FE0] shadow-sm hover:shadow-md transition-all flex items-center gap-4 group"
                 >
-                  <div className="w-11 h-11 rounded-lg bg-blue-50 border border-blue-100 text-[#0878f9] flex items-center justify-center shrink-0 group-hover:bg-[#0878f9] group-hover:text-white transition-colors">
+                  <div className="w-11 h-11 rounded-lg bg-blue-50 border border-blue-100 text-[#1F4FE0] flex items-center justify-center shrink-0 group-hover:bg-[#1F4FE0] group-hover:text-white transition-colors">
                     <Phone className="w-5 h-5" />
                   </div>
                   <div>
-                    <p className="text-[11px] font-bold uppercase tracking-wider text-slate-400">
+                    <p className="text-[11px] font-bold uppercase tracking-wider text-slate-500">
                       Telephone
                     </p>
                     <p className="text-[15px] font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
@@ -691,12 +656,12 @@ export const IndividualPartnerPage: React.FC = () => {
                 </a>
 
                 {/* Office Location Box */}
-                <div className="bg-white rounded-xl p-4 sm:p-4.5 border-2 border-[#0A66C2] shadow-sm flex items-center gap-4">
-                  <div className="w-11 h-11 rounded-lg bg-blue-50 border border-blue-100 text-[#0878f9] flex items-center justify-center shrink-0">
+                <div className="bg-white rounded-xl p-4 sm:p-4.5 border-2 border-[#1F4FE0] shadow-sm flex items-center gap-4">
+                  <div className="w-11 h-11 rounded-lg bg-blue-50 border border-blue-100 text-[#1F4FE0] flex items-center justify-center shrink-0">
                     <MapPin className="w-5 h-5" />
                   </div>
                   <div>
-                    <p className="text-[11px] font-bold uppercase tracking-wider text-slate-400">
+                    <p className="text-[11px] font-bold uppercase tracking-wider text-slate-500">
                       Locations
                     </p>
                     <p className="text-[14px] font-bold text-slate-900">

@@ -138,11 +138,11 @@ export const SiteHeader: React.FC = () => {
       <header
         className={`sticky top-0 z-40 w-full transition-all duration-200 ${
           isScrolled
-            ? 'bg-white/95 backdrop-blur-md border-b border-slate-200/90 shadow-sm'
-            : 'bg-white border-b border-slate-100'
+            ? 'bg-white/90 backdrop-blur-md border-b border-atlas-line shadow-[0_8px_24px_-16px_rgba(10,27,79,0.25)]'
+            : 'bg-white border-b border-atlas-line'
         }`}
       >
-        <div className="w-full max-w-[1720px] 2xl:max-w-[1840px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
+        <div className="w-full max-w-[1720px] 2xl:max-w-[1840px] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12">
           <div className="flex items-center justify-between h-[84px] w-full">
             
             {/* Left Side: Brand Logo & Company Name */}
@@ -159,20 +159,22 @@ export const SiteHeader: React.FC = () => {
                 />
               </div>
               <div className="flex flex-col leading-none select-none">
-                <span className="text-[22px] sm:text-[24px] font-black tracking-tight text-[#10264b] group-hover:text-[#1B72E8] transition-colors">
+                <span className="text-[22px] sm:text-[24px] font-extrabold tracking-[-0.02em] text-atlas-navy group-hover:text-atlas-royal transition-colors">
                   ATLAS
                 </span>
-                <span className="text-[13px] sm:text-[14px] font-bold text-[#10264b] tracking-normal mt-0.5">
+                <span className="text-[11px] sm:text-[12px] font-semibold text-atlas-body uppercase tracking-[0.12em] mt-1">
                   Technosoft
                 </span>
               </div>
             </Link>
 
             {/* Right Side: Desktop Navigation Links + Book a Consultation CTA Button */}
-            <div className="hidden xl:flex items-center gap-2 2xl:gap-4 ml-auto">
-              {/* Desktop Navigation Links with Mega Menu Dropdowns */}
+            <div className="hidden xl:flex items-center self-stretch gap-1 2xl:gap-3 ml-auto">
+              {/* Desktop Navigation Links with Mega Menu Dropdowns.
+                  Nav and items stretch to the full header height (and are not positioned),
+                  so each mega menu anchors to the sticky header and spans its full width. */}
               <nav
-                className="flex items-center gap-0.5 xl:gap-1 2xl:gap-1.5 relative"
+                className="flex items-stretch self-stretch gap-0.5 2xl:gap-1"
                 aria-label="Main Navigation"
                 onMouseLeave={handleMouseLeave}
               >
@@ -183,34 +185,31 @@ export const SiteHeader: React.FC = () => {
                   return (
                     <div
                       key={item.name}
-                      className="relative"
+                      className="flex items-center"
                       onMouseEnter={() => handleMouseEnter(item.name, item.hasDropdown)}
                     >
                       {item.hasDropdown ? (
-                        <div className="relative flex items-center">
+                        <div className="flex items-center h-full">
                           <Link
                             to={item.href}
                             onClick={() => {
                               setActiveSection(item.name);
                               setActiveDropdown(null);
                             }}
-                            className={`group flex items-center gap-1 text-[14.5px] xl:text-[15px] 2xl:text-[15.5px] font-medium px-2.5 2xl:px-3 py-2 rounded-lg transition-colors whitespace-nowrap relative focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 ${
+                            className={`group flex items-center gap-1 text-[13.5px] 2xl:text-[14.5px] font-semibold px-2 2xl:px-3 py-2 rounded-full transition-colors whitespace-nowrap relative focus:outline-none focus-visible:ring-2 focus-visible:ring-atlas-royal ${
                               isActive
-                                ? 'text-[#0066CC] font-semibold'
+                                ? 'text-atlas-royal bg-atlas-royalTint'
                                 : isDropdownOpen
-                                ? 'text-[#1B72E8] font-semibold bg-blue-50/70'
-                                : 'text-[#142B59] hover:text-[#0066CC] hover:bg-slate-50/80'
+                                ? 'text-atlas-royal bg-atlas-royalTint'
+                                : 'text-atlas-navy hover:text-atlas-royal hover:bg-atlas-mist'
                             }`}
                           >
                             <span>{item.name}</span>
                             <ChevronDown
                               className={`w-3.5 h-3.5 transition-transform duration-200 ${
-                                isDropdownOpen ? 'rotate-180 text-[#1B72E8]' : 'text-slate-400 group-hover:text-[#0066CC]'
+                                isDropdownOpen ? 'rotate-180 text-[#1F4FE0]' : 'text-slate-500 group-hover:text-[#1F4FE0]'
                               }`}
                             />
-                            {isActive && (
-                              <span className="absolute bottom-0.5 left-2.5 right-2.5 h-0.5 rounded-full bg-gradient-to-r from-[#0052CC] to-[#0A66C2]" />
-                            )}
                           </Link>
 
                           {/* Mega Menu Dropdown */}
@@ -232,16 +231,13 @@ export const SiteHeader: React.FC = () => {
                             setActiveSection(item.name);
                             setActiveDropdown(null);
                           }}
-                          className={`block text-[14.5px] xl:text-[15px] 2xl:text-[15.5px] font-medium px-2.5 2xl:px-3 py-2 rounded-lg transition-colors whitespace-nowrap relative focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 ${
+                          className={`block text-[13.5px] 2xl:text-[14.5px] font-semibold px-2 2xl:px-3 py-2 rounded-full transition-colors whitespace-nowrap relative focus:outline-none focus-visible:ring-2 focus-visible:ring-atlas-royal ${
                             isActive
-                              ? 'text-[#0066CC] font-semibold'
-                              : 'text-[#142B59] hover:text-[#0066CC] hover:bg-slate-50/80'
+                              ? 'text-atlas-royal bg-atlas-royalTint'
+                              : 'text-atlas-navy hover:text-atlas-royal hover:bg-atlas-mist'
                           }`}
                         >
                           <span>{item.name}</span>
-                          {isActive && (
-                            <span className="absolute bottom-0.5 left-2.5 right-2.5 h-0.5 rounded-full bg-gradient-to-r from-[#0052CC] to-[#0A66C2]" />
-                          )}
                         </Link>
                       )}
                     </div>
@@ -250,23 +246,22 @@ export const SiteHeader: React.FC = () => {
               </nav>
 
               {/* Book a Consultation Button (Extreme Right) */}
-              <div className="pl-1 xl:pl-2 shrink-0">
+              <div className="pl-1 xl:pl-2 shrink-0 flex items-center">
                 <button
                   type="button"
                   onClick={() => setIsCallbackModalOpen(true)}
-                  className="hidden xl:inline-flex items-center gap-2 px-3.5 xl:px-4 py-2.5 rounded-xl text-[13.5px] 2xl:text-[14px] font-bold text-white bg-gradient-to-r from-emerald-500 via-emerald-600 to-teal-600 hover:from-emerald-600 hover:to-teal-700 shadow-md shadow-emerald-600/25 hover:shadow-lg transition-all duration-200 cursor-pointer active:scale-[0.98] group mr-2.5 shrink-0"
+                  aria-label="Request a callback"
+                  className="hidden min-[1720px]:inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full text-[14px] font-bold text-atlas-navy bg-white border-[1.5px] border-atlas-lineStrong hover:border-atlas-navy transition-all duration-200 cursor-pointer active:scale-[0.98] group mr-2 shrink-0"
                   title="Schedule a direct phone callback with our consultants"
                 >
-                  <span className="relative flex items-center justify-center w-5 h-5 rounded-full bg-white/25 group-hover:bg-white/35 transition-colors">
-                    <PhoneCall className="w-3.5 h-3.5 text-white animate-pulse" />
-                  </span>
+                  <PhoneCall className="w-4 h-4 text-atlas-royal" />
                   <span>Request Callback</span>
                 </button>
                 <Button
                   href={location.pathname === '/contact' ? '#contact-form' : '/contact'}
                   variant="gold"
                   size="md"
-                  className="text-[14.5px] 2xl:text-[15px] font-semibold px-4 xl:px-5 py-2.5 rounded-lg text-white bg-gradient-to-r from-[#0052CC] to-[#0A66C2] hover:from-[#0040A8] hover:to-[#08529C] shadow-sm shadow-blue-500/20 whitespace-nowrap shrink-0"
+                  className="text-[14px] 2xl:text-[14.5px] px-4 2xl:px-5 py-2.5 whitespace-nowrap shrink-0"
                   icon={<ArrowRight className="w-4 h-4" />}
                 >
                   Book a Consultation
@@ -293,7 +288,7 @@ export const SiteHeader: React.FC = () => {
 
       {/* Mobile Navigation Drawer with Expandable Accordions */}
       {isMobileMenuOpen && (
-        <div className="fixed inset-0 z-50 xl:hidden flex flex-col justify-between bg-white">
+        <div className="animate-fade-in fixed inset-0 z-50 xl:hidden flex flex-col justify-between bg-white">
           {/* Mobile Top Bar with Logo & Close */}
           <div className="p-4 border-b border-slate-200 flex items-center justify-between bg-white shadow-xs">
             <Link
@@ -309,8 +304,8 @@ export const SiteHeader: React.FC = () => {
                 />
               </div>
               <div className="flex flex-col leading-none">
-                <span className="text-[20px] font-black text-slate-900">ATLAS</span>
-                <span className="text-[12px] font-bold text-slate-800">Technosoft</span>
+                <span className="text-[20px] font-extrabold text-atlas-navy">ATLAS</span>
+                <span className="text-[11px] font-semibold uppercase tracking-[0.12em] text-atlas-body mt-0.5">Technosoft</span>
               </div>
             </Link>
             <button
@@ -324,7 +319,7 @@ export const SiteHeader: React.FC = () => {
 
           {/* Mobile Accordion Menu Body */}
           <div className="px-5 py-5 overflow-y-auto flex-1">
-            <div className="mb-3 text-[12px] font-bold uppercase tracking-wider text-slate-400">
+            <div className="mb-3 text-[12px] font-bold uppercase tracking-wider text-slate-500">
               Navigation Menu
             </div>
             
@@ -346,8 +341,8 @@ export const SiteHeader: React.FC = () => {
                           }}
                           className={`text-[17px] font-medium transition-colors ${
                             isActive
-                              ? 'text-[#1B72E8] font-semibold'
-                              : 'text-[#142B59] hover:text-[#1B72E8]'
+                              ? 'text-[#1F4FE0] font-semibold'
+                              : 'text-[#0A1B4F] hover:text-[#1F4FE0]'
                           }`}
                         >
                           <span>{item.name}</span>
@@ -355,21 +350,21 @@ export const SiteHeader: React.FC = () => {
                         <button
                           type="button"
                           onClick={() => toggleMobileAccordion(item.name)}
-                          className="p-1.5 rounded-lg text-slate-400 hover:text-[#1B72E8] hover:bg-slate-100 transition-colors"
+                          className="p-1.5 rounded-lg text-slate-500 hover:text-[#1F4FE0] hover:bg-slate-100 transition-colors"
                           aria-expanded={isExpanded}
                           aria-label={`Toggle ${item.name} subcategories`}
                         >
                           {isExpanded ? (
-                            <ChevronUp className="w-5 h-5 text-[#1B72E8]" />
+                            <ChevronUp className="w-5 h-5 text-[#1F4FE0]" />
                           ) : (
-                            <ChevronDown className="w-5 h-5 text-slate-400" />
+                            <ChevronDown className="w-5 h-5 text-slate-500" />
                           )}
                         </button>
                       </div>
 
                       {/* Accordion Content */}
                       {isExpanded && (
-                        <div className="pl-2 pr-1 pb-3 pt-1 space-y-3 bg-slate-50/70 rounded-xl my-1">
+                        <div className="pl-2 pr-1 pb-3 pt-1 space-y-3 bg-white rounded-xl my-1">
                           {item.categories.map((cat) => {
                             const IconComponent = iconMap[cat.icon] || Settings;
                             return (
@@ -378,11 +373,11 @@ export const SiteHeader: React.FC = () => {
                                 <Link
                                   to={cat.href}
                                   onClick={() => setIsMobileMenuOpen(false)}
-                                  className="flex items-center gap-2 text-[14px] font-bold text-[#142B59] hover:text-[#1B72E8]"
+                                  className="flex items-center gap-2 text-[14px] font-bold text-[#0A1B4F] hover:text-[#1F4FE0]"
                                 >
-                                  <IconComponent className="w-4 h-4 text-[#1B72E8]" />
+                                  <IconComponent className="w-4 h-4 text-[#1F4FE0]" />
                                   <span>{cat.name}</span>
-                                  <ChevronRight className="w-3.5 h-3.5 text-slate-400 ml-auto" />
+                                  <ChevronRight className="w-3.5 h-3.5 text-slate-500 ml-auto" />
                                 </Link>
 
                                 {/* Category Sub-items */}
@@ -392,7 +387,7 @@ export const SiteHeader: React.FC = () => {
                                       key={sIdx}
                                       to={sub.href}
                                       onClick={() => setIsMobileMenuOpen(false)}
-                                      className="block py-1 text-[13px] text-slate-600 hover:text-[#1B72E8]"
+                                      className="block py-1 text-[13px] text-slate-600 hover:text-[#1F4FE0]"
                                     >
                                       {sub.name}
                                     </Link>
@@ -418,12 +413,12 @@ export const SiteHeader: React.FC = () => {
                     }}
                     className={`flex items-center justify-between py-3 text-[17px] border-b border-slate-100 transition-colors ${
                       isActive
-                        ? 'text-[#1B72E8] font-semibold'
-                        : 'text-[#142B59] font-medium hover:text-[#1B72E8]'
+                        ? 'text-[#1F4FE0] font-semibold'
+                        : 'text-[#0A1B4F] font-medium hover:text-[#1F4FE0]'
                     }`}
                   >
                     <span>{item.name}</span>
-                    <ChevronRight className="w-5 h-5 text-slate-400" />
+                    <ChevronRight className="w-5 h-5 text-slate-500" />
                   </Link>
                 );
               })}
@@ -440,14 +435,14 @@ export const SiteHeader: React.FC = () => {
                 <div className="pt-2 space-y-1">
                   <a
                     href={TOP_BAR_INFO.phoneTel}
-                    className="flex items-center gap-2 text-[#142B59] font-medium"
+                    className="flex items-center gap-2 text-[#0A1B4F] font-medium"
                   >
                     <Phone className="w-3.5 h-3.5 text-blue-600" />
                     <span>{TOP_BAR_INFO.phone}</span>
                   </a>
                   <a
                     href={TOP_BAR_INFO.emailMailto}
-                    className="flex items-center gap-2 text-[#142B59] font-medium"
+                    className="flex items-center gap-2 text-[#0A1B4F] font-medium"
                   >
                     <Mail className="w-3.5 h-3.5 text-blue-600" />
                     <span>{TOP_BAR_INFO.email}</span>
@@ -465,11 +460,9 @@ export const SiteHeader: React.FC = () => {
                   setIsMobileMenuOpen(false);
                   setIsCallbackModalOpen(true);
                 }}
-                className="w-full inline-flex items-center justify-center gap-2.5 py-3.5 rounded-xl text-white font-bold text-[15px] bg-gradient-to-r from-emerald-500 via-emerald-600 to-teal-600 hover:from-emerald-600 hover:to-teal-700 shadow-md shadow-emerald-600/25 transition-all cursor-pointer mb-2.5"
+                className="w-full inline-flex items-center justify-center gap-2.5 py-3.5 rounded-full text-atlas-navy font-bold text-[15px] bg-white border-[1.5px] border-atlas-navy hover:bg-atlas-mist transition-all cursor-pointer mb-2.5"
               >
-                <span className="flex items-center justify-center w-6 h-6 rounded-full bg-white/25">
-                  <PhoneCall className="w-4 h-4 text-white animate-pulse" />
-                </span>
+                <PhoneCall className="w-4 h-4 text-atlas-royal" />
                 <span>Request a Callback</span>
               </button>
 
@@ -478,7 +471,7 @@ export const SiteHeader: React.FC = () => {
                 variant="gold"
                 fullWidth
                 size="lg"
-                className="text-[16px] font-semibold py-3 text-white bg-gradient-to-r from-[#0052CC] to-[#0A66C2] hover:from-[#0040A8] hover:to-[#08529C] shadow-sm"
+                className="text-[16px] py-3.5"
                 onClick={() => setIsMobileMenuOpen(false)}
                 icon={<ArrowRight className="w-5 h-5" />}
               >

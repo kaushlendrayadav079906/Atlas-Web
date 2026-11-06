@@ -13,7 +13,7 @@ export const FeaturedArticle: React.FC<FeaturedArticleProps> = ({ article }) => 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-0">
         
         {/* Visual / Image Column (approx 55% on desktop) */}
-        <div className="lg:col-span-7 relative aspect-[16/10] lg:aspect-auto overflow-hidden bg-slate-900 min-h-[280px] lg:min-h-[400px]">
+        <div className="lg:col-span-7 relative aspect-[16/10] lg:aspect-auto overflow-hidden bg-atlas-navy min-h-[280px] lg:min-h-[400px]">
           <img
             src={article.coverImage}
             alt={article.title}
@@ -22,7 +22,7 @@ export const FeaturedArticle: React.FC<FeaturedArticleProps> = ({ article }) => 
           <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-slate-950/20 to-transparent lg:hidden" />
 
           {/* Featured Badge */}
-          <div className="absolute top-4 left-4 z-10 flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#0052CC] text-white text-xs font-bold uppercase tracking-wider shadow-md">
+          <div className="absolute top-4 left-4 z-10 flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#1F4FE0] text-white text-xs font-bold uppercase tracking-wider shadow-md">
             <Sparkles className="w-3.5 h-3.5 text-blue-200" />
             <span>Featured Insight</span>
           </div>
@@ -33,7 +33,7 @@ export const FeaturedArticle: React.FC<FeaturedArticleProps> = ({ article }) => 
           <div>
             {/* Category & Metadata */}
             <div className="flex flex-wrap items-center gap-3 text-xs font-semibold text-slate-500 mb-3.5">
-              <span className="px-2.5 py-1 rounded-md bg-blue-50 text-[#0052CC] border border-blue-100">
+              <span className="px-2.5 py-1 rounded-md bg-blue-50 text-[#1F4FE0] border border-blue-100">
                 {article.category}
               </span>
               <span className="inline-flex items-center gap-1">
@@ -47,7 +47,7 @@ export const FeaturedArticle: React.FC<FeaturedArticleProps> = ({ article }) => 
             </div>
 
             {/* Title */}
-            <h2 className="font-serif text-[24px] sm:text-[28px] lg:text-[30px] font-bold text-[#142B59] group-hover:text-[#0052CC] transition-colors leading-tight mb-4">
+            <h2 className="font-serif text-[24px] sm:text-[28px] lg:text-[30px] font-bold text-[#0A1B4F] group-hover:text-[#1F4FE0] transition-colors leading-tight mb-4">
               <Link to={`/blog/${article.slug}`}>
                 {article.title}
               </Link>
@@ -69,12 +69,12 @@ export const FeaturedArticle: React.FC<FeaturedArticleProps> = ({ article }) => 
                   className="w-10 h-10 rounded-full object-cover border border-blue-200"
                 />
               ) : (
-                <div className="w-10 h-10 rounded-full bg-[#071B3B] text-white flex items-center justify-center font-bold text-xs">
+                <div className="w-10 h-10 rounded-full bg-[#0A1B4F] text-white flex items-center justify-center font-bold text-xs">
                   AT
                 </div>
               )}
               <div className="text-left">
-                <div className="text-xs font-bold text-[#142B59] leading-tight">
+                <div className="text-xs font-bold text-[#0A1B4F] leading-tight">
                   {article.author.name}
                 </div>
                 <div className="text-[11px] text-slate-500 leading-tight mt-0.5">
@@ -85,7 +85,7 @@ export const FeaturedArticle: React.FC<FeaturedArticleProps> = ({ article }) => 
 
             <Link
               to={`/blog/${article.slug}`}
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#0052CC] hover:bg-[#003E99] text-white text-xs sm:text-sm font-semibold shadow-xs hover:shadow-md transition-all shrink-0 active:scale-95"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#1F4FE0] hover:bg-[#1739B8] text-white text-xs sm:text-sm font-semibold shadow-xs hover:shadow-md transition-all shrink-0 active:scale-95"
             >
               <span>Read Article</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

@@ -44,8 +44,8 @@ export const CASE_STUDIES_HERO_DATA = {
   heroImage: '/images/case_studies/cs_hero_team.jpg',
   floatingBadges: [
     { label: 'Real Solutions', color: '#16a879', icon: 'check-circle' as const },
-    { label: 'Industry Expertise', color: '#0066CC', icon: 'cog' as const },
-    { label: 'Long-Term Partnerships', color: '#0066CC', icon: 'users' as const }
+    { label: 'Industry Expertise', color: '#1F4FE0', icon: 'cog' as const },
+    { label: 'Long-Term Partnerships', color: '#1F4FE0', icon: 'users' as const }
   ]
 };
 
@@ -53,14 +53,14 @@ export const FEATURED_CASE_STUDY_DATA = {
   eyebrow: 'FEATURED CASE STUDY —',
   mainHeading: 'Manufacturing Company Streamlines Operations with SAP Business One',
   industryLabel: 'Manufacturing',
-  industryColor: '#1B72E8',
+  industryColor: '#1F4FE0',
   image: '/images/case_studies/cs_featured_manufacturing.jpg',
   title: 'Integrated ERP Solution for End-to-End Visibility',
   challenge: {
     title: 'Business Challenge',
     description:
       'Disconnected systems, manual processes and limited visibility across production, inventory and finance operations.',
-    color: '#0066CC'
+    color: '#1F4FE0'
   },
   solution: {
     title: 'Solution Implemented',
@@ -71,13 +71,13 @@ export const FEATURED_CASE_STUDY_DATA = {
   technology: {
     title: 'Technology Used',
     description: 'SAP Business One, Boyum IT Solutions',
-    color: '#0066CC'
+    color: '#1F4FE0'
   },
   outcomes: {
     title: 'Key Outcomes',
     description:
       'Improved operational efficiency, better inventory control and real-time business insights.',
-    color: '#0878f9'
+    color: '#1F4FE0'
   },
   ctaText: 'Read Full Case Study',
   fullDetails: {
@@ -129,10 +129,10 @@ export const MORE_CASE_STUDIES_DATA: CaseStudyItem[] = [
       'Integrated procurement, sales, inventory and finance to improve operational efficiency and support business growth.',
     image: '/images/case_studies/cs_trading.jpg',
     fallbackCrop: '/images/case_studies/cs_trading_crop.jpg',
-    accentColor: '#0066CC',
-    borderColor: 'border-[#0066CC]',
-    badgeBg: 'bg-[#0066CC]/10',
-    badgeText: 'text-[#0066CC]',
+    accentColor: '#1F4FE0',
+    borderColor: 'border-[#1F4FE0]',
+    badgeBg: 'bg-[#1F4FE0]/10',
+    badgeText: 'text-[#1F4FE0]',
     iconName: 'truck',
     techUsed: 'SAP Business One + ATLAS Freight Suite',
     verifiedKpis: [
@@ -154,10 +154,10 @@ export const MORE_CASE_STUDIES_DATA: CaseStudyItem[] = [
       'Implemented a connected business system to manage multi-location inventory and streamline sales processes.',
     image: '/images/case_studies/cs_retail.jpg',
     fallbackCrop: '/images/case_studies/cs_retail_crop.jpg',
-    accentColor: '#0066CC',
-    borderColor: 'border-[#0066CC]',
-    badgeBg: 'bg-[#0066CC]/10',
-    badgeText: 'text-[#0066CC]',
+    accentColor: '#1F4FE0',
+    borderColor: 'border-[#1F4FE0]',
+    badgeBg: 'bg-[#1F4FE0]/10',
+    badgeText: 'text-[#1F4FE0]',
     iconName: 'shopping-cart',
     techUsed: 'SAP Business One + B1UP Usability Package',
     verifiedKpis: [
@@ -179,10 +179,10 @@ export const MORE_CASE_STUDIES_DATA: CaseStudyItem[] = [
       'Used UiPath RPA to automate repetitive tasks, reduce manual effort and improve process efficiency.',
     image: '/images/case_studies/cs_automation.jpg',
     fallbackCrop: '/images/case_studies/cs_automation_crop.jpg',
-    accentColor: '#0066CC',
-    borderColor: 'border-[#0066CC]',
-    badgeBg: 'bg-[#0066CC]/10',
-    badgeText: 'text-[#0066CC]',
+    accentColor: '#1F4FE0',
+    borderColor: 'border-[#1F4FE0]',
+    badgeBg: 'bg-[#1F4FE0]/10',
+    badgeText: 'text-[#1F4FE0]',
     iconName: 'cpu',
     techUsed: 'UiPath Studio & Orchestrator + AI Document Understanding',
     verifiedKpis: [
@@ -206,7 +206,7 @@ export const OUR_APPROACH_DATA = {
     {
       stepNumber: '01',
       title: 'Understand Business Needs',
-      color: '#1B72E8',
+      color: '#1F4FE0',
       iconName: 'message-square' as const,
       summary: 'Discovery assessment to analyze operations and identify high-impact automation areas.'
     },
@@ -220,21 +220,21 @@ export const OUR_APPROACH_DATA = {
     {
       stepNumber: '03',
       title: 'Design Solution',
-      color: '#0066CC',
+      color: '#1F4FE0',
       iconName: 'lightbulb' as const,
       summary: 'Tailored architecture blueprint combining SAP B1, Boyum modules, and UiPath automations.'
     },
     {
       stepNumber: '04',
       title: 'Implement & Configure',
-      color: '#0878f9',
+      color: '#1F4FE0',
       iconName: 'settings' as const,
       summary: 'Fast-track deployment with verified templates, data validation, and hands-on user training.'
     },
     {
       stepNumber: '05',
       title: 'Support & Optimize',
-      color: '#0066CC',
+      color: '#1F4FE0',
       iconName: 'shield-check' as const,
       summary: 'Continuous monitoring, ongoing enhancement sprints, and dedicated consultative support.'
     }
