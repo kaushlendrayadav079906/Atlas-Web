@@ -91,7 +91,7 @@ export const IndividualCaseStudyPage: React.FC = () => {
       <div className="min-h-[60vh] flex flex-col items-center justify-center p-8 text-center">
         <h1 className="atlas-h1-size font-serif font-bold text-[#0A1B4F] mb-4">Case Study Not Found</h1>
         <p className="text-[#4A5876] mb-6">The requested customer success story could not be found.</p>
-        <Link to="/case-studies" className="inline-flex items-center gap-2 text-[#1F4FE0] font-semibold hover:underline">
+        <Link to="/case-studies" className="inline-flex items-center gap-2 text-[#E0A33B] font-semibold hover:underline">
           <ArrowLeft className="w-4 h-4" /> Back to All Case Studies
         </Link>
       </div>
@@ -112,9 +112,9 @@ export const IndividualCaseStudyPage: React.FC = () => {
           {/* Breadcrumb Navigation: Home -> Case Studies -> Current Case Study */}
           <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
             <nav className="flex items-center gap-2 text-xs sm:text-sm text-[#4A5876]">
-              <Link to="/" className="hover:text-[#1F4FE0] transition-colors">Home</Link>
+              <Link to="/" className="hover:text-[#E0A33B] transition-colors">Home</Link>
               <span>/</span>
-              <Link to="/case-studies" className="hover:text-[#1F4FE0] transition-colors">Case Studies</Link>
+              <Link to="/case-studies" className="hover:text-[#E0A33B] transition-colors">Case Studies</Link>
               <span>/</span>
               <span className="font-semibold text-[#0A1B4F] truncate max-w-[280px] sm:max-w-md">
                 {caseStudy.title}
@@ -123,7 +123,7 @@ export const IndividualCaseStudyPage: React.FC = () => {
 
             <Link
               to="/case-studies"
-              className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-[#1F4FE0] hover:underline"
+              className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-[#E0A33B] hover:underline"
             >
               <ArrowLeft className="w-3.5 h-3.5" />
               <span>Back to Case Studies</span>
@@ -136,15 +136,15 @@ export const IndividualCaseStudyPage: React.FC = () => {
             <div className="lg:col-span-7 space-y-5">
               
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50/80 border border-blue-200/60 shadow-xs">
-                {renderCategoryIcon(caseStudy.categoryIcon, "w-4 h-4 text-[#1F4FE0]")}
-                <span className="text-[12px] sm:text-[13px] font-bold uppercase tracking-wider text-[#1F4FE0]">
+                {renderCategoryIcon(caseStudy.categoryIcon, "w-4 h-4 text-[#E0A33B]")}
+                <span className="text-[12px] sm:text-[13px] font-bold uppercase tracking-wider text-[#E0A33B]">
                   {caseStudy.category} • CUSTOMER SUCCESS STORY
                 </span>
               </div>
 
               <h1 className="atlas-h1-size font-serif font-extrabold text-[#0A1B4F]">
                 {caseStudy.title}{' '}
-                <span className="bg-gradient-to-r from-[#1F4FE0] via-[#1F4FE0] to-[#1F4FE0] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">
+                <span className="bg-gradient-to-r from-[#E0A33B] via-[#E0A33B] to-[#E0A33B] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">
                   {caseStudy.titleHighlight}
                 </span>
               </h1>
@@ -183,7 +183,7 @@ export const IndividualCaseStudyPage: React.FC = () => {
                   onClick={() => setIsModalOpen(true)}
                   variant="gold"
                   size="lg"
-                  className="text-[15px] sm:text-[16px] font-semibold px-6 py-3.5 shadow-md shadow-blue-500/25 bg-gradient-to-r from-[#1F4FE0] to-[#1F4FE0] hover:from-[#1739B8] hover:to-[#1739B8] text-white"
+                  className="text-[15px] sm:text-[16px] font-semibold px-6 py-3.5 shadow-md shadow-blue-500/25 bg-gradient-to-r from-[#E0A33B] to-[#E0A33B] hover:from-[#1739B8] hover:to-[#1739B8] text-white"
                   icon={<ArrowRight className="w-4 h-4" />}
                 >
                   Book a Consultation
@@ -238,7 +238,7 @@ export const IndividualCaseStudyPage: React.FC = () => {
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
               {caseStudy.verifiedOutcomes.map((m, idx) => (
                 <div key={idx} className="bg-white p-4 sm:p-5 rounded-xl border border-slate-200/80 shadow-xs hover:border-blue-200 transition-colors">
-                  <div className="text-[28px] sm:text-[34px] font-black text-[#1F4FE0] tracking-tight leading-none mb-1.5">
+                  <div className="text-[28px] sm:text-[34px] font-black text-[#E0A33B] tracking-tight leading-none mb-1.5">
                     {m.metric}
                   </div>
                   <div className="text-[14px] sm:text-[15px] font-bold text-[#0A1B4F] leading-snug">
@@ -266,12 +266,12 @@ export const IndividualCaseStudyPage: React.FC = () => {
             {/* Left Column: Business Challenges */}
             <div className="lg:col-span-7 space-y-6">
               <div>
-                <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-[#1F4FE0] block mb-1">
+                <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-[#E0A33B] block mb-1">
                   OPERATIONAL BOTTLENECKS
                 </span>
                 <h2 className="atlas-h2-size font-serif font-extrabold text-[#0A1B4F]">
                   The Business{' '}
-                  <span className="bg-gradient-to-r from-[#1F4FE0] via-[#1F4FE0] to-[#1F4FE0] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">
+                  <span className="bg-gradient-to-r from-[#E0A33B] via-[#E0A33B] to-[#E0A33B] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">
                     Challenges
                   </span>
                 </h2>
@@ -286,7 +286,7 @@ export const IndividualCaseStudyPage: React.FC = () => {
                     key={idx}
                     className="p-5 rounded-2xl bg-white border border-slate-200/90 shadow-xs flex items-start gap-4 hover:border-blue-300 transition-colors"
                   >
-                    <div className="w-10 h-10 rounded-xl bg-blue-50 text-[#1F4FE0] border border-blue-200/80 flex items-center justify-center shrink-0 mt-0.5">
+                    <div className="w-10 h-10 rounded-xl bg-blue-50 text-[#E0A33B] border border-blue-200/80 flex items-center justify-center shrink-0 mt-0.5">
                       {renderChallengeIcon(ch.icon, "w-5 h-5")}
                     </div>
                     <div>
@@ -305,12 +305,12 @@ export const IndividualCaseStudyPage: React.FC = () => {
             {/* Right Column: Technology Stack Deployed */}
             <div className="lg:col-span-5 space-y-6">
               <div>
-                <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-[#1F4FE0] block mb-1">
+                <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-[#E0A33B] block mb-1">
                   SOLUTION ARCHITECTURE
                 </span>
                 <h2 className="atlas-h2-size font-serif font-extrabold text-[#0A1B4F]">
                   Technology{' '}
-                  <span className="bg-gradient-to-r from-[#1F4FE0] via-[#1F4FE0] to-[#1F4FE0] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">
+                  <span className="bg-gradient-to-r from-[#E0A33B] via-[#E0A33B] to-[#E0A33B] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">
                     Stack
                   </span>
                 </h2>
@@ -329,7 +329,7 @@ export const IndividualCaseStudyPage: React.FC = () => {
                       <div className="text-base font-bold text-[#0A1B4F]">{tech.name}</div>
                       <div className="text-xs text-[#4A5876]">{tech.role}</div>
                     </div>
-                    <span className="text-xs font-bold text-[#1F4FE0] bg-blue-50 px-2.5 py-1 rounded-md border border-blue-100">
+                    <span className="text-xs font-bold text-[#E0A33B] bg-blue-50 px-2.5 py-1 rounded-md border border-blue-100">
                       {tech.tag}
                     </span>
                   </div>
@@ -376,7 +376,7 @@ export const IndividualCaseStudyPage: React.FC = () => {
 
             {/* Right Narrative */}
             <div className="lg:col-span-7 order-1 lg:order-2 space-y-4">
-              <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-[#1F4FE0] block">
+              <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-[#E0A33B] block">
                 ATLAS SOLUTION & IMPLEMENTATION
               </span>
               <h2 className="atlas-h2-size font-serif font-extrabold text-[#0A1B4F]">
@@ -396,7 +396,7 @@ export const IndividualCaseStudyPage: React.FC = () => {
                 key={idx}
                 className="p-6 rounded-2xl bg-white border border-slate-200/90 shadow-xs hover:border-[#1F4FE0] hover:shadow-md transition-all"
               >
-                <div className="w-8 h-8 rounded-lg bg-blue-50 text-[#1F4FE0] flex items-center justify-center font-bold text-sm mb-4">
+                <div className="w-8 h-8 rounded-lg bg-blue-50 text-[#E0A33B] flex items-center justify-center font-bold text-sm mb-4">
                   0{idx + 1}
                 </div>
                 <h3 className="text-[17px] font-bold text-[#0A1B4F] mb-2 leading-snug">
@@ -419,12 +419,12 @@ export const IndividualCaseStudyPage: React.FC = () => {
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="text-center max-w-3xl mx-auto mb-10 space-y-3">
-            <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-[#1F4FE0]">
+            <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-[#E0A33B]">
               SYSTEM CAPABILITIES
             </span>
             <h2 className="atlas-h2-size font-serif font-extrabold text-[#0A1B4F]">
               Key Features &{' '}
-              <span className="bg-gradient-to-r from-[#1F4FE0] via-[#1F4FE0] to-[#1F4FE0] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">
+              <span className="bg-gradient-to-r from-[#E0A33B] via-[#E0A33B] to-[#E0A33B] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">
                 Capabilities Deployed
               </span>
             </h2>
@@ -457,19 +457,19 @@ export const IndividualCaseStudyPage: React.FC = () => {
           
           <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4 mb-8">
             <div>
-              <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-[#1F4FE0] block mb-1">
+              <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-[#E0A33B] block mb-1">
                 COMPLEMENTARY EXPERTISE
               </span>
               <h2 className="font-serif text-[26px] sm:text-[32px] font-bold text-[#0A1B4F]">
                 Related Services &{' '}
-                <span className="bg-gradient-to-r from-[#1F4FE0] via-[#1F4FE0] to-[#1F4FE0] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">
+                <span className="bg-gradient-to-r from-[#E0A33B] via-[#E0A33B] to-[#E0A33B] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">
                   Solutions
                 </span>
               </h2>
             </div>
             <Link
               to="/case-studies"
-              className="inline-flex items-center gap-1.5 text-sm font-bold text-[#1F4FE0] hover:underline"
+              className="inline-flex items-center gap-1.5 text-sm font-bold text-[#E0A33B] hover:underline"
             >
               <span>View All Case Studies</span>
               <ArrowRight className="w-4 h-4" />
@@ -484,19 +484,19 @@ export const IndividualCaseStudyPage: React.FC = () => {
                 className="group p-6 rounded-xl bg-white border border-slate-200/90 shadow-xs hover:border-[#1F4FE0] hover:shadow-md transition-all flex flex-col justify-between"
               >
                 <div>
-                  <span className="text-xs font-bold text-[#1F4FE0] bg-blue-50 px-2.5 py-1 rounded-md mb-3 inline-block">
+                  <span className="text-xs font-bold text-[#E0A33B] bg-blue-50 px-2.5 py-1 rounded-md mb-3 inline-block">
                     {rel.tag}
                   </span>
-                  <h3 className="text-[18px] font-bold text-[#0A1B4F] group-hover:text-[#1F4FE0] transition-colors mb-2">
+                  <h3 className="text-[18px] font-bold text-[#0A1B4F] group-hover:text-[#E0A33B] transition-colors mb-2">
                     {rel.title}
                   </h3>
                   <p className="text-[13px] sm:text-[14px] text-[#4A5876] leading-relaxed">
                     {rel.description}
                   </p>
                 </div>
-                <div className="pt-4 border-t border-slate-100 mt-4 flex items-center justify-between text-xs font-bold text-[#0A1B4F] group-hover:text-[#1F4FE0]">
+                <div className="pt-4 border-t border-slate-100 mt-4 flex items-center justify-between text-xs font-bold text-[#0A1B4F] group-hover:text-[#E0A33B]">
                   <span>Explore Solution</span>
-                  <ArrowRight className="w-4 h-4 text-[#1F4FE0] group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="w-4 h-4 text-[#E0A33B] group-hover:translate-x-1 transition-transform" />
                 </div>
               </Link>
             ))}
@@ -516,12 +516,12 @@ export const IndividualCaseStudyPage: React.FC = () => {
               
               {/* Left Column: Heading & CTA */}
               <div className="lg:col-span-6 space-y-4 text-left">
-                <span className="text-[12px] font-bold uppercase tracking-wider text-[#1F4FE0] block">
+                <span className="text-[12px] font-bold uppercase tracking-wider text-[#E0A33B] block">
                   READY FOR SIMILAR MEASURABLE RESULTS?
                 </span>
                 <h2 className="atlas-h2-size font-serif font-extrabold text-[#0A1B4F]">
                   Achieve Similar Outcomes for{' '}
-                  <span className="bg-gradient-to-r from-[#1F4FE0] via-[#1F4FE0] to-[#1F4FE0] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">
+                  <span className="bg-gradient-to-r from-[#E0A33B] via-[#E0A33B] to-[#E0A33B] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">
                     Your Business
                   </span>
                 </h2>
@@ -534,7 +534,7 @@ export const IndividualCaseStudyPage: React.FC = () => {
                     onClick={() => setIsModalOpen(true)}
                     variant="gold"
                     size="lg"
-                    className="text-[15px] sm:text-[16px] font-semibold px-7 py-3.5 bg-gradient-to-r from-[#1F4FE0] to-[#1F4FE0] hover:from-[#1739B8] hover:to-[#1739B8] text-white shadow-md shadow-blue-500/25"
+                    className="text-[15px] sm:text-[16px] font-semibold px-7 py-3.5 bg-atlas-gold hover:bg-[#D4972F] !text-atlas-navy font-bold shadow-[0_4px_14px_rgba(224,163,59,0.35)]"
                     icon={<ArrowRight className="w-4 h-4" />}
                   >
                     Book a Consultation

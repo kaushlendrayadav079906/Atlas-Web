@@ -31,7 +31,7 @@ export const BlogDetailPage: React.FC = () => {
     return (
       <div className="min-h-[60vh] flex items-center justify-center py-20 px-4 bg-white text-center">
         <div className="max-w-md mx-auto space-y-4">
-          <div className="w-16 h-16 rounded-2xl bg-blue-100 text-[#1F4FE0] flex items-center justify-center mx-auto">
+          <div className="w-16 h-16 rounded-2xl bg-blue-100 text-[#E0A33B] flex items-center justify-center mx-auto">
             <BookOpen className="w-8 h-8" />
           </div>
           <h1 className="atlas-h1-size font-serif font-bold text-[#0A1B4F]">
@@ -43,7 +43,7 @@ export const BlogDetailPage: React.FC = () => {
           <div className="pt-2">
             <Link
               to="/blog"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#1F4FE0] hover:bg-[#1739B8] text-white text-sm font-semibold transition-colors"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-atlas-gold hover:bg-[#D4972F] !text-atlas-navy font-bold shadow-[0_4px_14px_rgba(224,163,59,0.35)] text-sm font-semibold transition-colors"
             >
               <ArrowLeft className="w-4 h-4" />
               <span>Back to Blog & Insights</span>

@@ -138,31 +138,33 @@ export const SiteHeader: React.FC = () => {
       <header
         className={`sticky top-0 z-40 w-full transition-all duration-200 ${
           isScrolled
-            ? 'bg-white/90 backdrop-blur-md border-b border-atlas-line shadow-[0_8px_24px_-16px_rgba(10,27,79,0.25)]'
+            ? 'bg-white/95 backdrop-blur-md border-b border-atlas-line shadow-[0_8px_24px_-16px_rgba(10,27,79,0.25)]'
             : 'bg-white border-b border-atlas-line'
         }`}
       >
         <div className="w-full max-w-[1720px] 2xl:max-w-[1840px] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12">
-          <div className="flex items-center justify-between h-[84px] w-full">
+          <div className="flex items-center justify-between h-[90px] lg:h-[96px] w-full">
             
             {/* Left Side: Brand Logo & Company Name */}
             <Link
               to="/"
-              className="flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded-lg p-1 shrink-0"
+              className="flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-atlas-gold rounded-lg p-1 shrink-0"
               onClick={() => setActiveDropdown(null)}
+              aria-label="ATLAS Technosoft Home"
             >
-              <div className="relative h-12 w-14 shrink-0 flex items-center justify-center">
+              {/* Increased Company Logo Size (+25-30%) with Preserved Aspect Ratio */}
+              <div className="relative h-[60px] w-[70px] sm:h-[64px] sm:w-[74px] shrink-0 flex items-center justify-center">
                 <img
                   src="/images/logo.png"
                   alt="ATLAS Technosoft Logo"
-                  className="w-full h-full object-contain"
+                  className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
                 />
               </div>
               <div className="flex flex-col leading-none select-none">
-                <span className="text-[22px] sm:text-[24px] font-extrabold tracking-[-0.02em] text-atlas-navy group-hover:text-atlas-royal transition-colors">
+                <span className="text-[22px] sm:text-[24px] font-extrabold tracking-[-0.02em] text-atlas-navy group-hover:text-atlas-goldDeep transition-colors">
                   ATLAS
                 </span>
-                <span className="text-[11px] sm:text-[12px] font-semibold text-atlas-body uppercase tracking-[0.12em] mt-1">
+                <span className="text-[11px] sm:text-[12px] font-bold text-atlas-body uppercase tracking-[0.12em] mt-1">
                   Technosoft
                 </span>
               </div>
@@ -170,9 +172,7 @@ export const SiteHeader: React.FC = () => {
 
             {/* Right Side: Desktop Navigation Links + Book a Consultation CTA Button */}
             <div className="hidden xl:flex items-center self-stretch gap-1 2xl:gap-3 ml-auto">
-              {/* Desktop Navigation Links with Mega Menu Dropdowns.
-                  Nav and items stretch to the full header height (and are not positioned),
-                  so each mega menu anchors to the sticky header and spans its full width. */}
+              {/* Desktop Navigation Links with Mega Menu Dropdowns (Font size: 16-17px) */}
               <nav
                 className="flex items-stretch self-stretch gap-0.5 2xl:gap-1"
                 aria-label="Main Navigation"
@@ -196,18 +196,18 @@ export const SiteHeader: React.FC = () => {
                               setActiveSection(item.name);
                               setActiveDropdown(null);
                             }}
-                            className={`group flex items-center gap-1 text-[13.5px] 2xl:text-[14.5px] font-semibold px-2 2xl:px-3 py-2 rounded-full transition-colors whitespace-nowrap relative focus:outline-none focus-visible:ring-2 focus-visible:ring-atlas-royal ${
+                            className={`group flex items-center gap-1.5 text-[16px] 2xl:text-[17px] font-semibold px-2.5 2xl:px-3.5 py-2.5 rounded-full transition-colors whitespace-nowrap relative focus:outline-none focus-visible:ring-2 focus-visible:ring-atlas-gold ${
                               isActive
-                                ? 'text-atlas-royal bg-atlas-royalTint'
+                                ? 'text-atlas-navy bg-atlas-gold font-bold shadow-xs'
                                 : isDropdownOpen
-                                ? 'text-atlas-royal bg-atlas-royalTint'
-                                : 'text-atlas-navy hover:text-atlas-royal hover:bg-atlas-mist'
+                                ? 'text-atlas-goldDeep bg-atlas-goldTint'
+                                : 'text-atlas-navy hover:text-atlas-goldDeep hover:bg-atlas-mist'
                             }`}
                           >
                             <span>{item.name}</span>
                             <ChevronDown
-                              className={`w-3.5 h-3.5 transition-transform duration-200 ${
-                                isDropdownOpen ? 'rotate-180 text-[#1F4FE0]' : 'text-slate-500 group-hover:text-[#1F4FE0]'
+                              className={`w-4 h-4 transition-transform duration-200 ${
+                                isDropdownOpen ? 'rotate-180 text-atlas-goldDeep' : 'text-slate-500 group-hover:text-atlas-goldDeep'
                               }`}
                             />
                           </Link>
@@ -231,10 +231,10 @@ export const SiteHeader: React.FC = () => {
                             setActiveSection(item.name);
                             setActiveDropdown(null);
                           }}
-                          className={`block text-[13.5px] 2xl:text-[14.5px] font-semibold px-2 2xl:px-3 py-2 rounded-full transition-colors whitespace-nowrap relative focus:outline-none focus-visible:ring-2 focus-visible:ring-atlas-royal ${
+                          className={`block text-[16px] 2xl:text-[17px] font-semibold px-2.5 2xl:px-3.5 py-2.5 rounded-full transition-colors whitespace-nowrap relative focus:outline-none focus-visible:ring-2 focus-visible:ring-atlas-gold ${
                             isActive
-                              ? 'text-atlas-royal bg-atlas-royalTint'
-                              : 'text-atlas-navy hover:text-atlas-royal hover:bg-atlas-mist'
+                              ? 'text-atlas-navy bg-atlas-gold font-bold shadow-xs'
+                              : 'text-atlas-navy hover:text-atlas-goldDeep hover:bg-atlas-mist'
                           }`}
                         >
                           <span>{item.name}</span>
@@ -251,18 +251,18 @@ export const SiteHeader: React.FC = () => {
                   type="button"
                   onClick={() => setIsCallbackModalOpen(true)}
                   aria-label="Request a callback"
-                  className="hidden min-[1720px]:inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full text-[14px] font-bold text-atlas-navy bg-white border-[1.5px] border-atlas-lineStrong hover:border-atlas-navy transition-all duration-200 cursor-pointer active:scale-[0.98] group mr-2 shrink-0"
+                  className="hidden min-[1720px]:inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full text-[15px] sm:text-[16px] font-bold text-atlas-navy bg-white border-[1.5px] border-atlas-lineStrong hover:border-atlas-navy transition-all duration-200 cursor-pointer active:scale-[0.98] group mr-2 shrink-0"
                   title="Schedule a direct phone callback with our consultants"
                 >
-                  <PhoneCall className="w-4 h-4 text-atlas-royal" />
+                  <PhoneCall className="w-4 h-4 text-atlas-goldDeep" />
                   <span>Request Callback</span>
                 </button>
                 <Button
                   href={location.pathname === '/contact' ? '#contact-form' : '/contact'}
                   variant="gold"
                   size="md"
-                  className="text-[14px] 2xl:text-[14.5px] px-4 2xl:px-5 py-2.5 whitespace-nowrap shrink-0"
-                  icon={<ArrowRight className="w-4 h-4" />}
+                  className="!text-[15px] 2xl:!text-[16px] font-bold px-5 py-2.5 whitespace-nowrap shrink-0 !bg-atlas-gold hover:!bg-[#D4972F] !text-atlas-navy shadow-[0_4px_14px_rgba(224,163,59,0.35)]"
+                  icon={<ArrowRight className="w-4 h-4 text-atlas-navy" />}
                 >
                   Book a Consultation
                 </Button>
@@ -296,10 +296,10 @@ export const SiteHeader: React.FC = () => {
               className="flex items-center gap-3"
               onClick={() => setIsMobileMenuOpen(false)}
             >
-              <div className="w-12 h-10 shrink-0 flex items-center justify-center">
+              <div className="w-14 h-12 sm:w-16 sm:h-14 shrink-0 flex items-center justify-center">
                 <img
                   src="/images/logo.png"
-                  alt="ATLAS Logo"
+                  alt="ATLAS Technosoft Logo"
                   className="w-full h-full object-contain"
                 />
               </div>
@@ -341,8 +341,8 @@ export const SiteHeader: React.FC = () => {
                           }}
                           className={`text-[17px] font-medium transition-colors ${
                             isActive
-                              ? 'text-[#1F4FE0] font-semibold'
-                              : 'text-[#0A1B4F] hover:text-[#1F4FE0]'
+                              ? 'text-atlas-goldDeep font-semibold'
+                              : 'text-[#0A1B4F] hover:text-atlas-goldDeep'
                           }`}
                         >
                           <span>{item.name}</span>
@@ -350,12 +350,12 @@ export const SiteHeader: React.FC = () => {
                         <button
                           type="button"
                           onClick={() => toggleMobileAccordion(item.name)}
-                          className="p-1.5 rounded-lg text-slate-500 hover:text-[#1F4FE0] hover:bg-slate-100 transition-colors"
+                          className="p-1.5 rounded-lg text-slate-500 hover:text-atlas-goldDeep hover:bg-slate-100 transition-colors"
                           aria-expanded={isExpanded}
                           aria-label={`Toggle ${item.name} subcategories`}
                         >
                           {isExpanded ? (
-                            <ChevronUp className="w-5 h-5 text-[#1F4FE0]" />
+                            <ChevronUp className="w-5 h-5 text-atlas-goldDeep" />
                           ) : (
                             <ChevronDown className="w-5 h-5 text-slate-500" />
                           )}
@@ -373,21 +373,21 @@ export const SiteHeader: React.FC = () => {
                                 <Link
                                   to={cat.href}
                                   onClick={() => setIsMobileMenuOpen(false)}
-                                  className="flex items-center gap-2 text-[14px] font-bold text-[#0A1B4F] hover:text-[#1F4FE0]"
+                                  className="flex items-center gap-2 text-[14px] font-bold text-[#0A1B4F] hover:text-atlas-goldDeep"
                                 >
-                                  <IconComponent className="w-4 h-4 text-[#1F4FE0]" />
+                                  <IconComponent className="w-4 h-4 text-atlas-goldDeep" />
                                   <span>{cat.name}</span>
                                   <ChevronRight className="w-3.5 h-3.5 text-slate-500 ml-auto" />
                                 </Link>
 
                                 {/* Category Sub-items */}
-                                <div className="pl-6 space-y-1 border-l-2 border-blue-200/60 ml-2">
+                                <div className="pl-6 space-y-1 border-l-2 border-amber-200/60 ml-2">
                                   {cat.subItems.map((sub, sIdx) => (
                                     <Link
                                       key={sIdx}
                                       to={sub.href}
                                       onClick={() => setIsMobileMenuOpen(false)}
-                                      className="block py-1 text-[13px] text-slate-600 hover:text-[#1F4FE0]"
+                                      className="block py-1 text-[13px] text-slate-600 hover:text-atlas-goldDeep"
                                     >
                                       {sub.name}
                                     </Link>
@@ -413,8 +413,8 @@ export const SiteHeader: React.FC = () => {
                     }}
                     className={`flex items-center justify-between py-3 text-[17px] border-b border-slate-100 transition-colors ${
                       isActive
-                        ? 'text-[#1F4FE0] font-semibold'
-                        : 'text-[#0A1B4F] font-medium hover:text-[#1F4FE0]'
+                        ? 'text-atlas-goldDeep font-semibold'
+                        : 'text-[#0A1B4F] font-medium hover:text-atlas-goldDeep'
                     }`}
                   >
                     <span>{item.name}</span>
@@ -437,18 +437,18 @@ export const SiteHeader: React.FC = () => {
                     href={TOP_BAR_INFO.phoneTel}
                     className="flex items-center gap-2 text-[#0A1B4F] font-medium"
                   >
-                    <Phone className="w-3.5 h-3.5 text-blue-600" />
+                    <Phone className="w-3.5 h-3.5 text-atlas-goldDeep" />
                     <span>{TOP_BAR_INFO.phone}</span>
                   </a>
                   <a
                     href={TOP_BAR_INFO.emailMailto}
                     className="flex items-center gap-2 text-[#0A1B4F] font-medium"
                   >
-                    <Mail className="w-3.5 h-3.5 text-blue-600" />
+                    <Mail className="w-3.5 h-3.5 text-atlas-goldDeep" />
                     <span>{TOP_BAR_INFO.email}</span>
                   </a>
                   <div className="flex items-center gap-2 text-slate-500 text-xs">
-                    <MapPin className="w-3.5 h-3.5 text-blue-600" />
+                    <MapPin className="w-3.5 h-3.5 text-atlas-goldDeep" />
                     <span>{TOP_BAR_INFO.location}</span>
                   </div>
                 </div>
@@ -462,7 +462,7 @@ export const SiteHeader: React.FC = () => {
                 }}
                 className="w-full inline-flex items-center justify-center gap-2.5 py-3.5 rounded-full text-atlas-navy font-bold text-[15px] bg-white border-[1.5px] border-atlas-navy hover:bg-atlas-mist transition-all cursor-pointer mb-2.5"
               >
-                <PhoneCall className="w-4 h-4 text-atlas-royal" />
+                <PhoneCall className="w-4 h-4 text-atlas-goldDeep" />
                 <span>Request a Callback</span>
               </button>
 

@@ -52,7 +52,7 @@ export const ServicesPage: React.FC = () => {
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           
           <nav className="flex items-center gap-2 text-xs sm:text-sm text-[#4A5876] mb-6">
-            <Link to="/" className="hover:text-[#1F4FE0] transition-colors">Home</Link>
+            <Link to="/" className="hover:text-[#E0A33B] transition-colors">Home</Link>
             <span>/</span>
             <span className="font-semibold text-[#0A1B4F]">Services</span>
           </nav>
@@ -61,15 +61,15 @@ export const ServicesPage: React.FC = () => {
             
             <div className="lg:col-span-7 space-y-5">
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50/80 border border-blue-200/60">
-                <Sparkles className="w-4 h-4 text-[#1F4FE0]" />
-                <span className="text-[12px] sm:text-[13px] font-bold uppercase tracking-wider text-[#1F4FE0]">
+                <Sparkles className="w-4 h-4 text-[#E0A33B]" />
+                <span className="text-[12px] sm:text-[13px] font-bold uppercase tracking-wider text-[#E0A33B]">
                   OUR SERVICES & EXPERTISE
                 </span>
               </div>
 
               <h1 className="atlas-h1-size font-serif font-extrabold text-[#0A1B4F]">
                 Enterprise Services Where SAP Meets{' '}
-                <span className="bg-gradient-to-r from-[#1F4FE0] via-[#1F4FE0] to-[#1F4FE0] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">
+                <span className="bg-gradient-to-r from-[#E0A33B] via-[#E0A33B] to-[#E0A33B] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">
                   Intelligent Automation
                 </span>
               </h1>
@@ -83,7 +83,7 @@ export const ServicesPage: React.FC = () => {
                   onClick={() => setIsModalOpen(true)}
                   variant="gold"
                   size="lg"
-                  className="text-[15px] sm:text-[16px] font-semibold px-7 py-3.5 shadow-md shadow-blue-500/25 bg-gradient-to-r from-[#1F4FE0] to-[#1F4FE0] hover:from-[#1739B8] hover:to-[#1739B8] text-white"
+                  className="text-[15px] sm:text-[16px] font-semibold px-7 py-3.5 shadow-md shadow-blue-500/25 bg-gradient-to-r from-[#E0A33B] to-[#E0A33B] hover:from-[#1739B8] hover:to-[#1739B8] text-white"
                   icon={<ArrowRight className="w-4 h-4" />}
                 >
                   Book a Consultation
@@ -120,7 +120,7 @@ export const ServicesPage: React.FC = () => {
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
               {TRUST_METRICS.map((m) => (
                 <div key={m.id} className="bg-white p-4 sm:p-5 rounded-xl border border-slate-200/80 shadow-xs">
-                  <div className="text-[28px] sm:text-[34px] font-black text-[#1F4FE0] tracking-tight leading-none mb-1.5">
+                  <div className="text-[28px] sm:text-[34px] font-black text-[#E0A33B] tracking-tight leading-none mb-1.5">
                     <AnimatedCounter value={m.value} />
                   </div>
                   <div className="text-[14px] sm:text-[15px] font-bold text-[#0A1B4F] leading-snug">
@@ -213,11 +213,11 @@ export const ServicesPage: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             
             <div className="lg:col-span-6 space-y-4">
-              <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-[#1F4FE0] block">
+              <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-[#E0A33B] block">
                 INTEGRATED ECOSYSTEM
               </span>
               <h2 className="atlas-h2-size font-serif font-extrabold text-[#0A1B4F]">
-                Bridging ERP and <span className="bg-gradient-to-r from-[#1F4FE0] via-[#1F4FE0] to-[#1F4FE0] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">Intelligent Automation</span>
+                Bridging ERP and <span className="bg-gradient-to-r from-[#E0A33B] via-[#E0A33B] to-[#E0A33B] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">Intelligent Automation</span>
               </h2>
               <p className="text-[16px] sm:text-[17px] text-[#4A5876] leading-relaxed">
                 We combine deep expertise in SAP Business One, business process optimization, manufacturing and warehouse solutions, and intelligent automation to deliver real business value.
@@ -266,12 +266,12 @@ export const ServicesPage: React.FC = () => {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
               
               <div className="lg:col-span-6 space-y-4 text-left">
-                <span className="text-[12px] font-bold uppercase tracking-wider text-[#1F4FE0] block">
+                <span className="text-[12px] font-bold uppercase tracking-wider text-[#E0A33B] block">
                   LET'S WORK TOGETHER
                 </span>
                 <h2 className="atlas-h2-size font-serif font-extrabold text-[#0A1B4F]">
                   Ready to Transform{' '}
-                  <span className="bg-gradient-to-r from-[#1F4FE0] via-[#1F4FE0] to-[#1F4FE0] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">
+                  <span className="bg-gradient-to-r from-[#E0A33B] via-[#E0A33B] to-[#E0A33B] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">
                     Your Business?
                   </span>
                 </h2>
@@ -284,7 +284,7 @@ export const ServicesPage: React.FC = () => {
                     onClick={() => setIsModalOpen(true)}
                     variant="gold"
                     size="lg"
-                    className="text-[15px] sm:text-[16px] font-semibold px-7 py-3.5 bg-gradient-to-r from-[#1F4FE0] to-[#1F4FE0] hover:from-[#1739B8] hover:to-[#1739B8] text-white shadow-md shadow-blue-500/25"
+                    className="text-[15px] sm:text-[16px] font-semibold px-7 py-3.5 bg-atlas-gold hover:bg-[#D4972F] !text-atlas-navy font-bold shadow-[0_4px_14px_rgba(224,163,59,0.35)]"
                     icon={<ArrowRight className="w-4 h-4" />}
                   >
                     Book a Consultation
@@ -305,26 +305,26 @@ export const ServicesPage: React.FC = () => {
                   </div>
                   <div>
                     <div className="text-xs font-bold text-[#4A5876] uppercase tracking-wider">Direct Email</div>
-                    <a href={`mailto:${BRAND_INFO.contact.email}`} className="text-sm sm:text-base font-bold text-[#0A1B4F] hover:text-[#1F4FE0]">
+                    <a href={`mailto:${BRAND_INFO.contact.email}`} className="text-sm sm:text-base font-bold text-[#0A1B4F] hover:text-[#E0A33B]">
                       {BRAND_INFO.contact.email}
                     </a>
                   </div>
                 </div>
 
                 <div className="p-4 rounded-xl bg-white border border-slate-200/90 shadow-xs flex items-center gap-4">
-                  <div className="w-10 h-10 rounded-lg bg-blue-50 text-[#1F4FE0] flex items-center justify-center shrink-0">
+                  <div className="w-10 h-10 rounded-lg bg-blue-50 text-[#E0A33B] flex items-center justify-center shrink-0">
                     <Phone className="w-5 h-5" />
                   </div>
                   <div>
                     <div className="text-xs font-bold text-[#4A5876] uppercase tracking-wider">Direct Phone & WhatsApp</div>
-                    <a href={BRAND_INFO.contact.whatsappLink} target="_blank" rel="noopener noreferrer" className="text-sm sm:text-base font-bold text-[#0A1B4F] hover:text-[#1F4FE0]">
+                    <a href={BRAND_INFO.contact.whatsappLink} target="_blank" rel="noopener noreferrer" className="text-sm sm:text-base font-bold text-[#0A1B4F] hover:text-[#E0A33B]">
                       {BRAND_INFO.contact.phoneDisplay}
                     </a>
                   </div>
                 </div>
 
                 <div className="p-4 rounded-xl bg-white border border-slate-200/90 shadow-xs flex items-center gap-4">
-                  <div className="w-10 h-10 rounded-lg bg-blue-50 text-[#1F4FE0] flex items-center justify-center shrink-0">
+                  <div className="w-10 h-10 rounded-lg bg-blue-50 text-[#E0A33B] flex items-center justify-center shrink-0">
                     <MapPin className="w-5 h-5" />
                   </div>
                   <div>

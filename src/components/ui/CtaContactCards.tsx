@@ -17,7 +17,7 @@ export const CtaContactCards: React.FC = () => {
           </div>
           <a
             href={`mailto:${BRAND_INFO.contact.email}`}
-            className="text-[14px] sm:text-[15.5px] font-bold text-[#0A1B4F] hover:text-[#1F4FE0] transition-colors truncate block"
+            className="text-[14px] sm:text-[15.5px] font-bold text-[#0A1B4F] hover:text-[#E0A33B] transition-colors truncate block"
           >
             {BRAND_INFO.contact.email}
           </a>
@@ -26,7 +26,7 @@ export const CtaContactCards: React.FC = () => {
 
       {/* Direct Phone & WhatsApp */}
       <div className="p-4 sm:p-4.5 rounded-xl bg-white border border-slate-200/90 shadow-sm hover:shadow-md transition-all flex items-center gap-4 text-left">
-        <div className="w-11 h-11 rounded-xl bg-blue-50 text-[#1F4FE0] border border-blue-100 flex items-center justify-center shrink-0">
+        <div className="w-11 h-11 rounded-xl bg-blue-50 text-[#E0A33B] border border-blue-100 flex items-center justify-center shrink-0">
           <Phone className="w-5 h-5" />
         </div>
         <div className="min-w-0">
@@ -37,7 +37,7 @@ export const CtaContactCards: React.FC = () => {
             href={BRAND_INFO.contact.whatsappLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[14px] sm:text-[15.5px] font-bold text-[#0A1B4F] hover:text-[#1F4FE0] transition-colors truncate block"
+            className="text-[14px] sm:text-[15.5px] font-bold text-[#0A1B4F] hover:text-[#E0A33B] transition-colors truncate block"
           >
             +91-9372329599 (WhatsApp Enabled)
           </a>
@@ -46,7 +46,7 @@ export const CtaContactCards: React.FC = () => {
 
       {/* Mumbai Offices */}
       <div className="p-4 sm:p-4.5 rounded-xl bg-white border border-slate-200/90 shadow-sm hover:shadow-md transition-all flex items-center gap-4 text-left">
-        <div className="w-11 h-11 rounded-xl bg-blue-50 text-[#1F4FE0] border border-blue-100 flex items-center justify-center shrink-0">
+        <div className="w-11 h-11 rounded-xl bg-blue-50 text-[#E0A33B] border border-blue-100 flex items-center justify-center shrink-0">
           <MapPin className="w-5 h-5" />
         </div>
         <div className="min-w-0">
@@ -55,7 +55,7 @@ export const CtaContactCards: React.FC = () => {
           </div>
           <Link
             to="/contact#locations"
-            className="text-[14px] sm:text-[15.5px] font-bold text-[#0A1B4F] hover:text-[#1F4FE0] transition-colors block"
+            className="text-[14px] sm:text-[15.5px] font-bold text-[#0A1B4F] hover:text-[#E0A33B] transition-colors block"
           >
             Borivali West & Marine Lines, Mumbai, India
           </Link>

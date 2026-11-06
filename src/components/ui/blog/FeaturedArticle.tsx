@@ -33,21 +33,21 @@ export const FeaturedArticle: React.FC<FeaturedArticleProps> = ({ article }) => 
           <div>
             {/* Category & Metadata */}
             <div className="flex flex-wrap items-center gap-3 text-xs font-semibold text-slate-500 mb-3.5">
-              <span className="px-2.5 py-1 rounded-md bg-blue-50 text-[#1F4FE0] border border-blue-100">
+              <span className="px-2.5 py-1 rounded-md bg-blue-50 text-[#E0A33B] border border-blue-100">
                 {article.category}
               </span>
               <span className="inline-flex items-center gap-1">
-                <Calendar className="w-3.5 h-3.5 text-blue-600" />
+                <Calendar className="w-3.5 h-3.5 text-[#E0A33B]" />
                 <span>{article.publishDate}</span>
               </span>
               <span className="inline-flex items-center gap-1">
-                <Clock className="w-3.5 h-3.5 text-blue-600" />
+                <Clock className="w-3.5 h-3.5 text-[#E0A33B]" />
                 <span>{article.readTime}</span>
               </span>
             </div>
 
             {/* Title */}
-            <h2 className="font-serif text-[24px] sm:text-[28px] lg:text-[30px] font-bold text-[#0A1B4F] group-hover:text-[#1F4FE0] transition-colors leading-tight mb-4">
+            <h2 className="font-serif text-[24px] sm:text-[28px] lg:text-[30px] font-bold text-[#0A1B4F] group-hover:text-[#E0A33B] transition-colors leading-tight mb-4">
               <Link to={`/blog/${article.slug}`}>
                 {article.title}
               </Link>

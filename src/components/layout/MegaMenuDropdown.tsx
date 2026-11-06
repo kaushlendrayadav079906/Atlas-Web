@@ -125,14 +125,14 @@ export const MegaMenuDropdown: React.FC<MegaMenuDropdownProps> = ({
                     onMouseEnter={() => setActiveCategoryId(cat.id)}
                     onFocus={() => setActiveCategoryId(cat.id)}
                     onClick={() => setActiveCategoryId(cat.id)}
-                    className={`relative px-2 pb-3.5 pt-1 text-[13.5px] leading-snug text-center transition-colors ${
-                      isSelected ? 'text-atlas-royal font-bold' : 'text-atlas-navy font-semibold hover:text-atlas-royal'
+                    className={`relative px-2 pb-3.5 pt-1 text-[15px] sm:text-[16px] leading-snug text-center transition-colors ${
+                      isSelected ? 'text-atlas-navy font-bold' : 'text-slate-600 font-semibold hover:text-atlas-navy'
                     }`}
                   >
                     {cat.name}
                     <span
-                      className={`absolute left-2 right-2 -bottom-px h-[2px] rounded-full transition-colors ${
-                        isSelected ? 'bg-atlas-royal' : 'bg-transparent'
+                      className={`absolute left-2 right-2 -bottom-px h-[2.5px] rounded-full transition-colors ${
+                        isSelected ? 'bg-atlas-gold' : 'bg-transparent'
                       }`}
                     />
                   </button>
@@ -145,14 +145,14 @@ export const MegaMenuDropdown: React.FC<MegaMenuDropdownProps> = ({
               <Link
                 to={activeCategory.href}
                 onClick={onClose}
-                className="text-[20px] font-extrabold text-atlas-navy hover:text-atlas-royal transition-colors"
+                className="text-[22px] sm:text-[24px] font-extrabold text-atlas-navy hover:text-atlas-goldDeep transition-colors"
               >
                 {activeCategory.name}
               </Link>
-              <p className="mt-1 text-[14px] text-atlas-body line-clamp-1">{activeCategory.description}</p>
+              <p className="mt-1 text-[14.5px] sm:text-[15px] text-atlas-body line-clamp-1">{activeCategory.description}</p>
             </div>
 
-            {/* Items: title + one-line summary + link */}
+            {/* Items: title (16-17px) + one-line summary (14-15px) + link */}
             <div className="grid grid-cols-2 border-t border-l border-atlas-line rounded-2xl overflow-hidden">
               {activeCategory.subItems.map((sub) => (
                 <Link
@@ -162,15 +162,15 @@ export const MegaMenuDropdown: React.FC<MegaMenuDropdownProps> = ({
                   className="group flex items-start justify-between gap-4 px-5 py-4 border-b border-r border-atlas-line hover:bg-atlas-mist transition-colors"
                 >
                   <span className="min-w-0">
-                    <span className="block text-[15px] font-bold text-atlas-navy group-hover:text-atlas-royal transition-colors">
+                    <span className="block text-[16px] sm:text-[17px] font-bold text-atlas-navy group-hover:text-atlas-goldDeep transition-colors">
                       {sub.name}
                     </span>
                     {sub.summary && (
-                      <span className="block mt-1 text-[13px] text-atlas-body truncate">{sub.summary}</span>
+                      <span className="block mt-1 text-[14px] sm:text-[14.5px] text-atlas-body leading-relaxed line-clamp-2">{sub.summary}</span>
                     )}
                   </span>
                   <ArrowUpRight
-                    className="w-5 h-5 mt-0.5 shrink-0 text-atlas-navy group-hover:text-atlas-royal group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-all"
+                    className="w-5 h-5 mt-0.5 shrink-0 text-atlas-navy group-hover:text-atlas-goldDeep group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-all"
                     aria-hidden="true"
                   />
                 </Link>
@@ -181,7 +181,7 @@ export const MegaMenuDropdown: React.FC<MegaMenuDropdownProps> = ({
               <Link
                 to={activeCategory.href}
                 onClick={onClose}
-                className="inline-flex items-center gap-2 text-[14px] font-bold text-atlas-royal hover:text-atlas-royalDark"
+                className="inline-flex items-center gap-2 text-[15px] sm:text-[16px] font-bold text-atlas-goldDeep hover:text-atlas-gold transition-colors"
               >
                 View all {activeCategory.name}
                 <ArrowRight className="w-4 h-4" aria-hidden="true" />
@@ -205,9 +205,9 @@ export const MegaMenuDropdown: React.FC<MegaMenuDropdownProps> = ({
                 }}
               />
               <span className="p-5 flex flex-col gap-1.5 flex-1">
-                <span className="text-[18px] font-extrabold text-atlas-navy">{featured.title}</span>
-                <span className="text-[13.5px] leading-relaxed text-atlas-body">{featured.summary}</span>
-                <span className="mt-auto pt-3 inline-flex items-center gap-1.5 text-[14px] font-bold text-atlas-royal">
+                <span className="text-[19px] sm:text-[20px] font-extrabold text-atlas-navy">{featured.title}</span>
+                <span className="text-[14.5px] sm:text-[15px] leading-relaxed text-atlas-body">{featured.summary}</span>
+                <span className="mt-auto pt-3 inline-flex items-center gap-1.5 text-[15px] sm:text-[16px] font-bold text-atlas-goldDeep group-hover:text-atlas-gold transition-colors">
                   {featured.cta}
                   <ArrowUpRight className="w-4 h-4" aria-hidden="true" />
                 </span>

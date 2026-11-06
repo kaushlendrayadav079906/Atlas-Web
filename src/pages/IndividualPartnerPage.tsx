@@ -80,7 +80,7 @@ export const IndividualPartnerPage: React.FC = () => {
         </p>
         <Link
           to="/partners"
-          className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-[#1F4FE0] to-[#1F4FE0] text-white font-semibold shadow-md hover:shadow-lg transition-all"
+          className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-[#E0A33B] to-[#E0A33B] text-white font-semibold shadow-md hover:shadow-lg transition-all"
         >
           <ArrowLeft className="w-4 h-4" />
           <span>Return to All Partners</span>
@@ -151,11 +151,11 @@ export const IndividualPartnerPage: React.FC = () => {
             
             {/* Breadcrumbs: Home -> Partners -> Partner Name */}
             <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs sm:text-sm font-medium">
-              <Link to="/" className="text-slate-500 hover:text-[#1F4FE0] transition-colors">
+              <Link to="/" className="text-slate-500 hover:text-[#E0A33B] transition-colors">
                 Home
               </Link>
               <ChevronRight className="w-3.5 h-3.5 text-slate-500" />
-              <Link to="/partners" className="text-slate-500 hover:text-[#1F4FE0] transition-colors">
+              <Link to="/partners" className="text-slate-500 hover:text-[#E0A33B] transition-colors">
                 Partners
               </Link>
               <ChevronRight className="w-3.5 h-3.5 text-slate-500" />
@@ -167,7 +167,7 @@ export const IndividualPartnerPage: React.FC = () => {
             {/* Back to Partners Link Button */}
             <Link
               to="/partners"
-              className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-[#1F4FE0] hover:text-[#1F4FE0] group transition-colors"
+              className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-[#E0A33B] hover:text-[#E0A33B] group transition-colors"
             >
               <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
               <span>Back to All Partners</span>
@@ -189,10 +189,10 @@ export const IndividualPartnerPage: React.FC = () => {
               
               {/* Eyebrow & Verified Partnership Pill */}
               <div className="flex flex-wrap items-center gap-3">
-                <span className="text-[12px] sm:text-[13px] font-bold uppercase tracking-wider text-[#1F4FE0]">
+                <span className="text-[12px] sm:text-[13px] font-bold uppercase tracking-wider text-[#E0A33B]">
                   {partner.eyebrow}
                 </span>
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-blue-50 text-[#1F4FE0] border border-blue-200">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-blue-50 text-[#E0A33B] border border-blue-200">
                   <Award className="w-3.5 h-3.5" />
                   <span>{partner.partnershipLevel}</span>
                 </span>
@@ -208,7 +208,7 @@ export const IndividualPartnerPage: React.FC = () => {
               {/* Main Headline */}
               <h1 className="atlas-h1-size font-serif font-extrabold text-[#0A1B4F]">
                 {partner.heroTitle}{' '}
-                <span className="bg-gradient-to-r from-[#1F4FE0] via-[#1F4FE0] to-[#1F4FE0] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">
+                <span className="bg-gradient-to-r from-[#E0A33B] via-[#E0A33B] to-[#E0A33B] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">
                   {partner.heroHighlight}
                 </span>
               </h1>
@@ -222,7 +222,7 @@ export const IndividualPartnerPage: React.FC = () => {
               <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
                 <button
                   onClick={() => setIsConsultationModalOpen(true)}
-                  className="inline-flex items-center justify-center gap-2 text-[16px] font-semibold px-8 py-3.5 rounded-xl bg-gradient-to-r from-[#1F4FE0] to-[#1F4FE0] hover:from-[#1739B8] hover:to-[#1739B8] text-white shadow-md shadow-blue-500/25 transition-all duration-200 cursor-pointer"
+                  className="inline-flex items-center justify-center gap-2 text-[16px] font-semibold px-8 py-3.5 rounded-xl bg-atlas-gold hover:bg-[#D4972F] !text-atlas-navy font-bold shadow-[0_4px_14px_rgba(224,163,59,0.35)] transition-all duration-200 cursor-pointer"
                 >
                   <span>Book a Consultation</span>
                   <ArrowRight className="w-5 h-5" />
@@ -279,7 +279,7 @@ export const IndividualPartnerPage: React.FC = () => {
                 key={idx}
                 className="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200/80 text-left hover:border-blue-300 hover:bg-white hover:shadow-md transition-all group"
               >
-                <div className="font-serif text-[32px] sm:text-[40px] font-bold bg-gradient-to-r from-[#1F4FE0] to-[#1F4FE0] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em] leading-none mb-1.5">
+                <div className="font-serif text-[32px] sm:text-[40px] font-bold bg-gradient-to-r from-[#E0A33B] to-[#E0A33B] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em] leading-none mb-1.5">
                   <AnimatedCounter value={metric.value} />
                 </div>
                 <div className="text-[14px] sm:text-[15px] font-bold text-[#0A1B4F] leading-tight">
@@ -311,7 +311,7 @@ export const IndividualPartnerPage: React.FC = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
                 <div className="absolute bottom-4 left-4 bg-white/95 backdrop-blur-md rounded-xl px-4 py-2 shadow-md border border-slate-200/90 flex items-center gap-2">
-                  <Layers className="w-4 h-4 text-[#1F4FE0]" />
+                  <Layers className="w-4 h-4 text-[#E0A33B]" />
                   <span className="text-xs font-bold text-slate-700">
                     Enterprise Architecture
                   </span>
@@ -322,7 +322,7 @@ export const IndividualPartnerPage: React.FC = () => {
             {/* Right 7 Cols: Overview Narrative & Architectural Highlights */}
             <div className="lg:col-span-7 order-1 lg:order-2 space-y-6 text-left">
               <div className="inline-block">
-                <span className="text-[13px] font-bold uppercase tracking-wider text-[#1F4FE0]">
+                <span className="text-[13px] font-bold uppercase tracking-wider text-[#E0A33B]">
                   TECHNOLOGY & ARCHITECTURE —
                 </span>
               </div>
@@ -339,7 +339,7 @@ export const IndividualPartnerPage: React.FC = () => {
               <div className="space-y-3 pt-2">
                 {partner.techOverview.architecturePoints.map((point, idx) => (
                   <div key={idx} className="flex items-start gap-3 p-3.5 rounded-xl bg-white border border-slate-200/80 shadow-sm">
-                    <div className="w-6 h-6 rounded-md bg-blue-50 text-[#1F4FE0] flex items-center justify-center shrink-0 mt-0.5">
+                    <div className="w-6 h-6 rounded-md bg-blue-50 text-[#E0A33B] flex items-center justify-center shrink-0 mt-0.5">
                       <Check className="w-4 h-4 stroke-[2.5]" />
                     </div>
                     <span className="text-[14px] sm:text-[15px] font-medium text-slate-700 leading-snug">
@@ -361,12 +361,12 @@ export const IndividualPartnerPage: React.FC = () => {
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="text-left mb-12 space-y-2">
-            <span className="text-[13px] font-bold uppercase tracking-wider text-[#1F4FE0] block">
+            <span className="text-[13px] font-bold uppercase tracking-wider text-[#E0A33B] block">
               CORE CAPABILITIES —
             </span>
             <h2 className="atlas-h2-size font-serif font-extrabold text-[#0A1B4F]">
               Key Features &{' '}
-              <span className="bg-gradient-to-r from-[#1F4FE0] via-[#1F4FE0] to-[#1F4FE0] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">
+              <span className="bg-gradient-to-r from-[#E0A33B] via-[#E0A33B] to-[#E0A33B] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">
                 Functional Highlights
               </span>
             </h2>
@@ -395,12 +395,12 @@ export const IndividualPartnerPage: React.FC = () => {
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="text-left mb-12 space-y-2">
-            <span className="text-[13px] font-bold uppercase tracking-wider text-[#1F4FE0] block">
+            <span className="text-[13px] font-bold uppercase tracking-wider text-[#E0A33B] block">
               MEASURABLE ROI —
             </span>
             <h2 className="atlas-h2-size font-serif font-extrabold text-[#0A1B4F]">
               Proven Business{' '}
-              <span className="bg-gradient-to-r from-[#1F4FE0] via-[#1F4FE0] to-[#1F4FE0] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">
+              <span className="bg-gradient-to-r from-[#E0A33B] via-[#E0A33B] to-[#E0A33B] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">
                 Advantages
               </span>
             </h2>
@@ -417,12 +417,12 @@ export const IndividualPartnerPage: React.FC = () => {
               >
                 <div>
                   {benefit.metric && (
-                    <div className="inline-block px-3 py-1 rounded-full text-xs font-bold bg-blue-50 text-[#1F4FE0] border border-blue-200/80 mb-4">
+                    <div className="inline-block px-3 py-1 rounded-full text-xs font-bold bg-blue-50 text-[#E0A33B] border border-blue-200/80 mb-4">
                       {benefit.metric}
                     </div>
                   )}
 
-                  <h3 className="text-[18px] font-bold text-[#0A1B4F] mb-2 leading-snug group-hover:text-[#1F4FE0] transition-colors">
+                  <h3 className="text-[18px] font-bold text-[#0A1B4F] mb-2 leading-snug group-hover:text-[#E0A33B] transition-colors">
                     {benefit.title}
                   </h3>
 
@@ -444,12 +444,12 @@ export const IndividualPartnerPage: React.FC = () => {
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="text-left mb-12 space-y-2">
-            <span className="text-[13px] font-bold uppercase tracking-wider text-[#1F4FE0] block">
+            <span className="text-[13px] font-bold uppercase tracking-wider text-[#E0A33B] block">
               OUR IMPLEMENTATION METHODOLOGY —
             </span>
             <h2 className="atlas-h2-size font-serif font-extrabold text-[#0A1B4F]">
               How ATLAS Delivers{' '}
-              <span className="bg-gradient-to-r from-[#1F4FE0] via-[#1F4FE0] to-[#1F4FE0] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">
+              <span className="bg-gradient-to-r from-[#E0A33B] via-[#E0A33B] to-[#E0A33B] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">
                 {partner.name}
               </span>
             </h2>
@@ -465,7 +465,7 @@ export const IndividualPartnerPage: React.FC = () => {
                 className="bg-white rounded-2xl p-6 border border-slate-200/90 text-left hover:bg-white hover:shadow-lg hover:border-blue-300 transition-all duration-300 flex flex-col justify-between"
               >
                 <div>
-                  <div className="font-serif text-3xl font-bold text-[#1F4FE0] mb-3">
+                  <div className="font-serif text-3xl font-bold text-[#E0A33B] mb-3">
                     {pillar.step}
                   </div>
                   
@@ -503,12 +503,12 @@ export const IndividualPartnerPage: React.FC = () => {
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="text-left mb-12 space-y-2">
-            <span className="text-[13px] font-bold uppercase tracking-wider text-[#1F4FE0] block">
+            <span className="text-[13px] font-bold uppercase tracking-wider text-[#E0A33B] block">
               INDUSTRY APPLICATIONS —
             </span>
             <h2 className="atlas-h2-size font-serif font-extrabold text-[#0A1B4F]">
               Tailored Industry{' '}
-              <span className="bg-gradient-to-r from-[#1F4FE0] via-[#1F4FE0] to-[#1F4FE0] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">
+              <span className="bg-gradient-to-r from-[#E0A33B] via-[#E0A33B] to-[#E0A33B] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">
                 Solutions
               </span>
             </h2>
@@ -540,12 +540,12 @@ export const IndividualPartnerPage: React.FC = () => {
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="text-left mb-10 space-y-2">
-            <span className="text-[13px] font-bold uppercase tracking-wider text-[#1F4FE0] block">
+            <span className="text-[13px] font-bold uppercase tracking-wider text-[#E0A33B] block">
               ECOSYSTEM SYNERGY —
             </span>
             <h2 className="atlas-h2-size font-serif font-extrabold text-[#0A1B4F]">
               Complementary Services &{' '}
-              <span className="bg-gradient-to-r from-[#1F4FE0] via-[#1F4FE0] to-[#1F4FE0] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">
+              <span className="bg-gradient-to-r from-[#E0A33B] via-[#E0A33B] to-[#E0A33B] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">
                 Solutions
               </span>
             </h2>
@@ -559,10 +559,10 @@ export const IndividualPartnerPage: React.FC = () => {
                 className="bg-white rounded-2xl p-6 border border-slate-200/90 hover:bg-white hover:border-blue-300 hover:shadow-md transition-all flex flex-col justify-between text-left group"
               >
                 <div>
-                  <span className="text-[11px] font-bold uppercase tracking-wider text-[#1F4FE0] block mb-1.5">
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-[#E0A33B] block mb-1.5">
                     {rel.category}
                   </span>
-                  <h3 className="text-[18px] font-bold text-[#0A1B4F] mb-2 leading-snug group-hover:text-[#1F4FE0] transition-colors">
+                  <h3 className="text-[18px] font-bold text-[#0A1B4F] mb-2 leading-snug group-hover:text-[#E0A33B] transition-colors">
                     {rel.title}
                   </h3>
                   <p className="text-[13px] sm:text-[14px] text-[#4A5876] leading-relaxed">
@@ -570,7 +570,7 @@ export const IndividualPartnerPage: React.FC = () => {
                   </p>
                 </div>
 
-                <div className="pt-4 mt-4 border-t border-slate-200/60 flex items-center gap-1.5 text-xs font-bold text-[#1F4FE0] group-hover:underline">
+                <div className="pt-4 mt-4 border-t border-slate-200/60 flex items-center gap-1.5 text-xs font-bold text-[#E0A33B] group-hover:underline">
                   <span>Learn More</span>
                   <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                 </div>
@@ -591,13 +591,13 @@ export const IndividualPartnerPage: React.FC = () => {
               
               {/* Left Column: Heading, Subtext & Button */}
               <div className="lg:col-span-6 space-y-4 text-left">
-                <span className="text-[12px] sm:text-[13px] font-bold uppercase tracking-wider text-[#1F4FE0]">
+                <span className="text-[12px] sm:text-[13px] font-bold uppercase tracking-wider text-[#E0A33B]">
                   CONNECT WITH OUR SPECIALISTS
                 </span>
 
                 <h2 className="atlas-h2-size font-serif font-extrabold text-[#0A1B4F]">
                   Ready to Deploy{' '}
-                  <span className="bg-gradient-to-r from-[#1F4FE0] via-[#1F4FE0] to-[#1F4FE0] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">
+                  <span className="bg-gradient-to-r from-[#E0A33B] via-[#E0A33B] to-[#E0A33B] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">
                     {partner.name}?
                   </span>
                 </h2>
@@ -609,7 +609,7 @@ export const IndividualPartnerPage: React.FC = () => {
                 <div className="pt-2">
                   <button
                     onClick={() => setIsConsultationModalOpen(true)}
-                    className="inline-flex items-center justify-center gap-2 text-[15px] sm:text-[16px] font-semibold px-8 py-3.5 rounded-xl bg-gradient-to-r from-[#1F4FE0] to-[#1F4FE0] hover:from-[#1739B8] hover:to-[#1739B8] text-white shadow-md shadow-blue-500/25 transition-all cursor-pointer"
+                    className="inline-flex items-center justify-center gap-2 text-[15px] sm:text-[16px] font-semibold px-8 py-3.5 rounded-xl bg-atlas-gold hover:bg-[#D4972F] !text-atlas-navy font-bold shadow-[0_4px_14px_rgba(224,163,59,0.35)] transition-all cursor-pointer"
                   >
                     <span>Book a Partner Consultation</span>
                     <ArrowRight className="w-5 h-5" />
@@ -624,14 +624,14 @@ export const IndividualPartnerPage: React.FC = () => {
                   href={`mailto:sales@atlastechnosoft.com?subject=Partnership%20Inquiry%20-%20${encodeURIComponent(partner.name)}`}
                   className="bg-white rounded-xl p-4 sm:p-4.5 border-2 border-[#16b978] shadow-sm hover:shadow-md transition-all flex items-center gap-4 group"
                 >
-                  <div className="w-11 h-11 rounded-lg bg-blue-50 border border-blue-100 text-[#1F4FE0] flex items-center justify-center shrink-0 group-hover:bg-[#1F4FE0] group-hover:text-white transition-colors">
+                  <div className="w-11 h-11 rounded-lg bg-blue-50 border border-blue-100 text-[#E0A33B] flex items-center justify-center shrink-0 group-hover:bg-[#1F4FE0] group-hover:text-white transition-colors">
                     <Mail className="w-5 h-5" />
                   </div>
                   <div>
                     <p className="text-[11px] font-bold uppercase tracking-wider text-slate-500">
                       Direct Email
                     </p>
-                    <p className="text-[15px] font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
+                    <p className="text-[15px] font-bold text-slate-900 group-hover:text-[#E0A33B] transition-colors">
                       sales@atlastechnosoft.com
                     </p>
                   </div>
@@ -642,14 +642,14 @@ export const IndividualPartnerPage: React.FC = () => {
                   href="tel:+919372329599"
                   className="bg-white rounded-xl p-4 sm:p-4.5 border-2 border-[#1F4FE0] shadow-sm hover:shadow-md transition-all flex items-center gap-4 group"
                 >
-                  <div className="w-11 h-11 rounded-lg bg-blue-50 border border-blue-100 text-[#1F4FE0] flex items-center justify-center shrink-0 group-hover:bg-[#1F4FE0] group-hover:text-white transition-colors">
+                  <div className="w-11 h-11 rounded-lg bg-blue-50 border border-blue-100 text-[#E0A33B] flex items-center justify-center shrink-0 group-hover:bg-[#1F4FE0] group-hover:text-white transition-colors">
                     <Phone className="w-5 h-5" />
                   </div>
                   <div>
                     <p className="text-[11px] font-bold uppercase tracking-wider text-slate-500">
                       Telephone
                     </p>
-                    <p className="text-[15px] font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
+                    <p className="text-[15px] font-bold text-slate-900 group-hover:text-[#E0A33B] transition-colors">
                       +91-9372329599
                     </p>
                   </div>
@@ -657,7 +657,7 @@ export const IndividualPartnerPage: React.FC = () => {
 
                 {/* Office Location Box */}
                 <div className="bg-white rounded-xl p-4 sm:p-4.5 border-2 border-[#1F4FE0] shadow-sm flex items-center gap-4">
-                  <div className="w-11 h-11 rounded-lg bg-blue-50 border border-blue-100 text-[#1F4FE0] flex items-center justify-center shrink-0">
+                  <div className="w-11 h-11 rounded-lg bg-blue-50 border border-blue-100 text-[#E0A33B] flex items-center justify-center shrink-0">
                     <MapPin className="w-5 h-5" />
                   </div>
                   <div>

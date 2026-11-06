@@ -58,16 +58,16 @@ export const BlogDetail: React.FC<BlogDetailProps> = ({
           
           {/* Breadcrumb Navigation */}
           <nav aria-label="Breadcrumb" className="mb-6 flex flex-wrap items-center gap-2 text-xs sm:text-sm text-slate-500 font-medium">
-            <Link to="/" className="hover:text-[#1F4FE0] transition-colors">Home</Link>
+            <Link to="/" className="hover:text-[#E0A33B] transition-colors">Home</Link>
             <ChevronRight className="w-3.5 h-3.5 text-slate-500" />
-            <Link to="/blog" className="hover:text-[#1F4FE0] transition-colors">Blog & Insights</Link>
+            <Link to="/blog" className="hover:text-[#E0A33B] transition-colors">Blog & Insights</Link>
             <ChevronRight className="w-3.5 h-3.5 text-slate-500" />
-            <span className="text-[#1F4FE0] font-semibold">{article.category}</span>
+            <span className="text-[#E0A33B] font-semibold">{article.category}</span>
           </nav>
 
           {/* Category Tag */}
           <div className="mb-4">
-            <span className="inline-flex items-center px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-blue-100/80 text-[#1F4FE0]">
+            <span className="inline-flex items-center px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-blue-100/80 text-[#E0A33B]">
               {article.category}
             </span>
           </div>
@@ -108,17 +108,17 @@ export const BlogDetail: React.FC<BlogDetailProps> = ({
 
             <div className="flex items-center gap-4 sm:gap-6 text-xs sm:text-sm text-slate-500 font-medium">
               <span className="inline-flex items-center gap-1.5">
-                <Calendar className="w-4 h-4 text-blue-600" />
+                <Calendar className="w-4 h-4 text-[#E0A33B]" />
                 <span>{article.publishDate}</span>
               </span>
               <span className="inline-flex items-center gap-1.5">
-                <Clock className="w-4 h-4 text-blue-600" />
+                <Clock className="w-4 h-4 text-[#E0A33B]" />
                 <span>{article.readTime}</span>
               </span>
               <button
                 type="button"
                 onClick={handleShare}
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-blue-50 hover:text-blue-600 text-slate-700 transition-colors cursor-pointer text-xs font-semibold"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-blue-50 hover:text-[#E0A33B] text-slate-700 transition-colors cursor-pointer text-xs font-semibold"
                 aria-label="Share this article"
               >
                 <Share2 className="w-3.5 h-3.5" />
@@ -152,14 +152,14 @@ export const BlogDetail: React.FC<BlogDetailProps> = ({
         {article.tableOfContents && article.tableOfContents.length > 0 && (
           <div className="mb-10 p-5 sm:p-6 rounded-2xl bg-white border border-blue-200/70 shadow-2xs">
             <div className="flex items-center gap-2 mb-3 text-[#0A1B4F]">
-              <List className="w-5 h-5 text-[#1F4FE0]" />
+              <List className="w-5 h-5 text-[#E0A33B]" />
               <h3 className="text-base font-bold uppercase tracking-wider">
                 Table of Contents
               </h3>
             </div>
             <ol className="space-y-2 list-decimal list-inside text-sm sm:text-[15px]">
               {article.tableOfContents.map((item, idx) => (
-                <li key={item.id} className="text-slate-700 font-medium hover:text-[#1F4FE0] transition-colors">
+                <li key={item.id} className="text-slate-700 font-medium hover:text-[#E0A33B] transition-colors">
                   <button
                     type="button"
                     onClick={() => scrollToSection(item.id)}
@@ -192,7 +192,7 @@ export const BlogDetail: React.FC<BlogDetailProps> = ({
                 <ul className="my-5 space-y-2.5">
                   {section.bullets.map((b, bIdx) => (
                     <li key={bIdx} className="flex items-start gap-3 text-[15px] sm:text-[16px] text-slate-700">
-                      <CheckCircle2 className="w-5 h-5 text-blue-600 shrink-0 mt-0.5" />
+                      <CheckCircle2 className="w-5 h-5 text-[#E0A33B] shrink-0 mt-0.5" />
                       <span>{b}</span>
                     </li>
                   ))}
@@ -213,7 +213,7 @@ export const BlogDetail: React.FC<BlogDetailProps> = ({
               {section.callout && (
                 <div className="my-6 p-5 rounded-2xl bg-white border border-slate-200/90 text-sm leading-relaxed">
                   <div className="flex items-center gap-2 font-bold text-[#0A1B4F] mb-1.5">
-                    <Sparkles className="w-4 h-4 text-blue-600" />
+                    <Sparkles className="w-4 h-4 text-[#E0A33B]" />
                     <span>{section.callout.title}</span>
                   </div>
                   <p className="text-slate-600">{section.callout.text}</p>
@@ -297,7 +297,7 @@ export const BlogDetail: React.FC<BlogDetailProps> = ({
           <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center justify-between mb-8">
               <div>
-                <span className="text-xs font-bold uppercase tracking-wider text-[#1F4FE0] block mb-1">
+                <span className="text-xs font-bold uppercase tracking-wider text-[#E0A33B] block mb-1">
                   CONTINUE READING
                 </span>
                 <h3 className="font-serif text-2xl sm:text-3xl font-bold text-[#0A1B4F]">
@@ -307,7 +307,7 @@ export const BlogDetail: React.FC<BlogDetailProps> = ({
 
               <Link
                 to="/blog"
-                className="hidden sm:inline-flex items-center gap-1.5 text-sm font-bold text-[#1F4FE0] hover:text-[#1739B8] transition-colors"
+                className="hidden sm:inline-flex items-center gap-1.5 text-sm font-bold text-[#E0A33B] hover:text-[#1739B8] transition-colors"
               >
                 <span>View All Articles</span>
                 <ArrowRight className="w-4 h-4" />
@@ -323,7 +323,7 @@ export const BlogDetail: React.FC<BlogDetailProps> = ({
             <div className="text-center mt-8 sm:hidden">
               <Link
                 to="/blog"
-                className="inline-flex items-center gap-2 text-sm font-bold text-[#1F4FE0]"
+                className="inline-flex items-center gap-2 text-sm font-bold text-[#E0A33B]"
               >
                 <span>View All Articles</span>
                 <ArrowRight className="w-4 h-4" />

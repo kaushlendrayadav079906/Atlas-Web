@@ -27,15 +27,15 @@ export const BlogCategoryFilter: React.FC<BlogCategoryFilterProps> = ({
             onClick={() => onSelectCategory(category)}
             className={`px-4 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all duration-200 whitespace-nowrap cursor-pointer active:scale-95 flex items-center gap-1.5 ${
               isActive
-                ? 'bg-[#1F4FE0] text-white shadow-md shadow-blue-500/20'
+                ? 'bg-[#E0A33B] text-atlas-navy font-bold shadow-md shadow-amber-500/25'
                 : 'bg-white hover:bg-slate-100 text-slate-700 border border-slate-200/80 hover:border-slate-300'
             }`}
           >
             <span>{category}</span>
             {count !== undefined && (
               <span
-                className={`text-[11px] px-1.5 py-0.2 rounded-full ${
-                  isActive ? 'bg-white/20 text-white' : 'bg-slate-100 text-slate-500'
+                className={`text-[11px] px-1.5 py-0.2 rounded-full font-bold ${
+                  isActive ? 'bg-atlas-navy/15 text-atlas-navy' : 'bg-slate-100 text-slate-500'
                 }`}
               >
                 {count}

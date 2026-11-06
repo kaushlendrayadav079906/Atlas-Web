@@ -155,11 +155,11 @@ export const ContactPage: React.FC = () => {
       {/* ========================================================================= */}
       {/* SECTION 1: CONTACT HERO SECTION                                           */}
       {/* ========================================================================= */}
-      <section className="relative overflow-hidden pt-10 pb-14 lg:pt-16 lg:pb-20 border-b border-white/10 atlas-dark">
+      <section className="relative overflow-hidden pt-10 pb-14 lg:pt-16 lg:pb-20 border-b border-slate-200/80 bg-white">
         
         {/* Subtle decorative background shapes */}
-        <div className="pointer-events-none absolute -top-24 left-1/2 -translate-x-1/2 w-[850px] h-[360px] bg-gradient-to-tr from-blue-400/10 via-sky-300/15 to-transparent rounded-full blur-3xl -z-10" />
-        <div className="pointer-events-none absolute -left-12 top-1/3 w-72 h-72 bg-gradient-to-br from-[#1F4FE0]/10 via-teal-400/5 to-transparent rounded-full blur-2xl -z-10" />
+        <div className="pointer-events-none absolute -top-24 left-1/2 -translate-x-1/2 w-[850px] h-[360px] bg-gradient-to-tr from-amber-400/10 via-sky-300/10 to-transparent rounded-full blur-3xl -z-10" />
+        <div className="pointer-events-none absolute -left-12 top-1/3 w-72 h-72 bg-gradient-to-br from-amber-500/10 via-teal-400/5 to-transparent rounded-full blur-2xl -z-10" />
 
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
@@ -168,39 +168,39 @@ export const ContactPage: React.FC = () => {
             <div className="lg:col-span-7 space-y-6 text-left">
               {/* Eyebrow Label */}
               <div className="inline-block">
-                <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-[#1F4FE0] select-none">
+                <span className="text-[14px] sm:text-[15px] font-bold uppercase tracking-wider text-atlas-goldDeep select-none">
                   CONTACT US —
                 </span>
               </div>
 
-              {/* Main Headline */}
-              <h1 className="atlas-h1-size font-serif font-extrabold text-[#0A1B4F]">
+              {/* Main Headline (42-48px on Desktop) */}
+              <h1 className="text-[34px] sm:text-[42px] lg:text-[48px] font-serif font-extrabold text-atlas-navy leading-[1.18] tracking-[-0.02em]">
                 Let's Build Something Great{' '}
-                <span className="bg-gradient-to-r from-[#1F4FE0] via-[#1F4FE0] to-[#1F4FE0] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">
+                <span className="text-atlas-goldDeep font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">
                   Together
                 </span>
               </h1>
 
-              {/* Description */}
-              <p className="text-[16px] sm:text-[18px] lg:text-[19px] text-[#4A5876] leading-relaxed max-w-2xl font-normal">
+              {/* Supporting Description: 17-19px */}
+              <p className="text-[17px] sm:text-[18px] lg:text-[19px] text-[#4A5876] leading-relaxed max-w-2xl font-normal">
                 We are here to help you with your business requirements. Get in touch with our experts to discuss how our technology solutions can support your growth.
               </p>
 
-              {/* Dual Action CTAs */}
+              {/* Dual Action CTAs: 16-17px */}
               <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
                 <button
                   type="button"
                   onClick={() => setIsConsultationModalOpen(true)}
-                  className="inline-flex items-center justify-center gap-2 text-[16px] font-semibold px-8 py-3.5 rounded-xl bg-gradient-to-r from-[#1F4FE0] to-[#1F4FE0] hover:from-[#1739B8] hover:to-[#1739B8] text-white shadow-md shadow-blue-500/25 transition-all duration-200 cursor-pointer"
+                  className="inline-flex items-center justify-center gap-2 text-[16px] sm:text-[17px] font-bold px-8 py-4 rounded-full bg-atlas-gold hover:bg-[#D4972F] text-atlas-navy shadow-[0_4px_14px_rgba(224,163,59,0.35)] transition-all duration-200 cursor-pointer active:scale-[0.98]"
                 >
                   <span>Book a Consultation</span>
-                  <ArrowRight className="w-5 h-5" />
+                  <ArrowRight className="w-5 h-5 text-atlas-navy" />
                 </button>
 
                 <button
                   type="button"
                   onClick={scrollToEnquiryForm}
-                  className="inline-flex items-center justify-center gap-2 text-[16px] font-semibold px-8 py-3.5 rounded-xl bg-white hover:bg-slate-50 text-[#0A1B4F] border border-blue-200 shadow-xs hover:border-[#1F4FE0] transition-all duration-200 cursor-pointer"
+                  className="inline-flex items-center justify-center gap-2 text-[16px] sm:text-[17px] font-semibold px-8 py-4 rounded-full bg-white hover:bg-slate-50 text-atlas-navy border border-slate-300 shadow-xs hover:border-atlas-navy transition-all duration-200 cursor-pointer active:scale-[0.98]"
                 >
                   <span>Talk to Our Experts</span>
                 </button>
@@ -209,21 +209,21 @@ export const ContactPage: React.FC = () => {
 
             {/* Right Column: Business Consultation Visual */}
             <div className="lg:col-span-5 relative">
-              <div className="relative rounded-2xl overflow-hidden shadow-xl border border-blue-100/80 bg-white group">
+              <div className="relative rounded-2xl overflow-hidden shadow-xl border border-slate-200/80 bg-white group">
                 <img
                   src={CONTACT_HERO_DATA.heroImage}
                   alt="ATLAS Technosoft Executive Team Consultation"
                   className="w-full h-auto object-cover max-h-[420px] group-hover:scale-105 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0A1B4F]/30 via-transparent to-transparent pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-t from-atlas-navy/30 via-transparent to-transparent pointer-events-none" />
 
                 {/* Subtle feature tag badge */}
-                <div className="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-md rounded-xl p-3 border border-slate-200/80 shadow-md flex items-center justify-between text-[12px] sm:text-[13px]">
-                  <div className="flex items-center gap-2 text-[#0A1B4F] font-semibold">
+                <div className="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-md rounded-xl p-3.5 border border-slate-200/80 shadow-md flex items-center justify-between text-[13px] sm:text-[14px]">
+                  <div className="flex items-center gap-2 text-atlas-navy font-semibold">
                     <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
                     <span>Response within 24 business hours</span>
                   </div>
-                  <span className="font-bold text-[#1F4FE0]">SAP Silver Partner</span>
+                  <span className="font-bold text-atlas-goldDeep">SAP Silver Partner</span>
                 </div>
               </div>
             </div>
@@ -235,23 +235,23 @@ export const ContactPage: React.FC = () => {
       {/* ========================================================================= */}
       {/* SECTION 2: CONTACT INFORMATION SECTION (4 INTERACTIVE CARDS)             */}
       {/* ========================================================================= */}
-      <section className="py-12 sm:py-16 bg-white border-b border-blue-100/60">
+      <section className="py-12 sm:py-16 bg-white border-b border-slate-100">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           
-          {/* Section Heading */}
+          {/* Section Heading: 26-30px */}
           <div className="max-w-3xl mx-auto text-center mb-10 sm:mb-12">
             <div className="mb-2.5">
-              <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-[#1F4FE0] select-none">
+              <span className="text-[14px] sm:text-[15px] font-bold uppercase tracking-wider text-atlas-goldDeep select-none">
                 COMMUNICATION CHANNELS
               </span>
             </div>
-            <h2 className="atlas-h2-size font-serif font-extrabold text-[#0A1B4F]">
+            <h2 className="text-[26px] sm:text-[30px] font-serif font-extrabold text-atlas-navy tracking-tight">
               Get in Touch with{' '}
-              <span className="bg-gradient-to-r from-[#1F4FE0] via-[#1F4FE0] to-[#1F4FE0] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">
+              <span className="text-atlas-goldDeep font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">
                 Our Specialists
               </span>
             </h2>
-            <p className="mt-3 text-[15px] sm:text-[17px] text-[#4A5876] leading-relaxed">
+            <p className="mt-3 text-[16px] sm:text-[18px] text-[#4A5876] leading-relaxed">
               Reach out through any of the following channels. Our consultants are ready to assist you.
             </p>
           </div>
@@ -259,89 +259,89 @@ export const ContactPage: React.FC = () => {
           {/* 4 Cards Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             
-            {/* Card 1: Email */}
+            {/* Card 1: Email (Heading: 19-21px, Detail: 17-19px) */}
             <a
               href="mailto:sales@atlastechnosoft.com"
-              className="group p-6 rounded-2xl bg-white border border-blue-100/80 hover:border-[#1F4FE0] shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-200 flex flex-col justify-between"
+              className="group p-6 sm:p-7 rounded-2xl bg-white border border-slate-200 hover:border-atlas-gold shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between"
             >
               <div>
-                <div className="w-13 h-13 rounded-2xl bg-blue-50 text-[#1F4FE0] flex items-center justify-center border border-blue-100/80 mb-4 group-hover:scale-110 transition-transform">
+                <div className="w-14 h-14 rounded-2xl bg-amber-50 text-atlas-goldDeep flex items-center justify-center border border-amber-200/60 mb-4 group-hover:scale-110 transition-transform">
                   <Mail className="w-6 h-6" />
                 </div>
-                <h3 className="text-[14px] font-bold uppercase tracking-wider text-slate-500 mb-1">
+                <h3 className="text-[19px] sm:text-[20px] font-bold text-atlas-navy mb-2">
                   Email Address
                 </h3>
-                <div className="text-[16px] font-bold text-[#0A1B4F] group-hover:text-[#1F4FE0] transition-colors break-words">
+                <div className="text-[17px] sm:text-[18px] font-bold text-atlas-navy group-hover:text-atlas-goldDeep transition-colors break-words">
                   sales@atlastechnosoft.com
                 </div>
               </div>
-              <p className="text-[12.5px] text-[#4A5876] mt-4 pt-3 border-t border-slate-100">
+              <p className="text-[14px] sm:text-[15px] text-[#4A5876] mt-4 pt-3 border-t border-slate-100">
                 Typically responds within 24 business hours
               </p>
             </a>
 
-            {/* Card 2: Phone */}
+            {/* Card 2: Phone (Heading: 19-21px, Detail: 17-19px) */}
             <a
               href="tel:+919372329599"
-              className="group p-6 rounded-2xl bg-white border border-blue-100/80 hover:border-emerald-500 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-200 flex flex-col justify-between"
+              className="group p-6 sm:p-7 rounded-2xl bg-white border border-slate-200 hover:border-emerald-500 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between"
             >
               <div>
-                <div className="w-13 h-13 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center border border-emerald-100 mb-4 group-hover:scale-110 transition-transform">
+                <div className="w-14 h-14 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center border border-emerald-100 mb-4 group-hover:scale-110 transition-transform">
                   <Phone className="w-6 h-6" />
                 </div>
-                <h3 className="text-[14px] font-bold uppercase tracking-wider text-slate-500 mb-1">
+                <h3 className="text-[19px] sm:text-[20px] font-bold text-atlas-navy mb-2">
                   Phone Number
                 </h3>
-                <div className="text-[16px] font-bold text-[#0A1B4F] group-hover:text-emerald-600 transition-colors">
+                <div className="text-[17px] sm:text-[18px] font-bold text-atlas-navy group-hover:text-emerald-600 transition-colors">
                   +91 93723 29599
                 </div>
               </div>
-              <p className="text-[12.5px] text-[#4A5876] mt-4 pt-3 border-t border-slate-100">
+              <p className="text-[14px] sm:text-[15px] text-[#4A5876] mt-4 pt-3 border-t border-slate-100">
                 Mon – Sat: 9:30 AM to 6:30 PM IST
               </p>
             </a>
 
-            {/* Card 3: WhatsApp */}
+            {/* Card 3: WhatsApp (Heading: 19-21px, Detail: 17-19px) */}
             <a
               href="https://wa.me/919372329599?text=Hello%20ATLAS%20Technosoft%2C%20I%20would%20like%20to%20book%20a%20consultation."
               target="_blank"
               rel="noopener noreferrer"
-              className="group p-6 rounded-2xl bg-white border border-blue-100/80 hover:border-emerald-500 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-200 flex flex-col justify-between"
+              className="group p-6 sm:p-7 rounded-2xl bg-white border border-slate-200 hover:border-emerald-500 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between"
             >
               <div>
-                <div className="w-13 h-13 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center border border-emerald-100 mb-4 group-hover:scale-110 transition-transform">
+                <div className="w-14 h-14 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center border border-emerald-100 mb-4 group-hover:scale-110 transition-transform">
                   <MessageCircle className="w-6 h-6" />
                 </div>
-                <h3 className="text-[14px] font-bold uppercase tracking-wider text-slate-500 mb-1">
+                <h3 className="text-[19px] sm:text-[20px] font-bold text-atlas-navy mb-2">
                   WhatsApp Support
                 </h3>
-                <div className="text-[16px] font-bold text-[#0A1B4F] group-hover:text-emerald-600 transition-colors">
+                <div className="text-[17px] sm:text-[18px] font-bold text-atlas-navy group-hover:text-emerald-600 transition-colors">
                   +91 93723 29599
                 </div>
               </div>
-              <p className="text-[12.5px] text-[#4A5876] mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
+              <p className="text-[14px] sm:text-[15px] text-[#4A5876] mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
                 <span>Instant chat with our team</span>
-                <ExternalLink className="w-3.5 h-3.5 text-emerald-600" />
+                <ExternalLink className="w-4 h-4 text-emerald-600" />
               </p>
             </a>
 
-            {/* Card 4: Office Headquarters */}
+            {/* Card 4: Office Headquarters (Heading: 19-21px, Detail: 17-19px) */}
             <a
               href="#locations"
-              className="group p-6 rounded-2xl bg-white border border-blue-100/80 hover:border-[#1F4FE0] shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-200 flex flex-col justify-between"
+              className="group p-6 sm:p-7 rounded-2xl bg-white border border-slate-200 hover:border-atlas-gold shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between"
             >
               <div>
-                <div className="w-13 h-13 rounded-2xl bg-sky-50 text-[#1F4FE0] flex items-center justify-center border border-sky-100 mb-4 group-hover:scale-110 transition-transform">
+                <div className="w-14 h-14 rounded-2xl bg-amber-50 text-atlas-goldDeep flex items-center justify-center border border-amber-200/60 mb-4 group-hover:scale-110 transition-transform">
                   <MapPin className="w-6 h-6" />
                 </div>
-                <h3 className="text-[14px] font-bold uppercase tracking-wider text-slate-500 mb-1">
+                <h3 className="text-[19px] sm:text-[20px] font-bold text-atlas-navy mb-2">
                   Our Locations
                 </h3>
-                <div className="text-[16px] font-bold text-[#0A1B4F] group-hover:text-[#1F4FE0] transition-colors">
+                <div className="text-[17px] sm:text-[18px] font-bold text-atlas-navy group-hover:text-atlas-goldDeep transition-colors">
                   Borivali & Marine Lines
                 </div>
               </div>
-              <p className="text-[12.5px] text-[#4A5876] mt-4 pt-3 border-t border-slate-100">
+              <p className="text-[14px] sm:text-[15px] text-[#4A5876] mt-4 pt-3 border-t border-slate-100">
                 Mumbai, Maharashtra, India
               </p>
             </a>
@@ -354,7 +354,7 @@ export const ContactPage: React.FC = () => {
       {/* ========================================================================= */}
       {/* SECTION 3: MAIN SECTION – ENQUIRY FORM & OFFICE LOCATIONS                  */}
       {/* ========================================================================= */}
-      <section id="contact-enquiry-form" className="py-14 sm:py-20 border-b border-white/10 atlas-dark">
+      <section id="contact-enquiry-form" className="py-14 sm:py-20 border-b border-slate-200/80 bg-white">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
             
@@ -363,11 +363,11 @@ export const ContactPage: React.FC = () => {
             {/* ------------------------------------------------------------------- */}
             <div className="lg:col-span-6 space-y-5">
               <div>
-                <span className="text-[13px] font-bold uppercase tracking-wider text-[#1F4FE0] block mb-1">
+                <span className="text-[13px] font-bold uppercase tracking-wider text-[#E0A33B] block mb-1">
                   DIRECT ENQUIRY
                 </span>
                 <h2 className="atlas-h2-size font-serif font-extrabold text-[#0A1B4F]">
-                  Send Us an <span className="bg-gradient-to-r from-[#1F4FE0] via-[#1F4FE0] to-[#1F4FE0] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">Enquiry</span>
+                  Send Us an <span className="bg-gradient-to-r from-[#E0A33B] via-[#E0A33B] to-[#E0A33B] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">Enquiry</span>
                 </h2>
                 <p className="text-[15px] sm:text-[16px] text-[#4A5876] mt-1">
                   Fill in the details below and an ATLAS enterprise consultant will get back to you shortly.
@@ -392,9 +392,9 @@ export const ContactPage: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => setIsCallbackModalOpen(true)}
-                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white hover:bg-blue-50 text-[#1F4FE0] border border-blue-300 font-semibold text-[13.5px] shadow-xs hover:shadow transition-all shrink-0 cursor-pointer"
+                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white hover:bg-amber-50 text-atlas-goldDeep border border-amber-300 font-semibold text-[13.5px] shadow-xs hover:shadow transition-all shrink-0 cursor-pointer"
                 >
-                  <PhoneCall className="w-4 h-4 text-[#1F4FE0]" />
+                  <PhoneCall className="w-4 h-4 text-[#E0A33B]" />
                   <span>Request a Callback</span>
                 </button>
               </div>
@@ -461,7 +461,7 @@ export const ContactPage: React.FC = () => {
                     {/* Row 1: Full Name & Business Email */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
                       <div>
-                        <label htmlFor="fullName" className="block text-[13.5px] font-semibold text-[#0A1B4F] mb-1.5">
+                        <label htmlFor="fullName" className="block text-[16px] font-semibold text-atlas-navy mb-2">
                           Full Name <span className="text-rose-500">*</span>
                         </label>
                         <input
@@ -471,7 +471,7 @@ export const ContactPage: React.FC = () => {
                           value={formData.fullName}
                           onChange={handleInputChange}
                           placeholder="e.g. Rahul Sharma"
-                          className={`w-full px-4 py-3 rounded-xl border text-[14.5px] text-slate-800 placeholder-slate-400 bg-white focus:bg-white focus:outline-none transition-all ${
+                          className={`w-full px-4 py-3.5 rounded-xl border text-[16px] sm:text-[17px] text-slate-800 placeholder-slate-400 bg-white focus:bg-white focus:outline-none transition-all ${
                             formErrors.fullName
                               ? 'border-rose-400 focus:ring-2 focus:ring-rose-200'
                               : 'border-slate-200 focus:border-[#1F4FE0] focus:ring-2 focus:ring-blue-100'
@@ -486,7 +486,7 @@ export const ContactPage: React.FC = () => {
                       </div>
 
                       <div>
-                        <label htmlFor="email" className="block text-[13.5px] font-semibold text-[#0A1B4F] mb-1.5">
+                        <label htmlFor="email" className="block text-[16px] font-semibold text-atlas-navy mb-2">
                           Business Email <span className="text-rose-500">*</span>
                         </label>
                         <input
@@ -496,7 +496,7 @@ export const ContactPage: React.FC = () => {
                           value={formData.email}
                           onChange={handleInputChange}
                           placeholder="e.g. rahul@company.com"
-                          className={`w-full px-4 py-3 rounded-xl border text-[14.5px] text-slate-800 placeholder-slate-400 bg-white focus:bg-white focus:outline-none transition-all ${
+                          className={`w-full px-4 py-3.5 rounded-xl border text-[16px] sm:text-[17px] text-slate-800 placeholder-slate-400 bg-white focus:bg-white focus:outline-none transition-all ${
                             formErrors.email
                               ? 'border-rose-400 focus:ring-2 focus:ring-rose-200'
                               : 'border-slate-200 focus:border-[#1F4FE0] focus:ring-2 focus:ring-blue-100'
@@ -514,7 +514,7 @@ export const ContactPage: React.FC = () => {
                     {/* Row 2: Phone Number & Company Name */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
                       <div>
-                        <label htmlFor="phone" className="block text-[13.5px] font-semibold text-[#0A1B4F] mb-1.5">
+                        <label htmlFor="phone" className="block text-[16px] font-semibold text-atlas-navy mb-2">
                           Phone Number <span className="text-rose-500">*</span>
                         </label>
                         <input
@@ -524,7 +524,7 @@ export const ContactPage: React.FC = () => {
                           value={formData.phone}
                           onChange={handleInputChange}
                           placeholder="e.g. +91 93723 29599"
-                          className={`w-full px-4 py-3 rounded-xl border text-[14.5px] text-slate-800 placeholder-slate-400 bg-white focus:bg-white focus:outline-none transition-all ${
+                          className={`w-full px-4 py-3.5 rounded-xl border text-[16px] sm:text-[17px] text-slate-800 placeholder-slate-400 bg-white focus:bg-white focus:outline-none transition-all ${
                             formErrors.phone
                               ? 'border-rose-400 focus:ring-2 focus:ring-rose-200'
                               : 'border-slate-200 focus:border-[#1F4FE0] focus:ring-2 focus:ring-blue-100'
@@ -539,7 +539,7 @@ export const ContactPage: React.FC = () => {
                       </div>
 
                       <div>
-                        <label htmlFor="companyName" className="block text-[13.5px] font-semibold text-[#0A1B4F] mb-1.5">
+                        <label htmlFor="companyName" className="block text-[16px] font-semibold text-atlas-navy mb-2">
                           Company Name <span className="text-rose-500">*</span>
                         </label>
                         <input
@@ -549,7 +549,7 @@ export const ContactPage: React.FC = () => {
                           value={formData.companyName}
                           onChange={handleInputChange}
                           placeholder="e.g. Acme Industries Ltd"
-                          className={`w-full px-4 py-3 rounded-xl border text-[14.5px] text-slate-800 placeholder-slate-400 bg-white focus:bg-white focus:outline-none transition-all ${
+                          className={`w-full px-4 py-3.5 rounded-xl border text-[16px] sm:text-[17px] text-slate-800 placeholder-slate-400 bg-white focus:bg-white focus:outline-none transition-all ${
                             formErrors.companyName
                               ? 'border-rose-400 focus:ring-2 focus:ring-rose-200'
                               : 'border-slate-200 focus:border-[#1F4FE0] focus:ring-2 focus:ring-blue-100'
@@ -566,7 +566,7 @@ export const ContactPage: React.FC = () => {
 
                     {/* Row 3: Service Interested In */}
                     <div>
-                      <label htmlFor="service" className="block text-[13.5px] font-semibold text-[#0A1B4F] mb-1.5">
+                      <label htmlFor="service" className="block text-[16px] font-semibold text-atlas-navy mb-2">
                         Service Interested In <span className="text-rose-500">*</span>
                       </label>
                       <select
@@ -574,7 +574,7 @@ export const ContactPage: React.FC = () => {
                         name="service"
                         value={formData.service}
                         onChange={handleInputChange}
-                        className={`w-full px-4 py-3 rounded-xl border text-[14.5px] text-slate-800 bg-white focus:bg-white focus:outline-none transition-all cursor-pointer ${
+                        className={`w-full px-4 py-3.5 rounded-xl border text-[16px] sm:text-[17px] text-slate-800 bg-white focus:bg-white focus:outline-none transition-all cursor-pointer ${
                           formErrors.service
                             ? 'border-rose-400 focus:ring-2 focus:ring-rose-200'
                             : 'border-slate-200 focus:border-[#1F4FE0] focus:ring-2 focus:ring-blue-100'
@@ -596,7 +596,7 @@ export const ContactPage: React.FC = () => {
 
                     {/* Row 4: Message Textarea */}
                     <div>
-                      <label htmlFor="message" className="block text-[13.5px] font-semibold text-[#0A1B4F] mb-1.5">
+                      <label htmlFor="message" className="block text-[16px] font-semibold text-atlas-navy mb-2">
                         Message <span className="text-rose-500">*</span>
                       </label>
                       <textarea
@@ -606,7 +606,7 @@ export const ContactPage: React.FC = () => {
                         value={formData.message}
                         onChange={handleInputChange}
                         placeholder="Briefly outline your ERP requirements, current system, or challenges..."
-                        className={`w-full px-4 py-3 rounded-xl border text-[14.5px] text-slate-800 placeholder-slate-400 bg-white focus:bg-white focus:outline-none transition-all resize-y ${
+                        className={`w-full px-4 py-3.5 rounded-xl border text-[16px] sm:text-[17px] text-slate-800 placeholder-slate-400 bg-white focus:bg-white focus:outline-none transition-all resize-y ${
                           formErrors.message
                             ? 'border-rose-400 focus:ring-2 focus:ring-rose-200'
                             : 'border-slate-200 focus:border-[#1F4FE0] focus:ring-2 focus:ring-blue-100'
@@ -625,7 +625,7 @@ export const ContactPage: React.FC = () => {
                       <button
                         type="submit"
                         disabled={isSubmitting}
-                        className="w-full py-3.5 sm:py-4 rounded-xl bg-gradient-to-r from-[#1F4FE0] to-[#1F4FE0] hover:from-[#1739B8] hover:to-[#1739B8] text-white font-bold text-[16px] shadow-md shadow-blue-500/25 transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-75 disabled:cursor-not-allowed"
+                        className="w-full py-4 rounded-full bg-atlas-gold hover:bg-[#D4972F] text-atlas-navy font-bold text-[16px] sm:text-[17px] shadow-[0_4px_14px_rgba(224,163,59,0.35)] transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-75 disabled:cursor-not-allowed active:scale-[0.99]"
                       >
                         {isSubmitting ? (
                           <>
@@ -649,15 +649,15 @@ export const ContactPage: React.FC = () => {
             {/* ------------------------------------------------------------------- */}
             {/* RIGHT COLUMN: OUR OFFICE LOCATIONS (BORIVALI & MARINE LINES)       */}
             {/* ------------------------------------------------------------------- */}
-            <div id="locations" className="lg:col-span-6 space-y-5">
+            <div id="locations" className="lg:col-span-6 space-y-6">
               <div>
-                <span className="text-[13px] font-bold uppercase tracking-wider text-[#1F4FE0] block mb-1">
+                <span className="text-[14px] sm:text-[15px] font-bold uppercase tracking-wider text-atlas-goldDeep block mb-1">
                   OFFICE LOCATIONS
                 </span>
-                <h2 className="atlas-h2-size font-serif font-extrabold text-[#0A1B4F]">
-                  Visit Our <span className="bg-gradient-to-r from-[#1F4FE0] via-[#1F4FE0] to-[#1F4FE0] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">Offices</span>
+                <h2 className="text-[26px] sm:text-[30px] font-serif font-extrabold text-atlas-navy tracking-tight">
+                  Visit Our <span className="text-atlas-goldDeep font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">Offices</span>
                 </h2>
-                <p className="text-[15px] sm:text-[16px] text-[#4A5876] mt-1">
+                <p className="text-[16px] sm:text-[17px] text-[#4A5876] mt-1.5 leading-relaxed">
                   Visit our Mumbai corporate offices to consult with our leadership and solution specialists in person.
                 </p>
               </div>
@@ -684,27 +684,27 @@ export const ContactPage: React.FC = () => {
                       </div>
 
                       {/* Details */}
-                      <div className="p-4 sm:p-5 space-y-2.5">
-                        <div className="flex items-center gap-2 text-[#1F4FE0]">
-                          <MapPin className="w-4.5 h-4.5 shrink-0" />
-                          <h3 className="font-serif text-[17px] sm:text-[18px] font-bold text-[#0A1B4F]">
+                      <div className="p-5 sm:p-6 space-y-3">
+                        <div className="flex items-center gap-2 text-atlas-goldDeep">
+                          <MapPin className="w-5 h-5 shrink-0" />
+                          <h3 className="font-serif text-[19px] sm:text-[21px] font-bold text-atlas-navy">
                             {office.title}
                           </h3>
                         </div>
 
-                        <p className="text-[13px] text-[#4A5876] leading-relaxed">
+                        <p className="text-[16px] sm:text-[17px] text-[#4A5876] leading-relaxed">
                           {office.address}
                         </p>
 
-                        <div className="pt-1">
+                        <div className="pt-1.5">
                           <a
                             href={office.googleMapsUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center gap-1.5 text-[12.5px] font-bold text-[#1F4FE0] hover:text-[#1F4FE0] transition-colors py-1 px-3 rounded-lg border border-blue-200 hover:border-[#1F4FE0] bg-blue-50/50"
+                            className="inline-flex items-center gap-2 text-[14px] sm:text-[15px] font-bold text-atlas-navy hover:text-atlas-navy transition-colors py-2 px-4 rounded-lg border border-atlas-creamBorder bg-atlas-goldTint hover:bg-atlas-gold hover:text-atlas-navy text-atlas-navy shadow-2xs"
                           >
                             <span>Open in Google Maps</span>
-                            <ArrowRight className="w-3.5 h-3.5" />
+                            <ArrowRight className="w-4 h-4" />
                           </a>
                         </div>
                       </div>
@@ -745,17 +745,17 @@ export const ContactPage: React.FC = () => {
           {/* Section Heading */}
           <div className="max-w-3xl mx-auto text-center mb-10 sm:mb-12">
             <div className="mb-2.5">
-              <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-[#1F4FE0] select-none">
+              <span className="text-[14px] sm:text-[15px] font-bold uppercase tracking-wider text-atlas-goldDeep select-none">
                 VALUE COMMITMENT
               </span>
             </div>
-            <h2 className="atlas-h2-size font-serif font-extrabold text-[#0A1B4F]">
+            <h2 className="text-[26px] sm:text-[30px] font-serif font-extrabold text-atlas-navy tracking-tight">
               Why Connect with{' '}
-              <span className="bg-gradient-to-r from-[#1F4FE0] via-[#1F4FE0] to-[#1F4FE0] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">
+              <span className="text-atlas-goldDeep font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">
                 ATLAS Technosoft?
               </span>
             </h2>
-            <p className="mt-3 text-[15px] sm:text-[17px] text-[#4A5876] leading-relaxed">
+            <p className="mt-3 text-[16px] sm:text-[18px] text-[#4A5876] leading-relaxed">
               We combine deep ERP domain expertise with agile automation to deliver measurable, lasting business impact.
             </p>
           </div>

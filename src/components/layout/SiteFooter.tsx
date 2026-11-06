@@ -89,8 +89,9 @@ export const SiteFooter: React.FC = () => {
           
           {/* Column 1: Brand Logo, Description, SAP Silver Partner Badge & Social Icons */}
           <div className="lg:col-span-3 space-y-4 text-left">
-            <Link to="/" className="inline-flex items-center gap-3 group">
-              <div className="w-14 h-12 flex items-center justify-center shrink-0">
+            <Link to="/" className="inline-flex items-center gap-3.5 group">
+              {/* Increased Company Logo Size (+35-40%) with Preserved Proportions */}
+              <div className="w-20 h-16 sm:w-[84px] sm:h-[68px] flex items-center justify-center shrink-0">
                 <img
                   src="/images/logo.png"
                   alt="ATLAS Technosoft Logo"
@@ -98,78 +99,79 @@ export const SiteFooter: React.FC = () => {
                 />
               </div>
               <div className="flex flex-col leading-none select-none">
-                <span className="text-[24px] font-extrabold tracking-[-0.02em] text-white group-hover:text-atlas-gold transition-colors">
+                <span className="text-[26px] sm:text-[28px] font-extrabold tracking-[-0.02em] text-white group-hover:text-atlas-gold transition-colors">
                   ATLAS
                 </span>
-                <span className="text-[15px] font-bold text-white tracking-normal mt-0.5">
+                <span className="text-[15px] sm:text-[16px] font-bold text-white tracking-normal mt-0.5">
                   Technosoft
                 </span>
               </div>
             </Link>
 
-            <p className="text-[13.5px] text-atlas-onNavy leading-relaxed max-w-sm font-normal">
+            {/* Footer Description: 16-17px */}
+            <p className="text-[16px] sm:text-[16.5px] text-atlas-onNavy leading-relaxed max-w-sm font-normal">
               Your technology partner for SAP Business One, Boyum IT solutions, and intelligent automation.
             </p>
 
-            {/* Official SAP Silver Partner Badge (matching reference) */}
+            {/* Official SAP Silver Partner Badge */}
             <div className="pt-1.5">
               <SAPSilverPartnerBadge className="h-[64px] sm:h-[68px]" />
             </div>
 
-            {/* Social Icons matching Reference: LinkedIn, WhatsApp, X (Twitter), YouTube */}
+            {/* Social Icons */}
             <div className="flex items-center gap-2.5 pt-2">
               <a
                 href="https://www.linkedin.com/company/atlas-technosoft-pvt-ltd/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-8.5 h-8.5 rounded-lg bg-white/10 border border-white/10 hover:border-atlas-gold hover:bg-atlas-gold text-white hover:text-atlas-navy flex items-center justify-center transition-all duration-200 shadow-2xs"
+                className="w-9 h-9 rounded-lg bg-white/10 border border-white/10 hover:border-atlas-gold hover:bg-atlas-gold text-white hover:text-atlas-navy flex items-center justify-center transition-all duration-200 shadow-2xs"
                 aria-label="LinkedIn"
               >
-                <Linkedin className="w-4 h-4" />
+                <Linkedin className="w-4.5 h-4.5" />
               </a>
               <a
                 href="https://wa.me/919372329599?text=Hello%20ATLAS%20Technosoft%2C%20I%20would%20like%20to%20book%20a%20consultation."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-8.5 h-8.5 rounded-lg bg-white/10 border border-white/10 hover:border-atlas-gold hover:bg-atlas-gold text-white hover:text-atlas-navy flex items-center justify-center transition-all duration-200 shadow-2xs"
+                className="w-9 h-9 rounded-lg bg-white/10 border border-white/10 hover:border-atlas-gold hover:bg-atlas-gold text-white hover:text-atlas-navy flex items-center justify-center transition-all duration-200 shadow-2xs"
                 aria-label="WhatsApp"
               >
-                <WhatsAppIcon className="w-4 h-4" />
+                <WhatsAppIcon className="w-4.5 h-4.5" />
               </a>
               <a
                 href="https://x.com/atlastechnosoft"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-8.5 h-8.5 rounded-lg bg-white/10 border border-white/10 hover:border-atlas-gold hover:bg-atlas-gold text-white hover:text-atlas-navy flex items-center justify-center transition-all duration-200 shadow-2xs"
+                className="w-9 h-9 rounded-lg bg-white/10 border border-white/10 hover:border-atlas-gold hover:bg-atlas-gold text-white hover:text-atlas-navy flex items-center justify-center transition-all duration-200 shadow-2xs"
                 aria-label="X (Twitter)"
               >
-                <XTwitterIcon className="w-4 h-4" />
+                <XTwitterIcon className="w-4.5 h-4.5" />
               </a>
               <a
                 href="https://youtube.com/@atlastechnosoft"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-8.5 h-8.5 rounded-lg bg-white/10 border border-white/10 hover:border-atlas-gold hover:bg-atlas-gold text-white hover:text-atlas-navy flex items-center justify-center transition-all duration-200 shadow-2xs"
+                className="w-9 h-9 rounded-lg bg-white/10 border border-white/10 hover:border-atlas-gold hover:bg-atlas-gold text-white hover:text-atlas-navy flex items-center justify-center transition-all duration-200 shadow-2xs"
                 aria-label="YouTube"
               >
-                <YouTubeIcon className="w-4 h-4" />
+                <YouTubeIcon className="w-4.5 h-4.5" />
               </a>
             </div>
           </div>
 
-          {/* Column 2: Contact Info */}
+          {/* Column 2: Contact Info (Headings: 19-21px, Text: 16-17px) */}
           <div className="lg:col-span-3 xl:col-span-3 text-left">
             <div className="mb-4">
-              <h4 className="text-[13px] font-bold text-atlas-gold tracking-[0.14em] uppercase">
+              <h4 className="text-[19px] sm:text-[20px] font-bold text-atlas-gold tracking-wide">
                 CONTACT
               </h4>
-              <div className="w-8 h-[2.5px] bg-atlas-gold rounded-full mt-2" />
+              <div className="w-10 h-[2.5px] bg-atlas-gold rounded-full mt-2" />
             </div>
 
-            <ul className="space-y-3 text-[14px]">
+            <ul className="space-y-3.5 text-[16px] sm:text-[16.5px]">
               <li className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-lg bg-white/10 text-atlas-gold flex items-center justify-center shrink-0 border border-white/10">
-                  <Mail className="w-4 h-4" />
+                <div className="w-9 h-9 rounded-lg bg-white/10 text-atlas-gold flex items-center justify-center shrink-0 border border-white/10">
+                  <Mail className="w-4.5 h-4.5" />
                 </div>
                 <a
                   href={`mailto:${BRAND_INFO.contact.email}`}
@@ -179,8 +181,8 @@ export const SiteFooter: React.FC = () => {
                 </a>
               </li>
               <li className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-lg bg-white/10 text-atlas-gold flex items-center justify-center shrink-0 border border-white/10">
-                  <Phone className="w-4 h-4" />
+                <div className="w-9 h-9 rounded-lg bg-white/10 text-atlas-gold flex items-center justify-center shrink-0 border border-white/10">
+                  <Phone className="w-4.5 h-4.5" />
                 </div>
                 <a
                   href={`tel:+919372329599`}
@@ -190,8 +192,8 @@ export const SiteFooter: React.FC = () => {
                 </a>
               </li>
               <li className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-lg bg-white/10 text-atlas-gold flex items-center justify-center shrink-0 border border-white/10">
-                  <WhatsAppIcon className="w-4 h-4" />
+                <div className="w-9 h-9 rounded-lg bg-white/10 text-atlas-gold flex items-center justify-center shrink-0 border border-white/10">
+                  <WhatsAppIcon className="w-4.5 h-4.5" />
                 </div>
                 <a
                   href={BRAND_INFO.contact.whatsappLink}
@@ -204,21 +206,21 @@ export const SiteFooter: React.FC = () => {
               </li>
               
               {/* Divider */}
-              <li className="pt-2 border-t border-white/10">
+              <li className="pt-3 border-t border-white/10">
                 <div className="flex items-start gap-3">
-                  <div className="w-8 h-8 rounded-lg bg-white/10 text-atlas-gold flex items-center justify-center shrink-0 border border-white/10 mt-0.5">
-                    <MapPin className="w-4 h-4" />
+                  <div className="w-9 h-9 rounded-lg bg-white/10 text-atlas-gold flex items-center justify-center shrink-0 border border-white/10 mt-0.5">
+                    <MapPin className="w-4.5 h-4.5" />
                   </div>
-                  <div className="space-y-1 text-[13px]">
-                    <div className="font-bold text-white uppercase tracking-wide text-[12px]">
+                  <div className="space-y-1.5">
+                    <div className="font-bold text-white uppercase tracking-wider text-[15px] sm:text-[16px]">
                       OUR OFFICES
                     </div>
-                    <div className="text-atlas-onNavy flex items-center gap-1.5 font-medium">
-                      <span className="w-1.5 h-1.5 rounded-full bg-atlas-gold" />
+                    <div className="text-atlas-onNavy flex items-center gap-2 font-medium text-[15px] sm:text-[16px]">
+                      <span className="w-1.5 h-1.5 rounded-full bg-atlas-gold shrink-0" />
                       <span>Borivali (West), Mumbai, Maharashtra</span>
                     </div>
-                    <div className="text-atlas-onNavy flex items-center gap-1.5 font-medium">
-                      <span className="w-1.5 h-1.5 rounded-full bg-atlas-gold" />
+                    <div className="text-atlas-onNavy flex items-center gap-2 font-medium text-[15px] sm:text-[16px]">
+                      <span className="w-1.5 h-1.5 rounded-full bg-atlas-gold shrink-0" />
                       <span>Marine Lines, Mumbai, Maharashtra</span>
                     </div>
                   </div>
@@ -227,63 +229,63 @@ export const SiteFooter: React.FC = () => {
             </ul>
           </div>
 
-          {/* Column 3: Our Trusted Partners */}
+          {/* Column 3: Our Trusted Partners (Heading: 19-21px, Names: 16-17px) */}
           <div className="lg:col-span-3 xl:col-span-3 text-left">
             <div className="mb-4">
-              <h4 className="text-[13px] font-bold text-atlas-gold tracking-[0.14em] uppercase">
+              <h4 className="text-[19px] sm:text-[20px] font-bold text-atlas-gold tracking-wide">
                 OUR TRUSTED PARTNERS
               </h4>
-              <div className="w-8 h-[2.5px] bg-atlas-gold rounded-full mt-2" />
+              <div className="w-10 h-[2.5px] bg-atlas-gold rounded-full mt-2" />
             </div>
 
-            <ul className="space-y-3.5 text-[14px]">
+            <ul className="space-y-4 text-[16px] sm:text-[16.5px]">
               {partnerLinks.map((item) => (
                 <li key={item.name}>
                   <Link
                     to={item.href}
-                    className="group inline-flex items-center gap-2.5 font-medium text-atlas-onNavy hover:text-atlas-gold transition-colors"
+                    className="group inline-flex items-center gap-3 font-medium text-atlas-onNavy hover:text-atlas-gold transition-colors"
                   >
-                    <span className="w-4 h-4 rounded-full bg-atlas-gold text-atlas-navy flex items-center justify-center shrink-0 shadow-2xs">
-                      <Check className="w-2.5 h-2.5 stroke-[3]" />
+                    <span className="w-5 h-5 rounded-full bg-atlas-gold text-atlas-navy flex items-center justify-center shrink-0 shadow-2xs">
+                      <Check className="w-3 h-3 stroke-[3]" />
                     </span>
-                    <span className="group-hover:translate-x-0.5 transition-transform">{item.name}</span>
+                    <span className="group-hover:translate-x-1 transition-transform">{item.name}</span>
                   </Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Column 4: Quick Links */}
+          {/* Column 4: Quick Links (Heading: 19-21px, Links: 16-17px, Improved Spacing) */}
           <div className="lg:col-span-3 xl:col-span-3 text-left">
             <div className="mb-4">
-              <h4 className="text-[13px] font-bold text-atlas-gold tracking-[0.14em] uppercase">
+              <h4 className="text-[19px] sm:text-[20px] font-bold text-atlas-gold tracking-wide">
                 QUICK LINKS
               </h4>
-              <div className="w-8 h-[2.5px] bg-atlas-gold rounded-full mt-2" />
+              <div className="w-10 h-[2.5px] bg-atlas-gold rounded-full mt-2" />
             </div>
 
-            <div className="grid grid-cols-2 gap-x-4 gap-y-3 text-[14px]">
-              <ul className="space-y-3">
+            <div className="grid grid-cols-2 gap-x-4 gap-y-4 text-[16px] sm:text-[16.5px]">
+              <ul className="space-y-3.5">
                 {primaryQuickLinks.map((link) => (
                   <li key={link.name}>
                     <Link
                       to={link.href}
                       className="text-white hover:text-atlas-gold hover:translate-x-1 inline-flex items-center gap-1.5 font-semibold transition-all duration-200 whitespace-nowrap"
                     >
-                      <ChevronRight className="w-3.5 h-3.5 text-atlas-gold shrink-0" />
+                      <ChevronRight className="w-4 h-4 text-atlas-gold shrink-0" />
                       <span>{link.name}</span>
                     </Link>
                   </li>
                 ))}
               </ul>
-              <ul className="space-y-3">
+              <ul className="space-y-3.5">
                 {secondaryQuickLinks.map((link) => (
                   <li key={link.name}>
                     <Link
                       to={link.href}
                       className="text-white hover:text-atlas-gold hover:translate-x-1 inline-flex items-center gap-1.5 font-semibold transition-all duration-200 whitespace-nowrap"
                     >
-                      <ChevronRight className="w-3.5 h-3.5 text-atlas-gold shrink-0" />
+                      <ChevronRight className="w-4 h-4 text-atlas-gold shrink-0" />
                       <span>{link.name}</span>
                     </Link>
                   </li>
@@ -296,8 +298,8 @@ export const SiteFooter: React.FC = () => {
 
       </div>
 
-      {/* Bottom Deep Blue Copyright Bar matching Reference (#004DB3) */}
-      <div className="atlas-cream atlas-cream-deep py-5 text-white text-[13px] sm:text-[14px] relative z-10 border-t border-white/10">
+      {/* Bottom Copyright Bar: 15-16px text */}
+      <div className="atlas-cream atlas-cream-deep py-5 text-white text-[15px] sm:text-[16px] relative z-10 border-t border-white/10">
         <div className="max-w-[1420px] 2xl:max-w-[1480px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-10 flex flex-col sm:flex-row items-center justify-between gap-3">
           <div className="text-center sm:text-left text-white/95 font-normal">
             © {currentYear} ATLAS Technosoft. All rights reserved.

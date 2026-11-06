@@ -17,7 +17,7 @@ export const SuggestedQuestions: React.FC<SuggestedQuestionsProps> = ({
   return (
     <div className="pt-2 border-t border-slate-200/80">
       <div className="flex items-center gap-1.5 mb-2">
-        <HelpCircle className="w-3 h-3 text-blue-600" />
+        <HelpCircle className="w-3 h-3 text-[#E0A33B]" />
         <span className="text-[11px] font-semibold text-slate-500 uppercase tracking-wider">
           {heading}
         </span>

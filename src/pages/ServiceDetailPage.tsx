@@ -103,7 +103,7 @@ export const ServiceDetailPage: React.FC = () => {
       <div className="min-h-[60vh] flex flex-col items-center justify-center p-8 text-center">
         <h1 className="atlas-h1-size font-serif font-bold text-[#0A1B4F] mb-4">Service Not Found</h1>
         <p className="text-[#4A5876] mb-6">The requested service detail page could not be located.</p>
-        <Link to="/services" className="inline-flex items-center gap-2 text-[#1F4FE0] font-semibold hover:underline">
+        <Link to="/services" className="inline-flex items-center gap-2 text-[#E0A33B] font-semibold hover:underline">
           <ArrowLeft className="w-4 h-4" /> Back to Services
         </Link>
       </div>
@@ -123,9 +123,9 @@ export const ServiceDetailPage: React.FC = () => {
           
           {/* Breadcrumbs */}
           <nav className="flex items-center gap-2 text-xs sm:text-sm text-[#4A5876] mb-6">
-            <Link to="/" className="hover:text-[#1F4FE0] transition-colors">Home</Link>
+            <Link to="/" className="hover:text-[#E0A33B] transition-colors">Home</Link>
             <span>/</span>
-            <Link to="/services" className="hover:text-[#1F4FE0] transition-colors">Services</Link>
+            <Link to="/services" className="hover:text-[#E0A33B] transition-colors">Services</Link>
             <span>/</span>
             <span className="font-semibold text-[#0A1B4F] truncate">{service.title}</span>
           </nav>
@@ -136,15 +136,15 @@ export const ServiceDetailPage: React.FC = () => {
             <div className="lg:col-span-7 space-y-5">
               
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50/80 border border-blue-200/60 shadow-xs">
-                <Sparkles className="w-4 h-4 text-[#1F4FE0]" />
-                <span className="text-[12px] sm:text-[13px] font-bold uppercase tracking-wider text-[#1F4FE0]">
+                <Sparkles className="w-4 h-4 text-[#E0A33B]" />
+                <span className="text-[12px] sm:text-[13px] font-bold uppercase tracking-wider text-[#E0A33B]">
                   {service.badge}
                 </span>
               </div>
 
               <h1 className="atlas-h1-size font-serif font-extrabold text-[#0A1B4F]">
                 {service.title}{' '}
-                <span className="bg-gradient-to-r from-[#1F4FE0] via-[#1F4FE0] to-[#1F4FE0] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">
+                <span className="bg-gradient-to-r from-[#E0A33B] via-[#E0A33B] to-[#E0A33B] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">
                   {service.titleHighlight}
                 </span>
               </h1>
@@ -163,7 +163,7 @@ export const ServiceDetailPage: React.FC = () => {
                   onClick={() => setIsModalOpen(true)}
                   variant="gold"
                   size="lg"
-                  className="text-[15px] sm:text-[16px] font-semibold px-6 py-3.5 shadow-md shadow-blue-500/25 bg-gradient-to-r from-[#1F4FE0] to-[#1F4FE0] hover:from-[#1739B8] hover:to-[#1739B8] text-white"
+                  className="text-[15px] sm:text-[16px] font-semibold px-6 py-3.5 shadow-md shadow-blue-500/25 bg-gradient-to-r from-[#E0A33B] to-[#E0A33B] hover:from-[#1739B8] hover:to-[#1739B8] text-white"
                   icon={<ArrowRight className="w-4 h-4" />}
                 >
                   Book a Consultation
@@ -197,7 +197,7 @@ export const ServiceDetailPage: React.FC = () => {
                 {/* Floating Micro Badge */}
                 <div className="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-md rounded-xl p-3 border border-slate-200/90 shadow-lg flex items-center justify-between">
                   <div className="flex items-center gap-2.5">
-                    <div className="w-8 h-8 rounded-lg bg-blue-50 text-[#1F4FE0] flex items-center justify-center font-bold text-sm">
+                    <div className="w-8 h-8 rounded-lg bg-blue-50 text-[#E0A33B] flex items-center justify-center font-bold text-sm">
                       ✓
                     </div>
                     <div>
@@ -205,7 +205,7 @@ export const ServiceDetailPage: React.FC = () => {
                       <div className="text-[11px] text-[#4A5876]">Backed by Enterprise SLAs</div>
                     </div>
                   </div>
-                  <span className="text-[11px] font-bold text-[#1F4FE0] bg-blue-50 px-2.5 py-1 rounded-md">
+                  <span className="text-[11px] font-bold text-[#E0A33B] bg-blue-50 px-2.5 py-1 rounded-md">
                     Enterprise
                   </span>
                 </div>
@@ -256,7 +256,7 @@ export const ServiceDetailPage: React.FC = () => {
 
             {/* Right: Narrative & Checklist */}
             <div className="lg:col-span-7 order-1 lg:order-2 space-y-4">
-              <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-[#1F4FE0] block">
+              <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-[#E0A33B] block">
                 STRATEGIC ADVANTAGE
               </span>
               
@@ -300,12 +300,12 @@ export const ServiceDetailPage: React.FC = () => {
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="text-center max-w-3xl mx-auto mb-12 space-y-3">
-            <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-[#1F4FE0]">
+            <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-[#E0A33B]">
               CORE CAPABILITIES
             </span>
             <h2 className="atlas-h2-size font-serif font-extrabold text-[#0A1B4F]">
               Comprehensive Modules Designed for{' '}
-              <span className="bg-gradient-to-r from-[#1F4FE0] via-[#1F4FE0] to-[#1F4FE0] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">
+              <span className="bg-gradient-to-r from-[#E0A33B] via-[#E0A33B] to-[#E0A33B] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">
                 High Performance
               </span>
             </h2>
@@ -340,12 +340,12 @@ export const ServiceDetailPage: React.FC = () => {
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="text-center max-w-3xl mx-auto mb-12 space-y-3">
-            <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-[#1F4FE0]">
+            <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-[#E0A33B]">
               BUSINESS ADVANTAGES
             </span>
             <h2 className="atlas-h2-size font-serif font-extrabold text-[#0A1B4F]">
               Measurable Outcomes for{' '}
-              <span className="bg-gradient-to-r from-[#1F4FE0] via-[#1F4FE0] to-[#1F4FE0] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">
+              <span className="bg-gradient-to-r from-[#E0A33B] via-[#E0A33B] to-[#E0A33B] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">
                 Every Department
               </span>
             </h2>
@@ -375,12 +375,12 @@ export const ServiceDetailPage: React.FC = () => {
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="text-center max-w-3xl mx-auto mb-12 space-y-3">
-            <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-[#1F4FE0]">
+            <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-[#E0A33B]">
               PROVEN METHODOLOGY
             </span>
             <h2 className="atlas-h2-size font-serif font-extrabold text-[#0A1B4F]">
               A Structured Roadmap to{' '}
-              <span className="bg-gradient-to-r from-[#1F4FE0] via-[#1F4FE0] to-[#1F4FE0] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">
+              <span className="bg-gradient-to-r from-[#E0A33B] via-[#E0A33B] to-[#E0A33B] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">
                 Successful Adoption
               </span>
             </h2>
@@ -395,7 +395,7 @@ export const ServiceDetailPage: React.FC = () => {
                 key={idx}
                 className="relative p-6 rounded-2xl bg-white border border-slate-200/90 shadow-xs hover:border-[#1F4FE0] transition-all"
               >
-                <div className="w-10 h-10 rounded-full bg-gradient-to-r from-[#1F4FE0] to-[#1F4FE0] text-white font-black text-sm flex items-center justify-center mb-4 shadow-sm">
+                <div className="w-10 h-10 rounded-full bg-gradient-to-r from-[#E0A33B] to-[#E0A33B] text-white font-black text-sm flex items-center justify-center mb-4 shadow-sm">
                   {st.step}
                 </div>
                 <h3 className="text-[17px] sm:text-[18px] font-bold text-[#0A1B4F] mb-2">
@@ -419,19 +419,19 @@ export const ServiceDetailPage: React.FC = () => {
           
           <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4 mb-8">
             <div>
-              <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-[#1F4FE0] block mb-1">
+              <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-[#E0A33B] block mb-1">
                 COMPLEMENTARY CAPABILITIES
               </span>
               <h2 className="font-serif text-[26px] sm:text-[32px] font-bold text-[#0A1B4F]">
                 Related Solutions in the{' '}
-                <span className="bg-gradient-to-r from-[#1F4FE0] via-[#1F4FE0] to-[#1F4FE0] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">
+                <span className="bg-gradient-to-r from-[#E0A33B] via-[#E0A33B] to-[#E0A33B] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">
                   ATLAS Ecosystem
                 </span>
               </h2>
             </div>
             <Link
               to="/services"
-              className="inline-flex items-center gap-1.5 text-sm font-bold text-[#1F4FE0] hover:underline"
+              className="inline-flex items-center gap-1.5 text-sm font-bold text-[#E0A33B] hover:underline"
             >
               <span>View All Services</span>
               <ArrowRight className="w-4 h-4" />
@@ -446,19 +446,19 @@ export const ServiceDetailPage: React.FC = () => {
                 className="group p-6 rounded-xl bg-white border border-slate-200/90 shadow-xs hover:border-[#1F4FE0] hover:shadow-md transition-all flex flex-col justify-between"
               >
                 <div>
-                  <span className="text-xs font-bold text-[#1F4FE0] bg-blue-50 px-2.5 py-1 rounded-md mb-3 inline-block">
+                  <span className="text-xs font-bold text-[#E0A33B] bg-blue-50 px-2.5 py-1 rounded-md mb-3 inline-block">
                     {rel.tag}
                   </span>
-                  <h3 className="text-[18px] font-bold text-[#0A1B4F] group-hover:text-[#1F4FE0] transition-colors mb-2">
+                  <h3 className="text-[18px] font-bold text-[#0A1B4F] group-hover:text-[#E0A33B] transition-colors mb-2">
                     {rel.title}
                   </h3>
                   <p className="text-[13px] sm:text-[14px] text-[#4A5876] leading-relaxed">
                     {rel.description}
                   </p>
                 </div>
-                <div className="pt-4 border-t border-slate-100 mt-4 flex items-center justify-between text-xs font-bold text-[#0A1B4F] group-hover:text-[#1F4FE0]">
+                <div className="pt-4 border-t border-slate-100 mt-4 flex items-center justify-between text-xs font-bold text-[#0A1B4F] group-hover:text-[#E0A33B]">
                   <span>Explore Solution</span>
-                  <ArrowRight className="w-4 h-4 text-[#1F4FE0] group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="w-4 h-4 text-[#E0A33B] group-hover:translate-x-1 transition-transform" />
                 </div>
               </Link>
             ))}
@@ -478,12 +478,12 @@ export const ServiceDetailPage: React.FC = () => {
               
               {/* Left Column: Heading, Subtext & CTA */}
               <div className="lg:col-span-6 space-y-4 text-left">
-                <span className="text-[12px] font-bold uppercase tracking-wider text-[#1F4FE0] block">
+                <span className="text-[12px] font-bold uppercase tracking-wider text-[#E0A33B] block">
                   READY TO ACCELERATE GROWTH?
                 </span>
                 <h2 className="atlas-h2-size font-serif font-extrabold text-[#0A1B4F]">
                   Schedule a Consultation for{' '}
-                  <span className="bg-gradient-to-r from-[#1F4FE0] via-[#1F4FE0] to-[#1F4FE0] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">
+                  <span className="bg-gradient-to-r from-[#E0A33B] via-[#E0A33B] to-[#E0A33B] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">
                     {service.title}
                   </span>
                 </h2>
@@ -496,7 +496,7 @@ export const ServiceDetailPage: React.FC = () => {
                     onClick={() => setIsModalOpen(true)}
                     variant="gold"
                     size="lg"
-                    className="text-[15px] sm:text-[16px] font-semibold px-7 py-3.5 bg-gradient-to-r from-[#1F4FE0] to-[#1F4FE0] hover:from-[#1739B8] hover:to-[#1739B8] text-white shadow-md shadow-blue-500/25"
+                    className="text-[15px] sm:text-[16px] font-semibold px-7 py-3.5 bg-atlas-gold hover:bg-[#D4972F] !text-atlas-navy font-bold shadow-[0_4px_14px_rgba(224,163,59,0.35)]"
                     icon={<ArrowRight className="w-4 h-4" />}
                   >
                     Book a Consultation

@@ -58,7 +58,7 @@ const LogoCard: React.FC<{ item: LogoSliderItem }> = ({ item }) => {
       </div>
 
       {/* 2. Company Name in bold navy blue */}
-      <div className="mt-2 font-bold text-[14px] sm:text-[15px] text-[#0A1B4F] group-hover:text-[#1F4FE0] transition-colors leading-tight truncate max-w-full">
+      <div className="mt-2 font-bold text-[14px] sm:text-[15px] text-[#0A1B4F] group-hover:text-[#E0A33B] transition-colors leading-tight truncate max-w-full">
         {item.name}
       </div>
 
@@ -255,7 +255,7 @@ export const ClientLogoMarquee: React.FC<{ className?: string; showPill?: boolea
       <div className="max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
         {showPill && (
           <div className="flex justify-center mb-5 sm:mb-6">
-            <span className="inline-flex items-center justify-center px-6 py-1.5 rounded-full text-white font-bold text-xs sm:text-[13px] bg-gradient-to-r from-[#1F4FE0] via-[#1F4FE0] to-[#1F4FE0] shadow-sm tracking-wide uppercase">
+            <span className="inline-flex items-center justify-center px-6 py-1.5 rounded-full text-white font-bold text-xs sm:text-[13px] bg-gradient-to-r from-[#E0A33B] via-[#E0A33B] to-[#E0A33B] shadow-sm tracking-wide uppercase">
               Trusted by Industry Leaders
             </span>
           </div>

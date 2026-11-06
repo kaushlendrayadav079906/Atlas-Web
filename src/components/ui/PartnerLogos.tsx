@@ -6,7 +6,7 @@ export const SAPBusinessOneLogo: React.FC<{ className?: string }> = ({ className
       SAP
     </div>
     <div className="flex flex-col leading-none">
-      <span className="text-[#1F4FE0] font-bold text-[15px] sm:text-[16px] tracking-tight">Business</span>
+      <span className="text-[#E0A33B] font-bold text-[15px] sm:text-[16px] tracking-tight">Business</span>
       <span className="text-[#F0AB00] font-black text-[15px] sm:text-[16px] tracking-tight">One</span>
     </div>
   </div>
@@ -15,7 +15,7 @@ export const SAPBusinessOneLogo: React.FC<{ className?: string }> = ({ className
 export const BoyumITLogo: React.FC<{ className?: string }> = ({ className = "h-8 sm:h-9" }) => (
   <div className={`inline-flex items-center select-none ${className}`}>
     <span className="text-slate-900 font-extrabold text-xl sm:text-2xl md:text-[26px] tracking-tight">boyum</span>
-    <span className="text-[#1F4FE0] font-black text-2xl sm:text-3xl md:text-[30px] leading-none ml-1">it</span>
+    <span className="text-[#E0A33B] font-black text-2xl sm:text-3xl md:text-[30px] leading-none ml-1">it</span>
   </div>
 );
 
@@ -65,7 +65,7 @@ export const SAPHANALogo: React.FC<{ className?: string }> = ({ className = "h-8
     <div className="bg-[#1F4FE0] text-white font-black text-sm sm:text-base px-2.5 py-1 rounded-sm tracking-wider flex items-center shadow-xs">
       SAP
     </div>
-    <span className="text-[#1F4FE0] font-black text-lg sm:text-xl md:text-2xl tracking-wider">HANA</span>
+    <span className="text-[#E0A33B] font-black text-lg sm:text-xl md:text-2xl tracking-wider">HANA</span>
   </div>
 );
 

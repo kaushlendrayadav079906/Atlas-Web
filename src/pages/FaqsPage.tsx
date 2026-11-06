@@ -42,13 +42,13 @@ export const FaqsPage: React.FC = () => {
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
           
           <div className="max-w-3xl mx-auto space-y-4">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200/80 text-[#1F4FE0] text-xs font-bold uppercase tracking-wider">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200/80 text-[#E0A33B] text-xs font-bold uppercase tracking-wider">
               <HelpCircle className="w-4 h-4" />
               <span>FREQUENTLY ASKED QUESTIONS</span>
             </div>
 
             <h1 className="atlas-h1-size font-serif font-extrabold text-[#0A1B4F]">
-              Answers to Your <span className="bg-gradient-to-r from-[#1F4FE0] via-[#1F4FE0] to-[#1F4FE0] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">ERP & Automation Questions</span>
+              Answers to Your <span className="bg-gradient-to-r from-[#E0A33B] via-[#E0A33B] to-[#E0A33B] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">ERP & Automation Questions</span>
             </h1>
 
             <p className="text-[16px] sm:text-[19px] text-[#4A5876] leading-relaxed font-normal">

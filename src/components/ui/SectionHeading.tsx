@@ -27,9 +27,7 @@ export const SectionHeading: React.FC<SectionHeadingProps> = ({
       {badge && (
         <div className="mb-4">
           <span
-            className={`text-[13px] font-bold uppercase tracking-[0.14em] select-none ${
-              isDark ? 'text-atlas-gold' : 'text-atlas-royal'
-            }`}
+            className="text-[13px] font-bold uppercase tracking-[0.14em] select-none text-[#E0A33B]"
           >
             {badge}
           </span>
@@ -43,7 +41,7 @@ export const SectionHeading: React.FC<SectionHeadingProps> = ({
       >
         {title}{' '}
         {titleHighlight && (
-          <span className={`atlas-accent ${isDark ? 'text-atlas-gold' : 'text-atlas-royal'}`}>{titleHighlight}</span>
+          <span className="atlas-accent text-[#E0A33B]">{titleHighlight}</span>
         )}
       </h2>
 

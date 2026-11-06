@@ -116,14 +116,14 @@ export const LeadershipSection: React.FC = () => {
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-16">
-          <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-blue-50 text-[#1F4FE0] border border-blue-200/80 mb-3.5 select-none">
-            <Users className="w-3.5 h-3.5 text-[#1F4FE0]" />
+          <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-blue-50 text-[#E0A33B] border border-blue-200/80 mb-3.5 select-none">
+            <Users className="w-3.5 h-3.5 text-[#E0A33B]" />
             <span>LEADERSHIP & EXPERT TEAM</span>
           </div>
 
           <h2 className="atlas-h2-size font-serif font-extrabold text-[#0A1B4F]">
             Certified ERP & Automation Experts,{' '}
-            <span className="bg-gradient-to-r from-[#1F4FE0] via-[#1F4FE0] to-[#1F4FE0] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">
+            <span className="bg-gradient-to-r from-[#E0A33B] via-[#E0A33B] to-[#E0A33B] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">
               Not Salespeople
             </span>
           </h2>
@@ -135,7 +135,7 @@ export const LeadershipSection: React.FC = () => {
           {/* Quick Metrics Bar */}
           <div className="mt-6 flex flex-wrap items-center justify-center gap-3 sm:gap-6 text-xs sm:text-sm font-semibold text-slate-700">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-white border border-slate-200 shadow-2xs">
-              <Award className="w-4 h-4 text-[#1F4FE0]" />
+              <Award className="w-4 h-4 text-[#E0A33B]" />
               <span>32 Certified Consultants</span>
             </div>
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-white border border-slate-200 shadow-2xs">
@@ -143,7 +143,7 @@ export const LeadershipSection: React.FC = () => {
               <span>99.9% Production Uptime</span>
             </div>
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-white border border-slate-200 shadow-2xs">
-              <MapPin className="w-4 h-4 text-[#1F4FE0]" />
+              <MapPin className="w-4 h-4 text-[#E0A33B]" />
               <span>Mumbai Delivery Centers (Borivali & Marine Lines)</span>
             </div>
           </div>
@@ -161,7 +161,7 @@ export const LeadershipSection: React.FC = () => {
                 <div>
                   {/* Card Header */}
                   <div className="flex items-start justify-between gap-3 mb-4">
-                    <div className="w-12 h-12 rounded-xl bg-blue-50 text-[#1F4FE0] border border-blue-200/80 flex items-center justify-center shrink-0 group-hover:scale-105 group-hover:bg-[#1F4FE0] group-hover:text-white transition-all">
+                    <div className="w-12 h-12 rounded-xl bg-blue-50 text-[#E0A33B] border border-blue-200/80 flex items-center justify-center shrink-0 group-hover:scale-105 group-hover:bg-[#1F4FE0] group-hover:text-white transition-all">
                       <Icon className="w-6 h-6" />
                     </div>
 
@@ -169,7 +169,7 @@ export const LeadershipSection: React.FC = () => {
                       <span className="inline-block px-2.5 py-1 rounded-md text-[11px] font-bold uppercase tracking-wider bg-slate-100 text-slate-700 border border-slate-200">
                         {group.badge}
                       </span>
-                      <div className="text-[11.5px] font-semibold text-[#1F4FE0] mt-1">
+                      <div className="text-[11.5px] font-semibold text-[#E0A33B] mt-1">
                         {group.metrics}
                       </div>
                     </div>
@@ -195,7 +195,7 @@ export const LeadershipSection: React.FC = () => {
                     </div>
                     {group.competencies.map((comp, idx) => (
                       <div key={idx} className="flex items-center gap-2 text-xs sm:text-[13px] text-slate-700">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-[#1F4FE0] shrink-0" />
+                        <CheckCircle2 className="w-3.5 h-3.5 text-[#E0A33B] shrink-0" />
                         <span>{comp}</span>
                       </div>
                     ))}
@@ -209,7 +209,7 @@ export const LeadershipSection: React.FC = () => {
                   </span>
                   <a
                     href="#contact"
-                    className="inline-flex items-center gap-1.5 text-xs font-bold text-[#1F4FE0] hover:text-[#1739B8] transition-colors"
+                    className="inline-flex items-center gap-1.5 text-xs font-bold text-[#E0A33B] hover:text-[#1739B8] transition-colors"
                   >
                     <span>Consult Practice Lead</span>
                     <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
@@ -223,7 +223,7 @@ export const LeadershipSection: React.FC = () => {
         {/* Bottom Dedicated AMS Support Banner */}
         <div className="mt-10 sm:mt-12 p-6 sm:p-7 rounded-2xl bg-white border border-blue-200/90 flex flex-col md:flex-row items-center justify-between gap-5 text-center md:text-left">
           <div className="flex items-center gap-4">
-            <div className="w-12 h-12 rounded-xl bg-white border border-blue-200 text-[#1F4FE0] flex items-center justify-center shrink-0 shadow-xs">
+            <div className="w-12 h-12 rounded-xl bg-white border border-blue-200 text-[#E0A33B] flex items-center justify-center shrink-0 shadow-xs">
               <Headphones className="w-6 h-6" />
             </div>
             <div>
@@ -238,7 +238,7 @@ export const LeadershipSection: React.FC = () => {
 
           <a
             href="#contact"
-            className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-[#1F4FE0] hover:bg-[#1739B8] text-white text-xs sm:text-sm font-bold uppercase tracking-wider shadow-sm transition-colors whitespace-nowrap"
+            className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-atlas-gold hover:bg-[#D4972F] text-atlas-navy text-xs sm:text-sm font-bold uppercase tracking-wider shadow-[0_4px_14px_rgba(224,163,59,0.35)] transition-colors whitespace-nowrap"
           >
             <span>Speak with our Consultants</span>
             <ArrowRight className="w-4 h-4" />

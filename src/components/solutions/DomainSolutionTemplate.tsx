@@ -40,7 +40,7 @@ export const DomainSolutionTemplate: React.FC<DomainSolutionTemplateProps> = ({ 
     window.scrollTo(0, 0);
   }, [data]);
 
-  const renderIcon = (name: string, className = 'w-6 h-6 text-[#1F4FE0]') => {
+  const renderIcon = (name: string, className = 'w-6 h-6 text-[#E0A33B]') => {
     switch (name) {
       case 'Boxes':
         return <Boxes className={className} />;
@@ -76,7 +76,7 @@ export const DomainSolutionTemplate: React.FC<DomainSolutionTemplateProps> = ({ 
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           <ol className="flex items-center space-x-2 text-xs sm:text-sm text-slate-500">
             <li>
-              <Link to="/" className="hover:text-[#1F4FE0] transition-colors">
+              <Link to="/" className="hover:text-[#E0A33B] transition-colors">
                 Home
               </Link>
             </li>
@@ -84,7 +84,7 @@ export const DomainSolutionTemplate: React.FC<DomainSolutionTemplateProps> = ({ 
               <ChevronRight className="w-3.5 h-3.5 text-slate-500" />
             </li>
             <li>
-              <Link to="/solutions" className="hover:text-[#1F4FE0] transition-colors">
+              <Link to="/solutions" className="hover:text-[#E0A33B] transition-colors">
                 Solutions
               </Link>
             </li>
@@ -111,13 +111,13 @@ export const DomainSolutionTemplate: React.FC<DomainSolutionTemplateProps> = ({ 
             {/* Left Content */}
             <div className="lg:col-span-7 space-y-6 text-left">
               <div className="inline-flex items-center gap-2">
-                <span className="text-[12px] sm:text-[13px] font-bold uppercase tracking-wider text-[#1F4FE0] bg-blue-50 px-3 py-1 rounded-full border border-blue-200">
+                <span className="text-[12px] sm:text-[13px] font-bold uppercase tracking-wider text-[#E0A33B] bg-blue-50 px-3 py-1 rounded-full border border-blue-200">
                   {data.eyebrow}
                 </span>
               </div>
 
               <h1 className="atlas-h1-size font-extrabold text-[#1A202C]">
-                {data.title} <span className="text-[#1F4FE0]">{data.titleHighlight}</span>
+                {data.title} <span className="text-[#E0A33B]">{data.titleHighlight}</span>
               </h1>
 
               <p className="text-lg sm:text-xl font-medium text-slate-700 leading-snug">
@@ -150,7 +150,7 @@ export const DomainSolutionTemplate: React.FC<DomainSolutionTemplateProps> = ({ 
               <div className="pt-4 flex flex-wrap gap-3 sm:gap-4 items-center">
                 <Button
                   onClick={() => setIsModalOpen(true)}
-                  className="bg-[#1F4FE0] hover:bg-blue-700 text-white font-semibold px-6 py-3.5 rounded-lg shadow-sm transition-all duration-200 inline-flex items-center gap-2"
+                  className="bg-atlas-gold hover:bg-[#D4972F] text-atlas-navy font-bold px-6 py-3.5 rounded-lg shadow-[0_4px_14px_rgba(224,163,59,0.35)] transition-all duration-200 inline-flex items-center gap-2"
                 >
                   Book a Domain Consultation
                   <ArrowRight className="w-4 h-4" />
@@ -159,7 +159,7 @@ export const DomainSolutionTemplate: React.FC<DomainSolutionTemplateProps> = ({ 
                   href="#architecture"
                   className="inline-flex items-center gap-2 px-5 py-3.5 rounded-lg text-slate-700 font-semibold bg-white border border-slate-300 hover:bg-slate-50 hover:border-slate-400 transition-all duration-200"
                 >
-                  <Layers className="w-4 h-4 text-[#1F4FE0]" />
+                  <Layers className="w-4 h-4 text-[#E0A33B]" />
                   Explore Architecture
                 </a>
               </div>
@@ -182,11 +182,11 @@ export const DomainSolutionTemplate: React.FC<DomainSolutionTemplateProps> = ({ 
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none" />
                 <div className="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-md rounded-xl p-4 border border-slate-200/60 shadow-lg">
                   <div className="flex items-center gap-3">
-                    <div className="p-2 bg-blue-50 text-[#1F4FE0] rounded-lg">
+                    <div className="p-2 bg-blue-50 text-[#E0A33B] rounded-lg">
                       <ShieldCheck className="w-5 h-5" />
                     </div>
                     <div>
-                      <p className="text-xs font-bold uppercase tracking-wider text-[#1F4FE0]">
+                      <p className="text-xs font-bold uppercase tracking-wider text-[#E0A33B]">
                         Enterprise-Grade Implementation
                       </p>
                       <p className="text-xs font-medium text-slate-700">
@@ -212,7 +212,7 @@ export const DomainSolutionTemplate: React.FC<DomainSolutionTemplateProps> = ({ 
                 key={idx}
                 className="bg-white rounded-2xl p-6 sm:p-7 border border-slate-200/80 hover:border-blue-300 transition-all duration-200 hover:shadow-md"
               >
-                <div className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#1F4FE0] tracking-tight mb-2">
+                <div className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#E0A33B] tracking-tight mb-2">
                   {metric.value}
                 </div>
                 <div className="text-base sm:text-lg font-bold text-slate-900 mb-1">
@@ -279,7 +279,7 @@ export const DomainSolutionTemplate: React.FC<DomainSolutionTemplateProps> = ({ 
       <section id="architecture" className="py-16 lg:py-24 bg-white border-b border-slate-200/80">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-14">
-            <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#1F4FE0]">
+            <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#E0A33B]">
               Proven Technical Blueprint
             </span>
             <h2 className="atlas-h2-size font-extrabold text-slate-900 mt-2 mb-4">
@@ -297,7 +297,7 @@ export const DomainSolutionTemplate: React.FC<DomainSolutionTemplateProps> = ({ 
                 className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200/90 hover:border-blue-400 transition-all duration-200"
               >
                 <div className="flex items-center gap-3 mb-3">
-                  <div className="w-8 h-8 rounded-lg bg-blue-100 text-[#1F4FE0] flex items-center justify-center font-bold text-sm">
+                  <div className="w-8 h-8 rounded-lg bg-blue-100 text-[#E0A33B] flex items-center justify-center font-bold text-sm">
                     {idx + 1}
                   </div>
                   <h3 className="text-lg sm:text-xl font-bold text-slate-900">
@@ -323,7 +323,7 @@ export const DomainSolutionTemplate: React.FC<DomainSolutionTemplateProps> = ({ 
 
           {data.architectureOverview.diagramNote && (
             <div className="bg-blue-50/70 border border-blue-200 rounded-2xl p-6 flex items-center gap-4">
-              <div className="p-3 bg-blue-100 text-[#1F4FE0] rounded-xl flex-shrink-0">
+              <div className="p-3 bg-blue-100 text-[#E0A33B] rounded-xl flex-shrink-0">
                 <Layers className="w-6 h-6" />
               </div>
               <p className="text-sm sm:text-base text-blue-900 font-medium">
@@ -341,7 +341,7 @@ export const DomainSolutionTemplate: React.FC<DomainSolutionTemplateProps> = ({ 
       <section className="py-16 lg:py-24 border-b border-white/10 atlas-dark">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-14">
-            <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#1F4FE0]">
+            <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#E0A33B]">
               Comprehensive Functionality
             </span>
             <h2 className="atlas-h2-size font-extrabold text-slate-900 mt-2 mb-4">
@@ -359,7 +359,7 @@ export const DomainSolutionTemplate: React.FC<DomainSolutionTemplateProps> = ({ 
                 className="bg-white rounded-2xl p-6 sm:p-7 border border-slate-200/80 shadow-sm hover:shadow-lg transition-all duration-200 flex flex-col justify-between group"
               >
                 <div>
-                  <div className="p-3 rounded-xl bg-blue-50 text-[#1F4FE0] group-hover:bg-[#1F4FE0] group-hover:text-white transition-colors duration-200 w-fit mb-4">
+                  <div className="p-3 rounded-xl bg-blue-50 text-[#E0A33B] group-hover:bg-[#1F4FE0] group-hover:text-white transition-colors duration-200 w-fit mb-4">
                     {renderIcon(feature.icon, 'w-6 h-6')}
                   </div>
                   <h3 className="text-lg font-bold text-slate-900 mb-2.5">
@@ -456,7 +456,7 @@ export const DomainSolutionTemplate: React.FC<DomainSolutionTemplateProps> = ({ 
                 </div>
                 <Link
                   to={data.caseStudy.href}
-                  className="inline-flex items-center gap-2 bg-[#1F4FE0] hover:bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg shadow-sm transition-all duration-200"
+                  className="inline-flex items-center gap-2 bg-atlas-gold hover:bg-[#D4972F] text-atlas-navy font-bold px-6 py-3 rounded-lg shadow-[0_4px_14px_rgba(224,163,59,0.35)] transition-all duration-200"
                 >
                   Read Full Case Study
                   <ArrowRight className="w-4 h-4" />
@@ -473,7 +473,7 @@ export const DomainSolutionTemplate: React.FC<DomainSolutionTemplateProps> = ({ 
       <section className="py-16 lg:py-20 border-b border-white/10 atlas-dark">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-12">
-            <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#1F4FE0]">
+            <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#E0A33B]">
               Ecosystem Connectivity
             </span>
             <h2 className="atlas-h2-size font-extrabold text-slate-900 mt-2 mb-3">
@@ -503,7 +503,7 @@ export const DomainSolutionTemplate: React.FC<DomainSolutionTemplateProps> = ({ 
                 </div>
                 <Link
                   to={item.href}
-                  className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#1F4FE0] hover:text-blue-700 transition-colors"
+                  className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#E0A33B] hover:text-blue-700 transition-colors"
                 >
                   Explore Solution
                   <ArrowRight className="w-4 h-4" />
@@ -533,7 +533,7 @@ export const DomainSolutionTemplate: React.FC<DomainSolutionTemplateProps> = ({ 
               <div className="pt-3 flex flex-wrap items-center justify-center gap-4">
                 <Button
                   onClick={() => setIsModalOpen(true)}
-                  className="bg-[#1F4FE0] hover:bg-blue-600 text-white font-bold text-base px-8 py-4 rounded-xl shadow-lg transition-all duration-200 inline-flex items-center gap-2"
+                  className="bg-atlas-gold hover:bg-[#D4972F] text-atlas-navy font-bold text-base px-8 py-4 rounded-xl shadow-[0_4px_14px_rgba(224,163,59,0.35)] transition-all duration-200 inline-flex items-center gap-2"
                 >
                   Schedule Solution Consultation
                   <ArrowRight className="w-5 h-5" />

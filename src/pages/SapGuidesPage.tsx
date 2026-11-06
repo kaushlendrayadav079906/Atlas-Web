@@ -72,13 +72,13 @@ export const SapGuidesPage: React.FC = () => {
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
           
           <div className="max-w-3xl mx-auto space-y-4">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200/80 text-[#1F4FE0] text-xs font-bold uppercase tracking-wider">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200/80 text-[#E0A33B] text-xs font-bold uppercase tracking-wider">
               <FileText className="w-4 h-4" />
               <span>PRACTICAL ENTERPRISE KNOWLEDGE</span>
             </div>
 
             <h1 className="atlas-h1-size font-serif font-extrabold text-[#0A1B4F]">
-              SAP Business One <span className="bg-gradient-to-r from-[#1F4FE0] via-[#1F4FE0] to-[#1F4FE0] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">Educational Guides</span>
+              SAP Business One <span className="bg-gradient-to-r from-[#E0A33B] via-[#E0A33B] to-[#E0A33B] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">Educational Guides</span>
             </h1>
 
             <p className="text-[16px] sm:text-[19px] text-[#4A5876] leading-relaxed font-normal">
@@ -132,7 +132,7 @@ export const SapGuidesPage: React.FC = () => {
                   className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all cursor-pointer ${
                     isSelected
                       ? 'bg-[#1F4FE0] text-white shadow-sm shadow-blue-500/20'
-                      : 'bg-white text-slate-600 hover:bg-blue-50/80 hover:text-[#1F4FE0] border border-slate-200'
+                      : 'bg-white text-slate-600 hover:bg-blue-50/80 hover:text-[#E0A33B] border border-slate-200'
                   }`}
                 >
                   <span>{cat}</span>
@@ -149,7 +149,7 @@ export const SapGuidesPage: React.FC = () => {
           {/* Download Notice Box (Compliance with rule: Do not invent downloadable files) */}
           <div className="bg-white atlas-light-surface rounded-xl p-4 sm:p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             <div className="flex items-start gap-3">
-              <ShieldAlert className="w-5 h-5 text-[#1F4FE0] shrink-0 mt-0.5" />
+              <ShieldAlert className="w-5 h-5 text-[#E0A33B] shrink-0 mt-0.5" />
               <div className="text-xs sm:text-sm text-slate-700 leading-snug">
                 <strong className="font-bold text-[#0A1B4F]">Official Whitepapers & Custom Sizing Roadmaps: </strong>
                 All technical blueprints below are available for immediate online reference. For formal downloadable architectural PDFs and customized server sizing calculations, connect directly with our advisory practice.
@@ -158,7 +158,7 @@ export const SapGuidesPage: React.FC = () => {
             <button
               type="button"
               onClick={() => openConsultation('General Architecture Consultation')}
-              className="shrink-0 text-xs sm:text-sm font-bold text-[#1F4FE0] hover:text-[#1739B8] whitespace-nowrap inline-flex items-center gap-1.5"
+              className="shrink-0 text-xs sm:text-sm font-bold text-[#E0A33B] hover:text-[#1739B8] whitespace-nowrap inline-flex items-center gap-1.5"
             >
               <span>Request Advisory Document</span>
               <ArrowRight className="w-4 h-4" />
@@ -180,7 +180,7 @@ export const SapGuidesPage: React.FC = () => {
                   <div className="p-6 sm:p-8 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
                     <div className="space-y-3 flex-1">
                       <div className="flex flex-wrap items-center gap-2">
-                        <span className="text-[11px] font-bold uppercase tracking-wider text-[#1F4FE0] bg-blue-50 px-2.5 py-1 rounded-md">
+                        <span className="text-[11px] font-bold uppercase tracking-wider text-[#E0A33B] bg-blue-50 px-2.5 py-1 rounded-md">
                           {guide.category}
                         </span>
                         <span className="text-[11px] font-semibold text-slate-500 bg-slate-100 px-2.5 py-1 rounded-md">
@@ -201,7 +201,7 @@ export const SapGuidesPage: React.FC = () => {
                       </p>
 
                       <div className="flex items-center gap-2 text-xs text-slate-500 font-medium">
-                        <Users className="w-3.5 h-3.5 text-[#1F4FE0]" />
+                        <Users className="w-3.5 h-3.5 text-[#E0A33B]" />
                         <span><strong>Target Audience:</strong> {guide.targetAudience}</span>
                       </div>
                     </div>
@@ -221,7 +221,7 @@ export const SapGuidesPage: React.FC = () => {
                       <button
                         type="button"
                         onClick={() => openConsultation(guide.title)}
-                        className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-[#1F4FE0] hover:bg-[#1739B8] text-white text-xs sm:text-sm font-bold shadow-xs transition-colors cursor-pointer"
+                        className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-atlas-gold hover:bg-[#D4972F] !text-atlas-navy font-bold shadow-[0_4px_14px_rgba(224,163,59,0.35)] text-xs sm:text-sm font-bold shadow-xs transition-colors cursor-pointer"
                       >
                         <span>Consult on this Topic</span>
                         <ArrowRight className="w-4 h-4" />
@@ -236,7 +236,7 @@ export const SapGuidesPage: React.FC = () => {
                       {/* Topics Covered */}
                       <div>
                         <h4 className="text-xs font-bold uppercase tracking-wider text-[#0A1B4F] mb-3 flex items-center gap-2">
-                          <Layers className="w-4 h-4 text-[#1F4FE0]" />
+                          <Layers className="w-4 h-4 text-[#E0A33B]" />
                           <span>Core Architectural Topics Covered</span>
                         </h4>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5">
@@ -252,7 +252,7 @@ export const SapGuidesPage: React.FC = () => {
                       {/* Key Highlights */}
                       <div>
                         <h4 className="text-xs font-bold uppercase tracking-wider text-[#0A1B4F] mb-3 flex items-center gap-2">
-                          <Sparkles className="w-4 h-4 text-[#1F4FE0]" />
+                          <Sparkles className="w-4 h-4 text-[#E0A33B]" />
                           <span>Key Implementation Takeaways</span>
                         </h4>
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -295,7 +295,7 @@ export const SapGuidesPage: React.FC = () => {
                             <ol className="space-y-2 text-xs sm:text-sm text-slate-600">
                               {guide.implementationSteps.map((step, i) => (
                                 <li key={i} className="flex items-start gap-2">
-                                  <span className="text-xs font-bold text-[#1F4FE0] bg-blue-50 px-1.5 py-0.5 rounded shrink-0">
+                                  <span className="text-xs font-bold text-[#E0A33B] bg-blue-50 px-1.5 py-0.5 rounded shrink-0">
                                     0{i + 1}
                                   </span>
                                   <span>{step}</span>
@@ -314,7 +314,7 @@ export const SapGuidesPage: React.FC = () => {
                             <Link
                               key={idx}
                               to={sol.href}
-                              className="text-[#1F4FE0] font-bold hover:underline inline-flex items-center gap-1"
+                              className="text-[#E0A33B] font-bold hover:underline inline-flex items-center gap-1"
                             >
                               <span>{sol.name}</span>
                               <ExternalLink className="w-3 h-3" />
@@ -325,7 +325,7 @@ export const SapGuidesPage: React.FC = () => {
                         <button
                           type="button"
                           onClick={() => openConsultation(guide.title)}
-                          className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-[#1F4FE0] hover:text-[#1739B8]"
+                          className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-[#E0A33B] hover:text-[#1739B8]"
                         >
                           <span>Schedule Deep-Dive Architecture Review</span>
                           <ArrowRight className="w-4 h-4" />

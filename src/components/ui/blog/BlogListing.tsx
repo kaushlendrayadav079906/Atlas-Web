@@ -23,7 +23,7 @@ export const BlogListing: React.FC<BlogListingProps> = ({
   if (articles.length === 0) {
     return (
       <div className="py-16 px-4 text-center rounded-3xl bg-white border border-dashed border-slate-300 max-w-2xl mx-auto my-8">
-        <div className="w-12 h-12 rounded-2xl bg-blue-100 text-[#1F4FE0] flex items-center justify-center mx-auto mb-4">
+        <div className="w-12 h-12 rounded-2xl bg-blue-100 text-[#E0A33B] flex items-center justify-center mx-auto mb-4">
           <SearchX className="w-6 h-6" />
         </div>
         <h3 className="font-serif text-xl font-bold text-[#0A1B4F] mb-2">
@@ -61,7 +61,7 @@ export const BlogListing: React.FC<BlogListingProps> = ({
           <button
             type="button"
             onClick={onLoadMore}
-            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl bg-white hover:bg-slate-50 text-[#0A1B4F] hover:text-[#1F4FE0] font-semibold text-sm sm:text-base border border-slate-300 shadow-xs hover:shadow-md transition-all active:scale-95 cursor-pointer"
+            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl bg-white hover:bg-slate-50 text-[#0A1B4F] hover:text-[#E0A33B] font-semibold text-sm sm:text-base border border-slate-300 shadow-xs hover:shadow-md transition-all active:scale-95 cursor-pointer"
           >
             <span>Load More Articles</span>
             <span className="text-xs text-slate-500 font-normal">

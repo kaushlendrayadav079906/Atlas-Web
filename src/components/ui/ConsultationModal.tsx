@@ -383,7 +383,7 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-bold text-sm text-white bg-gradient-to-r from-[#1F4FE0] to-[#1F4FE0] hover:from-[#1739B8] hover:to-[#1739B8] shadow-md shadow-blue-500/25 transition-all duration-200 disabled:opacity-60 disabled:cursor-not-allowed cursor-pointer"
+              className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-bold text-sm text-white bg-atlas-gold hover:bg-[#D4972F] !text-atlas-navy font-bold shadow-[0_4px_14px_rgba(224,163,59,0.35)] transition-all duration-200 disabled:opacity-60 disabled:cursor-not-allowed cursor-pointer"
             >
               {isSubmitting ? (
                 <>
@@ -418,7 +418,7 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
           <div className="p-4 sm:p-5 rounded-xl bg-white border border-slate-200 space-y-2 text-xs text-slate-700">
             <div className="flex items-center justify-between pb-2 border-b border-slate-200">
               <span className="font-bold text-[#0A1B4F] uppercase tracking-wider text-[11px]">Reference ID</span>
-              <span className="font-mono font-bold text-[#1F4FE0] bg-blue-50 px-2 py-0.5 rounded border border-blue-200/60">
+              <span className="font-mono font-bold text-[#E0A33B] bg-blue-50 px-2 py-0.5 rounded border border-blue-200/60">
                 {submittedDetails.referenceId || 'ATLAS-CNS-ACTIVE'}
               </span>
             </div>

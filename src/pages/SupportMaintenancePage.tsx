@@ -142,7 +142,7 @@ export const SupportMaintenancePage: React.FC = () => {
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           <ol className="flex items-center space-x-2 text-xs sm:text-sm text-slate-500">
             <li>
-              <Link to="/" className="hover:text-[#1F4FE0] transition-colors">
+              <Link to="/" className="hover:text-[#E0A33B] transition-colors">
                 Home
               </Link>
             </li>
@@ -150,7 +150,7 @@ export const SupportMaintenancePage: React.FC = () => {
               <ChevronRight className="w-3.5 h-3.5 text-slate-500" />
             </li>
             <li>
-              <Link to="/services" className="hover:text-[#1F4FE0] transition-colors">
+              <Link to="/services" className="hover:text-[#E0A33B] transition-colors">
                 Services
               </Link>
             </li>
@@ -177,13 +177,13 @@ export const SupportMaintenancePage: React.FC = () => {
             {/* Left Content */}
             <div className="lg:col-span-7 space-y-6 text-left">
               <div className="inline-flex items-center gap-2">
-                <span className="text-[12px] sm:text-[13px] font-bold uppercase tracking-wider text-[#1F4FE0] bg-blue-50 px-3 py-1 rounded-full border border-blue-200">
+                <span className="text-[12px] sm:text-[13px] font-bold uppercase tracking-wider text-[#E0A33B] bg-blue-50 px-3 py-1 rounded-full border border-blue-200">
                   APPLICATION MANAGEMENT SERVICES (AMS)
                 </span>
               </div>
 
               <h1 className="atlas-h1-size font-extrabold text-[#1A202C]">
-                Enterprise SAP Business One <span className="text-[#1F4FE0]">Support & Maintenance</span>
+                Enterprise SAP Business One <span className="text-[#E0A33B]">Support & Maintenance</span>
               </h1>
 
               <p className="text-lg sm:text-xl font-medium text-slate-700 leading-snug">
@@ -221,7 +221,7 @@ export const SupportMaintenancePage: React.FC = () => {
               <div className="pt-4 flex flex-wrap gap-3 sm:gap-4 items-center">
                 <Button
                   onClick={() => setIsModalOpen(true)}
-                  className="bg-[#1F4FE0] hover:bg-blue-700 text-white font-semibold px-6 py-3.5 rounded-lg shadow-sm transition-all duration-200 inline-flex items-center gap-2"
+                  className="bg-atlas-gold hover:bg-[#D4972F] !text-atlas-navy font-bold shadow-[0_4px_14px_rgba(224,163,59,0.35)] font-semibold px-6 py-3.5 rounded-lg shadow-sm transition-all duration-200 inline-flex items-center gap-2"
                 >
                   Request AMS Proposal
                   <ArrowRight className="w-4 h-4" />
@@ -230,7 +230,7 @@ export const SupportMaintenancePage: React.FC = () => {
                   href="#sla-matrix"
                   className="inline-flex items-center gap-2 px-5 py-3.5 rounded-lg text-slate-700 font-semibold bg-white border border-slate-300 hover:bg-slate-50 hover:border-slate-400 transition-all duration-200"
                 >
-                  <Clock className="w-4 h-4 text-[#1F4FE0]" />
+                  <Clock className="w-4 h-4 text-[#E0A33B]" />
                   Review SLA Tiers
                 </a>
               </div>
@@ -279,7 +279,7 @@ export const SupportMaintenancePage: React.FC = () => {
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
             <div className="bg-white rounded-2xl p-6 sm:p-7 border border-slate-200/80 hover:border-blue-300 transition-all duration-200 hover:shadow-md">
-              <div className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#1F4FE0] tracking-tight mb-2">
+              <div className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#E0A33B] tracking-tight mb-2">
                 1 Hour
               </div>
               <div className="text-base sm:text-lg font-bold text-slate-900 mb-1">
@@ -323,7 +323,7 @@ export const SupportMaintenancePage: React.FC = () => {
       <section id="sla-matrix" className="py-16 lg:py-24 border-b border-white/10 atlas-dark">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-14">
-            <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#1F4FE0]">
+            <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#E0A33B]">
               Contractual Transparency
             </span>
             <h2 className="atlas-h2-size font-extrabold text-slate-900 mt-2 mb-4">
@@ -342,7 +342,7 @@ export const SupportMaintenancePage: React.FC = () => {
               >
                 <div>
                   <div className="flex items-center justify-between gap-2 mb-3">
-                    <span className="text-xs font-bold uppercase tracking-wider text-[#1F4FE0] bg-blue-50 px-2.5 py-1 rounded-md border border-blue-200">
+                    <span className="text-xs font-bold uppercase tracking-wider text-[#E0A33B] bg-blue-50 px-2.5 py-1 rounded-md border border-blue-200">
                       {tier.coverage}
                     </span>
                     <span className="text-xs sm:text-sm font-extrabold text-slate-900 bg-slate-100 px-3 py-1 rounded-full">
@@ -360,7 +360,7 @@ export const SupportMaintenancePage: React.FC = () => {
                 </div>
 
                 <div className="pt-4 border-t border-slate-100 text-xs sm:text-sm text-slate-700">
-                  <span className="font-bold text-[#1F4FE0]">Resolution Action: </span>
+                  <span className="font-bold text-[#E0A33B]">Resolution Action: </span>
                   {tier.action}
                 </div>
               </div>
@@ -394,7 +394,7 @@ export const SupportMaintenancePage: React.FC = () => {
                   key={idx}
                   className="bg-white rounded-2xl p-6 sm:p-7 border border-slate-200/80 hover:border-blue-400 hover:shadow-md transition-all duration-200 group"
                 >
-                  <div className="p-3 rounded-xl bg-blue-100 text-[#1F4FE0] group-hover:bg-[#1F4FE0] group-hover:text-white transition-colors duration-200 w-fit mb-4">
+                  <div className="p-3 rounded-xl bg-blue-100 text-[#E0A33B] group-hover:bg-[#1F4FE0] group-hover:text-white transition-colors duration-200 w-fit mb-4">
                     <Icon className="w-6 h-6" />
                   </div>
                   <h3 className="text-lg font-bold text-slate-900 mb-2">
@@ -416,7 +416,7 @@ export const SupportMaintenancePage: React.FC = () => {
       <section className="py-16 lg:py-24 border-b border-white/10 atlas-dark">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-14">
-            <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#1F4FE0]">
+            <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#E0A33B]">
               Seamless Transition
             </span>
             <h2 className="atlas-h2-size font-extrabold text-slate-900 mt-2 mb-4">
@@ -434,7 +434,7 @@ export const SupportMaintenancePage: React.FC = () => {
                 className="bg-white border border-slate-200/90 rounded-2xl p-6 sm:p-7 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 sm:gap-6 hover:border-blue-400 transition-all duration-200 shadow-sm"
               >
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-blue-50 text-[#1F4FE0] border border-blue-200 flex items-center justify-center font-extrabold text-lg flex-shrink-0">
+                  <div className="w-12 h-12 rounded-xl bg-blue-50 text-[#E0A33B] border border-blue-200 flex items-center justify-center font-extrabold text-lg flex-shrink-0">
                     0{step.step}
                   </div>
                   <div>
@@ -448,7 +448,7 @@ export const SupportMaintenancePage: React.FC = () => {
                 </div>
 
                 <div className="sm:text-right flex-shrink-0 w-full sm:w-auto pt-2 sm:pt-0 border-t sm:border-t-0 border-slate-100">
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-blue-50 text-[#1F4FE0] border border-blue-200">
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-blue-50 text-[#E0A33B] border border-blue-200">
                     <FileCheck2 className="w-3.5 h-3.5" />
                     {step.output}
                   </span>
@@ -490,7 +490,7 @@ export const SupportMaintenancePage: React.FC = () => {
               </div>
               <Link
                 to="/case-studies/industrial-manufacturing"
-                className="inline-flex items-center gap-2 bg-[#1F4FE0] hover:bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg shadow-sm transition-all duration-200"
+                className="inline-flex items-center gap-2 bg-atlas-gold hover:bg-[#D4972F] !text-atlas-navy font-bold shadow-[0_4px_14px_rgba(224,163,59,0.35)] font-semibold px-6 py-3 rounded-lg shadow-sm transition-all duration-200"
               >
                 Read Manufacturing Case Study
                 <ArrowRight className="w-4 h-4" />
@@ -506,7 +506,7 @@ export const SupportMaintenancePage: React.FC = () => {
       <section className="py-16 lg:py-20 border-b border-white/10 atlas-dark">
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-12">
-            <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#1F4FE0]">
+            <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#E0A33B]">
               Comprehensive Services
             </span>
             <h2 className="atlas-h2-size font-extrabold text-slate-900 mt-2 mb-3">
@@ -532,7 +532,7 @@ export const SupportMaintenancePage: React.FC = () => {
               </div>
               <Link
                 to="/services/sap-business-one"
-                className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#1F4FE0] hover:text-blue-700 transition-colors"
+                className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#E0A33B] hover:text-blue-700 transition-colors"
               >
                 Learn More
                 <ArrowRight className="w-4 h-4" />
@@ -553,7 +553,7 @@ export const SupportMaintenancePage: React.FC = () => {
               </div>
               <Link
                 to="/solutions/boyum-it"
-                className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#1F4FE0] hover:text-blue-700 transition-colors"
+                className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#E0A33B] hover:text-blue-700 transition-colors"
               >
                 Learn More
                 <ArrowRight className="w-4 h-4" />
@@ -574,7 +574,7 @@ export const SupportMaintenancePage: React.FC = () => {
               </div>
               <Link
                 to="/services/uipath-automation"
-                className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#1F4FE0] hover:text-blue-700 transition-colors"
+                className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#E0A33B] hover:text-blue-700 transition-colors"
               >
                 Learn More
                 <ArrowRight className="w-4 h-4" />
@@ -603,7 +603,7 @@ export const SupportMaintenancePage: React.FC = () => {
               <div className="pt-3 flex flex-wrap items-center justify-center gap-4">
                 <Button
                   onClick={() => setIsModalOpen(true)}
-                  className="bg-[#1F4FE0] hover:bg-blue-600 text-white font-bold text-base px-8 py-4 rounded-xl shadow-lg transition-all duration-200 inline-flex items-center gap-2"
+                  className="bg-atlas-gold hover:bg-[#D4972F] !text-atlas-navy font-bold shadow-[0_4px_14px_rgba(224,163,59,0.35)] font-bold text-base px-8 py-4 rounded-xl shadow-lg transition-all duration-200 inline-flex items-center gap-2"
                 >
                   Schedule AMS Consultation
                   <ArrowRight className="w-5 h-5" />

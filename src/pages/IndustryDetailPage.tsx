@@ -97,7 +97,7 @@ export const IndustryDetailPage: React.FC = () => {
       <div className="min-h-[60vh] flex flex-col items-center justify-center p-8 text-center">
         <h1 className="atlas-h1-size font-serif font-bold text-[#0A1B4F] mb-4">Industry Not Found</h1>
         <p className="text-[#4A5876] mb-6">The requested industry detail page could not be located.</p>
-        <Link to="/industries" className="inline-flex items-center gap-2 text-[#1F4FE0] font-semibold hover:underline">
+        <Link to="/industries" className="inline-flex items-center gap-2 text-[#E0A33B] font-semibold hover:underline">
           <ArrowLeft className="w-4 h-4" /> Back to Industries
         </Link>
       </div>
@@ -117,9 +117,9 @@ export const IndustryDetailPage: React.FC = () => {
           
           {/* Breadcrumbs */}
           <nav className="flex items-center gap-2 text-xs sm:text-sm text-[#4A5876] mb-6">
-            <Link to="/" className="hover:text-[#1F4FE0] transition-colors">Home</Link>
+            <Link to="/" className="hover:text-[#E0A33B] transition-colors">Home</Link>
             <span>/</span>
-            <Link to="/industries" className="hover:text-[#1F4FE0] transition-colors">Industries</Link>
+            <Link to="/industries" className="hover:text-[#E0A33B] transition-colors">Industries</Link>
             <span>/</span>
             <span className="font-semibold text-[#0A1B4F] truncate">{industry.title}</span>
           </nav>
@@ -130,15 +130,15 @@ export const IndustryDetailPage: React.FC = () => {
             <div className="lg:col-span-7 space-y-5">
               
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50/80 border border-blue-200/60 shadow-xs">
-                <Sparkles className="w-4 h-4 text-[#1F4FE0]" />
-                <span className="text-[12px] sm:text-[13px] font-bold uppercase tracking-wider text-[#1F4FE0]">
+                <Sparkles className="w-4 h-4 text-[#E0A33B]" />
+                <span className="text-[12px] sm:text-[13px] font-bold uppercase tracking-wider text-[#E0A33B]">
                   {industry.badge}
                 </span>
               </div>
 
               <h1 className="atlas-h1-size font-serif font-extrabold text-[#0A1B4F]">
                 {industry.title}{' '}
-                <span className="bg-gradient-to-r from-[#1F4FE0] via-[#1F4FE0] to-[#1F4FE0] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">
+                <span className="bg-gradient-to-r from-[#E0A33B] via-[#E0A33B] to-[#E0A33B] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">
                   {industry.titleHighlight}
                 </span>
               </h1>
@@ -157,7 +157,7 @@ export const IndustryDetailPage: React.FC = () => {
                   onClick={() => setIsModalOpen(true)}
                   variant="gold"
                   size="lg"
-                  className="text-[15px] sm:text-[16px] font-semibold px-6 py-3.5 shadow-md shadow-blue-500/25 bg-gradient-to-r from-[#1F4FE0] to-[#1F4FE0] hover:from-[#1739B8] hover:to-[#1739B8] text-white"
+                  className="text-[15px] sm:text-[16px] font-semibold px-6 py-3.5 shadow-md shadow-blue-500/25 bg-gradient-to-r from-[#E0A33B] to-[#E0A33B] hover:from-[#1739B8] hover:to-[#1739B8] text-white"
                   icon={<ArrowRight className="w-4 h-4" />}
                 >
                   Book Industry Assessment
@@ -294,12 +294,12 @@ export const IndustryDetailPage: React.FC = () => {
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="text-center max-w-3xl mx-auto mb-12 space-y-3">
-            <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-[#1F4FE0]">
+            <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-[#E0A33B]">
               INDUSTRY CAPABILITIES
             </span>
             <h2 className="atlas-h2-size font-serif font-extrabold text-[#0A1B4F]">
               Tailored Modules for{' '}
-              <span className="bg-gradient-to-r from-[#1F4FE0] via-[#1F4FE0] to-[#1F4FE0] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">
+              <span className="bg-gradient-to-r from-[#E0A33B] via-[#E0A33B] to-[#E0A33B] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">
                 Sector Operational Excellence
               </span>
             </h2>
@@ -334,12 +334,12 @@ export const IndustryDetailPage: React.FC = () => {
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="text-center max-w-3xl mx-auto mb-12 space-y-3">
-            <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-[#1F4FE0]">
+            <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-[#E0A33B]">
               MEASURABLE ADVANTAGES
             </span>
             <h2 className="atlas-h2-size font-serif font-extrabold text-[#0A1B4F]">
               Proven Return on Investment in{' '}
-              <span className="bg-gradient-to-r from-[#1F4FE0] via-[#1F4FE0] to-[#1F4FE0] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">
+              <span className="bg-gradient-to-r from-[#E0A33B] via-[#E0A33B] to-[#E0A33B] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">
                 Your Industry
               </span>
             </h2>
@@ -373,7 +373,7 @@ export const IndustryDetailPage: React.FC = () => {
             {/* Left Column: Client Success Spotlight */}
             <div className="lg:col-span-7 bg-white rounded-2xl p-6 sm:p-8 border border-blue-200/80 shadow-xs flex flex-col justify-between">
               <div>
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-blue-100/70 text-[#1F4FE0] text-xs font-bold mb-4">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-blue-100/70 text-[#E0A33B] text-xs font-bold mb-4">
                   CLIENT SPOTLIGHT
                 </div>
                 <h3 className="text-[20px] sm:text-[22px] font-bold text-[#0A1B4F] mb-1">
@@ -394,7 +394,7 @@ export const IndustryDetailPage: React.FC = () => {
               <div className="grid grid-cols-3 gap-3 pt-6 mt-6 border-t border-slate-200/80">
                 {industry.caseStudyHighlight.kpis.map((k, i) => (
                   <div key={i}>
-                    <div className="text-[20px] sm:text-[24px] font-black text-[#1F4FE0] leading-none mb-1">
+                    <div className="text-[20px] sm:text-[24px] font-black text-[#E0A33B] leading-none mb-1">
                       {k.value}
                     </div>
                     <div className="text-[11px] sm:text-[12px] font-semibold text-[#4A5876]">
@@ -407,7 +407,7 @@ export const IndustryDetailPage: React.FC = () => {
 
             {/* Right Column: Recommended Tech Stack */}
             <div className="lg:col-span-5 bg-white rounded-2xl p-6 sm:p-8 border border-slate-200/90 shadow-xs space-y-4">
-              <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-[#1F4FE0] block">
+              <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-[#E0A33B] block">
                 RECOMMENDED ARCHITECTURE
               </span>
               <h3 className="text-[20px] sm:text-[22px] font-bold text-[#0A1B4F]">
@@ -424,7 +424,7 @@ export const IndustryDetailPage: React.FC = () => {
                       <div className="text-sm font-bold text-[#0A1B4F]">{tech.name}</div>
                       <div className="text-xs text-[#4A5876]">{tech.role}</div>
                     </div>
-                    <span className="text-[11px] font-bold text-[#1F4FE0] bg-blue-50 px-2 py-0.5 rounded border border-blue-100">
+                    <span className="text-[11px] font-bold text-[#E0A33B] bg-blue-50 px-2 py-0.5 rounded border border-blue-100">
                       {tech.tag}
                     </span>
                   </div>
@@ -445,19 +445,19 @@ export const IndustryDetailPage: React.FC = () => {
           
           <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4 mb-8">
             <div>
-              <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-[#1F4FE0] block mb-1">
+              <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-[#E0A33B] block mb-1">
                 SECTORS WE SERVE
               </span>
               <h2 className="font-serif text-[26px] sm:text-[32px] font-bold text-[#0A1B4F]">
                 Explore Other{' '}
-                <span className="bg-gradient-to-r from-[#1F4FE0] via-[#1F4FE0] to-[#1F4FE0] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">
+                <span className="bg-gradient-to-r from-[#E0A33B] via-[#E0A33B] to-[#E0A33B] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">
                   Specialized Industries
                 </span>
               </h2>
             </div>
             <Link
               to="/industries"
-              className="inline-flex items-center gap-1.5 text-sm font-bold text-[#1F4FE0] hover:underline"
+              className="inline-flex items-center gap-1.5 text-sm font-bold text-[#E0A33B] hover:underline"
             >
               <span>View All Industries</span>
               <ArrowRight className="w-4 h-4" />
@@ -472,19 +472,19 @@ export const IndustryDetailPage: React.FC = () => {
                 className="group p-6 rounded-xl bg-white border border-slate-200/90 shadow-xs hover:border-[#1F4FE0] hover:shadow-md transition-all flex flex-col justify-between"
               >
                 <div>
-                  <span className="text-xs font-bold text-[#1F4FE0] bg-blue-50 px-2.5 py-1 rounded-md mb-3 inline-block">
+                  <span className="text-xs font-bold text-[#E0A33B] bg-blue-50 px-2.5 py-1 rounded-md mb-3 inline-block">
                     {rel.tag}
                   </span>
-                  <h3 className="text-[18px] font-bold text-[#0A1B4F] group-hover:text-[#1F4FE0] transition-colors mb-2">
+                  <h3 className="text-[18px] font-bold text-[#0A1B4F] group-hover:text-[#E0A33B] transition-colors mb-2">
                     {rel.title}
                   </h3>
                   <p className="text-[13px] sm:text-[14px] text-[#4A5876] leading-relaxed">
                     {rel.description}
                   </p>
                 </div>
-                <div className="pt-4 border-t border-slate-100 mt-4 flex items-center justify-between text-xs font-bold text-[#0A1B4F] group-hover:text-[#1F4FE0]">
+                <div className="pt-4 border-t border-slate-100 mt-4 flex items-center justify-between text-xs font-bold text-[#0A1B4F] group-hover:text-[#E0A33B]">
                   <span>Explore Industry Page</span>
-                  <ArrowRight className="w-4 h-4 text-[#1F4FE0] group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="w-4 h-4 text-[#E0A33B] group-hover:translate-x-1 transition-transform" />
                 </div>
               </Link>
             ))}
@@ -504,12 +504,12 @@ export const IndustryDetailPage: React.FC = () => {
               
               {/* Left Column: Heading, Subtext & CTA */}
               <div className="lg:col-span-6 space-y-4 text-left">
-                <span className="text-[12px] font-bold uppercase tracking-wider text-[#1F4FE0] block">
+                <span className="text-[12px] font-bold uppercase tracking-wider text-[#E0A33B] block">
                   READY TO TRANSFORM YOUR OPERATIONS?
                 </span>
                 <h2 className="atlas-h2-size font-serif font-extrabold text-[#0A1B4F]">
                   Schedule an Industry Assessment for{' '}
-                  <span className="bg-gradient-to-r from-[#1F4FE0] via-[#1F4FE0] to-[#1F4FE0] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">
+                  <span className="bg-gradient-to-r from-[#E0A33B] via-[#E0A33B] to-[#E0A33B] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">
                     {industry.title}
                   </span>
                 </h2>
@@ -522,7 +522,7 @@ export const IndustryDetailPage: React.FC = () => {
                     onClick={() => setIsModalOpen(true)}
                     variant="gold"
                     size="lg"
-                    className="text-[15px] sm:text-[16px] font-semibold px-7 py-3.5 bg-gradient-to-r from-[#1F4FE0] to-[#1F4FE0] hover:from-[#1739B8] hover:to-[#1739B8] text-white shadow-md shadow-blue-500/25"
+                    className="text-[15px] sm:text-[16px] font-semibold px-7 py-3.5 bg-atlas-gold hover:bg-[#D4972F] !text-atlas-navy font-bold shadow-[0_4px_14px_rgba(224,163,59,0.35)]"
                     icon={<ArrowRight className="w-4 h-4" />}
                   >
                     Book Industry Assessment

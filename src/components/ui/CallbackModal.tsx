@@ -425,11 +425,11 @@ export const CallbackModal: React.FC<CallbackModalProps> = ({
                 checked={formData.consent}
                 onChange={handleInputChange}
                 disabled={isSubmitting}
-                className="mt-0.5 w-4 h-4 rounded border-slate-300 text-[#1F4FE0] focus:ring-blue-500/30 cursor-pointer"
+                className="mt-0.5 w-4 h-4 rounded border-slate-300 text-[#E0A33B] focus:ring-blue-500/30 cursor-pointer"
               />
               <span className="text-xs text-slate-600 leading-snug">
                 I agree to ATLAS Technosoft's{' '}
-                <span className="text-[#1F4FE0] font-semibold underline underline-offset-2">
+                <span className="text-[#E0A33B] font-semibold underline underline-offset-2">
                   Privacy Policy
                 </span>{' '}
                 and consent to receiving a phone call and email confirmation regarding this enquiry. <span className="text-rose-500">*</span>
@@ -451,7 +451,7 @@ export const CallbackModal: React.FC<CallbackModalProps> = ({
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-bold text-sm text-white bg-gradient-to-r from-[#1F4FE0] to-[#1F4FE0] hover:from-[#1739B8] hover:to-[#1739B8] shadow-md shadow-blue-500/25 transition-all duration-200 disabled:opacity-60 disabled:cursor-not-allowed cursor-pointer"
+              className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-bold text-sm text-white bg-atlas-gold hover:bg-[#D4972F] !text-atlas-navy font-bold shadow-[0_4px_14px_rgba(224,163,59,0.35)] transition-all duration-200 disabled:opacity-60 disabled:cursor-not-allowed cursor-pointer"
             >
               {isSubmitting ? (
                 <>
@@ -486,7 +486,7 @@ export const CallbackModal: React.FC<CallbackModalProps> = ({
           <div className="p-4 sm:p-5 rounded-xl bg-white border border-slate-200 space-y-2 text-xs text-slate-700">
             <div className="flex items-center justify-between pb-2 border-b border-slate-200">
               <span className="font-bold text-[#0A1B4F] uppercase tracking-wider text-[11px]">Enquiry Reference</span>
-              <span className="font-mono font-bold text-[#1F4FE0] bg-blue-50 px-2 py-0.5 rounded border border-blue-200/60">
+              <span className="font-mono font-bold text-[#E0A33B] bg-blue-50 px-2 py-0.5 rounded border border-blue-200/60">
                 {submittedDetails.referenceId || 'ATPL-CB-CONFIRMED'}
               </span>
             </div>
@@ -517,7 +517,7 @@ export const CallbackModal: React.FC<CallbackModalProps> = ({
             </div>
 
             <div className="p-2.5 rounded-lg bg-blue-50/80 border border-blue-200 text-blue-950 text-[12px] flex items-center gap-2">
-              <Clock className="w-4 h-4 text-[#1F4FE0] shrink-0" />
+              <Clock className="w-4 h-4 text-[#E0A33B] shrink-0" />
               <span>
                 <strong>Scheduled Window:</strong> {formData.preferredDate} &bull; {formData.preferredTime}
               </span>

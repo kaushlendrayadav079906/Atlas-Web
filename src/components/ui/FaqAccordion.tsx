@@ -106,8 +106,8 @@ export const FaqAccordion: React.FC<FaqAccordionProps> = ({
             onClick={() => handleCategoryClick('All')}
             className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all cursor-pointer ${
               selectedCat === 'All'
-                ? 'bg-[#1F4FE0] text-white shadow-sm shadow-blue-500/20'
-                : 'bg-white text-slate-600 hover:bg-blue-50/80 hover:text-[#1F4FE0] border border-slate-200'
+                ? 'bg-atlas-gold text-atlas-navy font-bold shadow-[0_2px_8px_rgba(224,163,59,0.25)]'
+                : 'bg-white text-slate-600 hover:bg-blue-50/80 hover:text-[#E0A33B] border border-slate-200'
             }`}
           >
             All Questions ({faqs.length})
@@ -124,8 +124,8 @@ export const FaqAccordion: React.FC<FaqAccordionProps> = ({
                 onClick={() => handleCategoryClick(cat)}
                 className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all cursor-pointer ${
                   isSelected
-                    ? 'bg-[#1F4FE0] text-white shadow-sm shadow-blue-500/20'
-                    : 'bg-white text-slate-600 hover:bg-blue-50/80 hover:text-[#1F4FE0] border border-slate-200'
+                    ? 'bg-atlas-gold text-atlas-navy font-bold shadow-[0_2px_8px_rgba(224,163,59,0.25)]'
+                    : 'bg-white text-slate-600 hover:bg-blue-50/80 hover:text-[#E0A33B] border border-slate-200'
                 }`}
               >
                 <span>{cat}</span>
@@ -143,7 +143,7 @@ export const FaqAccordion: React.FC<FaqAccordionProps> = ({
         <div className="flex items-center justify-between text-xs sm:text-sm text-slate-500 px-1 border-b border-slate-200/80 pb-3">
           <div>
             Showing <strong className="text-[#0A1B4F] font-bold">{filteredFaqs.length}</strong> questions
-            {selectedCat !== 'All' && <span> in <span className="text-[#1F4FE0] font-semibold">{selectedCat}</span></span>}
+            {selectedCat !== 'All' && <span> in <span className="text-[#E0A33B] font-semibold">{selectedCat}</span></span>}
             {searchQuery && <span> matching "<span className="text-slate-800 font-semibold">{searchQuery}</span>"</span>}
           </div>
 
@@ -151,7 +151,7 @@ export const FaqAccordion: React.FC<FaqAccordionProps> = ({
             <button
               type="button"
               onClick={expandAll}
-              className="text-xs font-semibold text-[#1F4FE0] hover:underline"
+              className="text-xs font-semibold text-[#E0A33B] hover:underline"
             >
               Expand All
             </button>
@@ -171,7 +171,7 @@ export const FaqAccordion: React.FC<FaqAccordionProps> = ({
       {/* Accordion List */}
       {filteredFaqs.length === 0 ? (
         <div className="bg-white rounded-2xl border border-slate-200 p-8 sm:p-12 text-center max-w-md mx-auto space-y-4">
-          <div className="w-14 h-14 rounded-full bg-blue-50 text-[#1F4FE0] flex items-center justify-center mx-auto">
+          <div className="w-14 h-14 rounded-full bg-blue-50 text-[#E0A33B] flex items-center justify-center mx-auto">
             <HelpCircle className="w-7 h-7" />
           </div>
           <h3 className="font-serif text-lg sm:text-xl font-bold text-[#0A1B4F]">
@@ -187,7 +187,7 @@ export const FaqAccordion: React.FC<FaqAccordionProps> = ({
                 setSearchQuery('');
                 setSelectedCat('All');
               }}
-              className="text-xs sm:text-sm font-semibold text-[#1F4FE0] hover:underline"
+              className="text-xs sm:text-sm font-semibold text-[#E0A33B] hover:underline"
             >
               Reset Search & Filters
             </button>
@@ -220,7 +220,7 @@ export const FaqAccordion: React.FC<FaqAccordionProps> = ({
                 >
                   <div className="space-y-1.5 flex-1 pr-2">
                     <div className="flex items-center gap-2">
-                      <span className="text-[11px] font-bold uppercase tracking-wider text-[#1F4FE0] bg-blue-50 px-2 py-0.5 rounded">
+                      <span className="text-[11px] font-bold uppercase tracking-wider text-[#E0A33B] bg-blue-50 px-2 py-0.5 rounded">
                         {faq.category}
                       </span>
                       {faq.tags && faq.tags[0] && (
@@ -230,14 +230,14 @@ export const FaqAccordion: React.FC<FaqAccordionProps> = ({
                       )}
                     </div>
                     <h3 className={`font-serif text-[16px] sm:text-[17.5px] font-bold leading-snug transition-colors ${
-                      isOpen ? 'text-[#1F4FE0]' : 'text-[#0A1B4F] group-hover:text-[#1F4FE0]'
+                      isOpen ? 'text-[#E0A33B]' : 'text-[#0A1B4F] group-hover:text-[#E0A33B]'
                     }`}>
                       {faq.question}
                     </h3>
                   </div>
 
                   <div className={`shrink-0 w-8 h-8 rounded-lg flex items-center justify-center transition-colors mt-0.5 ${
-                    isOpen ? 'bg-[#1F4FE0] text-white' : 'bg-slate-100 text-slate-500 group-hover:bg-blue-50 group-hover:text-[#1F4FE0]'
+                    isOpen ? 'bg-atlas-gold text-atlas-navy' : 'bg-slate-100 text-slate-500 group-hover:bg-amber-50 group-hover:text-atlas-goldDeep'
                   }`}>
                     {isOpen ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
                   </div>
@@ -258,7 +258,7 @@ export const FaqAccordion: React.FC<FaqAccordionProps> = ({
                       <div className="pt-2 flex items-center">
                         <Link
                           to={faq.relatedLink.href}
-                          className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-[#1F4FE0] hover:text-[#1739B8] transition-colors group/link"
+                          className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-[#E0A33B] hover:text-[#1739B8] transition-colors group/link"
                         >
                           <span>{faq.relatedLink.text}</span>
                           <ArrowRight className="w-3.5 h-3.5 group-hover/link:translate-x-1 transition-transform" />

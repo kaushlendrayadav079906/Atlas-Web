@@ -33,7 +33,7 @@ export const BlogSection: React.FC = () => {
         <div className="text-center mt-12">
           <Link
             to="/blog"
-            className="inline-flex items-center gap-2.5 px-8 py-3.5 rounded-xl bg-gradient-to-r from-[#1F4FE0] to-[#1F4FE0] hover:from-[#1739B8] hover:to-[#1739B8] text-white text-[15px] sm:text-[16px] font-semibold shadow-md shadow-blue-500/20 hover:shadow-lg transition-all duration-200 active:scale-95"
+            className="inline-flex items-center gap-2.5 px-8 py-3.5 rounded-xl bg-gradient-to-r from-[#E0A33B] to-[#E0A33B] hover:from-[#1739B8] hover:to-[#1739B8] text-white text-[15px] sm:text-[16px] font-semibold shadow-md shadow-blue-500/20 hover:shadow-lg transition-all duration-200 active:scale-95"
           >
             <BookOpen className="w-5 h-5" />
             <span>View All Articles & Insights</span>

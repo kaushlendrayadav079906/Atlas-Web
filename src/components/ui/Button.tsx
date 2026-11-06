@@ -31,12 +31,12 @@ export const Button: React.FC<ButtonProps> = ({
   };
 
   const variantStyles = {
-    primary: "bg-atlas-royal hover:bg-atlas-royalDark text-white focus-visible:ring-atlas-royal focus-visible:ring-offset-white shadow-[0_10px_24px_-12px_rgba(31,79,224,0.7)]",
-    secondary: "bg-white text-atlas-navy hover:bg-atlas-mist border-[1.5px] border-atlas-navy focus-visible:ring-atlas-navy focus-visible:ring-offset-white",
-    outline: "bg-transparent text-atlas-royal hover:bg-atlas-royalTint border-[1.5px] border-atlas-royal focus-visible:ring-atlas-royal focus-visible:ring-offset-white",
+    primary: "bg-[#E0A33B] hover:bg-[#D4972F] text-atlas-navy font-bold focus-visible:ring-[#E0A33B] focus-visible:ring-offset-white shadow-[0_4px_14px_rgba(224,163,59,0.35)]",
+    secondary: "bg-white text-atlas-navy hover:bg-atlas-mist border-[1.5px] border-atlas-lineStrong hover:border-[#E0A33B] focus-visible:ring-[#E0A33B] focus-visible:ring-offset-white",
+    outline: "bg-transparent text-atlas-navy hover:bg-atlas-goldTint border-[1.5px] border-[#E0A33B] focus-visible:ring-[#E0A33B] focus-visible:ring-offset-white",
     ghost: "bg-transparent text-atlas-body hover:bg-atlas-mist border border-transparent focus-visible:ring-slate-400",
-    cyan: "bg-atlas-gold text-atlas-navy hover:bg-[#EBB55A] font-extrabold focus-visible:ring-atlas-gold focus-visible:ring-offset-atlas-navy",
-    gold: "bg-atlas-royal hover:bg-atlas-royalDark text-white focus-visible:ring-atlas-royal shadow-[0_10px_24px_-12px_rgba(31,79,224,0.7)]",
+    cyan: "bg-[#E0A33B] hover:bg-[#D4972F] text-atlas-navy font-extrabold focus-visible:ring-[#E0A33B] shadow-[0_4px_14px_rgba(224,163,59,0.35)]",
+    gold: "bg-[#E0A33B] hover:bg-[#D4972F] text-atlas-navy font-bold focus-visible:ring-[#E0A33B] shadow-[0_4px_14px_rgba(224,163,59,0.35)]",
   };
 
   const combinedClasses = `${baseStyles} ${sizeStyles[size]} ${variantStyles[variant]} ${fullWidth ? 'w-full' : ''} ${className}`;

@@ -54,9 +54,9 @@ import { ImageFeatureSlider } from '../components/ui/ImageFeatureSlider';
 import { cardImage, poolForSlug } from '../data/cardImagePools';
 
 const industryIcons: Record<string, React.ReactNode> = {
-  manufacturing: <Factory className="w-5 h-5 text-blue-600" />,
-  warehouse: <Truck className="w-5 h-5 text-blue-600" />,
-  finance: <Database className="w-5 h-5 text-[#1F4FE0]" />,
+  manufacturing: <Factory className="w-5 h-5 text-[#E0A33B]" />,
+  warehouse: <Truck className="w-5 h-5 text-[#E0A33B]" />,
+  finance: <Database className="w-5 h-5 text-[#E0A33B]" />,
   trading: <Ship className="w-5 h-5 text-[#10b981]" />
 };
 
@@ -94,7 +94,7 @@ export const AboutPage: React.FC = () => {
             <div className="lg:col-span-7 space-y-5 text-left">
               {/* Eyebrow: 13–14px */}
               <div className="inline-block">
-                <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-[#1F4FE0] select-none">
+                <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-[#E0A33B] select-none">
                   {ABOUT_HERO_DATA.eyebrow} —
                 </span>
               </div>
@@ -102,7 +102,7 @@ export const AboutPage: React.FC = () => {
               {/* Main Heading: 46–54px desktop, 34–40px mobile */}
               <h1 className="atlas-h1-size font-serif font-extrabold text-[#0A1B4F]">
                 {ABOUT_HERO_DATA.titleStart}{' '}
-                <span className="bg-gradient-to-r from-[#1F4FE0] via-[#1F4FE0] to-[#1F4FE0] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">{ABOUT_HERO_DATA.titleHighlight}</span>
+                <span className="bg-gradient-to-r from-[#E0A33B] via-[#E0A33B] to-[#E0A33B] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">{ABOUT_HERO_DATA.titleHighlight}</span>
               </h1>
 
               {/* Supporting Text: 17–18px Desktop, 16px Mobile */}
@@ -116,7 +116,7 @@ export const AboutPage: React.FC = () => {
                   href="#story"
                   variant="primary"
                   size="lg"
-                  className="text-[16px] sm:text-[17px] font-semibold px-7 py-3.5 shadow-md shadow-blue-500/25 bg-[#1F4FE0] hover:bg-blue-700 text-white rounded-lg"
+                  className="text-[16px] sm:text-[17px] font-semibold px-7 py-3.5 shadow-md shadow-blue-500/25 bg-atlas-gold hover:bg-[#D4972F] !text-atlas-navy font-bold shadow-[0_4px_14px_rgba(224,163,59,0.35)] rounded-lg"
                   icon={<ArrowRight className="w-5 h-5" />}
                 >
                   {ABOUT_HERO_DATA.primaryCtaText}
@@ -150,10 +150,10 @@ export const AboutPage: React.FC = () => {
                       className="bg-white/95 backdrop-blur-md rounded-xl p-2 sm:p-2.5 shadow-md border border-slate-200/90 flex items-center gap-2.5 w-[190px] sm:w-[210px]"
                     >
                       <div className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 ${
-                        card.color === 'blue' ? 'bg-blue-50 text-[#1F4FE0] border border-blue-200' :
-                        card.color === 'purple' ? 'bg-blue-50 text-[#1F4FE0] border border-blue-200' :
+                        card.color === 'blue' ? 'bg-blue-50 text-[#E0A33B] border border-blue-200' :
+                        card.color === 'purple' ? 'bg-blue-50 text-[#E0A33B] border border-blue-200' :
                         card.color === 'emerald' ? 'bg-emerald-50 text-[#10b981] border border-emerald-200' :
-                        'bg-blue-50 text-[#1F4FE0] border border-blue-200'
+                        'bg-blue-50 text-[#E0A33B] border border-blue-200'
                       }`}>
                         {card.iconName === 'Users' && <Users className="w-4 h-4" />}
                         {card.iconName === 'Cog' && <Cog className="w-4 h-4" />}
@@ -190,10 +190,10 @@ export const AboutPage: React.FC = () => {
                   
                   {/* Colored Icon Circle */}
                   <div className={`w-11 h-11 rounded-full border flex items-center justify-center mb-2.5 mx-auto ${
-                    metric.color === 'blue' ? 'bg-blue-50 border-blue-200 text-[#1F4FE0]' :
+                    metric.color === 'blue' ? 'bg-blue-50 border-blue-200 text-[#E0A33B]' :
                     metric.color === 'green' ? 'bg-emerald-50 border-emerald-200 text-[#10b981]' :
-                    metric.color === 'purple' ? 'bg-blue-50 border-blue-200 text-[#1F4FE0]' :
-                    'bg-blue-50 border-blue-200 text-[#1F4FE0]'
+                    metric.color === 'purple' ? 'bg-blue-50 border-blue-200 text-[#E0A33B]' :
+                    'bg-blue-50 border-blue-200 text-[#E0A33B]'
                   }`}>
                     {metric.iconName === 'Users' && <Users className="w-5 h-5" />}
                     {metric.iconName === 'TrendingUp' && <TrendingUp className="w-5 h-5" />}
@@ -203,10 +203,10 @@ export const AboutPage: React.FC = () => {
 
                   {/* Metric Numeric Value */}
                   <div className={`text-[32px] sm:text-[36px] lg:text-[40px] font-extrabold tracking-tight leading-none mb-1 ${
-                    metric.color === 'blue' ? 'text-[#1F4FE0]' :
+                    metric.color === 'blue' ? 'text-[#E0A33B]' :
                     metric.color === 'green' ? 'text-[#10b981]' :
-                    metric.color === 'purple' ? 'text-[#1F4FE0]' :
-                    'text-[#1F4FE0]'
+                    metric.color === 'purple' ? 'text-[#E0A33B]' :
+                    'text-[#E0A33B]'
                   }`}>
                     <AnimatedCounter value={metric.value} />
                   </div>
@@ -245,7 +245,7 @@ export const AboutPage: React.FC = () => {
 
                 {/* Floating Overlay Card in Bottom Left matching reference screenshot */}
                 <div className="absolute bottom-4 left-4 bg-white/95 backdrop-blur-md rounded-xl p-3 sm:p-4 shadow-lg border border-slate-200/90 flex items-center gap-3.5 max-w-[210px]">
-                  <div className="w-10 h-10 rounded-lg bg-blue-50 border border-blue-200 text-blue-600 flex items-center justify-center shrink-0">
+                  <div className="w-10 h-10 rounded-lg bg-blue-50 border border-blue-200 text-[#E0A33B] flex items-center justify-center shrink-0">
                     <Cpu className="w-5 h-5" />
                   </div>
                   <div className="space-y-0.5 text-left">
@@ -262,12 +262,12 @@ export const AboutPage: React.FC = () => {
             {/* Right Column: Story Copy & CTA */}
             <div className="lg:col-span-6 space-y-5 text-left relative">
               <div>
-                <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-[#1F4FE0] block mb-2">
+                <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-[#E0A33B] block mb-2">
                   {OUR_STORY_DATA.eyebrow} —
                 </span>
                 <h2 className="atlas-h2-size font-serif font-extrabold text-[#0A1B4F]">
                   {OUR_STORY_DATA.titleStart}{' '}
-                  <span className="bg-gradient-to-r from-[#1F4FE0] via-[#1F4FE0] to-[#1F4FE0] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">{OUR_STORY_DATA.titleHighlight}</span>
+                  <span className="bg-gradient-to-r from-[#E0A33B] via-[#E0A33B] to-[#E0A33B] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">{OUR_STORY_DATA.titleHighlight}</span>
                 </h2>
               </div>
 
@@ -282,7 +282,7 @@ export const AboutPage: React.FC = () => {
                   href="#journey"
                   variant="primary"
                   size="lg"
-                  className="text-[16px] sm:text-[17px] font-semibold px-7 py-3.5 shadow-md shadow-blue-500/25 bg-[#1F4FE0] hover:bg-blue-700 text-white rounded-lg"
+                  className="text-[16px] sm:text-[17px] font-semibold px-7 py-3.5 shadow-md shadow-blue-500/25 bg-atlas-gold hover:bg-[#D4972F] !text-atlas-navy font-bold shadow-[0_4px_14px_rgba(224,163,59,0.35)] rounded-lg"
                   icon={<ArrowRight className="w-5 h-5" />}
                 >
                   {OUR_STORY_DATA.ctaText}
@@ -315,12 +315,12 @@ export const AboutPage: React.FC = () => {
             
             {/* Left Intro Column */}
             <div className="lg:col-span-3 space-y-3 flex flex-col justify-center text-left">
-              <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-[#1F4FE0] block">
+              <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-[#E0A33B] block">
                 {MISSION_VISION_VALUES_DATA.eyebrow}
               </span>
               <h2 className="atlas-h2-size font-serif font-extrabold text-[#0A1B4F]">
                 {MISSION_VISION_VALUES_DATA.titleStart}{' '}
-                <span className="bg-gradient-to-r from-[#1F4FE0] via-[#1F4FE0] to-[#1F4FE0] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">{MISSION_VISION_VALUES_DATA.titleHighlight}</span>
+                <span className="bg-gradient-to-r from-[#E0A33B] via-[#E0A33B] to-[#E0A33B] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">{MISSION_VISION_VALUES_DATA.titleHighlight}</span>
               </h2>
               <p className="text-[15px] sm:text-[16px] text-[#4A5876] leading-relaxed">
                 {MISSION_VISION_VALUES_DATA.intro}
@@ -367,12 +367,12 @@ export const AboutPage: React.FC = () => {
             {/* Left Content */}
             <div className="lg:col-span-6 space-y-5 text-left">
               <div>
-                <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-[#1F4FE0] block mb-2">
+                <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-[#E0A33B] block mb-2">
                   {ABOUT_EXPERTISE_DATA.eyebrow}
                 </span>
                 <h2 className="atlas-h2-size font-serif font-extrabold text-[#0A1B4F]">
                   {ABOUT_EXPERTISE_DATA.titleStart}{' '}
-                  <span className="bg-gradient-to-r from-[#1F4FE0] via-[#1F4FE0] to-[#1F4FE0] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">{ABOUT_EXPERTISE_DATA.titleHighlight}</span>
+                  <span className="bg-gradient-to-r from-[#E0A33B] via-[#E0A33B] to-[#E0A33B] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">{ABOUT_EXPERTISE_DATA.titleHighlight}</span>
                 </h2>
               </div>
 
@@ -384,8 +384,8 @@ export const AboutPage: React.FC = () => {
               <div className="space-y-3 pt-1">
                 {ABOUT_EXPERTISE_DATA.checklist.map((item, idx) => (
                   <div key={idx} className="flex items-center gap-3">
-                    <div className="w-5 h-5 rounded-full bg-blue-600 text-white flex items-center justify-center shrink-0">
-                      <Check className="w-3.5 h-3.5" />
+                    <div className="w-5 h-5 rounded-full bg-atlas-gold text-atlas-navy flex items-center justify-center shrink-0 shadow-2xs font-bold">
+                      <Check className="w-3.5 h-3.5 stroke-[3]" />
                     </div>
                     <span className="text-[15px] sm:text-[16px] text-slate-800 font-medium">
                       {item}
@@ -399,7 +399,7 @@ export const AboutPage: React.FC = () => {
                   href="#industries"
                   variant="primary"
                   size="lg"
-                  className="text-[16px] sm:text-[17px] font-semibold px-7 py-3.5 shadow-md shadow-blue-500/25 bg-[#1F4FE0] hover:bg-blue-700 text-white rounded-lg"
+                  className="text-[16px] sm:text-[17px] font-semibold px-7 py-3.5 shadow-md shadow-blue-500/25 bg-atlas-gold hover:bg-[#D4972F] !text-atlas-navy font-bold shadow-[0_4px_14px_rgba(224,163,59,0.35)] rounded-lg"
                   icon={<ArrowRight className="w-5 h-5" />}
                 >
                   {ABOUT_EXPERTISE_DATA.ctaText}
@@ -429,11 +429,11 @@ export const AboutPage: React.FC = () => {
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="text-center max-w-3xl mx-auto mb-10 md:mb-14">
-            <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-[#1F4FE0] select-none block mb-2">
+            <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-[#E0A33B] select-none block mb-2">
               INDUSTRIES WE SERVE
             </span>
             <h2 className="atlas-h2-size font-serif font-extrabold text-[#0A1B4F]">
-              Delivering Tailored Solutions Across <span className="bg-gradient-to-r from-[#1F4FE0] via-[#1F4FE0] to-[#1F4FE0] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">Industries</span>
+              Delivering Tailored Solutions Across <span className="bg-gradient-to-r from-[#E0A33B] via-[#E0A33B] to-[#E0A33B] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">Industries</span>
             </h2>
             <p className="mt-3.5 text-[16px] sm:text-[17px] text-[#4A5876] leading-relaxed">
               We understand your industry challenges and deliver tailored solutions.
@@ -462,7 +462,7 @@ export const AboutPage: React.FC = () => {
                       <div className="shrink-0">
                         {industryIcons[ind.id]}
                       </div>
-                      <h3 className="text-[17px] sm:text-[18px] font-bold text-slate-900 group-hover:text-blue-600 transition-colors leading-snug">
+                      <h3 className="text-[17px] sm:text-[18px] font-bold text-slate-900 group-hover:text-[#E0A33B] transition-colors leading-snug">
                         {ind.title}
                       </h3>
                     </div>
@@ -493,12 +493,12 @@ export const AboutPage: React.FC = () => {
             {/* Left Content */}
             <div className="lg:col-span-5 space-y-5 text-left">
               <div>
-                <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-[#1F4FE0] block mb-2">
+                <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-[#E0A33B] block mb-2">
                   {WHY_CHOOSE_ATLAS_DATA.eyebrow}
                 </span>
                 <h2 className="atlas-h2-size font-serif font-extrabold text-[#0A1B4F]">
                   {WHY_CHOOSE_ATLAS_DATA.titleStart}{' '}
-                  <span className="bg-gradient-to-r from-[#1F4FE0] via-[#1F4FE0] to-[#1F4FE0] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">{WHY_CHOOSE_ATLAS_DATA.titleHighlight}</span>
+                  <span className="bg-gradient-to-r from-[#E0A33B] via-[#E0A33B] to-[#E0A33B] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">{WHY_CHOOSE_ATLAS_DATA.titleHighlight}</span>
                 </h2>
               </div>
 
@@ -511,7 +511,7 @@ export const AboutPage: React.FC = () => {
                   onClick={() => setIsModalOpen(true)}
                   variant="primary"
                   size="lg"
-                  className="text-[16px] sm:text-[17px] font-semibold px-7 py-3.5 shadow-md shadow-blue-500/25 bg-[#1F4FE0] hover:bg-blue-700 text-white rounded-lg"
+                  className="text-[16px] sm:text-[17px] font-semibold px-7 py-3.5 shadow-md shadow-blue-500/25 bg-atlas-gold hover:bg-[#D4972F] !text-atlas-navy font-bold shadow-[0_4px_14px_rgba(224,163,59,0.35)] rounded-lg"
                   icon={<ArrowRight className="w-5 h-5" />}
                 >
                   {WHY_CHOOSE_ATLAS_DATA.ctaText}
@@ -558,12 +558,12 @@ export const AboutPage: React.FC = () => {
               
               {/* Left Column: Heading, Subtext & Both Action Buttons */}
               <div className="lg:col-span-6 space-y-4 text-left">
-                <span className="text-[12px] sm:text-[13px] font-bold uppercase tracking-wider text-[#1F4FE0] block">
+                <span className="text-[12px] sm:text-[13px] font-bold uppercase tracking-wider text-[#E0A33B] block">
                   {ABOUT_CONTACT_CTA_DATA.eyebrow}
                 </span>
                 <h2 className="atlas-h2-size font-serif font-extrabold text-[#0A1B4F]">
                   {ABOUT_CONTACT_CTA_DATA.titleStart}{' '}
-                  <span className="bg-gradient-to-r from-[#1F4FE0] via-[#1F4FE0] to-[#1F4FE0] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">{ABOUT_CONTACT_CTA_DATA.titleHighlight}</span>
+                  <span className="bg-gradient-to-r from-[#E0A33B] via-[#E0A33B] to-[#E0A33B] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">{ABOUT_CONTACT_CTA_DATA.titleHighlight}</span>
                 </h2>
                 
                 <p className="text-[15px] sm:text-[16px] text-[#4A5876] leading-relaxed max-w-lg">
@@ -575,7 +575,7 @@ export const AboutPage: React.FC = () => {
                     onClick={() => setIsModalOpen(true)}
                     variant="primary"
                     size="lg"
-                    className="text-[15px] sm:text-[16px] font-semibold px-7 py-3.5 shadow-md shadow-blue-500/25 bg-gradient-to-r from-[#1F4FE0] to-[#1F4FE0] hover:from-[#1739B8] hover:to-[#1739B8] text-white rounded-xl"
+                    className="text-[15px] sm:text-[16px] font-semibold px-7 py-3.5 shadow-md shadow-blue-500/25 bg-gradient-to-r from-[#E0A33B] to-[#E0A33B] hover:from-[#1739B8] hover:to-[#1739B8] text-white rounded-xl"
                     icon={<ArrowRight className="w-4 h-4" />}
                   >
                     {ABOUT_CONTACT_CTA_DATA.buttonText}

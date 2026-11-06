@@ -98,7 +98,7 @@ export const CaseStudiesPage: React.FC = () => {
             <div className="lg:col-span-7 space-y-6 text-left">
               {/* Eyebrow */}
               <div className="inline-block">
-                <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-[#1F4FE0] select-none">
+                <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-[#E0A33B] select-none">
                   {CASE_STUDIES_HERO_DATA.eyebrow}
                 </span>
               </div>
@@ -106,7 +106,7 @@ export const CaseStudiesPage: React.FC = () => {
               {/* Main Headline */}
               <h1 className="atlas-h1-size font-serif font-extrabold text-[#0A1B4F]">
                 {CASE_STUDIES_HERO_DATA.titleStart}{' '}
-                <span className="bg-gradient-to-r from-[#1F4FE0] via-[#1F4FE0] to-[#1F4FE0] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">{CASE_STUDIES_HERO_DATA.titleHighlight}</span>
+                <span className="bg-gradient-to-r from-[#E0A33B] via-[#E0A33B] to-[#E0A33B] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">{CASE_STUDIES_HERO_DATA.titleHighlight}</span>
               </h1>
 
               {/* Subheading / Description */}
@@ -118,7 +118,7 @@ export const CaseStudiesPage: React.FC = () => {
               <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
                 <a
                   href="#featured-case-study"
-                  className="inline-flex items-center justify-center gap-2 text-[16px] font-semibold px-8 py-3.5 rounded-xl bg-gradient-to-r from-[#1F4FE0] to-[#1F4FE0] hover:from-[#1739B8] hover:to-[#1739B8] text-white shadow-md shadow-blue-500/25 transition-all duration-200 cursor-pointer"
+                  className="inline-flex items-center justify-center gap-2 text-[16px] font-semibold px-8 py-3.5 rounded-xl bg-atlas-gold hover:bg-[#D4972F] !text-atlas-navy font-bold shadow-[0_4px_14px_rgba(224,163,59,0.35)] transition-all duration-200 cursor-pointer"
                 >
                   <span>{CASE_STUDIES_HERO_DATA.primaryCtaText}</span>
                   <ArrowRight className="w-5 h-5" />
@@ -175,12 +175,12 @@ export const CaseStudiesPage: React.FC = () => {
         <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
           {/* Eyebrow & Main Heading */}
           <div className="mb-10 text-left space-y-2">
-            <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-[#1F4FE0]">
+            <span className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-[#E0A33B]">
               {FEATURED_CASE_STUDY_DATA.eyebrow}
             </span>
             <h2 className="atlas-h2-size font-serif font-extrabold text-[#0A1B4F] max-w-4xl">
               Manufacturing Company Streamlines Operations with{' '}
-              <span className="bg-gradient-to-r from-[#1F4FE0] via-[#1F4FE0] to-[#1F4FE0] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">SAP Business One</span>
+              <span className="bg-gradient-to-r from-[#E0A33B] via-[#E0A33B] to-[#E0A33B] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">SAP Business One</span>
             </h2>
           </div>
 
@@ -202,7 +202,7 @@ export const CaseStudiesPage: React.FC = () => {
             <div className="lg:col-span-6 space-y-6 text-left">
               {/* Category Pill + Subtitle */}
               <div className="space-y-2">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-blue-50 border border-blue-200 text-[#1F4FE0] font-bold text-xs uppercase tracking-wider">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-blue-50 border border-blue-200 text-[#E0A33B] font-bold text-xs uppercase tracking-wider">
                   <Factory className="w-4 h-4" />
                   <span>{FEATURED_CASE_STUDY_DATA.industryLabel}</span>
                 </div>
@@ -216,7 +216,7 @@ export const CaseStudiesPage: React.FC = () => {
                 {/* 1. Business Challenge */}
                 <div className="p-4 rounded-xl bg-white border border-slate-200/80 space-y-1.5 hover:shadow-sm transition-shadow">
                   <div className="flex items-center gap-2">
-                    <div className="w-8 h-8 rounded-lg bg-blue-50 text-[#1F4FE0] border border-blue-200/80 flex items-center justify-center shrink-0">
+                    <div className="w-8 h-8 rounded-lg bg-blue-50 text-[#E0A33B] border border-blue-200/80 flex items-center justify-center shrink-0">
                       <Building2 className="w-4 h-4" />
                     </div>
                     <h4 className="text-[14px] font-bold text-[#0A1B4F]">
@@ -246,7 +246,7 @@ export const CaseStudiesPage: React.FC = () => {
                 {/* 3. Technology Used */}
                 <div className="p-4 rounded-xl bg-white border border-slate-200/80 space-y-1.5 hover:shadow-sm transition-shadow">
                   <div className="flex items-center gap-2">
-                    <div className="w-8 h-8 rounded-lg bg-blue-50 text-[#1F4FE0] flex items-center justify-center shrink-0">
+                    <div className="w-8 h-8 rounded-lg bg-blue-50 text-[#E0A33B] flex items-center justify-center shrink-0">
                       <Settings className="w-4 h-4" />
                     </div>
                     <h4 className="text-[14px] font-bold text-[#0A1B4F]">
@@ -261,7 +261,7 @@ export const CaseStudiesPage: React.FC = () => {
                 {/* 4. Key Outcomes */}
                 <div className="p-4 rounded-xl bg-white border border-slate-200/80 space-y-1.5 hover:shadow-sm transition-shadow">
                   <div className="flex items-center gap-2">
-                    <div className="w-8 h-8 rounded-lg bg-blue-50 text-[#1F4FE0] flex items-center justify-center shrink-0">
+                    <div className="w-8 h-8 rounded-lg bg-blue-50 text-[#E0A33B] flex items-center justify-center shrink-0">
                       <TrendingUp className="w-4 h-4" />
                     </div>
                     <h4 className="text-[14px] font-bold text-[#0A1B4F]">
@@ -278,7 +278,7 @@ export const CaseStudiesPage: React.FC = () => {
               <div className="pt-2">
                 <Link
                   to="/industries/manufacturing"
-                  className="inline-flex items-center justify-center gap-2 text-[15px] sm:text-[16px] font-semibold px-8 py-3.5 rounded-xl bg-gradient-to-r from-[#1F4FE0] to-[#1F4FE0] hover:from-[#1739B8] hover:to-[#1739B8] text-white shadow-md shadow-blue-500/25 transition-all cursor-pointer"
+                  className="inline-flex items-center justify-center gap-2 text-[15px] sm:text-[16px] font-semibold px-8 py-3.5 rounded-xl bg-atlas-gold hover:bg-[#D4972F] !text-atlas-navy font-bold shadow-[0_4px_14px_rgba(224,163,59,0.35)] transition-all cursor-pointer"
                 >
                   <span>{FEATURED_CASE_STUDY_DATA.ctaText}</span>
                   <ArrowRight className="w-5 h-5" />
@@ -297,7 +297,7 @@ export const CaseStudiesPage: React.FC = () => {
           {/* Section Header */}
           <div className="text-left mb-12 space-y-2">
             <h2 className="atlas-h2-size font-serif font-extrabold text-[#0A1B4F]">
-              More Case <span className="bg-gradient-to-r from-[#1F4FE0] via-[#1F4FE0] to-[#1F4FE0] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">Studies</span>
+              More Case <span className="bg-gradient-to-r from-[#E0A33B] via-[#E0A33B] to-[#E0A33B] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">Studies</span>
             </h2>
             <p className="text-[16px] sm:text-[17px] text-[#4A5876] leading-relaxed max-w-3xl">
               Explore how businesses across different industries have improved their operations with our solutions.
@@ -350,7 +350,7 @@ export const CaseStudiesPage: React.FC = () => {
                     >
                       {study.category}
                     </span>
-                    <h3 className="text-[19px] font-bold text-[#0A1B4F] leading-snug group-hover:text-[#1F4FE0] transition-colors">
+                    <h3 className="text-[19px] font-bold text-[#0A1B4F] leading-snug group-hover:text-[#E0A33B] transition-colors">
                       <Link to={study.route}>
                         {study.title}
                       </Link>
@@ -365,7 +365,7 @@ export const CaseStudiesPage: React.FC = () => {
                 <div className="px-5 pb-5 pt-2 border-t border-slate-100 flex items-center justify-between">
                   <Link
                     to={study.route}
-                    className="text-[14px] font-bold text-[#0A1B4F] hover:text-[#1F4FE0] flex items-center gap-1.5 transition-colors cursor-pointer"
+                    className="text-[14px] font-bold text-[#0A1B4F] hover:text-[#E0A33B] flex items-center gap-1.5 transition-colors cursor-pointer"
                   >
                     <span>Read More</span>
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -398,7 +398,7 @@ export const CaseStudiesPage: React.FC = () => {
           <div className="text-left max-w-3xl mb-16 space-y-2">
             <h2 className="atlas-h2-size font-serif font-extrabold text-[#0A1B4F]">
               {OUR_APPROACH_DATA.titleStart}{' '}
-              <span className="bg-gradient-to-r from-[#1F4FE0] via-[#1F4FE0] to-[#1F4FE0] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">{OUR_APPROACH_DATA.titleHighlight}</span>
+              <span className="bg-gradient-to-r from-[#E0A33B] via-[#E0A33B] to-[#E0A33B] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">{OUR_APPROACH_DATA.titleHighlight}</span>
             </h2>
             <p className="text-[16px] sm:text-[17px] text-[#4A5876] leading-relaxed">
               {OUR_APPROACH_DATA.description}
@@ -422,7 +422,7 @@ export const CaseStudiesPage: React.FC = () => {
                     </div>
 
                     {/* Step Title & Number */}
-                    <h3 className="mt-4 text-[15px] font-bold text-[#0A1B4F] leading-tight group-hover:text-[#1F4FE0] transition-colors">
+                    <h3 className="mt-4 text-[15px] font-bold text-[#0A1B4F] leading-tight group-hover:text-[#E0A33B] transition-colors">
                       <span className="font-extrabold block text-xs opacity-70 mb-0.5">
                         {step.stepNumber}
                       </span>
@@ -432,12 +432,12 @@ export const CaseStudiesPage: React.FC = () => {
 
                   {/* Connecting Arrow between steps */}
                   {!isLast && (
-                    <div className="hidden lg:flex items-center justify-center text-blue-600/50 px-1">
+                    <div className="hidden lg:flex items-center justify-center text-[#E0A33B]/50 px-1">
                       <ArrowRight className="w-6 h-6 stroke-[2.5]" />
                     </div>
                   )}
                   {!isLast && (
-                    <div className="flex lg:hidden items-center justify-center text-blue-600/50 py-2">
+                    <div className="flex lg:hidden items-center justify-center text-[#E0A33B]/50 py-2">
                       <div className="w-0.5 h-6 bg-blue-600/30" />
                     </div>
                   )}
@@ -457,7 +457,7 @@ export const CaseStudiesPage: React.FC = () => {
           <div className="text-left max-w-3xl mb-12 space-y-2">
             <h2 className="atlas-h2-size font-serif font-extrabold text-[#0A1B4F]">
               {TECHNOLOGY_SHOWCASE_DATA.titleStart}{' '}
-              <span className="bg-gradient-to-r from-[#1F4FE0] via-[#1F4FE0] to-[#1F4FE0] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">{TECHNOLOGY_SHOWCASE_DATA.titleHighlight}</span>
+              <span className="bg-gradient-to-r from-[#E0A33B] via-[#E0A33B] to-[#E0A33B] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">{TECHNOLOGY_SHOWCASE_DATA.titleHighlight}</span>
             </h2>
             <p className="text-[16px] sm:text-[17px] text-[#4A5876] leading-relaxed">
               {TECHNOLOGY_SHOWCASE_DATA.description}
@@ -494,7 +494,7 @@ export const CaseStudiesPage: React.FC = () => {
                     <h3 className="text-[17px] font-bold text-[#0A1B4F]">
                       {tech.name}
                     </h3>
-                    <p className="text-[13px] font-semibold text-blue-600">
+                    <p className="text-[13px] font-semibold text-[#E0A33B]">
                       {tech.role}
                     </p>
                     <p className="text-[13px] text-[#4A5876] leading-relaxed pt-1">
@@ -518,12 +518,12 @@ export const CaseStudiesPage: React.FC = () => {
               
               {/* Left Column: Heading, Subtext & Both Action Buttons */}
               <div className="lg:col-span-6 space-y-4 text-left">
-                <span className="text-[12px] sm:text-[13px] font-bold uppercase tracking-wider text-[#1F4FE0] block">
+                <span className="text-[12px] sm:text-[13px] font-bold uppercase tracking-wider text-[#E0A33B] block">
                   LET'S WORK TOGETHER
                 </span>
                 <h2 className="atlas-h2-size font-serif font-extrabold text-[#0A1B4F]">
                   {CASE_STUDIES_CTA_DATA.titleStart}{' '}
-                  <span className="bg-gradient-to-r from-[#1F4FE0] via-[#1F4FE0] to-[#1F4FE0] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">{CASE_STUDIES_CTA_DATA.titleHighlight}</span>
+                  <span className="bg-gradient-to-r from-[#E0A33B] via-[#E0A33B] to-[#E0A33B] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">{CASE_STUDIES_CTA_DATA.titleHighlight}</span>
                 </h2>
                 
                 <p className="text-[15px] sm:text-[16px] text-[#4A5876] leading-relaxed max-w-lg">
@@ -533,7 +533,7 @@ export const CaseStudiesPage: React.FC = () => {
                 <div className="pt-2 flex flex-wrap items-center gap-4">
                   <button
                     onClick={() => setIsConsultationModalOpen(true)}
-                    className="inline-flex items-center justify-center gap-2 text-[15px] sm:text-[16px] font-semibold px-7 py-3.5 rounded-xl bg-gradient-to-r from-[#1F4FE0] to-[#1F4FE0] hover:from-[#1739B8] hover:to-[#1739B8] text-white shadow-md shadow-blue-500/25 transition-all cursor-pointer"
+                    className="inline-flex items-center justify-center gap-2 text-[15px] sm:text-[16px] font-semibold px-7 py-3.5 rounded-xl bg-atlas-gold hover:bg-[#D4972F] !text-atlas-navy font-bold shadow-[0_4px_14px_rgba(224,163,59,0.35)] transition-all cursor-pointer"
                   >
                     <span>{CASE_STUDIES_CTA_DATA.primaryCtaText}</span>
                     <ArrowRight className="w-4 h-4" />
