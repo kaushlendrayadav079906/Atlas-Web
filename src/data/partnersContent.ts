@@ -323,12 +323,6 @@ export const TECHNOLOGY_ECOSYSTEM_DATA = {
       title: 'ATLAS Technosoft',
       role: 'Industry-Focused Solutions',
       badgeType: 'atlas' as const
-    },
-    {
-      id: 'step-ops',
-      title: 'Connected Business Operations',
-      role: 'Unified Enterprise Performance',
-      badgeType: 'operations' as const
     }
   ],
   illustrativeNote:

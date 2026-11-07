@@ -49,6 +49,7 @@ import {
   PARTNERS_CTA_DATA
 } from '../data/partnersContent';
 import { ImageFeatureSlider } from '../components/ui/ImageFeatureSlider';
+import { PartnerEcosystem } from '../components/ui/PartnerEcosystem';
 import { cardImage, poolForSlug } from '../data/cardImagePools';
 
 export const PartnersPage: React.FC = () => {
@@ -562,88 +563,7 @@ export const PartnersPage: React.FC = () => {
       {/* ========================================================================= */}
       {/* SECTION 6: ONE CONNECTED TECHNOLOGY ECOSYSTEM                             */}
       {/* ========================================================================= */}
-      <section className="py-16 lg:py-24 bg-white border-b border-slate-100 relative overflow-hidden">
-        <div className="max-w-[1380px] xl:max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
-          
-          {/* Section Header */}
-          <div className="text-left max-w-3xl mb-14 space-y-2">
-            <h2 className="atlas-h2-size font-serif font-extrabold text-[#0A1B4F]">
-              {TECHNOLOGY_ECOSYSTEM_DATA.titleStart}{' '}
-              <span className="bg-gradient-to-r from-[#E0A33B] via-[#E0A33B] to-[#E0A33B] bg-clip-text text-transparent font-accent italic font-semibold tracking-[-0.01em] pr-[0.08em]">{TECHNOLOGY_ECOSYSTEM_DATA.titleHighlight}</span>
-            </h2>
-            <p className="text-[16px] sm:text-[17px] text-[#4A5876] leading-relaxed">
-              {TECHNOLOGY_ECOSYSTEM_DATA.description}
-            </p>
-          </div>
-
-          {/* 5-Step Connected Flow matching reference */}
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-4 lg:gap-2 items-center">
-            {TECHNOLOGY_ECOSYSTEM_DATA.steps.map((step, idx) => {
-              const isLast = idx === TECHNOLOGY_ECOSYSTEM_DATA.steps.length - 1;
-              const stepRoute =
-                step.badgeType === 'sap' ? '/partners/sap-business-one' :
-                step.badgeType === 'boyum' ? '/partners/boyum-it' :
-                step.badgeType === 'uipath' ? '/partners/uipath' :
-                step.badgeType === 'atlas' ? '/partners/atlas-solutions' : null;
-
-              const cardContent = (
-                <div className="bg-white rounded-2xl p-5 border border-slate-200/90 shadow-sm hover:shadow-md hover:border-blue-300 transition-all flex flex-col items-center text-center justify-between min-h-[160px] group h-full">
-                  <div className="h-10 flex items-center justify-center">
-                    {step.badgeType === 'sap' && <SAPBusinessOneLogo className="scale-95" />}
-                    {step.badgeType === 'boyum' && <BoyumITLogo className="scale-95" />}
-                    {step.badgeType === 'uipath' && <UiPathLogo className="scale-95" />}
-                    {step.badgeType === 'atlas' && (
-                      <div className="flex items-center gap-2">
-                        <div className="w-8 h-8 rounded-lg overflow-hidden flex items-center justify-center shrink-0">
-                          <img src="/images/logo.png" alt="ATLAS Logo" className="w-full h-full object-contain" />
-                        </div>
-                        <span className="font-extrabold text-sm text-[#0A1B4F]">Technosoft</span>
-                      </div>
-                    )}
-                    {step.badgeType === 'operations' && (
-                      <div className="w-9 h-9 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center">
-                        <TrendingUp className="w-5 h-5" />
-                      </div>
-                    )}
-                  </div>
-
-                  <div className="space-y-1 pt-2">
-                    <h3 className="text-[14px] font-bold text-[#0A1B4F] leading-tight group-hover:text-[#E0A33B] transition-colors">
-                      {step.title}
-                    </h3>
-                    <p className="text-[11px] text-slate-500 leading-snug">
-                      {step.role}
-                    </p>
-                  </div>
-                </div>
-              );
-
-              return (
-                <React.Fragment key={step.id}>
-                  {stepRoute ? (
-                    <Link to={stepRoute} className="block h-full cursor-pointer">
-                      {cardContent}
-                    </Link>
-                  ) : (
-                    <div>{cardContent}</div>
-                  )}
-
-                  {!isLast && (
-                    <div className="hidden lg:flex items-center justify-center text-[#E0A33B]/50 -mx-1">
-                      <ArrowRight className="w-5 h-5 stroke-[2.5]" />
-                    </div>
-                  )}
-                </React.Fragment>
-              );
-            })}
-          </div>
-
-          <p className="text-[12px] text-slate-500 text-center mt-6 italic">
-            {TECHNOLOGY_ECOSYSTEM_DATA.illustrativeNote}
-          </p>
-
-        </div>
-      </section>
+      <PartnerEcosystem />
 
       {/* ========================================================================= */}
       {/* SECTION 7: WHY CHOOSE ATLAS TECHNOSOFT                                    */}

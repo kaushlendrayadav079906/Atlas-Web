@@ -298,6 +298,43 @@ main section:not(.atlas-dark):not(.atlas-cream):not(.bg-atlas-navy) :is([data-ca
   }
 }
 
+/* Continuous Partner Ecosystem Horizontal Slider (Left-to-Right) */
+@keyframes ecosystem-scroll-right {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.animate-ecosystem-right {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  animation: ecosystem-scroll-right 32s linear infinite;
+  will-change: transform;
+}
+
+.ecosystem-slider-group:hover .animate-ecosystem-right,
+.ecosystem-slider-group:focus-within .animate-ecosystem-right,
+.ecosystem-slider-group[data-paused="true"] .animate-ecosystem-right {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-ecosystem-right {
+    animation: none !important;
+    transform: none !important;
+  }
+  .ecosystem-duplicate-set {
+    display: none !important;
+  }
+  .ecosystem-loop-arrow {
+    display: none !important;
+  }
+}
+
 /* ==========================================================================
    Motion system — entrance, scroll reveal, ambient and micro-interactions.
    Everything here is neutralised by the prefers-reduced-motion block below.

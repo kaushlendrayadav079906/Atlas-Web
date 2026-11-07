@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 135 40" fill="none" role="img" aria-label="UiPath">
+  <!-- Official UiPath Orange Container #FA4616 -->
+  <rect x="2" y="5" width="34" height="30" rx="6" fill="#FA4616" />
+  <!-- "Ui" inside orange symbol -->
+  <text x="19" y="27" font-family="'Plus Jakarta Sans', 'Inter', -apple-system, sans-serif" font-size="20" font-weight="900" fill="#FFFFFF" text-anchor="middle" letter-spacing="-0.5">Ui</text>
+  <!-- "Path" in official dark charcoal/black #181A1E -->
+  <text x="44" y="28" font-family="'Plus Jakarta Sans', 'Inter', -apple-system, sans-serif" font-size="24" font-weight="900" fill="#181A1E" letter-spacing="-0.5">Path</text>
+</svg>
+
